@@ -1,146 +1,146 @@
 {
     "app": {
-        "name": "Nitrokit",
-        "shortName": "Nitrokit",
-        "description": "Plantilla de inicio de Nitrokit"
+        "name": "نیترو کیت",
+        "shortName": "نیتروکیت",
+        "description": "قالب بداية نیترو کیت"
     },
     "common": {
-        "loading": "Cargando...",
-        "error": "Ocurrió un error",
-        "notFound": "La página que buscas no fue encontrada",
-        "backToHome": "Volver al inicio",
-        "goBack": "Volver atrás",
-        "ok": "Aceptar",
-        "cancel": "Cancelar",
-        "yes": "Sí",
-        "no": "No",
-        "continue": "Continuar",
-        "submit": "Enviar"
+        "loading": "جار التحميل...",
+        "error": "حدث خطأ",
+        "notFound": "الصفحة التي تبحث عنها غير موجودة",
+        "backToHome": "العودة إلى الصفحة الرئيسية",
+        "goBack": "رجوع",
+        "ok": "موافق",
+        "cancel": "إلغاء",
+        "yes": "نعم",
+        "no": "لا",
+        "continue": "متابعة",
+        "submit": "إرسال"
     },
     "auth": {
-        "signin": "Iniciar Sesión",
-        "signup": "Registrarse",
-        "signout": "Cerrar Sesión",
-        "signinWithGoogle": "Iniciar Sesión con Google",
-        "signinWithFacebook": "Iniciar Sesión con Facebook",
-        "signinWithTwitter": "Iniciar Sesión con Twitter",
-        "signinWithGithub": "Iniciar Sesión con Github",
-        "signinWithApple": "Iniciar Sesión con Apple",
-        "signinWithLinkedIn": "Iniciar Sesión con LinkedIn",
-        "signinWithGitlab": "Iniciar Sesión con GitLab",
-        "signinWithMicrosoft": "Iniciar Sesión con Microsoft",
-        "email": "Correo Electrónico",
-        "password": "Contraseña",
-        "confirmPassword": "Confirmar Contraseña",
-        "forgotPassword": "Olvidé mi Contraseña",
-        "name": "Tu Nombre",
-        "privacyPolicy": "Nuestra Política de Privacidad",
-        "slogan1": "¡Dale a tus proyectos un inicio <span>cohete 🚀</span>!",
-        "slogan2": "Ahorra tiempo con <link>Nitrokit</link> y concéntrate en el desarrollo...",
-        "account": "Información de la cuenta",
-        "support": "Soporte",
-        "billing": "Mis Facturas"
+        "signin": "تسجيل الدخول",
+        "signup": "اشتراك",
+        "signout": "تسجيل الخروج",
+        "signinWithGoogle": "تسجيل الدخول باستخدام جوجل",
+        "signinWithFacebook": "تسجيل الدخول باستخدام فيسبوك",
+        "signinWithTwitter": "تسجيل الدخول باستخدام تويتر",
+        "signinWithGithub": "تسجيل الدخول باستخدام جيت هاب",
+        "signinWithApple": "تسجيل الدخول باستخدام آبل",
+        "signinWithLinkedIn": "تسجيل الدخول باستخدام لينكد إن",
+        "signinWithGitlab": "تسجيل الدخول باستخدام جيت لاب",
+        "signinWithMicrosoft": "تسجيل الدخول باستخدام مايكروسوفت",
+        "email": "البريد الإلكتروني",
+        "password": "كلمة المرور",
+        "confirmPassword": "تأكيد كلمة المرور",
+        "forgotPassword": "نسيت كلمة المرور",
+        "name": "اسمك",
+        "privacyPolicy": "سياسة الخصوصية الخاصة بنا",
+        "slogan1": "ابدأ مشاريعك <span>بسرعة الصاروخ 🚀</span>!",
+        "slogan2": "وفر الوقت وركز على التطوير مع <link>نیترو کیت</link>...",
+        "account": "معلومات الحساب",
+        "support": "الدعم",
+        "billing": "فواتيري"
     },
     "signin": {
-        "title": "Iniciar Sesión en {appName}",
-        "description": "¡Bienvenido de nuevo! Por favor, inicia sesión para continuar",
-        "dontHaveAnAccount": "¿No tienes una cuenta? <link>Regístrate</link>."
+        "title": "تسجيل الدخول إلى {appName}",
+        "description": "مرحبًا بعودتك! يرجى تسجيل الدخول للمتابعة",
+        "dontHaveAnAccount": "ليس لديك حساب؟ <link>اشتراك</link>."
     },
     "signup": {
-        "title": "Registrarse en {appName}",
-        "alreadyHaveAnAccount": "¿Ya tienes una cuenta? <link>Inicia Sesión</link>."
+        "title": "التسجيل في {appName}",
+        "alreadyHaveAnAccount": "هل لديك حساب بالفعل؟ <link>تسجيل الدخول</link>."
     },
     "resetPassword": {
-        "title": "Restablecer Tu Contraseña",
-        "description": "Ingresa tu dirección de correo electrónico y sigue las instrucciones para restablecer tu contraseña.",
-        "emailSent": "¡Correo electrónico enviado! Por favor, revisa tu correo."
+        "title": "إعادة تعيين كلمة المرور الخاصة بك",
+        "description": "أدخل عنوان بريدك الإلكتروني واتبع التعليمات لإعادة تعيين كلمة المرور الخاصة بك.",
+        "emailSent": "تم إرسال البريد الإلكتروني! يرجى التحقق من بريدك الإلكتروني."
     },
     "validation": {
         "required": {
-            "name": "El campo de nombre es obligatorio.",
-            "email": "El campo de correo electrónico es obligatorio.",
-            "message": "El campo de mensaje es obligatorio.",
-            "password": "El campo de contraseña es obligatorio.",
-            "confirmPassword": "El campo de confirmar contraseña es obligatorio."
+            "name": "حقل الاسم مطلوب.",
+            "email": "حقل البريد الإلكتروني مطلوب.",
+            "message": "حقل الرسالة مطلوب.",
+            "password": "حقل كلمة المرور مطلوب.",
+            "confirmPassword": "حقل تأكيد كلمة المرور مطلوب."
         },
         "invalid": {
-            "email": "Dirección de correo electrónico inválida."
+            "email": "عنوان بريد إلكتروني غير صالح."
         },
         "password": {
-            "confirm": "Las contraseñas no coinciden.",
-            "minLength": "La contraseña debe tener al menos {min} caracteres.",
-            "maxLength": "La contraseña debe tener como máximo {max} caracteres.",
-            "uppercase": "Debe contener al menos una letra mayúscula.",
-            "lowercase": "Debe contener al menos una letra minúscula.",
-            "number": "Debe contener al menos un número.",
-            "special": "Debe contener al menos un carácter especial.",
-            "weak": "débil",
-            "okay": "aceptable",
-            "good": "buena",
-            "strong": "fuerte",
-            "tooShort": "demasiado corta"
+            "confirm": "كلمات المرور غير متطابقة.",
+            "minLength": "يجب أن تتكون كلمة المرور من {min} أحرف على الأقل.",
+            "maxLength": "يجب ألا تتجاوز كلمة المرور {max} حرفًا.",
+            "uppercase": "يجب أن تحتوي على حرف كبير واحد على الأقل.",
+            "lowercase": "يجب أن تحتوي على حرف صغير واحد على الأقل.",
+            "number": "يجب أن تحتوي على رقم واحد على الأقل.",
+            "special": "يجب أن تحتوي على حرف خاص واحد على الأقل.",
+            "weak": "ضعيفة",
+            "okay": "مقبولة",
+            "good": "جيدة",
+            "strong": "قوية",
+            "tooShort": "قصيرة جدا"
         }
     },
     "placeholder": {
-        "enterYourName": "Ingresa tu nombre",
-        "enterYourEmail": "Ingresa tu dirección de correo electrónico",
-        "enterYourMessage": "Ingresa tu mensaje",
-        "enterYourPassword": "Ingresa tu contraseña",
-        "confirmYourPassword": "Confirma tu contraseña"
+        "enterYourName": "أدخل اسمك",
+        "enterYourEmail": "أدخل عنوان بريدك الإلكتروني",
+        "enterYourMessage": "أدخل رسالتك",
+        "enterYourPassword": "أدخل كلمة المرور الخاصة بك",
+        "confirmYourPassword": "قم بتأكيد كلمة المرور"
     },
     "notFound": {
-        "title": "Página No Encontrada",
-        "description": "¡Error! La página que buscas no existe.",
-        "returnHome": "Volver a la Página de Inicio"
+        "title": "الصفحة غير موجودة",
+        "description": "خطأ! الصفحة التي تبحث عنها غير موجودة.",
+        "returnHome": "العودة إلى الصفحة الرئيسية"
     },
     "error": {
-        "title": "Ocurrió un Error",
-        "retry": "Reintentar"
+        "title": "حدث خطأ",
+        "retry": "حاول مرة أخرى"
     },
     "metadata": {
-        "applicationName": "Plantilla de Inicio Nitrokit",
-        "description": "Plantilla de inicio de Nitrokit",
-        "author": "Mustafa Genç",
-        "title": "Plantilla de Inicio Nitrokit"
+        "applicationName": "قالب بداية نیترو کیت",
+        "description": "قالب بداية نیترو کیت",
+        "author": "مصطفى غينتش",
+        "title": "قالب بداية نیترو کیت"
     },
     "navigation": {
-        "title": "Menú",
-        "home": "Inicio",
-        "about": "Sobre Nosotros",
-        "services": "Servicios",
-        "pricing": "Precios",
-        "blog": "Blog",
-        "contact": "Contacto"
+        "title": "القائمة",
+        "home": "الصفحة الرئيسية",
+        "about": "من نحن",
+        "services": "الخدمات",
+        "pricing": "الأسعار",
+        "blog": "المدونة",
+        "contact": "اتصل بنا"
     },
     "about": {
-        "title": "Sobre Nosotros",
-        "description": "Esta es una plantilla de inicio construida con Next.js. Esta plantilla está diseñada para desarrollar aplicaciones web de forma rápida y eficaz."
+        "title": "من نحن",
+        "description": "هذا قالب بداية تم إنشاؤه باستخدام Next.js. تم تصميم هذا القالب لتطوير تطبيقات الويب بسرعة وفعالية."
     },
     "services": {
-        "title": "Nuestros Servicios",
-        "description": "Obtén más información sobre los servicios que ofrecemos."
+        "title": "خدماتنا",
+        "description": "تعرف على المزيد حول الخدمات التي نقدمها."
     },
     "pricing": {
-        "title": "Precios",
-        "description": "Planes de Precios"
+        "title": "الأسعار",
+        "description": "خطط التسعير"
     },
     "blog": {
-        "title": "Blog",
-        "description": "Sigue nuestro blog para las últimas noticias y actualizaciones."
+        "title": "المدونة",
+        "description": "تابع مدونتنا للحصول على آخر الأخبار والتحديثات."
     },
     "contact": {
-        "title": "Contacto",
-        "description": "Completa el formulario a continuación para contactarnos.",
-        "name": "Tu Nombre",
-        "email": "Tu Dirección de Correo Electrónico",
-        "message": "Tu Mensaje",
-        "send": "Enviar"
+        "title": "اتصل بنا",
+        "description": "املأ النموذج أدناه للاتصال بنا.",
+        "name": "اسمك",
+        "email": "عنوان بريدك الإلكتروني",
+        "message": "رسالتك",
+        "send": "إرسال"
     },
     "privacy": {
-        "title": "Política de Privacidad",
-        "description": "Obtén más información sobre nuestra política de privacidad."
+        "title": "سياسة الخصوصية",
+        "description": "تعرف على المزيد حول سياسة الخصوصية الخاصة بنا."
     },
     "footer": {
-        "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ Todos los Derechos Reservados."
+        "copyright": "© حقوق النشر {year, date, ::yyyy} {name} ♥️ جميع الحقوق محفوظة."
     }
 }
