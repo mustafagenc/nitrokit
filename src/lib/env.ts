@@ -10,11 +10,8 @@ export const env = createEnv({
         GOOGLE_ANALYTICS: z.string().optional(),
         YANDEX_VERIFICATION: z.string().optional(),
         YANDEX_METRICA: z.string().optional(),
-        RESEND_API_KEY: z.string().min(1),
-        RESEND_FROM_EMAIL: z
-            .string()
-            .min(1, { message: 'Email is required.' })
-            .email('Invalid email.'),
+        RESEND_API_KEY: z.string().optional(),
+        RESEND_FROM_EMAIL: z.string().optional(),
         RESEND_AUDIENCE_ID: z.string().optional(),
     },
     client: {},

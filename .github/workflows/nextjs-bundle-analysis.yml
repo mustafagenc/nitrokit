@@ -1,0 +1,141 @@
+name: 'Next.js Bundle Analysis'
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+  workflow_dispatch:
+
+defaults:
+  run:
+    working-directory: ./
+
+jobs:
+  analyze:
+    env:
+      SKIP_ENV_VALIDATION: true # This should be inherited by steps
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.x'
+
+      - name: Restore next build cache
+        uses: actions/cache@v3
+        id: restore-build-cache
+        env:
+          cache-name: cache-next-build
+        with:
+          path: .next/cache
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }} # Added lock file to key
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+
+      - name: Debug Environment Variables
+        # This step explicitly uses secrets to show what it receives.
+        # The build step will also receive these from the job's secrets.
+        env:
+          RESEND_API_KEY_DEBUG: ${{ secrets.RESEND_API_KEY }}
+          RESEND_FROM_EMAIL_DEBUG: ${{ secrets.RESEND_FROM_EMAIL }}
+        run: |
+          echo "--- Debugging Environment Variables ---"
+          echo "RESEND_API_KEY_DEBUG length: ${#RESEND_API_KEY_DEBUG}"
+          echo "RESEND_FROM_EMAIL_DEBUG: $RESEND_FROM_EMAIL_DEBUG"
+          if [ -z "$RESEND_API_KEY_DEBUG" ]; then echo "RESEND_API_KEY_DEBUG is empty or not set"; fi
+          if [ -z "$RESEND_FROM_EMAIL_DEBUG" ]; then echo "RESEND_FROM_EMAIL_DEBUG is empty or not set"; fi
+          echo "SKIP_ENV_VALIDATION (from job env): $SKIP_ENV_VALIDATION"
+          echo "--- End Debugging ---"
+
+      - name: Build next.js app
+        env:
+          # All secrets are passed here for the build process
+          AUTH_GITHUB_ID: ${{ secrets.AUTH_GITHUB_ID }}
+          AUTH_GITHUB_SECRET: ${{ secrets.AUTH_GITHUB_SECRET }}
+          AUTH_GITLAB_ID: ${{ secrets.AUTH_GITLAB_ID }}
+          AUTH_GITLAB_SECRET: ${{ secrets.AUTH_GITLAB_SECRET }}
+          AUTH_GOOGLE_ID: ${{ secrets.AUTH_GOOGLE_ID }}
+          AUTH_GOOGLE_SECRET: ${{ secrets.AUTH_GOOGLE_SECRET }}
+          AUTH_SECRET: ${{ secrets.AUTH_SECRET }}
+          AUTH_SECRET_1: ${{ secrets.AUTH_SECRET_1 }}
+          AUTH_TRUST_HOST: ${{ secrets.AUTH_TRUST_HOST }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          GOOGLE_ANALYTICS: ${{ secrets.GOOGLE_ANALYTICS }}
+          GOOGLE_SITE_VERIFICATION: ${{ secrets.GOOGLE_SITE_VERIFICATION }}
+          RAINDROP_ACCESS_TOKEN: ${{ secrets.RAINDROP_ACCESS_TOKEN }}
+          RAINDROP_COLLECTION_ID: ${{ secrets.RAINDROP_COLLECTION_ID }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          RESEND_AUDIENCE_ID: ${{ secrets.RESEND_AUDIENCE_ID }}
+          RESEND_FROM_EMAIL: ${{ secrets.RESEND_FROM_EMAIL }}
+          VERCEL_OIDC_TOKEN: ${{ secrets.VERCEL_OIDC_TOKEN }}
+          YANDEX_METRICA: ${{ secrets.YANDEX_METRICA }}
+          YANDEX_VERIFICATION: ${{ secrets.YANDEX_VERIFICATION }}
+          SKIP_BUILD_PRODUCT_REDIRECTS: "1"
+          # SKIP_ENV_VALIDATION: ${{ env.SKIP_ENV_VALIDATION }} # Inherited from job level, but can be explicit
+        run: yarn && yarn build
+
+      - name: Analyze bundle
+        run: node report-bundle-size.js
+
+      - name: Upload bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: bundle
+          path: .next/analyze/__bundle_analysis.json
+
+      - name: Download base branch bundle stats
+        uses: dawidd6/action-download-artifact@v6 # Updated to v3, check for latest
+        if: success() && github.event.number
+        with:
+          workflow: nextjs_bundle_analysis.yml
+          branch: ${{ github.event.pull_request.base.ref }}
+          path: .next/analyze/base
+          # Optional: specify a GitHub token if the default doesn't have permissions
+          # github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Compare with base branch bundle
+        if: success() && github.event.number
+        run: |
+          echo "Contents of .next/analyze/base:"
+          ls -laR .next/analyze/base || echo "Base directory not found or empty."
+          echo "Running npx nextjs-bundle-analysis compare"
+          npx -p nextjs-bundle-analysis compare
+
+      - name: Get comment body
+        id: get-comment-body
+        if: success() && github.event.number
+        uses: actions/github-script@v7 # Updated to v7, check for latest
+        with:
+          result-encoding: string
+          script: |
+            const fs = require('fs');
+            const path = '.next/analyze/__bundle_analysis_comment.txt';
+            if (fs.existsSync(path)) {
+              const comment = fs.readFileSync(path, 'utf8');
+              return comment;
+            }
+            return "Bundle analysis comment file not found.";
+
+      - name: Find Comment
+        uses: peter-evans/find-comment@v3 # Updated to v3, check for latest
+        if: success() && github.event.number
+        id: fc
+        with:
+          issue-number: ${{ github.event.number }}
+          body-includes: '<!-- __NEXTJS_BUNDLE -->'
+
+      - name: Create or Update Comment
+        uses: peter-evans/create-or-update-comment@v4 # Updated to v4, check for latest
+        if: success() && github.event.number && steps.get-comment-body.outputs.result != 'Bundle analysis comment file not found.'
+        with:
+          issue-number: ${{ github.event.number }}
+          body: ${{ steps.get-comment-body.outputs.result }}
+          comment-id: ${{ steps.fc.outputs.comment-id }}
+          edit-mode: replace

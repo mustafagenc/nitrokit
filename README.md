@@ -8,7 +8,7 @@
   <h1>Nitrokit Next.js Boilerplate</h1>
 </div>
 
-[![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/mustafagenc/nitrokit?style=flat)](https://www.codefactor.io/repository/github/mustafagenc/nitrokit)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/835fe888-01af-45d0-bff1-de2238cc4122/deploy-status)](https://app.netlify.com/projects/enitrokit/deploys) [![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/mustafagenc/nitrokit?style=flat)](https://www.codefactor.io/repository/github/mustafagenc/nitrokit)
 
 ## 🪄 Stack
 

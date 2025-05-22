@@ -30,9 +30,9 @@ async function sendEmailResend(data: TContactFormSchema) {
     const senderEmail = env.RESEND_FROM_EMAIL;
     const { email, name, message } = data;
     return await resend.emails.send({
-        from: senderEmail,
+        from: senderEmail ?? '',
         to: PUBLIC_MAIL,
-        cc: [senderEmail, email],
+        cc: [senderEmail ?? '', email],
         subject: 'Website: Contact Form Submission',
         text: `${name}<br />${email}<br />${message}`,
         react: await ContactFormEmailTemplate({ name, email, message }),
