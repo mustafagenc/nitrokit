@@ -8,7 +8,7 @@
   <h1>Nitrokit Next.js Boilerplate</h1>
 </div>
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/835fe888-01af-45d0-bff1-de2238cc4122/deploy-status)](https://app.netlify.com/projects/enitrokit/deploys) [![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/mustafagenc/nitrokit?style=flat)](https://www.codefactor.io/repository/github/mustafagenc/nitrokit) [![Crowdin](https://badges.crowdin.net/nitrokit/localized.svg)](https://crowdin.com/project/nitrokit)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/835fe888-01af-45d0-bff1-de2238cc4122/deploy-status)](https://app.netlify.com/projects/enitrokit/deploys) [![codecov](https://codecov.io/gh/mustafagenc/nitrokit/graph/badge.svg?token=LGtgTehbnm)](https://codecov.io/gh/mustafagenc/nitrokit) [![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/mustafagenc/nitrokit?style=flat)](https://www.codefactor.io/repository/github/mustafagenc/nitrokit) [![Crowdin](https://badges.crowdin.net/nitrokit/localized.svg)](https://crowdin.com/project/nitrokit)
 
 ## 🪄 Stack
 
