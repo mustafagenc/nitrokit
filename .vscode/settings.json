@@ -1,0 +1,14 @@
+{
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll": "explicit"
+    },
+    "files.associations": {
+        "*.mdx": "markdown"
+    },
+    "i18n-ally.localesPaths": ["messages", "src/lib/i18n"],
+    "i18n-ally.keystyle": "nested",
+    "i18n-ally.sourceLanguage": "en",
+    "WillLuke.nextjs.addTypesOnSave": true,
+    "WillLuke.nextjs.hasPrompted": true
+}

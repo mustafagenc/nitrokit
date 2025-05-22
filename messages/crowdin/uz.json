@@ -1,0 +1,146 @@
+{
+    "app": {
+        "name": "Nitrokit",
+        "shortName": "Nitrokit",
+        "description": "Nitrokit boshlang'ich shabloni"
+    },
+    "common": {
+        "loading": "Yuklanmoqda...",
+        "error": "Xatolik yuz berdi",
+        "notFound": "Siz qidirayotgan sahifa topilmadi",
+        "backToHome": "Bosh sahifaga qaytish",
+        "goBack": "Orqaga qaytish",
+        "ok": "OK",
+        "cancel": "Bekor qilish",
+        "yes": "Ha",
+        "no": "Yo'q",
+        "continue": "Davom etish",
+        "submit": "Yuborish"
+    },
+    "auth": {
+        "signin": "Kirish",
+        "signup": "Ro'yxatdan o'tish",
+        "signout": "Chiqish",
+        "signinWithGoogle": "Google bilan kirish",
+        "signinWithFacebook": "Facebook bilan kirish",
+        "signinWithTwitter": "Twitter bilan kirish",
+        "signinWithGithub": "Github bilan kirish",
+        "signinWithApple": "Apple bilan kirish",
+        "signinWithLinkedIn": "LinkedIn bilan kirish",
+        "signinWithGitlab": "GitLab bilan kirish",
+        "signinWithMicrosoft": "Microsoft bilan kirish",
+        "email": "Elektron pochta",
+        "password": "Parol",
+        "confirmPassword": "Parolni tasdiqlang",
+        "forgotPassword": "Parolimni unutdim",
+        "name": "Ismingiz",
+        "privacyPolicy": "Maxfiylik siyosatimiz",
+        "slogan1": "Loyihalaringizga <span>raketa 🚀</span> kabi boshlang'ich qiling!",
+        "slogan2": "<link>Nitrokit</link> bilan vaqtni tejang va rivojlanishga e'tibor qarating...",
+        "account": "Hisob ma'lumotlari",
+        "support": "Qo'llab-quvvatlash",
+        "billing": "Hisob-fakturalarim"
+    },
+    "signin": {
+        "title": "{appName}'ga Kirish",
+        "description": "Yana xush kelibsiz! Davom etish uchun iltimos kiring",
+        "dontHaveAnAccount": "Hisobingiz yo'qmi? <link>Ro'yxatdan o'ting</link>."
+    },
+    "signup": {
+        "title": "{appName}'ga Ro'yxatdan o'tish",
+        "alreadyHaveAnAccount": "Hisobingiz bormi? <link>Kirish</link>."
+    },
+    "resetPassword": {
+        "title": "Parolingizni tiklang",
+        "description": "Elektron pochta manzilingizni kiriting va parolingizni tiklash uchun ko'rsatmalarga amal qiling.",
+        "emailSent": "Elektron pochta yuborildi! Iltimos, elektron pochtangizni tekshiring."
+    },
+    "validation": {
+        "required": {
+            "name": "Ism maydoni majburiy.",
+            "email": "Elektron pochta maydoni majburiy.",
+            "message": "Xabar maydoni majburiy.",
+            "password": "Parol maydoni majburiy.",
+            "confirmPassword": "Parolni tasdiqlash maydoni majburiy."
+        },
+        "invalid": {
+            "email": "Noto'g'ri elektron pochta manzili."
+        },
+        "password": {
+            "confirm": "Parollar mos kelmadi.",
+            "minLength": "Parol kamida {min} belgidan iborat bo'lishi kerak.",
+            "maxLength": "Parol ko'pi bilan {max} belgidan iborat bo'lishi kerak.",
+            "uppercase": "Kamida bitta katta harf bo'lishi kerak.",
+            "lowercase": "Kamida bitta kichik harf bo'lishi kerak.",
+            "number": "Kamida bitta raqam bo'lishi kerak.",
+            "special": "Kamida bitta maxsus belgi bo'lishi kerak.",
+            "weak": "kuchsiz",
+            "okay": "yaxshi",
+            "good": "juda yaxshi",
+            "strong": "kuchli",
+            "tooShort": "juda qisqa"
+        }
+    },
+    "placeholder": {
+        "enterYourName": "Ismingizni kiriting",
+        "enterYourEmail": "Elektron pochta manzilingizni kiriting",
+        "enterYourMessage": "Xabaringizni kiriting",
+        "enterYourPassword": "Parolingizni kiriting",
+        "confirmYourPassword": "Parolni tasdiqlang"
+    },
+    "notFound": {
+        "title": "Sahifa topilmadi",
+        "description": "Xato! Siz qidirayotgan sahifa mavjud emas.",
+        "returnHome": "Bosh sahifaga qaytish"
+    },
+    "error": {
+        "title": "Xatolik yuz berdi",
+        "retry": "Qayta urinib ko'ring"
+    },
+    "metadata": {
+        "applicationName": "Nitrokit Boshlang'ich Shabloni",
+        "description": "Nitrokit boshlang'ich shabloni",
+        "author": "Mustafa Genç",
+        "title": "Nitrokit Boshlang'ich Shabloni"
+    },
+    "navigation": {
+        "title": "Menyu",
+        "home": "Bosh sahifa",
+        "about": "Biz haqimizda",
+        "services": "Xizmatlar",
+        "pricing": "Narxlar",
+        "blog": "Blog",
+        "contact": "Aloqa"
+    },
+    "about": {
+        "title": "Biz haqimizda",
+        "description": "Bu, Next.js bilan yaratilgan boshlang'ich shablondir. Ushbu shablon veb-ilovalarni tez va samarali ishlab chiqish uchun mo'ljallangan."
+    },
+    "services": {
+        "title": "Xizmatlarimiz",
+        "description": "Biz taklif qilayotgan xizmatlar haqida ko'proq ma'lumot oling."
+    },
+    "pricing": {
+        "title": "Narxlar",
+        "description": "Narxlar rejalari"
+    },
+    "blog": {
+        "title": "Blog",
+        "description": "Eng so'nggi yangiliklar va yangilanishlar uchun blogimizni kuzatib boring."
+    },
+    "contact": {
+        "title": "Aloqa",
+        "description": "Biz bilan bog'lanish uchun quyidagi shaklni to'ldiring.",
+        "name": "Ismingiz",
+        "email": "Elektron pochta manzilingiz",
+        "message": "Xabaringiz",
+        "send": "Yuborish"
+    },
+    "privacy": {
+        "title": "Maxfiylik siyosati",
+        "description": "Maxfiylik siyosatimiz haqida ko'proq ma'lumot oling."
+    },
+    "footer": {
+        "copyright": "© Mualliflik huquqi {year, date, ::yyyy} {name} ♥️ Barcha huquqlar himoyalangan."
+    }
+}

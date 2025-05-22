@@ -1,0 +1,146 @@
+{
+    "app": {
+        "name": "Nitrokit",
+        "shortName": "Nitrokit",
+        "description": "Modello di avvio Nitrokit"
+    },
+    "common": {
+        "loading": "Caricamento...",
+        "error": "Si è verificato un errore",
+        "notFound": "La pagina che stai cercando non è stata trovata",
+        "backToHome": "Torna alla home",
+        "goBack": "Torna indietro",
+        "ok": "OK",
+        "cancel": "Annulla",
+        "yes": "Sì",
+        "no": "No",
+        "continue": "Continua",
+        "submit": "Invia"
+    },
+    "auth": {
+        "signin": "Accedi",
+        "signup": "Registrati",
+        "signout": "Esci",
+        "signinWithGoogle": "Accedi con Google",
+        "signinWithFacebook": "Accedi con Facebook",
+        "signinWithTwitter": "Accedi con Twitter",
+        "signinWithGithub": "Accedi con Github",
+        "signinWithApple": "Accedi con Apple",
+        "signinWithLinkedIn": "Accedi con LinkedIn",
+        "signinWithGitlab": "Accedi con GitLab",
+        "signinWithMicrosoft": "Accedi con Microsoft",
+        "email": "Email",
+        "password": "Password",
+        "confirmPassword": "Conferma Password",
+        "forgotPassword": "Password dimenticata",
+        "name": "Il tuo nome",
+        "privacyPolicy": "La nostra Informativa sulla privacy",
+        "slogan1": "Dai ai tuoi progetti un inizio <span>razzo 🚀</span>!",
+        "slogan2": "Risparmia tempo con <link>Nitrokit</link> e concentrati sullo sviluppo...",
+        "account": "Informazioni account",
+        "support": "Supporto",
+        "billing": "Le mie fatture"
+    },
+    "signin": {
+        "title": "Accedi a {appName}",
+        "description": "Bentornato! Accedi per continuare",
+        "dontHaveAnAccount": "Non hai un account? <link>Registrati</link>."
+    },
+    "signup": {
+        "title": "Registrati a {appName}",
+        "alreadyHaveAnAccount": "Hai già un account? <link>Accedi</link>."
+    },
+    "resetPassword": {
+        "title": "Reimposta la tua password",
+        "description": "Inserisci il tuo indirizzo email e segui le istruzioni per reimpostare la password.",
+        "emailSent": "Email inviata! Controlla la tua email."
+    },
+    "validation": {
+        "required": {
+            "name": "Il campo nome è obbligatorio.",
+            "email": "Il campo email è obbligatorio.",
+            "message": "Il campo messaggio è obbligatorio.",
+            "password": "Il campo password è obbligatorio.",
+            "confirmPassword": "Il campo conferma password è obbligatorio."
+        },
+        "invalid": {
+            "email": "Indirizzo email non valido."
+        },
+        "password": {
+            "confirm": "Le password non corrispondono.",
+            "minLength": "La password deve contenere almeno {min} caratteri.",
+            "maxLength": "La password deve contenere al massimo {max} caratteri.",
+            "uppercase": "Deve contenere almeno una lettera maiuscola.",
+            "lowercase": "Deve contenere almeno una lettera minuscola.",
+            "number": "Deve contenere almeno un numero.",
+            "special": "Deve contenere almeno un carattere speciale.",
+            "weak": "debole",
+            "okay": "discreta",
+            "good": "buona",
+            "strong": "forte",
+            "tooShort": "troppo corta"
+        }
+    },
+    "placeholder": {
+        "enterYourName": "Inserisci il tuo nome",
+        "enterYourEmail": "Inserisci il tuo indirizzo email",
+        "enterYourMessage": "Inserisci il tuo messaggio",
+        "enterYourPassword": "Inserisci la tua password",
+        "confirmYourPassword": "Conferma la tua password"
+    },
+    "notFound": {
+        "title": "Pagina non trovata",
+        "description": "Errore! La pagina che stai cercando non esiste.",
+        "returnHome": "Torna alla Homepage"
+    },
+    "error": {
+        "title": "Si è verificato un errore",
+        "retry": "Riprova"
+    },
+    "metadata": {
+        "applicationName": "Modello di avvio Nitrokit",
+        "description": "Modello di avvio Nitrokit",
+        "author": "Mustafa Genç",
+        "title": "Modello di avvio Nitrokit"
+    },
+    "navigation": {
+        "title": "Menu",
+        "home": "Home",
+        "about": "Chi siamo",
+        "services": "Servizi",
+        "pricing": "Prezzi",
+        "blog": "Blog",
+        "contact": "Contatti"
+    },
+    "about": {
+        "title": "Chi siamo",
+        "description": "Questo è un modello di avvio creato con Next.js. Questo modello è progettato per sviluppare applicazioni web in modo rapido ed efficace."
+    },
+    "services": {
+        "title": "I nostri servizi",
+        "description": "Scopri di più sui servizi che offriamo."
+    },
+    "pricing": {
+        "title": "Prezzi",
+        "description": "Piani tariffari"
+    },
+    "blog": {
+        "title": "Blog",
+        "description": "Segui il nostro blog per le ultime notizie e aggiornamenti."
+    },
+    "contact": {
+        "title": "Contatti",
+        "description": "Compila il modulo sottostante per contattarci.",
+        "name": "Il tuo nome",
+        "email": "Il tuo indirizzo email",
+        "message": "Il tuo messaggio",
+        "send": "Invia"
+    },
+    "privacy": {
+        "title": "Informativa sulla privacy",
+        "description": "Scopri di più sulla nostra informativa sulla privacy."
+    },
+    "footer": {
+        "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ Tutti i diritti riservati."
+    }
+}

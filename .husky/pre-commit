@@ -1,0 +1,37 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo 'Formatting, testing and building your project before committing'
+
+# Check Prettier standards
+yarn run format:check ||
+(
+    echo 'Prettier Check Failed. Run npm run format:write, add changes and try commit again. ❌';
+    false;
+)
+
+# Check ESLint Standards
+yarn run lint ||
+(
+        echo 'ESLint Check Failed. Make the required changes listed above, add changes and try to commit again. ❌'
+        false;
+)
+
+# # Check tsconfig standards
+# yarn run check-types ||
+# (
+#     echo 'Make the changes required above. ❌'
+#     false;
+# )
+
+# Pass all.. try build
+echo 'Code looks good... Trying to build now.'
+
+yarn run build ||
+(
+    echo 'Next build failed: View the errors above to see why. ❌'
+    false;
+)
+
+# Build OK.. Commit
+echo 'Committing this now. ✅'

@@ -1,0 +1,146 @@
+{
+    "app": {
+        "name": "Nitrokit",
+        "shortName": "Nitrokit",
+        "description": "Nitrokit starter template"
+    },
+    "common": {
+        "loading": "Loading...",
+        "error": "An error occurred",
+        "notFound": "The page you are looking for was not found",
+        "backToHome": "Back to home",
+        "goBack": "Go back",
+        "ok": "OK",
+        "cancel": "Cancel",
+        "yes": "Yes",
+        "no": "No",
+        "continue": "Continue",
+        "submit": "Submit"
+    },
+    "auth": {
+        "signin": "Sign In",
+        "signup": "Sign Up",
+        "signout": "Sign Out",
+        "signinWithGoogle": "Sign In with Google",
+        "signinWithFacebook": "Sign In with Facebook",
+        "signinWithTwitter": "Sign In with Twitter",
+        "signinWithGithub": "Sign In with Github",
+        "signinWithApple": "Sign In with Apple",
+        "signinWithLinkedIn": "Sign In with LinkedIn",
+        "signinWithGitlab": "Sign In with GitLab",
+        "signinWithMicrosoft": "Sign In with Microsoft",
+        "email": "Email",
+        "password": "Password",
+        "confirmPassword": "Confirm Password",
+        "forgotPassword": "Forgot Password",
+        "name": "Your Name",
+        "privacyPolicy": "Our Privacy Policy",
+        "slogan1": "Give your projects a <span>rocket 🚀</span> start!",
+        "slogan2": "Save time with <link>Nitrokit</link> and focus on development...",
+        "account": "Account information",
+        "support": "Support",
+        "billing": "My Invoices"
+    },
+    "signin": {
+        "title": "Sign In to {appName}",
+        "description": "Welcome back! Please sign in to continue",
+        "dontHaveAnAccount": "Don't have an account? <link>Sign Up</link>."
+    },
+    "signup": {
+        "title": "Sign Up for {appName}",
+        "alreadyHaveAnAccount": "Already have an account? <link>Sign In</link>."
+    },
+    "resetPassword": {
+        "title": "Reset Your Password",
+        "description": "Enter your email address and follow the instructions to reset your password.",
+        "emailSent": "Email sent! Please check your email."
+    },
+    "validation": {
+        "required": {
+            "name": "Name field is required.",
+            "email": "Email field is required.",
+            "message": "Message field is required.",
+            "password": "Password field is required.",
+            "confirmPassword": "Confirm password field is required."
+        },
+        "invalid": {
+            "email": "Invalid email address."
+        },
+        "password": {
+            "confirm": "Passwords do not match.",
+            "minLength": "Password must be at least {min} characters.",
+            "maxLength": "Password must be at most {max} characters.",
+            "uppercase": "Must contain at least one uppercase letter.",
+            "lowercase": "Must contain at least one lowercase letter.",
+            "number": "Must contain at least one number.",
+            "special": "Must contain at least one special character.",
+            "weak": "weak",
+            "okay": "okay",
+            "good": "good",
+            "strong": "strong",
+            "tooShort": "too short"
+        }
+    },
+    "placeholder": {
+        "enterYourName": "Enter your name",
+        "enterYourEmail": "Enter your email address",
+        "enterYourMessage": "Enter your message",
+        "enterYourPassword": "Enter your password",
+        "confirmYourPassword": "Confirm your password"
+    },
+    "notFound": {
+        "title": "Page Not Found",
+        "description": "Error! The page you are looking for does not exist.",
+        "returnHome": "Return to Homepage"
+    },
+    "error": {
+        "title": "An Error Occurred",
+        "retry": "Retry"
+    },
+    "metadata": {
+        "applicationName": "Nitrokit Starter Template",
+        "description": "Nitrokit starter template",
+        "author": "Mustafa Genç",
+        "title": "Nitrokit Starter Template"
+    },
+    "navigation": {
+        "title": "Menu",
+        "home": "Home",
+        "about": "About Us",
+        "services": "Services",
+        "pricing": "Pricing",
+        "blog": "Blog",
+        "contact": "Contact"
+    },
+    "about": {
+        "title": "About Us",
+        "description": "This is a starter template built with Next.js. This template is designed to develop web applications quickly and effectively."
+    },
+    "services": {
+        "title": "Our Services",
+        "description": "Learn more about the services we offer."
+    },
+    "pricing": {
+        "title": "Pricing",
+        "description": "Pricing Plans"
+    },
+    "blog": {
+        "title": "Blog",
+        "description": "Follow our blog for the latest news and updates."
+    },
+    "contact": {
+        "title": "Contact",
+        "description": "Fill out the form below to contact us.",
+        "name": "Your Name",
+        "email": "Your Email Address",
+        "message": "Your Message",
+        "send": "Send"
+    },
+    "privacy": {
+        "title": "Privacy Policy",
+        "description": "Learn more about our privacy policy."
+    },
+    "footer": {
+        "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ All Rights Reserved."
+    }
+}

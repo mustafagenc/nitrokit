@@ -1,0 +1,146 @@
+{
+    "app": {
+        "name": "Nitrokit",
+        "shortName": "Nitrokit",
+        "description": "Plantilla de inicio de Nitrokit"
+    },
+    "common": {
+        "loading": "Cargando...",
+        "error": "Ocurrió un error",
+        "notFound": "La página que buscas no fue encontrada",
+        "backToHome": "Volver al inicio",
+        "goBack": "Volver atrás",
+        "ok": "Aceptar",
+        "cancel": "Cancelar",
+        "yes": "Sí",
+        "no": "No",
+        "continue": "Continuar",
+        "submit": "Enviar"
+    },
+    "auth": {
+        "signin": "Iniciar Sesión",
+        "signup": "Registrarse",
+        "signout": "Cerrar Sesión",
+        "signinWithGoogle": "Iniciar Sesión con Google",
+        "signinWithFacebook": "Iniciar Sesión con Facebook",
+        "signinWithTwitter": "Iniciar Sesión con Twitter",
+        "signinWithGithub": "Iniciar Sesión con Github",
+        "signinWithApple": "Iniciar Sesión con Apple",
+        "signinWithLinkedIn": "Iniciar Sesión con LinkedIn",
+        "signinWithGitlab": "Iniciar Sesión con GitLab",
+        "signinWithMicrosoft": "Iniciar Sesión con Microsoft",
+        "email": "Correo Electrónico",
+        "password": "Contraseña",
+        "confirmPassword": "Confirmar Contraseña",
+        "forgotPassword": "Olvidé mi Contraseña",
+        "name": "Tu Nombre",
+        "privacyPolicy": "Nuestra Política de Privacidad",
+        "slogan1": "¡Dale a tus proyectos un inicio <span>cohete 🚀</span>!",
+        "slogan2": "Ahorra tiempo con <link>Nitrokit</link> y concéntrate en el desarrollo...",
+        "account": "Información de la cuenta",
+        "support": "Soporte",
+        "billing": "Mis Facturas"
+    },
+    "signin": {
+        "title": "Iniciar Sesión en {appName}",
+        "description": "¡Bienvenido de nuevo! Por favor, inicia sesión para continuar",
+        "dontHaveAnAccount": "¿No tienes una cuenta? <link>Regístrate</link>."
+    },
+    "signup": {
+        "title": "Registrarse en {appName}",
+        "alreadyHaveAnAccount": "¿Ya tienes una cuenta? <link>Inicia Sesión</link>."
+    },
+    "resetPassword": {
+        "title": "Restablecer Tu Contraseña",
+        "description": "Ingresa tu dirección de correo electrónico y sigue las instrucciones para restablecer tu contraseña.",
+        "emailSent": "¡Correo electrónico enviado! Por favor, revisa tu correo."
+    },
+    "validation": {
+        "required": {
+            "name": "El campo de nombre es obligatorio.",
+            "email": "El campo de correo electrónico es obligatorio.",
+            "message": "El campo de mensaje es obligatorio.",
+            "password": "El campo de contraseña es obligatorio.",
+            "confirmPassword": "El campo de confirmar contraseña es obligatorio."
+        },
+        "invalid": {
+            "email": "Dirección de correo electrónico inválida."
+        },
+        "password": {
+            "confirm": "Las contraseñas no coinciden.",
+            "minLength": "La contraseña debe tener al menos {min} caracteres.",
+            "maxLength": "La contraseña debe tener como máximo {max} caracteres.",
+            "uppercase": "Debe contener al menos una letra mayúscula.",
+            "lowercase": "Debe contener al menos una letra minúscula.",
+            "number": "Debe contener al menos un número.",
+            "special": "Debe contener al menos un carácter especial.",
+            "weak": "débil",
+            "okay": "aceptable",
+            "good": "buena",
+            "strong": "fuerte",
+            "tooShort": "demasiado corta"
+        }
+    },
+    "placeholder": {
+        "enterYourName": "Ingresa tu nombre",
+        "enterYourEmail": "Ingresa tu dirección de correo electrónico",
+        "enterYourMessage": "Ingresa tu mensaje",
+        "enterYourPassword": "Ingresa tu contraseña",
+        "confirmYourPassword": "Confirma tu contraseña"
+    },
+    "notFound": {
+        "title": "Página No Encontrada",
+        "description": "¡Error! La página que buscas no existe.",
+        "returnHome": "Volver a la Página de Inicio"
+    },
+    "error": {
+        "title": "Ocurrió un Error",
+        "retry": "Reintentar"
+    },
+    "metadata": {
+        "applicationName": "Plantilla de Inicio Nitrokit",
+        "description": "Plantilla de inicio de Nitrokit",
+        "author": "Mustafa Genç",
+        "title": "Plantilla de Inicio Nitrokit"
+    },
+    "navigation": {
+        "title": "Menú",
+        "home": "Inicio",
+        "about": "Sobre Nosotros",
+        "services": "Servicios",
+        "pricing": "Precios",
+        "blog": "Blog",
+        "contact": "Contacto"
+    },
+    "about": {
+        "title": "Sobre Nosotros",
+        "description": "Esta es una plantilla de inicio construida con Next.js. Esta plantilla está diseñada para desarrollar aplicaciones web de forma rápida y eficaz."
+    },
+    "services": {
+        "title": "Nuestros Servicios",
+        "description": "Obtén más información sobre los servicios que ofrecemos."
+    },
+    "pricing": {
+        "title": "Precios",
+        "description": "Planes de Precios"
+    },
+    "blog": {
+        "title": "Blog",
+        "description": "Sigue nuestro blog para las últimas noticias y actualizaciones."
+    },
+    "contact": {
+        "title": "Contacto",
+        "description": "Completa el formulario a continuación para contactarnos.",
+        "name": "Tu Nombre",
+        "email": "Tu Dirección de Correo Electrónico",
+        "message": "Tu Mensaje",
+        "send": "Enviar"
+    },
+    "privacy": {
+        "title": "Política de Privacidad",
+        "description": "Obtén más información sobre nuestra política de privacidad."
+    },
+    "footer": {
+        "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ Todos los Derechos Reservados."
+    }
+}

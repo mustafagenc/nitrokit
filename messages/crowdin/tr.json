@@ -1,0 +1,146 @@
+{
+    "app": {
+        "name": "Nitrokit",
+        "shortName": "Nitrokit",
+        "description": "Nitrokit başlangıç şablonu"
+    },
+    "common": {
+        "loading": "Yükleniyor...",
+        "error": "Bir hata oluştu",
+        "notFound": "Aradığınız sayfa bulunamadı",
+        "backToHome": "Ana sayfaya dön",
+        "goBack": "Geri dön",
+        "ok": "Tamam",
+        "cancel": "İptal",
+        "yes": "Evet",
+        "no": "Hayır",
+        "continue": "Devam et",
+        "submit": "Gönder"
+    },
+    "auth": {
+        "signin": "Giriş Yap",
+        "signup": "Kayıt Ol",
+        "signout": "Çıkış Yap",
+        "signinWithGoogle": "Google ile Giriş Yap",
+        "signinWithFacebook": "Facebook ile Giriş Yap",
+        "signinWithTwitter": "Twitter ile Giriş Yap",
+        "signinWithGithub": "Github ile Giriş Yap",
+        "signinWithApple": "Apple ile Giriş Yap",
+        "signinWithLinkedIn": "LinkedIn ile Giriş Yap",
+        "signinWithGitlab": "GitLab ile Giriş Yap",
+        "signinWithMicrosoft": "Microsoft ile Giriş Yap",
+        "email": "E-posta",
+        "password": "Şifre",
+        "confirmPassword": "Şifreyi Onayla",
+        "forgotPassword": "Şifremi Unuttum",
+        "name": "Adınız",
+        "privacyPolicy": "Gizlilik Politikamız",
+        "slogan1": "Projelerinize <span>roket 🚀</span> gibi bir başlangıç yapın!",
+        "slogan2": "<link>Nitrokit</link> ile zamandan kazanın ve geliştirmeye odaklanın...",
+        "account": "Hesap bilgileri",
+        "support": "Destek",
+        "billing": "Faturalarım"
+    },
+    "signin": {
+        "title": "{appName}'e Giriş Yap",
+        "description": "Tekrar hoş geldiniz! Devam etmek için lütfen giriş yapın",
+        "dontHaveAnAccount": "Hesabınız yok mu? <link>Kaydol</link>."
+    },
+    "signup": {
+        "title": "{appName}'e Kaydol",
+        "alreadyHaveAnAccount": "Zaten bir hesabınız var mı? <link>Giriş Yap</link>."
+    },
+    "resetPassword": {
+        "title": "Şifrenizi Sıfırlayın",
+        "description": "E-posta adresinizi girin ve şifrenizi sıfırlamak için talimatları takip edin.",
+        "emailSent": "E-posta gönderildi! Lütfen e-postanızı kontrol edin."
+    },
+    "validation": {
+        "required": {
+            "name": "Ad alanı gereklidir.",
+            "email": "E-posta alanı gereklidir.",
+            "message": "Mesaj alanı gereklidir.",
+            "password": "Şifre alanı gereklidir.",
+            "confirmPassword": "Şifreyi onaylama alanı gereklidir."
+        },
+        "invalid": {
+            "email": "Geçersiz e-posta adresi."
+        },
+        "password": {
+            "confirm": "Şifreler eşleşmiyor.",
+            "minLength": "Şifre en az {min} karakter olmalıdır.",
+            "maxLength": "Şifre en fazla {max} karakter olmalıdır.",
+            "uppercase": "En az bir büyük harf içermelidir.",
+            "lowercase": "En az bir küçük harf içermelidir.",
+            "number": "En az bir rakam içermelidir.",
+            "special": "En az bir özel karakter içermelidir.",
+            "weak": "zayıf",
+            "okay": "iyi sayılır",
+            "good": "iyi",
+            "strong": "güçlü",
+            "tooShort": "çok kısa"
+        }
+    },
+    "placeholder": {
+        "enterYourName": "Adınızı girin",
+        "enterYourEmail": "E-posta adresinizi girin",
+        "enterYourMessage": "Mesajınızı girin",
+        "enterYourPassword": "Şifrenizi girin",
+        "confirmYourPassword": "Şifreyi onaylayın"
+    },
+    "notFound": {
+        "title": "Sayfa Bulunamadı",
+        "description": "Hata! Aradığınız sayfa mevcut değil.",
+        "returnHome": "Ana Sayfaya Dön"
+    },
+    "error": {
+        "title": "Bir Hata Oluştu",
+        "retry": "Yeniden Dene"
+    },
+    "metadata": {
+        "applicationName": "Nitrokit Başlangıç Şablonu",
+        "description": "Nitrokit başlangıç şablonu",
+        "author": "Mustafa Genç",
+        "title": "Nitrokit Başlangıç Şablonu"
+    },
+    "navigation": {
+        "title": "Menü",
+        "home": "Ana Sayfa",
+        "about": "Hakkımızda",
+        "services": "Hizmetler",
+        "pricing": "Fiyatlar",
+        "blog": "Blog",
+        "contact": "İletişim"
+    },
+    "about": {
+        "title": "Hakkımızda",
+        "description": "Bu, Next.js ile oluşturulmuş bir başlangıç şablonudur. Bu şablon, hızlı ve etkili bir şekilde web uygulamaları geliştirmek için tasarlanmıştır."
+    },
+    "services": {
+        "title": "Hizmetlerimiz",
+        "description": "Sunduğumuz hizmetler hakkında daha fazla bilgi edinin."
+    },
+    "pricing": {
+        "title": "Fiyatlar",
+        "description": "Fiyatlandırma Planları"
+    },
+    "blog": {
+        "title": "Blog",
+        "description": "En son haberler ve güncellemeler için blogumuzu takip edin."
+    },
+    "contact": {
+        "title": "İletişim",
+        "description": "Bizimle iletişime geçmek için aşağıdaki formu doldurun.",
+        "name": "Adınız",
+        "email": "E-posta adresiniz",
+        "message": "Mesajınız",
+        "send": "Gönder"
+    },
+    "privacy": {
+        "title": "Gizlilik Politikası",
+        "description": "Gizlilik politikamız hakkında daha fazla bilgi edinin."
+    },
+    "footer": {
+        "copyright": "© Telif Hakkı {year, date, ::yyyy} {name} ♥️ Tüm Hakları Saklıdır."
+    }
+}
