@@ -1,146 +1,146 @@
 {
     "app": {
-        "name": "Nitrokit",
-        "shortName": "Nitrokit",
-        "description": "Nitrokit-Startervorlage"
+        "name": "نیترو کیت",
+        "shortName": "نیتروکیت",
+        "description": "قالب بداية نیترو کیت"
     },
     "common": {
-        "loading": "Wird geladen...",
-        "error": "Ein Fehler ist aufgetreten",
-        "notFound": "Die gesuchte Seite wurde nicht gefunden",
-        "backToHome": "Zurück zur Startseite",
-        "goBack": "Geh zurück",
-        "ok": "OK",
-        "cancel": "Abbrechen",
-        "yes": "Ja",
-        "no": "Nein",
-        "continue": "Fortsetzen",
-        "submit": "Senden"
+        "loading": "جار التحميل...",
+        "error": "حدث خطأ",
+        "notFound": "الصفحة التي تبحث عنها غير موجودة",
+        "backToHome": "العودة إلى الصفحة الرئيسية",
+        "goBack": "رجوع",
+        "ok": "موافق",
+        "cancel": "إلغاء",
+        "yes": "نعم",
+        "no": "لا",
+        "continue": "متابعة",
+        "submit": "إرسال"
     },
     "auth": {
-        "signin": "Anmelden",
-        "signup": "Sign Up",
-        "signout": "Sign Out",
-        "signinWithGoogle": "Sign In with Google",
-        "signinWithFacebook": "Sign In with Facebook",
-        "signinWithTwitter": "Sign In with Twitter",
-        "signinWithGithub": "Sign In with Github",
-        "signinWithApple": "Sign In with Apple",
-        "signinWithLinkedIn": "Sign In with LinkedIn",
-        "signinWithGitlab": "Sign In with GitLab",
-        "signinWithMicrosoft": "Sign In with Microsoft",
-        "email": "Email",
-        "password": "Password",
-        "confirmPassword": "Confirm Password",
-        "forgotPassword": "Forgot Password",
-        "name": "Your Name",
-        "privacyPolicy": "Our Privacy Policy",
-        "slogan1": "Give your projects a <span>rocket 🚀</span> start!",
-        "slogan2": "Save time with <link>Nitrokit</link> and focus on development...",
-        "account": "Account information",
-        "support": "Support",
-        "billing": "My Invoices"
+        "signin": "تسجيل الدخول",
+        "signup": "اشتراك",
+        "signout": "تسجيل الخروج",
+        "signinWithGoogle": "تسجيل الدخول باستخدام جوجل",
+        "signinWithFacebook": "تسجيل الدخول باستخدام فيسبوك",
+        "signinWithTwitter": "تسجيل الدخول باستخدام تويتر",
+        "signinWithGithub": "تسجيل الدخول باستخدام جيت هاب",
+        "signinWithApple": "تسجيل الدخول باستخدام آبل",
+        "signinWithLinkedIn": "تسجيل الدخول باستخدام لينكد إن",
+        "signinWithGitlab": "تسجيل الدخول باستخدام جيت لاب",
+        "signinWithMicrosoft": "تسجيل الدخول باستخدام مايكروسوفت",
+        "email": "البريد الإلكتروني",
+        "password": "كلمة المرور",
+        "confirmPassword": "تأكيد كلمة المرور",
+        "forgotPassword": "نسيت كلمة المرور",
+        "name": "اسمك",
+        "privacyPolicy": "سياسة الخصوصية الخاصة بنا",
+        "slogan1": "ابدأ مشاريعك <span>بسرعة الصاروخ 🚀</span>!",
+        "slogan2": "وفر الوقت وركز على التطوير مع <link>نیترو کیت</link>...",
+        "account": "معلومات الحساب",
+        "support": "الدعم",
+        "billing": "فواتيري"
     },
     "signin": {
-        "title": "Sign In to {appName}",
-        "description": "Welcome back! Please sign in to continue",
-        "dontHaveAnAccount": "Don't have an account? <link>Sign Up</link>."
+        "title": "تسجيل الدخول إلى {appName}",
+        "description": "مرحبًا بعودتك! يرجى تسجيل الدخول للمتابعة",
+        "dontHaveAnAccount": "ليس لديك حساب؟ <link>اشتراك</link>."
     },
     "signup": {
-        "title": "Sign Up for {appName}",
-        "alreadyHaveAnAccount": "Already have an account? <link>Sign In</link>."
+        "title": "التسجيل في {appName}",
+        "alreadyHaveAnAccount": "هل لديك حساب بالفعل؟ <link>تسجيل الدخول</link>."
     },
     "resetPassword": {
-        "title": "Reset Your Password",
-        "description": "Enter your email address and follow the instructions to reset your password.",
-        "emailSent": "Email sent! Please check your email."
+        "title": "إعادة تعيين كلمة المرور الخاصة بك",
+        "description": "أدخل عنوان بريدك الإلكتروني واتبع التعليمات لإعادة تعيين كلمة المرور الخاصة بك.",
+        "emailSent": "تم إرسال البريد الإلكتروني! يرجى التحقق من بريدك الإلكتروني."
     },
     "validation": {
         "required": {
-            "name": "Name field is required.",
-            "email": "Email field is required.",
-            "message": "Message field is required.",
-            "password": "Password field is required.",
-            "confirmPassword": "Confirm password field is required."
+            "name": "حقل الاسم مطلوب.",
+            "email": "حقل البريد الإلكتروني مطلوب.",
+            "message": "حقل الرسالة مطلوب.",
+            "password": "حقل كلمة المرور مطلوب.",
+            "confirmPassword": "حقل تأكيد كلمة المرور مطلوب."
         },
         "invalid": {
-            "email": "Invalid email address."
+            "email": "عنوان بريد إلكتروني غير صالح."
         },
         "password": {
-            "confirm": "Passwords do not match.",
-            "minLength": "Password must be at least {min} characters.",
-            "maxLength": "Password must be at most {max} characters.",
-            "uppercase": "Must contain at least one uppercase letter.",
-            "lowercase": "Must contain at least one lowercase letter.",
-            "number": "Must contain at least one number.",
-            "special": "Must contain at least one special character.",
-            "weak": "weak",
-            "okay": "okay",
-            "good": "good",
-            "strong": "strong",
-            "tooShort": "too short"
+            "confirm": "كلمات المرور غير متطابقة.",
+            "minLength": "يجب أن تتكون كلمة المرور من {min} أحرف على الأقل.",
+            "maxLength": "يجب ألا تتجاوز كلمة المرور {max} حرفًا.",
+            "uppercase": "يجب أن تحتوي على حرف كبير واحد على الأقل.",
+            "lowercase": "يجب أن تحتوي على حرف صغير واحد على الأقل.",
+            "number": "يجب أن تحتوي على رقم واحد على الأقل.",
+            "special": "يجب أن تحتوي على حرف خاص واحد على الأقل.",
+            "weak": "ضعيفة",
+            "okay": "مقبولة",
+            "good": "جيدة",
+            "strong": "قوية",
+            "tooShort": "قصيرة جدا"
         }
     },
     "placeholder": {
-        "enterYourName": "Enter your name",
-        "enterYourEmail": "Enter your email address",
-        "enterYourMessage": "Enter your message",
-        "enterYourPassword": "Enter your password",
-        "confirmYourPassword": "Confirm your password"
+        "enterYourName": "أدخل اسمك",
+        "enterYourEmail": "أدخل عنوان بريدك الإلكتروني",
+        "enterYourMessage": "أدخل رسالتك",
+        "enterYourPassword": "أدخل كلمة المرور الخاصة بك",
+        "confirmYourPassword": "قم بتأكيد كلمة المرور"
     },
     "notFound": {
-        "title": "Page Not Found",
-        "description": "Error! The page you are looking for does not exist.",
-        "returnHome": "Return to Homepage"
+        "title": "الصفحة غير موجودة",
+        "description": "خطأ! الصفحة التي تبحث عنها غير موجودة.",
+        "returnHome": "العودة إلى الصفحة الرئيسية"
     },
     "error": {
-        "title": "An Error Occurred",
-        "retry": "Retry"
+        "title": "حدث خطأ",
+        "retry": "حاول مرة أخرى"
     },
     "metadata": {
-        "applicationName": "Nitrokit Starter Template",
-        "description": "Nitrokit starter template",
-        "author": "Mustafa Genç",
-        "title": "Nitrokit Starter Template"
+        "applicationName": "قالب بداية نیترو کیت",
+        "description": "قالب بداية نیترو کیت",
+        "author": "مصطفى غينتش",
+        "title": "قالب بداية نیترو کیت"
     },
     "navigation": {
-        "title": "Menu",
-        "home": "Home",
-        "about": "About Us",
-        "services": "Services",
-        "pricing": "Pricing",
-        "blog": "Blog",
-        "contact": "Contact"
+        "title": "القائمة",
+        "home": "الصفحة الرئيسية",
+        "about": "من نحن",
+        "services": "الخدمات",
+        "pricing": "الأسعار",
+        "blog": "المدونة",
+        "contact": "اتصل بنا"
     },
     "about": {
-        "title": "About Us",
-        "description": "This is a starter template built with Next.js. This template is designed to develop web applications quickly and effectively."
+        "title": "من نحن",
+        "description": "هذا قالب بداية تم إنشاؤه باستخدام Next.js. تم تصميم هذا القالب لتطوير تطبيقات الويب بسرعة وفعالية."
     },
     "services": {
-        "title": "Our Services",
-        "description": "Learn more about the services we offer."
+        "title": "خدماتنا",
+        "description": "تعرف على المزيد حول الخدمات التي نقدمها."
     },
     "pricing": {
-        "title": "Pricing",
-        "description": "Pricing Plans"
+        "title": "الأسعار",
+        "description": "خطط التسعير"
     },
     "blog": {
-        "title": "Blog",
-        "description": "Follow our blog for the latest news and updates."
+        "title": "المدونة",
+        "description": "تابع مدونتنا للحصول على آخر الأخبار والتحديثات."
     },
     "contact": {
-        "title": "Contact",
-        "description": "Fill out the form below to contact us.",
-        "name": "Your Name",
-        "email": "Your Email Address",
-        "message": "Your Message",
-        "send": "Send"
+        "title": "اتصل بنا",
+        "description": "املأ النموذج أدناه للاتصال بنا.",
+        "name": "اسمك",
+        "email": "عنوان بريدك الإلكتروني",
+        "message": "رسالتك",
+        "send": "إرسال"
     },
     "privacy": {
-        "title": "Privacy Policy",
-        "description": "Learn more about our privacy policy."
+        "title": "سياسة الخصوصية",
+        "description": "تعرف على المزيد حول سياسة الخصوصية الخاصة بنا."
     },
     "footer": {
-        "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ All Rights Reserved."
+        "copyright": "© حقوق النشر {year, date, ::yyyy} {name} ♥️ جميع الحقوق محفوظة."
     }
 }
