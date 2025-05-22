@@ -10,7 +10,7 @@ const DEFAULT_LANGUAGE = 'en';
  * The application will use the browser's language settings to determine the default locale.
  * @returns {string[]} An array of supported locales.
  */
-const locales = ['tr', 'en', 'uz', 'ar', 'ru', 'az'];
+const locales = ['tr', 'en', 'uz', 'ar', 'ru', 'az', 'de', 'fr', 'es', 'it', 'ur'];
 
 /**
  * List of locales with their respective flags.
@@ -28,6 +28,11 @@ const localesWithFlag = [
     { id: 'ar', name: 'العربية', flag: '/flags/sa.svg' },
     { id: 'ru', name: 'Русский', flag: '/flags/ru.svg' },
     { id: 'az', name: 'Azərbaycanca', flag: '/flags/az.svg' },
+    { id: 'de', name: 'Deutsch', flag: '/flags/de.svg' },
+    { id: 'fr', name: 'Français', flag: '/flags/fr.svg' },
+    { id: 'es', name: 'Español', flag: '/flags/es.svg' },
+    { id: 'it', name: 'Italiano', flag: '/flags/it.svg' },
+    { id: 'ur', name: 'اردو', flag: '/flags/pk.svg' },
 ];
 
 /**
