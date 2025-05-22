@@ -14,12 +14,14 @@ describe('ScrollArea', () => {
     });
 
     it('renders scroll area with different orientations', () => {
-        const { rerender } = render(<ScrollArea orientation="vertical">Test Content</ScrollArea>);
+        const { rerender } = render(
+            <ScrollArea aria-orientation="vertical">Test Content</ScrollArea>
+        );
 
         let scrollArea = screen.getByText('Test Content').closest('[data-slot="scroll-area"]');
         expect(scrollArea).toHaveClass('relative');
 
-        rerender(<ScrollArea orientation="horizontal">Test Content</ScrollArea>);
+        rerender(<ScrollArea aria-orientation="horizontal">Test Content</ScrollArea>);
 
         scrollArea = screen.getByText('Test Content').closest('[data-slot="scroll-area"]');
         expect(scrollArea).toHaveClass('relative');

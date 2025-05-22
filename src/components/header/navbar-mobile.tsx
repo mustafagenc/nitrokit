@@ -15,6 +15,7 @@ import { NAV_LINKS } from '@/constants/site';
 import { Link, usePathname } from '@/lib/i18n/navigation';
 import { NavbarProps } from '@/types/NavbarProps';
 import { cn } from '@/utils/helpers';
+import Logo from '@/components/shared/logo';
 
 export const NavbarMobile = ({ className }: NavbarProps) => {
     const [open, setOpen] = useState(false);
@@ -37,8 +38,9 @@ export const NavbarMobile = ({ className }: NavbarProps) => {
                     <SheetTitle></SheetTitle>
                     <SheetDescription></SheetDescription>
                 </SheetHeader>
-                <div className="mt-10 flex flex-col p-6">
-                    <h2 className="mb-3 text-xl font-bold text-gray-900 dark:text-gray-300">
+                <div className="mt-1 flex flex-col p-6">
+                    <Logo onlyIcon={false} size={60} forceText={true} />
+                    <h2 className="mt-10 mb-3 text-xl font-bold text-gray-900 dark:text-gray-300">
                         {t('navigation.title')}
                     </h2>
                     <ul className="list-inside">

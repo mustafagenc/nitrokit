@@ -6,9 +6,11 @@ import { ThemedImage } from '@/components/shared/themed-image';
 export default function Logo({
     size = 50,
     onlyIcon = false,
+    forceText = false,
 }: {
     size?: number;
     onlyIcon?: boolean;
+    forceText?: boolean;
 }) {
     const t = useTranslations('app');
     return (
@@ -22,7 +24,8 @@ export default function Logo({
                 className={`drop-shadow-xs`}
             />
             {!onlyIcon && (
-                <span className="hidden font-[family-name:var(--font-lexend)] text-2xl font-bold text-shadow-2xs lg:inline-block">
+                <span
+                    className={`${forceText ? '' : 'hidden lg:inline-block'} bg-gradient-to-r from-blue-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% bg-clip-text font-[family-name:var(--font-lexend)] text-2xl font-bold text-transparent text-shadow-2xs`}>
                     {t('name')}
                 </span>
             )}

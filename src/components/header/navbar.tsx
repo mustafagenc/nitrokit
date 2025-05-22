@@ -66,13 +66,13 @@ export function Navbar() {
                             <li className="row-span-3">
                                 <div className="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md bg-gradient-to-b p-6 no-underline outline-none select-none focus:shadow-md">
                                     <Logo onlyIcon={true} size={80} />
-                                    <div className="mt-4 mb-2 text-lg font-medium">
+                                    <div className="mt-4 mb-2 inline-block bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% bg-clip-text text-lg font-extrabold text-transparent">
                                         {t('app.name')}
                                     </div>
                                     <p className="text-muted-foreground text-xs leading-5">
                                         {t.rich('auth.slogan1', {
                                             span: children => (
-                                                <span className="font-extrabold text-red-600">
+                                                <span className="inline-block bg-gradient-to-r from-red-500 from-10% via-orange-500 via-30% to-red-500 to-90% bg-clip-text font-extrabold text-transparent">
                                                     {children}
                                                 </span>
                                             ),
@@ -82,7 +82,7 @@ export function Navbar() {
                                                 <a
                                                     href="https://github.com/mustafagenc/nitrokit"
                                                     target="_blank"
-                                                    className="text-blue-700 underline underline-offset-2 hover:text-blue-800">
+                                                    className="inline-block bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% bg-clip-text font-extrabold text-transparent underline underline-offset-2 hover:text-blue-800">
                                                     {children}
                                                 </a>
                                             ),

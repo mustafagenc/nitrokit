@@ -1,5 +1,4 @@
 import { getTranslations } from 'next-intl/server';
-import Image from 'next/image';
 import { getLangDir } from 'rtl-detect';
 
 import { LocaleSwitcher } from '@/components/header/locale-switcher';
@@ -62,7 +61,9 @@ export default async function AuthLayout({
                         <p>
                             {t.rich('auth.slogan1', {
                                 span: children => (
-                                    <span className="font-extrabold text-red-600">{children}</span>
+                                    <span className="inline-block bg-gradient-to-r from-red-500 from-10% via-orange-500 via-30% to-red-500 to-90% bg-clip-text font-extrabold text-transparent">
+                                        {children}
+                                    </span>
                                 ),
                             })}
                         </p>
@@ -72,7 +73,7 @@ export default async function AuthLayout({
                                     <a
                                         href="https://github.com/mustafagenc/nitrokit"
                                         target="_blank"
-                                        className="text-blue-700 underline underline-offset-2 hover:text-blue-800">
+                                        className="inline-block bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% bg-clip-text font-extrabold text-transparent underline underline-offset-2 hover:text-blue-800">
                                         {children}
                                     </a>
                                 ),
@@ -80,54 +81,108 @@ export default async function AuthLayout({
                         </p>
                     </div>
                 </div>
-                <div className="mx-auto mt-30 grid w-xl grid-flow-col grid-rows-2 justify-items-center gap-20">
-                    <div className="col-span-2">
-                        <ThemedImage
-                            lightSrc={'/images/brands/nextjs-black.svg'}
-                            darkSrc={'/images/brands/nextjs-white.svg'}
-                            alt="Next.js Logo"
-                            width={200}
-                            height={100}
-                            className="drop-shadow-sm transition duration-300 ease-in-out hover:scale-110 dark:drop-shadow-md"
-                        />
-                    </div>
-                    <div className="col-span-2 row-span-2">
-                        <ThemedImage
-                            lightSrc={'/images/brands/tailwindcss-logotype.svg'}
-                            darkSrc={'/images/brands/tailwindcss-logotype-white.svg'}
-                            alt="Tailwind CSS Logo"
-                            width={200}
-                            height={100}
-                            className="drop-shadow-sm transition duration-300 ease-in-out hover:scale-110 dark:drop-shadow-md"
-                        />
-                    </div>
-                    <div className="col-span-2">
-                        <ThemedImage
-                            lightSrc={'/images/brands/resend-wordmark-black.svg'}
-                            darkSrc={'/images/brands/resend-wordmark-white.svg'}
-                            alt="Resend Logo"
-                            width={200}
-                            height={100}
-                            className="drop-shadow-sm transition duration-300 ease-in-out hover:scale-110 dark:drop-shadow-md"
-                        />
-                    </div>
-                    <div className="col-span-2">
-                        <Image
-                            src={'/images/brands/prisma.svg'}
-                            alt="grid"
-                            width={100}
-                            height={100}
-                            className="col-span-1"
-                        />
-                    </div>
-                    <div className="row-span-3">
-                        <Image
-                            src={'/images/brands/authjs.svg'}
-                            alt="grid"
-                            width={120}
-                            height={120}
-                        />
-                    </div>
+                <div className="mx-auto mb-25 flex flex-row justify-items-center gap-10">
+                    <ThemedImage
+                        darkSrc="/images/brand-logo/nextjs-white.svg"
+                        lightSrc="/images/brand-logo/nextjs-black.svg"
+                        alt="Next.js"
+                        width={150}
+                        height={30}
+                        href="https://nextjs.org/"
+                        className="transition-transform duration-200 ease-in-out hover:scale-105"
+                    />
+                    <ThemedImage
+                        darkSrc="/images/brand-logo/typescript.svg"
+                        lightSrc="/images/brand-logo/typescript.svg"
+                        alt="Typescript"
+                        width={36}
+                        height={36}
+                        href="https://www.typescriptlang.org/"
+                        className="transition-transform duration-200 ease-in-out hover:scale-105"
+                    />
+                    <ThemedImage
+                        darkSrc="/images/brand-logo/tailwindcss.svg"
+                        lightSrc="/images/brand-logo/tailwindcss.svg"
+                        alt="Tailwind CSS"
+                        width={50}
+                        height={30}
+                        href="https://tailwindcss.com/"
+                        className="transition-transform duration-200 ease-in-out hover:scale-105"
+                    />
+                    <ThemedImage
+                        darkSrc="/images/brand-logo/prisma-white.svg"
+                        lightSrc="/images/brand-logo/prisma-black.svg"
+                        alt="Prisma"
+                        width={100}
+                        height={30}
+                        href="https://www.prisma.io/"
+                        className="transition-transform duration-200 ease-in-out hover:scale-105"
+                    />
+                    <ThemedImage
+                        darkSrc="/images/brand-logo/radix-white.svg"
+                        lightSrc="/images/brand-logo/radix-black.svg"
+                        alt="Radix-UI"
+                        width={95}
+                        height={30}
+                        href="https://www.radix-ui.com/"
+                        className="transition-transform duration-200 ease-in-out hover:scale-105"
+                    />
+                    <ThemedImage
+                        darkSrc="/images/brand-logo/next-intl-white.svg"
+                        lightSrc="/images/brand-logo/next-intl-black.svg"
+                        alt="Next-Intl"
+                        width={130}
+                        height={30}
+                        href="https://next-intl.dev/"
+                        className="transition-transform duration-200 ease-in-out hover:scale-105"
+                    />
+                </div>
+                <div className="mx-auto mb-50 flex min-w-2xl flex-row items-center justify-center gap-8">
+                    <ThemedImage
+                        darkSrc="/images/brand-logo/react-white.svg"
+                        lightSrc="/images/brand-logo/react-black.svg"
+                        alt="React"
+                        width={53}
+                        height={50}
+                        href="https://react.dev/"
+                        className="transition-transform duration-200 ease-in-out hover:scale-105"
+                    />
+                    <ThemedImage
+                        darkSrc="/images/brand-logo/authjs.svg"
+                        lightSrc="/images/brand-logo/authjs.svg"
+                        alt="Auth.js"
+                        width={47}
+                        height={50}
+                        href="https://authjs.dev/"
+                        className="transition-transform duration-200 ease-in-out hover:scale-105"
+                    />
+                    <ThemedImage
+                        darkSrc="/images/brand-logo/resend-white.svg"
+                        lightSrc="/images/brand-logo/resend-black.svg"
+                        alt="Resend"
+                        width={50}
+                        height={50}
+                        href="https://resend.com/"
+                        className="transition-transform duration-200 ease-in-out hover:scale-105"
+                    />
+                    <ThemedImage
+                        darkSrc="/images/brand-logo/lucide-white.svg"
+                        lightSrc="/images/brand-logo/lucide-black.svg"
+                        alt="Lucide-react"
+                        width={50}
+                        height={50}
+                        href="https://lucide.dev/"
+                        className="transition-transform duration-200 ease-in-out hover:scale-105"
+                    />
+                    <ThemedImage
+                        darkSrc="/images/brand-logo/zod.svg"
+                        lightSrc="/images/brand-logo/zod.svg"
+                        alt="Zod"
+                        width={50}
+                        height={50}
+                        href="https://zod.dev/"
+                        className="transition-transform duration-200 ease-in-out hover:scale-105"
+                    />
                 </div>
             </div>
         </div>

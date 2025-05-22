@@ -7,4 +7,5 @@ export interface ThemedImageProps extends Omit<ImageProps, 'src' | 'alt' | 'widt
     width: number;
     height: number;
     className?: string;
+    href?: string;
 }
