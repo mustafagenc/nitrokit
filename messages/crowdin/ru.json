@@ -1,146 +1,146 @@
 {
     "app": {
         "name": "Nitrokit",
-        "shortName": "nitrokit",
-        "description": "Nitrokit başlanğıc şablonu"
+        "shortName": "Nitrokit",
+        "description": "Nitrokit-Startervorlage"
     },
     "common": {
-        "loading": "Yüklənir...",
-        "error": "Xəta baş verdi",
-        "notFound": "Axtardığınız səhifə tapılmadı",
-        "backToHome": "Ana səhifəyə qayıt",
-        "goBack": "Geri qayıt",
-        "ok": "Oldu",
-        "cancel": "Ləğv et",
-        "yes": "Bəli",
-        "no": "Xeyr",
-        "continue": "Davam et",
-        "submit": "Göndər"
+        "loading": "Wird geladen...",
+        "error": "Ein Fehler ist aufgetreten",
+        "notFound": "Die gesuchte Seite wurde nicht gefunden",
+        "backToHome": "Zurück zur Startseite",
+        "goBack": "Geh zurück",
+        "ok": "OK",
+        "cancel": "Abbrechen",
+        "yes": "Ja",
+        "no": "Nein",
+        "continue": "Fortsetzen",
+        "submit": "Senden"
     },
     "auth": {
-        "signin": "Daxil Ol",
-        "signup": "Qeydiyyatdan Keç",
-        "signout": "Çıxış Et",
-        "signinWithGoogle": "Google ilə Daxil Ol",
-        "signinWithFacebook": "Facebook ilə Daxil Ol",
-        "signinWithTwitter": "Twitter ilə Daxil Ol",
-        "signinWithGithub": "Github ilə Daxil Ol",
-        "signinWithApple": "Apple ilə Daxil Ol",
-        "signinWithLinkedIn": "LinkedIn ilə Daxil Ol",
-        "signinWithGitlab": "GitLab ilə Daxil Ol",
-        "signinWithMicrosoft": "Microsoft ilə Daxil Ol",
-        "email": "E-poçt",
-        "password": "Şifrə",
-        "confirmPassword": "Şifrəni Təsdiqlə",
-        "forgotPassword": "Şifrəmi Unutdum",
-        "name": "Adınız",
-        "privacyPolicy": "Məxfilik Siyasətimiz",
-        "slogan1": "Layihələrinizə <span>raket 🚀</span> kimi bir başlanğıc edin!",
-        "slogan2": "<link>Nitrokit</link> ilə vaxta qənaət edin və inkişafa fokuslanın...",
-        "account": "Hesab məlumatları",
-        "support": "Dəstək",
-        "billing": "Fakturalarım"
+        "signin": "Anmelden",
+        "signup": "Sign Up",
+        "signout": "Sign Out",
+        "signinWithGoogle": "Sign In with Google",
+        "signinWithFacebook": "Sign In with Facebook",
+        "signinWithTwitter": "Sign In with Twitter",
+        "signinWithGithub": "Sign In with Github",
+        "signinWithApple": "Sign In with Apple",
+        "signinWithLinkedIn": "Sign In with LinkedIn",
+        "signinWithGitlab": "Sign In with GitLab",
+        "signinWithMicrosoft": "Sign In with Microsoft",
+        "email": "Email",
+        "password": "Password",
+        "confirmPassword": "Confirm Password",
+        "forgotPassword": "Forgot Password",
+        "name": "Your Name",
+        "privacyPolicy": "Our Privacy Policy",
+        "slogan1": "Give your projects a <span>rocket 🚀</span> start!",
+        "slogan2": "Save time with <link>Nitrokit</link> and focus on development...",
+        "account": "Account information",
+        "support": "Support",
+        "billing": "My Invoices"
     },
     "signin": {
-        "title": "{appName}'ə Daxil Ol",
-        "description": "Yenidən xoş gəlmisiniz! Davam etmək üçün lütfən daxil olun",
-        "dontHaveAnAccount": "Hesabınız yoxdur? <link>Qeydiyyatdan Keç</link>."
+        "title": "Sign In to {appName}",
+        "description": "Welcome back! Please sign in to continue",
+        "dontHaveAnAccount": "Don't have an account? <link>Sign Up</link>."
     },
     "signup": {
-        "title": "{appName}'ə Qeydiyyatdan Keç",
-        "alreadyHaveAnAccount": "Artıq hesabınız var? <link>Daxil Ol</link>."
+        "title": "Sign Up for {appName}",
+        "alreadyHaveAnAccount": "Already have an account? <link>Sign In</link>."
     },
     "resetPassword": {
-        "title": "Şifrənizi Sıfırlayın",
-        "description": "E-poçt ünvanınızı daxil edin və şifrənizi sıfırlamaq üçün təlimatları izləyin.",
-        "emailSent": "E-poçt göndərildi! Lütfən e-poçtunuzu yoxlayın."
+        "title": "Reset Your Password",
+        "description": "Enter your email address and follow the instructions to reset your password.",
+        "emailSent": "Email sent! Please check your email."
     },
     "validation": {
         "required": {
-            "name": "Ad sahəsi tələb olunur.",
-            "email": "E-poçt sahəsi tələb olunur.",
-            "message": "Mesaj sahəsi tələb olunur.",
-            "password": "Şifrə sahəsi tələb olunur.",
-            "confirmPassword": "Şifrəni təsdiqləmə sahəsi tələb olunur."
+            "name": "Name field is required.",
+            "email": "Email field is required.",
+            "message": "Message field is required.",
+            "password": "Password field is required.",
+            "confirmPassword": "Confirm password field is required."
         },
         "invalid": {
-            "email": "Yanlış e-poçt ünvanı."
+            "email": "Invalid email address."
         },
         "password": {
-            "confirm": "Şifrələr uyğun gəlmir.",
-            "minLength": "Şifrə ən az {min} simvol olmalıdır.",
-            "maxLength": "Şifrə ən çox {max} simvol olmalıdır.",
-            "uppercase": "Ən az bir böyük hərf olmalıdır.",
-            "lowercase": "Ən az bir kiçik hərf olmalıdır.",
-            "number": "Ən az bir rəqəm olmalıdır.",
-            "special": "Ən az bir xüsusi simvol olmalıdır.",
-            "weak": "zəif",
-            "okay": "orta",
-            "good": "yaxşı",
-            "strong": "güclü",
-            "tooShort": "çox qısa"
+            "confirm": "Passwords do not match.",
+            "minLength": "Password must be at least {min} characters.",
+            "maxLength": "Password must be at most {max} characters.",
+            "uppercase": "Must contain at least one uppercase letter.",
+            "lowercase": "Must contain at least one lowercase letter.",
+            "number": "Must contain at least one number.",
+            "special": "Must contain at least one special character.",
+            "weak": "weak",
+            "okay": "okay",
+            "good": "good",
+            "strong": "strong",
+            "tooShort": "too short"
         }
     },
     "placeholder": {
-        "enterYourName": "Adınızı daxil edin",
-        "enterYourEmail": "E-poçt ünvanınızı daxil edin",
-        "enterYourMessage": "Mesajınızı daxil edin",
-        "enterYourPassword": "Şifrənizi daxil edin",
-        "confirmYourPassword": "Şifrəni təsdiqləyin"
+        "enterYourName": "Enter your name",
+        "enterYourEmail": "Enter your email address",
+        "enterYourMessage": "Enter your message",
+        "enterYourPassword": "Enter your password",
+        "confirmYourPassword": "Confirm your password"
     },
     "notFound": {
-        "title": "Səhifə Tapılmadı",
-        "description": "Xəta! Axtardığınız səhifə mövcud deyil.",
-        "returnHome": "Ana Səhifəyə Qayıt"
+        "title": "Page Not Found",
+        "description": "Error! The page you are looking for does not exist.",
+        "returnHome": "Return to Homepage"
     },
     "error": {
-        "title": "Xəta Baş Verdi",
-        "retry": "Yenidən Cəhd Edin"
+        "title": "An Error Occurred",
+        "retry": "Retry"
     },
     "metadata": {
-        "applicationName": "Nitrokit Başlanğıc Şablonu",
-        "description": "Nitrokit başlanğıc şablonu",
+        "applicationName": "Nitrokit Starter Template",
+        "description": "Nitrokit starter template",
         "author": "Mustafa Genç",
-        "title": "Nitrokit Başlanğıc Şablonu"
+        "title": "Nitrokit Starter Template"
     },
     "navigation": {
-        "title": "Menyu",
-        "home": "Ana Səhifə",
-        "about": "Haqqımızda",
-        "services": "Xidmətlər",
-        "pricing": "Qiymətlər",
-        "blog": "Bloq",
-        "contact": "Əlaqə"
+        "title": "Menu",
+        "home": "Home",
+        "about": "About Us",
+        "services": "Services",
+        "pricing": "Pricing",
+        "blog": "Blog",
+        "contact": "Contact"
     },
     "about": {
-        "title": "Haqqımızda",
-        "description": "Bu, Next.js ilə yaradılmış bir başlanğıc şablonudur. Bu şablon, sürətli və effektiv şəkildə veb tətbiqləri hazırlamaq üçün nəzərdə tutulmuşdur."
+        "title": "About Us",
+        "description": "This is a starter template built with Next.js. This template is designed to develop web applications quickly and effectively."
     },
     "services": {
-        "title": "Xidmətlərimiz",
-        "description": "Təqdim etdiyimiz xidmətlər haqqında daha çox məlumat əldə edin."
+        "title": "Our Services",
+        "description": "Learn more about the services we offer."
     },
     "pricing": {
-        "title": "Qiymətlər",
-        "description": "Qiymət Planları"
+        "title": "Pricing",
+        "description": "Pricing Plans"
     },
     "blog": {
-        "title": "Bloq",
-        "description": "Ən son xəbərlər və yeniləmələr üçün bloqumuzu izləyin."
+        "title": "Blog",
+        "description": "Follow our blog for the latest news and updates."
     },
     "contact": {
-        "title": "Əlaqə",
-        "description": "Bizimlə əlaqə saxlamaq üçün aşağıdakı formanı doldurun.",
-        "name": "Adınız",
-        "email": "E-poçt ünvanınız",
-        "message": "Mesajınız",
-        "send": "Göndər"
+        "title": "Contact",
+        "description": "Fill out the form below to contact us.",
+        "name": "Your Name",
+        "email": "Your Email Address",
+        "message": "Your Message",
+        "send": "Send"
     },
     "privacy": {
-        "title": "Məxfilik Siyasəti",
-        "description": "Məxfilik siyasətimiz haqqında daha çox məlumat əldə edin."
+        "title": "Privacy Policy",
+        "description": "Learn more about our privacy policy."
     },
     "footer": {
-        "copyright": "© Müəllif Hüquqları {year, date, ::yyyy} {name} ♥️ Bütün Hüquqlar Qorunur."
+        "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ All Rights Reserved."
     }
 }
