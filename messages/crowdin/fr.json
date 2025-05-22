@@ -2,145 +2,145 @@
     "app": {
         "name": "Nitrokit",
         "shortName": "Nitrokit",
-        "description": "Modèle de démarrage Nitrokit"
+        "description": "Modello di avvio Nitrokit"
     },
     "common": {
-        "loading": "Chargement...",
-        "error": "Une erreur est survenue",
-        "notFound": "La page que vous recherchez n'a pas été trouvée",
-        "backToHome": "Retour à l'accueil",
-        "goBack": "Retourner",
+        "loading": "Caricamento...",
+        "error": "Si è verificato un errore",
+        "notFound": "La pagina che stai cercando non è stata trovata",
+        "backToHome": "Torna alla home",
+        "goBack": "Torna indietro",
         "ok": "OK",
-        "cancel": "Annuler",
-        "yes": "Oui",
-        "no": "Non",
-        "continue": "Continuer",
-        "submit": "Soumettre"
+        "cancel": "Annulla",
+        "yes": "Sì",
+        "no": "No",
+        "continue": "Continua",
+        "submit": "Invia"
     },
     "auth": {
-        "signin": "Se connecter",
-        "signup": "S'inscrire",
-        "signout": "Se déconnecter",
-        "signinWithGoogle": "Se connecter avec Google",
-        "signinWithFacebook": "Se connecter avec Facebook",
-        "signinWithTwitter": "Se connecter avec Twitter",
-        "signinWithGithub": "Se connecter avec Github",
-        "signinWithApple": "Se connecter avec Apple",
-        "signinWithLinkedIn": "Se connecter avec LinkedIn",
-        "signinWithGitlab": "Se connecter avec GitLab",
-        "signinWithMicrosoft": "Se connecter avec Microsoft",
-        "email": "E-mail",
-        "password": "Mot de passe",
-        "confirmPassword": "Confirmer le mot de passe",
-        "forgotPassword": "Mot de passe oublié",
-        "name": "Votre nom",
-        "privacyPolicy": "Notre politique de confidentialité",
-        "slogan1": "Donnez à vos projets un démarrage <span>fusée 🚀</span> !",
-        "slogan2": "Gagnez du temps avec <link>Nitrokit</link> et concentrez-vous sur le développement...",
-        "account": "Informations du compte",
-        "support": "Support",
-        "billing": "Mes factures"
+        "signin": "Accedi",
+        "signup": "Registrati",
+        "signout": "Esci",
+        "signinWithGoogle": "Accedi con Google",
+        "signinWithFacebook": "Accedi con Facebook",
+        "signinWithTwitter": "Accedi con Twitter",
+        "signinWithGithub": "Accedi con Github",
+        "signinWithApple": "Accedi con Apple",
+        "signinWithLinkedIn": "Accedi con LinkedIn",
+        "signinWithGitlab": "Accedi con GitLab",
+        "signinWithMicrosoft": "Accedi con Microsoft",
+        "email": "Email",
+        "password": "Password",
+        "confirmPassword": "Conferma Password",
+        "forgotPassword": "Password dimenticata",
+        "name": "Il tuo nome",
+        "privacyPolicy": "La nostra Informativa sulla privacy",
+        "slogan1": "Dai ai tuoi progetti un inizio <span>razzo 🚀</span>!",
+        "slogan2": "Risparmia tempo con <link>Nitrokit</link> e concentrati sullo sviluppo...",
+        "account": "Informazioni account",
+        "support": "Supporto",
+        "billing": "Le mie fatture"
     },
     "signin": {
-        "title": "Connectez-vous à {appName}",
-        "description": "Bon retour ! Veuillez vous connecter pour continuer",
-        "dontHaveAnAccount": "Vous n'avez pas de compte ? <link>S'inscrire</link>."
+        "title": "Accedi a {appName}",
+        "description": "Bentornato! Accedi per continuare",
+        "dontHaveAnAccount": "Non hai un account? <link>Registrati</link>."
     },
     "signup": {
-        "title": "Inscrivez-vous à {appName}",
-        "alreadyHaveAnAccount": "Vous avez déjà un compte ? <link>Se connecter</link>."
+        "title": "Registrati a {appName}",
+        "alreadyHaveAnAccount": "Hai già un account? <link>Accedi</link>."
     },
     "resetPassword": {
-        "title": "Réinitialiser votre mot de passe",
-        "description": "Entrez votre adresse e-mail et suivez les instructions pour réinitialiser votre mot de passe.",
-        "emailSent": "E-mail envoyé ! Veuillez vérifier votre messagerie."
+        "title": "Reimposta la tua password",
+        "description": "Inserisci il tuo indirizzo email e segui le istruzioni per reimpostare la password.",
+        "emailSent": "Email inviata! Controlla la tua email."
     },
     "validation": {
         "required": {
-            "name": "Le champ Nom est requis.",
-            "email": "Le champ E-mail est requis.",
-            "message": "Le champ Message est requis.",
-            "password": "Le champ Mot de passe est requis.",
-            "confirmPassword": "Le champ Confirmer le mot de passe est requis."
+            "name": "Il campo nome è obbligatorio.",
+            "email": "Il campo email è obbligatorio.",
+            "message": "Il campo messaggio è obbligatorio.",
+            "password": "Il campo password è obbligatorio.",
+            "confirmPassword": "Il campo conferma password è obbligatorio."
         },
         "invalid": {
-            "email": "Adresse e-mail invalide."
+            "email": "Indirizzo email non valido."
         },
         "password": {
-            "confirm": "Les mots de passe ne correspondent pas.",
-            "minLength": "Le mot de passe doit contenir au moins {min} caractères.",
-            "maxLength": "Le mot de passe doit contenir au plus {max} caractères.",
-            "uppercase": "Doit contenir au moins une lettre majuscule.",
-            "lowercase": "Doit contenir au moins une lettre minuscule.",
-            "number": "Doit contenir au moins un chiffre.",
-            "special": "Doit contenir au moins un caractère spécial.",
-            "weak": "faible",
-            "okay": "moyen",
-            "good": "bon",
-            "strong": "fort",
-            "tooShort": "trop court"
+            "confirm": "Le password non corrispondono.",
+            "minLength": "La password deve contenere almeno {min} caratteri.",
+            "maxLength": "La password deve contenere al massimo {max} caratteri.",
+            "uppercase": "Deve contenere almeno una lettera maiuscola.",
+            "lowercase": "Deve contenere almeno una lettera minuscola.",
+            "number": "Deve contenere almeno un numero.",
+            "special": "Deve contenere almeno un carattere speciale.",
+            "weak": "debole",
+            "okay": "discreta",
+            "good": "buona",
+            "strong": "forte",
+            "tooShort": "troppo corta"
         }
     },
     "placeholder": {
-        "enterYourName": "Entrez votre nom",
-        "enterYourEmail": "Entrez votre adresse e-mail",
-        "enterYourMessage": "Entrez votre message",
-        "enterYourPassword": "Entrez votre mot de passe",
-        "confirmYourPassword": "Confirmez votre mot de passe"
+        "enterYourName": "Inserisci il tuo nome",
+        "enterYourEmail": "Inserisci il tuo indirizzo email",
+        "enterYourMessage": "Inserisci il tuo messaggio",
+        "enterYourPassword": "Inserisci la tua password",
+        "confirmYourPassword": "Conferma la tua password"
     },
     "notFound": {
-        "title": "Page non trouvée",
-        "description": "Erreur ! La page que vous recherchez n'existe pas.",
-        "returnHome": "Retour à la page d'accueil"
+        "title": "Pagina non trovata",
+        "description": "Errore! La pagina che stai cercando non esiste.",
+        "returnHome": "Torna alla Homepage"
     },
     "error": {
-        "title": "Une erreur est survenue",
-        "retry": "Réessayer"
+        "title": "Si è verificato un errore",
+        "retry": "Riprova"
     },
     "metadata": {
-        "applicationName": "Modèle de démarrage Nitrokit",
-        "description": "Modèle de démarrage Nitrokit",
+        "applicationName": "Modello di avvio Nitrokit",
+        "description": "Modello di avvio Nitrokit",
         "author": "Mustafa Genç",
-        "title": "Modèle de démarrage Nitrokit"
+        "title": "Modello di avvio Nitrokit"
     },
     "navigation": {
         "title": "Menu",
-        "home": "Accueil",
-        "about": "À propos de nous",
-        "services": "Services",
-        "pricing": "Tarifs",
+        "home": "Home",
+        "about": "Chi siamo",
+        "services": "Servizi",
+        "pricing": "Prezzi",
         "blog": "Blog",
-        "contact": "Contact"
+        "contact": "Contatti"
     },
     "about": {
-        "title": "À propos de nous",
-        "description": "Ceci est un modèle de démarrage construit avec Next.js. Ce modèle est conçu pour développer des applications web rapidement et efficacement."
+        "title": "Chi siamo",
+        "description": "Questo è un modello di avvio creato con Next.js. Questo modello è progettato per sviluppare applicazioni web in modo rapido ed efficace."
     },
     "services": {
-        "title": "Nos services",
-        "description": "En savoir plus sur les services que nous offrons."
+        "title": "I nostri servizi",
+        "description": "Scopri di più sui servizi che offriamo."
     },
     "pricing": {
-        "title": "Tarifs",
-        "description": "Plans tarifaires"
+        "title": "Prezzi",
+        "description": "Piani tariffari"
     },
     "blog": {
         "title": "Blog",
-        "description": "Suivez notre blog pour les dernières nouvelles et mises à jour."
+        "description": "Segui il nostro blog per le ultime notizie e aggiornamenti."
     },
     "contact": {
-        "title": "Contact",
-        "description": "Remplissez le formulaire ci-dessous pour nous contacter.",
-        "name": "Votre nom",
-        "email": "Votre adresse e-mail",
-        "message": "Votre message",
-        "send": "Envoyer"
+        "title": "Contatti",
+        "description": "Compila il modulo sottostante per contattarci.",
+        "name": "Il tuo nome",
+        "email": "Il tuo indirizzo email",
+        "message": "Il tuo messaggio",
+        "send": "Invia"
     },
     "privacy": {
-        "title": "Politique de confidentialité",
-        "description": "En savoir plus sur notre politique de confidentialité."
+        "title": "Informativa sulla privacy",
+        "description": "Scopri di più sulla nostra informativa sulla privacy."
     },
     "footer": {
-        "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ Tous droits réservés."
+        "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ Tutti i diritti riservati."
     }
 }
