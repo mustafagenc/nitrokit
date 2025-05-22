@@ -2,23 +2,23 @@
     "app": {
         "name": "Nitrokit",
         "shortName": "Nitrokit",
-        "description": "Nitrokit-Startervorlage"
+        "description": "Nitrokit starter template"
     },
     "common": {
-        "loading": "Wird geladen...",
-        "error": "Ein Fehler ist aufgetreten",
-        "notFound": "Die gesuchte Seite wurde nicht gefunden",
-        "backToHome": "Zurück zur Startseite",
-        "goBack": "Geh zurück",
+        "loading": "Loading...",
+        "error": "An error occurred",
+        "notFound": "The page you are looking for was not found",
+        "backToHome": "Back to home",
+        "goBack": "Go back",
         "ok": "OK",
-        "cancel": "Abbrechen",
-        "yes": "Ja",
-        "no": "Nein",
-        "continue": "Fortsetzen",
-        "submit": "Senden"
+        "cancel": "Cancel",
+        "yes": "Yes",
+        "no": "No",
+        "continue": "Continue",
+        "submit": "Submit"
     },
     "auth": {
-        "signin": "Anmelden",
+        "signin": "Sign In",
         "signup": "Sign Up",
         "signout": "Sign Out",
         "signinWithGoogle": "Sign In with Google",
