@@ -1,5 +1,14 @@
 import '@testing-library/jest-dom';
 
+// ResizeObserver mock
+class ResizeObserver {
+    observe() {}
+    unobserve() {}
+    disconnect() {}
+}
+
+global.ResizeObserver = ResizeObserver;
+
 // Mock window.matchMedia
 Object.defineProperty(window, 'matchMedia', {
     writable: true,

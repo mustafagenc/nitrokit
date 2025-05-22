@@ -31,7 +31,6 @@
         "postinstall": "prisma generate --no-engine",
         "prepare": "husky",
         "build": "next build",
-        "vercel-build": "npx prisma generate --no-engine && next build",
         "start": "next start",
         "lint": "next lint --no-cache",
         "lint:fix": "next lint --fix",
