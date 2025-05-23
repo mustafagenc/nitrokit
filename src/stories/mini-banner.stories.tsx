@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/nextjs';
 import { NextIntlClientProvider } from 'next-intl';
 
 import { MiniBanner } from '@/components/banners/mini-banner';

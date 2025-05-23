@@ -97,6 +97,7 @@
         "@storybook/addon-docs": "9.0.0-rc.4",
         "@storybook/addon-onboarding": "9.0.0-rc.4",
         "@storybook/addon-vitest": "^9.0.0-rc.4",
+        "@storybook/nextjs": "9.0.0-rc.4",
         "@storybook/nextjs-vite": "9.0.0-rc.4",
         "@tailwindcss/postcss": "^4",
         "@testing-library/dom": "^10.4.0",
