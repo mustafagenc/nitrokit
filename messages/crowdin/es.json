@@ -2,178 +2,184 @@
     "app": {
         "name": "Nitrokit",
         "shortName": "Nitrokit",
-        "description": "Стартовый шаблон Nitrokit"
+        "description": "Nitrokit başlangıç şablonu"
     },
     "common": {
-        "loading": "Загрузка...",
-        "error": "Произошла ошибка",
-        "notFound": "Запрашиваемая страница не найдена",
-        "backToHome": "Вернуться на главную",
-        "goBack": "Вернуться назад",
-        "ok": "ОК",
-        "cancel": "Отмена",
-        "yes": "Да",
-        "no": "Нет",
-        "continue": "Продолжить",
-        "submit": "Отправить"
+        "loading": "Yükleniyor...",
+        "error": "Bir hata oluştu",
+        "notFound": "Aradığınız sayfa bulunamadı",
+        "backToHome": "Ana sayfaya dön",
+        "goBack": "Geri dön",
+        "ok": "Tamam",
+        "cancel": "İptal",
+        "yes": "Evet",
+        "no": "Hayır",
+        "continue": "Devam et",
+        "submit": "Gönder",
+        "contactUs": "Bize Ulaşın"
     },
     "auth": {
-        "signin": "Войти",
-        "signup": "Зарегистрироваться",
-        "signout": "Выйти",
-        "signinWithGoogle": "Войти через Google",
-        "signinWithFacebook": "Войти через Facebook",
-        "signinWithTwitter": "Войти через Twitter",
-        "signinWithGithub": "Войти через Github",
-        "signinWithApple": "Войти через Apple",
-        "signinWithLinkedIn": "Войти через LinkedIn",
-        "signinWithGitlab": "Войти через GitLab",
-        "signinWithMicrosoft": "Войти через Microsoft",
-        "email": "Электронная почта",
-        "password": "Пароль",
-        "confirmPassword": "Подтвердите пароль",
-        "forgotPassword": "Забыли пароль?",
-        "name": "Имя",
-        "privacyPolicy": "Политика конфиденциальности",
-        "slogan1": "Начните свои проекты как <span>ракета 🚀</span>!",
-        "slogan2": "Экономьте время и сосредоточьтесь на разработке с <link>Nitrokit</link>...",
-        "account": "Информация об аккаунте",
-        "support": "Поддержка",
-        "billing": "Счета"
+        "signin": "Giriş Yap",
+        "signup": "Kayıt Ol",
+        "signout": "Çıkış Yap",
+        "signinWithGoogle": "Google ile Giriş Yap",
+        "signinWithFacebook": "Facebook ile Giriş Yap",
+        "signinWithTwitter": "Twitter ile Giriş Yap",
+        "signinWithGithub": "Github ile Giriş Yap",
+        "signinWithApple": "Apple ile Giriş Yap",
+        "signinWithLinkedIn": "LinkedIn ile Giriş Yap",
+        "signinWithGitlab": "GitLab ile Giriş Yap",
+        "signinWithMicrosoft": "Microsoft ile Giriş Yap",
+        "email": "E-posta",
+        "password": "Şifre",
+        "confirmPassword": "Şifreyi Onayla",
+        "forgotPassword": "Şifremi Unuttum",
+        "name": "Adınız",
+        "privacyPolicy": "Gizlilik Politikamız",
+        "slogan1": "Projelerinize <span>roket 🚀</span> gibi bir başlangıç yapın!",
+        "slogan2": "<link>Nitrokit</link> ile zamandan kazanın ve geliştirmeye odaklanın...",
+        "account": "Hesap bilgileri",
+        "support": "Destek",
+        "billing": "Faturalarım"
     },
     "signin": {
-        "title": "Войти в {appName}",
-        "description": "С возвращением! Пожалуйста, войдите, чтобы продолжить",
-        "dontHaveAnAccount": "Нет аккаунта? <link>Зарегистрируйтесь</link>."
+        "title": "{appName}'e Giriş Yap",
+        "description": "Tekrar hoş geldiniz! Devam etmek için lütfen giriş yapın",
+        "dontHaveAnAccount": "Hesabınız yok mu? <link>Kaydol</link>."
     },
     "signup": {
-        "title": "Зарегистрироваться в {appName}",
-        "alreadyHaveAnAccount": "Уже есть аккаунт? <link>Войти</link>."
+        "title": "{appName}'e Kaydol",
+        "alreadyHaveAnAccount": "Zaten bir hesabınız var mı? <link>Giriş Yap</link>."
     },
     "resetPassword": {
-        "title": "Сбросить пароль",
-        "description": "Введите свой адрес электронной почты и следуйте инструкциям, чтобы сбросить пароль.",
-        "emailSent": "Письмо отправлено! Пожалуйста, проверьте свою электронную почту."
+        "title": "Şifrenizi Sıfırlayın",
+        "description": "E-posta adresinizi girin ve şifrenizi sıfırlamak için talimatları takip edin.",
+        "emailSent": "E-posta gönderildi! Lütfen e-postanızı kontrol edin."
     },
     "validation": {
         "required": {
-            "name": "Поле 'Имя' обязательно для заполнения.",
-            "email": "Поле 'Электронная почта' обязательно для заполнения.",
-            "message": "Поле 'Сообщение' обязательно для заполнения.",
-            "password": "Поле 'Пароль' обязательно для заполнения.",
-            "confirmPassword": "Поле 'Подтверждение пароля' обязательно для заполнения."
+            "name": "Ad alanı gereklidir.",
+            "email": "E-posta alanı gereklidir.",
+            "message": "Mesaj alanı gereklidir.",
+            "password": "Şifre alanı gereklidir.",
+            "confirmPassword": "Şifreyi onaylama alanı gereklidir."
         },
         "invalid": {
-            "email": "Неверный адрес электронной почты."
+            "email": "Geçersiz e-posta adresi."
         },
         "password": {
-            "confirm": "Пароли не совпадают.",
-            "minLength": "Пароль должен содержать не менее {min} символов.",
-            "maxLength": "Пароль должен содержать не более {max} символов.",
-            "uppercase": "Должен содержать хотя бы одну заглавную букву.",
-            "lowercase": "Должен содержать хотя бы одну строчную букву.",
-            "number": "Должен содержать хотя бы одну цифру.",
-            "special": "Должен содержать хотя бы один специальный символ.",
-            "weak": "слабый",
-            "okay": "нормальный",
-            "good": "хороший",
-            "strong": "сильный",
-            "tooShort": "слишком короткий"
+            "confirm": "Şifreler eşleşmiyor.",
+            "minLength": "Şifre en az {min} karakter olmalıdır.",
+            "maxLength": "Şifre en fazla {max} karakter olmalıdır.",
+            "uppercase": "En az bir büyük harf içermelidir.",
+            "lowercase": "En az bir küçük harf içermelidir.",
+            "number": "En az bir rakam içermelidir.",
+            "special": "En az bir özel karakter içermelidir.",
+            "weak": "zayıf",
+            "okay": "iyi sayılır",
+            "good": "iyi",
+            "strong": "güçlü",
+            "tooShort": "çok kısa"
         }
     },
     "placeholder": {
-        "enterYourName": "Введите ваше имя",
-        "enterYourEmail": "Введите ваш адрес электронной почты",
-        "enterYourMessage": "Введите ваше сообщение",
-        "enterYourPassword": "Введите ваш пароль",
-        "confirmYourPassword": "Подтвердите ваш пароль"
+        "enterYourName": "Adınızı girin",
+        "enterYourEmail": "E-posta adresinizi girin",
+        "enterYourMessage": "Mesajınızı girin",
+        "enterYourPassword": "Şifrenizi girin",
+        "confirmYourPassword": "Şifreyi onaylayın"
     },
     "notFound": {
-        "title": "Страница не найдена",
-        "description": "Ошибка! Запрашиваемая страница не существует.",
-        "returnHome": "Вернуться на главную"
+        "title": "Sayfa Bulunamadı",
+        "description": "Hata! Aradığınız sayfa mevcut değil.",
+        "returnHome": "Ana Sayfaya Dön"
     },
     "error": {
-        "title": "Произошла ошибка",
-        "retry": "Повторить попытку"
+        "title": "Bir Hata Oluştu",
+        "retry": "Yeniden Dene"
     },
     "metadata": {
-        "applicationName": "Стартовый шаблон NitroKit",
-        "description": "Стартовый шаблон NitroKit",
-        "author": "Мустафа Генч",
-        "title": "Стартовый шаблон NitroKit"
+        "applicationName": "Nitrokit Başlangıç Şablonu",
+        "description": "Nitrokit başlangıç şablonu",
+        "author": "Mustafa Genç",
+        "title": "Nitrokit Başlangıç Şablonu"
     },
     "navigation": {
-        "title": "Меню",
-        "home": "Главная",
-        "about": "О нас",
-        "services": "Услуги",
-        "pricing": "Цены",
-        "blog": "Блог",
-        "contact": "Контакты"
+        "title": "Menü",
+        "home": "Ana Sayfa",
+        "about": "Hakkımızda",
+        "services": "Hizmetler",
+        "pricing": "Fiyatlar",
+        "blog": "Blog",
+        "contact": "İletişim"
     },
     "about": {
-        "title": "О нас",
-        "description": "Это стартовый шаблон, созданный с помощью Next.js. Этот шаблон предназначен для быстрой и эффективной разработки веб-приложений."
+        "title": "Hakkımızda",
+        "description": "Bu, Next.js ile oluşturulmuş bir başlangıç şablonudur. Bu şablon, hızlı ve etkili bir şekilde web uygulamaları geliştirmek için tasarlanmıştır."
     },
     "services": {
-        "title": "Наши услуги",
-        "description": "Узнайте больше о предлагаемых нами услугах."
+        "title": "Hizmetlerimiz",
+        "description": "Sunduğumuz hizmetler hakkında daha fazla bilgi edinin."
     },
     "pricing": {
-        "title": "Pricing",
-        "subtitle": "Pricing that grows with you",
-        "description": "Choose an affordable plan that’s packed with the best features for engaging your audience, creating customer loyalty, and driving sales.",
-        "monthly": "Monthly",
-        "yearly": "Yearly",
-        "pricePerMonth": "Month",
-        "pricePerYear": "Year",
-        "purchasePlan": "Purchase Plan",
+        "title": "Fiyatlar",
+        "subtitle": "Ölçeklenebilir fiyatlandırma",
+        "description": "Hedef kitlenizle etkileşim kurmak, müşteri sadakati oluşturmak ve satışları artırmak için en iyi özelliklerle dolu uygun fiyatlı bir plan seçin.",
+        "monthly": "Aylık",
+        "yearly": "Yıllık",
+        "annual-payment": "Yıllık ödemede <span>%20 tasarruf edin.</span>",
+        "pricePerMonth": "Ay",
+        "pricePerYear": "Yıl",
+        "purchasePlan": "Satın Al",
         "freelancer": {
-            "title": "Freelancer",
-            "description": "The essentials to provide your best work for clients."
+            "title": "Serbest Çalışan",
+            "description": "Müşterileriniz için en iyi çalışmanızı sağlamak için temel özellikler."
         },
         "startup": {
-            "title": "Startup",
-            "description": "A plan that scales with your rapidly growing business."
+            "title": "Girişim",
+            "description": "Hızla büyüyen işletmenizle ölçeklenen bir plan."
+        },
+        "pro": {
+            "title": "Profesyonel",
+            "description": "Şirketiniz için özel destek ve altyapı."
         },
         "enterprise": {
-            "title": "Enterprise",
-            "description": "Dedicated support and infrastructure for your company."
+            "title": "Kurumsal",
+            "description": "Kurumsal ihtiyaçlarınız için özel bir fiyat teklifi almak için bizimle iletişime geçin."
         },
         "features": {
-            "5products": "5 products",
-            "25products": "10 products",
-            "unlimitedproducts": "Unlimited products",
-            "upto1000subscribers": "Up to 1000 subscribers",
-            "upto10000subscribers": "Up to 10,000 subscribers",
-            "unlimitedsubscribers": "Unlimited subscribers",
-            "48hoursupport": "48-hour support",
-            "24hoursupport": "24-hour support",
-            "1hoursupport": "1-hour support",
-            "basicanalytics": "Basic analytics",
-            "advancedanalytics": "Advanced analytics",
-            "xhoursupport": "{count}-hour support",
-            "marketingautomations": "Marketing automations"
+            "5products": "5 ürün",
+            "25products": "10 ürün",
+            "unlimitedproducts": "Sınırsız ürün",
+            "upto1000subscribers": "1000 aboneye kadar",
+            "upto10000subscribers": "10.000 aboneye kadar",
+            "unlimitedsubscribers": "Sınırsız abone",
+            "48hoursupport": "48 saat destek",
+            "24hoursupport": "24 saat destek",
+            "1hoursupport": "1 saat destek",
+            "basicanalytics": "Temel analizler",
+            "advancedanalytics": "Gelişmiş analizler",
+            "xhoursupport": "{count} saat destek",
+            "marketingautomations": "Pazarlama otomasyonları"
         }
     },
     "blog": {
-        "title": "Блог",
-        "description": "Следите за нашим блогом, чтобы быть в курсе последних новостей и обновлений."
+        "title": "Blog",
+        "description": "En son haberler ve güncellemeler için blogumuzu takip edin."
     },
     "contact": {
-        "title": "Контакты",
-        "description": "Заполните форму ниже, чтобы связаться с нами.",
-        "name": "Ваше имя",
-        "email": "Ваш адрес электронной почты",
-        "message": "Ваше сообщение",
-        "send": "Отправить"
+        "title": "İletişim",
+        "description": "Bizimle iletişime geçmek için aşağıdaki formu doldurun.",
+        "name": "Adınız",
+        "email": "E-posta adresiniz",
+        "message": "Mesajınız",
+        "send": "Gönder"
     },
     "privacy": {
-        "title": "Политика конфиденциальности",
-        "description": "Узнайте больше о нашей политике конфиденциальности."
+        "title": "Gizlilik Politikası",
+        "description": "Gizlilik politikamız hakkında daha fazla bilgi edinin."
     },
     "footer": {
-        "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ Все права защищены."
+        "copyright": "© Telif Hakkı {year, date, ::yyyy} {name} ♥️ Tüm Hakları Saklıdır."
     }
 }
