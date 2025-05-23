@@ -43,3 +43,5 @@ next-env.d.ts
 
 /.temp
 /generated
+
+*storybook.log
