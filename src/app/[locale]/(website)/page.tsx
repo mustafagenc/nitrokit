@@ -1,7 +1,7 @@
 import { GitHubIcon } from '@/components/icons/github';
 import SharedLayout from '@/components/layout/shared';
 import { ThemedImage } from '@/components/shared/themed-image';
-import { MiniBanner } from '@/components/temp/mini-banner';
+import { MiniBanner } from '@/components/banners/mini-banner';
 import { Link } from '@/i18n/navigation';
 
 export default async function Home() {
