@@ -4,8 +4,6 @@ import createNextIntlPlugin from 'next-intl/plugin';
 const nextConfig: NextConfig = {
     trailingSlash: true,
     images: {
-        loader: 'custom',
-        loaderFile: './src/utils/image-loader.ts',
         remotePatterns: [
             {
                 protocol: 'https',

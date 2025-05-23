@@ -37,7 +37,6 @@
         "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\" --cache",
         "format:write": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\" --cache",
         "test": "jest",
-        "test:watch": "jest --watch",
         "test:coverage": "jest --coverage"
     },
     "dependencies": {

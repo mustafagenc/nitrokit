@@ -21,7 +21,7 @@ export default async function Home() {
             <h2 className="mb-6 inline-block bg-gradient-to-r text-center text-4xl font-bold text-emerald-500 text-shadow-2xs">
                 Geliştirme Süreçlerinizi Hızlandırın
             </h2>
-            <p className="mb-6 w-4xl text-lg leading-8 text-gray-800 dark:text-gray-200">
+            <p className="mb-6 w-4xl text-lg leading-8 text-gray-800 text-shadow-2xs dark:text-gray-200">
                 Nitrokit, startup&apos;ların hızlı ve etkili bir şekilde web sitelerini hayata
                 geçirmeleri için tasarlanmış, gerekli tüm entegrasyonları, sayfaları ve bileşenleri
                 barındıran bir başlangıç setidir.
@@ -51,7 +51,7 @@ export default async function Home() {
                     width={150}
                     height={30}
                     href="https://nextjs.org/"
-                    className="transition-transform duration-200 ease-in-out hover:scale-105"
+                    className="drop-shadow-xs transition-transform duration-200 ease-in-out hover:scale-105"
                 />
                 <ThemedImage
                     darkSrc="/images/brand-logo/typescript.svg"
@@ -60,7 +60,7 @@ export default async function Home() {
                     width={36}
                     height={36}
                     href="https://www.typescriptlang.org/"
-                    className="transition-transform duration-200 ease-in-out hover:scale-105"
+                    className="drop-shadow-xs transition-transform duration-200 ease-in-out hover:scale-105"
                 />
                 <ThemedImage
                     darkSrc="/images/brand-logo/tailwindcss.svg"
@@ -69,7 +69,7 @@ export default async function Home() {
                     width={50}
                     height={30}
                     href="https://tailwindcss.com/"
-                    className="transition-transform duration-200 ease-in-out hover:scale-105"
+                    className="drop-shadow-xs transition-transform duration-200 ease-in-out hover:scale-105"
                 />
                 <ThemedImage
                     darkSrc="/images/brand-logo/prisma-white.svg"
@@ -78,7 +78,7 @@ export default async function Home() {
                     width={100}
                     height={30}
                     href="https://www.prisma.io/"
-                    className="transition-transform duration-200 ease-in-out hover:scale-105"
+                    className="drop-shadow-xs transition-transform duration-200 ease-in-out hover:scale-105"
                 />
                 <ThemedImage
                     darkSrc="/images/brand-logo/radix-white.svg"
@@ -87,7 +87,7 @@ export default async function Home() {
                     width={95}
                     height={30}
                     href="https://www.radix-ui.com/"
-                    className="transition-transform duration-200 ease-in-out hover:scale-105"
+                    className="drop-shadow-xs transition-transform duration-200 ease-in-out hover:scale-105"
                 />
                 <ThemedImage
                     darkSrc="/images/brand-logo/next-intl-white.svg"
@@ -96,7 +96,7 @@ export default async function Home() {
                     width={130}
                     height={30}
                     href="https://next-intl.dev/"
-                    className="transition-transform duration-200 ease-in-out hover:scale-105"
+                    className="drop-shadow-xs transition-transform duration-200 ease-in-out hover:scale-105"
                 />
             </div>
 
@@ -108,7 +108,7 @@ export default async function Home() {
                     width={33}
                     height={30}
                     href="https://react.dev/"
-                    className="transition-transform duration-200 ease-in-out hover:scale-105"
+                    className="drop-shadow-xs transition-transform duration-200 ease-in-out hover:scale-105"
                 />
                 <ThemedImage
                     darkSrc="/images/brand-logo/authjs.svg"
@@ -117,7 +117,7 @@ export default async function Home() {
                     width={27}
                     height={30}
                     href="https://authjs.dev/"
-                    className="transition-transform duration-200 ease-in-out hover:scale-105"
+                    className="drop-shadow-xs transition-transform duration-200 ease-in-out hover:scale-105"
                 />
                 <ThemedImage
                     darkSrc="/images/brand-logo/resend-white.svg"
@@ -126,7 +126,7 @@ export default async function Home() {
                     width={30}
                     height={30}
                     href="https://resend.com/"
-                    className="transition-transform duration-200 ease-in-out hover:scale-105"
+                    className="drop-shadow-xs transition-transform duration-200 ease-in-out hover:scale-105"
                 />
                 <ThemedImage
                     darkSrc="/images/brand-logo/lucide-white.svg"
@@ -135,7 +135,7 @@ export default async function Home() {
                     width={30}
                     height={30}
                     href="https://lucide.dev/"
-                    className="transition-transform duration-200 ease-in-out hover:scale-105"
+                    className="drop-shadow-xs transition-transform duration-200 ease-in-out hover:scale-105"
                 />
                 <ThemedImage
                     darkSrc="/images/brand-logo/zod.svg"
@@ -144,7 +144,7 @@ export default async function Home() {
                     width={30}
                     height={30}
                     href="https://zod.dev/"
-                    className="transition-transform duration-200 ease-in-out hover:scale-105"
+                    className="drop-shadow-xs transition-transform duration-200 ease-in-out hover:scale-105"
                 />
             </div>
         </SharedLayout>

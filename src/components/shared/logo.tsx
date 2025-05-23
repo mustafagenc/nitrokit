@@ -16,8 +16,8 @@ export default function Logo({
     return (
         <Link href={'/'} className="flex items-center justify-start gap-2">
             <ThemedImage
-                lightSrc={'/logo/ekipisi.svg'}
-                darkSrc={'/logo/ekipisi-dark.svg'}
+                lightSrc={'/logo/ekipisi-dark.svg'}
+                darkSrc={'/logo/ekipisi.svg'}
                 alt="Next.js logo"
                 width={size}
                 height={size}
@@ -25,7 +25,7 @@ export default function Logo({
             />
             {!onlyIcon && (
                 <span
-                    className={`${forceText ? '' : 'hidden lg:inline-block'} bg-gradient-to-r from-blue-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% bg-clip-text font-[family-name:var(--font-lexend)] text-2xl font-bold text-transparent text-shadow-2xs`}>
+                    className={`${forceText ? '' : 'hidden lg:inline-block'} font-[family-name:var(--font-lexend)] text-2xl font-bold text-shadow-2xs`}>
                     {t('name')}
                 </span>
             )}
