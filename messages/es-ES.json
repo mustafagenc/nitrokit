@@ -1,0 +1,185 @@
+{
+    "app": {
+        "name": "Nitrokit",
+        "shortName": "Nitrokit",
+        "description": "Plantilla de inicio de Nitrokit"
+    },
+    "common": {
+        "loading": "Cargando...",
+        "error": "Se ha producido un error",
+        "notFound": "La página que estás buscando no fue encontrada",
+        "backToHome": "Volver a casa",
+        "goBack": "Volver",
+        "ok": "Ok",
+        "cancel": "Cancelar",
+        "yes": "Sí",
+        "no": "Nu",
+        "continue": "Continuar",
+        "submit": "Enviar",
+        "contactUs": "Contáctenos"
+    },
+    "auth": {
+        "signin": "Iniciar sesión",
+        "signup": "Regístrate",
+        "signout": "Cerrar sesión",
+        "signinWithGoogle": "Iniciar sesión con Google",
+        "signinWithFacebook": "Iniciar sesión con Facebook",
+        "signinWithTwitter": "Iniciar sesión con Twitter",
+        "signinWithGithub": "Iniciar sesión con Github",
+        "signinWithApple": "Iniciar sesión con Apple",
+        "signinWithLinkedIn": "Iniciar sesión con LinkedIn",
+        "signinWithGitlab": "Iniciar sesión con GitLab",
+        "signinWithMicrosoft": "Iniciar sesión con Microsoft",
+        "email": "E-mail",
+        "password": "Contraseña",
+        "confirmPassword": "Confirmar contraseña",
+        "forgotPassword": "Olvidó la contraseña",
+        "name": "Tu nombre",
+        "privacyPolicy": "Política de privacidad",
+        "slogan1": "¡Dale a tus proyectos un cohete <span>🚀</span>!",
+        "slogan2": "Ahorra tiempo con <link>Nitrokit</link> y centra tu atención en el desarrollo...",
+        "account": "Información de la cuenta",
+        "support": "Soporte",
+        "billing": "Mis facturas"
+    },
+    "signin": {
+        "title": "Iniciar sesión en {appName}",
+        "description": "¡Bienvenido de nuevo! Por favor inicia sesión para continuar",
+        "dontHaveAnAccount": "¿No tienes una cuenta? <link>Regístrate</link>."
+    },
+    "signup": {
+        "title": "Regístrate en {appName}",
+        "alreadyHaveAnAccount": "Already have an account? <link>Sign In</link>."
+    },
+    "resetPassword": {
+        "title": "Restablecer su contraseña",
+        "description": "Introduzca su dirección de correo electrónico y siga las instrucciones para restablecer su contraseña.",
+        "emailSent": "¡Correo enviado! Por favor revisa tu correo electrónico."
+    },
+    "validation": {
+        "required": {
+            "name": "El campo Nombre es obligatorio.",
+            "email": "El campo email es obligatorio.",
+            "message": "El campo del mensaje es obligatorio.",
+            "password": "El campo contraseña es obligatorio.",
+            "confirmPassword": "Confirmar la contraseña es obligatorio."
+        },
+        "invalid": {
+            "email": "Dirección de correo inválida."
+        },
+        "password": {
+            "confirm": "Las contraseñas no coinciden.",
+            "minLength": "La contraseña debe tener al menos caracteres {min}.",
+            "maxLength": "La contraseña debe tener como máximo {max} caracteres.",
+            "uppercase": "Debe contener al menos una letra mayúscula.",
+            "lowercase": "Debe contener al menos una letra minúscula.",
+            "number": "Debe contener al menos un número.",
+            "special": "Debe contener al menos un carácter especial.",
+            "weak": "débil",
+            "okay": "ok",
+            "good": "bueno",
+            "strong": "fuerte",
+            "tooShort": "demasiado corto"
+        }
+    },
+    "placeholder": {
+        "enterYourName": "Introduce tu nombre",
+        "enterYourEmail": "Introduzca su dirección de correo",
+        "enterYourMessage": "Introduce tu mensaje",
+        "enterYourPassword": "Introduzca su contraseña",
+        "confirmYourPassword": "Confirme su contraseña"
+    },
+    "notFound": {
+        "title": "Página no encontrada",
+        "description": "¡Error! La página que buscas no existe.",
+        "returnHome": "Volver a la página web"
+    },
+    "error": {
+        "title": "Se ha producido un error",
+        "retry": "Reintentar"
+    },
+    "metadata": {
+        "applicationName": "Plantilla de inicio de Nitrokit",
+        "description": "Plantilla de inicio de Nitrokit",
+        "author": "Mustafa Gención/a",
+        "title": "Plantilla de inicio de Nitrokit"
+    },
+    "navigation": {
+        "title": "Menú",
+        "home": "Inicio",
+        "about": "Acerca de nosotros",
+        "services": "Servicios",
+        "pricing": "Precios",
+        "blog": "Blog",
+        "contact": "Contacto"
+    },
+    "about": {
+        "title": "Acerca de nosotros",
+        "description": "Esta es una plantilla de inicio creada con Next.js. Esta plantilla está diseñada para desarrollar aplicaciones web de forma rápida y efectiva."
+    },
+    "services": {
+        "title": "Nuestros servicios",
+        "description": "Obtenga más información sobre los servicios que ofrecemos."
+    },
+    "pricing": {
+        "title": "Precios",
+        "subtitle": "Precios que crecen contigo",
+        "description": "Elija un plan asequible que esté lleno de las mejores características para atraer a su audiencia, creando lealtad al cliente y ventas de conducir.",
+        "monthly": "Mensual",
+        "yearly": "Anual",
+        "annual-payment": "<span>Save 20%</span> with annual billing.",
+        "pricePerMonth": "Mes",
+        "pricePerYear": "Año",
+        "purchasePlan": "Plan de compra",
+        "freelancer": {
+            "title": "Freelance",
+            "description": "Lo esencial para proporcionar su mejor trabajo a sus clientes."
+        },
+        "startup": {
+            "title": "Startup",
+            "description": "Un plan que se ajusta a su negocio de rápido crecimiento."
+        },
+        "pro": {
+            "title": "Profesional",
+            "description": "Soporte dedicado e infraestructura construida para su empresa en crecimiento."
+        },
+        "enterprise": {
+            "title": "Empresa",
+            "description": "Póngase en contacto para obtener un presupuesto personalizado para sus necesidades empresariales."
+        },
+        "features": {
+            "5products": "5 productos",
+            "25products": "10 productos",
+            "unlimitedproducts": "Productos ilimitados",
+            "upto1000subscribers": "Hasta 1000 suscriptores",
+            "upto10000subscribers": "Hasta 10.000 suscriptores",
+            "unlimitedsubscribers": "Suscriptores ilimitados",
+            "48hoursupport": "Servicio de 48 horas",
+            "24hoursupport": "Soporte de 24 horas",
+            "1hoursupport": "Soporte de 1 hora",
+            "basicanalytics": "Análisis básico",
+            "advancedanalytics": "Analíticas avanzadas",
+            "xhoursupport": "{count}horas de soporte",
+            "marketingautomations": "Automatizaciones de marketing"
+        }
+    },
+    "blog": {
+        "title": "Blog",
+        "description": "Siga nuestro blog para las últimas noticias y actualizaciones."
+    },
+    "contact": {
+        "title": "Contacto",
+        "description": "Rellene el siguiente formulario para ponerse en contacto con nosotros.",
+        "name": "Tu nombre",
+        "email": "Su dirección de correo",
+        "message": "Tu mensaje",
+        "send": "Enviar"
+    },
+    "privacy": {
+        "title": "Política de privacidad",
+        "description": "Más información sobre nuestra política de privacidad."
+    },
+    "footer": {
+        "copyright": "©️ Copyright {year, date, ::yyyy} {name} ♥️ Todos los derechos reservados."
+    }
+}
