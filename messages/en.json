@@ -15,7 +15,8 @@
         "yes": "Yes",
         "no": "No",
         "continue": "Continue",
-        "submit": "Submit"
+        "submit": "Submit",
+        "contactUs": "Contact Us"
     },
     "auth": {
         "signin": "Sign In",
@@ -137,9 +138,13 @@
             "title": "Startup",
             "description": "A plan that scales with your rapidly growing business."
         },
+        "pro": {
+            "title": "Professional",
+            "description": "Dedicated support and infrastructure built for your growing company."
+        },
         "enterprise": {
             "title": "Enterprise",
-            "description": "Dedicated support and infrastructure for your company."
+            "description": "Get in touch for a custom quote for your enterprise needs."
         },
         "features": {
             "5products": "5 products",

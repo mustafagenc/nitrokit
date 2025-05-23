@@ -15,7 +15,8 @@
         "yes": "Evet",
         "no": "Hayır",
         "continue": "Devam et",
-        "submit": "Gönder"
+        "submit": "Gönder",
+        "contactUs": "Bize Ulaşın"
     },
     "auth": {
         "signin": "Giriş Yap",
@@ -137,9 +138,13 @@
             "title": "Girişim",
             "description": "Hızla büyüyen işletmenizle ölçeklenen bir plan."
         },
+        "pro": {
+            "title": "Profesyonel",
+            "description": "Şirketiniz için özel destek ve altyapı."
+        },
         "enterprise": {
             "title": "Kurumsal",
-            "description": "Şirketiniz için özel destek ve altyapı."
+            "description": "Kurumsal ihtiyaçlarınız için özel bir fiyat teklifi almak için bizimle iletişime geçin."
         },
         "features": {
             "5products": "5 ürün",

@@ -5,6 +5,7 @@ import SharedLayout from '@/components/layout/shared';
 import { generatePageMetadata } from '@/utils/helpers';
 import PricingSection from './components/pricing-section';
 import { PlanDetail } from '@/types/PricingSectionProps';
+import EnterpriseBanner from './components/enterprise-banner';
 
 export async function generateMetadata(): Promise<Metadata> {
     const t = await getTranslations('pricing');
@@ -38,7 +39,7 @@ const plansConfiguration: PlanDetail[] = [
         isFeatured: true,
     },
     {
-        id: 'enterprise',
+        id: 'pro',
         monthlyPrice: 99,
         yearlyPrice: 990,
         features: [
@@ -64,6 +65,9 @@ export default async function Page() {
             </div>
             <div className="mb-30">
                 <PricingSection plansConfig={plansConfiguration} />
+            </div>
+            <div className="mb-30">
+                <EnterpriseBanner />
             </div>
         </SharedLayout>
     );

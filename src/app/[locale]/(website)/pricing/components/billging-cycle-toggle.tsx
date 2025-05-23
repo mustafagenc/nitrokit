@@ -22,7 +22,7 @@ export default function BillingCycleToggle({
             onValueChange={(value: string) => {
                 if (value) onBillingCycleChange(value);
             }}
-            className="inline-flex rounded-full border border-neutral-200 bg-neutral-100 p-0.5 dark:border-neutral-700 dark:bg-neutral-800">
+            className="inline-flex rounded-full border border-neutral-200 bg-neutral-100 p-0.5 duration-1000 ease-out dark:border-neutral-700 dark:bg-neutral-800">
             <ToggleGroupItem
                 value="monthly"
                 className="cursor-pointer rounded-full px-6 py-2.5 text-sm font-semibold transition-all duration-150 ease-in-out focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-100 focus-visible:outline-none data-[state=off]:rounded-full data-[state=off]:text-neutral-600 data-[state=on]:rounded-full data-[state=on]:bg-white data-[state=on]:text-cyan-600 data-[state=on]:shadow-md dark:focus-visible:ring-offset-neutral-800 dark:data-[state=off]:text-neutral-400 data-[state=on]:dark:bg-black dark:data-[state=on]:text-cyan-400"
