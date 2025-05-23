@@ -1,146 +1,179 @@
 {
     "app": {
-        "name": "Nitrokit",
-        "shortName": "Nitrokit",
-        "description": "Modello di avvio Nitrokit"
+        "name": "نیترو کیت",
+        "shortName": "نیتروکیت",
+        "description": "قالب بداية نیترو کیت"
     },
     "common": {
-        "loading": "Caricamento...",
-        "error": "Si è verificato un errore",
-        "notFound": "La pagina che stai cercando non è stata trovata",
-        "backToHome": "Torna alla home",
-        "goBack": "Torna indietro",
-        "ok": "OK",
-        "cancel": "Annulla",
-        "yes": "Sì",
-        "no": "No",
-        "continue": "Continua",
-        "submit": "Invia"
+        "loading": "جار التحميل...",
+        "error": "حدث خطأ",
+        "notFound": "الصفحة التي تبحث عنها غير موجودة",
+        "backToHome": "العودة إلى الصفحة الرئيسية",
+        "goBack": "رجوع",
+        "ok": "موافق",
+        "cancel": "إلغاء",
+        "yes": "نعم",
+        "no": "لا",
+        "continue": "متابعة",
+        "submit": "إرسال"
     },
     "auth": {
-        "signin": "Accedi",
-        "signup": "Registrati",
-        "signout": "Esci",
-        "signinWithGoogle": "Accedi con Google",
-        "signinWithFacebook": "Accedi con Facebook",
-        "signinWithTwitter": "Accedi con Twitter",
-        "signinWithGithub": "Accedi con Github",
-        "signinWithApple": "Accedi con Apple",
-        "signinWithLinkedIn": "Accedi con LinkedIn",
-        "signinWithGitlab": "Accedi con GitLab",
-        "signinWithMicrosoft": "Accedi con Microsoft",
-        "email": "Email",
-        "password": "Password",
-        "confirmPassword": "Conferma Password",
-        "forgotPassword": "Password dimenticata",
-        "name": "Il tuo nome",
-        "privacyPolicy": "La nostra Informativa sulla privacy",
-        "slogan1": "Dai ai tuoi progetti un inizio <span>razzo 🚀</span>!",
-        "slogan2": "Risparmia tempo con <link>Nitrokit</link> e concentrati sullo sviluppo...",
-        "account": "Informazioni account",
-        "support": "Supporto",
-        "billing": "Le mie fatture"
+        "signin": "تسجيل الدخول",
+        "signup": "اشتراك",
+        "signout": "تسجيل الخروج",
+        "signinWithGoogle": "تسجيل الدخول باستخدام جوجل",
+        "signinWithFacebook": "تسجيل الدخول باستخدام فيسبوك",
+        "signinWithTwitter": "تسجيل الدخول باستخدام تويتر",
+        "signinWithGithub": "تسجيل الدخول باستخدام جيت هاب",
+        "signinWithApple": "تسجيل الدخول باستخدام آبل",
+        "signinWithLinkedIn": "تسجيل الدخول باستخدام لينكد إن",
+        "signinWithGitlab": "تسجيل الدخول باستخدام جيت لاب",
+        "signinWithMicrosoft": "تسجيل الدخول باستخدام مايكروسوفت",
+        "email": "البريد الإلكتروني",
+        "password": "كلمة المرور",
+        "confirmPassword": "تأكيد كلمة المرور",
+        "forgotPassword": "نسيت كلمة المرور",
+        "name": "اسمك",
+        "privacyPolicy": "سياسة الخصوصية الخاصة بنا",
+        "slogan1": "ابدأ مشاريعك <span>بسرعة الصاروخ 🚀</span>!",
+        "slogan2": "وفر الوقت وركز على التطوير مع <link>نیترو کیت</link>...",
+        "account": "معلومات الحساب",
+        "support": "الدعم",
+        "billing": "فواتيري"
     },
     "signin": {
-        "title": "Accedi a {appName}",
-        "description": "Bentornato! Accedi per continuare",
-        "dontHaveAnAccount": "Non hai un account? <link>Registrati</link>."
+        "title": "تسجيل الدخول إلى {appName}",
+        "description": "مرحبًا بعودتك! يرجى تسجيل الدخول للمتابعة",
+        "dontHaveAnAccount": "ليس لديك حساب؟ <link>اشتراك</link>."
     },
     "signup": {
-        "title": "Registrati a {appName}",
-        "alreadyHaveAnAccount": "Hai già un account? <link>Accedi</link>."
+        "title": "التسجيل في {appName}",
+        "alreadyHaveAnAccount": "هل لديك حساب بالفعل؟ <link>تسجيل الدخول</link>."
     },
     "resetPassword": {
-        "title": "Reimposta la tua password",
-        "description": "Inserisci il tuo indirizzo email e segui le istruzioni per reimpostare la password.",
-        "emailSent": "Email inviata! Controlla la tua email."
+        "title": "إعادة تعيين كلمة المرور الخاصة بك",
+        "description": "أدخل عنوان بريدك الإلكتروني واتبع التعليمات لإعادة تعيين كلمة المرور الخاصة بك.",
+        "emailSent": "تم إرسال البريد الإلكتروني! يرجى التحقق من بريدك الإلكتروني."
     },
     "validation": {
         "required": {
-            "name": "Il campo nome è obbligatorio.",
-            "email": "Il campo email è obbligatorio.",
-            "message": "Il campo messaggio è obbligatorio.",
-            "password": "Il campo password è obbligatorio.",
-            "confirmPassword": "Il campo conferma password è obbligatorio."
+            "name": "حقل الاسم مطلوب.",
+            "email": "حقل البريد الإلكتروني مطلوب.",
+            "message": "حقل الرسالة مطلوب.",
+            "password": "حقل كلمة المرور مطلوب.",
+            "confirmPassword": "حقل تأكيد كلمة المرور مطلوب."
         },
         "invalid": {
-            "email": "Indirizzo email non valido."
+            "email": "عنوان بريد إلكتروني غير صالح."
         },
         "password": {
-            "confirm": "Le password non corrispondono.",
-            "minLength": "La password deve contenere almeno {min} caratteri.",
-            "maxLength": "La password deve contenere al massimo {max} caratteri.",
-            "uppercase": "Deve contenere almeno una lettera maiuscola.",
-            "lowercase": "Deve contenere almeno una lettera minuscola.",
-            "number": "Deve contenere almeno un numero.",
-            "special": "Deve contenere almeno un carattere speciale.",
-            "weak": "debole",
-            "okay": "discreta",
-            "good": "buona",
-            "strong": "forte",
-            "tooShort": "troppo corta"
+            "confirm": "كلمات المرور غير متطابقة.",
+            "minLength": "يجب أن تتكون كلمة المرور من {min} أحرف على الأقل.",
+            "maxLength": "يجب ألا تتجاوز كلمة المرور {max} حرفًا.",
+            "uppercase": "يجب أن تحتوي على حرف كبير واحد على الأقل.",
+            "lowercase": "يجب أن تحتوي على حرف صغير واحد على الأقل.",
+            "number": "يجب أن تحتوي على رقم واحد على الأقل.",
+            "special": "يجب أن تحتوي على حرف خاص واحد على الأقل.",
+            "weak": "ضعيفة",
+            "okay": "مقبولة",
+            "good": "جيدة",
+            "strong": "قوية",
+            "tooShort": "قصيرة جدا"
         }
     },
     "placeholder": {
-        "enterYourName": "Inserisci il tuo nome",
-        "enterYourEmail": "Inserisci il tuo indirizzo email",
-        "enterYourMessage": "Inserisci il tuo messaggio",
-        "enterYourPassword": "Inserisci la tua password",
-        "confirmYourPassword": "Conferma la tua password"
+        "enterYourName": "أدخل اسمك",
+        "enterYourEmail": "أدخل عنوان بريدك الإلكتروني",
+        "enterYourMessage": "أدخل رسالتك",
+        "enterYourPassword": "أدخل كلمة المرور الخاصة بك",
+        "confirmYourPassword": "قم بتأكيد كلمة المرور"
     },
     "notFound": {
-        "title": "Pagina non trovata",
-        "description": "Errore! La pagina che stai cercando non esiste.",
-        "returnHome": "Torna alla Homepage"
+        "title": "الصفحة غير موجودة",
+        "description": "خطأ! الصفحة التي تبحث عنها غير موجودة.",
+        "returnHome": "العودة إلى الصفحة الرئيسية"
     },
     "error": {
-        "title": "Si è verificato un errore",
-        "retry": "Riprova"
+        "title": "حدث خطأ",
+        "retry": "حاول مرة أخرى"
     },
     "metadata": {
-        "applicationName": "Modello di avvio Nitrokit",
-        "description": "Modello di avvio Nitrokit",
-        "author": "Mustafa Genç",
-        "title": "Modello di avvio Nitrokit"
+        "applicationName": "قالب بداية نیترو کیت",
+        "description": "قالب بداية نیترو کیت",
+        "author": "مصطفى غينتش",
+        "title": "قالب بداية نیترو کیت"
     },
     "navigation": {
-        "title": "Menu",
-        "home": "Home",
-        "about": "Chi siamo",
-        "services": "Servizi",
-        "pricing": "Prezzi",
-        "blog": "Blog",
-        "contact": "Contatti"
+        "title": "القائمة",
+        "home": "الصفحة الرئيسية",
+        "about": "من نحن",
+        "services": "الخدمات",
+        "pricing": "الأسعار",
+        "blog": "المدونة",
+        "contact": "اتصل بنا"
     },
     "about": {
-        "title": "Chi siamo",
-        "description": "Questo è un modello di avvio creato con Next.js. Questo modello è progettato per sviluppare applicazioni web in modo rapido ed efficace."
+        "title": "من نحن",
+        "description": "هذا قالب بداية تم إنشاؤه باستخدام Next.js. تم تصميم هذا القالب لتطوير تطبيقات الويب بسرعة وفعالية."
     },
     "services": {
-        "title": "I nostri servizi",
-        "description": "Scopri di più sui servizi che offriamo."
+        "title": "خدماتنا",
+        "description": "تعرف على المزيد حول الخدمات التي نقدمها."
     },
     "pricing": {
-        "title": "Prezzi",
-        "description": "Piani tariffari"
+        "title": "Pricing",
+        "subtitle": "Pricing that grows with you",
+        "description": "Choose an affordable plan that’s packed with the best features for engaging your audience, creating customer loyalty, and driving sales.",
+        "monthly": "Monthly",
+        "yearly": "Yearly",
+        "pricePerMonth": "Month",
+        "pricePerYear": "Year",
+        "purchasePlan": "Purchase Plan",
+        "freelancer": {
+            "title": "Freelancer",
+            "description": "The essentials to provide your best work for clients."
+        },
+        "startup": {
+            "title": "Startup",
+            "description": "A plan that scales with your rapidly growing business."
+        },
+        "enterprise": {
+            "title": "Enterprise",
+            "description": "Dedicated support and infrastructure for your company."
+        },
+        "features": {
+            "5products": "5 products",
+            "25products": "10 products",
+            "unlimitedproducts": "Unlimited products",
+            "upto1000subscribers": "Up to 1000 subscribers",
+            "upto10000subscribers": "Up to 10,000 subscribers",
+            "unlimitedsubscribers": "Unlimited subscribers",
+            "48hoursupport": "48-hour support",
+            "24hoursupport": "24-hour support",
+            "1hoursupport": "1-hour support",
+            "basicanalytics": "Basic analytics",
+            "advancedanalytics": "Advanced analytics",
+            "xhoursupport": "{count}-hour support",
+            "marketingautomations": "Marketing automations"
+        }
     },
     "blog": {
-        "title": "Blog",
-        "description": "Segui il nostro blog per le ultime notizie e aggiornamenti."
+        "title": "المدونة",
+        "description": "تابع مدونتنا للحصول على آخر الأخبار والتحديثات."
     },
     "contact": {
-        "title": "Contatti",
-        "description": "Compila il modulo sottostante per contattarci.",
-        "name": "Il tuo nome",
-        "email": "Il tuo indirizzo email",
-        "message": "Il tuo messaggio",
-        "send": "Invia"
+        "title": "اتصل بنا",
+        "description": "املأ النموذج أدناه للاتصال بنا.",
+        "name": "اسمك",
+        "email": "عنوان بريدك الإلكتروني",
+        "message": "رسالتك",
+        "send": "إرسال"
     },
     "privacy": {
-        "title": "Informativa sulla privacy",
-        "description": "Scopri di più sulla nostra informativa sulla privacy."
+        "title": "سياسة الخصوصية",
+        "description": "تعرف على المزيد حول سياسة الخصوصية الخاصة بنا."
     },
     "footer": {
-        "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ Tutti i diritti riservati."
+        "copyright": "© حقوق النشر {year, date, ::yyyy} {name} ♥️ جميع الحقوق محفوظة."
     }
 }
