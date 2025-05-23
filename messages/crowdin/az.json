@@ -2,123 +2,123 @@
     "app": {
         "name": "Nitrokit",
         "shortName": "Nitrokit",
-        "description": "Plantilla de inicio de Nitrokit"
+        "description": "Modèle de démarrage Nitrokit"
     },
     "common": {
-        "loading": "Cargando...",
-        "error": "Ocurrió un error",
-        "notFound": "La página que buscas no fue encontrada",
-        "backToHome": "Volver al inicio",
-        "goBack": "Volver atrás",
-        "ok": "Aceptar",
-        "cancel": "Cancelar",
-        "yes": "Sí",
-        "no": "No",
-        "continue": "Continuar",
-        "submit": "Enviar"
+        "loading": "Chargement...",
+        "error": "Une erreur est survenue",
+        "notFound": "La page que vous recherchez n'a pas été trouvée",
+        "backToHome": "Retour à l'accueil",
+        "goBack": "Retourner",
+        "ok": "OK",
+        "cancel": "Annuler",
+        "yes": "Oui",
+        "no": "Non",
+        "continue": "Continuer",
+        "submit": "Soumettre"
     },
     "auth": {
-        "signin": "Iniciar Sesión",
-        "signup": "Registrarse",
-        "signout": "Cerrar Sesión",
-        "signinWithGoogle": "Iniciar Sesión con Google",
-        "signinWithFacebook": "Iniciar Sesión con Facebook",
-        "signinWithTwitter": "Iniciar Sesión con Twitter",
-        "signinWithGithub": "Iniciar Sesión con Github",
-        "signinWithApple": "Iniciar Sesión con Apple",
-        "signinWithLinkedIn": "Iniciar Sesión con LinkedIn",
-        "signinWithGitlab": "Iniciar Sesión con GitLab",
-        "signinWithMicrosoft": "Iniciar Sesión con Microsoft",
-        "email": "Correo Electrónico",
-        "password": "Contraseña",
-        "confirmPassword": "Confirmar Contraseña",
-        "forgotPassword": "Olvidé mi Contraseña",
-        "name": "Tu Nombre",
-        "privacyPolicy": "Nuestra Política de Privacidad",
-        "slogan1": "¡Dale a tus proyectos un inicio <span>cohete 🚀</span>!",
-        "slogan2": "Ahorra tiempo con <link>Nitrokit</link> y concéntrate en el desarrollo...",
-        "account": "Información de la cuenta",
-        "support": "Soporte",
-        "billing": "Mis Facturas"
+        "signin": "Se connecter",
+        "signup": "S'inscrire",
+        "signout": "Se déconnecter",
+        "signinWithGoogle": "Se connecter avec Google",
+        "signinWithFacebook": "Se connecter avec Facebook",
+        "signinWithTwitter": "Se connecter avec Twitter",
+        "signinWithGithub": "Se connecter avec Github",
+        "signinWithApple": "Se connecter avec Apple",
+        "signinWithLinkedIn": "Se connecter avec LinkedIn",
+        "signinWithGitlab": "Se connecter avec GitLab",
+        "signinWithMicrosoft": "Se connecter avec Microsoft",
+        "email": "E-mail",
+        "password": "Mot de passe",
+        "confirmPassword": "Confirmer le mot de passe",
+        "forgotPassword": "Mot de passe oublié",
+        "name": "Votre nom",
+        "privacyPolicy": "Notre politique de confidentialité",
+        "slogan1": "Donnez à vos projets un démarrage <span>fusée 🚀</span> !",
+        "slogan2": "Gagnez du temps avec <link>Nitrokit</link> et concentrez-vous sur le développement...",
+        "account": "Informations du compte",
+        "support": "Support",
+        "billing": "Mes factures"
     },
     "signin": {
-        "title": "Iniciar Sesión en {appName}",
-        "description": "¡Bienvenido de nuevo! Por favor, inicia sesión para continuar",
-        "dontHaveAnAccount": "¿No tienes una cuenta? <link>Regístrate</link>."
+        "title": "Connectez-vous à {appName}",
+        "description": "Bon retour ! Veuillez vous connecter pour continuer",
+        "dontHaveAnAccount": "Vous n'avez pas de compte ? <link>S'inscrire</link>."
     },
     "signup": {
-        "title": "Registrarse en {appName}",
-        "alreadyHaveAnAccount": "¿Ya tienes una cuenta? <link>Inicia Sesión</link>."
+        "title": "Inscrivez-vous à {appName}",
+        "alreadyHaveAnAccount": "Vous avez déjà un compte ? <link>Se connecter</link>."
     },
     "resetPassword": {
-        "title": "Restablecer Tu Contraseña",
-        "description": "Ingresa tu dirección de correo electrónico y sigue las instrucciones para restablecer tu contraseña.",
-        "emailSent": "¡Correo electrónico enviado! Por favor, revisa tu correo."
+        "title": "Réinitialiser votre mot de passe",
+        "description": "Entrez votre adresse e-mail et suivez les instructions pour réinitialiser votre mot de passe.",
+        "emailSent": "E-mail envoyé ! Veuillez vérifier votre messagerie."
     },
     "validation": {
         "required": {
-            "name": "El campo de nombre es obligatorio.",
-            "email": "El campo de correo electrónico es obligatorio.",
-            "message": "El campo de mensaje es obligatorio.",
-            "password": "El campo de contraseña es obligatorio.",
-            "confirmPassword": "El campo de confirmar contraseña es obligatorio."
+            "name": "Le champ Nom est requis.",
+            "email": "Le champ E-mail est requis.",
+            "message": "Le champ Message est requis.",
+            "password": "Le champ Mot de passe est requis.",
+            "confirmPassword": "Le champ Confirmer le mot de passe est requis."
         },
         "invalid": {
-            "email": "Dirección de correo electrónico inválida."
+            "email": "Adresse e-mail invalide."
         },
         "password": {
-            "confirm": "Las contraseñas no coinciden.",
-            "minLength": "La contraseña debe tener al menos {min} caracteres.",
-            "maxLength": "La contraseña debe tener como máximo {max} caracteres.",
-            "uppercase": "Debe contener al menos una letra mayúscula.",
-            "lowercase": "Debe contener al menos una letra minúscula.",
-            "number": "Debe contener al menos un número.",
-            "special": "Debe contener al menos un carácter especial.",
-            "weak": "débil",
-            "okay": "aceptable",
-            "good": "buena",
-            "strong": "fuerte",
-            "tooShort": "demasiado corta"
+            "confirm": "Les mots de passe ne correspondent pas.",
+            "minLength": "Le mot de passe doit contenir au moins {min} caractères.",
+            "maxLength": "Le mot de passe doit contenir au plus {max} caractères.",
+            "uppercase": "Doit contenir au moins une lettre majuscule.",
+            "lowercase": "Doit contenir au moins une lettre minuscule.",
+            "number": "Doit contenir au moins un chiffre.",
+            "special": "Doit contenir au moins un caractère spécial.",
+            "weak": "faible",
+            "okay": "moyen",
+            "good": "bon",
+            "strong": "fort",
+            "tooShort": "trop court"
         }
     },
     "placeholder": {
-        "enterYourName": "Ingresa tu nombre",
-        "enterYourEmail": "Ingresa tu dirección de correo electrónico",
-        "enterYourMessage": "Ingresa tu mensaje",
-        "enterYourPassword": "Ingresa tu contraseña",
-        "confirmYourPassword": "Confirma tu contraseña"
+        "enterYourName": "Entrez votre nom",
+        "enterYourEmail": "Entrez votre adresse e-mail",
+        "enterYourMessage": "Entrez votre message",
+        "enterYourPassword": "Entrez votre mot de passe",
+        "confirmYourPassword": "Confirmez votre mot de passe"
     },
     "notFound": {
-        "title": "Página No Encontrada",
-        "description": "¡Error! La página que buscas no existe.",
-        "returnHome": "Volver a la Página de Inicio"
+        "title": "Page non trouvée",
+        "description": "Erreur ! La page que vous recherchez n'existe pas.",
+        "returnHome": "Retour à la page d'accueil"
     },
     "error": {
-        "title": "Ocurrió un Error",
-        "retry": "Reintentar"
+        "title": "Une erreur est survenue",
+        "retry": "Réessayer"
     },
     "metadata": {
-        "applicationName": "Plantilla de Inicio Nitrokit",
-        "description": "Plantilla de inicio de Nitrokit",
+        "applicationName": "Modèle de démarrage Nitrokit",
+        "description": "Modèle de démarrage Nitrokit",
         "author": "Mustafa Genç",
-        "title": "Plantilla de Inicio Nitrokit"
+        "title": "Modèle de démarrage Nitrokit"
     },
     "navigation": {
-        "title": "Menú",
-        "home": "Inicio",
-        "about": "Sobre Nosotros",
-        "services": "Servicios",
-        "pricing": "Precios",
+        "title": "Menu",
+        "home": "Accueil",
+        "about": "À propos de nous",
+        "services": "Services",
+        "pricing": "Tarifs",
         "blog": "Blog",
-        "contact": "Contacto"
+        "contact": "Contact"
     },
     "about": {
-        "title": "Sobre Nosotros",
-        "description": "Esta es una plantilla de inicio construida con Next.js. Esta plantilla está diseñada para desarrollar aplicaciones web de forma rápida y eficaz."
+        "title": "À propos de nous",
+        "description": "Ceci est un modèle de démarrage construit avec Next.js. Ce modèle est conçu pour développer des applications web rapidement et efficacement."
     },
     "services": {
-        "title": "Nuestros Servicios",
-        "description": "Obtén más información sobre los servicios que ofrecemos."
+        "title": "Nos services",
+        "description": "En savoir plus sur les services que nous offrons."
     },
     "pricing": {
         "title": "Pricing",
@@ -159,21 +159,21 @@
     },
     "blog": {
         "title": "Blog",
-        "description": "Sigue nuestro blog para las últimas noticias y actualizaciones."
+        "description": "Suivez notre blog pour les dernières nouvelles et mises à jour."
     },
     "contact": {
-        "title": "Contacto",
-        "description": "Completa el formulario a continuación para contactarnos.",
-        "name": "Tu Nombre",
-        "email": "Tu Dirección de Correo Electrónico",
-        "message": "Tu Mensaje",
-        "send": "Enviar"
+        "title": "Contact",
+        "description": "Remplissez le formulaire ci-dessous pour nous contacter.",
+        "name": "Votre nom",
+        "email": "Votre adresse e-mail",
+        "message": "Votre message",
+        "send": "Envoyer"
     },
     "privacy": {
-        "title": "Política de Privacidad",
-        "description": "Obtén más información sobre nuestra política de privacidad."
+        "title": "Politique de confidentialité",
+        "description": "En savoir plus sur notre politique de confidentialité."
     },
     "footer": {
-        "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ Todos los Derechos Reservados."
+        "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ Tous droits réservés."
     }
 }
