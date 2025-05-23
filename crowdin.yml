@@ -1,7 +1,5 @@
-project_id: "792776"
+project_id: '792776'
 api_token_env: CROWDIN_PERSONAL_ACCESS_TOKEN
-base_path: "."
 files:
-  -
-    source: '/messages/source.json'
-    translation: '/messages/%locale%.json'
+  - source: /messages/source.json
+    translation: /messages/%two_letters_code%.json
