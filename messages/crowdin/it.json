@@ -1,129 +1,129 @@
 {
     "app": {
-        "name": "نائٹروکِٹ",
-        "shortName": "نائٹروکِٹ",
-        "description": "نائٹروکِٹ اسٹارٹر ٹیمپلیٹ"
+        "name": "Nitrokit",
+        "shortName": "Nitrokit",
+        "description": "Modello di avvio Nitrokit"
     },
     "common": {
-        "loading": "لوڈ ہو رہا ہے...",
-        "error": "ایک خرابی پیش آگئی",
-        "notFound": "آپ جس صفحے کی تلاش میں ہیں وہ نہیں ملا",
-        "backToHome": "مرکزی صفحہ پر واپس جائیں",
-        "goBack": "پیچھے جائیں",
-        "ok": "ٹھیک ہے",
-        "cancel": "منسوخ کریں",
-        "yes": "ہاں",
-        "no": "نہیں",
-        "continue": "جاری رکھیں",
-        "submit": "جمع کرائیں"
+        "loading": "Caricamento...",
+        "error": "Si è verificato un errore",
+        "notFound": "La pagina che stai cercando non è stata trovata",
+        "backToHome": "Torna alla home",
+        "goBack": "Torna indietro",
+        "ok": "OK",
+        "cancel": "Annulla",
+        "yes": "Sì",
+        "no": "No",
+        "continue": "Continua",
+        "submit": "Invia"
     },
     "auth": {
-        "signin": "سائن ان کریں",
-        "signup": "سائن اپ کریں",
-        "signout": "سائن آؤٹ کریں",
-        "signinWithGoogle": "گوگل کے ساتھ سائن ان کریں",
-        "signinWithFacebook": "فیس بک کے ساتھ سائن ان کریں",
-        "signinWithTwitter": "ٹوئٹر کے ساتھ سائن ان کریں",
-        "signinWithGithub": "گٹ ہب کے ساتھ سائن ان کریں",
-        "signinWithApple": "ایپل کے ساتھ سائن ان کریں",
-        "signinWithLinkedIn": "لنکڈ اِن کے ساتھ سائن ان کریں",
-        "signinWithGitlab": "گٹ لیب کے ساتھ سائن ان کریں",
-        "signinWithMicrosoft": "مائیکروسافٹ کے ساتھ سائن ان کریں",
-        "email": "ای میل",
-        "password": "پاس ورڈ",
-        "confirmPassword": "پاس ورڈ کی تصدیق کریں",
-        "forgotPassword": "پاس ورڈ بھول گئے",
-        "name": "آپ کا نام",
-        "privacyPolicy": "ہماری پرائیویسی پالیسی",
-        "slogan1": "اپنے منصوبوں کو ایک <span>راکٹ 🚀</span> آغاز دیں!",
-        "slogan2": "<link>نائٹروکِٹ</link> کے ساتھ وقت بچائیں اور ترقی پر توجہ دیں...",
-        "account": "اکاؤنٹ کی معلومات",
-        "support": "سپورٹ",
-        "billing": "میرے انوائسز"
+        "signin": "Accedi",
+        "signup": "Registrati",
+        "signout": "Esci",
+        "signinWithGoogle": "Accedi con Google",
+        "signinWithFacebook": "Accedi con Facebook",
+        "signinWithTwitter": "Accedi con Twitter",
+        "signinWithGithub": "Accedi con Github",
+        "signinWithApple": "Accedi con Apple",
+        "signinWithLinkedIn": "Accedi con LinkedIn",
+        "signinWithGitlab": "Accedi con GitLab",
+        "signinWithMicrosoft": "Accedi con Microsoft",
+        "email": "Email",
+        "password": "Password",
+        "confirmPassword": "Conferma Password",
+        "forgotPassword": "Password dimenticata",
+        "name": "Il tuo nome",
+        "privacyPolicy": "La nostra Informativa sulla privacy",
+        "slogan1": "Dai ai tuoi progetti un inizio <span>razzo 🚀</span>!",
+        "slogan2": "Risparmia tempo con <link>Nitrokit</link> e concentrati sullo sviluppo...",
+        "account": "Informazioni account",
+        "support": "Supporto",
+        "billing": "Le mie fatture"
     },
     "signin": {
-        "title": "{appName} میں سائن ان کریں",
-        "description": "خوش آمدید! جاری رکھنے کے لیے براہ کرم سائن ان کریں۔",
-        "dontHaveAnAccount": "اکاؤنٹ نہیں ہے؟ <link>سائن اپ کریں</link>۔"
+        "title": "Accedi a {appName}",
+        "description": "Bentornato! Accedi per continuare",
+        "dontHaveAnAccount": "Non hai un account? <link>Registrati</link>."
     },
     "signup": {
-        "title": "{appName} کے لیے سائن اپ کریں",
-        "alreadyHaveAnAccount": "پہلے سے اکاؤنٹ ہے؟ <link>سائن ان کریں</link>۔"
+        "title": "Registrati a {appName}",
+        "alreadyHaveAnAccount": "Hai già un account? <link>Accedi</link>."
     },
     "resetPassword": {
-        "title": "اپنا پاس ورڈ ری سیٹ کریں",
-        "description": "اپنا ای میل ایڈریس درج کریں اور اپنا پاس ورڈ ری سیٹ کرنے کے لیے ہدایات پر عمل کریں۔",
-        "emailSent": "ای میل بھیج دی گئی! براہ کرم اپنا ای میل چیک کریں۔"
+        "title": "Reimposta la tua password",
+        "description": "Inserisci il tuo indirizzo email e segui le istruzioni per reimpostare la password.",
+        "emailSent": "Email inviata! Controlla la tua email."
     },
     "validation": {
         "required": {
-            "name": "نام کا خانہ ضروری ہے۔",
-            "email": "ای میل کا خانہ ضروری ہے۔",
-            "message": "پیغام کا خانہ ضروری ہے۔",
-            "password": "پاس ورڈ کا خانہ ضروری ہے۔",
-            "confirmPassword": "پاس ورڈ کی تصدیق کا خانہ ضروری ہے۔"
+            "name": "Il campo nome è obbligatorio.",
+            "email": "Il campo email è obbligatorio.",
+            "message": "Il campo messaggio è obbligatorio.",
+            "password": "Il campo password è obbligatorio.",
+            "confirmPassword": "Il campo conferma password è obbligatorio."
         },
         "invalid": {
-            "email": "غلط ای میل ایڈریس۔"
+            "email": "Indirizzo email non valido."
         },
         "password": {
-            "confirm": "پاس ورڈ مماثل نہیں ہیں۔",
-            "minLength": "پاس ورڈ کم از کم {min} حروف کا ہونا چاہیے۔",
-            "maxLength": "پاس ورڈ زیادہ سے زیادہ {max} حروف کا ہونا چاہیے۔",
-            "uppercase": "کم از کم ایک بڑا حرف ہونا چاہیے۔",
-            "lowercase": "کم از کم ایک چھوٹا حرف ہونا چاہیے۔",
-            "number": "کم از کم ایک عدد ہونا چاہیے۔",
-            "special": "کم از کم ایک خاص حرف ہونا چاہیے۔",
-            "weak": "کمزور",
-            "okay": "ٹھیک ہے",
-            "good": "اچھا",
-            "strong": "مضبوط",
-            "tooShort": "بہت چھوٹا"
+            "confirm": "Le password non corrispondono.",
+            "minLength": "La password deve contenere almeno {min} caratteri.",
+            "maxLength": "La password deve contenere al massimo {max} caratteri.",
+            "uppercase": "Deve contenere almeno una lettera maiuscola.",
+            "lowercase": "Deve contenere almeno una lettera minuscola.",
+            "number": "Deve contenere almeno un numero.",
+            "special": "Deve contenere almeno un carattere speciale.",
+            "weak": "debole",
+            "okay": "discreta",
+            "good": "buona",
+            "strong": "forte",
+            "tooShort": "troppo corta"
         }
     },
     "placeholder": {
-        "enterYourName": "اپنا نام درج کریں",
-        "enterYourEmail": "اپنا ای میل ایڈریس درج کریں",
-        "enterYourMessage": "اپنا پیغام درج کریں",
-        "enterYourPassword": "اپنا پاس ورڈ درج کریں",
-        "confirmYourPassword": "اپنے پاس ورڈ کی تصدیق کریں"
+        "enterYourName": "Inserisci il tuo nome",
+        "enterYourEmail": "Inserisci il tuo indirizzo email",
+        "enterYourMessage": "Inserisci il tuo messaggio",
+        "enterYourPassword": "Inserisci la tua password",
+        "confirmYourPassword": "Conferma la tua password"
     },
     "notFound": {
-        "title": "صفحہ نہیں ملا",
-        "description": "خرابی! آپ جس صفحے کی تلاش میں ہیں وہ موجود نہیں ہے۔",
-        "returnHome": "مرکزی صفحہ پر واپس جائیں"
+        "title": "Pagina non trovata",
+        "description": "Errore! La pagina che stai cercando non esiste.",
+        "returnHome": "Torna alla Homepage"
     },
     "error": {
-        "title": "ایک خرابی پیش آگئی",
-        "retry": "دوبارہ کوشش کریں"
+        "title": "Si è verificato un errore",
+        "retry": "Riprova"
     },
     "metadata": {
-        "applicationName": "نائٹروکِٹ اسٹارٹر ٹیمپلیٹ",
-        "description": "نائٹروکِٹ اسٹارٹر ٹیمپلیٹ",
-        "author": "مصطفیٰ گینچ",
-        "title": "نائٹروکِٹ اسٹارٹر ٹیمپلیٹ"
+        "applicationName": "Modello di avvio Nitrokit",
+        "description": "Modello di avvio Nitrokit",
+        "author": "Mustafa Genç",
+        "title": "Modello di avvio Nitrokit"
     },
     "navigation": {
-        "title": "مینو",
-        "home": "مرکزی صفحہ",
-        "about": "ہمارے بارے میں",
-        "services": "خدمات",
-        "pricing": "قیمتیں",
-        "blog": "بلاگ",
-        "contact": "رابطہ کریں"
+        "title": "Menu",
+        "home": "Home",
+        "about": "Chi siamo",
+        "services": "Servizi",
+        "pricing": "Prezzi",
+        "blog": "Blog",
+        "contact": "Contatti"
     },
     "about": {
-        "title": "ہمارے بارے میں",
-        "description": "یہ Next.js کے ساتھ بنایا گیا ایک اسٹارٹر ٹیمپلیٹ ہے۔ یہ ٹیمپلیٹ ویب ایپلیکیشنز کو تیزی سے اور مؤثر طریقے سے تیار کرنے کے لیے ڈیزائن کیا گیا ہے۔"
+        "title": "Chi siamo",
+        "description": "Questo è un modello di avvio creato con Next.js. Questo modello è progettato per sviluppare applicazioni web in modo rapido ed efficace."
     },
     "services": {
-        "title": "ہماری خدمات",
-        "description": "ہماری پیش کردہ خدمات کے بارے میں مزید جانیں۔"
+        "title": "I nostri servizi",
+        "description": "Scopri di più sui servizi che offriamo."
     },
     "pricing": {
-        "title": "Pricing",
+        "title": "Prezzi",
         "subtitle": "Pricing that grows with you",
-        "description": "Choose an affordable plan that’s packed with the best features for engaging your audience, creating customer loyalty, and driving sales.",
+        "description": "Piani tariffari",
         "monthly": "Monthly",
         "yearly": "Yearly",
         "pricePerMonth": "Month",
@@ -158,22 +158,22 @@
         }
     },
     "blog": {
-        "title": "بلاگ",
-        "description": "تازہ ترین خبروں اور اپ ڈیٹس کے لیے ہمارے بلاگ کو فالو کریں۔"
+        "title": "Blog",
+        "description": "Segui il nostro blog per le ultime notizie e aggiornamenti."
     },
     "contact": {
-        "title": "رابطہ کریں",
-        "description": "ہم سے رابطہ کرنے کے لیے نیچے دیا گیا فارم پُر کریں۔",
-        "name": "آپ کا نام",
-        "email": "آپ کا ای میل ایڈریس",
-        "message": "آپ کا پیغام",
-        "send": "بھیجیں"
+        "title": "Contatti",
+        "description": "Compila il modulo sottostante per contattarci.",
+        "name": "Il tuo nome",
+        "email": "Il tuo indirizzo email",
+        "message": "Il tuo messaggio",
+        "send": "Invia"
     },
     "privacy": {
-        "title": "پرائیویسی پالیسی",
-        "description": "ہماری پرائیویسی پالیسی کے بارے میں مزید جانیں۔"
+        "title": "Informativa sulla privacy",
+        "description": "Scopri di più sulla nostra informativa sulla privacy."
     },
     "footer": {
-        "copyright": "© کاپی رائٹ {year, date, ::yyyy} {name} ♥️ جملہ حقوق محفوظ ہیں۔"
+        "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ Tutti i diritti riservati."
     }
 }
