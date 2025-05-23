@@ -10,31 +10,42 @@ import { DEFAULT_CURRENCY } from '@/constants/locale';
 
 export default function PricingSection({ plansConfig }: PricingSectionProps) {
     const t = useTranslations();
-    const [billingCycle, setBillingCycle] = useState('monthly');
+    const [billingCycle, setBillingCycle] = useState('yearly');
     const format = useFormatter();
     return (
         <div>
-            <div className="mt-10 flex items-center justify-center">
+            <div className="my-10 flex flex-col items-center justify-center">
                 <BillingCycleToggle
                     billingCycle={billingCycle}
                     onBillingCycleChange={setBillingCycle}
                 />
+                <div className="mt-4 h-5 text-sm">
+                    {billingCycle === 'yearly' && (
+                        <p>
+                            {t.rich('pricing.annual-payment', {
+                                span: children => (
+                                    <span className="font-bold text-fuchsia-700">{children}</span>
+                                ),
+                            })}
+                        </p>
+                    )}
+                </div>
             </div>
 
             {/* ${plansConfig.length} */}
-            <div className={`mt-12 grid grid-cols-1 items-end gap-0 md:grid-cols-2 lg:grid-cols-3`}>
+            <div className={`mt-6 grid grid-cols-1 items-end gap-0 md:grid-cols-2 lg:grid-cols-3`}>
                 {plansConfig.map(plan => {
                     const price = billingCycle === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice;
                     const priceSuffixKey =
                         billingCycle === 'monthly' ? 'pricePerMonth' : 'pricePerYear';
 
                     const heightClass = plan.isFeatured
-                        ? 'min-h-[36rem] lg:scale-[1.03]'
-                        : 'min-h-[32rem]';
+                        ? 'min-h-[34rem] lg:scale-[1.05]'
+                        : 'min-h-[28rem]';
                     const titleColor = plan.isFeatured
                         ? 'text-blue-500 dark:text-cyan-500'
                         : 'text-neutral-800 dark:text-neutral-200';
-                    const titleSize = plan.isFeatured ? 'text-2xl' : 'text-xl';
+                    const titleSize = plan.isFeatured ? 'text-3xl' : 'text-2xl';
 
                     const cardWrapperClasses = 'flex flex-col';
                     const cardClasses =
@@ -44,13 +55,13 @@ export default function PricingSection({ plansConfig }: PricingSectionProps) {
                         <div key={plan.id} className={cardWrapperClasses}>
                             <div className={`${cardClasses} ${heightClass}`}>
                                 <h3
-                                    className={`${titleSize} font-medium text-shadow-xs ${titleColor}`}>
+                                    className={`${titleSize} font-semibold text-shadow-xs ${titleColor} text-center`}>
                                     {t(`pricing.${plan.id}.title`)}
                                 </h3>
-                                <p className="mt-6 text-base/7 text-neutral-600 dark:text-neutral-300">
+                                <p className="mt-6 text-center text-base/7 text-neutral-600 dark:text-neutral-300">
                                     {t(`pricing.${plan.id}.description`)}
                                 </p>
-                                <p className="mt-4 flex items-baseline gap-0.5">
+                                <p className="mt-4 flex items-end justify-center gap-0.5">
                                     <span className={'text-5xl font-semibold tracking-tight'}>
                                         {format.number(price, {
                                             style: 'currency',
@@ -58,11 +69,12 @@ export default function PricingSection({ plansConfig }: PricingSectionProps) {
                                             maximumFractionDigits: 0,
                                         })}
                                     </span>
-                                    <span className="text-base text-gray-500">
+                                    <span className="text-base font-medium text-gray-500">
                                         /{t(`pricing.${priceSuffixKey}`)}
                                     </span>
                                 </p>
-                                <ul className="mt-8 space-y-3 text-sm/6 sm:mt-10">
+                                <hr className="my-6 border-neutral-200 dark:border-neutral-700" />
+                                <ul className="mt-4 space-y-3 text-sm/6">
                                     {plan.features.map((feature, index) => {
                                         return (
                                             <li key={index} className="flex gap-x-3">

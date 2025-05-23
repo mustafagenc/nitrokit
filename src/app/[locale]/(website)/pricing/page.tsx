@@ -4,8 +4,8 @@ import { getTranslations } from 'next-intl/server';
 import SharedLayout from '@/components/layout/shared';
 import { generatePageMetadata } from '@/utils/helpers';
 import PricingSection from './components/pricing-section';
-import { PlanDetail } from '@/types/PricingSectionProps';
 import EnterpriseBanner from './components/enterprise-banner';
+import { PLANS } from '@/constants/plans';
 
 export async function generateMetadata(): Promise<Metadata> {
     const t = await getTranslations('pricing');
@@ -18,53 +18,19 @@ export async function generateMetadata(): Promise<Metadata> {
     });
 }
 
-const plansConfiguration: PlanDetail[] = [
-    {
-        id: 'freelancer',
-        monthlyPrice: 19,
-        yearlyPrice: 190,
-        features: ['5products', 'upto1000subscribers', 'basicanalytics', '48hoursupport'],
-    },
-    {
-        id: 'startup',
-        monthlyPrice: 49,
-        yearlyPrice: 490,
-        features: [
-            '25products',
-            'upto10000subscribers',
-            'advancedanalytics',
-            '24hoursupport',
-            'marketingautomations',
-        ],
-        isFeatured: true,
-    },
-    {
-        id: 'pro',
-        monthlyPrice: 99,
-        yearlyPrice: 990,
-        features: [
-            'unlimitedproducts',
-            'unlimitedsubscribers',
-            'advancedanalytics',
-            '1hoursupport',
-            'marketingautomations',
-        ],
-    },
-];
-
 export default async function Page() {
     const t = await getTranslations('pricing');
     return (
         <SharedLayout>
-            <div className="m-w-3xl mx-auto text-center leading-12">
+            <div className="mx-auto max-w-3xl text-center leading-22">
                 <h2 className="font-semibold text-cyan-500 dark:text-shadow-2xs">{t('title')}</h2>
-                <h1 className="bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-5xl leading-16 font-bold text-transparent dark:text-shadow-2xs">
+                <h1 className="bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-5xl leading-18 font-bold text-transparent dark:text-shadow-2xs">
                     {t('subtitle')}
                 </h1>
-                <p className="mt-6 text-xl">{t('description')}</p>
+                <p className="mt-10 text-xl">{t('description')}</p>
             </div>
-            <div className="mb-30">
-                <PricingSection plansConfig={plansConfiguration} />
+            <div className="mb-20">
+                <PricingSection plansConfig={PLANS} />
             </div>
             <div className="mb-30">
                 <EnterpriseBanner />

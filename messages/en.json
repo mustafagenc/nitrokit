@@ -127,6 +127,7 @@
         "description": "Choose an affordable plan that’s packed with the best features for engaging your audience, creating customer loyalty, and driving sales.",
         "monthly": "Monthly",
         "yearly": "Yearly",
+        "annual-payment": "<span>Save 20%</span> with annual billing.",
         "pricePerMonth": "Month",
         "pricePerYear": "Year",
         "purchasePlan": "Purchase Plan",

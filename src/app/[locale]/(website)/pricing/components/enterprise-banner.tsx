@@ -6,7 +6,7 @@ import { useTranslations } from 'next-intl';
 export default function EnterpriseBanner() {
     const t = useTranslations();
     return (
-        <div className="mx-auto flex max-w-4xl flex-row items-center justify-between rounded-2xl border-1 p-6 shadow-xs">
+        <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-6 rounded-2xl border-1 p-6 shadow-xs lg:flex-row">
             <div className="text-4xl font-bold">{t('pricing.enterprise.title')}</div>
             <div>{t('pricing.enterprise.description')}</div>
             <Link

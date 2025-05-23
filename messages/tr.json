@@ -127,6 +127,7 @@
         "description": "Hedef kitlenizle etkileşim kurmak, müşteri sadakati oluşturmak ve satışları artırmak için en iyi özelliklerle dolu uygun fiyatlı bir plan seçin.",
         "monthly": "Aylık",
         "yearly": "Yıllık",
+        "annual-payment": "Yıllık ödemede <span>%20 tasarruf edin.</span>",
         "pricePerMonth": "Ay",
         "pricePerYear": "Yıl",
         "purchasePlan": "Satın Al",

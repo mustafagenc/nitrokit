@@ -17,7 +17,7 @@ export default function BillingCycleToggle({
     return (
         <ToggleGroup
             type="single"
-            defaultValue="monthly"
+            defaultValue="yearly"
             value={billingCycle}
             onValueChange={(value: string) => {
                 if (value) onBillingCycleChange(value);
