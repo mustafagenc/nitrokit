@@ -1,6 +1,7 @@
 import { getBaseUrl } from '@/utils/helpers';
 
 const DEFAULT_LANGUAGE = 'en';
+const DEFAULT_CURRENCY = 'USD';
 
 /**
  * List of locales supported by the application.
@@ -51,4 +52,4 @@ function localesForMetadata(): { [key: string]: string }[] {
     });
 }
 
-export { locales, localesWithFlag, localesForMetadata, DEFAULT_LANGUAGE };
+export { locales, localesWithFlag, localesForMetadata, DEFAULT_LANGUAGE, DEFAULT_CURRENCY };

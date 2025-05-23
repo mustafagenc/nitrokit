@@ -122,7 +122,40 @@
     },
     "pricing": {
         "title": "Fiyatlar",
-        "description": "Fiyatlandırma Planları"
+        "subtitle": "Ölçeklenebilir fiyatlandırma",
+        "description": "Hedef kitlenizle etkileşim kurmak, müşteri sadakati oluşturmak ve satışları artırmak için en iyi özelliklerle dolu uygun fiyatlı bir plan seçin.",
+        "monthly": "Aylık",
+        "yearly": "Yıllık",
+        "pricePerMonth": "Ay",
+        "pricePerYear": "Yıl",
+        "purchasePlan": "Satın Al",
+        "freelancer": {
+            "title": "Serbest Çalışan",
+            "description": "Müşterileriniz için en iyi çalışmanızı sağlamak için temel özellikler."
+        },
+        "startup": {
+            "title": "Girişim",
+            "description": "Hızla büyüyen işletmenizle ölçeklenen bir plan."
+        },
+        "enterprise": {
+            "title": "Kurumsal",
+            "description": "Şirketiniz için özel destek ve altyapı."
+        },
+        "features": {
+            "5products": "5 ürün",
+            "25products": "10 ürün",
+            "unlimitedproducts": "Sınırsız ürün",
+            "upto1000subscribers": "1000 aboneye kadar",
+            "upto10000subscribers": "10.000 aboneye kadar",
+            "unlimitedsubscribers": "Sınırsız abone",
+            "48hoursupport": "48 saat destek",
+            "24hoursupport": "24 saat destek",
+            "1hoursupport": "1 saat destek",
+            "basicanalytics": "Temel analizler",
+            "advancedanalytics": "Gelişmiş analizler",
+            "xhoursupport": "{count} saat destek",
+            "marketingautomations": "Pazarlama otomasyonları"
+        }
     },
     "blog": {
         "title": "Blog",

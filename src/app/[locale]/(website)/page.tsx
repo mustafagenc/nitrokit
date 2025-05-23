@@ -15,10 +15,10 @@ export default async function Home() {
                 text="v2.0.1 is out! See what's new"
                 className="my-10"
             />
-            <h1 className="mb-6 inline-block bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% bg-clip-text text-center text-6xl leading-19 font-bold text-transparent text-shadow-2xs">
+            <h1 className="mb-6 inline-block bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% bg-clip-text text-center text-6xl leading-19 font-bold text-transparent dark:text-shadow-2xs">
                 Nitrokit ile Tanışın:
             </h1>
-            <h2 className="mb-6 inline-block bg-gradient-to-r text-center text-4xl font-bold text-emerald-500 text-shadow-2xs">
+            <h2 className="mb-6 inline-block bg-gradient-to-r text-center text-4xl font-bold text-emerald-500 dark:text-shadow-2xs">
                 Geliştirme Süreçlerinizi Hızlandırın
             </h2>
             <p className="mb-6 w-4xl text-lg leading-8 text-gray-800 text-shadow-2xs dark:text-gray-200">
