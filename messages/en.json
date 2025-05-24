@@ -30,6 +30,7 @@
         "signinWithLinkedIn": "Sign In with LinkedIn",
         "signinWithGitlab": "Sign In with GitLab",
         "signinWithMicrosoft": "Sign In with Microsoft",
+        "signinWithInstagram": "Sign In with Instagram",
         "email": "Email",
         "password": "Password",
         "confirmPassword": "Confirm Password",

@@ -17,12 +17,12 @@ yarn run lint ||
         false;
 )
 
-# # Check tsconfig standards
-# yarn run check-types ||
-# (
-#     echo 'Make the changes required above. ❌'
-#     false;
-# )
+# Check tsconfig standards
+yarn run tsc ||
+(
+    echo 'Make the changes required above. ❌'
+    false;
+)
 
 # Pass all.. try build
 echo 'Code looks good... Trying to build now.'

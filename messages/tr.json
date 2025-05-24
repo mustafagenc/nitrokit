@@ -30,6 +30,7 @@
         "signinWithLinkedIn": "LinkedIn ile Giriş Yap",
         "signinWithGitlab": "GitLab ile Giriş Yap",
         "signinWithMicrosoft": "Microsoft ile Giriş Yap",
+        "signinWithInstagram": "Instagram ile Giriş Yap",
         "email": "E-posta",
         "password": "Şifre",
         "confirmPassword": "Şifreyi Onayla",

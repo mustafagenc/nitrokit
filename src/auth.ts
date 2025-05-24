@@ -4,6 +4,9 @@ import GitHub from 'next-auth/providers/github';
 import GitLab from 'next-auth/providers/gitlab';
 import Google from 'next-auth/providers/google';
 import Resend from 'next-auth/providers/resend';
+import Apple from 'next-auth/providers/apple';
+import Instagram from 'next-auth/providers/instagram';
+import Facebook from 'next-auth/providers/facebook';
 
 import { prisma } from '@/lib/prisma';
 import { PrismaAdapter } from '@auth/prisma-adapter';
@@ -19,6 +22,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         GitHub,
         GitLab,
         Resend,
+        Apple,
+        Instagram,
+        Facebook,
         Credentials({
             credentials: {
                 email: { label: 'E-mail', type: 'email' },

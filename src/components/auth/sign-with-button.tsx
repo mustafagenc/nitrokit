@@ -7,7 +7,7 @@ import { signIn } from '@/auth';
 import { Button, buttonVariants } from '@/components/ui/button';
 import { cn } from '@/utils/helpers';
 
-type Provider = 'google' | 'github' | 'gitlab';
+type Provider = 'google' | 'github' | 'gitlab' | 'apple' | 'instagram' | 'facebook';
 
 function getProviderDetail({ t, provider }: { t: (key: string) => string; provider: Provider }): {
     text: string;
@@ -28,6 +28,21 @@ function getProviderDetail({ t, provider }: { t: (key: string) => string; provid
             return {
                 text: t('auth.signinWithGitlab'),
                 icon: '/images/brands/gitlab.svg',
+            };
+        case 'apple':
+            return {
+                text: t('auth.signinWithApple'),
+                icon: '/images/brands/apple.svg',
+            };
+        case 'instagram':
+            return {
+                text: t('auth.signinWithInstagram'),
+                icon: '/images/brands/instagram.svg',
+            };
+        case 'facebook':
+            return {
+                text: t('auth.signinWithFacebook'),
+                icon: '/images/brands/facebook.svg',
             };
 
         default:
