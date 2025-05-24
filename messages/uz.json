@@ -181,6 +181,7 @@
         "description": "Maxfiylik siyosatimiz haqida ko'proq ma'lumot oling."
     },
     "footer": {
-        "copyright": "© Mualliflik huquqi {year, date, ::yyyy} {name} ♥️ Barcha huquqlar himoyalangan."
+        "copyright": "© Mualliflik huquqi {year, date, ::yyyy} {name} ♥️ Barcha huquqlar himoyalangan.",
+        "poweredBy": "<link>Ekipimiz</link> tomonidan ishlab chiqilgan."
     }
 }

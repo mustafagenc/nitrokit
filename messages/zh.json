@@ -181,6 +181,7 @@
         "description": "了解更多關於我們的隱私政策。"
     },
     "footer": {
-        "copyright": "© 版權所有 {year, date, ::yyyy} {name} ♥️ 保留一切權利。"
+        "copyright": "© 版權所有 {year, date, ::yyyy} {name} ♥️ 保留一切權利。",
+        "poweredBy": "技术支持：<link>Ekipisi</link>"
     }
 }

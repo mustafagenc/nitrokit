@@ -181,6 +181,7 @@
         "description": "Erfahren Sie mehr über unsere Datenschutzrichtlinie."
     },
     "footer": {
-        "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ Alle Rechte vorbehalten."
+        "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ Alle Rechte vorbehalten.",
+        "poweredBy": "Angetrieben von <link>Ekipisi</link>."
     }
 }

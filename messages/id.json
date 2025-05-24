@@ -181,6 +181,7 @@
         "description": "Pelajari lebih lanjut tentang kebijakan privasi kami."
     },
     "footer": {
-        "copyright": "© Hak Cipta {year, date, ::yyyy} {name} ♥️ Semua Hak Dilindungi."
+        "copyright": "© Hak Cipta {year, date, ::yyyy} {name} ♥️ Semua Hak Dilindungi.",
+        "poweredBy": "Didukung oleh <link>Ekipisi</link>."
     }
 }

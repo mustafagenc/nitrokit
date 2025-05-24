@@ -181,6 +181,7 @@
         "description": "Биздин купуялык саясатыбыз жөнүндө көбүрөөк билиңиз."
     },
     "footer": {
-        "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ Бардык укуктар корголгон."
+        "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ Бардык укуктар корголгон.",
+        "poweredBy": "Powered by <link>Ekipisi</link>."
     }
 }

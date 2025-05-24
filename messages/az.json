@@ -181,6 +181,7 @@
         "description": "Məxfilik siyasətimiz haqqında daha çox məlumat əldə edin."
     },
     "footer": {
-        "copyright": "© Müəllif Hüquqları {year, date, ::yyyy} {name} ♥️ Bütün Hüquqlar Qorunur."
+        "copyright": "© Müəllif Hüquqları {year, date, ::yyyy} {name} ♥️ Bütün Hüquqlar Qorunur.",
+        "poweredBy": "<link>Ekibi</link> tərəfindən işlənir."
     }
 }

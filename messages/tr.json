@@ -181,6 +181,7 @@
         "description": "Gizlilik politikamız hakkında daha fazla bilgi edinin."
     },
     "footer": {
-        "copyright": "© Telif Hakkı {year, date, ::yyyy} {name} ♥️ Tüm Hakları Saklıdır."
+        "copyright": "© Telif Hakkı {year, date, ::yyyy} {name} ♥️ Tüm Hakları Saklıdır.",
+        "poweredBy": "<link>Ekipisi</link> tarafından desteklenmektedir."
     }
 }

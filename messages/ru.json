@@ -181,6 +181,7 @@
         "description": "Узнайте больше о нашей политике конфиденциальности."
     },
     "footer": {
-        "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ Все права защищены."
+        "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ Все права защищены.",
+        "poweredBy": "Работает на <link>Ekipisi</link>."
     }
 }

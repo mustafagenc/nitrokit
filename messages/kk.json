@@ -181,6 +181,7 @@
         "description": "Біздің құпиялылық саясатымыз туралы көбірек біліңіз."
     },
     "footer": {
-        "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ Барлық құқықтар қорғалған."
+        "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ Барлық құқықтар қорғалған.",
+        "poweredBy": "Powered by <link>Ekipisi</link>."
     }
 }
