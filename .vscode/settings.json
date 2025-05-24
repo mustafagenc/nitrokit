@@ -10,5 +10,7 @@
     "i18n-ally.keystyle": "nested",
     "i18n-ally.sourceLanguage": "en",
     "WillLuke.nextjs.addTypesOnSave": true,
-    "WillLuke.nextjs.hasPrompted": true
+    "WillLuke.nextjs.hasPrompted": true,
+    "doppler.autocomplete.enable": true,
+    "doppler.hover.enable": true
 }

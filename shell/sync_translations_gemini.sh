@@ -23,6 +23,115 @@ GEMINI_API_KEY="${GEMINI_API_KEY:-}"
 GEMINI_MODEL="${GEMINI_MODEL:-$DEFAULT_GEMINI_MODEL}"
 TRANSLATION_DELAY="${TRANSLATION_DELAY:-$DEFAULT_TRANSLATION_DELAY}"
 
+# Enhanced help function
+show_help() {
+    cat << EOF
+🌍 Nitrokit Translation Synchronization with Gemini AI
+
+USAGE:
+    ./sync_translations_gemini.sh [OPTIONS]
+
+DESCRIPTION:
+    Automatically detects new translation keys in source.json and translates them
+    to 30+ languages using Google Gemini AI. Includes automatic formatting and
+    error handling for production-ready internationalization workflow.
+
+OPTIONS:
+    --api-key KEY       Gemini API key (overrides environment variables)
+    --model MODEL       Gemini model name (default: $DEFAULT_GEMINI_MODEL)
+    --delay SECONDS     Delay between API calls (default: $DEFAULT_TRANSLATION_DELAY)
+    -h, --help          Show this help message and exit
+
+CONFIGURATION PRIORITY:
+    1. Command line parameters (highest priority)
+    2. GEMINI_API_KEY environment variable
+    3. .env.local file
+    4. .env file (lowest priority)
+
+FEATURES:
+    ✅ Auto-detects new translation keys
+    ✅ AI-powered translations via Gemini API
+    ✅ Supports 30+ languages automatically
+    ✅ Rate limiting with configurable delays
+    ✅ Automatic Prettier formatting
+    ✅ JSON validation and error handling
+    ✅ Preserves existing translations
+
+SUPPORTED LANGUAGES:
+    🇹🇷 Turkish    🇺🇸 English     🇪🇸 Spanish      🇫🇷 French
+    🇩🇪 German     🇮🇹 Italian     🇵🇹 Portuguese   🇷🇺 Russian
+    🇯🇵 Japanese   🇰🇷 Korean      🇨🇳 Chinese      🇸🇦 Arabic
+    🇮🇳 Hindi      🇳🇱 Dutch       🇸🇪 Swedish      🇳🇴 Norwegian
+    🇩🇰 Danish     🇫🇮 Finnish     🇵🇱 Polish       🇨🇿 Czech
+    🇭🇺 Hungarian  🇷🇴 Romanian    🇧🇬 Bulgarian    🇭🇷 Croatian
+    🇸🇰 Slovak     🇸🇮 Slovenian   🇪🇪 Estonian     🇱🇻 Latvian
+    🇱🇹 Lithuanian 🇺🇦 Ukrainian   🇮🇱 Hebrew       🇹🇭 Thai
+    🇻🇳 Vietnamese 🇮🇩 Indonesian  🇲🇾 Malay        🇦🇿 Azerbaijani
+    🇧🇦 Bosnian    🇵🇰 Urdu        🇺🇿 Uzbek
+
+EXAMPLES:
+    # Basic usage with environment variable
+    export GEMINI_API_KEY="your-api-key"
+    ./sync_translations_gemini.sh
+
+    # With custom API key and model
+    ./sync_translations_gemini.sh --api-key "your-key" --model "gemini-1.5-pro"
+
+    # With custom delay for rate limiting
+    ./sync_translations_gemini.sh --delay 3
+
+    # Using .env file
+    echo "GEMINI_API_KEY=your-api-key" > ../.env.local
+    ./sync_translations_gemini.sh
+
+REQUIREMENTS:
+    - jq (JSON processor)
+    - curl (HTTP client)
+    - yarn (for Prettier formatting)
+    - Gemini API key from Google AI Studio
+
+SETUP INSTRUCTIONS:
+    1. Get API key from: https://makersuite.google.com/app/apikey
+    2. Set environment variable: export GEMINI_API_KEY="your-key"
+    3. Or create .env.local file with: GEMINI_API_KEY=your-key
+    4. Run script: ./sync_translations_gemini.sh
+
+FILE STRUCTURE:
+    messages/
+    ├── source.json      # Source translations (English)
+    ├── tr.json         # Reference file (Turkish)
+    ├── es.json         # Spanish translations
+    ├── fr.json         # French translations
+    └── ...             # Other language files
+
+WORKFLOW:
+    1. 🔍 Scans source.json for new translation keys
+    2. 🌍 Translates new keys to all supported languages
+    3. 📝 Updates language files with new translations
+    4. ✨ Formats files with Prettier
+    5. ✅ Reports success and statistics
+
+ERROR HANDLING:
+    - Invalid JSON files are skipped with warnings
+    - API errors fallback to original English text
+    - Network issues are handled gracefully
+    - Missing dependencies are reported clearly
+
+TROUBLESHOOTING:
+    - Missing jq: brew install jq (macOS) or apt install jq (Ubuntu)
+    - Missing curl: Usually pre-installed on most systems
+    - API key issues: Check key validity at Google AI Studio
+    - Rate limiting: Increase --delay parameter
+    - Formatting issues: Check yarn installation
+
+MORE INFO:
+    GitHub: https://github.com/mustafagenc/nitrokit
+    Documentation: https://github.com/mustafagenc/nitrokit/tree/main/shell
+    Issues: https://github.com/mustafagenc/nitrokit/issues
+
+EOF
+}
+
 # Process command line parameters (highest priority)
 while [[ $# -gt 0 ]]; do
     case $1 in
@@ -39,28 +148,18 @@ while [[ $# -gt 0 ]]; do
             shift 2
             ;;
         -h|--help)
-            echo "Usage: $0 [OPTIONS]"
-            echo ""
-            echo "Options:"
-            echo "  --api-key KEY    Gemini API key"
-            echo "  --model MODEL    Gemini model name (default: $DEFAULT_GEMINI_MODEL)"
-            echo "  --delay SECONDS  Translation delay (default: $DEFAULT_TRANSLATION_DELAY)"
-            echo "  -h, --help       Show this help message"
-            echo ""
-            echo "API key priority order:"
-            echo "  1. --api-key parameter"
-            echo "  2. GEMINI_API_KEY environment variable"
-            echo "  3. .env.local file"
-            echo "  4. .env file"
+            show_help
             exit 0
             ;;
         *)
-            echo "Unknown parameter: $1"
-            echo "For help: $0 --help"
+            echo "❌ Unknown parameter: $1"
+            echo "💡 For help: $0 --help"
             exit 1
             ;;
     esac
 done
+
+# Rest of your existing script continues here...
 
 # Check if jq and curl are installed
 if ! command -v jq &> /dev/null; then

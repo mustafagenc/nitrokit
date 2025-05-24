@@ -1,8 +1,8 @@
-import { getTranslations } from 'next-intl/server';
 import { ThemedImage } from './themed-image';
+import { useTranslations } from 'next-intl';
 
-export default async function PoweredBy() {
-    const t = await getTranslations('footer');
+export default function PoweredBy() {
+    const t = useTranslations('footer');
     return (
         <>
             {t.rich('poweredBy', {

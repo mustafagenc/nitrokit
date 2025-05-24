@@ -39,7 +39,12 @@
         "test": "jest",
         "test:coverage": "jest --coverage",
         "storybook": "storybook dev -p 6006",
-        "build-storybook": "storybook build"
+        "build-storybook": "storybook build",
+        "db:generate": "prisma generate --no-engine",
+        "db:push": "prisma db push",
+        "db:migrate": "prisma migrate dev",
+        "db:studio": "prisma studio",
+        "db:seed": "tsx prisma/seed.ts"
     },
     "dependencies": {
         "@auth/prisma-adapter": "^2.9.1",
