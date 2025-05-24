@@ -10,6 +10,7 @@ This directory contains automation scripts for managing various aspects of the N
 | [`sync_translations.sh`](./sync_translations.sh)               | 🔄 Basic Translation  | Simple translation synchronization without external dependencies   |
 | [`labels.sh`](./labels.sh)                                     | 🏷️ GitHub Labels      | GitHub issue label management with emojis and categorization       |
 | [`dependency_updater.sh`](./dependency_updater.sh)             | 📦 Dependency Updates | Automated package updates with security checks and backup support  |
+| [`dev-setup.sh`](./dev-setup.sh)                               | 🛠️ Development Setup  | One-click development environment setup with Prisma optimization   |
 
 ## 🚀 Quick Start
 
@@ -29,6 +30,56 @@ All scripts include intelligent auto-installation features:
 - **Graceful fallbacks** - Clear instructions when auto-install fails
 
 ## 📖 Detailed Script Documentation
+
+### 🛠️ Development Setup Script (`dev-setup.sh`)
+
+One-click development environment setup with intelligent dependency management and Prisma optimization.
+
+**Key Features:**
+
+- 🎯 **Smart project detection** - Automatically finds project root from shell directory
+- 📦 **Package manager detection** - Supports yarn, pnpm, and npm with auto-selection
+- 🗃️ **Prisma optimization** - Handles database setup with production-optimized client generation
+- 🔧 **Environment configuration** - Auto-creates .env from .env.example
+- 🧹 **Cache management** - Cleans corrupted Prisma client cache automatically
+- ✅ **Health checks** - Validates Next.js configuration and project structure
+
+**Quick Usage:**
+
+```bash
+# Complete development environment setup
+./dev-setup.sh
+
+# Script automatically handles:
+# - Package installation (yarn/pnpm/npm)
+# - Database migrations (if Prisma exists)
+# - Prisma client generation with --no-engine flag
+# - Environment file creation
+# - Cache cleanup if needed
+```
+
+**What It Does:**
+
+1. **Detects project structure** - Finds nitrokit root directory from shell/
+2. **Installs dependencies** - Uses preferred package manager (yarn > pnpm > npm)
+3. **Sets up Prisma** - Runs migrations and generates optimized client
+4. **Configures environment** - Creates .env from .env.example if needed
+5. **Validates setup** - Checks Next.js config and project health
+6. **Provides guidance** - Shows available development commands
+
+**Prisma Optimization:**
+
+```bash
+# Automatically runs these commands:
+npx prisma migrate dev --name init  # Database migrations
+npx prisma generate --no-engine     # Production-optimized client
+```
+
+**Environment Variables Handled:**
+
+- Creates `.env` from `.env.example` if missing
+- Validates database connection requirements
+- Shows warnings for missing configuration
 
 ### 🌍 AI Translation Script (`sync_translations_gemini.sh`)
 
@@ -57,13 +108,6 @@ export GEMINI_API_KEY="your-api-key"
 ./sync_translations_gemini.sh --delay 3
 ```
 
-**Configuration Options:**
-
-```bash
-./sync_translations_gemini.sh --help  # Full documentation
-./sync_translations_gemini.sh --api-key KEY --model MODEL --delay SECONDS
-```
-
 ### 🔄 Basic Translation Script (`sync_translations.sh`)
 
 Lightweight translation synchronization without external API dependencies.
@@ -88,16 +132,6 @@ Lightweight translation synchronization without external API dependencies.
 
 # Preview changes without applying
 ./sync_translations.sh --dry-run
-
-# Skip formatting
-./sync_translations.sh --no-format
-```
-
-**Configuration Options:**
-
-```bash
-./sync_translations.sh --help  # Full documentation
-./sync_translations.sh --messages-dir DIR --source-file FILE --reference-file FILE
 ```
 
 ### 🏷️ GitHub Labels Script (`labels.sh`)
@@ -124,19 +158,7 @@ Comprehensive GitHub repository label management with automation and best practi
 
 # List current labels
 ./labels.sh --list-only
-
-# Update existing labels only
-./labels.sh --update-only
 ```
-
-**Available Label Categories:**
-
-- 🐛 **Bug tracking** - `🐛 bug`, `❌ invalid`
-- ✨ **Enhancements** - `✨ enhancement`, `🚀 feature`
-- 🔴 **Priorities** - `🔴 critical`, `🟠 high`, `🟡 medium`, `🟢 low`
-- 🔄 **Status** - `🔄 in progress`, `👀 needs review`, `🚫 blocked`
-- 🎯 **Components** - `🎨 ui/ux`, `🌍 translation`, `🤖 gemini-api`
-- 🌱 **Difficulty** - `🌱 easy`, `🌿 medium`, `🌳 hard`
 
 ### 📦 Dependency Updater Script (`dependency_updater.sh`)
 
@@ -166,141 +188,138 @@ Automated package management with security vulnerability scanning and intelligen
 
 # Restore from backup
 ./dependency_updater.sh --restore 20250525_003649
-
-# List available backups
-./dependency_updater.sh --list-backups
 ```
 
-**Update Modes:**
+## 🔄 Development Workflow
 
-- 🔒 **safe** - Only security updates and patch versions (default)
-- 🔧 **patch** - Patch version updates only (1.0.1 → 1.0.2)
-- ⚡ **minor** - Minor and patch updates (1.0.x → 1.1.x)
-- 🚀 **major** - Major version updates (1.x.x → 2.x.x)
-- 🌟 **all** - Update everything to latest versions
-
-**Supported Package Managers:**
-
-| Package Manager | Files Detected                    | Security Audit | Auto-Install |
-| --------------- | --------------------------------- | -------------- | ------------ |
-| 🟢 **npm**      | `package.json`                    | `npm audit`    | ✅           |
-| 🟢 **yarn**     | `package.json` + `yarn.lock`      | `yarn audit`   | ✅           |
-| 🟢 **pnpm**     | `package.json` + `pnpm-lock.yaml` | `pnpm audit`   | ✅           |
-| 🟢 **cargo**    | `Cargo.toml`                      | `cargo audit`  | ✅           |
-| 🟢 **go**       | `go.mod`                          | Manual check   | ❌           |
-| 🟢 **pip**      | `requirements.txt`, `setup.py`    | `safety check` | ✅           |
-| 🟢 **composer** | `composer.json`                   | Manual check   | ✅           |
-
-**Backup Management:**
+### Complete Development Setup
 
 ```bash
-# List all available backups
-./dependency_updater.sh --list-backups
+# 1. Set up development environment
+./dev-setup.sh
 
-# Restore specific backup
-./dependency_updater.sh --restore 20250525_003649
+# 2. Update dependencies (optional)
+./dependency_updater.sh --dry-run  # Preview updates
+./dependency_updater.sh            # Apply updates
 
-# Clean old backups (keeps last 5)
-./dependency_updater.sh --clean-backups
+# 3. Set up GitHub labels (optional)
+./labels.sh --dry-run              # Preview labels
+./labels.sh                        # Apply labels
+
+# 4. Sync translations (optional)
+./sync_translations.sh             # Basic sync
+# or
+./sync_translations_gemini.sh      # AI-powered sync
 ```
 
-**Configuration Options:**
-
-```bash
-./dependency_updater.sh --help  # Full documentation
-
-# All available options
-./dependency_updater.sh \
-  --package-manager npm \
-  --update-mode major \
-  --project-root .. \
-  --backup-dir .dependency_backup \
-  --security-check \
-  --dry-run
-```
-
-## 🔄 Translation Workflow Comparison
-
-| Feature                 | Basic Script        | AI Script            |
-| ----------------------- | ------------------- | -------------------- |
-| **API Requirements**    | None                | Gemini API Key       |
-| **Translation Method**  | Manual placeholder  | Automatic AI         |
-| **Supported Languages** | All JSON files      | 30+ predefined       |
-| **Formatting**          | Optional Prettier   | Integrated Prettier  |
-| **Rate Limiting**       | Not applicable      | Built-in delays      |
-| **Configuration**       | Simple CLI params   | Multiple methods     |
-| **Best Use Case**       | Development/Testing | Production ready     |
-| **Offline Capability**  | ✅ Full offline     | ❌ Requires internet |
-| **Setup Complexity**    | Minimal             | Moderate             |
-
-### Choosing the Right Translation Script
-
-**Use `sync_translations.sh` when:**
-
-- 🧪 **Development environment** - Testing and prototyping
-- 🔒 **Restricted networks** - No external API access
-- 👥 **Manual review required** - Human translation preferred
-- 🚀 **Quick iteration** - Fast key synchronization needed
-- 💰 **Budget constraints** - No API costs
-
-**Use `sync_translations_gemini.sh` when:**
-
-- 🤖 **Production deployment** - Professional translation quality
-- 🌍 **Multi-language support** - Need many languages quickly
-- ⚡ **Large scale** - Batch processing hundreds of keys
-- 🎯 **Quality consistency** - AI ensures uniform tone
-- 📈 **Time efficiency** - Automated workflow preferred
-
-## 📦 Dependency Management Workflow
-
-### Package Manager Detection Flow
+### Development Environment Flow
 
 ```mermaid
 graph TD
-    A[Start] --> B[Check project-root parameter]
-    B --> C{Project root specified?}
-    C -->|Yes| D[Use specified path]
-    C -->|No| E[Auto-detect from current directory]
-    E --> F[Search current and parent directories]
-    F --> G{Package files found?}
-    G -->|Yes| H[Detect package manager]
-    G -->|No| I[Error: No package files found]
-    H --> J[Create backup]
-    J --> K[Run security audit]
-    K --> L[Update dependencies]
-    L --> M[Generate summary]
-    M --> N[Success]
+    A[Run dev-setup.sh] --> B[Detect Project Structure]
+    B --> C[Install Dependencies]
+    C --> D{Prisma Schema Exists?}
+    D -->|Yes| E[Run Database Migrations]
+    D -->|No| F[Skip Database Setup]
+    E --> G[Generate Prisma Client]
+    G --> H[Create Environment File]
+    F --> H
+    H --> I[Validate Configuration]
+    I --> J[Show Available Commands]
+    J --> K[Development Ready! 🚀]
 ```
 
-### Update Strategy Decision Matrix
+## 🎯 Script Comparison Matrix
 
-| Current Version | Safe Mode | Patch Mode | Minor Mode | Major Mode | All Mode |
-| --------------- | --------- | ---------- | ---------- | ---------- | -------- |
-| 1.0.0           | 1.0.1     | 1.0.x      | 1.x.x      | 2.x.x      | latest   |
-| 1.5.2           | 1.5.3     | 1.5.x      | 1.x.x      | 2.x.x      | latest   |
-| 2.1.0           | 2.1.1     | 2.1.x      | 2.x.x      | 3.x.x      | latest   |
+| Feature               | dev-setup | dependency_updater | sync_translations | sync_translations_gemini | labels |
+| --------------------- | --------- | ------------------ | ----------------- | ------------------------ | ------ |
+| **Setup Time**        | 30s       | 2-5 min            | 10s               | 1-3 min                  | 30s    |
+| **Prerequisites**     | None      | Project files      | JSON files        | API Key                  | GitHub |
+| **Internet Required** | Yes       | Yes                | No                | Yes                      | Yes    |
+| **Auto-Installation** | ✅        | ✅                 | ✅                | ✅                       | ✅     |
+| **Backup/Rollback**   | ❌        | ✅                 | ❌                | ❌                       | ❌     |
+| **Dry Run Mode**      | ❌        | ✅                 | ✅                | ✅                       | ✅     |
+| **Cross-Platform**    | ✅        | ✅                 | ✅                | ✅                       | ✅     |
+| **Production Ready**  | ✅        | ✅                 | ✅                | ✅                       | ✅     |
 
-### Security Audit Integration
+## 🔧 Common Development Tasks
 
-The dependency updater integrates security scanning for each package manager:
+### Quick Commands Reference
 
-- **npm/yarn/pnpm**: Uses built-in `audit` commands to check for vulnerabilities
-- **cargo**: Installs and uses `cargo-audit` for Rust security advisories
-- **pip**: Uses `safety` tool to check Python package vulnerabilities
-- **go/composer**: Manual security recommendations and update notifications
+```bash
+# Development Environment
+./dev-setup.sh                           # Complete setup
+yarn dev                                  # Start development server
+yarn build                               # Build for production
+
+# Dependency Management
+./dependency_updater.sh --dry-run        # Preview dependency updates
+./dependency_updater.sh --update-mode major  # Major version updates
+./dependency_updater.sh --list-backups   # Show available backups
+
+# Translation Management
+./sync_translations.sh --dry-run         # Preview translation sync
+./sync_translations_gemini.sh --delay 2  # AI translation with rate limiting
+
+# Repository Management
+./labels.sh --list-only                  # List current GitHub labels
+./labels.sh --update-only                # Update existing labels only
+
+# Database Operations (when in project root)
+yarn db:studio                           # Open Prisma Studio
+yarn db:push                            # Push schema changes
+yarn db:migrate                         # Run migrations
+yarn db:seed                            # Seed database
+```
+
+### Troubleshooting Common Issues
+
+| Issue                         | Script                   | Solution                                 |
+| ----------------------------- | ------------------------ | ---------------------------------------- |
+| **Prisma Client Error**       | dev-setup.sh             | Cleans cache and regenerates client      |
+| **Package Manager Not Found** | dev-setup.sh             | Auto-detects and uses available PM       |
+| **Environment File Missing**  | dev-setup.sh             | Creates .env from .env.example           |
+| **Dependency Conflicts**      | dependency_updater       | Use --update-mode safe or restore backup |
+| **Translation Key Missing**   | sync_translations        | Automatically adds missing keys          |
+| **API Rate Limit**            | sync_translations_gemini | Increase --delay parameter               |
+| **GitHub Auth Failed**        | labels.sh                | Runs gh auth login automatically         |
 
 ## 🛠️ Development Guidelines
+
+### Script Development Workflow
+
+```bash
+# 1. Initial setup for new developers
+./dev-setup.sh
+
+# 2. Regular development cycle
+yarn dev                        # Start development
+# ... make changes ...
+yarn lint                       # Check code style
+yarn format:write               # Format code
+yarn test                       # Run tests
+
+# 3. Before committing
+./sync_translations.sh          # Update translations
+./dependency_updater.sh --dry-run  # Check for updates
+yarn build                      # Ensure build works
+
+# 4. Repository maintenance (periodically)
+./labels.sh --update-only       # Keep labels updated
+./dependency_updater.sh         # Update dependencies
+./dependency_updater.sh --clean-backups  # Clean old backups
+```
 
 ### Adding New Scripts
 
 When contributing new automation scripts:
 
-1. **Naming Convention**: Use `action_description.sh` format
-2. **Auto-Installation**: Include dependency checks and installation
-3. **Help Documentation**: Comprehensive `--help` functionality
-4. **Error Handling**: Graceful failures with actionable messages
-5. **Cross-Platform**: Test on macOS, Linux, and Windows (WSL)
-6. **Parameter Support**: Accept configuration via CLI and environment
+1. **Follow naming convention**: `action_description.sh`
+2. **Include comprehensive help**: `--help` with examples
+3. **Add to this README**: Document features and usage
+4. **Test cross-platform**: Verify on macOS, Linux, Windows
+5. **Include error handling**: Graceful failures with guidance
+6. **Auto-install dependencies**: Don't assume tools exist
 
 ### Script Template
 
@@ -308,6 +327,10 @@ When contributing new automation scripts:
 #!/bin/bash
 
 # script_name.sh - Brief description with purpose
+
+# Get project root relative to shell directory
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
 
 # Default configuration
 DEFAULT_PARAM="default_value"
@@ -343,59 +366,19 @@ EXAMPLES:
 EOF
 }
 
-# Parse command line arguments
-while [[ $# -gt 0 ]]; do
-    case $1 in
-        --param)
-            PARAM="$2"
-            shift 2
-            ;;
-        -h|--help)
-            show_help
-            exit 0
-            ;;
-        *)
-            echo -e "${RED}❌ Unknown parameter: $1${NC}"
-            echo -e "${BLUE}💡 For help: $0 --help${NC}"
-            exit 1
-            ;;
-    esac
-done
-
 # Logging functions
-log_info() {
-    echo -e "${BLUE}ℹ️  $1${NC}"
-}
+log_info() { echo -e "${BLUE}ℹ️  $1${NC}"; }
+log_success() { echo -e "${GREEN}✅ $1${NC}"; }
+log_warning() { echo -e "${YELLOW}⚠️  $1${NC}"; }
+log_error() { echo -e "${RED}❌ $1${NC}"; }
+log_step() { echo -e "${PURPLE}🔄 $1${NC}"; }
 
-log_success() {
-    echo -e "${GREEN}✅ $1${NC}"
-}
-
-log_warning() {
-    echo -e "${YELLOW}⚠️  $1${NC}"
-}
-
-log_error() {
-    echo -e "${RED}❌ $1${NC}"
-}
-
-log_step() {
-    echo -e "${PURPLE}🔄 $1${NC}"
-}
-
-# Function to check dependencies
-check_dependencies() {
-    if ! command -v required_tool &> /dev/null; then
-        log_error "Required tool not found"
-        # Auto-installation logic here
-        exit 1
-    fi
-}
-
-# Main script logic
+# Main function
 main() {
     log_step "Starting [Script Name]..."
-    check_dependencies
+
+    # Change to project root
+    cd "$PROJECT_ROOT"
 
     # Your script logic here
 
@@ -406,74 +389,7 @@ main() {
 main "$@"
 ```
 
-### Best Practices
-
-- ✅ **Comprehensive help** - Include examples and troubleshooting
-- ✅ **Parameter validation** - Check inputs before processing
-- ✅ **Progress indicators** - Show status with emojis and messages
-- ✅ **Error recovery** - Provide clear next steps on failures
-- ✅ **Configuration flexibility** - Support multiple input methods
-- ✅ **Resource cleanup** - Clean temporary files and processes
-
-## 🔧 Troubleshooting Guide
-
-### Common Issues and Solutions
-
-| Issue                      | Symptoms                  | Solution                              |
-| -------------------------- | ------------------------- | ------------------------------------- |
-| **Permission Denied**      | `bash: permission denied` | Run `chmod +x script_name.sh`         |
-| **Command Not Found**      | `command not found`       | Scripts auto-install dependencies     |
-| **API Rate Limits**        | Translation failures      | Increase `--delay` parameter          |
-| **GitHub Auth Failed**     | Authentication errors     | Run `gh auth login` manually          |
-| **Invalid JSON**           | Parsing errors            | Validate JSON with `jq '.' file.json` |
-| **Missing Dependencies**   | Tool not found errors     | Follow auto-installation prompts      |
-| **Package Manager Issues** | Update failures           | Check `--project-root` parameter      |
-| **Backup Restore Failed**  | File permission errors    | Ensure write access to project files  |
-
-### Debug Mode
-
-Enable verbose logging for troubleshooting:
-
-```bash
-# Enable debug mode
-set -x
-./script_name.sh
-set +x
-
-# Check script execution
-bash -x ./script_name.sh
-```
-
-### Getting Help
-
-All scripts provide comprehensive help:
-
-```bash
-# Show detailed help
-./script_name.sh --help
-./script_name.sh -h
-
-# Check available options
-./script_name.sh --invalid-option  # Shows help automatically
-```
-
 ## 📁 Project Structure
-
-```
-shell/
-├── README.md                     # This comprehensive guide
-├── sync_translations_gemini.sh   # AI-powered translation automation
-├── sync_translations.sh          # Basic translation synchronization
-├── labels.sh                     # GitHub label management
-├── dependency_updater.sh         # Automated package updates with security
-└── [future_scripts/]             # Planned automation tools
-    ├── test_runner.sh            # Comprehensive testing
-    ├── deployment.sh             # One-click deployment
-    ├── changelog_generator.sh    # Automated release notes
-    └── code_formatter.sh         # Code style enforcement
-```
-
-### Backup Structure
 
 ```
 nitrokit/
@@ -483,10 +399,20 @@ nitrokit/
 │   │   ├── package-lock.json
 │   │   └── .backup_info        # Backup metadata
 │   └── 20250525_120430/
-├── package.json                 # Main project dependencies
-├── shell/                       # Script directory
-│   ├── dependency_updater.sh
-│   └── README.md
+├── prisma/
+│   ├── schema.prisma           # Database schema
+│   ├── migrations/             # Migration files
+│   └── seed.ts                 # Database seeding
+├── package.json                # Project dependencies
+├── .env.example               # Environment template
+├── shell/                     # 📁 Script directory
+│   ├── README.md              # This comprehensive guide
+│   ├── dev-setup.sh           # 🛠️ Development environment setup
+│   ├── dependency_updater.sh  # 📦 Package management
+│   ├── sync_translations.sh   # 🔄 Basic translation sync
+│   ├── sync_translations_gemini.sh  # 🌍 AI translation
+│   ├── labels.sh              # 🏷️ GitHub label management
+│   └── [future_scripts/]      # Planned automation tools
 └── other_project_files/
 ```
 
@@ -494,24 +420,24 @@ nitrokit/
 
 ### Contribution Workflow
 
-1. **Fork and Clone** - Create your own copy of the repository
-2. **Create Script** - Follow the template and guidelines above
-3. **Test Thoroughly** - Verify on different platforms and package managers
-4. **Update Documentation** - Add to this README with examples
-5. **Submit Pull Request** - Include detailed description
+1. **Set up development environment**: `./dev-setup.sh`
+2. **Create or modify script**: Follow template and guidelines
+3. **Test thoroughly**: Verify on different platforms
+4. **Update documentation**: Add to this README with examples
+5. **Submit pull request**: Include detailed description
 
 ### Planned Features
 
 Future automation opportunities:
 
-- 🧪 **Testing Automation** - Comprehensive test running with reporting
-- 🚀 **Deployment Automation** - One-click deployment with rollback support
-- 📊 **Analytics Collection** - Project metrics and usage statistics
-- 🔍 **Code Quality Tools** - Linting, formatting, and security scanning
-- 📝 **Documentation Generation** - Automated changelog and API docs
-- 🔄 **CI/CD Integration** - GitHub Actions workflow management
-- 🏗️ **Environment Setup** - Development environment bootstrapping
-- 🔐 **Security Automation** - Vulnerability scanning and patching
+- 🧪 **test_runner.sh** - Comprehensive testing with coverage reports
+- 🚀 **deployment.sh** - One-click deployment with rollback support
+- 📊 **analytics.sh** - Project metrics and usage statistics collection
+- 🔍 **code_quality.sh** - Linting, formatting, and security scanning
+- 📝 **changelog.sh** - Automated changelog and release notes generation
+- 🔄 **ci_setup.sh** - GitHub Actions workflow management
+- 🔐 **security_audit.sh** - Comprehensive security vulnerability scanning
+- 🏗️ **project_init.sh** - New project bootstrapping from template
 
 ## 📞 Support and Resources
 
@@ -523,25 +449,21 @@ Future automation opportunities:
 
 ---
 
-**💡 Pro Tip**: All scripts are designed to be self-documenting and user-friendly. When in doubt, use `--help` for comprehensive guidance and examples!
+**💡 Pro Tip**: Start with `./dev-setup.sh` for any new development environment. All other scripts build upon this foundation!
 
-**🎯 Quick Commands**:
+**🎯 Quick Start Commands**:
 
 ```bash
-# Get help for any script
-./script_name.sh --help
+# New developer setup
+./dev-setup.sh                    # Complete environment setup
+yarn dev                          # Start development server
 
-# Preview changes before applying
-./script_name.sh --dry-run
+# Regular maintenance
+./dependency_updater.sh --dry-run  # Check for updates
+./sync_translations.sh            # Sync translations
+./labels.sh --list-only           # Check GitHub labels
 
-# Check what scripts are available
-ls -la *.sh
-
-# Quick dependency update with backup
-./dependency_updater.sh --dry-run  # Preview first
-./dependency_updater.sh            # Apply changes
-
-# Emergency backup restore
-./dependency_updater.sh --list-backups
-./dependency_updater.sh --restore BACKUP_ID
+# Emergency recovery
+./dependency_updater.sh --list-backups      # List available backups
+./dependency_updater.sh --restore BACKUP_ID # Restore from backup
 ```

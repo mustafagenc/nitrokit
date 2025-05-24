@@ -698,6 +698,29 @@ show_update_summary() {
     cd "$original_dir"
 }
 
+# Function to handle Prisma-specific updates
+handle_prisma_updates() {
+    local project_dir="$1"
+    
+    if [[ -f "$project_dir/prisma/schema.prisma" ]]; then
+        log_step "Handling Prisma updates..."
+        
+        # Regenerate Prisma client with production flags
+        if check_tool "npx"; then
+            cd "$project_dir"
+            npx prisma generate --no-engine
+            log_success "Prisma client regenerated with production optimizations"
+        fi
+        
+        # Check for schema changes
+        if [[ -n "$(git diff --name-only | grep 'prisma/schema.prisma')" ]]; then
+            log_warning "Prisma schema changes detected. Consider running migrations:"
+            log_info "  npx prisma migrate dev"
+            log_info "  npx prisma db push"
+        fi
+    fi
+}
+
 # Main function
 main() {
     echo -e "${PURPLE}🔄 Dependency Updater - Starting automation...${NC}"
