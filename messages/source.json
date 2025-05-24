@@ -181,6 +181,7 @@
         "description": "Learn more about our privacy policy."
     },
     "footer": {
-        "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ All Rights Reserved."
+        "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ All Rights Reserved.",
+        "poweredBy": "Powered by <link>Ekipisi</link>."
     }
 }
