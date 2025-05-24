@@ -393,7 +393,7 @@ main "$@"
 
 ```
 nitrokit/
-├── .dependency_backup/          # Automated dependency backups
+├── .dependency/                # Automated dependency backups
 │   ├── 20250525_003649/
 │   │   ├── package.json
 │   │   ├── package-lock.json

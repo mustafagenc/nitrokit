@@ -114,7 +114,7 @@ nitrokit/
 │   └── labels.sh          # 🏷️ GitHub label management
 ├── public/                # Static assets
 ├── stories/               # Storybook stories
-└── .dependency_backup/    # Automated dependency backups
+└── .dependency/           # Automated dependency backups
 ```
 
 ## 🔧 Development Automation
