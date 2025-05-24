@@ -15,7 +15,8 @@
         "yes": "Ha",
         "no": "Yo'q",
         "continue": "Davom etish",
-        "submit": "Yuborish"
+        "submit": "Yuborish",
+        "contactUs": "Biz bilan bog'lanish"
     },
     "auth": {
         "signin": "Kirish",
@@ -29,6 +30,7 @@
         "signinWithLinkedIn": "LinkedIn bilan kirish",
         "signinWithGitlab": "GitLab bilan kirish",
         "signinWithMicrosoft": "Microsoft bilan kirish",
+        "signinWithInstagram": "Instagram bilan kirish",
         "email": "Elektron pochta",
         "password": "Parol",
         "confirmPassword": "Parolni tasdiqlang",
@@ -121,40 +123,45 @@
         "description": "Biz taklif qilayotgan xizmatlar haqida ko'proq ma'lumot oling."
     },
     "pricing": {
-        "title": "Pricing",
-        "subtitle": "Pricing that grows with you",
-        "description": "Choose an affordable plan that’s packed with the best features for engaging your audience, creating customer loyalty, and driving sales.",
-        "monthly": "Monthly",
-        "yearly": "Yearly",
-        "pricePerMonth": "Month",
-        "pricePerYear": "Year",
-        "purchasePlan": "Purchase Plan",
+        "title": "Narxlar",
+        "subtitle": "Siz bilan birga o'sadigan narxlar",
+        "description": "Tomoshabinlarni jalb qilish, mijozlar sodiqligini yaratish va sotuvlarni oshirish uchun eng yaxshi xususiyatlarga ega bo'lgan arzon rejani tanlang.",
+        "monthly": "Oylik",
+        "yearly": "Yillik",
+        "annual-payment": "Yillik to'lov bilan <span>20% tejang</span>.",
+        "pricePerMonth": "Oy",
+        "pricePerYear": "Yil",
+        "purchasePlan": "Rejani sotib olish",
         "freelancer": {
-            "title": "Freelancer",
-            "description": "The essentials to provide your best work for clients."
+            "title": "Frilanser",
+            "description": "Mijozlar uchun eng yaxshi ishingizni ta'minlash uchun zarur narsalar."
         },
         "startup": {
-            "title": "Startup",
-            "description": "A plan that scales with your rapidly growing business."
+            "title": "Startap",
+            "description": "Tez o'sayotgan biznesingiz bilan kengayadigan reja."
+        },
+        "pro": {
+            "title": "Professional",
+            "description": "O'sayotgan kompaniyangiz uchun maxsus qo'llab-quvvatlash va infratuzilma."
         },
         "enterprise": {
-            "title": "Enterprise",
-            "description": "Dedicated support and infrastructure for your company."
+            "title": "Korxona",
+            "description": "Kompaniyangiz uchun maxsus qo'llab-quvvatlash va infratuzilma."
         },
         "features": {
-            "5products": "5 products",
-            "25products": "10 products",
-            "unlimitedproducts": "Unlimited products",
-            "upto1000subscribers": "Up to 1000 subscribers",
-            "upto10000subscribers": "Up to 10,000 subscribers",
-            "unlimitedsubscribers": "Unlimited subscribers",
-            "48hoursupport": "48-hour support",
-            "24hoursupport": "24-hour support",
-            "1hoursupport": "1-hour support",
-            "basicanalytics": "Basic analytics",
-            "advancedanalytics": "Advanced analytics",
-            "xhoursupport": "{count}-hour support",
-            "marketingautomations": "Marketing automations"
+            "5products": "5 ta mahsulot",
+            "25products": "10 ta mahsulot",
+            "unlimitedproducts": "Cheksiz mahsulotlar",
+            "upto1000subscribers": "1000 tagacha obunachi",
+            "upto10000subscribers": "10 000 tagacha obunachi",
+            "unlimitedsubscribers": "Cheksiz obunachilar",
+            "48hoursupport": "48 soatlik qo'llab-quvvatlash",
+            "24hoursupport": "24 soatlik qo'llab-quvvatlash",
+            "1hoursupport": "1 soatlik qo'llab-quvvatlash",
+            "basicanalytics": "Asosiy tahlillar",
+            "advancedanalytics": "Kengaytirilgan tahlillar",
+            "xhoursupport": "{count} soatlik qo'llab-quvvatlash",
+            "marketingautomations": "Marketing avtomatlashtirish"
         }
     },
     "blog": {

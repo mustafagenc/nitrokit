@@ -1,0 +1,186 @@
+{
+    "app": {
+        "name": "Nitrokit",
+        "shortName": "Nitrokit",
+        "description": "Nitrokit 入門模板"
+    },
+    "common": {
+        "loading": "載入中...",
+        "error": "發生錯誤",
+        "notFound": "找不到您要查找的頁面",
+        "backToHome": "返回首頁",
+        "goBack": "返回",
+        "ok": "確定",
+        "cancel": "取消",
+        "yes": "是",
+        "no": "否",
+        "continue": "繼續",
+        "submit": "提交",
+        "contactUs": "聯絡我們"
+    },
+    "auth": {
+        "signin": "登入",
+        "signup": "註冊",
+        "signout": "登出",
+        "signinWithGoogle": "使用 Google 登入",
+        "signinWithFacebook": "使用 Facebook 登入",
+        "signinWithTwitter": "使用 Twitter 登入",
+        "signinWithGithub": "使用 Github 登入",
+        "signinWithApple": "使用 Apple 登入",
+        "signinWithLinkedIn": "使用 LinkedIn 登入",
+        "signinWithGitlab": "使用 GitLab 登入",
+        "signinWithMicrosoft": "使用 Microsoft 登入",
+        "signinWithInstagram": "使用 Instagram 登入",
+        "email": "電子郵件",
+        "password": "密碼",
+        "confirmPassword": "確認密碼",
+        "forgotPassword": "忘記密碼",
+        "name": "您的姓名",
+        "privacyPolicy": "我們的隱私政策",
+        "slogan1": "讓您的專案有個 <span>火箭 🚀</span> 般的開始！",
+        "slogan2": "使用 <link>Nitrokit</link> 節省時間，專注於開發...",
+        "account": "帳戶資訊",
+        "support": "支援",
+        "billing": "我的發票"
+    },
+    "signin": {
+        "title": "登入 {appName}",
+        "description": "歡迎回來！請登入以繼續",
+        "dontHaveAnAccount": "還沒有帳戶？ <link>註冊</link>。"
+    },
+    "signup": {
+        "title": "註冊 {appName}",
+        "alreadyHaveAnAccount": "已經有帳戶了？ <link>登入</link>。"
+    },
+    "resetPassword": {
+        "title": "重設您的密碼",
+        "description": "輸入您的電子郵件地址並按照說明重設您的密碼。",
+        "emailSent": "電子郵件已傳送！請檢查您的電子郵件。"
+    },
+    "validation": {
+        "required": {
+            "name": "姓名欄位為必填。",
+            "email": "電子郵件欄位為必填。",
+            "message": "訊息欄位為必填。",
+            "password": "密碼欄位為必填。",
+            "confirmPassword": "確認密碼欄位為必填。"
+        },
+        "invalid": {
+            "email": "無效的電子郵件地址。"
+        },
+        "password": {
+            "confirm": "密碼不符。",
+            "minLength": "密碼長度至少需 {min} 個字元。",
+            "maxLength": "密碼長度最多可 {max} 個字元。",
+            "uppercase": "必須包含至少一個大寫字母。",
+            "lowercase": "必須包含至少一個小寫字母。",
+            "number": "必須包含至少一個數字。",
+            "special": "必須包含至少一個特殊字元。",
+            "weak": "弱",
+            "okay": "中等",
+            "good": "良好",
+            "strong": "強",
+            "tooShort": "太短"
+        }
+    },
+    "placeholder": {
+        "enterYourName": "輸入您的姓名",
+        "enterYourEmail": "輸入您的電子郵件地址",
+        "enterYourMessage": "輸入您的訊息",
+        "enterYourPassword": "輸入您的密碼",
+        "confirmYourPassword": "確認您的密碼"
+    },
+    "notFound": {
+        "title": "找不到頁面",
+        "description": "錯誤！您要查找的頁面不存在。",
+        "returnHome": "返回首頁"
+    },
+    "error": {
+        "title": "發生錯誤",
+        "retry": "重試"
+    },
+    "metadata": {
+        "applicationName": "Nitrokit 入門模板",
+        "description": "Nitrokit 入門模板",
+        "author": "Mustafa Genç",
+        "title": "Nitrokit 入門模板"
+    },
+    "navigation": {
+        "title": "選單",
+        "home": "首頁",
+        "about": "關於我們",
+        "services": "服務項目",
+        "pricing": "價格方案",
+        "blog": "部落格",
+        "contact": "聯絡我們"
+    },
+    "about": {
+        "title": "關於我們",
+        "description": "這是一個使用 Next.js 建置的入門模板。此模板旨在快速有效地開發 Web 應用程式。"
+    },
+    "services": {
+        "title": "我們的服務",
+        "description": "了解更多關於我們提供的服務。"
+    },
+    "pricing": {
+        "title": "價格方案",
+        "subtitle": "與您一同成長的價格方案",
+        "description": "選擇一個經濟實惠的方案，其中包含吸引受眾、建立客戶忠誠度和推動銷售的最佳功能。",
+        "monthly": "月繳",
+        "yearly": "年繳",
+        "annual-payment": "年繳可<span>節省 20%</span>。",
+        "pricePerMonth": "月",
+        "pricePerYear": "年",
+        "purchasePlan": "購買方案",
+        "freelancer": {
+            "title": "自由工作者",
+            "description": "為客戶提供最佳工作的基本要素。"
+        },
+        "startup": {
+            "title": "新創公司",
+            "description": "一個能與您快速發展的業務一同擴展的方案。"
+        },
+        "pro": {
+            "title": "專業版",
+            "description": "為您不斷發展的公司提供專屬支援和基礎設施。"
+        },
+        "enterprise": {
+            "title": "企業版",
+            "description": "聯絡我們以取得企業需求的客製化報價。"
+        },
+        "features": {
+            "5products": "5 個產品",
+            "25products": "10 個產品",
+            "unlimitedproducts": "無限產品",
+            "upto1000subscribers": "最多 1000 個訂閱者",
+            "upto10000subscribers": "最多 10,000 個訂閱者",
+            "unlimitedsubscribers": "無限訂閱者",
+            "48hoursupport": "48 小時支援",
+            "24hoursupport": "24 小時支援",
+            "1hoursupport": "1 小時支援",
+            "basicanalytics": "基本分析",
+            "advancedanalytics": "進階分析",
+            "xhoursupport": "{count} 小時支援",
+            "marketingautomations": "行銷自動化"
+        }
+    },
+    "blog": {
+        "title": "部落格",
+        "description": "關注我們的部落格以獲取最新消息和更新。"
+    },
+    "contact": {
+        "title": "聯絡我們",
+        "description": "填寫以下表格以聯絡我們。",
+        "name": "您的姓名",
+        "email": "您的電子郵件地址",
+        "message": "您的訊息",
+        "send": "傳送"
+    },
+    "privacy": {
+        "title": "隱私政策",
+        "description": "了解更多關於我們的隱私政策。"
+    },
+    "footer": {
+        "copyright": "© 版權所有 {year, date, ::yyyy} {name} ♥️ 保留一切權利。"
+    }
+}

@@ -15,165 +15,172 @@
         "yes": "Ja",
         "no": "Nein",
         "continue": "Fortsetzen",
-        "submit": "Senden"
+        "submit": "Senden",
+        "contactUs": "Kontaktiere uns"
     },
     "auth": {
         "signin": "Anmelden",
-        "signup": "Sign Up",
-        "signout": "Sign Out",
-        "signinWithGoogle": "Sign In with Google",
-        "signinWithFacebook": "Sign In with Facebook",
-        "signinWithTwitter": "Sign In with Twitter",
-        "signinWithGithub": "Sign In with Github",
-        "signinWithApple": "Sign In with Apple",
-        "signinWithLinkedIn": "Sign In with LinkedIn",
-        "signinWithGitlab": "Sign In with GitLab",
-        "signinWithMicrosoft": "Sign In with Microsoft",
-        "email": "Email",
-        "password": "Password",
-        "confirmPassword": "Confirm Password",
-        "forgotPassword": "Forgot Password",
-        "name": "Your Name",
-        "privacyPolicy": "Our Privacy Policy",
-        "slogan1": "Give your projects a <span>rocket 🚀</span> start!",
-        "slogan2": "Save time with <link>Nitrokit</link> and focus on development...",
-        "account": "Account information",
-        "support": "Support",
-        "billing": "My Invoices"
+        "signup": "Registrieren",
+        "signout": "Abmelden",
+        "signinWithGoogle": "Mit Google anmelden",
+        "signinWithFacebook": "Mit Facebook anmelden",
+        "signinWithTwitter": "Mit Twitter anmelden",
+        "signinWithGithub": "Mit Github anmelden",
+        "signinWithApple": "Mit Apple anmelden",
+        "signinWithLinkedIn": "Mit LinkedIn anmelden",
+        "signinWithGitlab": "Mit GitLab anmelden",
+        "signinWithMicrosoft": "Mit Microsoft anmelden",
+        "signinWithInstagram": "Mit Instagram anmelden",
+        "email": "E-Mail",
+        "password": "Passwort",
+        "confirmPassword": "Passwort bestätigen",
+        "forgotPassword": "Passwort vergessen",
+        "name": "Ihr Name",
+        "privacyPolicy": "Unsere Datenschutzrichtlinie",
+        "slogan1": "Geben Sie Ihren Projekten einen <span>Raketenstart 🚀</span>!",
+        "slogan2": "Sparen Sie Zeit mit <link>Nitrokit</link> und konzentrieren Sie sich auf die Entwicklung...",
+        "account": "Kontoinformationen",
+        "support": "Unterstützung",
+        "billing": "Meine Rechnungen"
     },
     "signin": {
-        "title": "Sign In to {appName}",
-        "description": "Welcome back! Please sign in to continue",
-        "dontHaveAnAccount": "Don't have an account? <link>Sign Up</link>."
+        "title": "Bei {appName} anmelden",
+        "description": "Willkommen zurück! Bitte melden Sie sich an, um fortzufahren",
+        "dontHaveAnAccount": "Noch kein Konto? <link>Registrieren</link>."
     },
     "signup": {
-        "title": "Sign Up for {appName}",
-        "alreadyHaveAnAccount": "Already have an account? <link>Sign In</link>."
+        "title": "Für {appName} registrieren",
+        "alreadyHaveAnAccount": "Bereits ein Konto? <link>Anmelden</link>."
     },
     "resetPassword": {
-        "title": "Reset Your Password",
-        "description": "Enter your email address and follow the instructions to reset your password.",
-        "emailSent": "Email sent! Please check your email."
+        "title": "Passwort zurücksetzen",
+        "description": "Geben Sie Ihre E-Mail-Adresse ein und folgen Sie den Anweisungen, um Ihr Passwort zurückzusetzen.",
+        "emailSent": "E-Mail gesendet! Bitte überprüfen Sie Ihre E-Mails."
     },
     "validation": {
         "required": {
-            "name": "Name field is required.",
-            "email": "Email field is required.",
-            "message": "Message field is required.",
-            "password": "Password field is required.",
-            "confirmPassword": "Confirm password field is required."
+            "name": "Namensfeld ist erforderlich.",
+            "email": "E-Mail-Feld ist erforderlich.",
+            "message": "Nachrichtenfeld ist erforderlich.",
+            "password": "Passwortfeld ist erforderlich.",
+            "confirmPassword": "Passwortbestätigungsfeld ist erforderlich."
         },
         "invalid": {
-            "email": "Invalid email address."
+            "email": "Ungültige E-Mail-Adresse."
         },
         "password": {
-            "confirm": "Passwords do not match.",
-            "minLength": "Password must be at least {min} characters.",
-            "maxLength": "Password must be at most {max} characters.",
-            "uppercase": "Must contain at least one uppercase letter.",
-            "lowercase": "Must contain at least one lowercase letter.",
-            "number": "Must contain at least one number.",
-            "special": "Must contain at least one special character.",
-            "weak": "weak",
-            "okay": "okay",
-            "good": "good",
-            "strong": "strong",
-            "tooShort": "too short"
+            "confirm": "Passwörter stimmen nicht überein.",
+            "minLength": "Passwort muss mindestens {min} Zeichen lang sein.",
+            "maxLength": "Passwort darf höchstens {max} Zeichen lang sein.",
+            "uppercase": "Muss mindestens einen Großbuchstaben enthalten.",
+            "lowercase": "Muss mindestens einen Kleinbuchstaben enthalten.",
+            "number": "Muss mindestens eine Zahl enthalten.",
+            "special": "Muss mindestens ein Sonderzeichen enthalten.",
+            "weak": "schwach",
+            "okay": "in Ordnung",
+            "good": "gut",
+            "strong": "stark",
+            "tooShort": "zu kurz"
         }
     },
     "placeholder": {
-        "enterYourName": "Enter your name",
-        "enterYourEmail": "Enter your email address",
-        "enterYourMessage": "Enter your message",
-        "enterYourPassword": "Enter your password",
-        "confirmYourPassword": "Confirm your password"
+        "enterYourName": "Geben Sie Ihren Namen ein",
+        "enterYourEmail": "Geben Sie Ihre E-Mail-Adresse ein",
+        "enterYourMessage": "Geben Sie Ihre Nachricht ein",
+        "enterYourPassword": "Geben Sie Ihr Passwort ein",
+        "confirmYourPassword": "Bestätigen Sie Ihr Passwort"
     },
     "notFound": {
-        "title": "Page Not Found",
-        "description": "Error! The page you are looking for does not exist.",
-        "returnHome": "Return to Homepage"
+        "title": "Seite nicht gefunden",
+        "description": "Fehler! Die gesuchte Seite existiert nicht.",
+        "returnHome": "Zurück zur Startseite"
     },
     "error": {
-        "title": "An Error Occurred",
-        "retry": "Retry"
+        "title": "Ein Fehler ist aufgetreten",
+        "retry": "Wiederholen"
     },
     "metadata": {
-        "applicationName": "Nitrokit Starter Template",
-        "description": "Nitrokit starter template",
+        "applicationName": "Nitrokit Starter-Vorlage",
+        "description": "Nitrokit Starter-Vorlage",
         "author": "Mustafa Genç",
-        "title": "Nitrokit Starter Template"
+        "title": "Nitrokit Starter-Vorlage"
     },
     "navigation": {
-        "title": "Menu",
-        "home": "Home",
-        "about": "About Us",
-        "services": "Services",
-        "pricing": "Pricing",
+        "title": "Menü",
+        "home": "Startseite",
+        "about": "Über uns",
+        "services": "Dienstleistungen",
+        "pricing": "Preise",
         "blog": "Blog",
-        "contact": "Contact"
+        "contact": "Kontakt"
     },
     "about": {
-        "title": "About Us",
-        "description": "This is a starter template built with Next.js. This template is designed to develop web applications quickly and effectively."
+        "title": "Über uns",
+        "description": "Dies ist eine Starter-Vorlage, die mit Next.js erstellt wurde. Diese Vorlage wurde entwickelt, um Webanwendungen schnell und effektiv zu entwickeln."
     },
     "services": {
-        "title": "Our Services",
-        "description": "Learn more about the services we offer."
+        "title": "Unsere Dienstleistungen",
+        "description": "Erfahren Sie mehr über die von uns angebotenen Dienstleistungen."
     },
     "pricing": {
-        "title": "Pricing",
-        "subtitle": "Pricing that grows with you",
-        "description": "Choose an affordable plan that’s packed with the best features for engaging your audience, creating customer loyalty, and driving sales.",
-        "monthly": "Monthly",
-        "yearly": "Yearly",
-        "pricePerMonth": "Month",
-        "pricePerYear": "Year",
-        "purchasePlan": "Purchase Plan",
+        "title": "Preise",
+        "subtitle": "Preise, die mit Ihnen wachsen",
+        "description": "Wählen Sie einen erschwinglichen Plan, der die besten Funktionen zur Einbindung Ihres Publikums, zur Schaffung von Kundenbindung und zur Umsatzsteigerung bietet.",
+        "monthly": "Monatlich",
+        "yearly": "Jährlich",
+        "annual-payment": "<span>Sparen Sie 20%</span> mit Jahresabrechnung.",
+        "pricePerMonth": "Monat",
+        "pricePerYear": "Jahr",
+        "purchasePlan": "Plan kaufen",
         "freelancer": {
             "title": "Freelancer",
-            "description": "The essentials to provide your best work for clients."
+            "description": "Das Wesentliche, um Ihren Kunden die beste Arbeit zu liefern."
         },
         "startup": {
             "title": "Startup",
-            "description": "A plan that scales with your rapidly growing business."
+            "description": "Ein Plan, der mit Ihrem schnell wachsenden Unternehmen skaliert."
+        },
+        "pro": {
+            "title": "Profi",
+            "description": "Engagierte Unterstützung und Infrastruktur für Ihr wachsendes Unternehmen."
         },
         "enterprise": {
-            "title": "Enterprise",
-            "description": "Dedicated support and infrastructure for your company."
+            "title": "Unternehmen",
+            "description": "Engagierte Unterstützung und Infrastruktur für Ihr Unternehmen."
         },
         "features": {
-            "5products": "5 products",
-            "25products": "10 products",
-            "unlimitedproducts": "Unlimited products",
-            "upto1000subscribers": "Up to 1000 subscribers",
-            "upto10000subscribers": "Up to 10,000 subscribers",
-            "unlimitedsubscribers": "Unlimited subscribers",
-            "48hoursupport": "48-hour support",
-            "24hoursupport": "24-hour support",
-            "1hoursupport": "1-hour support",
-            "basicanalytics": "Basic analytics",
-            "advancedanalytics": "Advanced analytics",
-            "xhoursupport": "{count}-hour support",
-            "marketingautomations": "Marketing automations"
+            "5products": "5 Produkte",
+            "25products": "10 Produkte",
+            "unlimitedproducts": "Unbegrenzte Produkte",
+            "upto1000subscribers": "Bis zu 1000 Abonnenten",
+            "upto10000subscribers": "Bis zu 10.000 Abonnenten",
+            "unlimitedsubscribers": "Unbegrenzte Abonnenten",
+            "48hoursupport": "48-Stunden-Support",
+            "24hoursupport": "24-Stunden-Support",
+            "1hoursupport": "1-Stunden-Support",
+            "basicanalytics": "Grundlegende Analysen",
+            "advancedanalytics": "Erweiterte Analysen",
+            "xhoursupport": "{count}-Stunden-Support",
+            "marketingautomations": "Marketing-Automatisierungen"
         }
     },
     "blog": {
         "title": "Blog",
-        "description": "Follow our blog for the latest news and updates."
+        "description": "Folgen Sie unserem Blog für die neuesten Nachrichten und Updates."
     },
     "contact": {
-        "title": "Contact",
-        "description": "Fill out the form below to contact us.",
-        "name": "Your Name",
-        "email": "Your Email Address",
-        "message": "Your Message",
-        "send": "Send"
+        "title": "Kontakt",
+        "description": "Füllen Sie das folgende Formular aus, um uns zu kontaktieren.",
+        "name": "Ihr Name",
+        "email": "Ihre E-Mail-Adresse",
+        "message": "Ihre Nachricht",
+        "send": "Senden"
     },
     "privacy": {
-        "title": "Privacy Policy",
-        "description": "Learn more about our privacy policy."
+        "title": "Datenschutzrichtlinie",
+        "description": "Erfahren Sie mehr über unsere Datenschutzrichtlinie."
     },
     "footer": {
-        "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ All Rights Reserved."
+        "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ Alle Rechte vorbehalten."
     }
 }

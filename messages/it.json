@@ -15,7 +15,8 @@
         "yes": "Sì",
         "no": "No",
         "continue": "Continua",
-        "submit": "Invia"
+        "submit": "Invia",
+        "contactUs": "Contattaci"
     },
     "auth": {
         "signin": "Accedi",
@@ -29,6 +30,7 @@
         "signinWithLinkedIn": "Accedi con LinkedIn",
         "signinWithGitlab": "Accedi con GitLab",
         "signinWithMicrosoft": "Accedi con Microsoft",
+        "signinWithInstagram": "Accedi con Instagram",
         "email": "Email",
         "password": "Password",
         "confirmPassword": "Conferma Password",
@@ -121,40 +123,45 @@
         "description": "Scopri di più sui servizi che offriamo."
     },
     "pricing": {
-        "title": "Pricing",
-        "subtitle": "Pricing that grows with you",
-        "description": "Choose an affordable plan that’s packed with the best features for engaging your audience, creating customer loyalty, and driving sales.",
-        "monthly": "Monthly",
-        "yearly": "Yearly",
-        "pricePerMonth": "Month",
-        "pricePerYear": "Year",
-        "purchasePlan": "Purchase Plan",
+        "title": "Prezzi",
+        "subtitle": "Prezzi che crescono con te",
+        "description": "Scegli un piano conveniente ricco delle migliori funzionalità per coinvolgere il tuo pubblico, fidelizzare i clienti e incrementare le vendite.",
+        "monthly": "Mensile",
+        "yearly": "Annuale",
+        "annual-payment": "<span>Risparmia il 20%</span> con fatturazione annua.",
+        "pricePerMonth": "Mese",
+        "pricePerYear": "Anno",
+        "purchasePlan": "Acquista Piano",
         "freelancer": {
             "title": "Freelancer",
-            "description": "The essentials to provide your best work for clients."
+            "description": "L'essenziale per offrire il tuo miglior lavoro ai clienti."
         },
         "startup": {
             "title": "Startup",
-            "description": "A plan that scales with your rapidly growing business."
+            "description": "Un piano che si adatta alla rapida crescita della tua attività."
+        },
+        "pro": {
+            "title": "Professionista",
+            "description": "Supporto dedicato e infrastrutture costruite per la vostra azienda in crescita."
         },
         "enterprise": {
             "title": "Enterprise",
-            "description": "Dedicated support and infrastructure for your company."
+            "description": "Supporto e infrastruttura dedicati per la tua azienda."
         },
         "features": {
-            "5products": "5 products",
-            "25products": "10 products",
-            "unlimitedproducts": "Unlimited products",
-            "upto1000subscribers": "Up to 1000 subscribers",
-            "upto10000subscribers": "Up to 10,000 subscribers",
-            "unlimitedsubscribers": "Unlimited subscribers",
-            "48hoursupport": "48-hour support",
-            "24hoursupport": "24-hour support",
-            "1hoursupport": "1-hour support",
-            "basicanalytics": "Basic analytics",
-            "advancedanalytics": "Advanced analytics",
-            "xhoursupport": "{count}-hour support",
-            "marketingautomations": "Marketing automations"
+            "5products": "5 prodotti",
+            "25products": "10 prodotti",
+            "unlimitedproducts": "Prodotti illimitati",
+            "upto1000subscribers": "Fino a 1000 iscritti",
+            "upto10000subscribers": "Fino a 10.000 iscritti",
+            "unlimitedsubscribers": "Iscritti illimitati",
+            "48hoursupport": "Supporto 48 ore",
+            "24hoursupport": "Supporto 24 ore",
+            "1hoursupport": "Supporto 1 ora",
+            "basicanalytics": "Analisi di base",
+            "advancedanalytics": "Analisi avanzate",
+            "xhoursupport": "Supporto {count} ore",
+            "marketingautomations": "Automazioni di marketing"
         }
     },
     "blog": {

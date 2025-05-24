@@ -1,5 +1,6 @@
 project_id: '792776'
 api_token_env: CROWDIN_PERSONAL_ACCESS_TOKEN
+preserve_hierarchy: true
 files:
   - source: /messages/source.json
     translation: /messages/%locale%.json

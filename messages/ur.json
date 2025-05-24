@@ -15,7 +15,8 @@
         "yes": "ہاں",
         "no": "نہیں",
         "continue": "جاری رکھیں",
-        "submit": "جمع کرائیں"
+        "submit": "جمع کرائیں",
+        "contactUs": "ہم سے رابطہ کریں"
     },
     "auth": {
         "signin": "سائن ان کریں",
@@ -29,6 +30,7 @@
         "signinWithLinkedIn": "لنکڈ اِن کے ساتھ سائن ان کریں",
         "signinWithGitlab": "گٹ لیب کے ساتھ سائن ان کریں",
         "signinWithMicrosoft": "مائیکروسافٹ کے ساتھ سائن ان کریں",
+        "signinWithInstagram": "انسٹاگرام کے ساتھ سائن ان کریں",
         "email": "ای میل",
         "password": "پاس ورڈ",
         "confirmPassword": "پاس ورڈ کی تصدیق کریں",
@@ -121,40 +123,45 @@
         "description": "ہماری پیش کردہ خدمات کے بارے میں مزید جانیں۔"
     },
     "pricing": {
-        "title": "Pricing",
-        "subtitle": "Pricing that grows with you",
-        "description": "Choose an affordable plan that’s packed with the best features for engaging your audience, creating customer loyalty, and driving sales.",
-        "monthly": "Monthly",
-        "yearly": "Yearly",
-        "pricePerMonth": "Month",
-        "pricePerYear": "Year",
-        "purchasePlan": "Purchase Plan",
+        "title": "قیمتیں",
+        "subtitle": "قیمتیں جو آپ کے ساتھ بڑھتی ہیں",
+        "description": "ایک سستی منصوبہ منتخب کریں جو آپ کے سامعین کو مشغول کرنے، گاہکوں کی وفاداری پیدا کرنے اور فروخت کو بڑھانے کے لیے بہترین خصوصیات سے بھرا ہوا ہے۔",
+        "monthly": "ماہانہ",
+        "yearly": "سالانہ",
+        "annual-payment": "سالانہ بلنگ کے ساتھ <span>20% بچائیں</span>۔",
+        "pricePerMonth": "مہینہ",
+        "pricePerYear": "سال",
+        "purchasePlan": "منصوبہ خریدیں",
         "freelancer": {
-            "title": "Freelancer",
-            "description": "The essentials to provide your best work for clients."
+            "title": "فری لانسر",
+            "description": "کلائنٹس کے لیے اپنا بہترین کام فراہم کرنے کے لیے ضروریات۔"
         },
         "startup": {
-            "title": "Startup",
-            "description": "A plan that scales with your rapidly growing business."
+            "title": "اسٹارٹ اپ",
+            "description": "ایک منصوبہ جو آپ کے تیزی سے بڑھتے ہوئے کاروبار کے ساتھ پیمانہ کرتا ہے۔"
+        },
+        "pro": {
+            "title": "پیشہ ورانہ",
+            "description": "آپ کی بڑھتی ہوئی کمپنی کے لیے وقف شدہ معاونت اور بنیادی ڈھانچہ۔"
         },
         "enterprise": {
-            "title": "Enterprise",
-            "description": "Dedicated support and infrastructure for your company."
+            "title": "انٹرپرائز",
+            "description": "آپ کی کمپنی کے لیے وقف شدہ معاونت اور بنیادی ڈھانچہ۔"
         },
         "features": {
-            "5products": "5 products",
-            "25products": "10 products",
-            "unlimitedproducts": "Unlimited products",
-            "upto1000subscribers": "Up to 1000 subscribers",
-            "upto10000subscribers": "Up to 10,000 subscribers",
-            "unlimitedsubscribers": "Unlimited subscribers",
-            "48hoursupport": "48-hour support",
-            "24hoursupport": "24-hour support",
-            "1hoursupport": "1-hour support",
-            "basicanalytics": "Basic analytics",
-            "advancedanalytics": "Advanced analytics",
-            "xhoursupport": "{count}-hour support",
-            "marketingautomations": "Marketing automations"
+            "5products": "5 مصنوعات",
+            "25products": "10 مصنوعات",
+            "unlimitedproducts": "لامحدود مصنوعات",
+            "upto1000subscribers": "1000 سبسکرائبرز تک",
+            "upto10000subscribers": "10,000 سبسکرائبرز تک",
+            "unlimitedsubscribers": "لامحدود سبسکرائبرز",
+            "48hoursupport": "48 گھنٹے کی معاونت",
+            "24hoursupport": "24 گھنٹے کی معاونت",
+            "1hoursupport": "1 گھنٹے کی معاونت",
+            "basicanalytics": "بنیادی تجزیات",
+            "advancedanalytics": "جدید تجزیات",
+            "xhoursupport": "{count} گھنٹے کی معاونت",
+            "marketingautomations": "مارکیٹنگ آٹومیشنز"
         }
     },
     "blog": {

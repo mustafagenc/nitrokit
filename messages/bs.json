@@ -1,0 +1,186 @@
+{
+    "app": {
+        "name": "Nitrokit",
+        "shortName": "Nitrokit",
+        "description": "Nitrokit početni predložak"
+    },
+    "common": {
+        "loading": "Učitavanje...",
+        "error": "Došlo je do greške",
+        "notFound": "Stranica koju tražite nije pronađena",
+        "backToHome": "Nazad na početnu",
+        "goBack": "Nazad",
+        "ok": "U redu",
+        "cancel": "Otkaži",
+        "yes": "Da",
+        "no": "Ne",
+        "continue": "Nastavi",
+        "submit": "Pošalji",
+        "contactUs": "Kontaktirajte nas"
+    },
+    "auth": {
+        "signin": "Prijava",
+        "signup": "Registracija",
+        "signout": "Odjava",
+        "signinWithGoogle": "Prijavite se putem Google-a",
+        "signinWithFacebook": "Prijavite se putem Facebook-a",
+        "signinWithTwitter": "Prijavite se putem Twitter-a",
+        "signinWithGithub": "Prijavite se putem Github-a",
+        "signinWithApple": "Prijavite se putem Apple-a",
+        "signinWithLinkedIn": "Prijavite se putem LinkedIn-a",
+        "signinWithGitlab": "Prijavite se putem GitLab-a",
+        "signinWithMicrosoft": "Prijavite se putem Microsoft-a",
+        "signinWithInstagram": "Prijavite se putem Instagram-a",
+        "email": "Email",
+        "password": "Lozinka",
+        "confirmPassword": "Potvrdi lozinku",
+        "forgotPassword": "Zaboravljena lozinka",
+        "name": "Vaše ime",
+        "privacyPolicy": "Naša politika privatnosti",
+        "slogan1": "Dajte svojim projektima <span>raketni 🚀</span> početak!",
+        "slogan2": "Uštedite vrijeme uz <link>Nitrokit</link> i fokusirajte se na razvoj...",
+        "account": "Informacije o računu",
+        "support": "Podrška",
+        "billing": "Moje fakture"
+    },
+    "signin": {
+        "title": "Prijavite se na {appName}",
+        "description": "Dobrodošli nazad! Molimo prijavite se da nastavite",
+        "dontHaveAnAccount": "Nemate račun? <link>Registrujte se</link>."
+    },
+    "signup": {
+        "title": "Registrujte se za {appName}",
+        "alreadyHaveAnAccount": "Već imate račun? <link>Prijavite se</link>."
+    },
+    "resetPassword": {
+        "title": "Resetujte Vašu lozinku",
+        "description": "Unesite svoju email adresu i pratite upute za resetovanje lozinke.",
+        "emailSent": "Email poslan! Molimo provjerite Vaš email."
+    },
+    "validation": {
+        "required": {
+            "name": "Polje za ime je obavezno.",
+            "email": "Polje za email je obavezno.",
+            "message": "Polje za poruku je obavezno.",
+            "password": "Polje za lozinku je obavezno.",
+            "confirmPassword": "Polje za potvrdu lozinke je obavezno."
+        },
+        "invalid": {
+            "email": "Nevažeća email adresa."
+        },
+        "password": {
+            "confirm": "Lozinke se ne podudaraju.",
+            "minLength": "Lozinka mora imati najmanje {min} znakova.",
+            "maxLength": "Lozinka može imati najviše {max} znakova.",
+            "uppercase": "Mora sadržavati najmanje jedno veliko slovo.",
+            "lowercase": "Mora sadržavati najmanje jedno malo slovo.",
+            "number": "Mora sadržavati najmanje jedan broj.",
+            "special": "Mora sadržavati najmanje jedan poseban znak.",
+            "weak": "slaba",
+            "okay": "u redu",
+            "good": "dobra",
+            "strong": "jaka",
+            "tooShort": "prekratka"
+        }
+    },
+    "placeholder": {
+        "enterYourName": "Unesite Vaše ime",
+        "enterYourEmail": "Unesite Vašu email adresu",
+        "enterYourMessage": "Unesite Vašu poruku",
+        "enterYourPassword": "Unesite Vašu lozinku",
+        "confirmYourPassword": "Potvrdite Vašu lozinku"
+    },
+    "notFound": {
+        "title": "Stranica nije pronađena",
+        "description": "Greška! Stranica koju tražite ne postoji.",
+        "returnHome": "Vratite se na početnu stranicu"
+    },
+    "error": {
+        "title": "Došlo je do greške",
+        "retry": "Pokušaj ponovo"
+    },
+    "metadata": {
+        "applicationName": "Nitrokit Početni Predložak",
+        "description": "Nitrokit početni predložak",
+        "author": "Mustafa Genç",
+        "title": "Nitrokit Početni Predložak"
+    },
+    "navigation": {
+        "title": "Meni",
+        "home": "Početna",
+        "about": "O nama",
+        "services": "Usluge",
+        "pricing": "Cijene",
+        "blog": "Blog",
+        "contact": "Kontakt"
+    },
+    "about": {
+        "title": "O nama",
+        "description": "Ovo je početni predložak izrađen pomoću Next.js. Ovaj predložak je dizajniran za brz i efikasan razvoj web aplikacija."
+    },
+    "services": {
+        "title": "Naše usluge",
+        "description": "Saznajte više o uslugama koje nudimo."
+    },
+    "pricing": {
+        "title": "Cijene",
+        "subtitle": "Cijene koje rastu s Vama",
+        "description": "Odaberite pristupačan plan koji je prepun najboljih funkcija za angažovanje Vaše publike, stvaranje lojalnosti kupaca i povećanje prodaje.",
+        "monthly": "Mjesečno",
+        "yearly": "Godišnje",
+        "annual-payment": "<span>Uštedite 20%</span> uz godišnju naplatu.",
+        "pricePerMonth": "Mjesec",
+        "pricePerYear": "Godina",
+        "purchasePlan": "Kupi plan",
+        "freelancer": {
+            "title": "Freelancer",
+            "description": "Osnove za pružanje najboljeg rada klijentima."
+        },
+        "startup": {
+            "title": "Startup",
+            "description": "Plan koji se prilagođava Vašem brzo rastućem poslovanju."
+        },
+        "pro": {
+            "title": "Profesionalni",
+            "description": "Namjenska podrška i infrastruktura izgrađena za Vašu rastuću kompaniju."
+        },
+        "enterprise": {
+            "title": "Enterprise",
+            "description": "Kontaktirajte nas za prilagođenu ponudu za Vaše enterprise potrebe."
+        },
+        "features": {
+            "5products": "5 proizvoda",
+            "25products": "10 proizvoda",
+            "unlimitedproducts": "Neograničeno proizvoda",
+            "upto1000subscribers": "Do 1000 pretplatnika",
+            "upto10000subscribers": "Do 10.000 pretplatnika",
+            "unlimitedsubscribers": "Neograničeno pretplatnika",
+            "48hoursupport": "Podrška u roku od 48 sati",
+            "24hoursupport": "Podrška u roku od 24 sata",
+            "1hoursupport": "Podrška u roku od 1 sata",
+            "basicanalytics": "Osnovna analitika",
+            "advancedanalytics": "Napredna analitika",
+            "xhoursupport": "Podrška u roku od {count} sati",
+            "marketingautomations": "Marketinške automatizacije"
+        }
+    },
+    "blog": {
+        "title": "Blog",
+        "description": "Pratite naš blog za najnovije vijesti i ažuriranja."
+    },
+    "contact": {
+        "title": "Kontakt",
+        "description": "Popunite obrazac ispod da nas kontaktirate.",
+        "name": "Vaše ime",
+        "email": "Vaša email adresa",
+        "message": "Vaša poruka",
+        "send": "Pošalji"
+    },
+    "privacy": {
+        "title": "Politika privatnosti",
+        "description": "Saznajte više o našoj politici privatnosti."
+    },
+    "footer": {
+        "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ Sva prava pridržana."
+    }
+}

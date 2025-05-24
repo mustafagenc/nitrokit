@@ -11,7 +11,27 @@ const DEFAULT_CURRENCY = 'USD';
  * The application will use the browser's language settings to determine the default locale.
  * @returns {string[]} An array of supported locales.
  */
-const locales = ['tr', 'en', 'uz', 'ar', 'ru', 'az', 'de', 'fr', 'es', 'it', 'ur'];
+const locales = [
+    'ar',
+    'az',
+    'bs',
+    'de',
+    'en',
+    'es',
+    'fr',
+    'hi',
+    'id',
+    'it',
+    'kk',
+    'ko',
+    'ky',
+    'ru',
+    'tk',
+    'tr',
+    'ur',
+    'uz',
+    'zh',
+];
 
 /**
  * List of locales with their respective flags.
@@ -23,17 +43,25 @@ const locales = ['tr', 'en', 'uz', 'ar', 'ru', 'az', 'de', 'fr', 'es', 'it', 'ur
  * @returns {Array<{ id: string, name: string, flag: string }>}
  */
 const localesWithFlag = [
-    { id: 'tr', name: 'Türkçe', flag: '/flags/tr.svg' },
-    { id: 'en', name: 'English', flag: '/flags/us.svg' },
-    { id: 'uz', name: "O'zbekcha", flag: '/flags/uz.svg' },
     { id: 'ar', name: 'العربية', flag: '/flags/sa.svg' },
-    { id: 'ru', name: 'Русский', flag: '/flags/ru.svg' },
     { id: 'az', name: 'Azərbaycanca', flag: '/flags/az.svg' },
+    { id: 'bs', name: 'Bosanski', flag: '/flags/ba.svg' },
     { id: 'de', name: 'Deutsch', flag: '/flags/de.svg' },
-    { id: 'fr', name: 'Français', flag: '/flags/fr.svg' },
+    { id: 'en', name: 'English', flag: '/flags/us.svg' },
     { id: 'es', name: 'Español', flag: '/flags/es.svg' },
+    { id: 'fr', name: 'Français', flag: '/flags/fr.svg' },
+    { id: 'hi', name: 'हिन्दी', flag: '/flags/in.svg' },
+    { id: 'id', name: 'Indonesia', flag: '/flags/id.svg' },
     { id: 'it', name: 'Italiano', flag: '/flags/it.svg' },
+    { id: 'kk', name: 'Қазақша', flag: '/flags/kz.svg' },
+    { id: 'ko', name: '한국어', flag: '/flags/kr.svg' },
+    { id: 'ky', name: 'Кыргызча', flag: '/flags/kg.svg' },
+    { id: 'ru', name: 'Русский', flag: '/flags/ru.svg' },
+    { id: 'tk', name: 'Türkmençe', flag: '/flags/tm.svg' },
+    { id: 'tr', name: 'Türkçe', flag: '/flags/tr.svg' },
     { id: 'ur', name: 'اردو', flag: '/flags/pk.svg' },
+    { id: 'uz', name: "O'zbekcha", flag: '/flags/uz.svg' },
+    { id: 'zh', name: '中文', flag: '/flags/cn.svg' },
 ];
 
 /**

@@ -1,0 +1,186 @@
+{
+    "app": {
+        "name": "Nitrokit",
+        "shortName": "Nitrokit",
+        "description": "Template awal Nitrokit"
+    },
+    "common": {
+        "loading": "Memuat...",
+        "error": "Terjadi kesalahan",
+        "notFound": "Halaman yang Anda cari tidak ditemukan",
+        "backToHome": "Kembali ke beranda",
+        "goBack": "Kembali",
+        "ok": "OK",
+        "cancel": "Batal",
+        "yes": "Ya",
+        "no": "Tidak",
+        "continue": "Lanjutkan",
+        "submit": "Kirim",
+        "contactUs": "Hubungi Kami"
+    },
+    "auth": {
+        "signin": "Masuk",
+        "signup": "Daftar",
+        "signout": "Keluar",
+        "signinWithGoogle": "Masuk dengan Google",
+        "signinWithFacebook": "Masuk dengan Facebook",
+        "signinWithTwitter": "Masuk dengan Twitter",
+        "signinWithGithub": "Masuk dengan Github",
+        "signinWithApple": "Masuk dengan Apple",
+        "signinWithLinkedIn": "Masuk dengan LinkedIn",
+        "signinWithGitlab": "Masuk dengan GitLab",
+        "signinWithMicrosoft": "Masuk dengan Microsoft",
+        "signinWithInstagram": "Masuk dengan Instagram",
+        "email": "Email",
+        "password": "Kata Sandi",
+        "confirmPassword": "Konfirmasi Kata Sandi",
+        "forgotPassword": "Lupa Kata Sandi",
+        "name": "Nama Anda",
+        "privacyPolicy": "Kebijakan Privasi Kami",
+        "slogan1": "Berikan proyek Anda awal yang <span>cepat 🚀</span>!",
+        "slogan2": "Hemat waktu dengan <link>Nitrokit</link> dan fokus pada pengembangan...",
+        "account": "Informasi Akun",
+        "support": "Dukungan",
+        "billing": "Faktur Saya"
+    },
+    "signin": {
+        "title": "Masuk ke {appName}",
+        "description": "Selamat datang kembali! Silakan masuk untuk melanjutkan",
+        "dontHaveAnAccount": "Belum punya akun? <link>Daftar</link>."
+    },
+    "signup": {
+        "title": "Daftar untuk {appName}",
+        "alreadyHaveAnAccount": "Sudah punya akun? <link>Masuk</link>."
+    },
+    "resetPassword": {
+        "title": "Atur Ulang Kata Sandi Anda",
+        "description": "Masukkan alamat email Anda dan ikuti instruksi untuk mengatur ulang kata sandi Anda.",
+        "emailSent": "Email terkirim! Silakan periksa email Anda."
+    },
+    "validation": {
+        "required": {
+            "name": "Kolom nama wajib diisi.",
+            "email": "Kolom email wajib diisi.",
+            "message": "Kolom pesan wajib diisi.",
+            "password": "Kolom kata sandi wajib diisi.",
+            "confirmPassword": "Kolom konfirmasi kata sandi wajib diisi."
+        },
+        "invalid": {
+            "email": "Alamat email tidak valid."
+        },
+        "password": {
+            "confirm": "Kata sandi tidak cocok.",
+            "minLength": "Kata sandi minimal {min} karakter.",
+            "maxLength": "Kata sandi maksimal {max} karakter.",
+            "uppercase": "Harus mengandung setidaknya satu huruf kapital.",
+            "lowercase": "Harus mengandung setidaknya satu huruf kecil.",
+            "number": "Harus mengandung setidaknya satu angka.",
+            "special": "Harus mengandung setidaknya satu karakter khusus.",
+            "weak": "lemah",
+            "okay": "cukup",
+            "good": "baik",
+            "strong": "kuat",
+            "tooShort": "terlalu pendek"
+        }
+    },
+    "placeholder": {
+        "enterYourName": "Masukkan nama Anda",
+        "enterYourEmail": "Masukkan alamat email Anda",
+        "enterYourMessage": "Masukkan pesan Anda",
+        "enterYourPassword": "Masukkan kata sandi Anda",
+        "confirmYourPassword": "Konfirmasi kata sandi Anda"
+    },
+    "notFound": {
+        "title": "Halaman Tidak Ditemukan",
+        "description": "Kesalahan! Halaman yang Anda cari tidak ada.",
+        "returnHome": "Kembali ke Beranda"
+    },
+    "error": {
+        "title": "Terjadi Kesalahan",
+        "retry": "Coba Lagi"
+    },
+    "metadata": {
+        "applicationName": "Template Awal Nitrokit",
+        "description": "Template awal Nitrokit",
+        "author": "Mustafa Genç",
+        "title": "Template Awal Nitrokit"
+    },
+    "navigation": {
+        "title": "Menu",
+        "home": "Beranda",
+        "about": "Tentang Kami",
+        "services": "Layanan",
+        "pricing": "Harga",
+        "blog": "Blog",
+        "contact": "Kontak"
+    },
+    "about": {
+        "title": "Tentang Kami",
+        "description": "Ini adalah template awal yang dibangun dengan Next.js. Template ini dirancang untuk mengembangkan aplikasi web dengan cepat dan efektif."
+    },
+    "services": {
+        "title": "Layanan Kami",
+        "description": "Pelajari lebih lanjut tentang layanan yang kami tawarkan."
+    },
+    "pricing": {
+        "title": "Harga",
+        "subtitle": "Harga yang berkembang bersama Anda",
+        "description": "Pilih paket terjangkau yang dilengkapi dengan fitur terbaik untuk melibatkan audiens Anda, menciptakan loyalitas pelanggan, dan mendorong penjualan.",
+        "monthly": "Bulanan",
+        "yearly": "Tahunan",
+        "annual-payment": "<span>Hemat 20%</span> dengan tagihan tahunan.",
+        "pricePerMonth": "Bulan",
+        "pricePerYear": "Tahun",
+        "purchasePlan": "Beli Paket",
+        "freelancer": {
+            "title": "Freelancer",
+            "description": "Hal-hal penting untuk memberikan pekerjaan terbaik Anda bagi klien."
+        },
+        "startup": {
+            "title": "Startup",
+            "description": "Paket yang skalanya sesuai dengan bisnis Anda yang berkembang pesat."
+        },
+        "pro": {
+            "title": "Profesional",
+            "description": "Dukungan dan infrastruktur khusus yang dibangun untuk perusahaan Anda yang sedang berkembang."
+        },
+        "enterprise": {
+            "title": "Enterprise",
+            "description": "Hubungi kami untuk penawaran khusus sesuai kebutuhan perusahaan Anda."
+        },
+        "features": {
+            "5products": "5 produk",
+            "25products": "10 produk",
+            "unlimitedproducts": "Produk tak terbatas",
+            "upto1000subscribers": "Hingga 1000 pelanggan",
+            "upto10000subscribers": "Hingga 10.000 pelanggan",
+            "unlimitedsubscribers": "Pelanggan tak terbatas",
+            "48hoursupport": "Dukungan 48 jam",
+            "24hoursupport": "Dukungan 24 jam",
+            "1hoursupport": "Dukungan 1 jam",
+            "basicanalytics": "Analitik dasar",
+            "advancedanalytics": "Analitik lanjutan",
+            "xhoursupport": "Dukungan {count} jam",
+            "marketingautomations": "Otomatisasi pemasaran"
+        }
+    },
+    "blog": {
+        "title": "Blog",
+        "description": "Ikuti blog kami untuk berita dan pembaruan terbaru."
+    },
+    "contact": {
+        "title": "Kontak",
+        "description": "Isi formulir di bawah ini untuk menghubungi kami.",
+        "name": "Nama Anda",
+        "email": "Alamat Email Anda",
+        "message": "Pesan Anda",
+        "send": "Kirim"
+    },
+    "privacy": {
+        "title": "Kebijakan Privasi",
+        "description": "Pelajari lebih lanjut tentang kebijakan privasi kami."
+    },
+    "footer": {
+        "copyright": "© Hak Cipta {year, date, ::yyyy} {name} ♥️ Semua Hak Dilindungi."
+    }
+}

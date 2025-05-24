@@ -15,7 +15,8 @@
         "yes": "نعم",
         "no": "لا",
         "continue": "متابعة",
-        "submit": "إرسال"
+        "submit": "إرسال",
+        "contactUs": "اتصل بنا"
     },
     "auth": {
         "signin": "تسجيل الدخول",
@@ -29,6 +30,7 @@
         "signinWithLinkedIn": "تسجيل الدخول باستخدام لينكد إن",
         "signinWithGitlab": "تسجيل الدخول باستخدام جيت لاب",
         "signinWithMicrosoft": "تسجيل الدخول باستخدام مايكروسوفت",
+        "signinWithInstagram": "تسجيل الدخول باستخدام Instagram",
         "email": "البريد الإلكتروني",
         "password": "كلمة المرور",
         "confirmPassword": "تأكيد كلمة المرور",
@@ -121,40 +123,45 @@
         "description": "تعرف على المزيد حول الخدمات التي نقدمها."
     },
     "pricing": {
-        "title": "Pricing",
-        "subtitle": "Pricing that grows with you",
-        "description": "Choose an affordable plan that’s packed with the best features for engaging your audience, creating customer loyalty, and driving sales.",
-        "monthly": "Monthly",
-        "yearly": "Yearly",
-        "pricePerMonth": "Month",
-        "pricePerYear": "Year",
-        "purchasePlan": "Purchase Plan",
+        "title": "الأسعار",
+        "subtitle": "أسعار تنمو معك",
+        "description": "اختر خطة ميسورة التكلفة مليئة بأفضل الميزات لإشراك جمهورك وخلق ولاء العملاء وزيادة المبيعات.",
+        "monthly": "شهريا",
+        "yearly": "سنويا",
+        "annual-payment": "<span>وفر 20%</span> مع الفواتير السنوية.",
+        "pricePerMonth": "شهر",
+        "pricePerYear": "سنة",
+        "purchasePlan": "شراء الخطة",
         "freelancer": {
-            "title": "Freelancer",
-            "description": "The essentials to provide your best work for clients."
+            "title": "مستقل",
+            "description": "الأساسيات لتقديم أفضل عمل لعملائك."
         },
         "startup": {
-            "title": "Startup",
-            "description": "A plan that scales with your rapidly growing business."
+            "title": "شركة ناشئة",
+            "description": "خطة تتوسع مع عملك سريع النمو."
+        },
+        "pro": {
+            "title": "مهني",
+            "description": "الدعم المكرس والبنية التحتية التي تم بناؤها لشركتك المتنامية."
         },
         "enterprise": {
-            "title": "Enterprise",
-            "description": "Dedicated support and infrastructure for your company."
+            "title": "مؤسسة",
+            "description": "دعم وبنية تحتية مخصصة لشركتك."
         },
         "features": {
-            "5products": "5 products",
-            "25products": "10 products",
-            "unlimitedproducts": "Unlimited products",
-            "upto1000subscribers": "Up to 1000 subscribers",
-            "upto10000subscribers": "Up to 10,000 subscribers",
-            "unlimitedsubscribers": "Unlimited subscribers",
-            "48hoursupport": "48-hour support",
-            "24hoursupport": "24-hour support",
-            "1hoursupport": "1-hour support",
-            "basicanalytics": "Basic analytics",
-            "advancedanalytics": "Advanced analytics",
-            "xhoursupport": "{count}-hour support",
-            "marketingautomations": "Marketing automations"
+            "5products": "5 منتجات",
+            "25products": "10 منتجات",
+            "unlimitedproducts": "منتجات غير محدودة",
+            "upto1000subscribers": "حتى 1000 مشترك",
+            "upto10000subscribers": "حتى 10,000 مشترك",
+            "unlimitedsubscribers": "مشتركون غير محدودين",
+            "48hoursupport": "دعم لمدة 48 ساعة",
+            "24hoursupport": "دعم لمدة 24 ساعة",
+            "1hoursupport": "دعم لمدة ساعة واحدة",
+            "basicanalytics": "تحليلات أساسية",
+            "advancedanalytics": "تحليلات متقدمة",
+            "xhoursupport": "دعم لمدة {count} ساعة",
+            "marketingautomations": "أتمتة التسويق"
         }
     },
     "blog": {

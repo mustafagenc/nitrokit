@@ -1,0 +1,186 @@
+{
+    "app": {
+        "name": "Nitrokit",
+        "shortName": "Nitrokit",
+        "description": "Nitrokit 스타터 템플릿"
+    },
+    "common": {
+        "loading": "로드 중...",
+        "error": "오류가 발생했습니다",
+        "notFound": "찾고 있는 페이지를 찾을 수 없습니다",
+        "backToHome": "홈으로 돌아가기",
+        "goBack": "뒤로 가기",
+        "ok": "확인",
+        "cancel": "취소",
+        "yes": "예",
+        "no": "아니요",
+        "continue": "계속",
+        "submit": "제출",
+        "contactUs": "문의하기"
+    },
+    "auth": {
+        "signin": "로그인",
+        "signup": "회원가입",
+        "signout": "로그아웃",
+        "signinWithGoogle": "Google로 로그인",
+        "signinWithFacebook": "Facebook으로 로그인",
+        "signinWithTwitter": "Twitter로 로그인",
+        "signinWithGithub": "Github로 로그인",
+        "signinWithApple": "Apple로 로그인",
+        "signinWithLinkedIn": "LinkedIn으로 로그인",
+        "signinWithGitlab": "GitLab으로 로그인",
+        "signinWithMicrosoft": "Microsoft로 로그인",
+        "signinWithInstagram": "Instagram으로 로그인",
+        "email": "이메일",
+        "password": "비밀번호",
+        "confirmPassword": "비밀번호 확인",
+        "forgotPassword": "비밀번호를 잊으셨나요",
+        "name": "이름",
+        "privacyPolicy": "개인정보 처리방침",
+        "slogan1": "프로젝트에 <span>로켓 🚀</span> 스타트를!",
+        "slogan2": "<link>Nitrokit</link>으로 시간을 절약하고 개발에 집중하세요...",
+        "account": "계정 정보",
+        "support": "지원",
+        "billing": "내 인보이스"
+    },
+    "signin": {
+        "title": "{appName}에 로그인",
+        "description": "다시 오신 것을 환영합니다! 계속하려면 로그인하세요",
+        "dontHaveAnAccount": "계정이 없으신가요? <link>회원가입</link>."
+    },
+    "signup": {
+        "title": "{appName} 회원가입",
+        "alreadyHaveAnAccount": "이미 계정이 있으신가요? <link>로그인</link>."
+    },
+    "resetPassword": {
+        "title": "비밀번호 재설정",
+        "description": "이메일 주소를 입력하고 안내에 따라 비밀번호를 재설정하세요.",
+        "emailSent": "이메일이 발송되었습니다! 이메일을 확인해주세요."
+    },
+    "validation": {
+        "required": {
+            "name": "이름 필드는 필수입니다.",
+            "email": "이메일 필드는 필수입니다.",
+            "message": "메시지 필드는 필수입니다.",
+            "password": "비밀번호 필드는 필수입니다.",
+            "confirmPassword": "비밀번호 확인 필드는 필수입니다."
+        },
+        "invalid": {
+            "email": "잘못된 이메일 주소입니다."
+        },
+        "password": {
+            "confirm": "비밀번호가 일치하지 않습니다.",
+            "minLength": "비밀번호는 최소 {min}자 이상이어야 합니다.",
+            "maxLength": "비밀번호는 최대 {max}자 이하여야 합니다.",
+            "uppercase": "하나 이상의 대문자를 포함해야 합니다.",
+            "lowercase": "하나 이상의 소문자를 포함해야 합니다.",
+            "number": "하나 이상의 숫자를 포함해야 합니다.",
+            "special": "하나 이상의 특수 문자를 포함해야 합니다.",
+            "weak": "약함",
+            "okay": "보통",
+            "good": "좋음",
+            "strong": "강함",
+            "tooShort": "너무 짧음"
+        }
+    },
+    "placeholder": {
+        "enterYourName": "이름을 입력하세요",
+        "enterYourEmail": "이메일 주소를 입력하세요",
+        "enterYourMessage": "메시지를 입력하세요",
+        "enterYourPassword": "비밀번호를 입력하세요",
+        "confirmYourPassword": "비밀번호를 다시 입력하세요"
+    },
+    "notFound": {
+        "title": "페이지를 찾을 수 없습니다",
+        "description": "오류! 찾고 있는 페이지가 존재하지 않습니다.",
+        "returnHome": "홈페이지로 돌아가기"
+    },
+    "error": {
+        "title": "오류가 발생했습니다",
+        "retry": "다시 시도"
+    },
+    "metadata": {
+        "applicationName": "Nitrokit 스타터 템플릿",
+        "description": "Nitrokit 스타터 템플릿",
+        "author": "Mustafa Genç",
+        "title": "Nitrokit 스타터 템플릿"
+    },
+    "navigation": {
+        "title": "메뉴",
+        "home": "홈",
+        "about": "회사 소개",
+        "services": "서비스",
+        "pricing": "가격",
+        "blog": "블로그",
+        "contact": "문의"
+    },
+    "about": {
+        "title": "회사 소개",
+        "description": "이것은 Next.js로 구축된 스타터 템플릿입니다. 이 템플릿은 웹 애플리케이션을 빠르고 효과적으로 개발하도록 설계되었습니다."
+    },
+    "services": {
+        "title": "우리의 서비스",
+        "description": "우리가 제공하는 서비스에 대해 자세히 알아보세요."
+    },
+    "pricing": {
+        "title": "가격",
+        "subtitle": "당신과 함께 성장하는 가격",
+        "description": "청중을 참여시키고, 고객 충성도를 높이며, 판매를 촉진하는 최고의 기능을 갖춘 저렴한 플랜을 선택하세요.",
+        "monthly": "월간",
+        "yearly": "연간",
+        "annual-payment": "연간 결제로 <span>20% 절약</span>하세요.",
+        "pricePerMonth": "월",
+        "pricePerYear": "년",
+        "purchasePlan": "플랜 구매",
+        "freelancer": {
+            "title": "프리랜서",
+            "description": "고객에게 최고의 작업을 제공하기 위한 필수 요소입니다."
+        },
+        "startup": {
+            "title": "스타트업",
+            "description": "빠르게 성장하는 비즈니스에 맞춰 확장되는 플랜입니다."
+        },
+        "pro": {
+            "title": "프로페셔널",
+            "description": "성장하는 회사를 위해 구축된 전담 지원 및 인프라입니다."
+        },
+        "enterprise": {
+            "title": "엔터프라이즈",
+            "description": "기업 요구 사항에 맞는 맞춤형 견적을 받으려면 문의하십시오."
+        },
+        "features": {
+            "5products": "제품 5개",
+            "25products": "제품 10개",
+            "unlimitedproducts": "무제한 제품",
+            "upto1000subscribers": "최대 1000명의 구독자",
+            "upto10000subscribers": "최대 10,000명의 구독자",
+            "unlimitedsubscribers": "무제한 구독자",
+            "48hoursupport": "48시간 지원",
+            "24hoursupport": "24시간 지원",
+            "1hoursupport": "1시간 지원",
+            "basicanalytics": "기본 분석",
+            "advancedanalytics": "고급 분석",
+            "xhoursupport": "{count}시간 지원",
+            "marketingautomations": "마케팅 자동화"
+        }
+    },
+    "blog": {
+        "title": "블로그",
+        "description": "최신 뉴스와 업데이트를 보려면 블로그를 팔로우하세요."
+    },
+    "contact": {
+        "title": "문의하기",
+        "description": "아래 양식을 작성하여 문의하십시오.",
+        "name": "이름",
+        "email": "이메일 주소",
+        "message": "메시지",
+        "send": "보내기"
+    },
+    "privacy": {
+        "title": "개인정보 처리방침",
+        "description": "개인정보 처리방침에 대해 자세히 알아보세요."
+    },
+    "footer": {
+        "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ All Rights Reserved."
+    }
+}

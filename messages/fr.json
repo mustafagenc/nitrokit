@@ -15,7 +15,8 @@
         "yes": "Oui",
         "no": "Non",
         "continue": "Continuer",
-        "submit": "Soumettre"
+        "submit": "Soumettre",
+        "contactUs": "Contactez-nous"
     },
     "auth": {
         "signin": "Se connecter",
@@ -29,6 +30,7 @@
         "signinWithLinkedIn": "Se connecter avec LinkedIn",
         "signinWithGitlab": "Se connecter avec GitLab",
         "signinWithMicrosoft": "Se connecter avec Microsoft",
+        "signinWithInstagram": "Se connecter avec Instagram",
         "email": "E-mail",
         "password": "Mot de passe",
         "confirmPassword": "Confirmer le mot de passe",
@@ -121,40 +123,45 @@
         "description": "En savoir plus sur les services que nous offrons."
     },
     "pricing": {
-        "title": "Pricing",
-        "subtitle": "Pricing that grows with you",
-        "description": "Choose an affordable plan that’s packed with the best features for engaging your audience, creating customer loyalty, and driving sales.",
-        "monthly": "Monthly",
-        "yearly": "Yearly",
-        "pricePerMonth": "Month",
-        "pricePerYear": "Year",
-        "purchasePlan": "Purchase Plan",
+        "title": "Tarifs",
+        "subtitle": "Des tarifs qui évoluent avec vous",
+        "description": "Choisissez un plan abordable qui regroupe les meilleures fonctionnalités pour engager votre public, fidéliser vos clients et stimuler les ventes.",
+        "monthly": "Mensuel",
+        "yearly": "Annuel",
+        "annual-payment": "<span>Économisez 20%</span> avec la facturation annuelle.",
+        "pricePerMonth": "Mois",
+        "pricePerYear": "An",
+        "purchasePlan": "Acheter le plan",
         "freelancer": {
-            "title": "Freelancer",
-            "description": "The essentials to provide your best work for clients."
+            "title": "Freelance",
+            "description": "L'essentiel pour fournir votre meilleur travail à vos clients."
         },
         "startup": {
             "title": "Startup",
-            "description": "A plan that scales with your rapidly growing business."
+            "description": "Un plan qui évolue avec votre entreprise en pleine croissance."
+        },
+        "pro": {
+            "title": "Professionnel",
+            "description": "Support et infrastructure dédiés conçus pour votre entreprise en pleine croissance."
         },
         "enterprise": {
-            "title": "Enterprise",
-            "description": "Dedicated support and infrastructure for your company."
+            "title": "Entreprise",
+            "description": "Support et infrastructure dédiés pour votre entreprise."
         },
         "features": {
-            "5products": "5 products",
-            "25products": "10 products",
-            "unlimitedproducts": "Unlimited products",
-            "upto1000subscribers": "Up to 1000 subscribers",
-            "upto10000subscribers": "Up to 10,000 subscribers",
-            "unlimitedsubscribers": "Unlimited subscribers",
-            "48hoursupport": "48-hour support",
-            "24hoursupport": "24-hour support",
-            "1hoursupport": "1-hour support",
-            "basicanalytics": "Basic analytics",
-            "advancedanalytics": "Advanced analytics",
-            "xhoursupport": "{count}-hour support",
-            "marketingautomations": "Marketing automations"
+            "5products": "5 produits",
+            "25products": "10 produits",
+            "unlimitedproducts": "Produits illimités",
+            "upto1000subscribers": "Jusqu'à 1000 abonnés",
+            "upto10000subscribers": "Jusqu'à 10 000 abonnés",
+            "unlimitedsubscribers": "Abonnés illimités",
+            "48hoursupport": "Support 48 heures",
+            "24hoursupport": "Support 24 heures",
+            "1hoursupport": "Support 1 heure",
+            "basicanalytics": "Analyses de base",
+            "advancedanalytics": "Analyses avancées",
+            "xhoursupport": "Support {count} heures",
+            "marketingautomations": "Automatisations marketing"
         }
     },
     "blog": {

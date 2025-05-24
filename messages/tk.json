@@ -1,0 +1,186 @@
+{
+    "app": {
+        "name": "Nitrokit",
+        "shortName": "Nitrokit",
+        "description": "Nitrokit başlangyç şablony"
+    },
+    "common": {
+        "loading": "Ýüklenýär...",
+        "error": "Ýalňyşlyk ýüze çykdy",
+        "notFound": "Gözleýän sahypaňyz tapylmady",
+        "backToHome": "Baş sahypa dolan",
+        "goBack": "Yza gaýt",
+        "ok": "Bolýar",
+        "cancel": "Ýatyr",
+        "yes": "Hawa",
+        "no": "Ýok",
+        "continue": "Dowam et",
+        "submit": "Iber",
+        "contactUs": "Habarlaşyň"
+    },
+    "auth": {
+        "signin": "Giriş",
+        "signup": "Hasaba al",
+        "signout": "Çykyş",
+        "signinWithGoogle": "Google bilen gir",
+        "signinWithFacebook": "Facebook bilen gir",
+        "signinWithTwitter": "Twitter bilen gir",
+        "signinWithGithub": "Github bilen gir",
+        "signinWithApple": "Apple bilen gir",
+        "signinWithLinkedIn": "LinkedIn bilen gir",
+        "signinWithGitlab": "GitLab bilen gir",
+        "signinWithMicrosoft": "Microsoft bilen gir",
+        "signinWithInstagram": "Instagram bilen gir",
+        "email": "E-poçta",
+        "password": "Açar sözi",
+        "confirmPassword": "Açar sözüni tassyklaň",
+        "forgotPassword": "Açar sözüni unutdyňyzmy",
+        "name": "Adyňyz",
+        "privacyPolicy": "Gizlinlik syýasatymyz",
+        "slogan1": "Taslamalaryňyza <span>raketa 🚀</span> başlangyjyny beriň!",
+        "slogan2": "<link>Nitrokit</link> bilen wagt tygşytlaň we ösüşe üns beriň...",
+        "account": "Hasap maglumatlary",
+        "support": "Goldaw",
+        "billing": "Hasap-fakturalarym"
+    },
+    "signin": {
+        "title": "{appName} programmasyna giriň",
+        "description": "Hoş geldiňiz! Dowam etmek üçin giriň",
+        "dontHaveAnAccount": "Hasabyňyz ýokmy? <link>Hasaba alyň</link>."
+    },
+    "signup": {
+        "title": "{appName} üçin hasaba alyň",
+        "alreadyHaveAnAccount": "Eýýäm hasabyňyz barmy? <link>Giriň</link>."
+    },
+    "resetPassword": {
+        "title": "Açar sözüňizi täzeden düzüň",
+        "description": "E-poçta salgyňyzy giriziň we açar sözüňizi täzeden düzmek üçin görkezmeleri ýerine ýetiriň.",
+        "emailSent": "E-poçta iberildi! E-poçtaňyzy barlaň."
+    },
+    "validation": {
+        "required": {
+            "name": "Adyňyz meýdany zerur.",
+            "email": "E-poçta meýdany zerur.",
+            "message": "Habar meýdany zerur.",
+            "password": "Açar sözi meýdany zerur.",
+            "confirmPassword": "Açar sözüni tassyklaň meýdany zerur."
+        },
+        "invalid": {
+            "email": "Nädogry e-poçta salgysy."
+        },
+        "password": {
+            "confirm": "Açar sözleri gabat gelmeýär.",
+            "minLength": "Açar sözi azyndan {min} simwol bolmaly.",
+            "maxLength": "Açar sözi iň köp {max} simwol bolmaly.",
+            "uppercase": "Iň azyndan bir baş harp bolmaly.",
+            "lowercase": "Iň azyndan bir kiçi harp bolmaly.",
+            "number": "Iň azyndan bir san bolmaly.",
+            "special": "Iň azyndan bir ýörite nyşan bolmaly.",
+            "weak": "gowşak",
+            "okay": "orta",
+            "good": "gowy",
+            "strong": "güýçli",
+            "tooShort": "gaty gysga"
+        }
+    },
+    "placeholder": {
+        "enterYourName": "Adyňyzy giriziň",
+        "enterYourEmail": "E-poçta salgyňyzy giriziň",
+        "enterYourMessage": "Habaryňyzy giriziň",
+        "enterYourPassword": "Açar sözüňizi giriziň",
+        "confirmYourPassword": "Açar sözüňizi tassyklaň"
+    },
+    "notFound": {
+        "title": "Sahypa Tapylmady",
+        "description": "Ýalňyşlyk! Gözleýän sahypaňyz ýok.",
+        "returnHome": "Baş Sahypa Dolan"
+    },
+    "error": {
+        "title": "Ýalňyşlyk Ýüze Çykdy",
+        "retry": "Täzeden Synanyş"
+    },
+    "metadata": {
+        "applicationName": "Nitrokit Başlangyç Şablony",
+        "description": "Nitrokit başlangyç şablony",
+        "author": "Mustafa Genç",
+        "title": "Nitrokit Başlangyç Şablony"
+    },
+    "navigation": {
+        "title": "Menýu",
+        "home": "Baş Sahypa",
+        "about": "Biz Barada",
+        "services": "Hyzmatlar",
+        "pricing": "Bahalar",
+        "blog": "Blog",
+        "contact": "Habarlaşmak"
+    },
+    "about": {
+        "title": "Biz Barada",
+        "description": "Bu Next.js bilen gurlan başlangyç şablonydyr. Bu şablon web programmalaryny çalt we netijeli ösdürmek üçin döredildi."
+    },
+    "services": {
+        "title": "Hyzmatlarymyz",
+        "description": "Hödürleýän hyzmatlarymyz barada has giňişleýin öwreniň."
+    },
+    "pricing": {
+        "title": "Bahalar",
+        "subtitle": "Siziň bilen ösýän bahalar",
+        "description": "Müşderileriňizi çekmek, müşderi wepalylygyny döretmek we satuwlary artdyrmak üçin iň oňat aýratynlyklar bilen doldurylan elýeterli meýilnamany saýlaň.",
+        "monthly": "Aýlyk",
+        "yearly": "Ýyllyk",
+        "annual-payment": "Ýyllyk töleg bilen <span>20% tygşytlaň</span>.",
+        "pricePerMonth": "Aý",
+        "pricePerYear": "Ýyl",
+        "purchasePlan": "Meýilnamany Satyn Al",
+        "freelancer": {
+            "title": "Frilanser",
+            "description": "Müşderiler üçin iň oňat işiňizi üpjün etmek üçin zerur zatlar."
+        },
+        "startup": {
+            "title": "Başlangyç",
+            "description": "Çalt ösýän işiňiz bilen ulalýan meýilnama."
+        },
+        "pro": {
+            "title": "Professional",
+            "description": "Ösýän kompaniýaňyz üçin gurlan ýörite goldaw we infrastruktura."
+        },
+        "enterprise": {
+            "title": "Kärhana",
+            "description": "Kärhana zerurlyklaryňyz üçin ýörite baha almak üçin habarlaşyň."
+        },
+        "features": {
+            "5products": "5 önüm",
+            "25products": "10 önüm",
+            "unlimitedproducts": "Çäklendirilmedik önümler",
+            "upto1000subscribers": "1000 abunaçy çenli",
+            "upto10000subscribers": "10,000 abunaçy çenli",
+            "unlimitedsubscribers": "Çäklendirilmedik abunaçylar",
+            "48hoursupport": "48 sagat goldaw",
+            "24hoursupport": "24 sagat goldaw",
+            "1hoursupport": "1 sagat goldaw",
+            "basicanalytics": "Esasy analitika",
+            "advancedanalytics": "Ösen analitika",
+            "xhoursupport": "{count} sagat goldaw",
+            "marketingautomations": "Marketing awtomatlaşdyrmalary"
+        }
+    },
+    "blog": {
+        "title": "Blog",
+        "description": "Iň soňky habarlar we täzelikler üçin blogymyzy yzarlaň."
+    },
+    "contact": {
+        "title": "Habarlaşmak",
+        "description": "Biz bilen habarlaşmak üçin aşakdaky formany dolduryň.",
+        "name": "Adyňyz",
+        "email": "E-poçta Salgyňyz",
+        "message": "Habaryňyz",
+        "send": "Iber"
+    },
+    "privacy": {
+        "title": "Gizlinlik Syýasaty",
+        "description": "Gizlinlik syýasatymyz barada has giňişleýin öwreniň."
+    },
+    "footer": {
+        "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ Ähli hukuklar goralan."
+    }
+}
