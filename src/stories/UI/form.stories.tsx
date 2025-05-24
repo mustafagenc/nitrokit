@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import { Meta, StoryObj } from '@storybook/nextjs';
+import { Meta, StoryObj } from '@storybook/react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 
-import { Button } from '@/components/ui/button';
+import { Button } from '../../components/ui/button';
 import {
     Form,
     FormControl,
@@ -14,10 +14,10 @@ import {
     FormItem,
     FormLabel,
     FormMessage,
-} from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea'; // Assuming you have a Textarea component
-// import { toast } from "@/components/ui/use-toast"; // Or your preferred toast mechanism
+} from '../../components/ui/form';
+import { Input } from '../../components/ui/input';
+import { Textarea } from '../../components/ui/textarea'; // Assuming you have a Textarea component
+// import { toast } from "../../components/ui/use-toast"; // Or your preferred toast mechanism
 
 // Define the form schema using Zod
 const profileFormSchema = z.object({

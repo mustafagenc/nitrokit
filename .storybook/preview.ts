@@ -1,5 +1,12 @@
-import type { Preview } from '@storybook/nextjs-vite';
-import '../src/styles/globals.css'; // Here!
+import type { Preview } from '@storybook/react';
+
+// CSS dosyasını import et (varsa)
+try {
+    require('../src/styles/globals.css');
+} catch (e) {
+    // CSS dosyası yoksa hata verme
+    console.warn('globals.css not found, using default styles');
+}
 
 const preview: Preview = {
     parameters: {
@@ -9,12 +16,21 @@ const preview: Preview = {
                 date: /Date$/i,
             },
         },
-
-        a11y: {
-            // 'todo' - show a11y violations in the test UI only
-            // 'error' - fail CI on a11y violations
-            // 'off' - skip a11y checks entirely
-            test: 'todo',
+        docs: {
+            toc: true,
+        },
+        backgrounds: {
+            default: 'light',
+            values: [
+                {
+                    name: 'light',
+                    value: '#ffffff',
+                },
+                {
+                    name: 'dark',
+                    value: '#333333',
+                },
+            ],
         },
     },
 };

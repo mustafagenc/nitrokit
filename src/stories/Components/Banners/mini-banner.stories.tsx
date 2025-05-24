@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/nextjs';
+import type { Meta, StoryObj } from '@storybook/react';
 import { NextIntlClientProvider } from 'next-intl';
 
-import { MiniBanner } from '@/components/banners/mini-banner';
+import { MiniBanner } from '../../../components/banners/mini-banner';
 
 // Örnek mesajlar, projenizdeki gerçek mesajlarla değiştirebilirsiniz
 const messages = {

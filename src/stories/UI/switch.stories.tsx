@@ -1,7 +1,7 @@
 import React from 'react';
-import { Meta, StoryObj } from '@storybook/nextjs';
-import { Switch } from '@/components/ui/switch';
-import { Label } from '@/components/ui/label';
+import { Meta, StoryObj } from '@storybook/react';
+import { Switch } from '../../components/ui/switch';
+import { Label } from '../../components/ui/label';
 
 const meta: Meta<typeof Switch> = {
     title: 'UI/Switch',

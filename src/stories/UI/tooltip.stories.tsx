@@ -1,8 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import { Meta, StoryObj } from '@storybook/nextjs';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import { Button } from '@/components/ui/button';
+import { Meta, StoryObj } from '@storybook/react';
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from '../../components/ui/tooltip';
+import { Button } from '../../components/ui/button';
 import { Plus, Settings, HelpCircle, Trash2 } from 'lucide-react';
 
 // Define types for story arguments

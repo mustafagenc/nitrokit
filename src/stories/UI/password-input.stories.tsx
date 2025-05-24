@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import { Meta, StoryObj } from '@storybook/nextjs';
-import { PasswordInput } from '@/components/ui/password-input'; // Adjust path as needed
-import { Label } from '@/components/ui/label';
-import { Button } from '@/components/ui/button';
+import { Meta, StoryObj } from '@storybook/react';
+import { PasswordInput } from '../../components/ui/password-input'; // Adjust path as needed
+import { Label } from '../../components/ui/label';
+import { Button } from '../../components/ui/button';
 
 const meta: Meta<typeof PasswordInput> = {
     title: 'UI/PasswordInput',
@@ -63,29 +64,31 @@ export const WithLabel: Story = {
     },
 };
 
+const FormComponent = (args: any) => {
+    const [password, setPassword] = React.useState('');
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        console.log('Password submitted:', password);
+        alert(`Password submitted: ${password}`);
+    };
+    return (
+        <form onSubmit={handleSubmit} className="grid w-full max-w-sm items-center gap-4">
+            <div className="space-y-1.5">
+                <Label htmlFor="login-password">Password</Label>
+                <PasswordInput
+                    {...args}
+                    id="login-password"
+                    value={password}
+                    onChange={e => setPassword(e.target.value)}
+                />
+            </div>
+            <Button type="submit">Login</Button>
+        </form>
+    );
+};
+
 export const InAForm: Story = {
-    render: args => {
-        const [password, setPassword] = React.useState('');
-        const handleSubmit = (e: React.FormEvent) => {
-            e.preventDefault();
-            console.log('Password submitted:', password);
-            alert(`Password submitted: ${password}`);
-        };
-        return (
-            <form onSubmit={handleSubmit} className="grid w-full max-w-sm items-center gap-4">
-                <div className="space-y-1.5">
-                    <Label htmlFor="login-password">Password</Label>
-                    <PasswordInput
-                        {...args}
-                        id="login-password"
-                        value={password}
-                        onChange={e => setPassword(e.target.value)}
-                    />
-                </div>
-                <Button type="submit">Login</Button>
-            </form>
-        );
-    },
+    render: args => <FormComponent {...args} />,
     args: {
         placeholder: 'Enter password to login',
     },

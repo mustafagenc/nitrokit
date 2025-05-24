@@ -1,7 +1,11 @@
 import React from 'react';
-import { Meta, StoryObj } from '@storybook/nextjs';
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
-import { Button } from '@/components/ui/button';
+import { Meta, StoryObj } from '@storybook/react';
+import {
+    Collapsible,
+    CollapsibleContent,
+    CollapsibleTrigger,
+} from '../../components/ui/collapsible';
+import { Button } from '../../components/ui/button';
 import { ChevronsUpDown, Plus, X } from 'lucide-react';
 
 const meta: Meta<typeof Collapsible> = {

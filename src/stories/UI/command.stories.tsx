@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import { Meta, StoryObj } from '@storybook/nextjs';
+import { Meta, StoryObj } from '@storybook/react';
 import {
     Command,
     CommandDialog,
@@ -11,7 +11,7 @@ import {
     CommandItem,
     CommandShortcut,
     CommandSeparator,
-} from '@/components/ui/command';
+} from '../../components/ui/command';
 import {
     Calculator,
     Calendar,
@@ -26,7 +26,7 @@ import {
     Laptop,
     Palette,
 } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Button } from '../../components/ui/button';
 
 const meta: Meta<typeof Command> = {
     title: 'UI/Command',
@@ -193,7 +193,7 @@ export const InDialog: Story = {
 };
 
 export const WithNestedItems: Story = {
-    render: args => {
+    render: function WithNestedItemsRender(args) {
         const [page, setPage] = React.useState<'root' | 'theme'>('root');
         const inputRef = React.useRef<HTMLInputElement>(null);
 

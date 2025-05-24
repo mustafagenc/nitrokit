@@ -1,8 +1,8 @@
 import React from 'react';
-import { Meta, StoryObj } from '@storybook/nextjs';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
-import { Button } from '@/components/ui/button';
+import { Meta, StoryObj } from '@storybook/react';
+import { Textarea } from '../../components/ui/textarea';
+import { Label } from '../../components/ui/label';
+import { Button } from '../../components/ui/button';
 
 const meta: Meta<typeof Textarea> = {
     title: 'UI/Textarea',

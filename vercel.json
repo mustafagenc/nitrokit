@@ -1,4 +1,32 @@
 {
-    "buildCommand": "prisma generate --no-engine && next build",
-    "crons": []
+    "version": 2,
+    "framework": "nextjs",
+    "buildCommand": "prisma generate --no-engine && next build && yarn build-storybook",
+    "installCommand": "yarn install",
+    "rewrites": [
+        {
+            "source": "/storybook/:path*",
+            "destination": "/storybook-static/:path*"
+        },
+        {
+            "source": "/storybook",
+            "destination": "/storybook-static/index.html"
+        }
+    ],
+    "functions": {
+        "app/api/**/*.js": {
+            "runtime": "nodejs20.x"
+        }
+    },
+    "headers": [
+        {
+            "source": "/storybook/:path*",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=31536000, immutable"
+                }
+            ]
+        }
+    ]
 }

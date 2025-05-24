@@ -1,6 +1,6 @@
 import React from 'react';
-import { Meta, StoryObj } from '@storybook/nextjs';
-import { Skeleton } from '@/components/ui/skeleton';
+import { Meta, StoryObj } from '@storybook/react';
+import { Skeleton } from '../../components/ui/skeleton';
 
 const meta: Meta<typeof Skeleton> = {
     title: 'UI/Skeleton',

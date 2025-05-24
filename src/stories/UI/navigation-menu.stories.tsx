@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import { Meta, StoryObj } from '@storybook/nextjs';
+import { Meta, StoryObj } from '@storybook/react';
 import {
     NavigationMenu,
     NavigationMenuContent,
@@ -11,8 +11,8 @@ import {
     NavigationMenuTrigger,
     navigationMenuTriggerStyle,
     NavigationMenuViewport,
-} from '@/components/ui/navigation-menu';
-import { cn } from '@/utils/helpers'; // Assuming you have a cn utility
+} from '../../components/ui/navigation-menu';
+import { cn } from '../../utils/helpers'; // Assuming you have a cn utility
 import { Rocket, LogOut, Settings, User } from 'lucide-react';
 
 const meta: Meta<typeof NavigationMenu> = {

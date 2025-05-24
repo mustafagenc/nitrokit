@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import { Meta, StoryObj } from '@storybook/nextjs';
+import { Meta, StoryObj } from '@storybook/react';
 import {
     Select,
     SelectContent,
@@ -10,8 +10,8 @@ import {
     SelectSeparator,
     SelectTrigger,
     SelectValue,
-} from '@/components/ui/select';
-import { Label } from '@/components/ui/label'; // For form-like examples
+} from '../../components/ui/select';
+import { Label } from '../../components/ui/label'; // For form-like examples
 
 const meta: Meta<typeof Select> = {
     title: 'UI/Select',

@@ -1,7 +1,7 @@
 import React from 'react';
-import { Meta, StoryObj } from '@storybook/nextjs';
-import { Checkbox } from '@/components/ui/checkbox';
-import { Label } from '@/components/ui/label'; // Assuming you have a Label component
+import { Meta, StoryObj } from '@storybook/react';
+import { Checkbox } from '../../components/ui/checkbox';
+import { Label } from '../../components/ui/label'; // Assuming you have a Label component
 
 const meta: Meta<typeof Checkbox> = {
     title: 'UI/Checkbox',

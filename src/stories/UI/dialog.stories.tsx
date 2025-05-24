@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import { Meta, StoryObj } from '@storybook/nextjs';
+import { Meta, StoryObj } from '@storybook/react';
 import {
     Dialog,
     DialogContent,
@@ -10,10 +10,10 @@ import {
     DialogTitle,
     DialogTrigger,
     DialogClose,
-} from '@/components/ui/dialog';
-import { Button } from '@/components/ui/button';
-import { Label } from '@/components/ui/label';
-import { Input } from '@/components/ui/input'; // Assuming you have an Input component
+} from '../../components/ui/dialog';
+import { Button } from '../../components/ui/button';
+import { Label } from '../../components/ui/label';
+import { Input } from '../../components/ui/input'; // Assuming you have an Input component
 
 const meta: Meta<typeof Dialog> = {
     title: 'UI/Dialog',

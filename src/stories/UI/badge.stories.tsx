@@ -1,5 +1,5 @@
-import { Meta, StoryObj } from '@storybook/nextjs';
-import { Badge } from '@/components/ui/badge'; // Assuming badgeVariants is exported for options
+import { Meta, StoryObj } from '@storybook/react';
+import { Badge } from '../../components/ui/badge'; // Assuming badgeVariants is exported for options
 
 const meta: Meta<typeof Badge> = {
     title: 'UI/Badge',
