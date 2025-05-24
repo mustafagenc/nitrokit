@@ -1,26 +1,25 @@
 {
     "version": 2,
     "framework": "nextjs",
-    "buildCommand": "prisma generate --no-engine && next build && yarn build-storybook",
+    "buildCommand": "prisma generate --no-engine && next build && yarn build:storybook",
     "installCommand": "yarn install",
     "rewrites": [
         {
-            "source": "/storybook/:path*",
-            "destination": "/storybook-static/:path*"
-        },
-        {
-            "source": "/storybook",
-            "destination": "/storybook-static/index.html"
+            "source": "/storybook/(.*)",
+            "destination": "/storybook-static/$1"
         }
     ],
     "functions": {
         "app/api/**/*.js": {
-            "runtime": "nodejs20.x"
+            "runtime": "@vercel/node@3.2.0"
+        },
+        "app/api/**/*.ts": {
+            "runtime": "@vercel/node@3.2.0"
         }
     },
     "headers": [
         {
-            "source": "/storybook/:path*",
+            "source": "/storybook/(.*)",
             "headers": [
                 {
                     "key": "Cache-Control",

@@ -13,6 +13,27 @@ const nextConfig: NextConfig = {
             },
         ],
     },
+    async rewrites() {
+        return [
+            {
+                source: '/storybook/:path*',
+                destination: '/storybook-static/:path*',
+            },
+        ];
+    },
+    async headers() {
+        return [
+            {
+                source: '/storybook/:path*',
+                headers: [
+                    {
+                        key: 'Cache-Control',
+                        value: 'public, max-age=31536000, immutable',
+                    },
+                ],
+            },
+        ];
+    },
 };
 
 const withNextIntl = createNextIntlPlugin('./src/lib/i18n/request.ts');
