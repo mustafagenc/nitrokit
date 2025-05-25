@@ -52,7 +52,9 @@
         "db:seed": "tsx prisma/seed.ts",
         "release:notes": "./shell/generate_release_notes.sh",
         "release:create": "git tag -a",
-        "release:publish": "git push origin --tags"
+        "release:publish": "git push origin --tags",
+        "clean": "./shell/clean.sh",
+        "fresh:install": "./shell/clean.sh && yarn install"
     },
     "dependencies": {
         "@auth/prisma-adapter": "^2.9.1",
