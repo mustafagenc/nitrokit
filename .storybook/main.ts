@@ -16,16 +16,12 @@ const config: StorybookConfig = {
         name: '@storybook/nextjs',
         options: {},
     },
-    staticDirs: ['../public'],
+    // Public klasörünü staticDirs'den kaldır - çakışma yaratıyor
+    staticDirs: [],
     typescript: {
         check: false,
         reactDocgen: 'react-docgen-typescript',
     },
-    // Production build için base path
-    managerHead: head => `
-    ${head}
-    <base href="/storybook/" />
-  `,
 };
 
 export default config;

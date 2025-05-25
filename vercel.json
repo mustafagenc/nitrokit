@@ -1,5 +1,5 @@
 {
-    "buildCommand": "prisma generate --no-engine && next build && storybook build -o public/storybook --quiet",
+    "buildCommand": "prisma generate --no-engine && next build && storybook build -o storybook-static --quiet && mkdir -p public/storybook && cp -r storybook-static/* public/storybook/",
     "framework": "nextjs",
     "rewrites": [
         {
@@ -13,7 +13,7 @@
     ],
     "headers": [
         {
-            "source": "/storybook-static/(.*)",
+            "source": "/storybook/(.*)",
             "headers": [
                 {
                     "key": "Cache-Control",
