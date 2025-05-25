@@ -181,6 +181,7 @@
         "description": "تعرف على المزيد حول سياسة الخصوصية الخاصة بنا."
     },
     "footer": {
-        "copyright": "© حقوق النشر {year, date, ::yyyy} {name} ♥️ جميع الحقوق محفوظة."
+        "copyright": "© حقوق النشر {year, date, ::yyyy} {name} ♥️ جميع الحقوق محفوظة.",
+        "poweredBy": "بواسطة فريق <link>Ekipisi</link>"
     }
 }
