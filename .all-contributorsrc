@@ -1,8 +1,0 @@
-{
-    "projectName": "Nitrokit",
-    "projectOwner": "Mustafa Genc",
-    "files": ["README.md"],
-    "commitType": "docs",
-    "commitConvention": "angular",
-    "contributorsPerLine": 7
-}

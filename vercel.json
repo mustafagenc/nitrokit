@@ -1,22 +1,12 @@
 {
-    "version": 2,
-    "framework": "nextjs",
     "buildCommand": "prisma generate --no-engine && next build",
-    "installCommand": "yarn install",
+    "framework": "nextjs",
     "rewrites": [
         {
             "source": "/storybook/(.*)",
             "destination": "/storybook-static/$1"
         }
     ],
-    "functions": {
-        "app/api/**/*.js": {
-            "runtime": "@vercel/node@3.2.0"
-        },
-        "app/api/**/*.ts": {
-            "runtime": "@vercel/node@3.2.0"
-        }
-    },
     "headers": [
         {
             "source": "/storybook/(.*)",
