@@ -1,4 +1,4 @@
-import { ROUTES } from '@/constants/site';
+import { ROUTES } from '@/constants/menu';
 import { getBaseUrl } from '@/utils/helpers';
 
 import type { MetadataRoute } from 'next';

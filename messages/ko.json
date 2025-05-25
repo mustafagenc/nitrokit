@@ -1,9 +1,5 @@
 {
-    "app": {
-        "name": "Nitrokit",
-        "shortName": "Nitrokit",
-        "description": "Nitrokit 스타터 템플릿"
-    },
+    "app": { "name": "Nitrokit", "shortName": "Nitrokit", "description": "Nitrokit 스타터 템플릿" },
     "common": {
         "loading": "로드 중...",
         "error": "오류가 발생했습니다",
@@ -65,9 +61,7 @@
             "password": "비밀번호 필드는 필수입니다.",
             "confirmPassword": "비밀번호 확인 필드는 필수입니다."
         },
-        "invalid": {
-            "email": "잘못된 이메일 주소입니다."
-        },
+        "invalid": { "email": "잘못된 이메일 주소입니다." },
         "password": {
             "confirm": "비밀번호가 일치하지 않습니다.",
             "minLength": "비밀번호는 최소 {min}자 이상이어야 합니다.",
@@ -95,10 +89,7 @@
         "description": "오류! 찾고 있는 페이지가 존재하지 않습니다.",
         "returnHome": "홈페이지로 돌아가기"
     },
-    "error": {
-        "title": "오류가 발생했습니다",
-        "retry": "다시 시도"
-    },
+    "error": { "title": "오류가 발생했습니다", "retry": "다시 시도" },
     "metadata": {
         "applicationName": "Nitrokit 스타터 템플릿",
         "description": "Nitrokit 스타터 템플릿",
@@ -109,10 +100,69 @@
         "title": "메뉴",
         "home": "홈",
         "about": "회사 소개",
-        "services": "서비스",
+        "services": {
+            "title": "Services",
+            "description": "Professional development services to realize your vision.",
+            "premium_badge": "Premium Services",
+            "web_development": {
+                "title": "Web Development",
+                "description": "Full-stack web applications with modern technologies"
+            },
+            "ui_ux_design": {
+                "title": "UI/UX Design",
+                "description": "Beautiful and intuitive user interfaces"
+            },
+            "performance_optimization": {
+                "title": "Performance Optimization",
+                "description": "Lightning-fast applications and websites"
+            },
+            "team_augmentation": {
+                "title": "Team Augmentation",
+                "description": "Scale your development team with experts"
+            },
+            "badges": { "popular": "Popular", "new": "New" }
+        },
         "pricing": "가격",
         "blog": "블로그",
-        "contact": "문의"
+        "contact": "문의",
+        "components": {
+            "title": "Components",
+            "subtitle": "UI Components",
+            "description": "Reusable components built with Radix UI and Tailwind CSS",
+            "view_all": "View all components",
+            "count": "50+ Components",
+            "button_components": {
+                "title": "Button Components",
+                "description": "Interactive buttons with variants and states"
+            },
+            "navigation_components": {
+                "title": "Navigation",
+                "description": "Menu and navigation components"
+            },
+            "data_display": {
+                "title": "Data Display",
+                "description": "Tables, cards, and data visualization"
+            },
+            "form_controls": {
+                "title": "Form Controls",
+                "description": "Input fields, selects, and form elements"
+            },
+            "modals_overlays": {
+                "title": "Modals & Overlays",
+                "description": "Dialogs, tooltips, and overlay components"
+            },
+            "feedback": {
+                "title": "Feedback",
+                "description": "Alerts, notifications, and loading states"
+            },
+            "categories": {
+                "form": "Form",
+                "layout": "Layout",
+                "display": "Display",
+                "overlay": "Overlay",
+                "feedback": "Feedback"
+            }
+        }
     },
     "about": {
         "title": "회사 소개",

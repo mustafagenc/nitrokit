@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl';
 export default function PoweredBy() {
     const t = useTranslations('footer');
     return (
-        <>
+        <div className="flex items-center justify-center gap-1 text-xs text-gray-500 dark:text-gray-400">
             {t.rich('poweredBy', {
                 link: (chunk: React.ReactNode) => (
                     <a href="http://ekipisi.com">
@@ -20,6 +20,6 @@ export default function PoweredBy() {
                     </a>
                 ),
             })}
-        </>
+        </div>
     );
 }

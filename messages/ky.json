@@ -65,9 +65,7 @@
             "password": "Сырсөз талаасы милдеттүү.",
             "confirmPassword": "Сырсөздү ырастоо талаасы милдеттүү."
         },
-        "invalid": {
-            "email": "Жараксыз электрондук почта дареги."
-        },
+        "invalid": { "email": "Жараксыз электрондук почта дареги." },
         "password": {
             "confirm": "Сырсөздөр дал келбейт.",
             "minLength": "Сырсөз кеминде {min} белгиден турушу керек.",
@@ -95,10 +93,7 @@
         "description": "Ката! Сиз издеген баракча жок.",
         "returnHome": "Башкы бетке кайтуу"
     },
-    "error": {
-        "title": "Ката кетти",
-        "retry": "Кайра аракет кылуу"
-    },
+    "error": { "title": "Ката кетти", "retry": "Кайра аракет кылуу" },
     "metadata": {
         "applicationName": "Nitrokit Башталгыч Шаблону",
         "description": "Nitrokit башталгыч шаблону",
@@ -109,10 +104,69 @@
         "title": "Меню",
         "home": "Башкы бет",
         "about": "Биз жөнүндө",
-        "services": "Кызматтар",
+        "services": {
+            "title": "Services",
+            "description": "Professional development services to realize your vision.",
+            "premium_badge": "Premium Services",
+            "web_development": {
+                "title": "Web Development",
+                "description": "Full-stack web applications with modern technologies"
+            },
+            "ui_ux_design": {
+                "title": "UI/UX Design",
+                "description": "Beautiful and intuitive user interfaces"
+            },
+            "performance_optimization": {
+                "title": "Performance Optimization",
+                "description": "Lightning-fast applications and websites"
+            },
+            "team_augmentation": {
+                "title": "Team Augmentation",
+                "description": "Scale your development team with experts"
+            },
+            "badges": { "popular": "Popular", "new": "New" }
+        },
         "pricing": "Баалар",
         "blog": "Блог",
-        "contact": "Байланыш"
+        "contact": "Байланыш",
+        "components": {
+            "title": "Components",
+            "subtitle": "UI Components",
+            "description": "Reusable components built with Radix UI and Tailwind CSS",
+            "view_all": "View all components",
+            "count": "50+ Components",
+            "button_components": {
+                "title": "Button Components",
+                "description": "Interactive buttons with variants and states"
+            },
+            "navigation_components": {
+                "title": "Navigation",
+                "description": "Menu and navigation components"
+            },
+            "data_display": {
+                "title": "Data Display",
+                "description": "Tables, cards, and data visualization"
+            },
+            "form_controls": {
+                "title": "Form Controls",
+                "description": "Input fields, selects, and form elements"
+            },
+            "modals_overlays": {
+                "title": "Modals & Overlays",
+                "description": "Dialogs, tooltips, and overlay components"
+            },
+            "feedback": {
+                "title": "Feedback",
+                "description": "Alerts, notifications, and loading states"
+            },
+            "categories": {
+                "form": "Form",
+                "layout": "Layout",
+                "display": "Display",
+                "overlay": "Overlay",
+                "feedback": "Feedback"
+            }
+        }
     },
     "about": {
         "title": "Биз жөнүндө",

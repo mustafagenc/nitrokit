@@ -1,9 +1,5 @@
 {
-    "app": {
-        "name": "نیترو کیت",
-        "shortName": "نیتروکیت",
-        "description": "قالب بداية نیترو کیت"
-    },
+    "app": { "name": "نیترو کیت", "shortName": "نیتروکیت", "description": "قالب بداية نیترو کیت" },
     "common": {
         "loading": "جار التحميل...",
         "error": "حدث خطأ",
@@ -65,9 +61,7 @@
             "password": "حقل كلمة المرور مطلوب.",
             "confirmPassword": "حقل تأكيد كلمة المرور مطلوب."
         },
-        "invalid": {
-            "email": "عنوان بريد إلكتروني غير صالح."
-        },
+        "invalid": { "email": "عنوان بريد إلكتروني غير صالح." },
         "password": {
             "confirm": "كلمات المرور غير متطابقة.",
             "minLength": "يجب أن تتكون كلمة المرور من {min} أحرف على الأقل.",
@@ -95,10 +89,7 @@
         "description": "خطأ! الصفحة التي تبحث عنها غير موجودة.",
         "returnHome": "العودة إلى الصفحة الرئيسية"
     },
-    "error": {
-        "title": "حدث خطأ",
-        "retry": "حاول مرة أخرى"
-    },
+    "error": { "title": "حدث خطأ", "retry": "حاول مرة أخرى" },
     "metadata": {
         "applicationName": "قالب بداية نیترو کیت",
         "description": "قالب بداية نیترو کیت",
@@ -109,19 +100,75 @@
         "title": "القائمة",
         "home": "الصفحة الرئيسية",
         "about": "من نحن",
-        "services": "الخدمات",
+        "services": {
+            "title": "خدمات",
+            "description": "خدمات تنمية مهنية لتحقيق رؤيتك.",
+            "premium_badge": "خدمات مميزة",
+            "web_development": {
+                "title": "تطوير الويب",
+                "description": "تطبيقات ويب متكاملة باستخدام تقنيات حديثة"
+            },
+            "ui_ux_design": {
+                "title": "تصميم واجهة المستخدم وتجربتها",
+                "description": "واجهات مستخدم جميلة وبديهية"
+            },
+            "performance_optimization": {
+                "title": "تحسين الأداء",
+                "description": "تطبيقات ومواقع إلكترونية فائقة السرعة"
+            },
+            "team_augmentation": {
+                "title": "زيادة فريق العمل",
+                "description": "وسّع فريق تطويرك بخبراء"
+            },
+            "badges": { "popular": "شعبي", "new": "جديد" }
+        },
         "pricing": "الأسعار",
         "blog": "المدونة",
-        "contact": "اتصل بنا"
+        "contact": "اتصل بنا",
+        "components": {
+            "title": "مكونات",
+            "subtitle": "مكونات واجهة المستخدم",
+            "description": "مكونات قابلة لإعادة الاستخدام مبنية باستخدام Radix UI و Tailwind CSS",
+            "view_all": "View all components",
+            "count": "50+ Components",
+            "button_components": {
+                "title": "Button Components",
+                "description": "Interactive buttons with variants and states"
+            },
+            "navigation_components": {
+                "title": "Navigation",
+                "description": "Menu and navigation components"
+            },
+            "data_display": {
+                "title": "Data Display",
+                "description": "Tables, cards, and data visualization"
+            },
+            "form_controls": {
+                "title": "Form Controls",
+                "description": "Input fields, selects, and form elements"
+            },
+            "modals_overlays": {
+                "title": "Modals & Overlays",
+                "description": "Dialogs, tooltips, and overlay components"
+            },
+            "feedback": {
+                "title": "Feedback",
+                "description": "Alerts, notifications, and loading states"
+            },
+            "categories": {
+                "form": "Form",
+                "layout": "Layout",
+                "display": "Display",
+                "overlay": "Overlay",
+                "feedback": "Feedback"
+            }
+        }
     },
     "about": {
         "title": "من نحن",
         "description": "هذا قالب بداية تم إنشاؤه باستخدام Next.js. تم تصميم هذا القالب لتطوير تطبيقات الويب بسرعة وفعالية."
     },
-    "services": {
-        "title": "خدماتنا",
-        "description": "تعرف على المزيد حول الخدمات التي نقدمها."
-    },
+    "services": { "title": "خدماتنا", "description": "تعرف على المزيد حول الخدمات التي نقدمها." },
     "pricing": {
         "title": "الأسعار",
         "subtitle": "أسعار تنمو معك",
@@ -132,22 +179,13 @@
         "pricePerMonth": "شهر",
         "pricePerYear": "سنة",
         "purchasePlan": "شراء الخطة",
-        "freelancer": {
-            "title": "مستقل",
-            "description": "الأساسيات لتقديم أفضل عمل لعملائك."
-        },
-        "startup": {
-            "title": "شركة ناشئة",
-            "description": "خطة تتوسع مع عملك سريع النمو."
-        },
+        "freelancer": { "title": "مستقل", "description": "الأساسيات لتقديم أفضل عمل لعملائك." },
+        "startup": { "title": "شركة ناشئة", "description": "خطة تتوسع مع عملك سريع النمو." },
         "pro": {
             "title": "مهني",
             "description": "الدعم المكرس والبنية التحتية التي تم بناؤها لشركتك المتنامية."
         },
-        "enterprise": {
-            "title": "مؤسسة",
-            "description": "دعم وبنية تحتية مخصصة لشركتك."
-        },
+        "enterprise": { "title": "مؤسسة", "description": "دعم وبنية تحتية مخصصة لشركتك." },
         "features": {
             "5products": "5 منتجات",
             "25products": "10 منتجات",

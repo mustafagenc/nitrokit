@@ -65,9 +65,7 @@
             "password": "Il campo password è obbligatorio.",
             "confirmPassword": "Il campo conferma password è obbligatorio."
         },
-        "invalid": {
-            "email": "Indirizzo email non valido."
-        },
+        "invalid": { "email": "Indirizzo email non valido." },
         "password": {
             "confirm": "Le password non corrispondono.",
             "minLength": "La password deve contenere almeno {min} caratteri.",
@@ -95,10 +93,7 @@
         "description": "Errore! La pagina che stai cercando non esiste.",
         "returnHome": "Torna alla Homepage"
     },
-    "error": {
-        "title": "Si è verificato un errore",
-        "retry": "Riprova"
-    },
+    "error": { "title": "Si è verificato un errore", "retry": "Riprova" },
     "metadata": {
         "applicationName": "Modello di avvio Nitrokit",
         "description": "Modello di avvio Nitrokit",
@@ -109,10 +104,69 @@
         "title": "Menu",
         "home": "Home",
         "about": "Chi siamo",
-        "services": "Servizi",
+        "services": {
+            "title": "Services",
+            "description": "Professional development services to realize your vision.",
+            "premium_badge": "Premium Services",
+            "web_development": {
+                "title": "Web Development",
+                "description": "Full-stack web applications with modern technologies"
+            },
+            "ui_ux_design": {
+                "title": "UI/UX Design",
+                "description": "Beautiful and intuitive user interfaces"
+            },
+            "performance_optimization": {
+                "title": "Performance Optimization",
+                "description": "Lightning-fast applications and websites"
+            },
+            "team_augmentation": {
+                "title": "Team Augmentation",
+                "description": "Scale your development team with experts"
+            },
+            "badges": { "popular": "Popular", "new": "New" }
+        },
         "pricing": "Prezzi",
         "blog": "Blog",
-        "contact": "Contatti"
+        "contact": "Contatti",
+        "components": {
+            "title": "Components",
+            "subtitle": "UI Components",
+            "description": "Reusable components built with Radix UI and Tailwind CSS",
+            "view_all": "View all components",
+            "count": "50+ Components",
+            "button_components": {
+                "title": "Button Components",
+                "description": "Interactive buttons with variants and states"
+            },
+            "navigation_components": {
+                "title": "Navigation",
+                "description": "Menu and navigation components"
+            },
+            "data_display": {
+                "title": "Data Display",
+                "description": "Tables, cards, and data visualization"
+            },
+            "form_controls": {
+                "title": "Form Controls",
+                "description": "Input fields, selects, and form elements"
+            },
+            "modals_overlays": {
+                "title": "Modals & Overlays",
+                "description": "Dialogs, tooltips, and overlay components"
+            },
+            "feedback": {
+                "title": "Feedback",
+                "description": "Alerts, notifications, and loading states"
+            },
+            "categories": {
+                "form": "Form",
+                "layout": "Layout",
+                "display": "Display",
+                "overlay": "Overlay",
+                "feedback": "Feedback"
+            }
+        }
     },
     "about": {
         "title": "Chi siamo",

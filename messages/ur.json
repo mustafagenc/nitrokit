@@ -65,9 +65,7 @@
             "password": "پاس ورڈ کا خانہ ضروری ہے۔",
             "confirmPassword": "پاس ورڈ کی تصدیق کا خانہ ضروری ہے۔"
         },
-        "invalid": {
-            "email": "غلط ای میل ایڈریس۔"
-        },
+        "invalid": { "email": "غلط ای میل ایڈریس۔" },
         "password": {
             "confirm": "پاس ورڈ مماثل نہیں ہیں۔",
             "minLength": "پاس ورڈ کم از کم {min} حروف کا ہونا چاہیے۔",
@@ -95,10 +93,7 @@
         "description": "خرابی! آپ جس صفحے کی تلاش میں ہیں وہ موجود نہیں ہے۔",
         "returnHome": "مرکزی صفحہ پر واپس جائیں"
     },
-    "error": {
-        "title": "ایک خرابی پیش آگئی",
-        "retry": "دوبارہ کوشش کریں"
-    },
+    "error": { "title": "ایک خرابی پیش آگئی", "retry": "دوبارہ کوشش کریں" },
     "metadata": {
         "applicationName": "نائٹروکِٹ اسٹارٹر ٹیمپلیٹ",
         "description": "نائٹروکِٹ اسٹارٹر ٹیمپلیٹ",
@@ -109,10 +104,69 @@
         "title": "مینو",
         "home": "مرکزی صفحہ",
         "about": "ہمارے بارے میں",
-        "services": "خدمات",
+        "services": {
+            "title": "Services",
+            "description": "Professional development services to realize your vision.",
+            "premium_badge": "Premium Services",
+            "web_development": {
+                "title": "Web Development",
+                "description": "Full-stack web applications with modern technologies"
+            },
+            "ui_ux_design": {
+                "title": "UI/UX Design",
+                "description": "Beautiful and intuitive user interfaces"
+            },
+            "performance_optimization": {
+                "title": "Performance Optimization",
+                "description": "Lightning-fast applications and websites"
+            },
+            "team_augmentation": {
+                "title": "Team Augmentation",
+                "description": "Scale your development team with experts"
+            },
+            "badges": { "popular": "Popular", "new": "New" }
+        },
         "pricing": "قیمتیں",
         "blog": "بلاگ",
-        "contact": "رابطہ کریں"
+        "contact": "رابطہ کریں",
+        "components": {
+            "title": "Components",
+            "subtitle": "UI Components",
+            "description": "Reusable components built with Radix UI and Tailwind CSS",
+            "view_all": "View all components",
+            "count": "50+ Components",
+            "button_components": {
+                "title": "Button Components",
+                "description": "Interactive buttons with variants and states"
+            },
+            "navigation_components": {
+                "title": "Navigation",
+                "description": "Menu and navigation components"
+            },
+            "data_display": {
+                "title": "Data Display",
+                "description": "Tables, cards, and data visualization"
+            },
+            "form_controls": {
+                "title": "Form Controls",
+                "description": "Input fields, selects, and form elements"
+            },
+            "modals_overlays": {
+                "title": "Modals & Overlays",
+                "description": "Dialogs, tooltips, and overlay components"
+            },
+            "feedback": {
+                "title": "Feedback",
+                "description": "Alerts, notifications, and loading states"
+            },
+            "categories": {
+                "form": "Form",
+                "layout": "Layout",
+                "display": "Display",
+                "overlay": "Overlay",
+                "feedback": "Feedback"
+            }
+        }
     },
     "about": {
         "title": "ہمارے بارے میں",

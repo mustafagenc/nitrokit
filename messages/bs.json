@@ -65,9 +65,7 @@
             "password": "Polje za lozinku je obavezno.",
             "confirmPassword": "Polje za potvrdu lozinke je obavezno."
         },
-        "invalid": {
-            "email": "Nevažeća email adresa."
-        },
+        "invalid": { "email": "Nevažeća email adresa." },
         "password": {
             "confirm": "Lozinke se ne podudaraju.",
             "minLength": "Lozinka mora imati najmanje {min} znakova.",
@@ -95,10 +93,7 @@
         "description": "Greška! Stranica koju tražite ne postoji.",
         "returnHome": "Vratite se na početnu stranicu"
     },
-    "error": {
-        "title": "Došlo je do greške",
-        "retry": "Pokušaj ponovo"
-    },
+    "error": { "title": "Došlo je do greške", "retry": "Pokušaj ponovo" },
     "metadata": {
         "applicationName": "Nitrokit Početni Predložak",
         "description": "Nitrokit početni predložak",
@@ -109,19 +104,75 @@
         "title": "Meni",
         "home": "Početna",
         "about": "O nama",
-        "services": "Usluge",
+        "services": {
+            "title": "Usluge",
+            "description": "Usluge profesionalnog razvoja za ostvarenje vaše vizije.",
+            "premium_badge": "Premium usluge",
+            "web_development": {
+                "title": "Web Razvoj",
+                "description": "Full-stack web aplikacije sa modernim tehnologijama"
+            },
+            "ui_ux_design": {
+                "title": "Dizajn korisničkog interfejsa/iskustva",
+                "description": "Prekrasna i intuitivna korisnička sučelja"
+            },
+            "performance_optimization": {
+                "title": "Optimizacija performansi",
+                "description": "Munjevito brze aplikacije i veb-sajtovi"
+            },
+            "team_augmentation": {
+                "title": "Pojačanje tima",
+                "description": "Proširite svoj razvojni tim sa stručnjacima"
+            },
+            "badges": { "popular": "Popularno", "new": "Novo" }
+        },
         "pricing": "Cijene",
         "blog": "Blog",
-        "contact": "Kontakt"
+        "contact": "Kontakt",
+        "components": {
+            "title": "Komponente",
+            "subtitle": "Komponente korisničkog interfejsa",
+            "description": "Ponovo upotrebljivi komponente napravljene sa Radix UI i Tailwind CSS",
+            "view_all": "View all components",
+            "count": "50+ Components",
+            "button_components": {
+                "title": "Button Components",
+                "description": "Interactive buttons with variants and states"
+            },
+            "navigation_components": {
+                "title": "Navigation",
+                "description": "Menu and navigation components"
+            },
+            "data_display": {
+                "title": "Data Display",
+                "description": "Tables, cards, and data visualization"
+            },
+            "form_controls": {
+                "title": "Form Controls",
+                "description": "Input fields, selects, and form elements"
+            },
+            "modals_overlays": {
+                "title": "Modals & Overlays",
+                "description": "Dialogs, tooltips, and overlay components"
+            },
+            "feedback": {
+                "title": "Feedback",
+                "description": "Alerts, notifications, and loading states"
+            },
+            "categories": {
+                "form": "Form",
+                "layout": "Layout",
+                "display": "Display",
+                "overlay": "Overlay",
+                "feedback": "Feedback"
+            }
+        }
     },
     "about": {
         "title": "O nama",
         "description": "Ovo je početni predložak izrađen pomoću Next.js. Ovaj predložak je dizajniran za brz i efikasan razvoj web aplikacija."
     },
-    "services": {
-        "title": "Naše usluge",
-        "description": "Saznajte više o uslugama koje nudimo."
-    },
+    "services": { "title": "Naše usluge", "description": "Saznajte više o uslugama koje nudimo." },
     "pricing": {
         "title": "Cijene",
         "subtitle": "Cijene koje rastu s Vama",

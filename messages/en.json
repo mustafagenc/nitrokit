@@ -65,9 +65,7 @@
             "password": "Password field is required.",
             "confirmPassword": "Confirm password field is required."
         },
-        "invalid": {
-            "email": "Invalid email address."
-        },
+        "invalid": { "email": "Invalid email address." },
         "password": {
             "confirm": "Passwords do not match.",
             "minLength": "Password must be at least {min} characters.",
@@ -95,10 +93,7 @@
         "description": "Error! The page you are looking for does not exist.",
         "returnHome": "Return to Homepage"
     },
-    "error": {
-        "title": "An Error Occurred",
-        "retry": "Retry"
-    },
+    "error": { "title": "An Error Occurred", "retry": "Retry" },
     "metadata": {
         "applicationName": "Nitrokit Starter Template",
         "description": "Nitrokit starter template",
@@ -109,10 +104,69 @@
         "title": "Menu",
         "home": "Home",
         "about": "About Us",
-        "services": "Services",
+        "services": {
+            "title": "Services",
+            "description": "Professional development services to achieve your goals.",
+            "premium_badge": "Premium Services",
+            "web_development": {
+                "title": "Web Development",
+                "description": "Full-stack web applications using modern technologies"
+            },
+            "ui_ux_design": {
+                "title": "UI/UX Design",
+                "description": "Beautiful and intuitive user interfaces"
+            },
+            "performance_optimization": {
+                "title": "Performance Optimization",
+                "description": "Blazing-fast applications and websites"
+            },
+            "team_augmentation": {
+                "title": "Team Expansion",
+                "description": "Expand your development team with experts"
+            },
+            "badges": { "popular": "Popular", "new": "New" }
+        },
         "pricing": "Pricing",
         "blog": "Blog",
-        "contact": "Contact"
+        "contact": "Contact",
+        "components": {
+            "title": "Components",
+            "subtitle": "User Interface Components",
+            "description": "Reusable components built with Radix UI and Tailwind CSS",
+            "view_all": "Show all components",
+            "count": "50+ Components",
+            "button_components": {
+                "title": "Button Components",
+                "description": "Interactive buttons with variants and states"
+            },
+            "navigation_components": {
+                "title": "Navigation",
+                "description": "Menu and navigation components"
+            },
+            "data_display": {
+                "title": "Data Display",
+                "description": "Tables, cards, and data visualization"
+            },
+            "form_controls": {
+                "title": "Form Controls",
+                "description": "Input fields, selects, and form elements"
+            },
+            "modals_overlays": {
+                "title": "Modals & Overlays",
+                "description": "Dialogs, tooltips, and overlay components"
+            },
+            "feedback": {
+                "title": "Feedback",
+                "description": "Alerts, notifications, and loading states"
+            },
+            "categories": {
+                "form": "Form",
+                "layout": "Layout",
+                "display": "Display",
+                "overlay": "Overlay",
+                "feedback": "Feedback"
+            }
+        }
     },
     "about": {
         "title": "About Us",
@@ -164,10 +218,7 @@
             "marketingautomations": "Marketing automations"
         }
     },
-    "blog": {
-        "title": "Blog",
-        "description": "Follow our blog for the latest news and updates."
-    },
+    "blog": { "title": "Blog", "description": "Follow our blog for the latest news and updates." },
     "contact": {
         "title": "Contact",
         "description": "Fill out the form below to contact us.",
@@ -176,10 +227,7 @@
         "message": "Your Message",
         "send": "Send"
     },
-    "privacy": {
-        "title": "Privacy Policy",
-        "description": "Learn more about our privacy policy."
-    },
+    "privacy": { "title": "Privacy Policy", "description": "Learn more about our privacy policy." },
     "footer": {
         "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ All Rights Reserved.",
         "poweredBy": "Powered by Ekipisi."

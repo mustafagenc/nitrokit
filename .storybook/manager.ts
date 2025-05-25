@@ -1,19 +1,4 @@
 import { addons } from '@storybook/manager-api';
+import nitrokit from './nitrokit';
 
-addons.setConfig({
-    theme: undefined,
-    panelPosition: 'bottom',
-    selectedPanel: undefined,
-    initialActive: 'sidebar',
-    sidebar: {
-        showRoots: false,
-        collapsedRoots: ['other'],
-    },
-    toolbar: {
-        title: { hidden: false },
-        zoom: { hidden: false },
-        eject: { hidden: false },
-        copy: { hidden: false },
-        fullscreen: { hidden: false },
-    },
-});
+addons.setConfig({ theme: nitrokit });

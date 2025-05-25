@@ -7,17 +7,6 @@ import {
 
 const PUBLIC_MAIL = 'info@ekipisi.com.tr';
 
-const ROUTES = ['', 'about', 'services', 'pricing', 'blog', 'contact'];
-
-const NAV_LINKS = [
-    { name: 'navigation.home', path: '/' },
-    { name: 'navigation.about', path: '/about/' },
-    { name: 'navigation.services', path: '/services/' },
-    { name: 'navigation.pricing', path: '/pricing/' },
-    { name: 'navigation.blog', path: '/blog/' },
-    { name: 'navigation.contact', path: '/contact/' },
-];
-
 const SOCIAL_LINKS = [
     {
         name: 'instagram',
@@ -41,4 +30,4 @@ const SOCIAL_LINKS = [
     },
 ];
 
-export { PUBLIC_MAIL, ROUTES, NAV_LINKS, SOCIAL_LINKS };
+export { PUBLIC_MAIL, SOCIAL_LINKS };

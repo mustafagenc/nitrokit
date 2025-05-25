@@ -65,9 +65,7 @@
             "password": "Açar sözi meýdany zerur.",
             "confirmPassword": "Açar sözüni tassyklaň meýdany zerur."
         },
-        "invalid": {
-            "email": "Nädogry e-poçta salgysy."
-        },
+        "invalid": { "email": "Nädogry e-poçta salgysy." },
         "password": {
             "confirm": "Açar sözleri gabat gelmeýär.",
             "minLength": "Açar sözi azyndan {min} simwol bolmaly.",
@@ -95,10 +93,7 @@
         "description": "Ýalňyşlyk! Gözleýän sahypaňyz ýok.",
         "returnHome": "Baş Sahypa Dolan"
     },
-    "error": {
-        "title": "Ýalňyşlyk Ýüze Çykdy",
-        "retry": "Täzeden Synanyş"
-    },
+    "error": { "title": "Ýalňyşlyk Ýüze Çykdy", "retry": "Täzeden Synanyş" },
     "metadata": {
         "applicationName": "Nitrokit Başlangyç Şablony",
         "description": "Nitrokit başlangyç şablony",
@@ -109,10 +104,69 @@
         "title": "Menýu",
         "home": "Baş Sahypa",
         "about": "Biz Barada",
-        "services": "Hyzmatlar",
+        "services": {
+            "title": "Services",
+            "description": "Professional development services to realize your vision.",
+            "premium_badge": "Premium Services",
+            "web_development": {
+                "title": "Web Development",
+                "description": "Full-stack web applications with modern technologies"
+            },
+            "ui_ux_design": {
+                "title": "UI/UX Design",
+                "description": "Beautiful and intuitive user interfaces"
+            },
+            "performance_optimization": {
+                "title": "Performance Optimization",
+                "description": "Lightning-fast applications and websites"
+            },
+            "team_augmentation": {
+                "title": "Team Augmentation",
+                "description": "Scale your development team with experts"
+            },
+            "badges": { "popular": "Popular", "new": "New" }
+        },
         "pricing": "Bahalar",
         "blog": "Blog",
-        "contact": "Habarlaşmak"
+        "contact": "Habarlaşmak",
+        "components": {
+            "title": "Components",
+            "subtitle": "UI Components",
+            "description": "Reusable components built with Radix UI and Tailwind CSS",
+            "view_all": "View all components",
+            "count": "50+ Components",
+            "button_components": {
+                "title": "Button Components",
+                "description": "Interactive buttons with variants and states"
+            },
+            "navigation_components": {
+                "title": "Navigation",
+                "description": "Menu and navigation components"
+            },
+            "data_display": {
+                "title": "Data Display",
+                "description": "Tables, cards, and data visualization"
+            },
+            "form_controls": {
+                "title": "Form Controls",
+                "description": "Input fields, selects, and form elements"
+            },
+            "modals_overlays": {
+                "title": "Modals & Overlays",
+                "description": "Dialogs, tooltips, and overlay components"
+            },
+            "feedback": {
+                "title": "Feedback",
+                "description": "Alerts, notifications, and loading states"
+            },
+            "categories": {
+                "form": "Form",
+                "layout": "Layout",
+                "display": "Display",
+                "overlay": "Overlay",
+                "feedback": "Feedback"
+            }
+        }
     },
     "about": {
         "title": "Biz Barada",

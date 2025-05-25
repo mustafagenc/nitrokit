@@ -1,9 +1,32 @@
 #!/bin/bash
 
-# Configuration parameters
-MESSAGES_DIR="../messages"
+# Configuration parameters 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
+MESSAGES_DIR="${PROJECT_ROOT}/messages"
 SOURCE_FILE_PATH="${MESSAGES_DIR}/source.json"
 REFERENCE_FILE_PATH="${MESSAGES_DIR}/tr.json"
+
+# ... rest of the script remains the same
+
+# Check if files exist
+echo "Debug: Script directory: $SCRIPT_DIR"
+echo "Debug: Project root: $PROJECT_ROOT"
+echo "Debug: Messages directory: $MESSAGES_DIR"
+echo "Debug: Source file: $SOURCE_FILE_PATH"
+echo "Debug: Reference file: $REFERENCE_FILE_PATH"
+
+if [ ! -f "$SOURCE_FILE_PATH" ]; then
+    echo "Error: Source file not found: $SOURCE_FILE_PATH"
+    echo "Please create messages/source.json with your source translations"
+    exit 1
+fi
+
+if [ ! -f "$REFERENCE_FILE_PATH" ]; then
+    echo "Error: Reference file not found: $REFERENCE_FILE_PATH"
+    echo "Please create messages/tr.json with your Turkish translations"
+    exit 1
+fi
 
 # Default values
 DEFAULT_GEMINI_MODEL="gemini-1.5-flash"
@@ -328,31 +351,98 @@ format_file() {
     cd - > /dev/null || return
 }
 
+# Line 335 civarında mevcut kod yerine:
 echo "Info: Detecting new keys..."
 
 # Get all paths and values from source.json
 declare -a NEW_PATHS=()
 declare -a NEW_VALUES=()
 
+# Improved key detection - checks both missing paths and missing values
 while IFS='|' read -r path_str value_json; do
-    # Check if this path exists in tr.json
-    if ! jq -e --arg path "$path_str" 'getpath($path | split("."))' "$REFERENCE_FILE_PATH" > /dev/null 2>&1; then
+    # Skip empty paths
+    if [ -z "$path_str" ] || [ "$value_json" = "null" ]; then
+        continue
+    fi
+    
+    # Check if this path exists in tr.json (REFERENCE FILE)
+    local exists_in_reference=$(jq -e --arg path "$path_str" 'getpath($path | split(".")) != null' "$REFERENCE_FILE_PATH" 2>/dev/null)
+    
+    if [ "$exists_in_reference" != "true" ]; then
         NEW_PATHS+=("$path_str")
         NEW_VALUES+=("$value_json")
     fi
 done < <(jq -r 'paths(scalars) as $p | "\($p | join("."))|" + (getpath($p) | tostring)' "$SOURCE_FILE_PATH")
+
+# Also check for completely missing parent objects
+while IFS= read -r parent_path; do
+    if [ -n "$parent_path" ]; then
+        local parent_exists=$(jq -e --arg path "$parent_path" 'getpath($path | split(".")) != null' "$REFERENCE_FILE_PATH" 2>/dev/null)
+        if [ "$parent_exists" != "true" ]; then
+            # This parent path is missing, we need to ensure all its children are added
+            echo "  Debug: Missing parent path detected: $parent_path"
+        fi
+    fi
+done < <(jq -r 'paths(objects) as $p | $p | join(".")' "$SOURCE_FILE_PATH")
 
 if [ ${#NEW_PATHS[@]} -eq 0 ]; then
     echo "No new keys found."
     exit 0
 fi
 
+# ... existing code until line ~370 ...
+
 echo "Found new keys:"
 for i in "${!NEW_PATHS[@]}"; do
     echo "  - ${NEW_PATHS[$i]}: ${NEW_VALUES[$i]}"
 done
 
-# Update all language files
+# Function to safely set nested path in JSON
+set_nested_path() {
+    local json_content="$1"
+    local path_str="$2"
+    local value="$3"
+    
+    # Use Python if available (most reliable)
+    if command -v python3 &> /dev/null; then
+        python3 -c "
+import json
+import sys
+
+try:
+    data = json.loads('''$json_content''')
+    path_parts = '$path_str'.split('.')
+    
+    # Navigate to the correct nested position
+    current = data
+    for part in path_parts[:-1]:
+        # Only create if it doesn't exist or is not a dict
+        if part not in current:
+            current[part] = {}
+        elif not isinstance(current[part], dict):
+            current[part] = {}
+        current = current[part]
+    
+    # Set the final value at the EXACT path
+    final_key = path_parts[-1]
+    current[final_key] = '''$value'''
+    
+    print(json.dumps(data, ensure_ascii=False, separators=(',', ':')))
+    
+except Exception as e:
+    print('''$json_content''', file=sys.stderr)
+    sys.exit(1)
+"
+    else
+        # JQ fallback with exact path handling
+        echo "$json_content" | jq --arg path "$path_str" --arg val "$value" '
+            ($path | split(".")) as $p |
+            setpath($p; $val)
+        '
+    fi
+}
+
+# Update all language files (SADECE BİR KERE!)
 for target_file in "${MESSAGES_DIR}"/*.json; do
     if [ "$(basename "$target_file")" = "source.json" ]; then
         continue
@@ -382,8 +472,8 @@ for target_file in "${MESSAGES_DIR}"/*.json; do
         path_str="${NEW_PATHS[$i]}"
         original_value="${NEW_VALUES[$i]}"
         
-        # Check if this path exists in target file
-        if ! jq -e --arg path "$path_str" 'getpath($path | split("."))' "$target_file" > /dev/null 2>&1; then
+        # Check if this EXACT path exists in target file
+        if ! echo "$temp_content" | jq -e --arg path "$path_str" 'getpath($path | split("."))' > /dev/null 2>&1; then
             echo "  Adding: $path_str"
             
             # Translate if language is known and API key is available
@@ -401,8 +491,8 @@ for target_file in "${MESSAGES_DIR}"/*.json; do
                 value_to_use="$original_value"
             fi
             
-            # Add path and value
-            temp_content=$(echo "$temp_content" | jq --arg path "$path_str" --arg val "$value_to_use" 'setpath($path | split("."); $val)')
+            # Use the set_nested_path function
+            temp_content=$(set_nested_path "$temp_content" "$path_str" "$value_to_use")
             
             if [ $? -eq 0 ]; then
                 updated=true

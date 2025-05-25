@@ -65,9 +65,7 @@
             "password": "Şifre alanı gereklidir.",
             "confirmPassword": "Şifreyi onaylama alanı gereklidir."
         },
-        "invalid": {
-            "email": "Geçersiz e-posta adresi."
-        },
+        "invalid": { "email": "Geçersiz e-posta adresi." },
         "password": {
             "confirm": "Şifreler eşleşmiyor.",
             "minLength": "Şifre en az {min} karakter olmalıdır.",
@@ -95,10 +93,7 @@
         "description": "Hata! Aradığınız sayfa mevcut değil.",
         "returnHome": "Ana Sayfaya Dön"
     },
-    "error": {
-        "title": "Bir Hata Oluştu",
-        "retry": "Yeniden Dene"
-    },
+    "error": { "title": "Bir Hata Oluştu", "retry": "Yeniden Dene" },
     "metadata": {
         "applicationName": "Nitrokit Başlangıç Şablonu",
         "description": "Nitrokit başlangıç şablonu",
@@ -109,10 +104,69 @@
         "title": "Menü",
         "home": "Ana Sayfa",
         "about": "Hakkımızda",
-        "services": "Hizmetler",
+        "services": {
+            "title": "Services",
+            "description": "Professional development services to realize your vision.",
+            "premium_badge": "Premium Services",
+            "web_development": {
+                "title": "Web Development",
+                "description": "Full-stack web applications with modern technologies"
+            },
+            "ui_ux_design": {
+                "title": "UI/UX Design",
+                "description": "Beautiful and intuitive user interfaces"
+            },
+            "performance_optimization": {
+                "title": "Performance Optimization",
+                "description": "Lightning-fast applications and websites"
+            },
+            "team_augmentation": {
+                "title": "Team Augmentation",
+                "description": "Scale your development team with experts"
+            },
+            "badges": { "popular": "Popular", "new": "New" }
+        },
         "pricing": "Fiyatlar",
         "blog": "Blog",
-        "contact": "İletişim"
+        "contact": "İletişim",
+        "components": {
+            "title": "Components",
+            "subtitle": "UI Components",
+            "description": "Reusable components built with Radix UI and Tailwind CSS",
+            "view_all": "View all components",
+            "count": "50+ Components",
+            "button_components": {
+                "title": "Button Components",
+                "description": "Interactive buttons with variants and states"
+            },
+            "navigation_components": {
+                "title": "Navigation",
+                "description": "Menu and navigation components"
+            },
+            "data_display": {
+                "title": "Data Display",
+                "description": "Tables, cards, and data visualization"
+            },
+            "form_controls": {
+                "title": "Form Controls",
+                "description": "Input fields, selects, and form elements"
+            },
+            "modals_overlays": {
+                "title": "Modals & Overlays",
+                "description": "Dialogs, tooltips, and overlay components"
+            },
+            "feedback": {
+                "title": "Feedback",
+                "description": "Alerts, notifications, and loading states"
+            },
+            "categories": {
+                "form": "Form",
+                "layout": "Layout",
+                "display": "Display",
+                "overlay": "Overlay",
+                "feedback": "Feedback"
+            }
+        }
     },
     "about": {
         "title": "Hakkımızda",
@@ -140,10 +194,7 @@
             "title": "Girişim",
             "description": "Hızla büyüyen işletmenizle ölçeklenen bir plan."
         },
-        "pro": {
-            "title": "Profesyonel",
-            "description": "Şirketiniz için özel destek ve altyapı."
-        },
+        "pro": { "title": "Profesyonel", "description": "Şirketiniz için özel destek ve altyapı." },
         "enterprise": {
             "title": "Kurumsal",
             "description": "Kurumsal ihtiyaçlarınız için özel bir fiyat teklifi almak için bizimle iletişime geçin."

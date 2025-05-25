@@ -65,9 +65,7 @@
             "password": "पासवर्ड फ़ील्ड आवश्यक है।",
             "confirmPassword": "पासवर्ड पुष्टि फ़ील्ड आवश्यक है।"
         },
-        "invalid": {
-            "email": "अमान्य ईमेल पता।"
-        },
+        "invalid": { "email": "अमान्य ईमेल पता।" },
         "password": {
             "confirm": "पासवर्ड मेल नहीं खाते।",
             "minLength": "पासवर्ड कम से कम {min} वर्णों का होना चाहिए।",
@@ -95,10 +93,7 @@
         "description": "त्रुटि! आप जिस पृष्ठ को खोज रहे हैं वह मौजूद नहीं है।",
         "returnHome": "मुखपृष्ठ पर लौटें"
     },
-    "error": {
-        "title": "एक त्रुटि हुई",
-        "retry": "पुनः प्रयास करें"
-    },
+    "error": { "title": "एक त्रुटि हुई", "retry": "पुनः प्रयास करें" },
     "metadata": {
         "applicationName": "नाइट्रोकिट स्टार्टर टेम्पलेट",
         "description": "नाइट्रोकिट स्टार्टर टेम्पलेट",
@@ -109,10 +104,69 @@
         "title": "मेनू",
         "home": "होम",
         "about": "हमारे बारे में",
-        "services": "सेवाएं",
+        "services": {
+            "title": "Services",
+            "description": "Professional development services to realize your vision.",
+            "premium_badge": "Premium Services",
+            "web_development": {
+                "title": "Web Development",
+                "description": "Full-stack web applications with modern technologies"
+            },
+            "ui_ux_design": {
+                "title": "UI/UX Design",
+                "description": "Beautiful and intuitive user interfaces"
+            },
+            "performance_optimization": {
+                "title": "Performance Optimization",
+                "description": "Lightning-fast applications and websites"
+            },
+            "team_augmentation": {
+                "title": "Team Augmentation",
+                "description": "अपनी विकास टीम का विशेषज्ञों के साथ विस्तार करें"
+            },
+            "badges": { "popular": "लोकप्रिय", "new": "नया" }
+        },
         "pricing": "मूल्य निर्धारण",
         "blog": "ब्लॉग",
-        "contact": "संपर्क करें"
+        "contact": "संपर्क करें",
+        "components": {
+            "title": "घटक",
+            "subtitle": "UI घटक",
+            "description": "Radix UI और Tailwind CSS से निर्मित पुन: प्रयोज्य घटक",
+            "view_all": "सभी घटक देखें",
+            "count": "50+ घटक",
+            "button_components": {
+                "title": "बटन घटक",
+                "description": "बदलने वाले स्वरूपों और अवस्थाओं वाले इंटरैक्टिव बटन"
+            },
+            "navigation_components": {
+                "title": "Navigation",
+                "description": "Menu and navigation components"
+            },
+            "data_display": {
+                "title": "Data Display",
+                "description": "Tables, cards, and data visualization"
+            },
+            "form_controls": {
+                "title": "Form Controls",
+                "description": "Input fields, selects, and form elements"
+            },
+            "modals_overlays": {
+                "title": "Modals & Overlays",
+                "description": "Dialogs, tooltips, and overlay components"
+            },
+            "feedback": {
+                "title": "Feedback",
+                "description": "Alerts, notifications, and loading states"
+            },
+            "categories": {
+                "form": "Form",
+                "layout": "Layout",
+                "display": "Display",
+                "overlay": "Overlay",
+                "feedback": "Feedback"
+            }
+        }
     },
     "about": {
         "title": "हमारे बारे में",

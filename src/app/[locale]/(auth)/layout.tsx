@@ -1,8 +1,8 @@
 import { getTranslations } from 'next-intl/server';
 import { getLangDir } from 'rtl-detect';
 
-import { LocaleSwitcher } from '@/components/header/locale-switcher';
-import { ThemeToggle } from '@/components/header/theme-toggle';
+import { LocaleSwitcher } from '@/components/locale/locale-switcher';
+import { ThemeToggle } from '@/components/theme/theme-toggle';
 import BackButton from '@/components/shared/back-button';
 import Logo from '@/components/shared/logo';
 import PoweredBy from '@/components/shared/powered-by';

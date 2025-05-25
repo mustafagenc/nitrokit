@@ -2,7 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 
-import { NAV_LINKS } from '@/constants/site';
+import { NAV_LINKS } from '@/constants/menu';
 import { Link } from '@/lib/i18n/navigation';
 import { NavbarProps } from '@/types/NavbarProps';
 import { cn } from '@/utils/helpers';

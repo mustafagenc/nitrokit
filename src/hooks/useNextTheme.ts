@@ -12,14 +12,15 @@ import { useEffect, useState } from 'react';
  *  - `mounted` (boolean): `true` if the component has mounted, `false` otherwise. This is useful to avoid rendering theme-dependent UI before hydration.
  *  - `setTheme` (function): A function from `next-themes` to change the current theme. It accepts a string (e.g., 'light', 'dark', 'system').
  */
-function useNextTheme() {
+
+export default function useNextTheme() {
+    const { theme, setTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
-    const { resolvedTheme, setTheme } = useTheme();
 
-    useEffect(() => setMounted(true), []);
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
-    const isDark = mounted && resolvedTheme === 'dark';
-    return [isDark, mounted, setTheme] as const;
+    // Return current theme (not resolved for system preference)
+    return [theme || 'system', mounted, setTheme] as const;
 }
-
-export default useNextTheme;

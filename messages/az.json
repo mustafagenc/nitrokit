@@ -65,9 +65,7 @@
             "password": "Şifrə sahəsi tələb olunur.",
             "confirmPassword": "Şifrəni təsdiqləmə sahəsi tələb olunur."
         },
-        "invalid": {
-            "email": "Yanlış e-poçt ünvanı."
-        },
+        "invalid": { "email": "Yanlış e-poçt ünvanı." },
         "password": {
             "confirm": "Şifrələr uyğun gəlmir.",
             "minLength": "Şifrə ən az {min} simvol olmalıdır.",
@@ -95,10 +93,7 @@
         "description": "Xəta! Axtardığınız səhifə mövcud deyil.",
         "returnHome": "Ana Səhifəyə Qayıt"
     },
-    "error": {
-        "title": "Xəta Baş Verdi",
-        "retry": "Yenidən Cəhd Edin"
-    },
+    "error": { "title": "Xəta Baş Verdi", "retry": "Yenidən Cəhd Edin" },
     "metadata": {
         "applicationName": "Nitrokit Başlanğıc Şablonu",
         "description": "Nitrokit başlanğıc şablonu",
@@ -109,10 +104,69 @@
         "title": "Menyu",
         "home": "Ana Səhifə",
         "about": "Haqqımızda",
-        "services": "Xidmətlər",
+        "services": {
+            "title": "Services",
+            "description": "Vizyanızı gerçəkləşdirmək üçün peşəkar inkişaf xidmətləri.",
+            "premium_badge": "Premium Xidmətlər",
+            "web_development": {
+                "title": "Vebeb İnkişafı",
+                "description": "Müasir texnologiyalar əsasında tam dəstəli veb tətbiqləri"
+            },
+            "ui_ux_design": {
+                "title": "UI/UX Dizaynı",
+                "description": "Gözəl və intuitiv istifadəçi interfeysləri"
+            },
+            "performance_optimization": {
+                "title": "Performans Optimallaşdırılması",
+                "description": "Sürətli tətbiqlər və veb saytlar"
+            },
+            "team_augmentation": {
+                "title": "Komanda Gücləndirilməsi",
+                "description": "İxtisaslı mütəxəssislərlə inkişaf qrupunuzu genişləndirin"
+            },
+            "badges": { "popular": "Populyar", "new": "Yeni" }
+        },
         "pricing": "Qiymətlər",
         "blog": "Bloq",
-        "contact": "Əlaqə"
+        "contact": "Əlaqə",
+        "components": {
+            "title": "Komponentlər",
+            "subtitle": "İstifadəçi İnterfeysi Komponentləri",
+            "description": "Radix UI və Tailwind CSS ilə yaradılmış təkrar istifadə olunan komponentlər",
+            "view_all": "Bütün komponentləri göstər",
+            "count": "50+ Components",
+            "button_components": {
+                "title": "Button Components",
+                "description": "Interactive buttons with variants and states"
+            },
+            "navigation_components": {
+                "title": "Navigation",
+                "description": "Menu and navigation components"
+            },
+            "data_display": {
+                "title": "Data Display",
+                "description": "Tables, cards, and data visualization"
+            },
+            "form_controls": {
+                "title": "Form Controls",
+                "description": "Input fields, selects, and form elements"
+            },
+            "modals_overlays": {
+                "title": "Modals & Overlays",
+                "description": "Dialogs, tooltips, and overlay components"
+            },
+            "feedback": {
+                "title": "Feedback",
+                "description": "Alerts, notifications, and loading states"
+            },
+            "categories": {
+                "form": "Form",
+                "layout": "Layout",
+                "display": "Display",
+                "overlay": "Overlay",
+                "feedback": "Feedback"
+            }
+        }
     },
     "about": {
         "title": "Haqqımızda",

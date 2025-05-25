@@ -1,15 +1,16 @@
 import { GitHubIcon } from '@/components/icons/github';
 import SharedLayout from '@/components/layout/shared';
 import { ThemedImage } from '@/components/shared/themed-image';
-import { MiniBanner } from '@/components/banners/mini-banner';
+import { CompactBanner } from '@/components/banners/compact-banner';
 import { Link } from '@/i18n/navigation';
+import { getStroybookUrl } from '@/utils/helpers';
 
 export default async function Home() {
     return (
         <SharedLayout
             mainClassName=" min-h-screen"
             className="flex flex-col items-center justify-center text-center">
-            <MiniBanner
+            <CompactBanner
                 href="https://github.com/mustafagenc/nitrokit/releases"
                 badge="New"
                 text="v2.0.1 is out! See what's new"
@@ -153,7 +154,7 @@ export default async function Home() {
                 alt="Storybook"
                 width={225}
                 height={45}
-                href="/storybook"
+                href={getStroybookUrl()}
                 className="mt-6 drop-shadow-xs transition-transform duration-200 ease-in-out hover:scale-105"
             />
         </SharedLayout>

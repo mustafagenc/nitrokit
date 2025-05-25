@@ -25,16 +25,17 @@ const preview: Preview = {
                 },
             ],
         },
-    },
-    globalTypes: {
-        theme: {
-            description: 'Global theme for components',
-            defaultValue: 'light',
-            toolbar: {
-                title: 'Theme',
-                icon: 'circlehollow',
-                items: ['light', 'dark'],
-                dynamicTitle: true,
+        options: {
+            storySort: {
+                method: 'alphabetical',
+                order: [
+                    'Documentation',
+                    ['Welcome', '*'],
+                    'Frameworks',
+                    'Components',
+                    'Design System',
+                ],
+                locales: 'en-US',
             },
         },
     },

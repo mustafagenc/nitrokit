@@ -3,13 +3,11 @@
 import { SessionProvider } from 'next-auth/react';
 
 import UserAvatar from '@/components/auth/user-avatar';
-import { GithubButton } from '@/components/header/github';
-import { LocaleSwitcher } from '@/components/header/locale-switcher';
 import { Navbar } from '@/components/header/navbar';
 import { NavbarMobile } from '@/components/header/navbar-mobile';
-import { ThemeSwitcher } from '@/components/header/theme-switcher';
 import Logo from '@/components/shared/logo';
 import useStickyNavbar from '@/hooks/useStickyNavbar';
+import { CompactLocaleSwitcher } from '@/components/locale/compact-locale-switcher';
 
 export const Header = () => {
     const sticky = useStickyNavbar();
@@ -20,18 +18,16 @@ export const Header = () => {
                     ? 'border-stroke sticky z-[999] bg-white/80 shadow-md backdrop-blur-[5px] dark:bg-black/80'
                     : 'border-0 bg-transparent'
             }`}>
-            <div className="mx-auto flex h-25 w-full flex-row items-center bg-transparent lg:w-7xl">
-                <div className="text-foreground flex flex-row items-center gap-2">
+            <div className="mx-auto flex h-20 w-full flex-row items-center bg-transparent lg:w-7xl">
+                <div className="text-foreground flex flex-row items-center justify-center gap-2">
                     <Logo />
-                    <NavbarMobile className="lg:hidden" />
+                    <NavbarMobile />
                 </div>
                 <div className="hidden grow items-center justify-center lg:flex">
                     <Navbar />
                 </div>
                 <div className="flex grow flex-row items-center justify-end gap-2 lg:grow-0">
-                    <GithubButton />
-                    <LocaleSwitcher />
-                    <ThemeSwitcher />
+                    <CompactLocaleSwitcher />
                     <SessionProvider>
                         <UserAvatar />
                     </SessionProvider>

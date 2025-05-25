@@ -1,9 +1,5 @@
 {
-    "app": {
-        "name": "Nitrokit",
-        "shortName": "Nitrokit",
-        "description": "Nitrokit 入門模板"
-    },
+    "app": { "name": "Nitrokit", "shortName": "Nitrokit", "description": "Nitrokit 入門模板" },
     "common": {
         "loading": "載入中...",
         "error": "發生錯誤",
@@ -65,9 +61,7 @@
             "password": "密碼欄位為必填。",
             "confirmPassword": "確認密碼欄位為必填。"
         },
-        "invalid": {
-            "email": "無效的電子郵件地址。"
-        },
+        "invalid": { "email": "無效的電子郵件地址。" },
         "password": {
             "confirm": "密碼不符。",
             "minLength": "密碼長度至少需 {min} 個字元。",
@@ -95,10 +89,7 @@
         "description": "錯誤！您要查找的頁面不存在。",
         "returnHome": "返回首頁"
     },
-    "error": {
-        "title": "發生錯誤",
-        "retry": "重試"
-    },
+    "error": { "title": "發生錯誤", "retry": "重試" },
     "metadata": {
         "applicationName": "Nitrokit 入門模板",
         "description": "Nitrokit 入門模板",
@@ -109,19 +100,75 @@
         "title": "選單",
         "home": "首頁",
         "about": "關於我們",
-        "services": "服務項目",
+        "services": {
+            "title": "Services",
+            "description": "Professional development services to realize your vision.",
+            "premium_badge": "Premium Services",
+            "web_development": {
+                "title": "Web Development",
+                "description": "Full-stack web applications with modern technologies"
+            },
+            "ui_ux_design": {
+                "title": "UI/UX Design",
+                "description": "Beautiful and intuitive user interfaces"
+            },
+            "performance_optimization": {
+                "title": "Performance Optimization",
+                "description": "Lightning-fast applications and websites"
+            },
+            "team_augmentation": {
+                "title": "Team Augmentation",
+                "description": "Scale your development team with experts"
+            },
+            "badges": { "popular": "Popular", "new": "New" }
+        },
         "pricing": "價格方案",
         "blog": "部落格",
-        "contact": "聯絡我們"
+        "contact": "聯絡我們",
+        "components": {
+            "title": "Components",
+            "subtitle": "UI Components",
+            "description": "Reusable components built with Radix UI and Tailwind CSS",
+            "view_all": "View all components",
+            "count": "50+ Components",
+            "button_components": {
+                "title": "Button Components",
+                "description": "Interactive buttons with variants and states"
+            },
+            "navigation_components": {
+                "title": "Navigation",
+                "description": "Menu and navigation components"
+            },
+            "data_display": {
+                "title": "Data Display",
+                "description": "Tables, cards, and data visualization"
+            },
+            "form_controls": {
+                "title": "Form Controls",
+                "description": "Input fields, selects, and form elements"
+            },
+            "modals_overlays": {
+                "title": "Modals & Overlays",
+                "description": "Dialogs, tooltips, and overlay components"
+            },
+            "feedback": {
+                "title": "Feedback",
+                "description": "Alerts, notifications, and loading states"
+            },
+            "categories": {
+                "form": "Form",
+                "layout": "Layout",
+                "display": "Display",
+                "overlay": "Overlay",
+                "feedback": "Feedback"
+            }
+        }
     },
     "about": {
         "title": "關於我們",
         "description": "這是一個使用 Next.js 建置的入門模板。此模板旨在快速有效地開發 Web 應用程式。"
     },
-    "services": {
-        "title": "我們的服務",
-        "description": "了解更多關於我們提供的服務。"
-    },
+    "services": { "title": "我們的服務", "description": "了解更多關於我們提供的服務。" },
     "pricing": {
         "title": "價格方案",
         "subtitle": "與您一同成長的價格方案",
@@ -132,22 +179,13 @@
         "pricePerMonth": "月",
         "pricePerYear": "年",
         "purchasePlan": "購買方案",
-        "freelancer": {
-            "title": "自由工作者",
-            "description": "為客戶提供最佳工作的基本要素。"
-        },
+        "freelancer": { "title": "自由工作者", "description": "為客戶提供最佳工作的基本要素。" },
         "startup": {
             "title": "新創公司",
             "description": "一個能與您快速發展的業務一同擴展的方案。"
         },
-        "pro": {
-            "title": "專業版",
-            "description": "為您不斷發展的公司提供專屬支援和基礎設施。"
-        },
-        "enterprise": {
-            "title": "企業版",
-            "description": "聯絡我們以取得企業需求的客製化報價。"
-        },
+        "pro": { "title": "專業版", "description": "為您不斷發展的公司提供專屬支援和基礎設施。" },
+        "enterprise": { "title": "企業版", "description": "聯絡我們以取得企業需求的客製化報價。" },
         "features": {
             "5products": "5 個產品",
             "25products": "10 個產品",
@@ -164,10 +202,7 @@
             "marketingautomations": "行銷自動化"
         }
     },
-    "blog": {
-        "title": "部落格",
-        "description": "關注我們的部落格以獲取最新消息和更新。"
-    },
+    "blog": { "title": "部落格", "description": "關注我們的部落格以獲取最新消息和更新。" },
     "contact": {
         "title": "聯絡我們",
         "description": "填寫以下表格以聯絡我們。",
@@ -176,10 +211,7 @@
         "message": "您的訊息",
         "send": "傳送"
     },
-    "privacy": {
-        "title": "隱私政策",
-        "description": "了解更多關於我們的隱私政策。"
-    },
+    "privacy": { "title": "隱私政策", "description": "了解更多關於我們的隱私政策。" },
     "footer": {
         "copyright": "© 版權所有 {year, date, ::yyyy} {name} ♥️ 保留一切權利。",
         "poweredBy": "技术支持：<link>Ekipisi</link>"
