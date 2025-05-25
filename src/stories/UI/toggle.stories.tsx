@@ -1,8 +1,8 @@
 import React from 'react';
 import { Italic } from 'lucide-react';
 
-import { Toggle } from '@/components/ui/toggle';
-import { Meta, StoryObj } from '@storybook/nextjs';
+import { Toggle } from '../../components/ui/toggle';
+import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Toggle> = {
     title: 'UI/Toggle',

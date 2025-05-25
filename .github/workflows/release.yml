@@ -31,8 +31,8 @@ jobs:
       - name: Generate release notes
         id: release-notes
         run: |
-          chmod +x ./shell/generate-release-notes.sh
-          ./shell/generate-release-notes.sh "${{ github.ref_name }}" > release-notes.md
+          chmod +x ./shell/generate_release_notes.sh
+          ./shell/generate_release_notes.sh "${{ github.ref_name }}" > release-notes.md
           echo "release_notes<<EOF" >> $GITHUB_OUTPUT
           cat release-notes.md >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
@@ -51,24 +51,28 @@ jobs:
           yarn build
           yarn test
 
+      - name: Create build archive
+        run: |
+          # Next.js build output'unu zip'le
+          if [ -d ".next" ]; then
+            zip -r nitrokit-${{ github.ref_name }}.zip .next
+          elif [ -d "out" ]; then
+            zip -r nitrokit-${{ github.ref_name }}.zip out
+          else
+            echo "No build output found, creating empty archive"
+            touch empty.txt
+            zip nitrokit-${{ github.ref_name }}.zip empty.txt
+          fi
+
       - name: Create GitHub Release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        id: create_release
+        uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ github.ref_name }}
-          release_name: 'Release ${{ github.ref_name }}'
+          name: 'Release ${{ github.ref_name }}'
           body: ${{ steps.release-notes.outputs.release_notes }}
           draft: false
           prerelease: ${{ steps.prerelease.outputs.is_prerelease }}
-
-      - name: Upload build artifacts (optional)
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./out  # Next.js build output
-          asset_name: nitrokit-${{ github.ref_name }}.zip
-          asset_content_type: application/zip
-        continue-on-error: true
+          files: |
+            nitrokit-${{ github.ref_name }}.zip
+          token: ${{ secrets.GITHUB_TOKEN }}

@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
-import { Meta, StoryObj } from '@storybook/nextjs';
-import { Button } from '@/components/ui/button';
+import { Meta, StoryObj } from '@storybook/react';
+import { Button } from '../../../components/ui/button';
 // Loader2 lucide-react'ten kalabilir, diğer marka ikonları için img kullanılacak.
 import { Loader2 } from 'lucide-react';
 

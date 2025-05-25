@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import { Meta, StoryObj } from '@storybook/nextjs';
-import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card';
-import { Button } from '@/components/ui/button';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Meta, StoryObj } from '@storybook/react';
+import { HoverCard, HoverCardContent, HoverCardTrigger } from '../../components/ui/hover-card';
+import { Button } from '../../components/ui/button';
+import { Avatar, AvatarFallback, AvatarImage } from '../../components/ui/avatar';
 import { CalendarDays } from 'lucide-react';
 
 const meta: Meta<typeof HoverCard> = {

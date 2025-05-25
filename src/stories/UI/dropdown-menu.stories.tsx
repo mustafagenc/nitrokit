@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import { Meta, StoryObj } from '@storybook/nextjs';
+import { Meta, StoryObj } from '@storybook/react';
 import {
     DropdownMenu,
     DropdownMenuTrigger,
@@ -17,8 +17,8 @@ import {
     DropdownMenuSubContent,
     DropdownMenuSubTrigger,
     DropdownMenuPortal,
-} from '@/components/ui/dropdown-menu';
-import { Button } from '@/components/ui/button';
+} from '../../components/ui/dropdown-menu';
+import { Button } from '../../components/ui/button';
 import {
     ChevronDown,
     User,

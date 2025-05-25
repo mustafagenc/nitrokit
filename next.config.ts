@@ -3,6 +3,12 @@ import createNextIntlPlugin from 'next-intl/plugin';
 
 const nextConfig: NextConfig = {
     trailingSlash: true,
+    experimental: {
+        optimizeCss: {
+            preload: true,
+            critters: true,
+        },
+    },
     images: {
         remotePatterns: [
             {
@@ -12,6 +18,14 @@ const nextConfig: NextConfig = {
                 pathname: '/**',
             },
         ],
+    },
+    async rewrites() {
+        return [
+            {
+                source: '/storybook/:path*',
+                destination: '/storybook-static/:path*',
+            },
+        ];
     },
 };
 

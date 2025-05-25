@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import { Meta, StoryObj } from '@storybook/nextjs';
-import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
-import { Label } from '@/components/ui/label';
+import { Meta, StoryObj } from '@storybook/react';
+import { ToggleGroup, ToggleGroupItem } from '../../components/ui/toggle-group';
+import { Label } from '../../components/ui/label';
 import { AlignCenter, AlignLeft, AlignRight, Bold, Italic, Underline } from 'lucide-react';
 
 const meta: Meta<typeof ToggleGroup> = {

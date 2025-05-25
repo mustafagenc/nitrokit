@@ -4,8 +4,8 @@ import {
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
-} from '@/components/ui/accordion';
-import { Meta, StoryObj } from '@storybook/nextjs';
+} from '../../components/ui/accordion';
+import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Accordion> = {
     title: 'UI/Accordion',

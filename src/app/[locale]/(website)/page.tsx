@@ -147,6 +147,15 @@ export default async function Home() {
                     className="drop-shadow-xs transition-transform duration-200 ease-in-out hover:scale-105"
                 />
             </div>
+            <ThemedImage
+                darkSrc="/images/brand-logo/storybook-white.svg"
+                lightSrc="/images/brand-logo/storybook-black.svg"
+                alt="Storybook"
+                width={225}
+                height={45}
+                href="/storybook"
+                className="mt-6 drop-shadow-xs transition-transform duration-200 ease-in-out hover:scale-105"
+            />
         </SharedLayout>
     );
 }

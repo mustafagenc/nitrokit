@@ -9,9 +9,9 @@ import {
     AlertDialogHeader,
     AlertDialogTitle,
     AlertDialogTrigger,
-} from '@/components/ui/alert-dialog';
+} from '../../components/ui/alert-dialog';
 import { Button } from '@/components/ui/button';
-import { Meta, StoryObj } from '@storybook/nextjs';
+import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof AlertDialog> = {
     title: 'UI/AlertDialog',

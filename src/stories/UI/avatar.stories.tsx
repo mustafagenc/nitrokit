@@ -1,6 +1,6 @@
 import React from 'react';
-import { Meta, StoryObj } from '@storybook/nextjs';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Meta, StoryObj } from '@storybook/react';
+import { Avatar, AvatarFallback, AvatarImage } from '../../components/ui/avatar';
 
 const meta: Meta<typeof Avatar> = {
     title: 'UI/Avatar',

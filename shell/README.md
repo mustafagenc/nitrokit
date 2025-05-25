@@ -10,7 +10,7 @@ This directory contains automation scripts for managing various aspects of the N
 | [`sync_translations.sh`](./sync_translations.sh)               | 🔄 Basic Translation  | Simple translation synchronization without external dependencies   |
 | [`labels.sh`](./labels.sh)                                     | 🏷️ GitHub Labels      | GitHub issue label management with emojis and categorization       |
 | [`dependency_updater.sh`](./dependency_updater.sh)             | 📦 Dependency Updates | Automated package updates with security checks and backup support  |
-| [`dev-setup.sh`](./dev-setup.sh)                               | 🛠️ Development Setup  | One-click development environment setup with Prisma optimization   |
+| [`dev_setup.sh`](./dev_setup.sh)                               | 🛠️ Development Setup  | One-click development environment setup with Prisma optimization   |
 
 ## 🚀 Quick Start
 
@@ -31,7 +31,7 @@ All scripts include intelligent auto-installation features:
 
 ## 📖 Detailed Script Documentation
 
-### 🛠️ Development Setup Script (`dev-setup.sh`)
+### 🛠️ Development Setup Script (`dev_setup.sh`)
 
 One-click development environment setup with intelligent dependency management and Prisma optimization.
 
@@ -48,7 +48,7 @@ One-click development environment setup with intelligent dependency management a
 
 ```bash
 # Complete development environment setup
-./dev-setup.sh
+./dev_setup.sh
 
 # Script automatically handles:
 # - Package installation (yarn/pnpm/npm)
@@ -196,7 +196,7 @@ Automated package management with security vulnerability scanning and intelligen
 
 ```bash
 # 1. Set up development environment
-./dev-setup.sh
+./dev_setup.sh
 
 # 2. Update dependencies (optional)
 ./dependency_updater.sh --dry-run  # Preview updates
@@ -216,7 +216,7 @@ Automated package management with security vulnerability scanning and intelligen
 
 ```mermaid
 graph TD
-    A[Run dev-setup.sh] --> B[Detect Project Structure]
+    A[Run dev_setup.sh] --> B[Detect Project Structure]
     B --> C[Install Dependencies]
     C --> D{Prisma Schema Exists?}
     D -->|Yes| E[Run Database Migrations]
@@ -248,7 +248,7 @@ graph TD
 
 ```bash
 # Development Environment
-./dev-setup.sh                           # Complete setup
+./dev_setup.sh                           # Complete setup
 yarn dev                                  # Start development server
 yarn build                               # Build for production
 
@@ -276,9 +276,9 @@ yarn db:seed                            # Seed database
 
 | Issue                         | Script                   | Solution                                 |
 | ----------------------------- | ------------------------ | ---------------------------------------- |
-| **Prisma Client Error**       | dev-setup.sh             | Cleans cache and regenerates client      |
-| **Package Manager Not Found** | dev-setup.sh             | Auto-detects and uses available PM       |
-| **Environment File Missing**  | dev-setup.sh             | Creates .env from .env.example           |
+| **Prisma Client Error**       | dev_setup.sh             | Cleans cache and regenerates client      |
+| **Package Manager Not Found** | dev_setup.sh             | Auto-detects and uses available PM       |
+| **Environment File Missing**  | dev_setup.sh             | Creates .env from .env.example           |
 | **Dependency Conflicts**      | dependency_updater       | Use --update-mode safe or restore backup |
 | **Translation Key Missing**   | sync_translations        | Automatically adds missing keys          |
 | **API Rate Limit**            | sync_translations_gemini | Increase --delay parameter               |
@@ -290,7 +290,7 @@ yarn db:seed                            # Seed database
 
 ```bash
 # 1. Initial setup for new developers
-./dev-setup.sh
+./dev_setup.sh
 
 # 2. Regular development cycle
 yarn dev                        # Start development
@@ -407,7 +407,7 @@ nitrokit/
 ├── .env.example               # Environment template
 ├── shell/                     # 📁 Script directory
 │   ├── README.md              # This comprehensive guide
-│   ├── dev-setup.sh           # 🛠️ Development environment setup
+│   ├── dev_setup.sh           # 🛠️ Development environment setup
 │   ├── dependency_updater.sh  # 📦 Package management
 │   ├── sync_translations.sh   # 🔄 Basic translation sync
 │   ├── sync_translations_gemini.sh  # 🌍 AI translation
@@ -420,7 +420,7 @@ nitrokit/
 
 ### Contribution Workflow
 
-1. **Set up development environment**: `./dev-setup.sh`
+1. **Set up development environment**: `./dev_setup.sh`
 2. **Create or modify script**: Follow template and guidelines
 3. **Test thoroughly**: Verify on different platforms
 4. **Update documentation**: Add to this README with examples
@@ -449,13 +449,13 @@ Future automation opportunities:
 
 ---
 
-**💡 Pro Tip**: Start with `./dev-setup.sh` for any new development environment. All other scripts build upon this foundation!
+**💡 Pro Tip**: Start with `./dev_setup.sh` for any new development environment. All other scripts build upon this foundation!
 
 **🎯 Quick Start Commands**:
 
 ```bash
 # New developer setup
-./dev-setup.sh                    # Complete environment setup
+./dev_setup.sh                    # Complete environment setup
 yarn dev                          # Start development server
 
 # Regular maintenance

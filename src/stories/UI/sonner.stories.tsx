@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
-import { Meta, StoryObj } from '@storybook/nextjs';
+import { Meta, StoryObj } from '@storybook/react';
 import { Toaster, toast } from 'sonner'; // Assuming sonner is used directly or re-exported
-import { Button } from '@/components/ui/button'; // Assuming you have a Button component
+import { Button } from '../../components/ui/button'; // Assuming you have a Button component
 import { XIcon, CheckCircle } from 'lucide-react';
 
 const meta: Meta<typeof Toaster> = {

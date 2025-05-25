@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
 import React from 'react';
-import { Button } from '@/components/ui/button';
-import { Meta, StoryObj } from '@storybook/nextjs';
+import { Button } from '../../components/ui/button';
+import { Meta, StoryObj } from '@storybook/react';
 import { Heart } from 'lucide-react';
 
 const meta: Meta<typeof Button> = {

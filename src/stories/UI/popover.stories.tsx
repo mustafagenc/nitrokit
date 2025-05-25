@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import { Meta, StoryObj } from '@storybook/nextjs';
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { Button } from '@/components/ui/button';
-import { Label } from '@/components/ui/label';
-import { Input } from '@/components/ui/input';
+import { Meta, StoryObj } from '@storybook/react';
+import { Popover, PopoverContent, PopoverTrigger } from '../../components/ui/popover';
+import { Button } from '../../components/ui/button';
+import { Label } from '../../components/ui/label';
+import { Input } from '../../components/ui/input';
 import { Settings2 } from 'lucide-react';
 
 const meta: Meta<typeof Popover> = {

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Meta, StoryObj } from '@storybook/nextjs';
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { Meta, StoryObj } from '@storybook/react';
+import { Alert, AlertDescription, AlertTitle } from '../../components/ui/alert';
 import { Terminal, AlertCircle, CheckCircle, TriangleAlert } from 'lucide-react';
 
 const meta: Meta<typeof Alert> = {

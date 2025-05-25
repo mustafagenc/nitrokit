@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# dev-setup.sh - Development environment setup
+# dev_setup.sh - Development environment setup
 
 # Get the parent directory (nitrokit root)
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"

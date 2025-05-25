@@ -7,8 +7,8 @@ import {
     PaginationLink,
     PaginationNext,
     PaginationPrevious,
-} from '@/components/ui/pagination';
-import { Meta, StoryObj } from '@storybook/nextjs';
+} from '../../components/ui/pagination';
+import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Pagination> = {
     title: 'UI/Pagination',

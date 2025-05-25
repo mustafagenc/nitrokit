@@ -1,7 +1,7 @@
 #!/bin/bash
-# filepath: shell/generate-release-notes.sh
+# filepath: shell/generate_release_notes.sh
 
-# generate-release-notes.sh - Automatically generate release notes from git history
+# generate_release_notes.sh - Automatically generate release notes from git history
 
 TAG="$1"
 PREV_TAG=""
@@ -126,20 +126,40 @@ if [[ -n "$DEPS" ]]; then
     echo ""
 fi
 
-# Contributors
-CONTRIBUTORS=$(git log "$COMPARISON_RANGE" --pretty=format:"%an" | sort | uniq)
-if [[ -n "$CONTRIBUTORS" ]]; then
-    echo "## 👥 Contributors"
-    echo ""
-    echo "Thanks to all the contributors who made this release possible:"
-    echo ""
-    while IFS= read -r contributor; do
-        if [[ -n "$contributor" ]]; then
-            echo "- @$contributor"
-        fi
-    done <<< "$CONTRIBUTORS"
-    echo ""
-fi
+# Contributors with GitHub usernames
+echo "## 👥 Contributors"
+echo ""
+echo "Thanks to all the contributors who made this release possible:"
+echo ""
+
+# Get unique contributor emails
+git log "$COMPARISON_RANGE" --pretty=format:"%an|%ae" | sort | uniq | while IFS='|' read -r name email; do
+    if [[ -n "$name" && -n "$email" ]]; then
+        # Try to extract GitHub username from email
+        case "$email" in
+            *@users.noreply.github.com)
+                # GitHub no-reply email format
+                github_user=$(echo "$email" | sed 's/@users.noreply.github.com$//' | sed 's/^[0-9]*+//')
+                echo "- [@$github_user](https://github.com/$github_user)"
+                ;;
+            mustafagenc@*)
+                # Your email
+                echo "- [@mustafagenc](https://github.com/mustafagenc) ($name)"
+                ;;
+            *)
+                # Try to get GitHub username from git config
+                github_user=$(git config --get user.githubusername 2>/dev/null || echo "")
+                if [[ -n "$github_user" ]]; then
+                    echo "- [@$github_user](https://github.com/$github_user) ($name)"
+                else
+                    echo "- $name"
+                fi
+                ;;
+        esac
+    fi
+done
+
+echo ""
 
 # Installation instructions
 echo "## 🚀 Installation & Upgrade"
@@ -149,7 +169,7 @@ echo "\`\`\`bash"
 echo "git clone https://github.com/mustafagenc/nitrokit.git"
 echo "cd nitrokit"
 echo "git checkout $TAG"
-echo "./shell/dev-setup.sh"
+echo "./shell/dev_setup.sh"
 echo "\`\`\`"
 echo ""
 echo "### For existing projects:"

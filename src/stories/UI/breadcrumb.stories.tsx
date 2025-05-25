@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meta, StoryObj } from '@storybook/nextjs';
+import { Meta, StoryObj } from '@storybook/react';
 import {
     Breadcrumb,
     BreadcrumbItem,
@@ -8,7 +8,7 @@ import {
     BreadcrumbPage,
     BreadcrumbSeparator,
     BreadcrumbEllipsis,
-} from '@/components/ui/breadcrumb';
+} from '../../components/ui/breadcrumb';
 import { Slash } from 'lucide-react';
 
 const meta: Meta<typeof Breadcrumb> = {

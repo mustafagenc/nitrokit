@@ -1,4 +1,21 @@
 {
     "buildCommand": "prisma generate --no-engine && next build",
-    "crons": []
+    "framework": "nextjs",
+    "rewrites": [
+        {
+            "source": "/storybook/(.*)",
+            "destination": "/storybook-static/$1"
+        }
+    ],
+    "headers": [
+        {
+            "source": "/storybook/(.*)",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=31536000, immutable"
+                }
+            ]
+        }
+    ]
 }

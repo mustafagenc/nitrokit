@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import { Meta, StoryObj } from '@storybook/nextjs';
-import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
-import { Separator } from '@/components/ui/separator';
-import { Badge } from '@/components/ui/badge'; // Assuming you have a Badge component
+import { Meta, StoryObj } from '@storybook/react';
+import { ScrollArea, ScrollBar } from '../../components/ui/scroll-area';
+import { Separator } from '../../components/ui/separator';
+import { Badge } from '../../components/ui/badge'; // Assuming you have a Badge component
 
 const meta: Meta<typeof ScrollArea> = {
     title: 'UI/ScrollArea',
