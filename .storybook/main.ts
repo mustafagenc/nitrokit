@@ -1,10 +1,4 @@
 import type { StorybookConfig } from '@storybook/nextjs';
-import { dirname, join } from 'path';
-import { fileURLToPath } from 'url';
-
-// __dirname replacement for ES modules
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
 
 const config: StorybookConfig = {
     stories: [
@@ -23,16 +17,7 @@ const config: StorybookConfig = {
         options: {},
     },
     staticDirs: ['../public'],
-    webpackFinal: async config => {
-        // TypeScript path mapping
-        if (config.resolve) {
-            config.resolve.alias = {
-                ...config.resolve.alias,
-                '@': join(__dirname, '../'),
-            };
-        }
-        return config;
-    },
+    // webpackFinal kaldırıldı - __dirname sorunu çözülür
     typescript: {
         check: false,
         reactDocgen: 'react-docgen-typescript',

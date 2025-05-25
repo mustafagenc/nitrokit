@@ -1,7 +1,7 @@
 #!/bin/bash
-# filepath: shell/generate-release-notes.sh
+# filepath: shell/generate_release_notes.sh
 
-# generate-release-notes.sh - Automatically generate release notes from git history
+# generate_release_notes.sh - Automatically generate release notes from git history
 
 TAG="$1"
 PREV_TAG=""
@@ -149,7 +149,7 @@ echo "\`\`\`bash"
 echo "git clone https://github.com/mustafagenc/nitrokit.git"
 echo "cd nitrokit"
 echo "git checkout $TAG"
-echo "./shell/dev-setup.sh"
+echo "./shell/dev_setup.sh"
 echo "\`\`\`"
 echo ""
 echo "### For existing projects:"

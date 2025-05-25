@@ -14,13 +14,11 @@ const Welcome = () => {
 
             <div className="grid gap-6 md:grid-cols-2">
                 <div className="rounded-lg border border-blue-200 bg-blue-50 p-6">
-                    <h3 className="mb-3 flex items-center font-semibold text-blue-800">
-                        🎯 Getting Started
-                    </h3>
+                    <h3 className="mb-3 font-semibold text-blue-800">🎯 Getting Started</h3>
                     <ul className="list-inside list-disc space-y-2 text-blue-700">
                         <li>
                             Create component stories in{' '}
-                            <code className="rounded bg-blue-100 px-2 py-1">stories/</code>
+                            <code className="rounded bg-blue-100 px-2 py-1">src/stories/</code>
                         </li>
                         <li>Document components with interactive examples</li>
                         <li>Test component states and interactions</li>
@@ -29,9 +27,7 @@ const Welcome = () => {
                 </div>
 
                 <div className="rounded-lg border border-green-200 bg-green-50 p-6">
-                    <h3 className="mb-3 flex items-center font-semibold text-green-800">
-                        ✨ Features Available
-                    </h3>
+                    <h3 className="mb-3 font-semibold text-green-800">✨ Features Available</h3>
                     <ul className="list-inside list-disc space-y-2 text-green-700">
                         <li>🎨 TailwindCSS styling</li>
                         <li>🔧 Interactive controls</li>
@@ -65,12 +61,6 @@ const meta: Meta<typeof Welcome> = {
     component: Welcome,
     parameters: {
         layout: 'fullscreen',
-        docs: {
-            description: {
-                component:
-                    'Welcome to your Storybook! This is your component development environment.',
-            },
-        },
     },
     tags: ['autodocs'],
 };

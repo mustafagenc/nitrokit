@@ -1,7 +1,7 @@
 {
     "version": 2,
     "framework": "nextjs",
-    "buildCommand": "prisma generate --no-engine && next build && yarn build:storybook",
+    "buildCommand": "prisma generate --no-engine && next build",
     "installCommand": "yarn install",
     "rewrites": [
         {

@@ -1,7 +1,7 @@
 #!/bin/bash
-# filepath: shell/create-release.sh
+# filepath: shell/create_release.sh
 
-# create-release.sh - Create and publish a new release
+# create_release.sh - Create and publish a new release
 
 VERSION="$1"
 MESSAGE="$2"
@@ -20,7 +20,7 @@ show_help() {
 🎯 Create Release - Create and publish a new release with automated notes
 
 USAGE:
-    ./create-release.sh VERSION [MESSAGE]
+    ./create_release.sh VERSION [MESSAGE]
 
 DESCRIPTION:
     Creates a new git tag and pushes it to trigger the GitHub Actions release workflow.
@@ -31,9 +31,9 @@ ARGUMENTS:
     MESSAGE     Optional release message (default: "Release VERSION")
 
 EXAMPLES:
-    ./create-release.sh v1.0.0                    # Create stable release
-    ./create-release.sh v1.1.0-beta.1             # Create pre-release
-    ./create-release.sh v2.0.0 "Major update"     # With custom message
+    ./create_release.sh v1.0.0                    # Create stable release
+    ./create_release.sh v1.1.0-beta.1             # Create pre-release
+    ./create_release.sh v2.0.0 "Major update"     # With custom message
 
 VERSION FORMATS:
     v1.0.0        - Stable release
@@ -162,7 +162,7 @@ log_step "Updating translations..."
 
 # Generate release notes preview
 log_step "Generating release notes preview..."
-./generate-release-notes.sh "$VERSION" > "/tmp/release-notes-$VERSION.md"
+./generate_release_notes.sh "$VERSION" > "/tmp/release-notes-$VERSION.md"
 
 echo ""
 log_info "Release notes preview:"

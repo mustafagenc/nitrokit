@@ -59,7 +59,7 @@ git clone https://github.com/mustafagenc/nitrokit.git
 cd nitrokit
 
 # One-click development setup
-./shell/dev-setup.sh
+./shell/dev_setup.sh
 ```
 
 The setup script automatically handles:
@@ -107,7 +107,7 @@ nitrokit/
 │   └── seed.ts            # Database seeding
 ├── shell/                 # 🛠️ Automation scripts
 │   ├── README.md          # Comprehensive script documentation
-│   ├── dev-setup.sh       # 🛠️ One-click development setup
+│   ├── dev_setup.sh       # 🛠️ One-click development setup
 │   ├── dependency_updater.sh  # 📦 Automated package management
 │   ├── sync_translations.sh   # 🔄 Basic translation sync
 │   ├── sync_translations_gemini.sh  # 🌍 AI-powered translation
@@ -121,12 +121,12 @@ nitrokit/
 
 Nitrokit includes comprehensive automation scripts for streamlined development:
 
-### 🛠️ Development Setup (`./shell/dev-setup.sh`)
+### 🛠️ Development Setup (`./shell/dev_setup.sh`)
 
 One-click development environment setup with intelligent automation:
 
 ```bash
-./shell/dev-setup.sh
+./shell/dev_setup.sh
 ```
 
 **Features:**
@@ -259,7 +259,7 @@ export GEMINI_API_KEY="your-api-key"
 
 | Script                                | Description                            |
 | ------------------------------------- | -------------------------------------- |
-| `./shell/dev-setup.sh`                | Complete development environment setup |
+| `./shell/dev_setup.sh`                | Complete development environment setup |
 | `./shell/dependency_updater.sh`       | Automated dependency management        |
 | `./shell/sync_translations.sh`        | Basic translation synchronization      |
 | `./shell/sync_translations_gemini.sh` | AI-powered translation automation      |
@@ -449,7 +449,7 @@ git clone https://github.com/mustafagenc/nitrokit.git
 cd nitrokit
 
 # 2. One-click setup
-./shell/dev-setup.sh
+./shell/dev_setup.sh
 
 # 3. Start development
 yarn dev
@@ -491,7 +491,7 @@ We welcome contributions! Please read our [Contributing Guide](CONTRIBUTING.md) 
 
 1. **Fork the repository**
 2. **Clone your fork**: `git clone https://github.com/your-username/nitrokit.git`
-3. **Run setup script**: `./shell/dev-setup.sh`
+3. **Run setup script**: `./shell/dev_setup.sh`
 4. **Create feature branch**: `git checkout -b feature/amazing-feature`
 5. **Make your changes**
 6. **Run tests**: `yarn test && yarn lint`
@@ -515,7 +515,7 @@ We welcome contributions! Please read our [Contributing Guide](CONTRIBUTING.md) 
 1. Copy your components to `components/`
 2. Move pages to `app/` directory (App Router)
 3. Update imports and configurations
-4. Run `./shell/dev-setup.sh` for automatic setup
+4. Run `./shell/dev_setup.sh` for automatic setup
 5. Add translations using the automation scripts
 
 ### From Other TypeScript Boilerplates

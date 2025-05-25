@@ -1,12 +1,5 @@
 import type { Preview } from '@storybook/react';
-
-// CSS dosyasını import et (varsa)
-try {
-    require('../src/styles/globals.css');
-} catch (e) {
-    // CSS dosyası yoksa hata verme
-    console.warn('globals.css not found, using default styles');
-}
+import '../src/styles/globals.css';
 
 const preview: Preview = {
     parameters: {
@@ -18,19 +11,6 @@ const preview: Preview = {
         },
         docs: {
             toc: true,
-        },
-        backgrounds: {
-            default: 'light',
-            values: [
-                {
-                    name: 'light',
-                    value: '#ffffff',
-                },
-                {
-                    name: 'dark',
-                    value: '#333333',
-                },
-            ],
         },
     },
 };
