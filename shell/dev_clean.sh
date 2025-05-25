@@ -31,6 +31,7 @@ clean_item() {
 items_to_clean=(
     ".next"
     ".vercel"
+    ".dependency"
     "generated"
     "coverage"
     "node_modules"

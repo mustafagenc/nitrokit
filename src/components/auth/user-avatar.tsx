@@ -55,7 +55,7 @@ export default function UserAvatar() {
             description: new Date().toLocaleString(),
             action: {
                 label: 'Undo',
-                onClick: () => console.log('Undo'),
+                onClick: () => toast.dismiss(),
             },
         });
     }

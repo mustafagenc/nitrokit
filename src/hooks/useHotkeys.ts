@@ -24,48 +24,6 @@ import { Shortcut } from '@/types/Shortcut';
  * @param dependencies - An optional array of dependencies for the `React.useEffect` hook.
  *   The event listener will be re-attached if any of these dependencies change.
  *   The `shortcuts` array itself is always included as a dependency. Defaults to `[]`.
- *
- * @example
- * ```tsx
- * import { useHotkeys } from './useHotkeys';
- *
- * interface Shortcut {
- *   key: string;
- *   action: (event: KeyboardEvent) => void;
- *   metaKey?: boolean;
- *   ctrlKey?: boolean;
- *   shiftKey?: boolean;
- *   altKey?: boolean;
- * }
- *
- * const MyComponent = () => {
- *   const [count, setCount] = React.useState(0);
- *
- *   const shortcuts: Shortcut[] = [
- *     {
- *       key: 's',
- *       metaKey: true,
- *       action: () => console.log('Saved!'),
- *     },
- *     {
- *       key: 'ArrowUp',
- *       action: () => setCount(c => c + 1),
- *     },
- *     {
- *       key: 'c',
- *       ctrlKey: true,
- *       shiftKey: true,
- *       action: (e) => {
- *         console.log('Ctrl+Shift+C pressed', e);
- *       }
- *     }
- *   ];
- *
- *   useHotkeys(shortcuts, [count]); // Re-bind if `count` changes, though typically not needed for action closures
- *
- *   return <div>Press Cmd+S to save, ArrowUp to increment count ({count}), or Ctrl+Shift+C.</div>;
- * };
- * ```
  */
 export function useHotkeys(shortcuts: Shortcut[], dependencies: React.DependencyList = []) {
     React.useEffect(() => {
