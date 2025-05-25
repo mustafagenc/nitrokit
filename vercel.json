@@ -1,5 +1,5 @@
 {
-    "buildCommand": "prisma generate --no-engine && next build",
+    "buildCommand": "prisma generate --no-engine && next build && BASE_PATH=/storybook/ storybook build -o storybook-staticclea",
     "framework": "nextjs",
     "rewrites": [
         {

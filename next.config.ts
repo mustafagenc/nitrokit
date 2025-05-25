@@ -5,8 +5,9 @@ const nextConfig: NextConfig = {
     trailingSlash: true,
     experimental: {
         optimizeCss: {
-            preload: true,
-            critters: true,
+            // preload: true,
+            // critters: true,
+            optimizeCss: false,
         },
     },
     images: {
