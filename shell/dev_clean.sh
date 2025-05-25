@@ -30,6 +30,7 @@ clean_item() {
 # List of items to clean
 items_to_clean=(
     ".next"
+    ".vercel"
     "generated"
     "node_modules"
     "storybook-static"
