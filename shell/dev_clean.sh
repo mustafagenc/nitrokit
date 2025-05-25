@@ -32,6 +32,7 @@ items_to_clean=(
     ".next"
     ".vercel"
     "generated"
+    "coverage"
     "node_modules"
     "storybook-static"
     "tsconfig.tsbuildinfo"
