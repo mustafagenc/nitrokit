@@ -228,7 +228,8 @@
         "name": "Сиздин атыңыз",
         "email": "Сиздин электрондук почта дарегиңиз",
         "message": "Сиздин билдирүүңүз",
-        "send": "Жөнөтүү"
+        "send": "Жөнөтүү",
+        "messageSent": "Message sent successfully!"
     },
     "privacy": {
         "title": "Купуялык саясаты",

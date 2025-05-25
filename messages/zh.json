@@ -209,7 +209,8 @@
         "name": "您的姓名",
         "email": "您的電子郵件地址",
         "message": "您的訊息",
-        "send": "傳送"
+        "send": "傳送",
+        "messageSent": "Message sent successfully!"
     },
     "privacy": { "title": "隱私政策", "description": "了解更多關於我們的隱私政策。" },
     "footer": {

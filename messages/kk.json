@@ -228,7 +228,8 @@
         "name": "Сіздің атыңыз",
         "email": "Сіздің электрондық пошта мекенжайыңыз",
         "message": "Сіздің хабарламаңыз",
-        "send": "Жіберу"
+        "send": "Жіберу",
+        "messageSent": "Message sent successfully!"
     },
     "privacy": {
         "title": "Құпиялылық саясаты",

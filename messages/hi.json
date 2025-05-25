@@ -228,7 +228,8 @@
         "name": "आपका नाम",
         "email": "आपका ईमेल पता",
         "message": "आपका संदेश",
-        "send": "भेजें"
+        "send": "भेजें",
+        "messageSent": "Message sent successfully!"
     },
     "privacy": {
         "title": "गोपनीयता नीति",

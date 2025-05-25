@@ -228,7 +228,8 @@
         "name": "Tu Nombre",
         "email": "Tu Dirección de Correo Electrónico",
         "message": "Tu Mensaje",
-        "send": "Enviar"
+        "send": "Enviar",
+        "messageSent": "Message sent successfully!"
     },
     "privacy": {
         "title": "Política de Privacidad",

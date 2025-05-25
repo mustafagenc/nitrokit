@@ -228,7 +228,8 @@
         "name": "Ваше имя",
         "email": "Ваш адрес электронной почты",
         "message": "Ваше сообщение",
-        "send": "Отправить"
+        "send": "Отправить",
+        "messageSent": "Message sent successfully!"
     },
     "privacy": {
         "title": "Политика конфиденциальности",

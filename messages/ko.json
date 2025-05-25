@@ -224,7 +224,8 @@
         "name": "이름",
         "email": "이메일 주소",
         "message": "메시지",
-        "send": "보내기"
+        "send": "보내기",
+        "messageSent": "Message sent successfully!"
     },
     "privacy": {
         "title": "개인정보 처리방침",

@@ -225,7 +225,8 @@
         "name": "Adınız",
         "email": "E-posta adresiniz",
         "message": "Mesajınız",
-        "send": "Gönder"
+        "send": "Gönder",
+        "messageSent": "Message sent successfully!"
     },
     "privacy": {
         "title": "Gizlilik Politikası",

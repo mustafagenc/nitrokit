@@ -228,7 +228,8 @@
         "name": "Adyňyz",
         "email": "E-poçta Salgyňyz",
         "message": "Habaryňyz",
-        "send": "Iber"
+        "send": "Iber",
+        "messageSent": "Message sent successfully!"
     },
     "privacy": {
         "title": "Gizlinlik Syýasaty",

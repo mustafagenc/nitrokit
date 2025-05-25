@@ -224,7 +224,8 @@
         "name": "Nama Anda",
         "email": "Alamat Email Anda",
         "message": "Pesan Anda",
-        "send": "Kirim"
+        "send": "Kirim",
+        "messageSent": "Message sent successfully!"
     },
     "privacy": {
         "title": "Kebijakan Privasi",

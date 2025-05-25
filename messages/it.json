@@ -228,7 +228,8 @@
         "name": "Il tuo nome",
         "email": "Il tuo indirizzo email",
         "message": "Il tuo messaggio",
-        "send": "Invia"
+        "send": "Invia",
+        "messageSent": "Message sent successfully!"
     },
     "privacy": {
         "title": "Informativa sulla privacy",

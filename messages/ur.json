@@ -228,7 +228,8 @@
         "name": "آپ کا نام",
         "email": "آپ کا ای میل ایڈریس",
         "message": "آپ کا پیغام",
-        "send": "بھیجیں"
+        "send": "بھیجیں",
+        "messageSent": "Message sent successfully!"
     },
     "privacy": {
         "title": "پرائیویسی پالیسی",

@@ -225,7 +225,8 @@
         "name": "Vaše ime",
         "email": "Vaša email adresa",
         "message": "Vaša poruka",
-        "send": "Pošalji"
+        "send": "Pošalji",
+        "messageSent": "Message sent successfully!"
     },
     "privacy": {
         "title": "Politika privatnosti",

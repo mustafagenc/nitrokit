@@ -228,7 +228,8 @@
         "name": "Adınız",
         "email": "E-poçt ünvanınız",
         "message": "Mesajınız",
-        "send": "Göndər"
+        "send": "Göndər",
+        "messageSent": "Message sent successfully!"
     },
     "privacy": {
         "title": "Məxfilik Siyasəti",

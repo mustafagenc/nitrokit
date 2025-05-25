@@ -225,7 +225,8 @@
         "name": "Your Name",
         "email": "Your Email Address",
         "message": "Your Message",
-        "send": "Send"
+        "send": "Send",
+        "messageSent": "Message sent successfully!"
     },
     "privacy": { "title": "Privacy Policy", "description": "Learn more about our privacy policy." },
     "footer": {
