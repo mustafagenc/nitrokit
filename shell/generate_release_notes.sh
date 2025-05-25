@@ -30,8 +30,6 @@ else
     COMPARISON_TEXT="Changes since $PREV_TAG"
 fi
 
-echo "# Release $TAG"
-echo ""
 echo "## 📋 $COMPARISON_TEXT"
 echo ""
 
