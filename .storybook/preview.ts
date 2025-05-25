@@ -1,5 +1,6 @@
 import type { Preview } from '@storybook/react';
 import '../src/styles/globals.css';
+import nitrokit from './nitrokit-light';
 
 const preview: Preview = {
     parameters: {
@@ -11,6 +12,7 @@ const preview: Preview = {
         },
         docs: {
             toc: true,
+            theme: nitrokit,
         },
         backgrounds: {
             default: 'light',
