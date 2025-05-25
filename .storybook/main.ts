@@ -17,11 +17,15 @@ const config: StorybookConfig = {
         options: {},
     },
     staticDirs: ['../public'],
-    // webpackFinal kaldırıldı - __dirname sorunu çözülür
     typescript: {
         check: false,
         reactDocgen: 'react-docgen-typescript',
     },
+    // Production build için base path
+    managerHead: head => `
+    ${head}
+    <base href="/storybook/" />
+  `,
 };
 
 export default config;

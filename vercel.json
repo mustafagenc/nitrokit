@@ -1,7 +1,11 @@
 {
-    "buildCommand": "prisma generate --no-engine && next build && BASE_PATH=/storybook/ storybook build -o storybook-static",
+    "buildCommand": "prisma generate --no-engine && next build && storybook build -o public/storybook --quiet",
     "framework": "nextjs",
     "rewrites": [
+        {
+            "source": "/storybook",
+            "destination": "/storybook-static/index.html"
+        },
         {
             "source": "/storybook/(.*)",
             "destination": "/storybook-static/$1"
@@ -9,7 +13,7 @@
     ],
     "headers": [
         {
-            "source": "/storybook/(.*)",
+            "source": "/storybook-static/(.*)",
             "headers": [
                 {
                     "key": "Cache-Control",
