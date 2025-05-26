@@ -25,13 +25,13 @@ yarn run tsc ||
 )
 
 # Pass all.. try build
-# echo 'Code looks good... Trying to build now.'
+echo 'Code looks good... Trying to build now.'
 
-# yarn run build ||
-# (
-#     echo 'Next build failed: View the errors above to see why. ❌'
-#     false;
-# )
+yarn run build ||
+(
+    echo 'Next build failed: View the errors above to see why. ❌'
+    false;
+)
 
 # Build OK.. Commit
 echo 'Committing this now. ✅'
