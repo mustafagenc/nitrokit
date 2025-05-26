@@ -57,15 +57,21 @@ const Welcome = () => {
 };
 
 const meta: Meta<typeof Welcome> = {
-    title: 'Introduction/Welcome',
+    title: 'Documentation',
     component: Welcome,
     parameters: {
         layout: 'fullscreen',
+        controls: { disable: true },
+        actions: { disable: true },
+        docs: {
+            page: () => <Welcome />,
+        },
     },
-    tags: ['autodocs'],
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Default: Story = {
+    name: 'Welcome to Nitrokit Storybook',
+};

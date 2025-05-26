@@ -32,7 +32,7 @@ export default async function Page() {
                 </h1>
                 <p className="mt-10 text-xl">{t('pricing.description')}</p>
             </div>
-            <div className="mb-20">
+            <div className="mb-10 lg:mb-20">
                 <PricingSection plansConfig={PLANS} />
             </div>
             <div className="mb-30">

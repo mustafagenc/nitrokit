@@ -10,13 +10,13 @@ const config: StorybookConfig = {
         '@storybook/addon-essentials',
         '@storybook/addon-interactions',
         '@storybook/addon-a11y',
-        '@chromatic-com/storybook',
+        '@storybook/addon-themes',
+        'storybook-dark-mode',
     ],
     framework: {
         name: '@storybook/nextjs',
         options: {},
     },
-    // Public klasörünü staticDirs'den kaldır - çakışma yaratıyor
     staticDirs: [],
     typescript: {
         check: false,

@@ -47,9 +47,9 @@ export default function PricingSection({ plansConfig }: PricingSectionProps) {
                         : 'text-neutral-800 dark:text-neutral-200';
                     const titleSize = plan.isFeatured ? 'text-3xl' : 'text-2xl';
 
-                    const cardWrapperClasses = 'flex flex-col';
+                    const cardWrapperClasses = 'flex flex-col mb-5 lg:mb-0';
                     const cardClasses =
-                        'flex flex-col justify-between rounded-lg border-1 bg-white p-6 shadow-lg dark:bg-black';
+                        'flex flex-col justify-between rounded-lg border-1 bg-white shadow-xs p-6 lg:shadow-lg dark:bg-black';
 
                     return (
                         <div key={plan.id} className={cardWrapperClasses}>

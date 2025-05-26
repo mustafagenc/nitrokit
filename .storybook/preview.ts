@@ -1,6 +1,8 @@
-import type { Preview } from '@storybook/react';
 import '../src/styles/globals.css';
-import nitrokit from './nitrokit-light';
+
+import type { Preview } from '@storybook/react';
+import nitrokitLight from './light';
+import nitrokitDark from './dark';
 
 const preview: Preview = {
     parameters: {
@@ -12,7 +14,7 @@ const preview: Preview = {
         },
         docs: {
             toc: true,
-            theme: nitrokit,
+            theme: nitrokitLight,
         },
         backgrounds: {
             default: 'light',
@@ -33,14 +35,35 @@ const preview: Preview = {
                 order: [
                     'Documentation',
                     ['Welcome', '*'],
-                    'Frameworks',
+                    'Getting Started',
                     'Components',
-                    'Design System',
+                    'UI',
+                    '*',
                 ],
                 locales: 'en-US',
             },
         },
+        darkMode: {
+            dark: nitrokitDark,
+            light: nitrokitLight,
+            stylePreview: true,
+        },
     },
+    // globalTypes: {
+    //     theme: {
+    //         description: 'Global theme for components',
+    //         defaultValue: 'dark',
+    //         toolbar: {
+    //             title: 'Theme',
+    //             icon: 'paintbrush',
+    //             items: [
+    //                 { value: 'light', title: 'Light', left: '☀️' },
+    //                 { value: 'dark', title: 'Dark', left: '🌙' },
+    //             ],
+    //             dynamicTitle: true,
+    //         },
+    //     },
+    // },
 };
 
 export default preview;
