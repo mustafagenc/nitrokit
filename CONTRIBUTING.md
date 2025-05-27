@@ -17,7 +17,7 @@ Thank you for your interest in contributing to Nitrokit! 🎉 We welcome contrib
 
 ## 🤝 Code of Conduct
 
-This project adheres to a [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to [mustafa@mustafagenc.info](mailto:mustafa@mustafagenc.info).
+This project adheres to a [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to [hello@nitrokit.tr](mailto:hello@nitrokit.tr).
 
 ## 🚀 Getting Started
 
@@ -498,7 +498,7 @@ We especially welcome contributions in these areas:
 
 - 🐛 **Issues**: [GitHub Issues](https://github.com/mustafagenc/nitrokit/issues)
 - 💬 **Discussions**: [GitHub Discussions](https://github.com/mustafagenc/nitrokit/discussions)
-- 📧 **Email**: [mustafa@mustafagenc.info](mailto:mustafa@mustafagenc.info)
+- 📧 **Email**: [hello@nitrokit.tr](mailto:hello@nitrokit.tr)
 
 ## 📚 Additional Resources
 

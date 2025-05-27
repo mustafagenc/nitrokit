@@ -62,7 +62,7 @@ export async function GET() {
                                 ),
                             })}
                         </p>
-                        <div tw="mt-12 flex text-3xl font-bold text-blue-600">www.ekipisi.com</div>
+                        <div tw="mt-12 flex text-3xl font-bold text-blue-600">www.nitrokit.tr</div>
                     </div>
                 </div>
             </div>

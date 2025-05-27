@@ -42,10 +42,10 @@ type ProfileFormValues = z.infer<typeof profileFormSchema>;
 
 // Default values for the form
 const defaultValues: Partial<ProfileFormValues> = {
-    username: 'mustafagenc',
-    email: 'hello@ekipisi.com',
+    username: 'nitrokit',
+    email: 'hello@nitrokit.tr',
     bio: 'I make things on the web.',
-    website: 'https://ekipisi.com',
+    website: 'https://nitrokit.tr',
 };
 
 const meta: Meta<typeof Form> = {

@@ -443,7 +443,7 @@ Future automation opportunities:
 
 - 🐛 **Bug Reports**: [GitHub Issues](https://github.com/mustafagenc/nitrokit/issues)
 - 💬 **Feature Requests**: [GitHub Discussions](https://github.com/mustafagenc/nitrokit/discussions)
-- 📧 **Direct Contact**: [eposta@mustafagenc.info](mailto:eposta@mustafagenc.info)
+- 📧 **Direct Contact**: [hello@nitrokit.tr](mailto:hello@nitrokit.tr)
 - 📚 **Documentation**: [Project Wiki](https://github.com/mustafagenc/nitrokit/wiki)
 - 🔧 **API Reference**: [Google AI Studio](https://makersuite.google.com/)
 

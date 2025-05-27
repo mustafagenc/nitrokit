@@ -25,8 +25,8 @@ const contactDetails = [
     {
         icon: Mail,
         label: 'Email',
-        value: 'hello@ekipisi.com',
-        action: () => window.open('mailto:hello@ekipisi.com'),
+        value: 'hello@nitrokit.tr',
+        action: () => window.open('mailto:hello@nitrokit.tr'),
         actionLabel: 'Send Email',
     },
     {

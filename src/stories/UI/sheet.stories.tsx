@@ -205,7 +205,7 @@ export const WithForm: Story = {
                         <Label htmlFor="username" className="text-right">
                             Username
                         </Label>
-                        <Input id="username" defaultValue="@mustafagenc" className="col-span-3" />
+                        <Input id="username" defaultValue="@nitrokit" className="col-span-3" />
                     </div>
                 </div>
                 <SheetFooter>

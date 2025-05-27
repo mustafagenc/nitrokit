@@ -5,7 +5,7 @@ import {
     BiLogoLinkedin,
 } from 'react-icons/bi';
 
-const PUBLIC_MAIL = 'info@ekipisi.com.tr';
+const PUBLIC_MAIL = 'helo@nitrokit.tr';
 
 const SOCIAL_LINKS = [
     {

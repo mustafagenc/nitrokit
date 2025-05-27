@@ -109,7 +109,7 @@ export const InlineWithOtherText: Story = {
     render: args => (
         <p className="text-sm">
             <Label {...args} />
-            <span className="text-muted-foreground">mustafagenc</span>
+            <span className="text-muted-foreground">nitrokit</span>
         </p>
     ),
 };

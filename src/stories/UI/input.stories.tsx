@@ -170,7 +170,7 @@ export const WithErrorState: Story = {
     ),
     args: {
         type: 'text',
-        placeholder: 'e.g., mustafagenc',
+        placeholder: 'e.g., nitrokit',
         defaultValue: 'invalid entry', // To visually show something is wrong
     },
 };

@@ -75,8 +75,8 @@ async function generateSiteMetadata(): Promise<Metadata> {
         referrer: 'origin-when-cross-origin',
         authors: [
             {
-                name: 'Ekipisi',
-                url: 'https://ekipisi.com',
+                name: 'Nitrokit',
+                url: 'https://nitrokit.tr',
             },
         ],
         creator: t('metadata.author'),
