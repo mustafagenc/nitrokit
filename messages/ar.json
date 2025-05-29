@@ -12,7 +12,43 @@
         "no": "لا",
         "continue": "متابعة",
         "submit": "إرسال",
-        "contactUs": "اتصل بنا"
+        "contactUs": "اتصل بنا",
+        "github": {
+            "button": { "title": "جيت هاب", "loading": "...", "ready": "جاهز" },
+            "dropdown": {
+                "star": { "title": "مستودع النجوم", "description": "أظهر دعمك", "badge": "نجم" },
+                "fork": {
+                    "title": "شوكة المستودع",
+                    "description": "أنشئ نسختك الخاصة",
+                    "badge": "شوكة"
+                },
+                "view": {
+                    "title": "عرض المستودع",
+                    "description": "تصفح التعليمات البرمجية المصدر",
+                    "badge": "عرض"
+                }
+            }
+        },
+        "vercel": {
+            "button": { "title": "نشر على فيرسيل", "ready": "جاهز" },
+            "dropdown": {
+                "deploy": {
+                    "title": "نشر سريع",
+                    "description": "نشر بنقرة واحدة",
+                    "badge": "Deploy"
+                },
+                "preview": {
+                    "title": "Preview Demo",
+                    "description": "See live example",
+                    "badge": "Live"
+                },
+                "docs": {
+                    "title": "Documentation",
+                    "description": "Learn deployment",
+                    "badge": "Docs"
+                }
+            }
+        }
     },
     "auth": {
         "signin": "تسجيل الدخول",
@@ -222,5 +258,24 @@
     "footer": {
         "copyright": "© حقوق النشر {year, date, ::yyyy} {name} ♥️ جميع الحقوق محفوظة.",
         "poweredBy": "بواسطة فريق <link>Ekipisi</link>"
+    },
+    "home": {
+        "banner": { "badge": "New", "text": "v2.0.1 is out! See what's new" },
+        "hero": {
+            "title": { "primary": "With Nitrokit", "secondary": "Develop Rapidly" },
+            "subtitle": "A starter kit designed for startups to quickly and effectively launch their websites, including all necessary integrations, pages, and components."
+        },
+        "stats": {
+            "components": { "number": "50+", "label": "UI Components" },
+            "typescript": { "number": "TypeScript", "label": "Full Support" },
+            "modern": { "number": "Modern", "label": "Tech Stack" }
+        },
+        "technologies": { "title": "Powered by Modern Technologies" },
+        "cta": {
+            "title": "Ready to get started?",
+            "description": "Check out our project on GitHub and speed up your development process.",
+            "github": "GitHub Repository",
+            "docs": "توثيق"
+        }
     }
 }

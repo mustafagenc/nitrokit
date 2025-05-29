@@ -16,7 +16,47 @@
         "no": "Hayır",
         "continue": "Devam et",
         "submit": "Gönder",
-        "contactUs": "Bize Ulaşın"
+        "contactUs": "Bize Ulaşın",
+        "github": {
+            "button": { "title": "GitHub", "loading": "...", "ready": "Hazır" },
+            "dropdown": {
+                "star": {
+                    "title": "Depoyu Yıldızla",
+                    "description": "Desteğinizi gösterin",
+                    "badge": "Yıldızla"
+                },
+                "fork": {
+                    "title": "Depoyu Çatalla",
+                    "description": "Kendi kopyanızı oluşturun",
+                    "badge": "Çatalla"
+                },
+                "view": {
+                    "title": "Depoyu Görüntüle",
+                    "description": "Kaynak koduna göz atın",
+                    "badge": "Görüntüle"
+                }
+            }
+        },
+        "vercel": {
+            "button": { "title": "Vercel'e Dağıt", "ready": "Hazır" },
+            "dropdown": {
+                "deploy": {
+                    "title": "Hızlı Dağıtım",
+                    "description": "Tek tıkla dağıtın",
+                    "badge": "Dağıt"
+                },
+                "preview": {
+                    "title": "Demoyu Önizle",
+                    "description": "Canlı örneği görün",
+                    "badge": "Canlı"
+                },
+                "docs": {
+                    "title": "Belgeler",
+                    "description": "Dağıtımı öğrenin",
+                    "badge": "Belgeler"
+                }
+            }
+        }
     },
     "auth": {
         "signin": "Giriş Yap",
@@ -105,66 +145,66 @@
         "home": "Ana Sayfa",
         "about": "Hakkımızda",
         "services": {
-            "title": "Services",
-            "description": "Professional development services to realize your vision.",
-            "premium_badge": "Premium Services",
+            "title": "Hizmetler",
+            "description": "Vizyonunuzu gerçekleştirmek için profesyonel geliştirme hizmetleri.",
+            "premium_badge": "Premium Hizmetler",
             "web_development": {
-                "title": "Web Development",
-                "description": "Full-stack web applications with modern technologies"
+                "title": "Web Geliştirme",
+                "description": "Modern teknolojilerle tam yığın web uygulamaları"
             },
             "ui_ux_design": {
-                "title": "UI/UX Design",
-                "description": "Beautiful and intuitive user interfaces"
+                "title": "UI/UX Tasarımı",
+                "description": "Güzel ve sezgisel kullanıcı arayüzleri"
             },
             "performance_optimization": {
-                "title": "Performance Optimization",
-                "description": "Lightning-fast applications and websites"
+                "title": "Performans Optimizasyonu",
+                "description": "Şimşek hızında uygulamalar ve web siteleri"
             },
             "team_augmentation": {
-                "title": "Team Augmentation",
-                "description": "Scale your development team with experts"
+                "title": "Ekip Güçlendirme",
+                "description": "Geliştirme ekibinizi uzmanlarla ölçeklendirin"
             },
-            "badges": { "popular": "Popular", "new": "New" }
+            "badges": { "popular": "Popüler", "new": "Yeni" }
         },
         "pricing": "Fiyatlar",
         "blog": "Blog",
         "contact": "İletişim",
         "components": {
-            "title": "Components",
-            "subtitle": "UI Components",
-            "description": "Reusable components built with Radix UI and Tailwind CSS",
-            "view_all": "View all components",
-            "count": "50+ Components",
+            "title": "Bileşenler",
+            "subtitle": "UI Bileşenleri",
+            "description": "Radix UI ve Tailwind CSS ile oluşturulmuş yeniden kullanılabilir bileşenler",
+            "view_all": "Tüm bileşenleri görüntüle",
+            "count": "50+ Bileşen",
             "button_components": {
-                "title": "Button Components",
-                "description": "Interactive buttons with variants and states"
+                "title": "Düğme Bileşenleri",
+                "description": "Varyantları ve durumları olan etkileşimli düğmeler"
             },
             "navigation_components": {
-                "title": "Navigation",
-                "description": "Menu and navigation components"
+                "title": "Navigasyon",
+                "description": "Menü ve navigasyon bileşenleri"
             },
             "data_display": {
-                "title": "Data Display",
-                "description": "Tables, cards, and data visualization"
+                "title": "Veri Gösterimi",
+                "description": "Tablolar, kartlar ve veri görselleştirme"
             },
             "form_controls": {
-                "title": "Form Controls",
-                "description": "Input fields, selects, and form elements"
+                "title": "Form Kontrolleri",
+                "description": "Giriş alanları, seçimler ve form elemanları"
             },
             "modals_overlays": {
-                "title": "Modals & Overlays",
-                "description": "Dialogs, tooltips, and overlay components"
+                "title": "Modallar ve Katmanlar",
+                "description": "Diyaloglar, araç ipuçları ve katman bileşenleri"
             },
             "feedback": {
-                "title": "Feedback",
-                "description": "Alerts, notifications, and loading states"
+                "title": "Geri Bildirim",
+                "description": "Uyarılar, bildirimler ve yükleme durumları"
             },
             "categories": {
                 "form": "Form",
-                "layout": "Layout",
-                "display": "Display",
-                "overlay": "Overlay",
-                "feedback": "Feedback"
+                "layout": "Düzen",
+                "display": "Gösterim",
+                "overlay": "Katman",
+                "feedback": "Geri Bildirim"
             }
         }
     },
@@ -226,7 +266,7 @@
         "email": "E-posta adresiniz",
         "message": "Mesajınız",
         "send": "Gönder",
-        "messageSent": "Message sent successfully!"
+        "messageSent": "Mesaj başarıyla gönderildi!"
     },
     "privacy": {
         "title": "Gizlilik Politikası",
@@ -235,5 +275,24 @@
     "footer": {
         "copyright": "© Telif Hakkı {year, date, ::yyyy} {name} ♥️ Tüm Hakları Saklıdır.",
         "poweredBy": "<link>Ekipisi</link> tarafından desteklenmektedir."
+    },
+    "home": {
+        "banner": { "badge": "Yeni", "text": "v2.0.1 çıktı! Yeniliklere göz atın" },
+        "hero": {
+            "title": { "primary": "Nitrokit ile", "secondary": "Hızla Geliştirin" },
+            "subtitle": "Girişimlerin web sitelerini hızlı ve etkili bir şekilde başlatmaları için tasarlanmış, gerekli tüm entegrasyonları, sayfaları ve bileşenleri içeren bir başlangıç kiti."
+        },
+        "stats": {
+            "components": { "number": "50+", "label": "UI Bileşenleri" },
+            "typescript": { "number": "TypeScript", "label": "Tam Destek" },
+            "modern": { "number": "Modern", "label": "Teknoloji Yığını" }
+        },
+        "technologies": { "title": "Modern Teknolojilerle Güçlendirilmiştir" },
+        "cta": {
+            "title": "Başlamaya hazır mısınız?",
+            "description": "GitHub'daki projemize göz atın ve geliştirme sürecinizi hızlandırın.",
+            "github": "GitHub Deposu",
+            "docs": "Belgeler"
+        }
     }
 }
