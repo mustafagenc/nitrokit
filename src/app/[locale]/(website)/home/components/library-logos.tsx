@@ -3,9 +3,7 @@ import { ThemedImage } from '@/components/shared/themed-image';
 
 export const LibraryLogos = () => {
     return (
-        <>
-            <div className="my-10">Bu projeye katkıda bulunan muhteşem kütüphaneler;</div>
-
+        <div className="flex flex-col items-center justify-center gap-4">
             <div className="mb-10 flex flex-row flex-wrap items-center justify-center gap-8 lg:w-3xl">
                 <ThemedImage
                     darkSrc="/images/brand-logo/nextjs-white.svg"
@@ -119,6 +117,6 @@ export const LibraryLogos = () => {
                 href={getStroybookUrl()}
                 className="mt-6 drop-shadow-xs transition-transform duration-200 ease-in-out hover:scale-105"
             />
-        </>
+        </div>
     );
 };

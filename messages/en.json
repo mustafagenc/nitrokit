@@ -16,7 +16,54 @@
         "no": "No",
         "continue": "Continue",
         "submit": "Submit",
-        "contactUs": "Contact Us"
+        "contactUs": "Contact Us",
+        "github": {
+            "button": {
+                "title": "GitHub",
+                "loading": "...",
+                "ready": "Ready"
+            },
+            "dropdown": {
+                "star": {
+                    "title": "Star Repository",
+                    "description": "Show your support",
+                    "badge": "Star"
+                },
+                "fork": {
+                    "title": "Fork Repository",
+                    "description": "Create your own copy",
+                    "badge": "Fork"
+                },
+                "view": {
+                    "title": "View Repository",
+                    "description": "Browse source code",
+                    "badge": "View"
+                }
+            }
+        },
+        "vercel": {
+            "button": {
+                "title": "Deploy to Vercel",
+                "ready": "Ready"
+            },
+            "dropdown": {
+                "deploy": {
+                    "title": "Quick Deploy",
+                    "description": "Deploy with one click",
+                    "badge": "Deploy"
+                },
+                "preview": {
+                    "title": "Preview Demo",
+                    "description": "See live example",
+                    "badge": "Live"
+                },
+                "docs": {
+                    "title": "Documentation",
+                    "description": "Learn deployment",
+                    "badge": "Docs"
+                }
+            }
+        }
     },
     "auth": {
         "signin": "Sign In",
@@ -65,7 +112,9 @@
             "password": "Password field is required.",
             "confirmPassword": "Confirm password field is required."
         },
-        "invalid": { "email": "Invalid email address." },
+        "invalid": {
+            "email": "Invalid email address."
+        },
         "password": {
             "confirm": "Passwords do not match.",
             "minLength": "Password must be at least {min} characters.",
@@ -93,7 +142,10 @@
         "description": "Error! The page you are looking for does not exist.",
         "returnHome": "Return to Homepage"
     },
-    "error": { "title": "An Error Occurred", "retry": "Retry" },
+    "error": {
+        "title": "An Error Occurred",
+        "retry": "Retry"
+    },
     "metadata": {
         "applicationName": "Nitrokit Starter Template",
         "description": "Nitrokit starter template",
@@ -101,16 +153,16 @@
         "title": "Nitrokit Starter Template"
     },
     "navigation": {
-        "title": "Menu",
+        "title": "Navigation",
         "home": "Home",
-        "about": "About Us",
+        "about": "About",
         "services": {
             "title": "Services",
-            "description": "Professional development services to achieve your goals.",
+            "description": "Professional development services to realize your vision.",
             "premium_badge": "Premium Services",
             "web_development": {
                 "title": "Web Development",
-                "description": "Full-stack web applications using modern technologies"
+                "description": "Full-stack web applications with modern technologies"
             },
             "ui_ux_design": {
                 "title": "UI/UX Design",
@@ -118,22 +170,22 @@
             },
             "performance_optimization": {
                 "title": "Performance Optimization",
-                "description": "Blazing-fast applications and websites"
+                "description": "Lightning-fast applications and websites"
             },
             "team_augmentation": {
-                "title": "Team Expansion",
-                "description": "Expand your development team with experts"
+                "title": "Team Augmentation",
+                "description": "Scale your development team with experts"
             },
-            "badges": { "popular": "Popular", "new": "New" }
+            "badges": {
+                "popular": "Popular",
+                "new": "New"
+            }
         },
-        "pricing": "Pricing",
-        "blog": "Blog",
-        "contact": "Contact",
         "components": {
             "title": "Components",
-            "subtitle": "User Interface Components",
+            "subtitle": "UI Components",
             "description": "Reusable components built with Radix UI and Tailwind CSS",
-            "view_all": "Show all components",
+            "view_all": "View all components",
             "count": "50+ Components",
             "button_components": {
                 "title": "Button Components",
@@ -166,6 +218,45 @@
                 "overlay": "Overlay",
                 "feedback": "Feedback"
             }
+        },
+        "blog": "Blog",
+        "pricing": "Pricing",
+        "contact": "Contact"
+    },
+    "home": {
+        "banner": {
+            "badge": "New",
+            "text": "v2.0.1 is out! See what's new"
+        },
+        "hero": {
+            "title": {
+                "primary": "With Nitrokit",
+                "secondary": "Develop Rapidly"
+            },
+            "subtitle": "A starter kit designed for startups to quickly and effectively launch their websites, including all necessary integrations, pages, and components."
+        },
+        "stats": {
+            "components": {
+                "number": "50+",
+                "label": "UI Components"
+            },
+            "typescript": {
+                "number": "TypeScript",
+                "label": "Full Support"
+            },
+            "modern": {
+                "number": "Modern",
+                "label": "Tech Stack"
+            }
+        },
+        "technologies": {
+            "title": "Powered by Modern Technologies"
+        },
+        "cta": {
+            "title": "Ready to get started?",
+            "description": "Check out our project on GitHub and speed up your development process.",
+            "github": "GitHub Repository",
+            "docs": "Documentation"
         }
     },
     "about": {
@@ -218,7 +309,10 @@
             "marketingautomations": "Marketing automations"
         }
     },
-    "blog": { "title": "Blog", "description": "Follow our blog for the latest news and updates." },
+    "blog": {
+        "title": "Blog",
+        "description": "Follow our blog for the latest news and updates."
+    },
     "contact": {
         "title": "Contact",
         "description": "Fill out the form below to contact us.",
@@ -228,9 +322,12 @@
         "send": "Send",
         "messageSent": "Message sent successfully!"
     },
-    "privacy": { "title": "Privacy Policy", "description": "Learn more about our privacy policy." },
+    "privacy": {
+        "title": "Privacy Policy",
+        "description": "Learn more about our privacy policy."
+    },
     "footer": {
         "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ All Rights Reserved.",
-        "poweredBy": "Powered by Ekipisi."
+        "poweredBy": "Powered by <link>Ekipisi</link>"
     }
 }
