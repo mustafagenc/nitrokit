@@ -18,42 +18,49 @@
         "submit": "Invia",
         "contactUs": "Contattaci",
         "github": {
-            "button": { "title": "GitHub", "loading": "...", "ready": "Ready" },
+            "button": {
+                "title": "GitHub",
+                "loading": "...",
+                "ready": "Pronto"
+            },
             "dropdown": {
                 "star": {
-                    "title": "Star Repository",
-                    "description": "Show your support",
-                    "badge": "Star"
+                    "title": "Repository Stella",
+                    "description": "Mostra il tuo supporto",
+                    "badge": "Stella"
                 },
                 "fork": {
-                    "title": "Fork Repository",
-                    "description": "Create your own copy",
+                    "title": "Deposito Fork",
+                    "description": "Crea la tua copia",
                     "badge": "Fork"
                 },
                 "view": {
-                    "title": "View Repository",
-                    "description": "Browse source code",
-                    "badge": "View"
+                    "title": "Visualizza Repository",
+                    "description": "Sfoglia codice sorgente",
+                    "badge": "Visualizza"
                 }
             }
         },
         "vercel": {
-            "button": { "title": "Deploy to Vercel", "ready": "Ready" },
+            "button": {
+                "title": "Distribuisci a Vercel",
+                "ready": "Pronto"
+            },
             "dropdown": {
                 "deploy": {
-                    "title": "Quick Deploy",
-                    "description": "Deploy with one click",
-                    "badge": "Deploy"
+                    "title": "Dispiega Rapida",
+                    "description": "Distribuisci con un clic",
+                    "badge": "Dispiega"
                 },
                 "preview": {
-                    "title": "Preview Demo",
-                    "description": "See live example",
+                    "title": "Anteprima Demo",
+                    "description": "Vedi esempio in diretta",
                     "badge": "Live"
                 },
                 "docs": {
-                    "title": "Documentation",
-                    "description": "Learn deployment",
-                    "badge": "Docs"
+                    "title": "Documentazione",
+                    "description": "Impara la distribuzione",
+                    "badge": "Documenti"
                 }
             }
         }
@@ -105,7 +112,9 @@
             "password": "Il campo password è obbligatorio.",
             "confirmPassword": "Il campo conferma password è obbligatorio."
         },
-        "invalid": { "email": "Indirizzo email non valido." },
+        "invalid": {
+            "email": "Indirizzo email non valido."
+        },
         "password": {
             "confirm": "Le password non corrispondono.",
             "minLength": "La password deve contenere almeno {min} caratteri.",
@@ -133,7 +142,10 @@
         "description": "Errore! La pagina che stai cercando non esiste.",
         "returnHome": "Torna alla Homepage"
     },
-    "error": { "title": "Si è verificato un errore", "retry": "Riprova" },
+    "error": {
+        "title": "Si è verificato un errore",
+        "retry": "Riprova"
+    },
     "metadata": {
         "applicationName": "Modello di avvio Nitrokit",
         "description": "Modello di avvio Nitrokit",
@@ -164,11 +176,11 @@
                 "title": "Team Augmentation",
                 "description": "Scale your development team with experts"
             },
-            "badges": { "popular": "Popular", "new": "New" }
+            "badges": {
+                "popular": "Popular",
+                "new": "New"
+            }
         },
-        "pricing": "Prezzi",
-        "blog": "Blog",
-        "contact": "Contatti",
         "components": {
             "title": "Components",
             "subtitle": "UI Components",
@@ -206,6 +218,45 @@
                 "overlay": "Overlay",
                 "feedback": "Feedback"
             }
+        },
+        "blog": "Blog",
+        "pricing": "Prezzi",
+        "contact": "Contatti"
+    },
+    "home": {
+        "banner": {
+            "badge": "Nuovo",
+            "text": "v2.0.1 è fuori! Guarda cosa c'è di nuovo"
+        },
+        "hero": {
+            "title": {
+                "primary": "Con Nitrokit",
+                "secondary": "Sviluppa Rapidamente"
+            },
+            "subtitle": "Un kit di avviamento progettato per le startup per lanciare rapidamente ed efficacemente i loro siti web, comprese tutte le integrazioni, le pagine e i componenti necessari."
+        },
+        "stats": {
+            "components": {
+                "number": "50+",
+                "label": "Componenti Interfaccia Utente"
+            },
+            "typescript": {
+                "number": "TypeScript",
+                "label": "Supporto Completo"
+            },
+            "modern": {
+                "number": "Moderno",
+                "label": "Stack Tecnico"
+            }
+        },
+        "technologies": {
+            "title": "Powered by Modern Technologies"
+        },
+        "cta": {
+            "title": "Pronto per iniziare?",
+            "description": "Dai un'occhiata al nostro progetto su GitHub e accelera il processo di sviluppo.",
+            "github": "GitHub Repository",
+            "docs": "Documentazione"
         }
     },
     "about": {
@@ -269,7 +320,7 @@
         "email": "Il tuo indirizzo email",
         "message": "Il tuo messaggio",
         "send": "Invia",
-        "messageSent": "Message sent successfully!"
+        "messageSent": "Messaggio inviato con successo!"
     },
     "privacy": {
         "title": "Informativa sulla privacy",
@@ -278,24 +329,5 @@
     "footer": {
         "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ Tutti i diritti riservati.",
         "poweredBy": "Powered by <link>Ekipisi</link>."
-    },
-    "home": {
-        "banner": { "badge": "New", "text": "v2.0.1 is out! See what's new" },
-        "hero": {
-            "title": { "primary": "With Nitrokit", "secondary": "Develop Rapidly" },
-            "subtitle": "A starter kit designed for startups to quickly and effectively launch their websites, including all necessary integrations, pages, and components."
-        },
-        "stats": {
-            "components": { "number": "50+", "label": "UI Components" },
-            "typescript": { "number": "TypeScript", "label": "Full Support" },
-            "modern": { "number": "Modern", "label": "Tech Stack" }
-        },
-        "technologies": { "title": "Powered by Modern Technologies" },
-        "cta": {
-            "title": "Ready to get started?",
-            "description": "Check out our project on GitHub and speed up your development process.",
-            "github": "GitHub Repository",
-            "docs": "Documentation"
-        }
     }
 }
