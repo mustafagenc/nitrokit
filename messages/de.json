@@ -16,7 +16,47 @@
         "no": "Nein",
         "continue": "Fortsetzen",
         "submit": "Senden",
-        "contactUs": "Kontaktiere uns"
+        "contactUs": "Kontaktiere uns",
+        "github": {
+            "button": { "title": "GitHub", "loading": "...", "ready": "Bereit" },
+            "dropdown": {
+                "star": {
+                    "title": "Sternen-Repository",
+                    "description": "Zeigen Sie Ihre Unterstützung",
+                    "badge": "Stern"
+                },
+                "fork": {
+                    "title": "Repository forken",
+                    "description": "Erstelle deine eigene Kopie",
+                    "badge": "Gabel"
+                },
+                "view": {
+                    "title": "View Repository",
+                    "description": "Browse source code",
+                    "badge": "View"
+                }
+            }
+        },
+        "vercel": {
+            "button": { "title": "Deploy to Vercel", "ready": "Ready" },
+            "dropdown": {
+                "deploy": {
+                    "title": "Quick Deploy",
+                    "description": "Deploy with one click",
+                    "badge": "Deploy"
+                },
+                "preview": {
+                    "title": "Preview Demo",
+                    "description": "See live example",
+                    "badge": "Live"
+                },
+                "docs": {
+                    "title": "Documentation",
+                    "description": "Learn deployment",
+                    "badge": "Docs"
+                }
+            }
+        }
     },
     "auth": {
         "signin": "Anmelden",
@@ -238,5 +278,24 @@
     "footer": {
         "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ Alle Rechte vorbehalten.",
         "poweredBy": "Angetrieben von <link>Ekipisi</link>."
+    },
+    "home": {
+        "banner": { "badge": "New", "text": "v2.0.1 is out! See what's new" },
+        "hero": {
+            "title": { "primary": "With Nitrokit", "secondary": "Develop Rapidly" },
+            "subtitle": "A starter kit designed for startups to quickly and effectively launch their websites, including all necessary integrations, pages, and components."
+        },
+        "stats": {
+            "components": { "number": "50+", "label": "UI-Komponenten" },
+            "typescript": { "number": "TypeScript", "label": "Volle Unterstützung" },
+            "modern": { "number": "Modern", "label": "Tech-Stack" }
+        },
+        "technologies": { "title": "Angetrieben von modernen Technologien" },
+        "cta": {
+            "title": "Bereit zum Start?",
+            "description": "Sehen Sie sich unser Projekt auf GitHub an und beschleunigen Sie Ihren Entwicklungsprozess.",
+            "github": "GitHub-Repository",
+            "docs": "Dokumentation"
+        }
     }
 }

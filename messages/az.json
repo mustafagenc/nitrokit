@@ -16,7 +16,43 @@
         "no": "Xeyr",
         "continue": "Davam et",
         "submit": "Göndər",
-        "contactUs": "Bizimlə Əlaqə"
+        "contactUs": "Bizimlə Əlaqə",
+        "github": {
+            "button": { "title": "GitHub", "loading": "...", "ready": "Hazır" },
+            "dropdown": {
+                "star": {
+                    "title": "Ulduz Anbarı",
+                    "description": "Dəstəyinizi göstərin",
+                    "badge": "Ulduz"
+                },
+                "fork": {
+                    "title": "Çəngəl Anbarı",
+                    "description": "Öz nüsxənizi yaradın",
+                    "badge": "Çəngəl"
+                },
+                "view": { "title": "Anbara Bax", "description": "Mənbə kodu gəz", "badge": "Baxış" }
+            }
+        },
+        "vercel": {
+            "button": { "title": "Vercel-ə yerləşdirin", "ready": "Hazır" },
+            "dropdown": {
+                "deploy": {
+                    "title": "Quick Deploy",
+                    "description": "Deploy with one click",
+                    "badge": "Deploy"
+                },
+                "preview": {
+                    "title": "Preview Demo",
+                    "description": "See live example",
+                    "badge": "Live"
+                },
+                "docs": {
+                    "title": "Documentation",
+                    "description": "Learn deployment",
+                    "badge": "Docs"
+                }
+            }
+        }
     },
     "auth": {
         "signin": "Daxil Ol",
@@ -238,5 +274,24 @@
     "footer": {
         "copyright": "© Müəllif Hüquqları {year, date, ::yyyy} {name} ♥️ Bütün Hüquqlar Qorunur.",
         "poweredBy": "<link>Ekibi</link> tərəfindən işlənir."
+    },
+    "home": {
+        "banner": { "badge": "New", "text": "v2.0.1 is out! See what's new" },
+        "hero": {
+            "title": { "primary": "With Nitrokit", "secondary": "Develop Rapidly" },
+            "subtitle": "A starter kit designed for startups to quickly and effectively launch their websites, including all necessary integrations, pages, and components."
+        },
+        "stats": {
+            "components": { "number": "50+", "label": "UI Components" },
+            "typescript": { "number": "TypeScript", "label": "Full Support" },
+            "modern": { "number": "Modern", "label": "Tech Stack" }
+        },
+        "technologies": { "title": "Powered by Modern Technologies" },
+        "cta": {
+            "title": "Başlamağa hazırsınız?",
+            "description": "GitHub-da layihəmizi yoxlayın və inkişaf prosesinizi sürətləndirin.",
+            "github": "GitHub Anbarı",
+            "docs": "Sənədlər"
+        }
     }
 }

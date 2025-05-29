@@ -16,7 +16,47 @@
         "no": "Ne",
         "continue": "Nastavi",
         "submit": "Pošalji",
-        "contactUs": "Kontaktirajte nas"
+        "contactUs": "Kontaktirajte nas",
+        "github": {
+            "button": { "title": "GitHub", "loading": "...", "ready": "Spreman" },
+            "dropdown": {
+                "star": {
+                    "title": "Zvjezdano skladište",
+                    "description": "Pokazite svoju podršku",
+                    "badge": "Zvijezda"
+                },
+                "fork": {
+                    "title": "Forkuj repozitorij",
+                    "description": "Napravite svoju kopiju",
+                    "badge": "Vilica"
+                },
+                "view": {
+                    "title": "Pogledaj repozitorij",
+                    "description": "Pregledaj izvorni kod",
+                    "badge": "Pogled"
+                }
+            }
+        },
+        "vercel": {
+            "button": { "title": "Deploy to Vercel", "ready": "Ready" },
+            "dropdown": {
+                "deploy": {
+                    "title": "Quick Deploy",
+                    "description": "Deploy with one click",
+                    "badge": "Deploy"
+                },
+                "preview": {
+                    "title": "Preview Demo",
+                    "description": "See live example",
+                    "badge": "Live"
+                },
+                "docs": {
+                    "title": "Documentation",
+                    "description": "Learn deployment",
+                    "badge": "Docs"
+                }
+            }
+        }
     },
     "auth": {
         "signin": "Prijava",
@@ -235,5 +275,24 @@
     "footer": {
         "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ Sva prava pridržana.",
         "poweredBy": "Pokreće <link>Ekipisi</link>."
+    },
+    "home": {
+        "banner": { "badge": "New", "text": "v2.0.1 is out! See what's new" },
+        "hero": {
+            "title": { "primary": "With Nitrokit", "secondary": "Develop Rapidly" },
+            "subtitle": "A starter kit designed for startups to quickly and effectively launch their websites, including all necessary integrations, pages, and components."
+        },
+        "stats": {
+            "components": { "number": "50+", "label": "UI Components" },
+            "typescript": { "number": "TypeScript", "label": "Full Support" },
+            "modern": { "number": "Moderno", "label": "Tehnološki stek" }
+        },
+        "technologies": { "title": "Pokreće moderne tehnologije" },
+        "cta": {
+            "title": "Spremni za početak?",
+            "description": "Pogledajte naš projekt na GitHubu i ubrzajte svoj proces razvoja.",
+            "github": "GitHub repozitorij",
+            "docs": "Dokumentacija"
+        }
     }
 }
