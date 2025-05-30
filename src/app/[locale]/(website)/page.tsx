@@ -14,7 +14,6 @@ export default function Home() {
 
     return (
         <div className="relative min-h-screen overflow-hidden bg-white transition-colors duration-300 dark:bg-[#111113]">
-            {/* Light Theme Background Pattern */}
             <div className="absolute inset-0 overflow-hidden dark:hidden">
                 <div
                     className="absolute inset-0 opacity-60"
@@ -44,10 +43,9 @@ export default function Home() {
                     style={{ animationDelay: '3s' }}
                 />
             </div>
-            {/* Dark Theme Background Pattern */}
             <div className="absolute inset-0 hidden overflow-hidden dark:block">
                 <div
-                    className="absolute inset-0 opacity-20"
+                    className="absolute inset-0 opacity-40"
                     style={{
                         backgroundImage: `
                             linear-gradient(rgba(34, 197, 94, 0.1) 1px, transparent 1px),

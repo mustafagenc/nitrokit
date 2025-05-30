@@ -5,7 +5,7 @@ import { SOCIAL_LINKS } from '@/constants/site';
 
 export const SocialIcons = () => {
     return (
-        <div className="mt-10 flex place-items-center gap-4 lg:grid-cols-10">
+        <div className="flex place-items-center gap-4 lg:grid-cols-10">
             {SOCIAL_LINKS.map(link => (
                 <InfoTooltip key={link.name} label={link.name} side="bottom" className="text-xs">
                     <Link

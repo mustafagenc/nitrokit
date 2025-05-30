@@ -54,26 +54,69 @@ export default async function AuthLayout({
                     </div>
                 </div>
             </div>
-            <div className="relative hidden min-h-[calc(100vh-60px)] w-full cursor-default flex-col gap-4 rounded-lg border-1 bg-[url(/images/bg/19449741-70.png)] bg-cover bg-top-left bg-no-repeat p-3 shadow-2xs lg:flex dark:bg-[url(/images/bg/SL-122221-47450-01-70.png)]">
-                <div className="mt-10 ml-10 grow">
-                    <Logo />
-                    <div className="text-md mt-5 ml-15 max-w-[400px] font-[family-name:var(--font-lexend)] leading-7">
-                        <p>
+
+            <div className="relative hidden min-h-[calc(100vh-60px)] w-full cursor-default flex-col gap-4 overflow-hidden rounded-xl border border-gray-200 bg-white lg:flex dark:border-gray-800 dark:bg-gray-950">
+                <div className="absolute inset-0">
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-100/40 via-purple-50/30 to-pink-100/40 dark:hidden"></div>
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(120,119,198,0.3),transparent_50%)] dark:hidden"></div>
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(255,182,193,0.3),transparent_50%)] dark:hidden"></div>
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_40%_80%,rgba(173,216,230,0.3),transparent_50%)] dark:hidden"></div>
+
+                    <div className="absolute inset-0 hidden bg-gradient-to-br from-cyan-500/10 via-purple-500/10 to-pink-500/10 dark:block"></div>
+                    <div className="absolute inset-0 hidden bg-[radial-gradient(circle_at_20%_50%,rgba(6,182,212,0.15),transparent_50%)] dark:block"></div>
+                    <div className="absolute inset-0 hidden bg-[radial-gradient(circle_at_80%_20%,rgba(168,85,247,0.15),transparent_50%)] dark:block"></div>
+                    <div className="absolute inset-0 hidden bg-[radial-gradient(circle_at_40%_80%,rgba(236,72,153,0.15),transparent_50%)] dark:block"></div>
+                </div>
+
+                <div className="absolute inset-0 overflow-hidden">
+                    <div className="animate-float absolute top-1/4 left-1/4 h-4 w-4 rounded-full bg-blue-300/60 dark:hidden"></div>
+                    <div className="animate-float-delay-1 absolute top-3/4 right-1/4 h-3 w-3 rounded-full bg-purple-300/60 dark:hidden"></div>
+                    <div className="animate-float-delay-2 absolute top-1/2 right-1/3 h-2 w-2 rounded-full bg-pink-300/60 dark:hidden"></div>
+                    <div className="animate-float-delay-3 absolute bottom-1/4 left-1/3 h-5 w-5 rounded-full bg-indigo-300/60 dark:hidden"></div>
+
+                    <div className="animate-float absolute top-1/4 left-1/4 hidden h-4 w-4 rounded-full bg-cyan-400/40 shadow-lg shadow-cyan-400/20 dark:block"></div>
+                    <div className="animate-float-delay-1 absolute top-3/4 right-1/4 hidden h-3 w-3 rounded-full bg-purple-400/40 shadow-lg shadow-purple-400/20 dark:block"></div>
+                    <div className="animate-float-delay-2 absolute top-1/2 right-1/3 hidden h-2 w-2 rounded-full bg-pink-400/40 shadow-lg shadow-pink-400/20 dark:block"></div>
+                    <div className="animate-float-delay-3 absolute bottom-1/4 left-1/3 hidden h-5 w-5 rounded-full bg-blue-400/40 shadow-lg shadow-blue-400/20 dark:block"></div>
+                </div>
+
+                <div className="absolute inset-0">
+                    <div className="absolute top-20 right-20 h-16 w-16 rotate-12 animate-pulse rounded-lg border border-blue-200/30 dark:hidden"></div>
+                    <div className="animate-spin-slow absolute bottom-32 left-16 h-12 w-12 rounded-full border border-purple-200/30 dark:hidden"></div>
+                    <div className="absolute top-1/2 left-20 h-8 w-8 rotate-45 animate-pulse border border-pink-200/30 dark:hidden"></div>
+                    <div className="animate-float absolute right-1/3 bottom-20 h-20 w-20 rotate-6 rounded-xl border-2 border-indigo-200/20 dark:hidden"></div>
+                    <div className="absolute top-20 right-20 hidden h-16 w-16 rotate-12 animate-pulse rounded-lg border border-cyan-400/30 shadow-lg shadow-cyan-400/10 dark:block"></div>
+                    <div className="animate-spin-slow absolute bottom-32 left-16 hidden h-12 w-12 rounded-full border border-purple-400/30 shadow-lg shadow-purple-400/10 dark:block"></div>
+                    <div className="absolute top-1/2 left-20 hidden h-8 w-8 rotate-45 animate-pulse border border-pink-400/30 shadow-lg shadow-pink-400/10 dark:block"></div>
+                    <div className="animate-float absolute right-1/3 bottom-20 hidden h-20 w-20 rotate-6 rounded-xl border-2 border-blue-400/20 shadow-lg shadow-blue-400/10 dark:block"></div>
+                </div>
+
+                {/* Dot Grid Pattern 1 */}
+                <div className="absolute inset-0 opacity-20">
+                    <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(59,130,246,0.15)_1px,transparent_1px),linear-gradient(to_bottom,rgba(59,130,246,0.15)_1px,transparent_1px)] bg-[size:12px_12px] dark:bg-[linear-gradient(to_right,rgba(59,130,246,0.25)_1px,transparent_1px),linear-gradient(to_bottom,rgba(59,130,246,0.25)_1px,transparent_1px)]"></div>
+                </div>
+
+                <div className="relative z-10 mt-10 ml-10 grow">
+                    <div className="w-fit p-6">
+                        <Logo />
+                    </div>
+                    <div className="text-md mt-8 ml-4 max-w-[400px] p-6 font-[family-name:var(--font-lexend)] leading-7">
+                        <p className="text-gray-800 dark:text-gray-100">
                             {t.rich('auth.slogan1', {
                                 span: children => (
-                                    <span className="inline-block bg-gradient-to-r from-red-500 from-10% via-orange-500 via-30% to-red-500 to-90% bg-clip-text font-extrabold text-transparent">
+                                    <span className="inline-block bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 bg-clip-text font-extrabold text-transparent">
                                         {children}
                                     </span>
                                 ),
                             })}
                         </p>
-                        <p>
+                        <p className="text-gray-700 dark:text-gray-200">
                             {t.rich('auth.slogan2', {
                                 link: children => (
                                     <a
                                         href="https://github.com/mustafagenc/nitrokit"
                                         target="_blank"
-                                        className="inline-block bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% bg-clip-text font-extrabold text-transparent underline underline-offset-2 hover:text-blue-800">
+                                        className="inline-block bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 bg-clip-text font-extrabold text-transparent underline underline-offset-2 transition-all duration-300 hover:scale-105">
                                         {children}
                                     </a>
                                 ),
@@ -81,7 +124,8 @@ export default async function AuthLayout({
                         </p>
                     </div>
                 </div>
-                <div className="mx-auto mb-25 flex flex-row justify-items-center gap-10">
+
+                <div className="relative z-10 mx-auto mb-8 flex flex-row justify-items-center gap-6 p-6">
                     <ThemedImage
                         darkSrc="/images/brand-logo/nextjs-white.svg"
                         lightSrc="/images/brand-logo/nextjs-black.svg"
@@ -137,7 +181,8 @@ export default async function AuthLayout({
                         className="transition-transform duration-200 ease-in-out hover:scale-105"
                     />
                 </div>
-                <div className="mx-auto mb-50 flex min-w-2xl flex-row items-center justify-center gap-8">
+
+                <div className="relative z-10 mx-auto mb-42 flex min-w-2xl flex-row items-center justify-center gap-8 p-6">
                     <ThemedImage
                         darkSrc="/images/brand-logo/react-white.svg"
                         lightSrc="/images/brand-logo/react-black.svg"
