@@ -1,5 +1,9 @@
 {
-    "app": { "name": "نیترو کیت", "shortName": "نیتروکیت", "description": "قالب بداية نیترو کیت" },
+    "app": {
+        "name": "نیترو کیت",
+        "shortName": "نیتروکیت",
+        "description": "قالب بداية نیترو کیت"
+    },
     "common": {
         "loading": "جار التحميل...",
         "error": "حدث خطأ",
@@ -14,38 +18,49 @@
         "submit": "إرسال",
         "contactUs": "اتصل بنا",
         "github": {
-            "button": { "title": "جيت هاب", "loading": "...", "ready": "جاهز" },
+            "button": {
+                "title": "GitHub",
+                "loading": "...",
+                "ready": "مستعد"
+            },
             "dropdown": {
-                "star": { "title": "مستودع النجوم", "description": "أظهر دعمك", "badge": "نجم" },
+                "star": {
+                    "title": "مستودع النجوم",
+                    "description": "إظهار دعمك",
+                    "badge": "نجوم"
+                },
                 "fork": {
-                    "title": "شوكة المستودع",
-                    "description": "أنشئ نسختك الخاصة",
-                    "badge": "شوكة"
+                    "title": "مستودع Fork",
+                    "description": "إنشاء نسخة خاصة بك",
+                    "badge": "Fork"
                 },
                 "view": {
                     "title": "عرض المستودع",
-                    "description": "تصفح التعليمات البرمجية المصدر",
+                    "description": "تصفح رمز المصدر",
                     "badge": "عرض"
                 }
             }
         },
         "vercel": {
-            "button": { "title": "نشر على فيرسيل", "ready": "جاهز" },
+            "button": {
+                "title": "نشر في Vercel",
+                "ready": "مستعد"
+            },
             "dropdown": {
                 "deploy": {
                     "title": "نشر سريع",
                     "description": "نشر بنقرة واحدة",
-                    "badge": "Deploy"
+                    "badge": "نشر"
                 },
                 "preview": {
-                    "title": "Preview Demo",
-                    "description": "See live example",
-                    "badge": "Live"
+                    "title": "معاينة التجريبي",
+                    "description": "شاهد المثال الحي",
+                    "badge": "مباشر"
                 },
                 "docs": {
-                    "title": "Documentation",
-                    "description": "Learn deployment",
-                    "badge": "Docs"
+                    "title": "الوثائق",
+                    "description": "تعلم النشر",
+                    "badge": "الوثائق"
                 }
             }
         }
@@ -97,7 +112,9 @@
             "password": "حقل كلمة المرور مطلوب.",
             "confirmPassword": "حقل تأكيد كلمة المرور مطلوب."
         },
-        "invalid": { "email": "عنوان بريد إلكتروني غير صالح." },
+        "invalid": {
+            "email": "عنوان بريد إلكتروني غير صالح."
+        },
         "password": {
             "confirm": "كلمات المرور غير متطابقة.",
             "minLength": "يجب أن تتكون كلمة المرور من {min} أحرف على الأقل.",
@@ -125,7 +142,10 @@
         "description": "خطأ! الصفحة التي تبحث عنها غير موجودة.",
         "returnHome": "العودة إلى الصفحة الرئيسية"
     },
-    "error": { "title": "حدث خطأ", "retry": "حاول مرة أخرى" },
+    "error": {
+        "title": "حدث خطأ",
+        "retry": "حاول مرة أخرى"
+    },
     "metadata": {
         "applicationName": "قالب بداية نیترو کیت",
         "description": "قالب بداية نیترو کیت",
@@ -156,11 +176,11 @@
                 "title": "زيادة فريق العمل",
                 "description": "وسّع فريق تطويرك بخبراء"
             },
-            "badges": { "popular": "شعبي", "new": "جديد" }
+            "badges": {
+                "popular": "شعبي",
+                "new": "جديد"
+            }
         },
-        "pricing": "الأسعار",
-        "blog": "المدونة",
-        "contact": "اتصل بنا",
         "components": {
             "title": "مكونات",
             "subtitle": "مكونات واجهة المستخدم",
@@ -198,13 +218,55 @@
                 "overlay": "Overlay",
                 "feedback": "Feedback"
             }
+        },
+        "blog": "المدونة",
+        "pricing": "الأسعار",
+        "contact": "اتصل بنا"
+    },
+    "home": {
+        "banner": {
+            "badge": "جديد",
+            "text": "v2.0.1 غير مفعل! راجع ما هو جديد"
+        },
+        "hero": {
+            "title": {
+                "primary": "مع نيتروكيت",
+                "secondary": "تطوير سريع"
+            },
+            "subtitle": "مجموعة مواد لبدء التشغيل مصممة للبدء في تشغيل مواقعها على الإنترنت بسرعة وفعالية، بما في ذلك جميع التكاملات والصفحات والمكونات الضرورية."
+        },
+        "stats": {
+            "components": {
+                "number": "50+",
+                "label": "مكونات واجهة المستخدم"
+            },
+            "typescript": {
+                "number": "نوع سكريبت",
+                "label": "الدعم الكامل"
+            },
+            "modern": {
+                "number": "حديث",
+                "label": "تكدس التكنولوجيا"
+            }
+        },
+        "technologies": {
+            "title": "مدعوم من التكنولوجيات الحديثة"
+        },
+        "cta": {
+            "title": "هل أنت مستعد للبدء؟",
+            "description": "تحقق من مشروعنا على GitHub وتسريع عملية التطوير الخاصة بك.",
+            "github": "GitHub Repository",
+            "docs": "الوثائق"
         }
     },
     "about": {
         "title": "من نحن",
         "description": "هذا قالب بداية تم إنشاؤه باستخدام Next.js. تم تصميم هذا القالب لتطوير تطبيقات الويب بسرعة وفعالية."
     },
-    "services": { "title": "خدماتنا", "description": "تعرف على المزيد حول الخدمات التي نقدمها." },
+    "services": {
+        "title": "خدماتنا",
+        "description": "تعرف على المزيد حول الخدمات التي نقدمها."
+    },
     "pricing": {
         "title": "الأسعار",
         "subtitle": "أسعار تنمو معك",
@@ -215,13 +277,22 @@
         "pricePerMonth": "شهر",
         "pricePerYear": "سنة",
         "purchasePlan": "شراء الخطة",
-        "freelancer": { "title": "مستقل", "description": "الأساسيات لتقديم أفضل عمل لعملائك." },
-        "startup": { "title": "شركة ناشئة", "description": "خطة تتوسع مع عملك سريع النمو." },
+        "freelancer": {
+            "title": "مستقل",
+            "description": "الأساسيات لتقديم أفضل عمل لعملائك."
+        },
+        "startup": {
+            "title": "شركة ناشئة",
+            "description": "خطة تتوسع مع عملك سريع النمو."
+        },
         "pro": {
             "title": "مهني",
             "description": "الدعم المكرس والبنية التحتية التي تم بناؤها لشركتك المتنامية."
         },
-        "enterprise": { "title": "مؤسسة", "description": "دعم وبنية تحتية مخصصة لشركتك." },
+        "enterprise": {
+            "title": "مؤسسة",
+            "description": "دعم وبنية تحتية مخصصة لشركتك."
+        },
         "features": {
             "5products": "5 منتجات",
             "25products": "10 منتجات",
@@ -258,24 +329,5 @@
     "footer": {
         "copyright": "© حقوق النشر {year, date, ::yyyy} {name} ♥️ جميع الحقوق محفوظة.",
         "poweredBy": "بواسطة فريق <link>Ekipisi</link>"
-    },
-    "home": {
-        "banner": { "badge": "New", "text": "v2.0.1 is out! See what's new" },
-        "hero": {
-            "title": { "primary": "With Nitrokit", "secondary": "Develop Rapidly" },
-            "subtitle": "A starter kit designed for startups to quickly and effectively launch their websites, including all necessary integrations, pages, and components."
-        },
-        "stats": {
-            "components": { "number": "50+", "label": "UI Components" },
-            "typescript": { "number": "TypeScript", "label": "Full Support" },
-            "modern": { "number": "Modern", "label": "Tech Stack" }
-        },
-        "technologies": { "title": "Powered by Modern Technologies" },
-        "cta": {
-            "title": "Ready to get started?",
-            "description": "Check out our project on GitHub and speed up your development process.",
-            "github": "GitHub Repository",
-            "docs": "توثيق"
-        }
     }
 }
