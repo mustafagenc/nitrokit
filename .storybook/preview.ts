@@ -1,8 +1,6 @@
 import '../src/styles/globals.css';
 
 import type { Preview } from '@storybook/react';
-import nitrokitLight from './light';
-import nitrokitDark from './dark';
 
 const preview: Preview = {
     parameters: {
@@ -12,10 +10,11 @@ const preview: Preview = {
                 date: /Date$/i,
             },
         },
+
         docs: {
             toc: true,
-            theme: nitrokitLight,
         },
+
         backgrounds: {
             default: 'light',
             values: [
@@ -29,6 +28,7 @@ const preview: Preview = {
                 },
             ],
         },
+
         options: {
             storySort: {
                 method: 'alphabetical',
@@ -43,27 +43,14 @@ const preview: Preview = {
                 locales: 'en-US',
             },
         },
-        darkMode: {
-            dark: nitrokitDark,
-            light: nitrokitLight,
-            stylePreview: true,
+
+        a11y: {
+            // 'todo' - show a11y violations in the test UI only
+            // 'error' - fail CI on a11y violations
+            // 'off' - skip a11y checks entirely
+            test: 'todo',
         },
     },
-    // globalTypes: {
-    //     theme: {
-    //         description: 'Global theme for components',
-    //         defaultValue: 'dark',
-    //         toolbar: {
-    //             title: 'Theme',
-    //             icon: 'paintbrush',
-    //             items: [
-    //                 { value: 'light', title: 'Light', left: '☀️' },
-    //                 { value: 'dark', title: 'Dark', left: '🌙' },
-    //             ],
-    //             dynamicTitle: true,
-    //         },
-    //     },
-    // },
 };
 
 export default preview;
