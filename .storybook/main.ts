@@ -2,25 +2,28 @@ import type { StorybookConfig } from '@storybook/nextjs';
 
 const config: StorybookConfig = {
     stories: [
-        '../src/stories/**/*.stories.@(js|jsx|ts|tsx|mdx)',
         '../src/components/**/*.stories.@(js|jsx|ts|tsx|mdx)',
+        '../src/stories/**/*.stories.@(js|jsx|ts|tsx|mdx)',
     ],
     addons: [
         '@storybook/addon-onboarding',
-        '@storybook/addon-essentials',
-        '@storybook/addon-interactions',
+        '@storybook/addon-docs',
         '@storybook/addon-a11y',
         '@storybook/addon-themes',
-        'storybook-dark-mode',
+        '@storybook/addon-vitest',
     ],
     framework: {
         name: '@storybook/nextjs',
         options: {},
     },
-    staticDirs: [],
+    docs: {},
+    staticDirs: ['./assets'],
     typescript: {
-        check: false,
         reactDocgen: 'react-docgen-typescript',
+        reactDocgenTypescriptOptions: {
+            shouldExtractLiteralValuesFromEnum: true,
+            propFilter: prop => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
+        },
     },
 };
 
