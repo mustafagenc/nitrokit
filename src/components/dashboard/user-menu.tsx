@@ -17,14 +17,21 @@ import {
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { useHotkeys } from '@/hooks/useHotkeys';
 
-import SmallLoading from '../shared/small-loading';
-import { SignInButton } from './signin-button';
-import { SignOutButton } from './signout-button';
-import { SignUpButton } from './signup-button';
+import SmallLoading from '@/components/shared/small-loading';
+import { SignInButton } from '@/components/auth/signin-button';
+import { SignOutButton } from '@/components/auth/signout-button';
+import { SignUpButton } from '@/components/auth/signup-button';
 
-export default function UserAvatar() {
+import { useRouter } from '@/lib/i18n/navigation';
+
+interface UserMenuProps {
+    size?: string;
+}
+
+export function UserMenu({ size = 'size-11' }: UserMenuProps) {
     const { data: session, status } = useSession();
     const [open, setOpen] = React.useState(false);
+    const router = useRouter();
 
     const t = useTranslations();
 
@@ -60,6 +67,11 @@ export default function UserAvatar() {
         });
     }
 
+    function handleNavigation(route: string) {
+        setOpen(false);
+        router.push(route);
+    }
+
     if (status === 'unauthenticated') {
         return (
             <div className="flex items-center gap-2 lg:ml-4">
@@ -78,14 +90,14 @@ export default function UserAvatar() {
     return (
         <Popover open={open} onOpenChange={setOpen}>
             <PopoverTrigger asChild>
-                <Avatar className="border-stroke ml-4 size-11 cursor-pointer border-1">
+                <Avatar className={`border-stroke ml-4 ${size} cursor-pointer border-1`}>
                     <AvatarImage src={session.user.image ?? undefined} />
                 </Avatar>
             </PopoverTrigger>
             <PopoverContent className="w-60 p-0 shadow-xs" side="bottom" align="end">
                 <div className="flex w-full flex-row items-start justify-start gap-3 p-3">
                     <div>
-                        <Avatar className="border-stroke size-11 cursor-pointer border-1">
+                        <Avatar className={`border-stroke ${size} cursor-pointer border-1`}>
                             <AvatarImage src={session.user.image ?? undefined} />
                         </Avatar>
                     </div>
@@ -103,16 +115,16 @@ export default function UserAvatar() {
                     <Command>
                         <CommandList>
                             <CommandGroup>
-                                <CommandItem onSelect={() => ShowToast(t('auth.account'))}>
+                                <CommandItem onSelect={() => handleNavigation('/dashboard')}>
                                     <CircleUserRound />
                                     <span>{t('auth.account')}</span>
                                     <CommandShortcut>⌘J</CommandShortcut>
                                 </CommandItem>
-                                <CommandItem onSelect={() => ShowToast(t('auth.support'))}>
+                                <CommandItem onSelect={() => handleNavigation('/dashboard')}>
                                     <HeartHandshake />
                                     <span>{t('auth.support')}</span>
                                 </CommandItem>
-                                <CommandItem onSelect={() => ShowToast(t('auth.billing'))}>
+                                <CommandItem onSelect={() => handleNavigation('/dashboard')}>
                                     <ReceiptText />
                                     <span>{t('auth.billing')}</span>
                                 </CommandItem>
@@ -128,3 +140,5 @@ export default function UserAvatar() {
         </Popover>
     );
 }
+
+export default UserMenu;

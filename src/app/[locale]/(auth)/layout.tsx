@@ -1,13 +1,13 @@
 import { getTranslations } from 'next-intl/server';
 import { getLangDir } from 'rtl-detect';
 
-import { LocaleSwitcher } from '@/components/locale/locale-switcher';
 import { ThemeToggle } from '@/components/theme/theme-toggle';
 import BackButton from '@/components/shared/back-button';
 import Logo from '@/components/shared/logo';
 import PoweredBy from '@/components/shared/powered-by';
 import { ThemedImage } from '@/components/shared/themed-image';
 import { Link } from '@/lib/i18n/navigation';
+import { CompactLocaleSwitcher } from '@/components/locale/compact-locale-switcher';
 
 export default async function AuthLayout({
     children,
@@ -25,10 +25,10 @@ export default async function AuthLayout({
     return (
         <div className="flex min-h-screen w-full flex-row items-center justify-between gap-6 p-6">
             <div
-                className={`absolute top-5 z-20 flex w-[calc(100%-66px)] flex-row items-center justify-between gap-3 lg:max-w-2xs ${isRtl ? 'right-9' : 'left-9'}`}>
+                className={`absolute top-5 z-20 flex w-[calc(100%-66px)] flex-row items-center justify-between gap-3 lg:max-w-xs ${isRtl ? 'right-9' : 'left-9'}`}>
                 <BackButton className="border-1 bg-white lg:border-0 dark:bg-transparent" />
                 <div className="flex flex-row gap-4">
-                    <LocaleSwitcher />
+                    <CompactLocaleSwitcher />
                     <ThemeToggle />
                 </div>
             </div>
