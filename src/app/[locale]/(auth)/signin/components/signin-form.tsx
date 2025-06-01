@@ -5,6 +5,8 @@ import { useTranslations } from 'next-intl';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import { z } from 'zod';
+import { useSearchParams } from 'next/navigation';
+import { useState } from 'react';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -23,6 +25,9 @@ import { zodResolver } from '@hookform/resolvers/zod';
 export default function SigninForm() {
     const t = useTranslations();
     const router = useRouter();
+    const searchParams = useSearchParams();
+    const [isLoading, setIsLoading] = useState(false);
+    const callbackUrl = searchParams.get('callbackUrl') || '/dashboard';
 
     const formSchema = z.object({
         email: z
@@ -47,18 +52,25 @@ export default function SigninForm() {
     });
 
     async function onSubmit(values: z.infer<typeof formSchema>) {
-        const result = await signIn('credentials', {
-            ...values,
-            redirect: false,
-        });
+        setIsLoading(true);
+        try {
+            const result = await signIn('credentials', {
+                email: values.email,
+                password: values.password,
+                callbackUrl,
+                redirect: false,
+            });
 
-        if (result?.error) {
-            console.error('Sign-in failed:', result.error);
-            // It's good practice to use translated error messages if available
-            toast.error(result.error);
-        } else if (result?.ok) {
-            router.push('/');
-            router.refresh();
+            if (result?.error) {
+                toast.error(t('auth.error.invalidCredentials'));
+            } else if (result?.ok) {
+                toast.success(t('auth.success.signedIn'));
+                router.push(callbackUrl);
+            }
+        } catch {
+            toast.error(t('auth.error.somethingWentWrong'));
+        } finally {
+            setIsLoading(false);
         }
     }
     return (
@@ -105,7 +117,7 @@ export default function SigninForm() {
                 <Button
                     type="submit"
                     className="flex w-full cursor-pointer items-center justify-center gap-2 bg-blue-600 hover:bg-blue-600/80">
-                    {t('auth.signin')}
+                    {isLoading ? t('auth.signingIn') : t('auth.signin')}
                 </Button>
             </form>
         </Form>

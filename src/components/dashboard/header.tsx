@@ -2,7 +2,8 @@
 
 import { ReactNode } from 'react';
 import Link from 'next/link';
-import { MobileSidebarTrigger } from './sidebar';
+import { SessionProvider } from 'next-auth/react';
+import { MobileSidebarTrigger } from '@/components/dashboard/sidebar';
 import { UserMenu } from '@/components/dashboard/user-menu';
 import { CompactLocaleSwitcher } from '@/components/locale/compact-locale-switcher';
 import { Notifications } from '@/components/dashboard/notifications';
@@ -33,7 +34,9 @@ export function DashboardHeader({ children }: DashboardHeaderProps) {
                 <CompactLocaleSwitcher />
                 <ThemeToggle />
                 <Notifications />
-                <UserMenu />
+                <SessionProvider>
+                    <UserMenu size={'size-9'} />
+                </SessionProvider>
             </div>
         </header>
     );

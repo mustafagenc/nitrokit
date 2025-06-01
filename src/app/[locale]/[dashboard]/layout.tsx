@@ -4,6 +4,8 @@ import { DashboardHeader } from '@/components/dashboard/header';
 import { DashboardBreadcrumb } from '@/components/dashboard/breadcrumb';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Skeleton } from '@/components/ui/skeleton';
+import { requireAuth } from '@/lib/auth/server';
+import { redirect } from 'next/navigation';
 
 export default async function DashboardLayout({
     children,
@@ -12,8 +14,17 @@ export default async function DashboardLayout({
     children: React.ReactNode;
     params: Promise<{ locale: string }>;
 }>) {
+    const session = await requireAuth();
+
+    if (!session) {
+        redirect('/signin?callbackUrl=/dashboard');
+    }
+
     const { locale } = await params;
+
     console.log('Dashboard Layout Locale:', locale);
+    console.log('Dashboard Layout - Authenticated User:', session.user?.email);
+
     return (
         <div className="h-screen bg-gray-100 dark:bg-neutral-900">
             <DashboardHeader>

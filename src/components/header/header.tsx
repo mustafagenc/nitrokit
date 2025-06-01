@@ -2,12 +2,12 @@
 
 import { SessionProvider } from 'next-auth/react';
 
-import UserAvatar from '@/components/auth/user-avatar';
 import { Navbar } from '@/components/header/navbar';
 import { NavbarMobile } from '@/components/header/navbar-mobile';
 import Logo from '@/components/shared/logo';
 import useStickyNavbar from '@/hooks/useStickyNavbar';
 import { CompactLocaleSwitcher } from '@/components/locale/compact-locale-switcher';
+import UserMenu from '@/components/dashboard/user-menu';
 
 export const Header = () => {
     const sticky = useStickyNavbar();
@@ -29,7 +29,7 @@ export const Header = () => {
                 <div className="flex grow flex-row items-center justify-end gap-2 lg:grow-0">
                     <CompactLocaleSwitcher />
                     <SessionProvider>
-                        <UserAvatar />
+                        <UserMenu />
                     </SessionProvider>
                 </div>
             </div>

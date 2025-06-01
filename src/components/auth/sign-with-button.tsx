@@ -80,7 +80,7 @@ function SignWithButton({
         <form
             action={async () => {
                 'use server';
-                await signIn(provider, { redirectTo: '/' });
+                await signIn(provider, { redirectTo: '/dashboard' });
             }}>
             <Button
                 type="submit"

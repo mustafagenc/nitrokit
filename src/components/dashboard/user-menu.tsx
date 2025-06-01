@@ -1,73 +1,144 @@
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Button } from '@/components/ui/button';
+'use client';
+
+import { CircleUserRound, HeartHandshake, ReceiptText } from 'lucide-react';
+import { useSession } from 'next-auth/react';
+import { useTranslations } from 'next-intl';
+import React from 'react';
+import { toast } from 'sonner';
+
+import { Avatar, AvatarImage } from '@/components/ui/avatar';
+import {
+    Command,
+    CommandGroup,
+    CommandItem,
+    CommandList,
+    CommandShortcut,
+} from '@/components/ui/command';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { Separator } from '@/components/ui/separator';
-import { User, Settings, CreditCard, LogOut, HelpCircle } from 'lucide-react';
+import { useHotkeys } from '@/hooks/useHotkeys';
 
-const user = {
-    name: 'Mustafa Genç',
-    email: 'mustafa@nitrokit.dev',
-    avatar: 'https://github.com/mustafagenc.png',
-    initials: 'MG',
-};
+import SmallLoading from '@/components/shared/small-loading';
+import { SignInButton } from '@/components/auth/signin-button';
+import { SignOutButton } from '@/components/auth/signout-button';
+import { SignUpButton } from '@/components/auth/signup-button';
 
-const menuItems = [
-    { icon: User, label: 'Profile', href: '/profile' },
-    { icon: CreditCard, label: 'Billing', href: '/billing' },
-    { icon: Settings, label: 'Settings', href: '/settings' },
-    { icon: HelpCircle, label: 'Support', href: '/support' },
-];
+import { useRouter } from '@/lib/i18n/navigation';
 
-export function UserMenu() {
+interface UserMenuProps {
+    size?: string;
+}
+
+export function UserMenu({ size = 'size-11' }: UserMenuProps) {
+    const { data: session, status } = useSession();
+    const [open, setOpen] = React.useState(false);
+    const router = useRouter();
+
+    const t = useTranslations();
+
+    const shortcuts = React.useMemo(
+        () => [
+            {
+                key: 'e',
+                metaKey: true,
+                action: () => {
+                    setOpen(prevOpen => !prevOpen);
+                },
+            },
+            {
+                key: 'j',
+                metaKey: true,
+                action: () => {
+                    ShowToast(t('auth.account') + ' via shortcut');
+                },
+            },
+        ],
+        [t]
+    );
+
+    useHotkeys(shortcuts, [t]);
+
+    function ShowToast(key: string) {
+        toast(`Clicked ${key}`, {
+            description: new Date().toLocaleString(),
+            action: {
+                label: 'Undo',
+                onClick: () => toast.dismiss(),
+            },
+        });
+    }
+
+    function handleNavigation(route: string) {
+        setOpen(false);
+        router.push(route);
+    }
+
+    if (status === 'unauthenticated') {
+        return (
+            <div className="flex items-center gap-2 lg:ml-4">
+                <SignInButton />
+                <SignUpButton />
+            </div>
+        );
+    }
+
+    if (status === 'loading') {
+        return <SmallLoading />;
+    }
+
+    if (!session?.user) return null;
+
     return (
-        <Popover>
+        <Popover open={open} onOpenChange={setOpen}>
             <PopoverTrigger asChild>
-                <Button
-                    variant="ghost"
-                    className="relative h-8 w-8 rounded-full hover:bg-white hover:shadow-sm dark:hover:bg-zinc-800">
-                    <Avatar className="h-7 w-7">
-                        <AvatarImage src={user.avatar} alt={user.name} />
-                        <AvatarFallback className="bg-gradient-to-br from-blue-500 to-purple-600 text-xs text-white">
-                            {user.initials}
-                        </AvatarFallback>
-                    </Avatar>
-                </Button>
+                <Avatar className={`border-stroke ml-4 ${size} cursor-pointer border-1`}>
+                    <AvatarImage src={session.user.image ?? undefined} />
+                </Avatar>
             </PopoverTrigger>
-            <PopoverContent className="w-56 p-0" align="end" sideOffset={8}>
-                <div className="px-4 py-3">
-                    <div className="flex flex-col space-y-1">
-                        <p className="text-sm leading-none font-medium">{user.name}</p>
-                        <p className="text-muted-foreground text-xs leading-none">{user.email}</p>
+            <PopoverContent className="w-60 p-0 shadow-xs" side="bottom" align="end">
+                <div className="flex w-full flex-row items-start justify-start gap-3 p-3">
+                    <div>
+                        <Avatar className={`border-stroke ${size} cursor-pointer border-1`}>
+                            <AvatarImage src={session.user.image ?? undefined} />
+                        </Avatar>
+                    </div>
+                    <div>
+                        <h4 className="mt-2 text-xs font-semibold text-ellipsis text-gray-800 dark:text-white">
+                            {session.user.name}
+                        </h4>
+                        <p className="text-xs font-normal text-ellipsis text-gray-600 dark:text-gray-400">
+                            {session.user.email}
+                        </p>
                     </div>
                 </div>
-                <Separator />
-                <div className="p-2">
-                    {menuItems.map(item => {
-                        const Icon = item.icon;
-                        return (
-                            <Button
-                                key={item.label}
-                                variant="ghost"
-                                className="h-auto w-full justify-start rounded-lg px-3 py-2"
-                                asChild>
-                                <a href={item.href}>
-                                    <Icon className="mr-2 h-4 w-4" />
-                                    <span className="text-sm">{item.label}</span>
-                                </a>
-                            </Button>
-                        );
-                    })}
+                <hr className="h-px w-full border-0 bg-gray-200 dark:bg-gray-700" />
+                <div>
+                    <Command>
+                        <CommandList>
+                            <CommandGroup>
+                                <CommandItem onSelect={() => handleNavigation('/dashboard')}>
+                                    <CircleUserRound />
+                                    <span>{t('auth.account')}</span>
+                                    <CommandShortcut>⌘J</CommandShortcut>
+                                </CommandItem>
+                                <CommandItem onSelect={() => handleNavigation('/dashboard')}>
+                                    <HeartHandshake />
+                                    <span>{t('auth.support')}</span>
+                                </CommandItem>
+                                <CommandItem onSelect={() => handleNavigation('/dashboard')}>
+                                    <ReceiptText />
+                                    <span>{t('auth.billing')}</span>
+                                </CommandItem>
+                            </CommandGroup>
+                        </CommandList>
+                    </Command>
                 </div>
-                <Separator />
-                <div className="p-2">
-                    <Button
-                        variant="ghost"
-                        className="h-auto w-full justify-start rounded-lg px-3 py-2 text-red-600 hover:bg-red-50 hover:text-red-700 dark:text-red-400 dark:hover:bg-red-900/20 dark:hover:text-red-300">
-                        <LogOut className="mr-2 h-4 w-4" />
-                        <span className="text-sm">Log out</span>
-                    </Button>
+                <hr className="h-px w-full border-0 bg-gray-200 dark:bg-gray-700" />
+                <div className="p-3">
+                    <SignOutButton />
                 </div>
             </PopoverContent>
         </Popover>
     );
 }
+
+export default UserMenu;
