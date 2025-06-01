@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Bell, User, MessageSquare, Calendar, CheckCircle2, X } from 'lucide-react';
+import { Link } from '@/lib/i18n/navigation';
 import { cn } from '@/utils/helpers';
 
 const notifications = [
@@ -185,8 +186,11 @@ export function Notifications() {
                             <Button
                                 variant="ghost"
                                 size="sm"
-                                className="h-8 w-full justify-center text-xs">
-                                View all notifications
+                                className="h-8 w-full justify-center text-xs"
+                                asChild>
+                                <Link href={'/dashboard/notifications'}>
+                                    View all notifications
+                                </Link>
                             </Button>
                         </div>
                     )}

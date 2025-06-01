@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { Link } from '@/lib/i18n/navigation';
 
 import { InfoTooltip } from '@/components/shared/info-tooltip';
 import { SOCIAL_LINKS } from '@/constants/site';
