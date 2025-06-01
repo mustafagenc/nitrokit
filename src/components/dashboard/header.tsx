@@ -1,7 +1,7 @@
 'use client';
 
 import { ReactNode } from 'react';
-import Link from 'next/link';
+import { Link } from '@/lib/i18n/navigation';
 import { SessionProvider } from 'next-auth/react';
 import { MobileSidebarTrigger } from '@/components/dashboard/sidebar';
 import { UserMenu } from '@/components/dashboard/user-menu';
