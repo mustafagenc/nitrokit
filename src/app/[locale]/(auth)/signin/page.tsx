@@ -17,6 +17,7 @@ export default async function Page() {
             <div className="mt-3 grid w-full grid-cols-1 gap-3 lg:grid-cols-2">
                 <SignWithButton provider="google" />
                 <SignWithButton provider="github" />
+                <SignWithButton provider="facebook" />
             </div>
             <hr className="my-3 h-px w-64 border-0 bg-gray-200 dark:bg-gray-700" />
             <SigninForm />
