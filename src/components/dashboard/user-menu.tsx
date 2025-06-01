@@ -115,16 +115,19 @@ export function UserMenu({ size = 'size-11' }: UserMenuProps) {
                     <Command>
                         <CommandList>
                             <CommandGroup>
-                                <CommandItem onSelect={() => handleNavigation('/dashboard')}>
+                                <CommandItem
+                                    onSelect={() => handleNavigation('/dashboard/account')}>
                                     <CircleUserRound />
                                     <span>{t('auth.account')}</span>
                                     <CommandShortcut>⌘J</CommandShortcut>
                                 </CommandItem>
-                                <CommandItem onSelect={() => handleNavigation('/dashboard')}>
+                                <CommandItem
+                                    onSelect={() => handleNavigation('/dashboard/support')}>
                                     <HeartHandshake />
                                     <span>{t('auth.support')}</span>
                                 </CommandItem>
-                                <CommandItem onSelect={() => handleNavigation('/dashboard')}>
+                                <CommandItem
+                                    onSelect={() => handleNavigation('/dashboard/invoices')}>
                                     <ReceiptText />
                                     <span>{t('auth.billing')}</span>
                                 </CommandItem>

@@ -7,26 +7,12 @@ import { cn } from '@/utils/helpers';
 import { Button } from '@/components/ui/button';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import {
-    Home,
-    Users,
-    Settings,
-    BarChart3,
-    FileText,
-    Calendar,
-    MessageSquare,
-    PlusCircle,
-    Menu,
-} from 'lucide-react';
+import { Home, Settings, Menu, HeartHandshake, ReceiptText } from 'lucide-react';
 
 const navigationItems = [
     { name: 'Dashboard', href: '/dashboard', icon: Home },
-    { name: 'Analytics', href: '/dashboard/analytics', icon: BarChart3 },
-    { name: 'Users', href: '/dashboard/users', icon: Users },
-    { name: 'Projects', href: '/dashboard/projects', icon: FileText },
-    { name: 'Calendar', href: '/dashboard/calendar', icon: Calendar },
-    { name: 'Messages', href: '/dashboard/messages', icon: MessageSquare },
-    { name: 'Create', href: '/dashboard/create', icon: PlusCircle },
+    { name: 'Invoices', href: '/dashboard/invoices', icon: ReceiptText },
+    { name: 'Support', href: '/dashboard/support', icon: HeartHandshake },
     { name: 'Settings', href: '/dashboard/settings', icon: Settings },
 ];
 
@@ -66,15 +52,12 @@ function DesktopSidebar() {
         </TooltipProvider>
     );
 }
-
 export function MobileSidebarTrigger() {
     const [isOpen, setIsOpen] = useState(false);
     const pathname = usePathname();
-
     useEffect(() => {
         setIsOpen(false);
     }, [pathname]);
-
     return (
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
@@ -97,12 +80,10 @@ export function MobileSidebarTrigger() {
                             </span>
                         </Link>
                     </div>
-
                     <nav className="flex-1 space-y-2 px-4 pt-4">
                         {navigationItems.map(item => {
                             const isActive = pathname === item.href;
                             const Icon = item.icon;
-
                             return (
                                 <Link
                                     key={item.name}
@@ -124,7 +105,6 @@ export function MobileSidebarTrigger() {
         </Sheet>
     );
 }
-
 export function DashboardSidebar() {
     return <DesktopSidebar />;
 }

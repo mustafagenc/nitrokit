@@ -22,10 +22,10 @@ export function DashboardBreadcrumb() {
     });
 
     return (
-        <nav className="hidden items-start space-x-2 text-sm lg:flex">
+        <nav className="hidden items-center justify-start space-x-1 text-xs lg:flex">
             {breadcrumbs.map(breadcrumb => (
-                <div key={breadcrumb.href} className="flex items-center space-x-2">
-                    <ChevronRight className="h-4 w-4 text-gray-400" />
+                <div key={breadcrumb.href} className="flex items-center space-x-1">
+                    <ChevronRight className="h-3 w-3 text-gray-400" />
                     {breadcrumb.isLast ? (
                         <span className="font-medium text-gray-900 dark:text-gray-100">
                             {breadcrumb.name}
