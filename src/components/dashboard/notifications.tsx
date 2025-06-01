@@ -73,7 +73,8 @@ export function Notifications() {
                 <Button
                     variant="ghost"
                     size="sm"
-                    className="relative h-8 w-8 rounded-full hover:bg-white hover:shadow-sm dark:hover:bg-zinc-800">
+                    className="relative h-8 w-8 rounded-full hover:bg-white hover:shadow-sm dark:hover:bg-zinc-800"
+                    aria-label="Notifications">
                     <Bell className="h-4 w-4" />
                     {unreadCount > 0 && (
                         <Badge
