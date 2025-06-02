@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# dependency_updater.sh - Automated dependency management with security checks
+# dependency_updater.sh - Node.js/Next.js/Angular dependency management with security checks
 
 # Default configuration
 DEFAULT_PACKAGE_MANAGER="auto"
@@ -30,17 +30,17 @@ NC='\033[0m' # No Color
 # Help function
 show_help() {
     cat << EOF
-🔄 Dependency Updater - Automated package updates with security checks
+🔄 Node.js Dependency Updater - Automated package updates for Node.js projects
 
 USAGE:
     ./dependency_updater.sh [OPTIONS]
 
 DESCRIPTION:
-    Automatically updates project dependencies across multiple package managers
-    with security vulnerability scanning and backup functionality.
+    Automatically updates Node.js project dependencies (npm/yarn/pnpm) with security 
+    vulnerability scanning and backup functionality. Optimized for Next.js and Angular projects.
 
 OPTIONS:
-    --package-manager TYPE   Package manager to use (auto|npm|yarn|pnpm|cargo|go|pip|composer) (default: $DEFAULT_PACKAGE_MANAGER)
+    --package-manager TYPE   Package manager to use (auto|npm|yarn|pnpm) (default: $DEFAULT_PACKAGE_MANAGER)
     --update-mode MODE       Update strategy (safe|major|patch|minor|all) (default: $DEFAULT_UPDATE_MODE)
     --backup-dir DIR         Backup directory for rollback (default: $DEFAULT_BACKUP_DIR)
     --project-root DIR       Project root directory (auto|.|..|path) (default: $DEFAULT_PROJECT_ROOT)
@@ -60,33 +60,36 @@ UPDATE MODES:
     all      - Update everything to latest versions
 
 PROJECT ROOT DETECTION:
-    auto     - Automatically search for package files in current and parent directories
+    auto     - Automatically search for package.json in current and parent directories
     .        - Use current directory
     ..       - Use parent directory
     path     - Use specific path
 
 SUPPORTED PACKAGE MANAGERS:
-    🟢 npm      - Node.js (package.json)
-    🟢 yarn     - Node.js (package.json with yarn.lock)
-    🟢 pnpm     - Node.js (package.json with pnpm-lock.yaml)
-    🟢 cargo    - Rust (Cargo.toml)
-    🟢 go       - Go (go.mod)
-    🟢 pip      - Python (requirements.txt, setup.py, pyproject.toml)
-    🟢 composer - PHP (composer.json)
+    🟢 npm      - Node.js default package manager
+    🟢 yarn     - Facebook's package manager (yarn.lock detection)
+    🟢 pnpm     - Fast, disk space efficient package manager (pnpm-lock.yaml detection)
+
+PROJECT TYPES:
+    📦 Next.js   - Automatic Next.js optimizations and build cache handling
+    🅰️ Angular   - Angular CLI compatibility and dependency checks
+    ⚛️ React     - React-specific dependency management
+    📝 Node.js   - General Node.js project support
 
 EXAMPLES:
-    ./dependency_updater.sh                                    # Auto-detect project root and safe update
+    ./dependency_updater.sh                                    # Auto-detect and safe update
     ./dependency_updater.sh --project-root ..                 # Use parent directory
-    ./dependency_updater.sh --package-manager npm --dry-run   # Preview npm updates
+    ./dependency_updater.sh --package-manager yarn --dry-run  # Preview yarn updates
     ./dependency_updater.sh --update-mode major --no-security # Major updates without security scan
     ./dependency_updater.sh --restore 20250525_003649         # Restore from backup
 
 SECURITY FEATURES:
-    🔍 Vulnerability scanning using npm audit, cargo audit, etc.
+    🔍 npm audit / yarn audit / pnpm audit vulnerability scanning
     🛡️ Automatic backup before updates
     🔄 Easy rollback functionality
     📊 Detailed security reports
-    ⚠️  Breaking change warnings
+    ⚠️  Breaking change warnings for major version updates
+    🚀 Next.js specific optimizations
 
 EOF
 }
@@ -167,11 +170,6 @@ log_step() {
     echo -e "${PURPLE}🔄 $1${NC}"
 }
 
-# Silent log functions (no colors, for file output)
-log_plain() {
-    echo "$1"
-}
-
 # Function to find project root
 find_project_root() {
     local search_dir="${1:-$(pwd)}"
@@ -190,17 +188,10 @@ find_project_root() {
         fi
     fi
     
-    # Search in current and parent directories
+    # Search in current and parent directories for package.json
     local check_dir="$(realpath "$search_dir")"
     while [[ $current_depth -le $max_depth ]]; do
-        # Check for various package files
-        if [[ -f "$check_dir/package.json" ]] || \
-           [[ -f "$check_dir/Cargo.toml" ]] || \
-           [[ -f "$check_dir/go.mod" ]] || \
-           [[ -f "$check_dir/requirements.txt" ]] || \
-           [[ -f "$check_dir/setup.py" ]] || \
-           [[ -f "$check_dir/pyproject.toml" ]] || \
-           [[ -f "$check_dir/composer.json" ]]; then
+        if [[ -f "$check_dir/package.json" ]]; then
             echo "$check_dir"
             return 0
         fi
@@ -215,7 +206,7 @@ find_project_root() {
         fi
     done
     
-    log_error "No project files found in current or parent directories"
+    log_error "No package.json found in current or parent directories"
     return 1
 }
 
@@ -232,17 +223,30 @@ detect_package_manager() {
         else
             detected="npm"
         fi
-    elif [[ -f "$project_dir/Cargo.toml" ]]; then
-        detected="cargo"
-    elif [[ -f "$project_dir/go.mod" ]]; then
-        detected="go"
-    elif [[ -f "$project_dir/requirements.txt" || -f "$project_dir/setup.py" || -f "$project_dir/pyproject.toml" ]]; then
-        detected="pip"
-    elif [[ -f "$project_dir/composer.json" ]]; then
-        detected="composer"
     fi
     
     echo "$detected"
+}
+
+# Function to detect project type
+detect_project_type() {
+    local project_dir="$1"
+    local project_type="node"
+    
+    if [[ -f "$project_dir/package.json" ]]; then
+        # Check for Next.js
+        if grep -q "next" "$project_dir/package.json" || [[ -f "$project_dir/next.config.js" ]] || [[ -f "$project_dir/next.config.mjs" ]]; then
+            project_type="nextjs"
+        # Check for Angular
+        elif grep -q "@angular/core" "$project_dir/package.json" || [[ -f "$project_dir/angular.json" ]]; then
+            project_type="angular"
+        # Check for React
+        elif grep -q "react" "$project_dir/package.json"; then
+            project_type="react"
+        fi
+    fi
+    
+    echo "$project_type"
 }
 
 # Function to check if tool is installed
@@ -282,37 +286,10 @@ install_package_manager() {
                 npm install -g pnpm
             fi
             ;;
-        cargo)
-            if ! check_tool "cargo"; then
-                log_error "Rust toolchain is required"
-                log_info "Install with: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
-                return 1
-            fi
-            ;;
-        go)
-            if ! check_tool "go"; then
-                log_error "Go is required"
-                if [[ "$OSTYPE" == "darwin"* ]]; then
-                    log_info "Install with: brew install go"
-                else
-                    log_info "Install Go from: https://golang.org/dl/"
-                fi
-                return 1
-            fi
-            ;;
-        pip)
-            if ! check_tool "pip"; then
-                log_error "Python pip is required"
-                log_info "Install Python from: https://python.org/"
-                return 1
-            fi
-            ;;
-        composer)
-            if ! check_tool "composer"; then
-                log_step "Installing Composer..."
-                curl -sS https://getcomposer.org/installer | php
-                sudo mv composer.phar /usr/local/bin/composer
-            fi
+        *)
+            log_error "Unsupported package manager: $pm"
+            log_info "Supported: npm, yarn, pnpm"
+            return 1
             ;;
     esac
     return 0
@@ -332,37 +309,25 @@ create_backup() {
     log_step "Creating backup: $backup_path"
     mkdir -p "$backup_path"
     
-    case "$pm" in
-        npm|yarn|pnpm)
-            cp "$project_dir/package.json" "$backup_path/" 2>/dev/null || true
-            cp "$project_dir/package-lock.json" "$backup_path/" 2>/dev/null || true
-            cp "$project_dir/yarn.lock" "$backup_path/" 2>/dev/null || true
-            cp "$project_dir/pnpm-lock.yaml" "$backup_path/" 2>/dev/null || true
-            ;;
-        cargo)
-            cp "$project_dir/Cargo.toml" "$backup_path/" 2>/dev/null || true
-            cp "$project_dir/Cargo.lock" "$backup_path/" 2>/dev/null || true
-            ;;
-        go)
-            cp "$project_dir/go.mod" "$backup_path/" 2>/dev/null || true
-            cp "$project_dir/go.sum" "$backup_path/" 2>/dev/null || true
-            ;;
-        pip)
-            cp "$project_dir/requirements.txt" "$backup_path/" 2>/dev/null || true
-            cp "$project_dir/setup.py" "$backup_path/" 2>/dev/null || true
-            cp "$project_dir/pyproject.toml" "$backup_path/" 2>/dev/null || true
-            ;;
-        composer)
-            cp "$project_dir/composer.json" "$backup_path/" 2>/dev/null || true
-            cp "$project_dir/composer.lock" "$backup_path/" 2>/dev/null || true
-            ;;
-    esac
+    # Backup package files
+    cp "$project_dir/package.json" "$backup_path/" 2>/dev/null || true
+    cp "$project_dir/package-lock.json" "$backup_path/" 2>/dev/null || true
+    cp "$project_dir/yarn.lock" "$backup_path/" 2>/dev/null || true
+    cp "$project_dir/pnpm-lock.yaml" "$backup_path/" 2>/dev/null || true
     
-    # Create backup info file without color codes
+    # Backup Next.js config if exists
+    cp "$project_dir/next.config.js" "$backup_path/" 2>/dev/null || true
+    cp "$project_dir/next.config.mjs" "$backup_path/" 2>/dev/null || true
+    
+    # Backup Angular config if exists
+    cp "$project_dir/angular.json" "$backup_path/" 2>/dev/null || true
+    cp "$project_dir/tsconfig.json" "$backup_path/" 2>/dev/null || true
+    
+    # Create backup info file
     {
         echo "$timestamp"
         echo "$pm"
-        echo "$(date)"
+        date
         echo "$project_dir"
     } > "$backup_path/.backup_info"
     
@@ -497,24 +462,81 @@ run_security_audit() {
                 pnpm audit --audit-level moderate
             fi
             ;;
-        cargo)
-            if ! check_tool "cargo-audit"; then
-                log_step "Installing cargo-audit..."
-                cargo install cargo-audit
-            fi
-            cargo audit
+    esac
+    
+    # Return to original directory
+    cd "$original_dir"
+}
+
+# Function to handle Next.js specific optimizations
+handle_nextjs_optimizations() {
+    local project_dir="$1"
+    local pm="$2"
+    
+    log_step "Applying Next.js optimizations..."
+    
+    # Change to project directory
+    local original_dir=$(pwd)
+    cd "$project_dir"
+    
+    # Clear Next.js cache
+    if [[ -d ".next" ]]; then
+        log_info "Clearing Next.js build cache..."
+        rm -rf ".next"
+    fi
+    
+    # Update Next.js specific dependencies
+    case "$pm" in
+        npm)
+            npm update next @next/font @next/bundle-analyzer
             ;;
-        pip)
-            if ! check_tool "safety"; then
-                log_step "Installing safety..."
-                pip install safety
-            fi
-            safety check
+        yarn)
+            yarn upgrade next @next/font @next/bundle-analyzer
             ;;
-        *)
-            log_warning "Security audit not available for $pm"
+        pnpm)
+            pnpm update next @next/font @next/bundle-analyzer
             ;;
     esac
+    
+    log_success "Next.js optimizations applied"
+    
+    # Return to original directory
+    cd "$original_dir"
+}
+
+# Function to handle Angular specific optimizations
+handle_angular_optimizations() {
+    local project_dir="$1"
+    local pm="$2"
+    
+    log_step "Applying Angular optimizations..."
+    
+    # Change to project directory
+    local original_dir=$(pwd)
+    cd "$project_dir"
+    
+    # Update Angular dependencies together
+    case "$pm" in
+        npm)
+            if check_tool "ng"; then
+                ng update @angular/core @angular/cli --force
+            else
+                npm update @angular/core @angular/cli @angular/common
+            fi
+            ;;
+        yarn)
+            if check_tool "ng"; then
+                ng update @angular/core @angular/cli --force --package-manager yarn
+            else
+                yarn upgrade @angular/core @angular/cli @angular/common
+            fi
+            ;;
+        pnpm)
+            pnpm update @angular/core @angular/cli @angular/common
+            ;;
+    esac
+    
+    log_success "Angular optimizations applied"
     
     # Return to original directory
     cd "$original_dir"
@@ -525,15 +547,16 @@ update_dependencies() {
     local pm="$1"
     local mode="$2"
     local project_dir="$3"
+    local project_type="$4"
     
-    log_step "Updating dependencies with $pm in $mode mode (project: $project_dir)..."
+    log_step "Updating $project_type dependencies with $pm in $mode mode..."
     
     # Change to project directory for updates
     local original_dir=$(pwd)
     cd "$project_dir"
     
     if [[ "$DRY_RUN" == "true" ]]; then
-        log_info "DRY RUN: Would update dependencies with the following command:"
+        log_info "DRY RUN: Would update dependencies with the following commands:"
     fi
     
     case "$pm" in
@@ -607,56 +630,19 @@ update_dependencies() {
                     ;;
             esac
             ;;
-        cargo)
-            if [[ "$DRY_RUN" == "true" ]]; then
-                echo "cargo update"
-            else
-                cargo update
-            fi
-            ;;
-        go)
-            case "$mode" in
-                safe|patch|minor)
-                    if [[ "$DRY_RUN" == "true" ]]; then
-                        echo "go get -u=patch ./..."
-                    else
-                        go get -u=patch ./...
-                    fi
-                    ;;
-                major|all)
-                    if [[ "$DRY_RUN" == "true" ]]; then
-                        echo "go get -u ./..."
-                    else
-                        go get -u ./...
-                    fi
-                    ;;
-            esac
-            ;;
-        pip)
-            if ! check_tool "pip-tools"; then
-                log_step "Installing pip-tools..."
-                pip install pip-tools
-            fi
-            
-            if [[ "$DRY_RUN" == "true" ]]; then
-                echo "pip-compile --upgrade requirements.in && pip-sync"
-            else
-                if [[ -f "requirements.in" ]]; then
-                    pip-compile --upgrade requirements.in
-                    pip-sync
-                elif [[ -f "requirements.txt" ]]; then
-                    pip install --upgrade -r requirements.txt
-                fi
-            fi
-            ;;
-        composer)
-            if [[ "$DRY_RUN" == "true" ]]; then
-                echo "composer update"
-            else
-                composer update
-            fi
-            ;;
     esac
+    
+    # Apply project-specific optimizations
+    if [[ "$DRY_RUN" != "true" ]]; then
+        case "$project_type" in
+            nextjs)
+                handle_nextjs_optimizations "$project_dir" "$pm"
+                ;;
+            angular)
+                handle_angular_optimizations "$project_dir" "$pm"
+                ;;
+        esac
+    fi
     
     # Return to original directory
     cd "$original_dir"
@@ -666,6 +652,7 @@ update_dependencies() {
 show_update_summary() {
     local pm="$1"
     local project_dir="$2"
+    local project_type="$3"
     
     log_step "Generating update summary..."
     
@@ -673,23 +660,34 @@ show_update_summary() {
     local original_dir=$(pwd)
     cd "$project_dir"
     
-    case "$pm" in
-        npm|yarn|pnpm)
-            if check_tool "npm"; then
-                echo -e "${CYAN}📊 Package Summary:${NC}"
-                npm list --depth=0 2>/dev/null | head -20
+    echo -e "${CYAN}📊 Project Summary:${NC}"
+    echo "Project Type: $project_type"
+    echo "Package Manager: $pm"
+    echo ""
+    
+    if check_tool "npm"; then
+        echo -e "${CYAN}📦 Installed Packages (top 15):${NC}"
+        npm list --depth=0 2>/dev/null | head -15
+    fi
+    
+    # Show project-specific information
+    case "$project_type" in
+        nextjs)
+            echo -e "${CYAN}🚀 Next.js Information:${NC}"
+            if [[ -f "package.json" ]]; then
+                grep -A 1 -B 1 "next" package.json | head -5
             fi
             ;;
-        cargo)
-            if [[ -f "Cargo.lock" ]]; then
-                echo -e "${CYAN}📊 Cargo Dependencies:${NC}"
-                grep -A 1 "^name = " Cargo.lock | head -20
+        angular)
+            echo -e "${CYAN}🅰️ Angular Information:${NC}"
+            if check_tool "ng"; then
+                ng version 2>/dev/null | head -5
             fi
             ;;
-        go)
-            if [[ -f "go.sum" ]]; then
-                echo -e "${CYAN}📊 Go Modules:${NC}"
-                head -10 go.sum
+        react)
+            echo -e "${CYAN}⚛️ React Information:${NC}"
+            if [[ -f "package.json" ]]; then
+                grep -A 1 -B 1 "react" package.json | head -5
             fi
             ;;
     esac
@@ -723,7 +721,7 @@ handle_prisma_updates() {
 
 # Main function
 main() {
-    echo -e "${PURPLE}🔄 Dependency Updater - Starting automation...${NC}"
+    echo -e "${PURPLE}🔄 Node.js Dependency Updater - Starting automation...${NC}"
     echo ""
     
     # Handle special commands first
@@ -743,7 +741,7 @@ main() {
     fi
     
     # Find project root directory
-    log_step "Searching for project files..."
+    log_step "Searching for Node.js project files..."
     local project_root
     project_root=$(find_project_root)
     if [[ $? -ne 0 ]]; then
@@ -758,11 +756,16 @@ main() {
         PACKAGE_MANAGER=$(detect_package_manager "$project_root")
         if [[ -z "$PACKAGE_MANAGER" ]]; then
             log_error "Could not detect package manager in: $project_root"
-            log_info "Supported files: package.json, Cargo.toml, go.mod, requirements.txt, composer.json"
+            log_info "Make sure package.json exists"
             exit 1
         fi
         log_success "Detected package manager: $PACKAGE_MANAGER"
     fi
+    
+    # Detect project type
+    local project_type
+    project_type=$(detect_project_type "$project_root")
+    log_success "Detected project type: $project_type"
     
     # Install/check package manager
     if ! install_package_manager "$PACKAGE_MANAGER"; then
@@ -781,11 +784,16 @@ main() {
     fi
     
     # Update dependencies
-    update_dependencies "$PACKAGE_MANAGER" "$UPDATE_MODE" "$project_root"
+    update_dependencies "$PACKAGE_MANAGER" "$UPDATE_MODE" "$project_root" "$project_type"
+    
+    # Handle Prisma if exists
+    if [[ "$DRY_RUN" != "true" ]]; then
+        handle_prisma_updates "$project_root"
+    fi
     
     # Show summary (unless dry run)
     if [[ "$DRY_RUN" != "true" ]]; then
-        show_update_summary "$PACKAGE_MANAGER" "$project_root"
+        show_update_summary "$PACKAGE_MANAGER" "$project_root" "$project_type"
     fi
     
     echo ""
@@ -793,7 +801,9 @@ main() {
         log_success "Dry run completed! Use without --dry-run to apply changes."
     else
         log_success "Dependencies updated successfully!"
+        log_info "Project type: $project_type"
         log_info "Project root: $project_root"
+        log_info "Package manager: $PACKAGE_MANAGER"
         log_info "Backup created: $backup_id"
         log_info "To rollback: $0 --restore $backup_id"
     fi
