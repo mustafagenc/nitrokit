@@ -18,38 +18,49 @@
         "submit": "Göndər",
         "contactUs": "Bizimlə Əlaqə",
         "github": {
-            "button": { "title": "GitHub", "loading": "...", "ready": "Hazır" },
+            "button": {
+                "title": "GitHub",
+                "loading": "...",
+                "ready": "Hazırdır"
+            },
             "dropdown": {
                 "star": {
-                    "title": "Ulduz Anbarı",
+                    "title": "Deponu Ulduzla",
                     "description": "Dəstəyinizi göstərin",
-                    "badge": "Ulduz"
+                    "badge": "Ulduzla"
                 },
                 "fork": {
-                    "title": "Çəngəl Anbarı",
+                    "title": "Deponu Fork Et",
                     "description": "Öz nüsxənizi yaradın",
-                    "badge": "Çəngəl"
+                    "badge": "Fork Et"
                 },
-                "view": { "title": "Anbara Bax", "description": "Mənbə kodu gəz", "badge": "Baxış" }
+                "view": {
+                    "title": "Depoya Bax",
+                    "description": "Mənbə koduna baxın",
+                    "badge": "Bax"
+                }
             }
         },
         "vercel": {
-            "button": { "title": "Vercel-ə yerləşdirin", "ready": "Hazır" },
+            "button": {
+                "title": "Vercel-ə Yerləşdirin",
+                "ready": "Hazırdır"
+            },
             "dropdown": {
                 "deploy": {
-                    "title": "Quick Deploy",
-                    "description": "Deploy with one click",
-                    "badge": "Deploy"
+                    "title": "Sürətli Yerləşdirmə",
+                    "description": "Bir kliklə yerləşdirin",
+                    "badge": "Yerləşdir"
                 },
                 "preview": {
-                    "title": "Preview Demo",
-                    "description": "See live example",
-                    "badge": "Live"
+                    "title": "Demonu Önizlə",
+                    "description": "Canlı nümunəyə baxın",
+                    "badge": "Canlı"
                 },
                 "docs": {
-                    "title": "Documentation",
-                    "description": "Learn deployment",
-                    "badge": "Docs"
+                    "title": "Sənədlər",
+                    "description": "Yerləşdirməni öyrənin",
+                    "badge": "Sənədlər"
                 }
             }
         }
@@ -101,7 +112,9 @@
             "password": "Şifrə sahəsi tələb olunur.",
             "confirmPassword": "Şifrəni təsdiqləmə sahəsi tələb olunur."
         },
-        "invalid": { "email": "Yanlış e-poçt ünvanı." },
+        "invalid": {
+            "email": "Yanlış e-poçt ünvanı."
+        },
         "password": {
             "confirm": "Şifrələr uyğun gəlmir.",
             "minLength": "Şifrə ən az {min} simvol olmalıdır.",
@@ -129,7 +142,10 @@
         "description": "Xəta! Axtardığınız səhifə mövcud deyil.",
         "returnHome": "Ana Səhifəyə Qayıt"
     },
-    "error": { "title": "Xəta Baş Verdi", "retry": "Yenidən Cəhd Edin" },
+    "error": {
+        "title": "Xəta Baş Verdi",
+        "retry": "Yenidən Cəhd Edin"
+    },
     "metadata": {
         "applicationName": "Nitrokit Başlanğıc Şablonu",
         "description": "Nitrokit başlanğıc şablonu",
@@ -160,11 +176,11 @@
                 "title": "Komanda Gücləndirilməsi",
                 "description": "İxtisaslı mütəxəssislərlə inkişaf qrupunuzu genişləndirin"
             },
-            "badges": { "popular": "Populyar", "new": "Yeni" }
+            "badges": {
+                "popular": "Populyar",
+                "new": "Yeni"
+            }
         },
-        "pricing": "Qiymətlər",
-        "blog": "Bloq",
-        "contact": "Əlaqə",
         "components": {
             "title": "Komponentlər",
             "subtitle": "İstifadəçi İnterfeysi Komponentləri",
@@ -202,6 +218,45 @@
                 "overlay": "Overlay",
                 "feedback": "Feedback"
             }
+        },
+        "blog": "Bloq",
+        "pricing": "Qiymətlər",
+        "contact": "Əlaqə"
+    },
+    "home": {
+        "banner": {
+            "badge": "Yeni",
+            "text": "v2.0.1 çıxdı! Yeniliklərə baxın"
+        },
+        "hero": {
+            "title": {
+                "primary": "Nitrokit ilə",
+                "secondary": "Sürətlə İnkişaf Edin"
+            },
+            "subtitle": "Startapların veb-saytlarını tez və effektiv şəkildə işə salması üçün nəzərdə tutulmuş, bütün lazımi inteqrasiyaları, səhifələri və komponentləri ehtiva edən başlanğıc dəsti."
+        },
+        "stats": {
+            "components": {
+                "number": "50+",
+                "label": "İstifadəçi İnterfeysi Komponentləri"
+            },
+            "typescript": {
+                "number": "TypeScript",
+                "label": "Tam Dəstək"
+            },
+            "modern": {
+                "number": "Müasir",
+                "label": "Texnologiya Yığını"
+            }
+        },
+        "technologies": {
+            "title": "Müasir Texnologiyalarla Gücləndirilmişdir"
+        },
+        "cta": {
+            "title": "Başlamağa hazırsınız?",
+            "description": "GitHub-dakı layihəmizə baxın və inkişaf prosesinizi sürətləndirin.",
+            "github": "GitHub Deposu",
+            "docs": "Sənədlər"
         }
     },
     "about": {
@@ -265,7 +320,7 @@
         "email": "E-poçt ünvanınız",
         "message": "Mesajınız",
         "send": "Göndər",
-        "messageSent": "Message sent successfully!"
+        "messageSent": "Mesaj uğurla göndərildi!"
     },
     "privacy": {
         "title": "Məxfilik Siyasəti",
@@ -274,24 +329,5 @@
     "footer": {
         "copyright": "© Müəllif Hüquqları {year, date, ::yyyy} {name} ♥️ Bütün Hüquqlar Qorunur.",
         "poweredBy": "<link>Ekibi</link> tərəfindən işlənir."
-    },
-    "home": {
-        "banner": { "badge": "New", "text": "v2.0.1 is out! See what's new" },
-        "hero": {
-            "title": { "primary": "With Nitrokit", "secondary": "Develop Rapidly" },
-            "subtitle": "A starter kit designed for startups to quickly and effectively launch their websites, including all necessary integrations, pages, and components."
-        },
-        "stats": {
-            "components": { "number": "50+", "label": "UI Components" },
-            "typescript": { "number": "TypeScript", "label": "Full Support" },
-            "modern": { "number": "Modern", "label": "Tech Stack" }
-        },
-        "technologies": { "title": "Powered by Modern Technologies" },
-        "cta": {
-            "title": "Başlamağa hazırsınız?",
-            "description": "GitHub-da layihəmizi yoxlayın və inkişaf prosesinizi sürətləndirin.",
-            "github": "GitHub Anbarı",
-            "docs": "Sənədlər"
-        }
     }
 }
