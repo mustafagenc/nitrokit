@@ -18,42 +18,49 @@
         "submit": "Жөнөтүү",
         "contactUs": "Биз менен байланышыңыз",
         "github": {
-            "button": { "title": "GitHub", "loading": "...", "ready": "Ready" },
+            "button": {
+                "title": "GitHub",
+                "loading": "...",
+                "ready": "Даяр"
+            },
             "dropdown": {
                 "star": {
-                    "title": "Star Repository",
-                    "description": "Show your support",
-                    "badge": "Star"
+                    "title": "Репозиторийге жылдызча коюу",
+                    "description": "Колдооңузду көрсөтүңүз",
+                    "badge": "Жылдызча"
                 },
                 "fork": {
-                    "title": "Fork Repository",
-                    "description": "Create your own copy",
+                    "title": "Репозиторийди Fork кылуу",
+                    "description": "Өзүңүздүн көчүрмөңүздү түзүңүз",
                     "badge": "Fork"
                 },
                 "view": {
-                    "title": "View Repository",
-                    "description": "Browse source code",
-                    "badge": "View"
+                    "title": "Репозиторийди көрүү",
+                    "description": "Баштапкы кодду карап чыгуу",
+                    "badge": "Көрүү"
                 }
             }
         },
         "vercel": {
-            "button": { "title": "Deploy to Vercel", "ready": "Ready" },
+            "button": {
+                "title": "Vercel'ге жайгаштыруу",
+                "ready": "Даяр"
+            },
             "dropdown": {
                 "deploy": {
-                    "title": "Quick Deploy",
-                    "description": "Deploy with one click",
-                    "badge": "Deploy"
+                    "title": "Ыкчам жайгаштыруу",
+                    "description": "Бир чыкылдатуу менен жайгаштыруу",
+                    "badge": "Жайгаштыруу"
                 },
                 "preview": {
-                    "title": "Preview Demo",
-                    "description": "See live example",
-                    "badge": "Live"
+                    "title": "Демону алдын ала көрүү",
+                    "description": "Жандуу мисалды көрүү",
+                    "badge": "Жандуу"
                 },
                 "docs": {
-                    "title": "Documentation",
-                    "description": "Learn deployment",
-                    "badge": "Docs"
+                    "title": "Документтер",
+                    "description": "Жайгаштырууну үйрөнүү",
+                    "badge": "Документтер"
                 }
             }
         }
@@ -105,7 +112,9 @@
             "password": "Сырсөз талаасы милдеттүү.",
             "confirmPassword": "Сырсөздү ырастоо талаасы милдеттүү."
         },
-        "invalid": { "email": "Жараксыз электрондук почта дареги." },
+        "invalid": {
+            "email": "Жараксыз электрондук почта дареги."
+        },
         "password": {
             "confirm": "Сырсөздөр дал келбейт.",
             "minLength": "Сырсөз кеминде {min} белгиден турушу керек.",
@@ -133,7 +142,10 @@
         "description": "Ката! Сиз издеген баракча жок.",
         "returnHome": "Башкы бетке кайтуу"
     },
-    "error": { "title": "Ката кетти", "retry": "Кайра аракет кылуу" },
+    "error": {
+        "title": "Ката кетти",
+        "retry": "Кайра аракет кылуу"
+    },
     "metadata": {
         "applicationName": "Nitrokit Башталгыч Шаблону",
         "description": "Nitrokit башталгыч шаблону",
@@ -164,11 +176,11 @@
                 "title": "Team Augmentation",
                 "description": "Scale your development team with experts"
             },
-            "badges": { "popular": "Popular", "new": "New" }
+            "badges": {
+                "popular": "Popular",
+                "new": "New"
+            }
         },
-        "pricing": "Баалар",
-        "blog": "Блог",
-        "contact": "Байланыш",
         "components": {
             "title": "Components",
             "subtitle": "UI Components",
@@ -206,6 +218,45 @@
                 "overlay": "Overlay",
                 "feedback": "Feedback"
             }
+        },
+        "blog": "Блог",
+        "pricing": "Баалар",
+        "contact": "Байланыш"
+    },
+    "home": {
+        "banner": {
+            "badge": "New",
+            "text": "v2.0.1 чыкты! Жаңылыктарды көрүңүз"
+        },
+        "hero": {
+            "title": {
+                "primary": "Nitrokit менен",
+                "secondary": "Ыкчам иштеп чыгуу"
+            },
+            "subtitle": "Стартаптар үчүн иштелип чыккан, бардык керектүү интеграцияларды, баракчаларды жана компоненттерди камтыган, веб-сайттарын тез жана натыйжалуу ишке киргизүүгө арналган башталгыч топтом."
+        },
+        "stats": {
+            "components": {
+                "number": "50+",
+                "label": "UI Components"
+            },
+            "typescript": {
+                "number": "TypeScript",
+                "label": "Толук колдоо"
+            },
+            "modern": {
+                "number": "Заманбап",
+                "label": "Технологиялар топтому"
+            }
+        },
+        "technologies": {
+            "title": "Заманбап технологиялар менен иштейт"
+        },
+        "cta": {
+            "title": "Баштоого даярсызбы?",
+            "description": "GitHub'дагы долбоорубузду карап чыгып, иштеп чыгуу процессиңизди тездетиңиз.",
+            "github": "GitHub репозиторийи",
+            "docs": "Документтер"
         }
     },
     "about": {
@@ -269,7 +320,7 @@
         "email": "Сиздин электрондук почта дарегиңиз",
         "message": "Сиздин билдирүүңүз",
         "send": "Жөнөтүү",
-        "messageSent": "Message sent successfully!"
+        "messageSent": "Билдирүү ийгиликтүү жөнөтүлдү!"
     },
     "privacy": {
         "title": "Купуялык саясаты",
@@ -278,24 +329,5 @@
     "footer": {
         "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ Бардык укуктар корголгон.",
         "poweredBy": "Powered by <link>Ekipisi</link>."
-    },
-    "home": {
-        "banner": { "badge": "New", "text": "v2.0.1 is out! See what's new" },
-        "hero": {
-            "title": { "primary": "With Nitrokit", "secondary": "Develop Rapidly" },
-            "subtitle": "A starter kit designed for startups to quickly and effectively launch their websites, including all necessary integrations, pages, and components."
-        },
-        "stats": {
-            "components": { "number": "50+", "label": "UI Components" },
-            "typescript": { "number": "TypeScript", "label": "Full Support" },
-            "modern": { "number": "Modern", "label": "Tech Stack" }
-        },
-        "technologies": { "title": "Powered by Modern Technologies" },
-        "cta": {
-            "title": "Ready to get started?",
-            "description": "Check out our project on GitHub and speed up your development process.",
-            "github": "GitHub Repository",
-            "docs": "Documentation"
-        }
     }
 }

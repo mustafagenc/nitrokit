@@ -1,5 +1,9 @@
 {
-    "app": { "name": "Nitrokit", "shortName": "Nitrokit", "description": "Nitrokit 入門模板" },
+    "app": {
+        "name": "Nitrokit",
+        "shortName": "Nitrokit",
+        "description": "Nitrokit 入門模板"
+    },
     "common": {
         "loading": "載入中...",
         "error": "發生錯誤",
@@ -14,42 +18,49 @@
         "submit": "提交",
         "contactUs": "聯絡我們",
         "github": {
-            "button": { "title": "GitHub", "loading": "...", "ready": "Ready" },
+            "button": {
+                "title": "GitHub",
+                "loading": "...",
+                "ready": "準備就緒"
+            },
             "dropdown": {
                 "star": {
-                    "title": "Star Repository",
-                    "description": "Show your support",
-                    "badge": "Star"
+                    "title": "為儲存庫加上星號",
+                    "description": "表達您的支持",
+                    "badge": "星號"
                 },
                 "fork": {
-                    "title": "Fork Repository",
-                    "description": "Create your own copy",
+                    "title": "Fork 儲存庫",
+                    "description": "建立您自己的副本",
                     "badge": "Fork"
                 },
                 "view": {
-                    "title": "View Repository",
-                    "description": "Browse source code",
-                    "badge": "View"
+                    "title": "檢視儲存庫",
+                    "description": "瀏覽原始碼",
+                    "badge": "檢視"
                 }
             }
         },
         "vercel": {
-            "button": { "title": "Deploy to Vercel", "ready": "Ready" },
+            "button": {
+                "title": "部署至 Vercel",
+                "ready": "準備就緒"
+            },
             "dropdown": {
                 "deploy": {
-                    "title": "Quick Deploy",
-                    "description": "Deploy with one click",
-                    "badge": "Deploy"
+                    "title": "快速部署",
+                    "description": "一鍵部署",
+                    "badge": "部署"
                 },
                 "preview": {
-                    "title": "Preview Demo",
-                    "description": "See live example",
-                    "badge": "Live"
+                    "title": "預覽示範",
+                    "description": "查看即時範例",
+                    "badge": "即時"
                 },
                 "docs": {
-                    "title": "Documentation",
-                    "description": "Learn deployment",
-                    "badge": "Docs"
+                    "title": "文件",
+                    "description": "學習部署",
+                    "badge": "文件"
                 }
             }
         }
@@ -101,7 +112,9 @@
             "password": "密碼欄位為必填。",
             "confirmPassword": "確認密碼欄位為必填。"
         },
-        "invalid": { "email": "無效的電子郵件地址。" },
+        "invalid": {
+            "email": "無效的電子郵件地址。"
+        },
         "password": {
             "confirm": "密碼不符。",
             "minLength": "密碼長度至少需 {min} 個字元。",
@@ -129,7 +142,10 @@
         "description": "錯誤！您要查找的頁面不存在。",
         "returnHome": "返回首頁"
     },
-    "error": { "title": "發生錯誤", "retry": "重試" },
+    "error": {
+        "title": "發生錯誤",
+        "retry": "重試"
+    },
     "metadata": {
         "applicationName": "Nitrokit 入門模板",
         "description": "Nitrokit 入門模板",
@@ -160,11 +176,11 @@
                 "title": "Team Augmentation",
                 "description": "Scale your development team with experts"
             },
-            "badges": { "popular": "Popular", "new": "New" }
+            "badges": {
+                "popular": "Popular",
+                "new": "New"
+            }
         },
-        "pricing": "價格方案",
-        "blog": "部落格",
-        "contact": "聯絡我們",
         "components": {
             "title": "Components",
             "subtitle": "UI Components",
@@ -202,13 +218,55 @@
                 "overlay": "Overlay",
                 "feedback": "Feedback"
             }
+        },
+        "blog": "部落格",
+        "pricing": "價格方案",
+        "contact": "聯絡我們"
+    },
+    "home": {
+        "banner": {
+            "badge": "New",
+            "text": "v2.0.1 已發布！查看新功能"
+        },
+        "hero": {
+            "title": {
+                "primary": "使用 Nitrokit",
+                "secondary": "快速開發"
+            },
+            "subtitle": "專為新創公司設計的入門套件，可快速有效地啟動其網站，包含所有必要的整合、頁面和元件。"
+        },
+        "stats": {
+            "components": {
+                "number": "50個以上",
+                "label": "UI Components"
+            },
+            "typescript": {
+                "number": "TypeScript",
+                "label": "完整支援"
+            },
+            "modern": {
+                "number": "現代化",
+                "label": "技術堆疊"
+            }
+        },
+        "technologies": {
+            "title": "由現代技術驅動"
+        },
+        "cta": {
+            "title": "準備好開始了嗎？",
+            "description": "在 GitHub 上查看我們的專案，加速您的開發流程。",
+            "github": "GitHub 儲存庫",
+            "docs": "文件"
         }
     },
     "about": {
         "title": "關於我們",
         "description": "這是一個使用 Next.js 建置的入門模板。此模板旨在快速有效地開發 Web 應用程式。"
     },
-    "services": { "title": "我們的服務", "description": "了解更多關於我們提供的服務。" },
+    "services": {
+        "title": "我們的服務",
+        "description": "了解更多關於我們提供的服務。"
+    },
     "pricing": {
         "title": "價格方案",
         "subtitle": "與您一同成長的價格方案",
@@ -219,13 +277,22 @@
         "pricePerMonth": "月",
         "pricePerYear": "年",
         "purchasePlan": "購買方案",
-        "freelancer": { "title": "自由工作者", "description": "為客戶提供最佳工作的基本要素。" },
+        "freelancer": {
+            "title": "自由工作者",
+            "description": "為客戶提供最佳工作的基本要素。"
+        },
         "startup": {
             "title": "新創公司",
             "description": "一個能與您快速發展的業務一同擴展的方案。"
         },
-        "pro": { "title": "專業版", "description": "為您不斷發展的公司提供專屬支援和基礎設施。" },
-        "enterprise": { "title": "企業版", "description": "聯絡我們以取得企業需求的客製化報價。" },
+        "pro": {
+            "title": "專業版",
+            "description": "為您不斷發展的公司提供專屬支援和基礎設施。"
+        },
+        "enterprise": {
+            "title": "企業版",
+            "description": "聯絡我們以取得企業需求的客製化報價。"
+        },
         "features": {
             "5products": "5 個產品",
             "25products": "10 個產品",
@@ -242,7 +309,10 @@
             "marketingautomations": "行銷自動化"
         }
     },
-    "blog": { "title": "部落格", "description": "關注我們的部落格以獲取最新消息和更新。" },
+    "blog": {
+        "title": "部落格",
+        "description": "關注我們的部落格以獲取最新消息和更新。"
+    },
     "contact": {
         "title": "聯絡我們",
         "description": "填寫以下表格以聯絡我們。",
@@ -250,30 +320,14 @@
         "email": "您的電子郵件地址",
         "message": "您的訊息",
         "send": "傳送",
-        "messageSent": "Message sent successfully!"
+        "messageSent": "訊息已成功傳送！"
     },
-    "privacy": { "title": "隱私政策", "description": "了解更多關於我們的隱私政策。" },
+    "privacy": {
+        "title": "隱私政策",
+        "description": "了解更多關於我們的隱私政策。"
+    },
     "footer": {
         "copyright": "© 版權所有 {year, date, ::yyyy} {name} ♥️ 保留一切權利。",
         "poweredBy": "技术支持：<link>Ekipisi</link>"
-    },
-    "home": {
-        "banner": { "badge": "New", "text": "v2.0.1 is out! See what's new" },
-        "hero": {
-            "title": { "primary": "With Nitrokit", "secondary": "Develop Rapidly" },
-            "subtitle": "A starter kit designed for startups to quickly and effectively launch their websites, including all necessary integrations, pages, and components."
-        },
-        "stats": {
-            "components": { "number": "50+", "label": "UI Components" },
-            "typescript": { "number": "TypeScript", "label": "Full Support" },
-            "modern": { "number": "Modern", "label": "Tech Stack" }
-        },
-        "technologies": { "title": "Powered by Modern Technologies" },
-        "cta": {
-            "title": "Ready to get started?",
-            "description": "Check out our project on GitHub and speed up your development process.",
-            "github": "GitHub Repository",
-            "docs": "Documentation"
-        }
     }
 }

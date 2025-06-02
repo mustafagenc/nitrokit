@@ -18,42 +18,49 @@
         "submit": "Pošalji",
         "contactUs": "Kontaktirajte nas",
         "github": {
-            "button": { "title": "GitHub", "loading": "...", "ready": "Spreman" },
+            "button": {
+                "title": "GitHub",
+                "loading": "...",
+                "ready": "Spremno"
+            },
             "dropdown": {
                 "star": {
-                    "title": "Zvjezdano skladište",
-                    "description": "Pokazite svoju podršku",
-                    "badge": "Zvijezda"
+                    "title": "Označi repozitorij zvjezdicom",
+                    "description": "Pokažite svoju podršku",
+                    "badge": "Zvjezdica"
                 },
                 "fork": {
                     "title": "Forkuj repozitorij",
-                    "description": "Napravite svoju kopiju",
-                    "badge": "Vilica"
+                    "description": "Napravite vlastitu kopiju",
+                    "badge": "Fork"
                 },
                 "view": {
                     "title": "Pogledaj repozitorij",
-                    "description": "Pregledaj izvorni kod",
-                    "badge": "Pogled"
+                    "description": "Pregledajte izvorni kod",
+                    "badge": "Pogledaj"
                 }
             }
         },
         "vercel": {
-            "button": { "title": "Deploy to Vercel", "ready": "Ready" },
+            "button": {
+                "title": "Postavi na Vercel",
+                "ready": "Spremno"
+            },
             "dropdown": {
                 "deploy": {
-                    "title": "Quick Deploy",
-                    "description": "Deploy with one click",
-                    "badge": "Deploy"
+                    "title": "Brzo postavljanje",
+                    "description": "Postavite jednim klikom",
+                    "badge": "Postavi"
                 },
                 "preview": {
-                    "title": "Preview Demo",
-                    "description": "See live example",
-                    "badge": "Live"
+                    "title": "Pregledaj demo",
+                    "description": "Pogledajte primjer uživo",
+                    "badge": "Uživo"
                 },
                 "docs": {
-                    "title": "Documentation",
-                    "description": "Learn deployment",
-                    "badge": "Docs"
+                    "title": "Dokumentacija",
+                    "description": "Naučite o postavljanju",
+                    "badge": "Dokumenti"
                 }
             }
         }
@@ -105,7 +112,9 @@
             "password": "Polje za lozinku je obavezno.",
             "confirmPassword": "Polje za potvrdu lozinke je obavezno."
         },
-        "invalid": { "email": "Nevažeća email adresa." },
+        "invalid": {
+            "email": "Nevažeća email adresa."
+        },
         "password": {
             "confirm": "Lozinke se ne podudaraju.",
             "minLength": "Lozinka mora imati najmanje {min} znakova.",
@@ -133,7 +142,10 @@
         "description": "Greška! Stranica koju tražite ne postoji.",
         "returnHome": "Vratite se na početnu stranicu"
     },
-    "error": { "title": "Došlo je do greške", "retry": "Pokušaj ponovo" },
+    "error": {
+        "title": "Došlo je do greške",
+        "retry": "Pokušaj ponovo"
+    },
     "metadata": {
         "applicationName": "Nitrokit Početni Predložak",
         "description": "Nitrokit početni predložak",
@@ -164,11 +176,11 @@
                 "title": "Pojačanje tima",
                 "description": "Proširite svoj razvojni tim sa stručnjacima"
             },
-            "badges": { "popular": "Popularno", "new": "Novo" }
+            "badges": {
+                "popular": "Popularno",
+                "new": "Novo"
+            }
         },
-        "pricing": "Cijene",
-        "blog": "Blog",
-        "contact": "Kontakt",
         "components": {
             "title": "Komponente",
             "subtitle": "Komponente korisničkog interfejsa",
@@ -206,13 +218,55 @@
                 "overlay": "Overlay",
                 "feedback": "Feedback"
             }
+        },
+        "blog": "Blog",
+        "pricing": "Cijene",
+        "contact": "Kontakt"
+    },
+    "home": {
+        "banner": {
+            "badge": "Novo",
+            "text": "v2.0.1 je objavljen! Pogledajte šta je novo"
+        },
+        "hero": {
+            "title": {
+                "primary": "Sa Nitrokitom",
+                "secondary": "Brzo razvijajte"
+            },
+            "subtitle": "Početni paket dizajniran za startupe kako bi brzo i efikasno pokrenuli svoje web stranice, uključujući sve potrebne integracije, stranice i komponente."
+        },
+        "stats": {
+            "components": {
+                "number": "50+",
+                "label": "Komponente korisničkog interfejsa"
+            },
+            "typescript": {
+                "number": "TypeScript",
+                "label": "Potpuna podrška"
+            },
+            "modern": {
+                "number": "Moderan",
+                "label": "Tehnološki sklop"
+            }
+        },
+        "technologies": {
+            "title": "Pokreću moderne tehnologije"
+        },
+        "cta": {
+            "title": "Spremni za početak?",
+            "description": "Pogledajte naš projekat na GitHubu i ubrzajte svoj proces razvoja.",
+            "github": "GitHub repozitorij",
+            "docs": "Dokumentacija"
         }
     },
     "about": {
         "title": "O nama",
         "description": "Ovo je početni predložak izrađen pomoću Next.js. Ovaj predložak je dizajniran za brz i efikasan razvoj web aplikacija."
     },
-    "services": { "title": "Naše usluge", "description": "Saznajte više o uslugama koje nudimo." },
+    "services": {
+        "title": "Naše usluge",
+        "description": "Saznajte više o uslugama koje nudimo."
+    },
     "pricing": {
         "title": "Cijene",
         "subtitle": "Cijene koje rastu s Vama",
@@ -266,7 +320,7 @@
         "email": "Vaša email adresa",
         "message": "Vaša poruka",
         "send": "Pošalji",
-        "messageSent": "Message sent successfully!"
+        "messageSent": "Poruka je uspješno poslana!"
     },
     "privacy": {
         "title": "Politika privatnosti",
@@ -275,24 +329,5 @@
     "footer": {
         "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ Sva prava pridržana.",
         "poweredBy": "Pokreće <link>Ekipisi</link>."
-    },
-    "home": {
-        "banner": { "badge": "New", "text": "v2.0.1 is out! See what's new" },
-        "hero": {
-            "title": { "primary": "With Nitrokit", "secondary": "Develop Rapidly" },
-            "subtitle": "A starter kit designed for startups to quickly and effectively launch their websites, including all necessary integrations, pages, and components."
-        },
-        "stats": {
-            "components": { "number": "50+", "label": "UI Components" },
-            "typescript": { "number": "TypeScript", "label": "Full Support" },
-            "modern": { "number": "Moderno", "label": "Tehnološki stek" }
-        },
-        "technologies": { "title": "Pokreće moderne tehnologije" },
-        "cta": {
-            "title": "Spremni za početak?",
-            "description": "Pogledajte naš projekt na GitHubu i ubrzajte svoj proces razvoja.",
-            "github": "GitHub repozitorij",
-            "docs": "Dokumentacija"
-        }
     }
 }
