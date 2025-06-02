@@ -165,7 +165,7 @@ export default function Home() {
                                     variant="ghost"
                                     size="sm"
                                     className="hover:bg-white/50 dark:hover:bg-gray-900/50">
-                                    <Link href="/docs">
+                                    <Link href={GITHUB_URL + '/wiki'}>
                                         <ExternalLink className="mr-2 h-4 w-4" />
                                         {t('cta.docs')}
                                     </Link>

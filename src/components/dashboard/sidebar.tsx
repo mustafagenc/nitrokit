@@ -1,8 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Link } from '@/lib/i18n/navigation';
-import { usePathname } from 'next/navigation';
+import { usePathname, Link } from '@/lib/i18n/navigation';
+import { useTranslations } from 'next-intl';
 import { cn } from '@/utils/helpers';
 import { Button } from '@/components/ui/button';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
@@ -10,39 +10,47 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Home, Settings, Menu, HeartHandshake, ReceiptText } from 'lucide-react';
 
 const navigationItems = [
-    { name: 'Dashboard', href: '/dashboard', icon: Home },
-    { name: 'Invoices', href: '/dashboard/invoices', icon: ReceiptText },
-    { name: 'Support', href: '/dashboard/support', icon: HeartHandshake },
-    { name: 'Settings', href: '/dashboard/settings', icon: Settings },
+    { key: 'navigation.dashboard', href: '/dashboard', icon: Home },
+    { key: 'navigation.invoices', href: '/dashboard/invoices', icon: ReceiptText },
+    { key: 'navigation.support', href: '/dashboard/support', icon: HeartHandshake },
+    { key: 'navigation.settings', href: '/dashboard/settings', icon: Settings },
 ];
+
+function isActiveRoute(pathname: string, href: string) {
+    if (pathname === href) return true;
+    if (href === '/dashboard' && pathname === '/dashboard/') return true; // Gereksiz tekrar
+    if (href !== '/dashboard' && pathname.startsWith(href)) return true;
+    return false;
+}
 
 function DesktopSidebar() {
     const pathname = usePathname();
+    const t = useTranslations('dashboard');
 
     return (
         <TooltipProvider>
             <aside className="hidden w-16 flex-col bg-gray-100 md:flex dark:bg-zinc-900">
                 <nav className="flex flex-1 flex-col items-center justify-start space-y-3 p-2">
                     {navigationItems.map(item => {
-                        const isActive = pathname === item.href;
+                        const isActive = isActiveRoute(pathname, item.href);
                         const Icon = item.icon;
 
                         return (
-                            <Tooltip key={item.name} delayDuration={300}>
+                            <Tooltip key={item.key} delayDuration={300}>
                                 <TooltipTrigger asChild>
                                     <Link
                                         href={item.href}
                                         className={cn(
                                             'flex h-12 w-12 items-center justify-center rounded-full transition-all duration-200',
                                             isActive
-                                                ? 'bg-white text-blue-600 shadow-lg dark:bg-zinc-800 dark:text-blue-400'
+                                                ? 'bg-white text-blue-600 shadow-lg ring-2 ring-blue-100 dark:bg-zinc-800 dark:text-blue-400 dark:ring-blue-900/20'
                                                 : 'text-gray-600 hover:bg-white hover:text-gray-900 hover:shadow-md dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-100'
                                         )}>
                                         <Icon className="h-5 w-5" />
                                     </Link>
                                 </TooltipTrigger>
                                 <TooltipContent side="right" sideOffset={12}>
-                                    <p>{item.name}</p>
+                                    <p>{t(item.key)}</p>
                                 </TooltipContent>
                             </Tooltip>
                         );
@@ -52,12 +60,16 @@ function DesktopSidebar() {
         </TooltipProvider>
     );
 }
+
 export function MobileSidebarTrigger() {
     const [isOpen, setIsOpen] = useState(false);
     const pathname = usePathname();
+    const t = useTranslations('dashboard');
+
     useEffect(() => {
         setIsOpen(false);
     }, [pathname]);
+
     return (
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
@@ -80,22 +92,24 @@ export function MobileSidebarTrigger() {
                             </span>
                         </Link>
                     </div>
+
                     <nav className="flex-1 space-y-2 px-4 pt-4">
                         {navigationItems.map(item => {
-                            const isActive = pathname === item.href;
+                            const isActive = isActiveRoute(pathname, item.href);
                             const Icon = item.icon;
+
                             return (
                                 <Link
-                                    key={item.name}
+                                    key={item.key}
                                     href={item.href}
                                     className={cn(
                                         'flex items-center space-x-3 rounded-xl px-3 py-2.5 transition-all duration-200',
                                         isActive
-                                            ? 'bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400'
+                                            ? 'border border-blue-100 bg-blue-50 text-blue-600 shadow-sm dark:border-blue-800/30 dark:bg-blue-900/20 dark:text-blue-400'
                                             : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-zinc-100'
                                     )}>
                                     <Icon className="h-5 w-5" />
-                                    <span className="text-sm font-medium">{item.name}</span>
+                                    <span className="text-sm font-medium">{t(item.key)}</span>
                                 </Link>
                             );
                         })}
@@ -105,6 +119,7 @@ export function MobileSidebarTrigger() {
         </Sheet>
     );
 }
+
 export function DashboardSidebar() {
     return <DesktopSidebar />;
 }

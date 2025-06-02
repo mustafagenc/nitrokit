@@ -329,5 +329,15 @@
     "footer": {
         "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ All Rights Reserved.",
         "poweredBy": "Powered by <link>Ekipisi</link>"
+    },
+    "dashboard": {
+        "navigation": {
+            "dashboard": "Dashboard",
+            "invoices": "Invoices",
+            "support": "Support",
+            "settings": "Settings",
+            "account": "Account information",
+            "billing": "My Invoices"
+        }
     }
 }
