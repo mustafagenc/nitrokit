@@ -85,10 +85,7 @@
         "name": "Your Name",
         "privacyPolicy": "Our Privacy Policy",
         "slogan1": "Give your projects a <span>rocket 🚀</span> start!",
-        "slogan2": "Save time with <link>Nitrokit</link> and focus on development...",
-        "account": "Account information",
-        "support": "Support",
-        "billing": "My Invoices"
+        "slogan2": "Save time with <link>Nitrokit</link> and focus on development..."
     },
     "signin": {
         "title": "Sign In to {appName}",
@@ -329,5 +326,15 @@
     "footer": {
         "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ All Rights Reserved.",
         "poweredBy": "Powered by <link>Ekipisi</link>"
+    },
+    "dashboard": {
+        "navigation": {
+            "dashboard": "Dashboard",
+            "invoices": "Invoices",
+            "support": "Support",
+            "settings": "Settings",
+            "account": "Account information",
+            "billing": "My Invoices"
+        }
     }
 }
