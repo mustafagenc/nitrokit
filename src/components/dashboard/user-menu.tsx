@@ -6,7 +6,6 @@ import { useTranslations } from 'next-intl';
 import React from 'react';
 import { toast } from 'sonner';
 
-import { Avatar, AvatarImage } from '@/components/ui/avatar';
 import {
     Command,
     CommandGroup,
@@ -23,6 +22,7 @@ import { SignOutButton } from '@/components/auth/signout-button';
 import { SignUpButton } from '@/components/auth/signup-button';
 
 import { useRouter } from '@/lib/i18n/navigation';
+import { UserAvatar } from '@/components/dashboard/user-avatar';
 
 interface UserMenuProps {
     size?: string;
@@ -90,16 +90,17 @@ export function UserMenu({ size = 'size-11' }: UserMenuProps) {
     return (
         <Popover open={open} onOpenChange={setOpen}>
             <PopoverTrigger asChild>
-                <Avatar className={`border-stroke ml-4 ${size} cursor-pointer border-1`}>
-                    <AvatarImage src={session.user.image ?? undefined} />
-                </Avatar>
+                <UserAvatar
+                    src={session.user.image}
+                    name={session.user.name}
+                    size={size}
+                    className="ml-4"
+                />
             </PopoverTrigger>
             <PopoverContent className="w-60 p-0 shadow-xs" side="bottom" align="end">
                 <div className="flex w-full flex-row items-start justify-start gap-3 p-3">
                     <div>
-                        <Avatar className={`border-stroke ${size} cursor-pointer border-1`}>
-                            <AvatarImage src={session.user.image ?? undefined} />
-                        </Avatar>
+                        <UserAvatar src={session.user.image} name={session.user.name} size={size} />
                     </div>
                     <div>
                         <h4 className="mt-2 text-xs font-semibold text-ellipsis text-gray-800 dark:text-white">

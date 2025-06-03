@@ -216,6 +216,14 @@ async function delay(ms: number) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
+
+function omit<T, K extends keyof T>(obj: T, keys: K[]): Omit<T, K> {
+    const result = { ...obj };
+    keys.forEach(key => delete result[key]);
+    return result;
+}
+
 export {
     getBaseUrl,
     getStroybookUrl,
@@ -225,5 +233,6 @@ export {
     capitalizeFirstLetter,
     getClassForNavbar,
     delay,
+    omit,
 };
 export type { PageMetaDataProps };

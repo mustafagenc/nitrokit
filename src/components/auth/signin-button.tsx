@@ -9,7 +9,7 @@ export function SignInButton() {
     return (
         <Button variant={'ghost'} onClick={() => signIn()}>
             <LogIn />
-            <span>{t('signin')}</span>
+            <span>{t('signin.title')}</span>
         </Button>
     );
 }
