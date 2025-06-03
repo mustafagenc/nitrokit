@@ -66,8 +66,63 @@
         }
     },
     "auth": {
-        "signin": "Sign In",
-        "signup": "Sign Up",
+        "signin": {
+            "title": "Sign In",
+            "description": "Welcome back! Please sign in to continue.",
+            "signing": "Signing in...",
+            "success": "Successfully signed in!",
+            "error": "Sign in failed",
+            "invalidCredentials": "Invalid email or password"
+        },
+        "signup": {
+            "title": "Sign Up",
+            "description": "Join us to access exclusive features and content.",
+            "creating": "Creating account...",
+            "success": "Account created successfully!",
+            "successDescription": "You can now sign in with your credentials.",
+            "error": "Failed to create account",
+            "verificationRequired": "Account created! Please verify your email",
+            "verificationDescription": "We've sent a verification link to {email}. Please check your inbox and click the link to activate your account."
+        },
+        "verifyEmail": {
+            "title": "Check your email",
+            "description": "We've sent you a verification link",
+            "sentTo": "Email sent to:",
+            "instructions": {
+                "check": "1. Check your email inbox",
+                "click": "2. Click the verification link in the email",
+                "spam": "3. Don't forget to check your spam folder if you don't see it"
+            },
+            "resend": "Resend verification email",
+            "backToSignin": "Back to sign in"
+        },
+        "emailVerification": {
+            "title": "Email Verified! ✅",
+            "description": "Your email has been successfully verified. You can now sign in to your account.",
+            "signIn": "Sign In to Your Account"
+        },
+        "resetPassword": {
+            "sendEmail": "Send Reset Email",
+            "emailSent": "Reset email sent!",
+            "checkEmail": "Please check your email at {email}",
+            "error": "Failed to send reset email",
+            "emailSentTitle": "Check your email",
+            "emailSentDescription": "We've sent you a password reset link",
+            "emailSentTo": "Reset email sent to:",
+            "instructions": {
+                "check": "1. Check your email inbox",
+                "click": "2. Click the reset link in the email",
+                "expire": "3. Link will expire in 1 hour"
+            },
+            "newPassword": "New Password",
+            "confirmPassword": "Confirm Password",
+            "confirm": "Reset Password",
+            "success": "Password reset successful!",
+            "successDescription": "You can now sign in with your new password",
+            "confirmError": "Failed to reset password",
+            "newPasswordTitle": "Set New Password",
+            "newPasswordDescription": "Enter your new password below"
+        },
         "signout": "Sign Out",
         "signinWithGoogle": "Sign In with Google",
         "signinWithFacebook": "Sign In with Facebook",
