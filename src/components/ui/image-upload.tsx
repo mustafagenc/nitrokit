@@ -1,10 +1,11 @@
+// src/components/ui/image-upload.tsx
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Upload, X, Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
+import { UserAvatar } from '../dashboard/user-avatar';
 
 interface ImageUploadProps {
     value: string;
@@ -103,10 +104,13 @@ export function ImageUpload({ value, onChange, onRemove, disabled, fallback }: I
 
     return (
         <div className="flex items-center gap-6">
-            <Avatar className="h-24 w-24">
-                <AvatarImage src={preview ?? undefined} alt="Profile" />
-                <AvatarFallback className="text-lg">{fallback || 'U'}</AvatarFallback>
-            </Avatar>
+            <UserAvatar
+                src={preview}
+                name={fallback}
+                size="size-24"
+                className="border-2 border-dashed border-gray-300 dark:border-gray-600"
+            />
+
             <div className="space-y-3">
                 <input
                     ref={fileInputRef}

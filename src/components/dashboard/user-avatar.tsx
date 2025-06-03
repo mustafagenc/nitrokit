@@ -6,6 +6,16 @@ import { cn } from '@/lib';
 import { useSession } from 'next-auth/react';
 import { useAvatar } from '@/contexts/avatar-context';
 
+const sizeClasses = {
+    'size-8': 'h-8 w-8',
+    'size-10': 'h-10 w-10',
+    'size-11': 'h-11 w-11',
+    'size-12': 'h-12 w-12',
+    'size-16': 'h-16 w-16',
+    'size-20': 'h-20 w-20',
+    'size-24': 'h-24 w-24', // Bu size'ı ekle
+};
+
 interface UserAvatarProps {
     src?: string | null;
     name?: string | null;
@@ -31,6 +41,8 @@ export const UserAvatar = React.forwardRef<HTMLButtonElement, UserAvatarProps>(
         const { data: session } = useSession();
         const { avatarUrl, initializeAvatar, forceUpdate } = useAvatar();
         const [displayName, setDisplayName] = useState<string | null>(null);
+
+        const avatarSize = sizeClasses[size as keyof typeof sizeClasses] || size;
 
         useEffect(() => {
             if (useSessionData && session?.user?.image && !avatarUrl) {
@@ -85,7 +97,7 @@ export const UserAvatar = React.forwardRef<HTMLButtonElement, UserAvatarProps>(
         return (
             <Avatar
                 ref={ref}
-                className={cn(`border-stroke cursor-pointer border-1`, size, className)}
+                className={cn(`border-stroke cursor-pointer border-1`, avatarSize, className)}
                 {...props}>
                 <AvatarImage
                     src={avatarSrc ?? undefined}
