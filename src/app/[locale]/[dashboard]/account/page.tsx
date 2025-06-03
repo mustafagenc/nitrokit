@@ -5,6 +5,7 @@ import { prisma } from '@/lib/prisma';
 import { generatePageMetadata } from '@/lib';
 import { ProfileForm } from './components/profile-form';
 import { PasswordForm } from './components/password-form';
+import { DeleteAccountForm } from './components/delete-account-form';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Shield, Calendar } from 'lucide-react';
@@ -82,6 +83,7 @@ export default async function AccountPage() {
             </Card>
             <ProfileForm user={user} />
             {user.password && <PasswordForm />}
+            <DeleteAccountForm hasPassword={!!user.password} userEmail={user.email} />
         </div>
     );
 }

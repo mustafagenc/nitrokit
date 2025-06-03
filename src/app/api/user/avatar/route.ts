@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { auth } from '@/auth';
 import { prisma } from '@/lib/prisma';
+import { del } from '@vercel/blob';
 
 export async function DELETE() {
     try {
@@ -8,6 +9,15 @@ export async function DELETE() {
 
         if (!session?.user?.id) {
             return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+        }
+
+        const currentUser = await prisma.user.findUnique({
+            where: { id: session.user.id },
+            select: { image: true },
+        });
+
+        if (currentUser?.image) {
+            await del(currentUser.image); // Vercel Blob delete
         }
 
         await prisma.user.update({

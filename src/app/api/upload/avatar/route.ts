@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { put } from '@vercel/blob';
+import { del, put } from '@vercel/blob';
 import { auth } from '@/auth';
 import { prisma } from '@/lib/prisma';
 
@@ -41,10 +41,19 @@ export async function POST(request: NextRequest) {
         const cleanFilename = filename.replace(/[^a-zA-Z0-9.-]/g, '');
         const uniqueFilename = `avatars/${session.user.id}/${timestamp}-${cleanFilename}`;
 
+        const currentUser = await prisma.user.findUnique({
+            where: { id: session.user.id },
+            select: { image: true },
+        });
+
         const blob = await put(uniqueFilename, body, {
             access: 'public',
             contentType,
         });
+
+        if (currentUser?.image) {
+            await del(currentUser.image); // Vercel Blob delete
+        }
 
         await prisma.user.update({
             where: { id: session.user.id },
