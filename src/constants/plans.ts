@@ -1,6 +1,6 @@
-import { PlanDetail } from '@/types/PricingSectionProps';
+import type { Plan } from '@/types/pricing';
 
-export const PLANS: PlanDetail[] = [
+export const PLANS: Plan[] = [
     {
         id: 'freelancer',
         monthlyPrice: 19,

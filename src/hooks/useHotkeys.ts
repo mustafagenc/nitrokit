@@ -1,6 +1,13 @@
 import React from 'react';
 
-import { Shortcut } from '@/types/Shortcut';
+export interface Shortcut {
+    key: string;
+    metaKey?: boolean;
+    ctrlKey?: boolean;
+    shiftKey?: boolean;
+    altKey?: boolean;
+    action: (event: KeyboardEvent) => void;
+}
 
 /**
  * A custom React hook that listens for keyboard shortcuts and executes corresponding actions.

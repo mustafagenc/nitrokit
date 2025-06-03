@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { usePathname, Link } from '@/lib/i18n/navigation';
 import { useTranslations } from 'next-intl';
-import { cn } from '@/utils/helpers';
+import { cn } from '@/lib';
 import { Button } from '@/components/ui/button';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';

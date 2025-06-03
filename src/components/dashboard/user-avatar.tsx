@@ -1,6 +1,6 @@
 import React from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { cn } from '@/utils/helpers';
+import { cn } from '@/lib';
 
 interface UserAvatarProps {
     src?: string | null;

@@ -7,7 +7,7 @@ declare module 'next-auth' {
         email: string;
         name?: string | null;
         image?: string | null;
-        role: string; // ✅ Role property eklendi
+        role: string;
     }
 
     interface Session {
@@ -16,7 +16,7 @@ declare module 'next-auth' {
             email: string;
             name?: string | null;
             image?: string | null;
-            role: string; // ✅ Session'da da role
+            role: string;
         };
     }
 }
@@ -24,6 +24,6 @@ declare module 'next-auth' {
 declare module 'next-auth/jwt' {
     interface JWT {
         sub: string;
-        role: string; // ✅ JWT token'da role
+        role: string;
     }
 }

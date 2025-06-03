@@ -11,7 +11,7 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { localesWithFlag } from '@/constants/locale';
 import { usePathname, useRouter } from '@/lib/i18n/navigation';
-import { cn } from '@/utils/helpers';
+import { cn } from '@/lib';
 
 export const CompactLocaleSwitcher = () => {
     const router = useRouter();

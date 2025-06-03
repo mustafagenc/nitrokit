@@ -1,7 +1,7 @@
 'use client';
 
 import { Link } from '@/i18n/navigation';
-import { cn } from '@/utils/helpers';
+import { cn } from '@/lib';
 import { ChevronRight, Sparkles } from 'lucide-react';
 import { useState } from 'react';
 

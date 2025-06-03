@@ -1,7 +1,7 @@
 'use server';
 
 import { sendContactEmail } from '@/lib/email';
-import { TContactFormSchema } from '@/lib/validators/contact-form';
+import { type ContactFormData } from '@/lib/validations';
 
 interface EmailData {
     id?: string;
@@ -14,7 +14,7 @@ interface ActionResult {
     data?: EmailData;
 }
 
-export async function sendEmail(data: TContactFormSchema): Promise<ActionResult> {
+export async function sendEmail(data: ContactFormData): Promise<ActionResult> {
     try {
         const result = await sendContactEmail({
             name: data.name,

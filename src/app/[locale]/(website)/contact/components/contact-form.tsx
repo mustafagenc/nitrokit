@@ -20,8 +20,8 @@ import {
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
-import { ContactFormSchema, TContactFormSchema } from '@/lib/validators/contact-form';
-import { cn } from '@/utils/helpers';
+import { contactFormSchema, type ContactFormData } from '@/lib/validations';
+import { cn } from '@/lib';
 
 type FormStatus = 'idle' | 'success' | 'error';
 
@@ -30,8 +30,8 @@ export const ContactForm = () => {
     const [isPending, startTransition] = useTransition();
     const [formStatus, setFormStatus] = useState<FormStatus>('idle');
 
-    const form = useForm<TContactFormSchema>({
-        resolver: zodResolver(ContactFormSchema(t)),
+    const form = useForm<ContactFormData>({
+        resolver: zodResolver(contactFormSchema(t)),
         defaultValues: {
             name: '',
             email: '',
@@ -44,7 +44,7 @@ export const ContactForm = () => {
         formState: { isSubmitting, errors, isValid, touchedFields },
     } = form;
 
-    const handleFormSubmit: SubmitHandler<TContactFormSchema> = async data => {
+    const handleFormSubmit: SubmitHandler<ContactFormData> = async data => {
         startTransition(async () => {
             try {
                 setFormStatus('idle');

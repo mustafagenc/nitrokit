@@ -7,7 +7,7 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Bell, User, MessageSquare, Calendar, CheckCircle2, X } from 'lucide-react';
 import { Link } from '@/lib/i18n/navigation';
-import { cn } from '@/utils/helpers';
+import { cn } from '@/lib';
 
 const notifications = [
     {

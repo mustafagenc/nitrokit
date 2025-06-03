@@ -13,7 +13,7 @@ import {
     NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu';
 import { Badge } from '@/components/ui/badge';
-import { cn } from '@/utils/helpers';
+import { cn } from '@/lib';
 import { COMPONENTS, SERVICES } from '@/constants/menu';
 
 export function Navbar() {
