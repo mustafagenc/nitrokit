@@ -20,7 +20,7 @@ import { Badge } from '@/components/ui/badge';
 import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { cn } from '@/utils/helpers';
+import { cn } from '@/lib';
 import { COMPONENTS, SERVICES } from '@/constants/menu';
 
 interface NavbarMobileProps {

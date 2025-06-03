@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 
 import SharedLayout from '@/components/layout/shared';
-import { generatePageMetadata } from '@/utils/helpers';
+import { generatePageMetadata } from '@/lib';
 import PricingSection from './components/pricing-section';
 import { PLANS } from '@/constants/plans';
 import { ActionBanner } from '@/components/banners/action-banner';
@@ -33,7 +33,7 @@ export default async function Page() {
                 <p className="mt-10 text-xl">{t('pricing.description')}</p>
             </div>
             <div className="mb-10 lg:mb-20">
-                <PricingSection plansConfig={PLANS} />
+                <PricingSection plans={PLANS} />
             </div>
             <div className="mb-30">
                 <ActionBanner

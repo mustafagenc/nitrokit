@@ -1,8 +1,15 @@
 'use client';
 
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import { InfoTooltipProps } from '@/types/InfoTooltipProps';
-import { cn } from '@/utils/helpers';
+import { cn } from '@/lib';
+import { HTMLAttributes } from 'react';
+
+export interface InfoTooltipProps extends HTMLAttributes<HTMLDivElement> {
+    children: React.ReactNode;
+    label: string;
+    side?: 'left' | 'top' | 'right' | 'bottom';
+    align?: 'start' | 'center' | 'end';
+}
 
 export const InfoTooltip = ({ label, side, align, children, className }: InfoTooltipProps) => {
     return (

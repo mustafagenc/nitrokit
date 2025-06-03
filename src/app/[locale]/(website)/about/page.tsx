@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 
 import SharedLayout from '@/components/layout/shared';
-import { generatePageMetadata } from '@/utils/helpers';
+import { generatePageMetadata } from '@/lib';
 
 export async function generateMetadata(): Promise<Metadata> {
     const t = await getTranslations('about');

@@ -10,7 +10,7 @@ import { geistMono, geistSans, lexend } from '@/constants/fonts';
 import { routing } from '@/lib/i18n/routing';
 import AnalyticsProvider from '@/providers/analytics-provider';
 import NextThemeProvider from '@/providers/next-theme-provider';
-import { generateSiteMetadata } from '@/utils/helpers';
+import { generateSiteMetadata } from '@/lib';
 
 import notFound from './not-found';
 

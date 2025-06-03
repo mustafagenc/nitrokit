@@ -1,5 +1,5 @@
 import { Html, Head, Preview, Body, Container, Section, Text, Img } from '@react-email/components';
-import { getBaseUrl } from '@/utils/helpers';
+import { getBaseUrl } from '@/lib';
 
 interface BaseEmailProps {
     preview: string;

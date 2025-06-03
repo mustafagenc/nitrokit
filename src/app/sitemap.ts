@@ -1,5 +1,5 @@
 import { ROUTES } from '@/constants/menu';
-import { getBaseUrl } from '@/utils/helpers';
+import { getBaseUrl } from '@/lib';
 
 import type { MetadataRoute } from 'next';
 

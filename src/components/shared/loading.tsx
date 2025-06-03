@@ -2,7 +2,10 @@
 
 import { Loader2 } from 'lucide-react';
 
-import { LoadingProps } from '@/types/LoadingProps';
+export interface LoadingProps {
+    text?: string;
+    className?: string;
+}
 
 export default function Loading({ text, className }: LoadingProps) {
     return (

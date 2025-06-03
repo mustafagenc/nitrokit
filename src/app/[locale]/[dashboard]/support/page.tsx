@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 
-import { generatePageMetadata } from '@/utils/helpers';
+import { generatePageMetadata } from '@/lib';
 
 export async function generateMetadata(): Promise<Metadata> {
     return await generatePageMetadata({

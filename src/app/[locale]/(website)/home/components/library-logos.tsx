@@ -1,4 +1,4 @@
-import { getStroybookUrl } from '@/utils/helpers';
+import { getStroybookUrl } from '@/lib';
 import { ThemedImage } from '@/components/shared/themed-image';
 
 export const LibraryLogos = () => {

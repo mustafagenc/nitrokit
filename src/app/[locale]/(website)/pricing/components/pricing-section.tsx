@@ -4,11 +4,11 @@ import { useState } from 'react';
 import { useFormatter, useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import { CheckIcon } from '@/components/icons/check';
-import { PricingSectionProps } from '@/types/PricingSectionProps';
+import { PricingProps } from '@/types/pricing';
 import BillingCycleToggle from './billging-cycle-toggle';
 import { DEFAULT_CURRENCY } from '@/constants/locale';
 
-export default function PricingSection({ plansConfig }: PricingSectionProps) {
+export default function PricingSection({ plans }: PricingProps) {
     const t = useTranslations();
     const [billingCycle, setBillingCycle] = useState('yearly');
     const format = useFormatter();
@@ -32,9 +32,8 @@ export default function PricingSection({ plansConfig }: PricingSectionProps) {
                 </div>
             </div>
 
-            {/* ${plansConfig.length} */}
             <div className={`mt-6 grid grid-cols-1 items-end gap-0 md:grid-cols-2 lg:grid-cols-3`}>
-                {plansConfig.map(plan => {
+                {plans.map(plan => {
                     const price = billingCycle === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice;
                     const priceSuffixKey =
                         billingCycle === 'monthly' ? 'pricePerMonth' : 'pricePerYear';
