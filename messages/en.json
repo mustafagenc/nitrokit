@@ -121,7 +121,11 @@
             "successDescription": "You can now sign in with your new password",
             "confirmError": "Failed to reset password",
             "newPasswordTitle": "Set New Password",
-            "newPasswordDescription": "Enter your new password below"
+            "newPasswordDescription": "Enter your new password below",
+            "invalidResetLink": {
+                "title": "Invalid Reset Link",
+                "description": "The password reset link is invalid or has expired."
+            }
         },
         "signout": "Sign Out",
         "signinWithGoogle": "Sign In with Google",
