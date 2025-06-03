@@ -1,16 +1,112 @@
 import { Metadata } from 'next';
-
+import { redirect } from 'next/navigation';
+import { auth } from '@/auth';
+import { prisma } from '@/lib/prisma';
 import { generatePageMetadata } from '@/lib';
+import { ProfileForm } from './components/profile-form';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Shield, Calendar, Mail } from 'lucide-react';
 
 export async function generateMetadata(): Promise<Metadata> {
     return await generatePageMetadata({
         params: Promise.resolve({
-            title: 'Account Information',
-            description: 'This is the account information page',
+            title: 'Account Settings',
+            description: 'Manage your account information and preferences',
         }),
     });
 }
 
-export default async function Page() {
-    return <div>Account Information</div>;
+export default async function AccountPage() {
+    const session = await auth();
+
+    if (!session) {
+        redirect('/signin');
+    }
+
+    const user = await prisma.user.findUnique({
+        where: { id: session.user.id },
+        select: {
+            id: true,
+            firstName: true,
+            lastName: true,
+            name: true,
+            email: true,
+            phone: true,
+            image: true,
+            role: true,
+            emailVerified: true,
+            createdAt: true,
+        },
+    });
+
+    if (!user) {
+        redirect('/signin');
+    }
+
+    return (
+        <div className="container mx-auto max-w-4xl space-y-8 py-8">
+            <Card>
+                <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                        <Shield className="h-5 w-5" />
+                        Account Overview
+                    </CardTitle>
+                    <CardDescription>Your account status and basic information</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                    <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+                        <div className="space-y-2">
+                            <div className="text-muted-foreground text-sm">Account Status</div>
+                            <Badge variant={user.emailVerified ? 'default' : 'secondary'}>
+                                {user.emailVerified ? 'Verified' : 'Unverified'}
+                            </Badge>
+                        </div>
+                        <div className="space-y-2">
+                            <div className="text-muted-foreground text-sm">Role</div>
+                            <Badge variant="outline">{user.role}</Badge>
+                        </div>
+                        <div className="space-y-2">
+                            <div className="text-muted-foreground flex items-center gap-1 text-sm">
+                                <Calendar className="h-3 w-3" />
+                                Member Since
+                            </div>
+                            <div className="text-sm font-medium">
+                                {new Date(user.createdAt).toLocaleDateString()}
+                            </div>
+                        </div>
+                    </div>
+                </CardContent>
+            </Card>
+            <ProfileForm user={user} />
+            <Card>
+                <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                        <Mail className="h-5 w-5" />
+                        Email Verification
+                    </CardTitle>
+                    <CardDescription>Manage your email verification status</CardDescription>
+                </CardHeader>
+                <CardContent>
+                    {user.emailVerified ? (
+                        <div className="flex items-center gap-2 text-green-600">
+                            <div className="h-2 w-2 rounded-full bg-green-600" />
+                            Your email address is verified
+                        </div>
+                    ) : (
+                        <div className="space-y-3">
+                            <div className="flex items-center gap-2 text-orange-600">
+                                <div className="h-2 w-2 rounded-full bg-orange-600" />
+                                Your email address is not verified
+                            </div>
+                            <p className="text-muted-foreground text-sm">
+                                Please check your email for a verification link or request a new
+                                one.
+                            </p>
+                        </div>
+                    )}
+                </CardContent>
+            </Card>
+        </div>
+    );
 }

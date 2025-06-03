@@ -72,6 +72,13 @@ export function UserMenu({ size = 'size-11' }: UserMenuProps) {
         router.push(route);
     }
 
+    const getDisplayName = () => {
+        if (session?.user?.firstName && session?.user?.lastName) {
+            return `${session.user.firstName} ${session.user.lastName}`;
+        }
+        return session?.user?.name || 'User';
+    };
+
     if (status === 'unauthenticated') {
         return (
             <div className="flex items-center gap-2 lg:ml-4">
@@ -90,23 +97,18 @@ export function UserMenu({ size = 'size-11' }: UserMenuProps) {
     return (
         <Popover open={open} onOpenChange={setOpen}>
             <PopoverTrigger asChild>
-                <UserAvatar
-                    src={session.user.image}
-                    name={session.user.name}
-                    size={size}
-                    className="ml-4"
-                />
+                <UserAvatar useSessionData={true} size={size} className="ml-4" />
             </PopoverTrigger>
             <PopoverContent className="w-60 p-0 shadow-xs" side="bottom" align="end">
                 <div className="flex w-full flex-row items-start justify-start gap-3 p-3">
                     <div>
-                        <UserAvatar src={session.user.image} name={session.user.name} size={size} />
+                        <UserAvatar useSessionData={true} size={size} />
                     </div>
-                    <div>
-                        <h4 className="mt-2 text-xs font-semibold text-ellipsis text-gray-800 dark:text-white">
-                            {session.user.name}
+                    <div className="min-w-0 flex-1">
+                        <h4 className="mt-2 truncate text-xs font-semibold text-gray-800 dark:text-white">
+                            {getDisplayName()}
                         </h4>
-                        <p className="text-xs font-normal text-ellipsis text-gray-600 dark:text-gray-400">
+                        <p className="truncate text-xs font-normal text-gray-600 dark:text-gray-400">
                             {session.user.email}
                         </p>
                     </div>
