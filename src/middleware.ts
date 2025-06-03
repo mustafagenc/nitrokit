@@ -9,6 +9,10 @@ import type { NextRequest } from 'next/server';
 const intlMiddleware = createIntlMiddleware(routing);
 
 export async function middleware(request: NextRequest) {
+    if (process.env.SKIP_MIDDLEWARE === 'true') {
+        return NextResponse.next();
+    }
+
     if (request.nextUrl.pathname.startsWith('/api/')) {
         const isAuthRoute = request.nextUrl.pathname.startsWith('/api/auth/');
 
