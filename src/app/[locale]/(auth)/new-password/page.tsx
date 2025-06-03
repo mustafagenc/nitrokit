@@ -1,4 +1,3 @@
-// src/app/[locale]/(auth)/new-password/page.tsx
 'use client';
 
 import { Suspense } from 'react';
@@ -14,8 +13,12 @@ function NewPasswordContent() {
     if (!token) {
         return (
             <div className="flex flex-col items-center justify-center gap-4 text-center">
-                <h2 className="text-xl font-bold text-red-600">Invalid Reset Link</h2>
-                <p className="text-gray-600">The password reset link is invalid or has expired.</p>
+                <h2 className="text-xl font-bold text-red-600">
+                    {t('auth.resetPassword.invalidResetLink.title')}
+                </h2>
+                <p className="text-gray-600">
+                    {t('auth.resetPassword.invalidResetLink.description')}
+                </p>
             </div>
         );
     }
