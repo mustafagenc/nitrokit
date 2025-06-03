@@ -6,6 +6,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { sendEmail } from '@/lib/actions/contact';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -19,9 +20,8 @@ import {
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
-import { sendEmail } from '@/lib/resend';
-import { ContactFormSchema, TContactFormSchema } from '@/lib/validators/contact-form';
-import { cn } from '@/utils/helpers';
+import { contactFormSchema, type ContactFormData } from '@/lib/validations';
+import { cn } from '@/lib';
 
 type FormStatus = 'idle' | 'success' | 'error';
 
@@ -30,8 +30,8 @@ export const ContactForm = () => {
     const [isPending, startTransition] = useTransition();
     const [formStatus, setFormStatus] = useState<FormStatus>('idle');
 
-    const form = useForm<TContactFormSchema>({
-        resolver: zodResolver(ContactFormSchema(t)),
+    const form = useForm<ContactFormData>({
+        resolver: zodResolver(contactFormSchema(t)),
         defaultValues: {
             name: '',
             email: '',
@@ -44,21 +44,18 @@ export const ContactForm = () => {
         formState: { isSubmitting, errors, isValid, touchedFields },
     } = form;
 
-    const handleFormSubmit: SubmitHandler<TContactFormSchema> = async data => {
+    const handleFormSubmit: SubmitHandler<ContactFormData> = async data => {
         startTransition(async () => {
             try {
                 setFormStatus('idle');
-                const { success, error } = await sendEmail(data);
+                const result = await sendEmail(data);
 
-                if (!success) {
+                if (!result.success) {
                     setFormStatus('error');
-                    toast.error(
-                        typeof error === 'string' ? error : error?.message || t('common.error'),
-                        {
-                            icon: <AlertCircle className="h-4 w-4" />,
-                            description: 'Please try again later or contact us directly.',
-                        }
-                    );
+                    toast.error(result.error || t('common.error'), {
+                        icon: <AlertCircle className="h-4 w-4" />,
+                        description: 'Please try again later or contact us directly.',
+                    });
                     return;
                 }
 

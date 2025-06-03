@@ -1,9 +1,11 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import PasswordStrengthBar from 'react-password-strength-bar';
+import { toast } from 'sonner';
 import { z } from 'zod';
 
 import { Button } from '@/components/ui/button';
@@ -17,10 +19,14 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { PasswordInput } from '@/components/ui/password-input';
+import { Alert, AlertDescription } from '@/components/ui/alert';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 export default function SignupForm() {
     const [password, setPassword] = useState<string>('');
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState('');
+    const router = useRouter();
     const t = useTranslations();
 
     const scoreWords: string[] = [
@@ -87,13 +93,55 @@ export default function SignupForm() {
         },
     });
 
-    function onSubmit(values: z.infer<typeof formSchema>) {
+    async function onSubmit(values: z.infer<typeof formSchema>) {
+        setIsLoading(true);
+        setError('');
+
         try {
-            console.log(values);
-        } catch (error) {
-            if (error instanceof z.ZodError) {
-                console.error(error);
+            const response = await fetch('/api/auth/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: values.name,
+                    email: values.email,
+                    password: values.password,
+                }),
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.error || t('auth.signup.error'));
             }
+
+            if (data.requiresVerification) {
+                toast.success(t('auth.signup.verificationRequired'), {
+                    description: t('auth.signup.verificationDescription', { email: values.email }),
+                    duration: 6000,
+                });
+
+                form.reset();
+                router.push(`/verify-email-sent?email=${encodeURIComponent(values.email)}`);
+            } else {
+                toast.success(t('auth.signup.success'), {
+                    description: t('auth.signup.successDescription'),
+                });
+
+                form.reset();
+                router.push('/signin?message=account-created');
+            }
+        } catch (error) {
+            console.error('Signup error:', error);
+            const errorMessage = error instanceof Error ? error.message : t('auth.signup.error');
+            setError(errorMessage);
+
+            toast.error(t('auth.signup.error'), {
+                description: errorMessage,
+            });
+        } finally {
+            setIsLoading(false);
         }
     }
 
@@ -104,6 +152,12 @@ export default function SignupForm() {
     return (
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6">
+                {error && (
+                    <Alert variant="destructive">
+                        <AlertDescription>{error}</AlertDescription>
+                    </Alert>
+                )}
+
                 <FormField
                     control={form.control}
                     name="name"
@@ -115,12 +169,15 @@ export default function SignupForm() {
                                     {...field}
                                     placeholder={t('placeholder.enterYourName')}
                                     type="text"
+                                    disabled={isLoading}
+                                    autoComplete="name"
                                 />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
                     )}
                 />
+
                 <FormField
                     control={form.control}
                     name="email"
@@ -132,12 +189,15 @@ export default function SignupForm() {
                                     {...field}
                                     placeholder={t('placeholder.enterYourEmail')}
                                     type="email"
+                                    disabled={isLoading}
+                                    autoComplete="email"
                                 />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
                     )}
                 />
+
                 <FormField
                     control={form.control}
                     name="password"
@@ -149,6 +209,7 @@ export default function SignupForm() {
                                     {...field}
                                     placeholder={t('placeholder.enterYourPassword')}
                                     autoComplete="new-password"
+                                    disabled={isLoading}
                                     onChangeCapture={e => setPassword(e.currentTarget.value)}
                                 />
                             </FormControl>
@@ -156,12 +217,14 @@ export default function SignupForm() {
                         </FormItem>
                     )}
                 />
+
                 <PasswordStrengthBar
                     password={password}
                     minLength={passwordMinLength}
                     scoreWords={scoreWords}
                     shortScoreWord={t('validation.password.tooShort')}
                 />
+
                 <FormField
                     control={form.control}
                     name="confirmPassword"
@@ -173,16 +236,26 @@ export default function SignupForm() {
                                     {...field}
                                     placeholder={t('placeholder.confirmYourPassword')}
                                     autoComplete="new-password"
+                                    disabled={isLoading}
                                 />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
                     )}
                 />
+
                 <Button
                     type="submit"
-                    className="flex w-full cursor-pointer items-center justify-center gap-2 bg-blue-600 hover:bg-blue-600/80">
-                    {t('auth.signup')}
+                    className="flex w-full cursor-pointer items-center justify-center gap-2 bg-blue-600 hover:bg-blue-600/80"
+                    disabled={isLoading}>
+                    {isLoading ? (
+                        <>
+                            <div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
+                            {t('auth.signup.creating')}
+                        </>
+                    ) : (
+                        t('auth.signup.title')
+                    )}
                 </Button>
             </form>
         </Form>

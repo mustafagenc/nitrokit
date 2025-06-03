@@ -1,4 +1,4 @@
-import { getBaseUrl } from '@/utils/helpers';
+import { getBaseUrl } from '@/lib';
 
 const DEFAULT_LANGUAGE = 'en';
 const DEFAULT_CURRENCY = 'USD';

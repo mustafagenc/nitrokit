@@ -12,7 +12,7 @@ import {
     navigationMenuTriggerStyle,
     NavigationMenuViewport,
 } from '../../components/ui/navigation-menu';
-import { cn } from '../../utils/helpers'; // Assuming you have a cn utility
+import { cn } from '../../lib'; // Assuming you have a cn utility
 import { Rocket, LogOut, Settings, User } from 'lucide-react';
 
 const meta: Meta<typeof NavigationMenu> = {

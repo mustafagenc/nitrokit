@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 
-import { cn } from '@/utils/helpers';
+import { cn } from '@/lib';
 import * as TooltipPrimitive from '@radix-ui/react-tooltip';
 
 function TooltipProvider({

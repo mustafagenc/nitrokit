@@ -5,7 +5,7 @@ import * as React from 'react';
 
 import { signIn } from '@/auth';
 import { Button, buttonVariants } from '@/components/ui/button';
-import { cn } from '@/utils/helpers';
+import { cn } from '@/lib';
 
 type Provider = 'google' | 'github' | 'gitlab' | 'apple' | 'instagram' | 'facebook';
 

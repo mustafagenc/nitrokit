@@ -4,8 +4,11 @@ import { useTranslations } from 'next-intl';
 
 import { NAV_LINKS } from '@/constants/menu';
 import { Link } from '@/lib/i18n/navigation';
-import { NavbarProps } from '@/types/NavbarProps';
-import { cn } from '@/utils/helpers';
+import { cn } from '@/lib';
+
+export interface NavbarProps {
+    className?: string;
+}
 
 export const FooterNavbar = ({ className }: NavbarProps) => {
     const t = useTranslations();

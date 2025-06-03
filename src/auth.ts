@@ -7,13 +7,10 @@ import Resend from 'next-auth/providers/resend';
 import Apple from 'next-auth/providers/apple';
 import Instagram from 'next-auth/providers/instagram';
 import Facebook from 'next-auth/providers/facebook';
+import bcrypt from 'bcryptjs';
 
 import { prisma } from '@/lib/prisma';
 import { PrismaAdapter } from '@auth/prisma-adapter';
-
-// class InvalidLoginError extends CredentialsSignin {
-//   code = "Invalid identifier or password"
-// }
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
     adapter: PrismaAdapter(prisma),
@@ -26,46 +23,57 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         Instagram,
         Facebook,
         Credentials({
+            name: 'credentials',
             credentials: {
-                email: { label: 'E-mail', type: 'email' },
+                email: { label: 'Email', type: 'email' },
                 password: { label: 'Password', type: 'password' },
             },
-            // authorize: async (credentials) => {
-            //   let user = null
-            //   const pwHash = saltAndHashPassword(credentials.password)
-            //   user = await getUserFromDb(credentials.email, pwHash)
-            //   if (!user) {
-            //     throw new Error("Invalid credentials.")
-            //   }
-            //   return user
-            // },
-            // async authorize(credentials, request) {
-            //   if (!request) throw new InvalidLoginError();
-            //   const response = await fetch(request)
-            //   if (!response.ok) throw new InvalidLoginError();
-            //   return (await response.json()) ?? null
-            // },
             async authorize(credentials) {
-                // Add your logic here to look up the user from the credentials supplied
-                // For example, find a user in your database:
-                // const user = await prisma.user.findUnique({ where: { email: credentials.email } });
-                // if (user && bcrypt.compareSync(credentials.password, user.password)) {
-                //   return user; // Return user object if credentials are valid
-                // }
-                // If you return null then an error will be displayed advising the user to check their details.
-                // return null;
-
-                // Or, if you want to throw a specific error:
-                // throw new Error("Invalid credentials");
-
-                // Placeholder: Replace with your actual authentication logic
-                if (
-                    credentials?.email === 'user@example.com' &&
-                    credentials?.password === 'password'
-                ) {
-                    return { id: '1', name: 'Test User', email: 'user@example.com' };
+                if (!credentials?.email || !credentials?.password) {
+                    return null;
                 }
-                return null;
+
+                try {
+                    const user = await prisma.user.findUnique({
+                        where: {
+                            email: credentials.email as string,
+                            isActive: true,
+                        },
+                    });
+
+                    if (!user || !user.password) {
+                        return null;
+                    }
+
+                    if (!user.emailVerified) {
+                        throw new Error('Please verify your email before signing in');
+                    }
+
+                    const isValidPassword = await bcrypt.compare(
+                        credentials.password as string,
+                        user.password
+                    );
+
+                    if (!isValidPassword) {
+                        return null;
+                    }
+
+                    await prisma.user.update({
+                        where: { id: user.id },
+                        data: { lastLoginAt: new Date() },
+                    });
+
+                    return {
+                        id: user.id,
+                        email: user.email,
+                        name: user.name,
+                        image: user.image,
+                        role: user.role,
+                    };
+                } catch (error) {
+                    console.error('Authentication error:', error);
+                    return null;
+                }
             },
         }),
     ],
@@ -73,14 +81,30 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         async session({ session, token }) {
             if (token.sub && session.user) {
                 session.user.id = token.sub;
+                session.user.role = token.role;
             }
             return session;
         },
         async jwt({ token, user }) {
             if (user) {
                 token.sub = user.id;
+                token.role = user.role;
             }
             return token;
+        },
+        async signIn({ user, account }) {
+            if (account?.provider !== 'credentials') {
+                const dbUser = await prisma.user.findUnique({
+                    where: { email: user.email! },
+                });
+
+                if (dbUser) {
+                    user.role = dbUser.role;
+                } else {
+                    user.role = 'USER';
+                }
+            }
+            return true;
         },
     },
     session: {

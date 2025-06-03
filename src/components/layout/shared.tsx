@@ -1,4 +1,4 @@
-import { cn } from '@/utils/helpers';
+import { cn } from '@/lib';
 
 export default async function SharedLayout({
     mainClassName,

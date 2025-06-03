@@ -2,7 +2,7 @@
 import { getTranslations } from 'next-intl/server';
 import { ImageResponse } from 'next/og';
 
-import { getBaseUrl } from '@/utils/helpers';
+import { getBaseUrl } from '@/lib';
 
 // export async function GET(request: Request) {
 export async function GET() {

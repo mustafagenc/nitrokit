@@ -1,7 +1,7 @@
 import { getLocale, getTranslations } from 'next-intl/server';
 import { getLangDir } from 'rtl-detect';
 
-import { getBaseUrl } from '@/utils/helpers';
+import { getBaseUrl } from '@/lib';
 
 import type { MetadataRoute } from 'next';
 export default async function manifest(): Promise<MetadataRoute.Manifest> {

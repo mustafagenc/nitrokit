@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const ContactFormSchema = (t: (key: string) => string) => {
+export const contactFormSchema = (t: (key: string) => string) => {
     return z.object({
         name: z.string().min(3, { message: t('validation.required.name') }),
         email: z
@@ -11,4 +11,4 @@ export const ContactFormSchema = (t: (key: string) => string) => {
     });
 };
 
-export type TContactFormSchema = z.infer<ReturnType<typeof ContactFormSchema>>;
+export type ContactFormData = z.infer<ReturnType<typeof contactFormSchema>>;

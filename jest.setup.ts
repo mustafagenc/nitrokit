@@ -1,13 +1,14 @@
+// jest.setup.ts
 import '@testing-library/jest-dom';
 
-// ResizeObserver mock
-class ResizeObserver {
-    observe() {}
-    unobserve() {}
-    disconnect() {}
-}
+process.env.SKIP_MIDDLEWARE = 'true';
 
-global.ResizeObserver = ResizeObserver;
+// ResizeObserver mock
+global.ResizeObserver = jest.fn().mockImplementation(() => ({
+    observe: jest.fn(),
+    unobserve: jest.fn(),
+    disconnect: jest.fn(),
+}));
 
 // Mock window.matchMedia
 Object.defineProperty(window, 'matchMedia', {
@@ -23,3 +24,29 @@ Object.defineProperty(window, 'matchMedia', {
         dispatchEvent: jest.fn(),
     })),
 });
+
+// Mock Next.js router
+jest.mock('next/navigation', () => ({
+    useRouter() {
+        return {
+            push: jest.fn(),
+            replace: jest.fn(),
+            prefetch: jest.fn(),
+            back: jest.fn(),
+            pathname: '/',
+            query: {},
+        };
+    },
+    useSearchParams() {
+        return new URLSearchParams();
+    },
+    usePathname() {
+        return '/';
+    },
+}));
+
+// Mock next-intl
+jest.mock('next-intl', () => ({
+    useTranslations: () => (key: string) => key,
+    useLocale: () => 'en',
+}));

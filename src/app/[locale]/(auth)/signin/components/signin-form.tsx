@@ -62,13 +62,13 @@ export default function SigninForm() {
             });
 
             if (result?.error) {
-                toast.error(t('auth.error.invalidCredentials'));
+                toast.error(t('auth.signin.invalidCredentials'));
             } else if (result?.ok) {
-                toast.success(t('auth.success.signedIn'));
+                toast.success(t('auth.signin.success'));
                 router.push(callbackUrl);
             }
         } catch {
-            toast.error(t('auth.error.somethingWentWrong'));
+            toast.error(t('auth.signin.error'));
         } finally {
             setIsLoading(false);
         }
@@ -117,7 +117,7 @@ export default function SigninForm() {
                 <Button
                     type="submit"
                     className="flex w-full cursor-pointer items-center justify-center gap-2 bg-blue-600 hover:bg-blue-600/80">
-                    {isLoading ? t('auth.signingIn') : t('auth.signin')}
+                    {isLoading ? t('auth.signin.signing') : t('auth.signin.title')}
                 </Button>
             </form>
         </Form>
