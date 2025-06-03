@@ -46,6 +46,9 @@
       "@/i18n/*": [
         "./src/lib/i18n/*"
       ],
+      "@/utils/*": [
+        "./src/lib/utils/*"
+      ],
       "@/lib/*": [
         "./src/lib/*"
       ],
@@ -57,9 +60,6 @@
       ],
       "@/types/*": [
         "./src/types/*"
-      ],
-      "@/utils/*": [
-        "./src/utils/*"
       ],
       "@/*": [
         "./src/*"
