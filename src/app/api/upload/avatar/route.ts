@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { put } from '@vercel/blob';
 import { auth } from '@/auth';
+import { prisma } from '@/lib/prisma';
 
 export async function POST(request: NextRequest) {
     try {
@@ -43,6 +44,11 @@ export async function POST(request: NextRequest) {
         const blob = await put(uniqueFilename, body, {
             access: 'public',
             contentType,
+        });
+
+        await prisma.user.update({
+            where: { id: session.user.id },
+            data: { image: blob.url },
         });
 
         return NextResponse.json({

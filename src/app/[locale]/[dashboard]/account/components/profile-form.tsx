@@ -162,7 +162,7 @@ export function ProfileForm({ user }: ProfileFormProps) {
                             onRemove={handleImageRemove}
                             disabled={isLoading}
                             fallback={
-                                user.firstName?.charAt(0) ||
+                                `${user.firstName?.charAt(0)}${user.lastName?.charAt(0)}` ||
                                 user.name?.charAt(0) ||
                                 user.email.charAt(0)
                             }

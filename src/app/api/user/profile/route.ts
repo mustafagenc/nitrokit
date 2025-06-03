@@ -30,7 +30,6 @@ export async function PUT(request: NextRequest) {
                 lastName: validatedData.lastName,
                 name,
                 phone: validatedData.phone || null,
-                image: validatedData.image || null,
             },
             select: {
                 id: true,
@@ -39,7 +38,6 @@ export async function PUT(request: NextRequest) {
                 name: true,
                 email: true,
                 phone: true,
-                image: true,
                 role: true,
             },
         });

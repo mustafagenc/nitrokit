@@ -88,7 +88,7 @@ export const UserAvatar = React.forwardRef<HTMLButtonElement, UserAvatarProps>(
                 className={cn(`border-stroke cursor-pointer border-1`, size, className)}
                 {...props}>
                 <AvatarImage
-                    src={avatarSrc ?? undefined} // null ise undefined gönder
+                    src={avatarSrc ?? undefined}
                     alt={displayName ?? 'User'}
                     key={`${avatarSrc}-${forceUpdate}`}
                 />

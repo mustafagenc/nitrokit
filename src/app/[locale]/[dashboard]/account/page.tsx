@@ -6,7 +6,7 @@ import { generatePageMetadata } from '@/lib';
 import { ProfileForm } from './components/profile-form';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Shield, Calendar, Mail } from 'lucide-react';
+import { Shield, Calendar } from 'lucide-react';
 
 export async function generateMetadata(): Promise<Metadata> {
     return await generatePageMetadata({
@@ -79,34 +79,6 @@ export default async function AccountPage() {
                 </CardContent>
             </Card>
             <ProfileForm user={user} />
-            <Card>
-                <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                        <Mail className="h-5 w-5" />
-                        Email Verification
-                    </CardTitle>
-                    <CardDescription>Manage your email verification status</CardDescription>
-                </CardHeader>
-                <CardContent>
-                    {user.emailVerified ? (
-                        <div className="flex items-center gap-2 text-green-600">
-                            <div className="h-2 w-2 rounded-full bg-green-600" />
-                            Your email address is verified
-                        </div>
-                    ) : (
-                        <div className="space-y-3">
-                            <div className="flex items-center gap-2 text-orange-600">
-                                <div className="h-2 w-2 rounded-full bg-orange-600" />
-                                Your email address is not verified
-                            </div>
-                            <p className="text-muted-foreground text-sm">
-                                Please check your email for a verification link or request a new
-                                one.
-                            </p>
-                        </div>
-                    )}
-                </CardContent>
-            </Card>
         </div>
     );
 }
