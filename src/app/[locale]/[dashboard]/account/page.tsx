@@ -4,6 +4,7 @@ import { auth } from '@/auth';
 import { prisma } from '@/lib/prisma';
 import { generatePageMetadata } from '@/lib';
 import { ProfileForm } from './components/profile-form';
+import { PasswordForm } from './components/password-form';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Shield, Calendar } from 'lucide-react';
@@ -37,6 +38,7 @@ export default async function AccountPage() {
             role: true,
             emailVerified: true,
             createdAt: true,
+            password: true,
         },
     });
 
@@ -79,6 +81,7 @@ export default async function AccountPage() {
                 </CardContent>
             </Card>
             <ProfileForm user={user} />
+            {user.password && <PasswordForm />}
         </div>
     );
 }

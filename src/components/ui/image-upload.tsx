@@ -108,7 +108,7 @@ export function ImageUpload({ value, onChange, onRemove, disabled, fallback }: I
                 src={preview}
                 name={fallback}
                 size="size-24"
-                className="border-2 border-dashed border-gray-300 dark:border-gray-600"
+                className="border-2 border-gray-300 dark:border-gray-600"
             />
 
             <div className="space-y-3">
