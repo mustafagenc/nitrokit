@@ -8,33 +8,63 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// Notification enum'u ekle
+enum NotificationType {
+  PROFILE_UPDATED
+  PASSWORD_CHANGED
+  AVATAR_UPDATED
+  AVATAR_REMOVED
+  SUPPORT_MESSAGE
+  INVOICE_CREATED
+  INVOICE_PAID
+  SYSTEM_ALERT
+}
+
+// Notification model'i ekle
+model Notification {
+  id        String           @id @default(cuid())
+  userId    String
+  type      NotificationType
+  title     String
+  message   String
+  data      Json?
+  read      Boolean          @default(false)
+  createdAt DateTime         @default(now())
+  updatedAt DateTime         @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("notifications")
+}
+
 model User {
-  id            String          @id @default(cuid())
+  id            String    @id @default(cuid())
   name          String?
-  email         String          @unique
+  email         String    @unique
   emailVerified DateTime?
   image         String?
-  password      String?         // Credentials authentication için
-  role          Role            @default(USER)
-  isActive      Boolean         @default(true)
-  
+  password      String? // Credentials authentication için
+  role          Role      @default(USER)
+  isActive      Boolean   @default(true)
+
   // Relations
-  accounts      Account[]
-  sessions      Session[]
+  accounts       Account[]
+  sessions       Session[]
   authenticators Authenticator[]
-  
+  notifications  Notification[]
+
   // Profile fields
-  firstName     String?
-  lastName      String?
-  phone         String?
-  
+  firstName String?
+  lastName  String?
+  phone     String?
+
   // Security fields
-  lastLoginAt   DateTime?
-  
+  lastLoginAt DateTime?
+
   // Timestamps
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  
+
   @@map("users")
 }
 
@@ -43,7 +73,7 @@ enum Role {
   ADMIN
   MODERATOR
 }
- 
+
 model Account {
   id                String  @id @default(cuid())
   userId            String
@@ -57,43 +87,43 @@ model Account {
   scope             String?
   id_token          String? @db.Text
   session_state     String?
- 
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
- 
+
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
- 
+
   @@unique([provider, providerAccountId])
   @@map("accounts")
 }
- 
+
 model Session {
   id           String   @id @default(cuid())
   sessionToken String   @unique
   userId       String
   expires      DateTime
-  
+
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
- 
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  
+
   @@map("sessions")
 }
- 
+
 model VerificationToken {
-  id         String   @id @default(cuid())
+  id         String    @id @default(cuid())
   identifier String
-  token      String   @unique
+  token      String    @unique
   expires    DateTime
   type       TokenType @default(EMAIL_VERIFICATION)
- 
+
   createdAt DateTime @default(now())
-  
+
   @@unique([identifier, token])
   @@map("verification_tokens")
 }
- 
+
 model Authenticator {
   credentialID         String  @unique
   userId               String
@@ -103,12 +133,12 @@ model Authenticator {
   credentialDeviceType String
   credentialBackedUp   Boolean
   transports           String?
- 
+
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
- 
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
- 
+
   @@id([userId, credentialID])
   @@map("authenticators")
 }
@@ -117,7 +147,7 @@ enum TokenType {
   EMAIL_VERIFICATION
   PASSWORD_RESET
   MAGIC_LINK
-  
+
   @@map("token_types")
 }
 
