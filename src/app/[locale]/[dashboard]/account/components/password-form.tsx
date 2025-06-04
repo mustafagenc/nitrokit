@@ -59,6 +59,30 @@ export function PasswordForm() {
             const result = await response.json();
 
             if (response.ok && result.success) {
+                try {
+                    const notificationResponse = await fetch('/api/notifications', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            type: 'PASSWORD_CHANGED',
+                            title: 'Password Changed',
+                            message: 'Your password has been successfully changed for security.',
+                            data: {
+                                timestamp: new Date().toISOString(),
+                                changeSource: 'settings_page',
+                            },
+                        }),
+                    });
+
+                    if (!notificationResponse.ok) {
+                        console.warn('Failed to create password change notification');
+                    } else {
+                        console.log('Password change notification created successfully');
+                    }
+                } catch (notificationError) {
+                    console.warn('Notification creation failed:', notificationError);
+                }
+
                 toast.success('Password updated successfully!');
                 reset();
             } else {
@@ -66,7 +90,22 @@ export function PasswordForm() {
             }
         } catch (error) {
             console.error('Password update error:', error);
-            toast.error('Something went wrong. Please try again.');
+
+            if (error instanceof Error) {
+                if (error.message.includes('401')) {
+                    toast.error('Please sign in again to continue');
+                } else if (error.message.includes('400')) {
+                    toast.error('Invalid password data. Please check your input.');
+                } else if (error.message.includes('403')) {
+                    toast.error('Current password is incorrect');
+                } else if (error.message.includes('500')) {
+                    toast.error('Server error. Please try again later.');
+                } else {
+                    toast.error('Something went wrong. Please try again.');
+                }
+            } else {
+                toast.error('Something went wrong. Please try again.');
+            }
         } finally {
             setIsLoading(false);
         }
@@ -79,7 +118,10 @@ export function PasswordForm() {
                     <Lock className="h-5 w-5" />
                     Change Password
                 </CardTitle>
-                <CardDescription>Update your password to keep your account secure</CardDescription>
+                <CardDescription>
+                    Update your password to keep your account secure. You&apos;ll receive a
+                    notification when your password is changed.
+                </CardDescription>
             </CardHeader>
             <CardContent>
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">

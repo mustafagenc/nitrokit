@@ -62,6 +62,12 @@ export function ProfileForm({ user }: ProfileFormProps) {
     const onSubmit = async (data: ProfileFormData) => {
         setIsLoading(true);
         try {
+            const changes: string[] = [];
+            if (data.firstName !== user.firstName) changes.push('First Name');
+            if (data.lastName !== user.lastName) changes.push('Last Name');
+            if (data.phone !== user.phone) changes.push('Phone Number');
+            if (data.image !== user.image) changes.push('Profile Picture');
+
             const response = await fetch('/api/user/profile', {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
@@ -75,6 +81,20 @@ export function ProfileForm({ user }: ProfileFormProps) {
             const result = await response.json();
 
             if (result.success) {
+                if (changes.length > 0) {
+                    console.log(changes);
+                    await fetch('/api/notifications', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            type: 'PROFILE_UPDATED',
+                            title: 'Profile Updated',
+                            message: `Your profile has been updated. Changes: ${changes.join(', ')}`,
+                            data: { changes },
+                        }),
+                    });
+                }
+
                 updateAvatar(data.image || null);
                 toast.success('Profile updated successfully!');
                 router.refresh();

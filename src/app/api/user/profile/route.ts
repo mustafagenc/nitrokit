@@ -7,7 +7,7 @@ const updateProfileSchema = z.object({
     firstName: z.string().min(1, 'First name is required').max(50),
     lastName: z.string().min(1, 'Last name is required').max(50),
     phone: z.string().optional(),
-    image: z.string().url().optional(),
+    image: z.string().url().optional().or(z.literal('')),
 });
 
 export async function PUT(request: NextRequest) {
@@ -30,6 +30,7 @@ export async function PUT(request: NextRequest) {
                 lastName: validatedData.lastName,
                 name,
                 phone: validatedData.phone || null,
+                image: validatedData.image || null,
             },
             select: {
                 id: true,
@@ -38,6 +39,7 @@ export async function PUT(request: NextRequest) {
                 name: true,
                 email: true,
                 phone: true,
+                image: true,
                 role: true,
             },
         });
