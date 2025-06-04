@@ -2,7 +2,11 @@ import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
 import { NotificationService } from '@/lib/services/notification-service';
 
-export async function PATCH(request: NextRequest, { params }: { params: { id: string } }) {
+type Params = {
+    id: string;
+};
+
+export async function PATCH(request: NextRequest, { params }: { params: Params }) {
     try {
         const session = await auth();
 
@@ -24,7 +28,7 @@ export async function PATCH(request: NextRequest, { params }: { params: { id: st
     }
 }
 
-export async function DELETE(request: NextRequest, { params }: { params: { id: string } }) {
+export async function DELETE(request: NextRequest, { params }: { params: Params }) {
     try {
         const session = await auth();
 
