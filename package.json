@@ -43,10 +43,7 @@
         "storybook:upgrade": "npx storybook@latest upgrade",
         "db:push": "prisma db push",
         "db:migrate": "prisma migrate dev",
-        "db:studio": "prisma studio",
-        "db:seed": "tsx prisma/seed.ts",
-        "clean": "./shell/dev_clean.sh",
-        "fresh:install": "./shell/dev_clean.sh && yarn install"
+        "db:studio": "prisma studio"
     },
     "dependencies": {
         "@auth/prisma-adapter": "^2.9.1",

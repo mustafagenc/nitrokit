@@ -13,6 +13,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { ImageUpload } from '@/components/ui/image-upload';
 import { User, Phone, Mail, Loader2 } from 'lucide-react';
 import { useAvatar } from '@/contexts/avatar-context';
+import { useNotificationService } from '@/hooks/useNotificationService';
 
 const profileSchema = z.object({
     firstName: z.string().min(1, 'First name is required').max(50),
@@ -37,8 +38,9 @@ interface ProfileFormProps {
 }
 
 export function ProfileForm({ user }: ProfileFormProps) {
-    const { updateAvatar, removeAvatar } = useAvatar(); // Context kullan
+    const { updateAvatar, removeAvatar } = useAvatar();
     const [isLoading, setIsLoading] = useState(false);
+    const { createProfileUpdated } = useNotificationService();
     const router = useRouter();
 
     const {
@@ -81,19 +83,7 @@ export function ProfileForm({ user }: ProfileFormProps) {
             const result = await response.json();
 
             if (result.success) {
-                if (changes.length > 0) {
-                    console.log(changes);
-                    await fetch('/api/notifications', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            type: 'PROFILE_UPDATED',
-                            title: 'Profile Updated',
-                            message: `Your profile has been updated. Changes: ${changes.join(', ')}`,
-                            data: { changes },
-                        }),
-                    });
-                }
+                await createProfileUpdated(changes);
 
                 updateAvatar(data.image || null);
                 toast.success('Profile updated successfully!');

@@ -12,8 +12,23 @@ export const NOTIFICATION_TYPES = {
 
 export type NotificationType = (typeof NOTIFICATION_TYPES)[keyof typeof NOTIFICATION_TYPES];
 
+export interface ClientNotificationData {
+    type: NotificationType;
+    title: string;
+    message: string;
+    data?: NotificationData;
+}
+
+export interface NotificationMetadata {
+    timestamp?: string;
+    changeSource?: string;
+    ipAddress?: string;
+    userAgent?: string;
+    [key: string]: unknown;
+}
+
 export interface ProfileUpdateData {
-    [key: string]: unknown; // Index signature for Prisma compatibility
+    [key: string]: unknown;
     changes: string[];
 }
 
@@ -67,6 +82,18 @@ export interface Notification {
     read: boolean;
     createdAt: string;
     updatedAt: string;
+}
+
+export interface NotificationContextType {
+    notifications: Notification[];
+    unreadCount: number;
+    isLoading: boolean;
+    error: string | null;
+    markAsRead: (id: string) => Promise<void>;
+    markAllAsRead: () => Promise<void>;
+    deleteNotification: (id: string) => Promise<void>;
+    refresh: () => void;
+    triggerRefresh: () => void;
 }
 
 export function isProfileUpdateData(data: unknown): data is ProfileUpdateData {
