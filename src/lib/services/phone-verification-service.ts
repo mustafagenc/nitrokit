@@ -92,7 +92,7 @@ export class PhoneVerificationService {
             const smsService = getSMSService();
             const smsResult = await smsService.sendSMS(
                 formattedPhone,
-                `Your NitroKit verification code is: ${code}. Valid for ${this.CODE_EXPIRY_MINUTES} minutes.`
+                `Your Nitrokit verification code is: ${code}. Valid for ${this.CODE_EXPIRY_MINUTES} minutes.`
             );
 
             if (!smsResult.success) {

@@ -5,6 +5,7 @@ import {
     ProfileUpdateData,
     PasswordChangeData,
     AvatarUpdateData,
+    PhoneVerifiedData,
     NOTIFICATION_TYPES,
     ClientNotificationData,
     NotificationMetadata,
@@ -134,6 +135,28 @@ export class NotificationService {
             type: NOTIFICATION_TYPES.PASSWORD_CHANGED,
             title: 'Password Changed',
             message: 'Your password has been successfully changed for security.',
+            data,
+        });
+    }
+
+    static async createPhoneVerifiedNotification(
+        userId: string,
+        phoneNumber: string,
+        countryCode?: string
+    ) {
+        const data: PhoneVerifiedData = {
+            phoneNumber,
+            timestamp: new Date().toISOString(),
+            verificationMethod: 'sms' as const,
+            countryCode,
+            type: 'phone_verified',
+        };
+
+        return this.create({
+            userId,
+            type: NOTIFICATION_TYPES.PHONE_VERIFIED,
+            title: 'Phone Number Verified',
+            message: `Your phone number ${phoneNumber} has been successfully verified.`,
             data,
         });
     }
@@ -291,6 +314,23 @@ export class NotificationService {
             data: {
                 changeSource: 'settings_page',
                 ...metadata,
+            },
+        });
+    }
+
+    static async createPhoneVerifiedFromClient(
+        phoneNumber: string,
+        countryCode?: string
+    ): Promise<boolean> {
+        return this.createFromClient({
+            type: NOTIFICATION_TYPES.PHONE_VERIFIED,
+            title: 'Phone Number Verified',
+            message: `Your phone number ${phoneNumber} has been successfully verified.`,
+            data: {
+                phoneNumber,
+                verificationMethod: 'sms' as const,
+                countryCode,
+                changeSource: 'settings_page',
             },
         });
     }

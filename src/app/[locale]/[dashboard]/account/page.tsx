@@ -30,16 +30,19 @@ export default async function AccountPage() {
         where: { id: session.user.id },
         select: {
             id: true,
+            email: true,
+            name: true,
             firstName: true,
             lastName: true,
-            name: true,
-            email: true,
-            phone: true,
             image: true,
-            role: true,
+            phone: true,
+            phoneVerified: true,
             emailVerified: true,
-            createdAt: true,
+            role: true,
             password: true,
+            createdAt: true,
+            updatedAt: true,
+            isActive: true,
         },
     });
 
@@ -58,17 +61,26 @@ export default async function AccountPage() {
                     <CardDescription>Your account status and basic information</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                    <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+                    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
                         <div className="space-y-2">
-                            <div className="text-muted-foreground text-sm">Account Status</div>
+                            <div className="text-muted-foreground text-sm">Email Status</div>
                             <Badge variant={user.emailVerified ? 'default' : 'secondary'}>
                                 {user.emailVerified ? 'Verified' : 'Unverified'}
                             </Badge>
                         </div>
+
+                        <div className="space-y-2">
+                            <div className="text-muted-foreground text-sm">Phone Status</div>
+                            <Badge variant={user.phoneVerified ? 'default' : 'secondary'}>
+                                {user.phoneVerified ? 'Verified' : 'Unverified'}
+                            </Badge>
+                        </div>
+
                         <div className="space-y-2">
                             <div className="text-muted-foreground text-sm">Role</div>
                             <Badge variant="outline">{user.role}</Badge>
                         </div>
+
                         <div className="space-y-2">
                             <div className="text-muted-foreground flex items-center gap-1 text-sm">
                                 <Calendar className="h-3 w-3" />

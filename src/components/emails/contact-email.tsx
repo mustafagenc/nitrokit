@@ -51,7 +51,7 @@ export function ContactEmail({ name, email, message }: ContactEmailProps) {
             {/* Reply Button */}
             <Section style={buttonContainer}>
                 <Button
-                    href={`mailto:${email}?subject=Re: Your message to NitroKit`}
+                    href={`mailto:${email}?subject=Re: Your message to Nitrokit`}
                     style={replyButton}>
                     📩 Reply to {name}
                 </Button>

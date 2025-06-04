@@ -1,7 +1,7 @@
-// src/types/notification.ts
 export const NOTIFICATION_TYPES = {
     PROFILE_UPDATED: 'PROFILE_UPDATED',
     PASSWORD_CHANGED: 'PASSWORD_CHANGED',
+    PHONE_VERIFIED: 'PHONE_VERIFIED',
     AVATAR_UPDATED: 'AVATAR_UPDATED',
     AVATAR_REMOVED: 'AVATAR_REMOVED',
     SUPPORT_MESSAGE: 'SUPPORT_MESSAGE',
@@ -37,6 +37,14 @@ export interface PasswordChangeData {
     timestamp: string;
 }
 
+export interface PhoneVerifiedData {
+    [key: string]: unknown;
+    phoneNumber: string;
+    timestamp: string;
+    verificationMethod: 'sms' | 'call';
+    countryCode?: string;
+}
+
 export interface AvatarUpdateData {
     [key: string]: unknown;
     action: 'updated' | 'removed';
@@ -67,6 +75,7 @@ export interface SystemAlertData {
 export type NotificationData =
     | ProfileUpdateData
     | PasswordChangeData
+    | PhoneVerifiedData
     | AvatarUpdateData
     | SupportMessageData
     | InvoiceData
