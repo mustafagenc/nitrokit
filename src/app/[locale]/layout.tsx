@@ -15,8 +15,6 @@ import { generateSiteMetadata } from '@/lib';
 import notFound from './not-found';
 
 import type { Viewport } from 'next';
-import { AvatarProvider } from '@/contexts/avatar-context';
-import { SessionProvider } from 'next-auth/react';
 export async function generateMetadata(): Promise<Metadata> {
     return await generateSiteMetadata();
 }
@@ -52,11 +50,7 @@ export default async function RootLayout({
                 className={`${geistSans.variable} ${geistMono.variable} ${lexend.variable} font-[family-name:var(--font-lexend)] antialiased`}>
                 <NextIntlClientProvider>
                     <NextThemeProvider>
-                        <AnalyticsProvider>
-                            <SessionProvider>
-                                <AvatarProvider>{children}</AvatarProvider>
-                            </SessionProvider>
-                        </AnalyticsProvider>
+                        <AnalyticsProvider>{children}</AnalyticsProvider>
                         <Toaster />
                     </NextThemeProvider>
                 </NextIntlClientProvider>
