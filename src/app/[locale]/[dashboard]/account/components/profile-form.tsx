@@ -11,7 +11,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { ImageUpload } from '@/components/ui/image-upload';
-import { User, Phone, Mail, Loader2 } from 'lucide-react';
+import { User, Phone, Mail, Loader2, Shield, Check, Send } from 'lucide-react';
 import { useAvatar } from '@/contexts/avatar-context';
 import { useNotificationService } from '@/hooks/useNotificationService';
 
@@ -32,6 +32,7 @@ interface ProfileFormProps {
         name?: string | null;
         email: string;
         phone?: string | null;
+        phoneVerified?: boolean;
         image?: string | null;
         role: string;
     };
@@ -40,6 +41,13 @@ interface ProfileFormProps {
 export function ProfileForm({ user }: ProfileFormProps) {
     const { updateAvatar, removeAvatar } = useAvatar();
     const [isLoading, setIsLoading] = useState(false);
+    const [phoneVerification, setPhoneVerification] = useState({
+        isVerifying: false,
+        codeSent: false,
+        code: '',
+        cooldown: 0,
+        isVerified: user.phoneVerified || false,
+    });
     const { createProfileUpdated } = useNotificationService();
     const router = useRouter();
 
@@ -60,6 +68,101 @@ export function ProfileForm({ user }: ProfileFormProps) {
     });
 
     const watchedImage = watch('image');
+    const watchedPhone = watch('phone');
+
+    // Send verification code
+    const sendVerificationCode = async () => {
+        if (!watchedPhone) {
+            toast.error('Please enter a phone number first');
+            return;
+        }
+
+        setPhoneVerification(prev => ({ ...prev, isVerifying: true }));
+
+        try {
+            const response = await fetch('/api/user/phone/send-verification', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ phoneNumber: watchedPhone }),
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                setPhoneVerification(prev => ({
+                    ...prev,
+                    codeSent: true,
+                    cooldown: result.cooldownSeconds || 60,
+                }));
+                toast.success('Verification code sent!');
+
+                // Start cooldown timer
+                const timer = setInterval(() => {
+                    setPhoneVerification(prev => {
+                        if (prev.cooldown <= 1) {
+                            clearInterval(timer);
+                            return { ...prev, cooldown: 0 };
+                        }
+                        return { ...prev, cooldown: prev.cooldown - 1 };
+                    });
+                }, 1000);
+            } else {
+                toast.error(result.message);
+                if (result.cooldownSeconds) {
+                    setPhoneVerification(prev => ({
+                        ...prev,
+                        cooldown: result.cooldownSeconds,
+                    }));
+                }
+            }
+        } catch (error) {
+            console.error('Send verification error:', error);
+            toast.error('Failed to send verification code');
+        } finally {
+            setPhoneVerification(prev => ({ ...prev, isVerifying: false }));
+        }
+    };
+
+    // Verify code
+    const verifyCode = async () => {
+        if (!phoneVerification.code) {
+            toast.error('Please enter the verification code');
+            return;
+        }
+
+        setPhoneVerification(prev => ({ ...prev, isVerifying: true }));
+
+        try {
+            const response = await fetch('/api/user/phone/verify', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    phoneNumber: watchedPhone,
+                    code: phoneVerification.code,
+                }),
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                setPhoneVerification(prev => ({
+                    ...prev,
+                    isVerified: true,
+                    codeSent: false,
+                    code: '',
+                }));
+                toast.success('Phone number verified successfully!');
+                router.refresh();
+            } else {
+                toast.error(result.message);
+            }
+        } catch (error) {
+            console.error('Verify code error:', error);
+            toast.error('Failed to verify code');
+        } finally {
+            setPhoneVerification(prev => ({ ...prev, isVerifying: false }));
+        }
+    };
 
     const onSubmit = async (data: ProfileFormData) => {
         setIsLoading(true);
@@ -83,7 +186,9 @@ export function ProfileForm({ user }: ProfileFormProps) {
             const result = await response.json();
 
             if (result.success) {
-                await createProfileUpdated(changes);
+                if (changes.length > 0) {
+                    await createProfileUpdated(changes);
+                }
 
                 updateAvatar(data.image || null);
                 toast.success('Profile updated successfully!');
@@ -108,18 +213,11 @@ export function ProfileForm({ user }: ProfileFormProps) {
         try {
             const response = await fetch('/api/user/avatar', {
                 method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
             });
 
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
-            }
-
-            const contentType = response.headers.get('content-type');
-            if (!contentType || !contentType.includes('application/json')) {
-                throw new Error('Server returned non-JSON response');
             }
 
             const result = await response.json();
@@ -134,20 +232,7 @@ export function ProfileForm({ user }: ProfileFormProps) {
             }
         } catch (error) {
             console.error('Remove image error:', error);
-
-            if (error instanceof Error) {
-                if (error.message.includes('HTTP error! status: 404')) {
-                    toast.error('API endpoint not found. Please check your setup.');
-                } else if (error.message.includes('non-JSON response')) {
-                    toast.error('Server configuration error. Please try again later.');
-                } else {
-                    toast.error(error.message || 'Failed to remove profile picture.');
-                }
-            } else {
-                toast.error('Failed to remove profile picture. Please try again.');
-            }
-
-            throw error;
+            toast.error('Failed to remove profile picture.');
         }
     };
 
@@ -164,6 +249,7 @@ export function ProfileForm({ user }: ProfileFormProps) {
             </CardHeader>
             <CardContent>
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                    {/* Profile Picture */}
                     <div className="space-y-2">
                         <Label>Profile Picture</Label>
                         <ImageUpload
@@ -177,10 +263,9 @@ export function ProfileForm({ user }: ProfileFormProps) {
                                 user.email.charAt(0)
                             }
                         />
-                        {errors.image && (
-                            <p className="text-destructive text-sm">{errors.image.message}</p>
-                        )}
                     </div>
+
+                    {/* Name Fields */}
                     <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                         <div className="space-y-2">
                             <Label htmlFor="firstName">First Name *</Label>
@@ -212,43 +297,130 @@ export function ProfileForm({ user }: ProfileFormProps) {
                         </div>
                     </div>
 
-                    <div className="space-y-4">
-                        <div className="space-y-2">
-                            <Label htmlFor="email">Email Address</Label>
-                            <div className="relative">
-                                <Mail className="text-muted-foreground absolute top-3 left-3 h-4 w-4" />
-                                <Input
-                                    id="email"
-                                    type="email"
-                                    value={user.email}
-                                    disabled
-                                    className="bg-muted pl-10"
-                                />
-                            </div>
-                            <p className="text-muted-foreground text-xs">
-                                Email address cannot be changed
-                            </p>
+                    {/* Email */}
+                    <div className="space-y-2">
+                        <Label htmlFor="email">Email Address</Label>
+                        <div className="relative">
+                            <Mail className="text-muted-foreground absolute top-3 left-3 h-4 w-4" />
+                            <Input
+                                id="email"
+                                type="email"
+                                value={user.email}
+                                disabled
+                                className="bg-muted pl-10"
+                            />
                         </div>
+                        <p className="text-muted-foreground text-xs">
+                            Email address cannot be changed
+                        </p>
+                    </div>
 
-                        <div className="space-y-2">
-                            <Label htmlFor="phone">Phone Number</Label>
-                            <div className="relative">
+                    {/* Phone Number with Verification */}
+                    <div className="space-y-2">
+                        <Label htmlFor="phone" className="flex items-center gap-2">
+                            Phone Number
+                            {phoneVerification.isVerified && (
+                                <span className="flex items-center gap-1 text-green-600">
+                                    <Check className="h-3 w-3" />
+                                    <span className="text-xs">Verified</span>
+                                </span>
+                            )}
+                        </Label>
+                        <div className="flex gap-2">
+                            <div className="relative flex-1">
                                 <Phone className="text-muted-foreground absolute top-3 left-3 h-4 w-4" />
                                 <Input
                                     id="phone"
                                     type="tel"
-                                    placeholder="Enter your phone number"
+                                    placeholder="+90 555 123 4567"
                                     className="pl-10"
                                     {...register('phone')}
-                                    disabled={isLoading}
+                                    disabled={isLoading || phoneVerification.isVerified}
+                                    onChange={e => {
+                                        register('phone').onChange(e);
+                                        // Reset verification if phone changes
+                                        if (e.target.value !== user.phone) {
+                                            setPhoneVerification(prev => ({
+                                                ...prev,
+                                                isVerified: false,
+                                                codeSent: false,
+                                                code: '',
+                                            }));
+                                        }
+                                    }}
                                 />
                             </div>
-                            {errors.phone && (
-                                <p className="text-destructive text-sm">{errors.phone.message}</p>
-                            )}
+                            {watchedPhone &&
+                                watchedPhone !== user.phone &&
+                                !phoneVerification.isVerified && (
+                                    <Button
+                                        type="button"
+                                        variant="outline"
+                                        size="sm"
+                                        onClick={sendVerificationCode}
+                                        disabled={
+                                            phoneVerification.isVerifying ||
+                                            phoneVerification.cooldown > 0
+                                        }
+                                        className="shrink-0">
+                                        {phoneVerification.isVerifying ? (
+                                            <Loader2 className="h-4 w-4 animate-spin" />
+                                        ) : (
+                                            <Send className="h-4 w-4" />
+                                        )}
+                                        {phoneVerification.cooldown > 0
+                                            ? `${phoneVerification.cooldown}s`
+                                            : 'Send Code'}
+                                    </Button>
+                                )}
                         </div>
+
+                        {/* Verification Code Input */}
+                        {phoneVerification.codeSent && !phoneVerification.isVerified && (
+                            <div className="flex gap-2 pt-2">
+                                <Input
+                                    placeholder="Enter 6-digit code"
+                                    value={phoneVerification.code}
+                                    onChange={e =>
+                                        setPhoneVerification(prev => ({
+                                            ...prev,
+                                            code: e.target.value,
+                                        }))
+                                    }
+                                    maxLength={6}
+                                    className="flex-1"
+                                />
+                                <Button
+                                    type="button"
+                                    variant="outline"
+                                    size="sm"
+                                    onClick={verifyCode}
+                                    disabled={
+                                        phoneVerification.isVerifying || !phoneVerification.code
+                                    }
+                                    className="shrink-0">
+                                    {phoneVerification.isVerifying ? (
+                                        <Loader2 className="h-4 w-4 animate-spin" />
+                                    ) : (
+                                        <Shield className="h-4 w-4" />
+                                    )}
+                                    Verify
+                                </Button>
+                            </div>
+                        )}
+
+                        {errors.phone && (
+                            <p className="text-destructive text-sm">{errors.phone.message}</p>
+                        )}
+
+                        {!phoneVerification.isVerified && watchedPhone && (
+                            <p className="text-muted-foreground text-xs">
+                                Phone verification required for security features
+                            </p>
+                        )}
                     </div>
 
+                    {/* Form Actions */}
                     <div className="flex gap-3 pt-4">
                         <Button
                             type="submit"

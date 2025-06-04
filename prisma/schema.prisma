@@ -8,7 +8,21 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// Notification enum'u ekle
+model PhoneVerification {
+  id          String   @id @default(cuid())
+  userId      String
+  phoneNumber String
+  code        String
+  expiresAt   DateTime
+  verified    Boolean  @default(false)
+  attempts    Int      @default(0)
+  createdAt   DateTime @default(now())
+  
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  @@map("phone_verifications")
+}
+
 enum NotificationType {
   PROFILE_UPDATED
   PASSWORD_CHANGED
@@ -20,7 +34,6 @@ enum NotificationType {
   SYSTEM_ALERT
 }
 
-// Notification model'i ekle
 model Notification {
   id        String           @id @default(cuid())
   userId    String
@@ -56,7 +69,11 @@ model User {
   // Profile fields
   firstName String?
   lastName  String?
-  phone     String?
+  
+  phone              String?
+  phoneVerified      Boolean @default(false)
+  phoneVerifiedAt    DateTime?
+  phoneVerifications PhoneVerification[]
 
   // Security fields
   lastLoginAt DateTime?
