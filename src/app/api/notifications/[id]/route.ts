@@ -2,11 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
 import { NotificationService } from '@/lib/services/notification-service';
 
-type Params = {
-    id: string;
-};
-
-export async function PATCH(request: NextRequest, { params }: { params: Params }) {
+export async function PATCH(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
     try {
         const session = await auth();
 
@@ -14,11 +10,12 @@ export async function PATCH(request: NextRequest, { params }: { params: Params }
             return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
         }
 
+        const { id } = await params;
         const body = await request.json();
         const { read } = body;
 
         if (read) {
-            await NotificationService.markAsRead(params.id, session.user.id);
+            await NotificationService.markAsRead(id, session.user.id);
         }
 
         return NextResponse.json({ success: true });
@@ -28,7 +25,10 @@ export async function PATCH(request: NextRequest, { params }: { params: Params }
     }
 }
 
-export async function DELETE(request: NextRequest, { params }: { params: Params }) {
+export async function DELETE(
+    request: NextRequest,
+    { params }: { params: Promise<{ id: string }> }
+) {
     try {
         const session = await auth();
 
@@ -36,7 +36,9 @@ export async function DELETE(request: NextRequest, { params }: { params: Params 
             return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
         }
 
-        await NotificationService.delete(params.id, session.user.id);
+        const { id } = await params;
+
+        await NotificationService.delete(id, session.user.id);
 
         return NextResponse.json({ success: true });
     } catch (error) {
