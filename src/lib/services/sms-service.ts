@@ -277,9 +277,9 @@ export function getSMSService(): SMSService {
         smsService = new SMSService({
             provider,
             aws: {
-                accessKeyId: process.env.AWS_ACCESS_KEY_ID!,
-                secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY!,
-                region: process.env.AWS_REGION || 'us-east-1',
+                accessKeyId: process.env.AWS_SNS_ACCESS_KEY_ID!,
+                secretAccessKey: process.env.AWS_SNS_SECRET_ACCESS_KEY!,
+                region: process.env.AWS_SNS_REGION || 'us-east-1',
             },
             twilio: {
                 accountSid: process.env.TWILIO_ACCOUNT_SID!,
