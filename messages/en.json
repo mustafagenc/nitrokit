@@ -137,6 +137,8 @@
         "signinWithGitlab": "Sign In with GitLab",
         "signinWithMicrosoft": "Sign In with Microsoft",
         "signinWithInstagram": "Sign In with Instagram",
+        "firstName": "First Name",
+        "lastName": "Last Name",
         "email": "Email",
         "password": "Password",
         "confirmPassword": "Confirm Password",
@@ -162,6 +164,8 @@
     },
     "validation": {
         "required": {
+            "firstName": "First name field is required.",
+            "lastName": "Last name field is required.",
             "name": "Name field is required.",
             "email": "Email field is required.",
             "message": "Message field is required.",
@@ -188,6 +192,8 @@
     },
     "placeholder": {
         "enterYourName": "Enter your name",
+        "enterYourFirstName": "Enter your first name",
+        "enterYourLastName": "Enter your last name",
         "enterYourEmail": "Enter your email address",
         "enterYourMessage": "Enter your message",
         "enterYourPassword": "Enter your password",

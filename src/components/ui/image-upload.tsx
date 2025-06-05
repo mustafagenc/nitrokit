@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Upload, X, Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
 import { UserAvatar } from '../dashboard/user-avatar';
+import { useNotificationService } from '@/hooks/useNotificationService';
 
 interface ImageUploadProps {
     value: string;
@@ -20,6 +21,7 @@ export function ImageUpload({ value, onChange, onRemove, disabled, fallback }: I
     const [isRemoving, setIsRemoving] = useState(false);
     const [preview, setPreview] = useState<string | null>(value || null);
     const fileInputRef = useRef<HTMLInputElement>(null);
+    const { createAvatarUpdated, createAvatarRemoved } = useNotificationService();
 
     useEffect(() => {
         setPreview(value || null);
@@ -62,6 +64,7 @@ export function ImageUpload({ value, onChange, onRemove, disabled, fallback }: I
             if (result.success) {
                 onChange(result.url);
                 setPreview(result.url);
+                await createAvatarUpdated();
                 toast.success('Image uploaded successfully!');
                 URL.revokeObjectURL(previewUrl);
             } else {
@@ -90,7 +93,7 @@ export function ImageUpload({ value, onChange, onRemove, disabled, fallback }: I
                 onChange('');
                 setPreview(null);
             }
-
+            await createAvatarRemoved();
             if (fileInputRef.current) {
                 fileInputRef.current.value = '';
             }

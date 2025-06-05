@@ -10,6 +10,7 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Lock, Eye, EyeOff, Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
+import { useNotificationService } from '@/hooks/useNotificationService';
 
 const passwordSchema = z
     .object({
@@ -29,6 +30,7 @@ export function PasswordForm() {
     const [showCurrentPassword, setShowCurrentPassword] = useState(false);
     const [showNewPassword, setShowNewPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+    const { createPasswordChanged } = useNotificationService();
 
     const {
         register,
@@ -59,30 +61,7 @@ export function PasswordForm() {
             const result = await response.json();
 
             if (response.ok && result.success) {
-                try {
-                    const notificationResponse = await fetch('/api/notifications', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            type: 'PASSWORD_CHANGED',
-                            title: 'Password Changed',
-                            message: 'Your password has been successfully changed for security.',
-                            data: {
-                                timestamp: new Date().toISOString(),
-                                changeSource: 'settings_page',
-                            },
-                        }),
-                    });
-
-                    if (!notificationResponse.ok) {
-                        console.warn('Failed to create password change notification');
-                    } else {
-                        console.log('Password change notification created successfully');
-                    }
-                } catch (notificationError) {
-                    console.warn('Notification creation failed:', notificationError);
-                }
-
+                await createPasswordChanged({ changeSource: 'settings_page' });
                 toast.success('Password updated successfully!');
                 reset();
             } else {

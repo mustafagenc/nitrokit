@@ -66,7 +66,7 @@ export const ContactForm = () => {
                 });
 
                 form.reset();
-                setTimeout(() => setFormStatus('idle'), 3000);
+                setFormStatus('idle');
             } catch (error) {
                 console.error(error);
                 setFormStatus('error');

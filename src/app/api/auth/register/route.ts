@@ -6,7 +6,8 @@ import { sendVerificationEmail } from '@/lib/email';
 import { generateVerificationToken } from '@/lib/tokens';
 
 const registerSchema = z.object({
-    name: z.string().min(2).max(50),
+    firstName: z.string().min(2).max(50),
+    lastName: z.string().min(2).max(50),
     email: z.string().email(),
     password: z
         .string()
@@ -41,7 +42,7 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        const { name, email, password } = result.data;
+        const { firstName, lastName, email, password } = result.data;
         const existingUser = await prisma.user.findUnique({
             where: { email: email.toLowerCase() },
         });
@@ -56,7 +57,9 @@ export async function POST(request: NextRequest) {
         const verificationToken = await generateVerificationToken(email.toLowerCase());
         const user = await prisma.user.create({
             data: {
-                name,
+                firstName,
+                lastName,
+                name: `${firstName} ${lastName}`,
                 email: email.toLowerCase(),
                 password: hashedPassword,
                 role: 'USER',
@@ -65,6 +68,8 @@ export async function POST(request: NextRequest) {
             },
             select: {
                 id: true,
+                firstName: true,
+                lastName: true,
                 name: true,
                 email: true,
                 role: true,

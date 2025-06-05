@@ -1,69 +1,16 @@
 'use client';
 
+import { useEffect, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import {
-    Bell,
-    User,
-    Lock,
-    Image,
-    MessageSquare,
-    DollarSign,
-    AlertTriangle,
-    CheckCircle2,
-    X,
-} from 'lucide-react';
+import { Bell, AlertTriangle, X } from 'lucide-react';
 import { Link } from '@/lib/i18n/navigation';
 import { cn } from '@/lib';
-import { useNotifications } from '@/hooks/useNotifications';
+import { useNotificationContext } from '@/contexts/notification-context';
 import { formatDistanceToNow } from 'date-fns';
-import type { NotificationType } from '@/types/notification';
-
-// Icon mapping for notification types
-const getNotificationIcon = (type: NotificationType) => {
-    switch (type) {
-        case 'PROFILE_UPDATED':
-            return User;
-        case 'PASSWORD_CHANGED':
-            return Lock;
-        case 'AVATAR_UPDATED':
-        case 'AVATAR_REMOVED':
-            return Image;
-        case 'SUPPORT_MESSAGE':
-            return MessageSquare;
-        case 'INVOICE_CREATED':
-        case 'INVOICE_PAID':
-            return DollarSign;
-        case 'SYSTEM_ALERT':
-            return AlertTriangle;
-        default:
-            return CheckCircle2;
-    }
-};
-
-// Color mapping for notification types
-const getNotificationColors = (type: NotificationType) => {
-    switch (type) {
-        case 'PROFILE_UPDATED':
-            return 'bg-green-100 text-green-600 dark:bg-green-900/20 dark:text-green-400';
-        case 'PASSWORD_CHANGED':
-            return 'bg-red-100 text-red-600 dark:bg-red-900/20 dark:text-red-400';
-        case 'AVATAR_UPDATED':
-        case 'AVATAR_REMOVED':
-            return 'bg-blue-100 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400';
-        case 'SUPPORT_MESSAGE':
-            return 'bg-purple-100 text-purple-600 dark:bg-purple-900/20 dark:text-purple-400';
-        case 'INVOICE_CREATED':
-        case 'INVOICE_PAID':
-            return 'bg-yellow-100 text-yellow-600 dark:bg-yellow-900/20 dark:text-yellow-400';
-        case 'SYSTEM_ALERT':
-            return 'bg-orange-100 text-orange-600 dark:bg-orange-900/20 dark:text-orange-400';
-        default:
-            return 'bg-gray-100 text-gray-600 dark:bg-zinc-800/50 dark:text-zinc-400';
-    }
-};
+import { getNotificationColors, getNotificationIcon } from '@/constants/notification';
 
 export function Notifications() {
     const {
@@ -75,7 +22,42 @@ export function Notifications() {
         markAllAsRead,
         deleteNotification,
         refresh,
-    } = useNotifications();
+        triggerRefresh,
+    } = useNotificationContext();
+
+    const recentNotifications = useMemo(() => {
+        return notifications.slice(0, 10);
+    }, [notifications]);
+
+    useEffect(() => {
+        const handleNotificationCreated = () => {
+            setTimeout(() => {
+                triggerRefresh();
+            }, 500);
+        };
+
+        const handleProfileUpdated = () => {
+            setTimeout(() => {
+                triggerRefresh();
+            }, 500);
+        };
+
+        const handlePasswordChanged = () => {
+            setTimeout(() => {
+                triggerRefresh();
+            }, 500);
+        };
+
+        window.addEventListener('notificationCreated', handleNotificationCreated);
+        window.addEventListener('profileUpdated', handleProfileUpdated);
+        window.addEventListener('passwordChanged', handlePasswordChanged);
+
+        return () => {
+            window.removeEventListener('notificationCreated', handleNotificationCreated);
+            window.removeEventListener('profileUpdated', handleProfileUpdated);
+            window.removeEventListener('passwordChanged', handlePasswordChanged);
+        };
+    }, [triggerRefresh]);
 
     const handleNotificationClick = async (notificationId: string, read: boolean) => {
         if (!read) {
@@ -103,7 +85,7 @@ export function Notifications() {
                     {unreadCount > 0 && (
                         <Badge
                             variant="destructive"
-                            className="absolute -top-1 -right-1 h-5 w-5 rounded-full p-0 text-xs">
+                            className="absolute -top-1 -right-1 h-5 w-5 animate-pulse rounded-full p-0 text-xs">
                             {unreadCount > 9 ? '9+' : unreadCount}
                         </Badge>
                     )}
@@ -150,7 +132,7 @@ export function Notifications() {
                                 Try Again
                             </Button>
                         </div>
-                    ) : notifications.length === 0 ? (
+                    ) : recentNotifications.length === 0 ? (
                         <div className="p-8 text-center text-gray-500 dark:text-zinc-400">
                             <Bell className="mx-auto mb-2 h-8 w-8 opacity-50" />
                             <p>No notifications</p>
@@ -158,7 +140,7 @@ export function Notifications() {
                     ) : (
                         <ScrollArea className="h-[318px]">
                             <div>
-                                {notifications.map(notification => {
+                                {recentNotifications.map(notification => {
                                     const Icon = getNotificationIcon(notification.type);
                                     const colors = getNotificationColors(notification.type);
 
@@ -183,7 +165,6 @@ export function Notifications() {
                                                 )}>
                                                 <Icon className="h-4 w-4" />
                                             </div>
-
                                             <div className="min-w-0 flex-1">
                                                 <div className="flex items-start justify-between gap-2">
                                                     <div className="min-w-0 flex-1">
@@ -202,7 +183,6 @@ export function Notifications() {
                                                             )}
                                                         </p>
                                                     </div>
-
                                                     <div className="flex flex-shrink-0 items-center space-x-1">
                                                         {!notification.read && (
                                                             <Button
@@ -214,7 +194,7 @@ export function Notifications() {
                                                                 }}
                                                                 className="h-6 w-6 p-0 hover:bg-blue-100 dark:hover:bg-blue-900/20"
                                                                 title="Mark as read">
-                                                                <div className="h-2 w-2 rounded-full bg-blue-500" />
+                                                                <div className="h-2 w-2 animate-pulse rounded-full bg-blue-500" />
                                                             </Button>
                                                         )}
                                                         <Button
@@ -236,6 +216,14 @@ export function Notifications() {
                                         </div>
                                     );
                                 })}
+                                {notifications.length > 10 && (
+                                    <div className="border-t border-gray-200 bg-gray-50 p-3 text-center dark:border-zinc-700 dark:bg-zinc-800/50">
+                                        <p className="text-xs text-gray-600 dark:text-zinc-400">
+                                            Showing recent 10 of {notifications.length}{' '}
+                                            notifications
+                                        </p>
+                                    </div>
+                                )}
                             </div>
                         </ScrollArea>
                     )}
@@ -248,6 +236,11 @@ export function Notifications() {
                                 asChild>
                                 <Link href={'/dashboard/notifications'}>
                                     View all notifications
+                                    {notifications.length > 10 && (
+                                        <span className="text-muted-foreground ml-1">
+                                            ({notifications.length})
+                                        </span>
+                                    )}
                                 </Link>
                             </Button>
                         </div>

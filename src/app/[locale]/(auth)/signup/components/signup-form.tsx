@@ -57,8 +57,11 @@ export default function SignupForm() {
 
     const formSchema = z
         .object({
-            name: z.string().min(2, {
-                message: t('validation.required.name'),
+            firstName: z.string().min(1, {
+                message: t('validation.required.firstName'),
+            }),
+            lastName: z.string().min(1, {
+                message: t('validation.required.lastName'),
             }),
             email: z
                 .string()
@@ -86,7 +89,8 @@ export default function SignupForm() {
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
-            name: '',
+            firstName: '',
+            lastName: '',
             email: '',
             password: '',
             confirmPassword: '',
@@ -104,7 +108,8 @@ export default function SignupForm() {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    name: values.name,
+                    firstName: values.firstName,
+                    lastName: values.lastName,
                     email: values.email,
                     password: values.password,
                 }),
@@ -158,25 +163,47 @@ export default function SignupForm() {
                     </Alert>
                 )}
 
-                <FormField
-                    control={form.control}
-                    name="name"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>{t('auth.name')}</FormLabel>
-                            <FormControl>
-                                <Input
-                                    {...field}
-                                    placeholder={t('placeholder.enterYourName')}
-                                    type="text"
-                                    disabled={isLoading}
-                                    autoComplete="name"
-                                />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                    <FormField
+                        control={form.control}
+                        name="firstName"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>{t('auth.firstName')}</FormLabel>
+                                <FormControl>
+                                    <Input
+                                        {...field}
+                                        placeholder={t('placeholder.enterYourFirstName')}
+                                        type="text"
+                                        disabled={isLoading}
+                                        autoComplete="given-name"
+                                    />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+
+                    <FormField
+                        control={form.control}
+                        name="lastName"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>{t('auth.lastName')}</FormLabel>
+                                <FormControl>
+                                    <Input
+                                        {...field}
+                                        placeholder={t('placeholder.enterYourLastName')}
+                                        type="text"
+                                        disabled={isLoading}
+                                        autoComplete="family-name"
+                                    />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                </div>
 
                 <FormField
                     control={form.control}

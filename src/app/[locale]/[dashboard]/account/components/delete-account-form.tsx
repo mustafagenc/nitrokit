@@ -79,14 +79,10 @@ export function DeleteAccountForm({ hasPassword, userEmail }: DeleteAccountFormP
 
             if (response.ok && result.success) {
                 toast.success('Account deleted successfully. Redirecting...');
-
-                // Sign out and redirect
-                setTimeout(async () => {
-                    await signOut({
-                        callbackUrl: '/',
-                        redirect: true,
-                    });
-                }, 2000);
+                await signOut({
+                    callbackUrl: '/',
+                    redirect: true,
+                });
             } else {
                 toast.error(result.error || 'Failed to delete account');
             }
