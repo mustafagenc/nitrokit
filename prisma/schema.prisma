@@ -83,6 +83,8 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
+  notificationPreferences NotificationPreferences?
+
   @@map("users")
 }
 
@@ -90,6 +92,40 @@ enum Role {
   USER
   ADMIN
   MODERATOR
+}
+
+model NotificationPreferences {
+  id     String @id @default(cuid())
+  userId String @unique @map("user_id")
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Email notifications
+  emailAccountSecurity Boolean @default(true) @map("email_account_security")
+  emailLoginAlerts     Boolean @default(true) @map("email_login_alerts")
+  emailPasswordChanges Boolean @default(true) @map("email_password_changes")
+  emailProfileUpdates  Boolean @default(true) @map("email_profile_updates")
+  emailMarketing       Boolean @default(false) @map("email_marketing")
+  emailNewsletters     Boolean @default(false) @map("email_newsletters")
+  
+  // SMS notifications
+  smsAccountSecurity Boolean @default(true) @map("sms_account_security")
+  smsLoginAlerts     Boolean @default(true) @map("sms_login_alerts")
+  smsPasswordChanges Boolean @default(false) @map("sms_password_changes")
+  smsProfileUpdates  Boolean @default(false) @map("sms_profile_updates")
+  smsMarketing       Boolean @default(false) @map("sms_marketing")
+  
+  // In-app notifications
+  appAccountSecurity Boolean @default(true) @map("app_account_security")
+  appLoginAlerts     Boolean @default(true) @map("app_login_alerts")
+  appPasswordChanges Boolean @default(true) @map("app_password_changes")
+  appProfileUpdates  Boolean @default(true) @map("app_profile_updates")
+  appSystemUpdates   Boolean @default(true) @map("app_system_updates")
+  appMarketing       Boolean @default(false) @map("app_marketing")
+  
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  
+  @@map("notification_preferences")
 }
 
 model Account {
