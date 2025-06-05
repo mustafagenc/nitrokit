@@ -293,9 +293,7 @@ export function ProfileForm({ user }: ProfileFormProps) {
                     getCountryFlag(watchedPhone)
                 );
 
-                setTimeout(() => {
-                    router.refresh();
-                }, 1000);
+                router.refresh();
             } else {
                 toast.error(result.message);
             }
@@ -329,12 +327,26 @@ export function ProfileForm({ user }: ProfileFormProps) {
             const result = await response.json();
 
             if (result.success) {
+                if (result.phoneVerificationReset) {
+                    setPhoneVerification(prev => ({
+                        ...prev,
+                        isVerified: false,
+                        codeSent: false,
+                        code: '',
+                        cooldown: 0,
+                    }));
+                    toast.info('Phone number updated. Please verify your new number.', {
+                        duration: 4000,
+                    });
+                } else {
+                    toast.success('Profile updated successfully!');
+                }
+
                 if (changes.length > 0) {
                     await createProfileUpdated(changes);
                 }
 
                 updateAvatar(data.image || null);
-                toast.success('Profile updated successfully!');
                 router.refresh();
             } else {
                 toast.error(result.error || 'Failed to update profile');
@@ -386,14 +398,11 @@ export function ProfileForm({ user }: ProfileFormProps) {
         !phoneVerification.isVerified;
 
     const isCurrentPhoneVerified =
-        (watchedPhone === user.phone && user.phoneVerified) ||
+        (watchedPhone === user.phone && user.phoneVerified === true) ||
         (phoneVerification.isVerified && watchedPhone);
 
     const shouldShowSendButton =
-        watchedPhone &&
-        validatePhoneNumber(watchedPhone) &&
-        !isCurrentPhoneVerified &&
-        !phoneVerification.isVerified;
+        watchedPhone && validatePhoneNumber(watchedPhone) && !isCurrentPhoneVerified;
 
     return (
         <Card>

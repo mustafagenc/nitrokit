@@ -10,6 +10,15 @@ const updateProfileSchema = z.object({
     image: z.string().url().optional().or(z.literal('')),
 });
 
+interface UserUpdateData {
+    firstName: string;
+    lastName: string;
+    name: string;
+    phone: string | null;
+    image: string | null;
+    phoneVerified?: boolean;
+}
+
 export async function PUT(request: NextRequest) {
     try {
         const session = await auth();
@@ -21,17 +30,37 @@ export async function PUT(request: NextRequest) {
         const body = await request.json();
         const validatedData = updateProfileSchema.parse(body);
 
+        const currentUser = await prisma.user.findUnique({
+            where: { id: session.user.id },
+            select: {
+                phone: true,
+                phoneVerified: true,
+            },
+        });
+
+        if (!currentUser) {
+            return NextResponse.json({ error: 'User not found' }, { status: 404 });
+        }
+
         const name = `${validatedData.firstName} ${validatedData.lastName}`;
+
+        const isPhoneChanging = validatedData.phone !== currentUser.phone;
+
+        const updateData: UserUpdateData = {
+            firstName: validatedData.firstName,
+            lastName: validatedData.lastName,
+            name,
+            phone: validatedData.phone || null,
+            image: validatedData.image || null,
+        };
+
+        if (isPhoneChanging && currentUser.phoneVerified) {
+            updateData.phoneVerified = false;
+        }
 
         const updatedUser = await prisma.user.update({
             where: { id: session.user.id },
-            data: {
-                firstName: validatedData.firstName,
-                lastName: validatedData.lastName,
-                name,
-                phone: validatedData.phone || null,
-                image: validatedData.image || null,
-            },
+            data: updateData,
             select: {
                 id: true,
                 firstName: true,
@@ -39,16 +68,20 @@ export async function PUT(request: NextRequest) {
                 name: true,
                 email: true,
                 phone: true,
+                phoneVerified: true,
                 image: true,
                 role: true,
             },
         });
 
-        return NextResponse.json({
+        const response = {
             success: true,
             message: 'Profile updated successfully',
             user: updatedUser,
-        });
+            phoneVerificationReset: isPhoneChanging && currentUser.phoneVerified,
+        };
+
+        return NextResponse.json(response);
     } catch (error) {
         if (error instanceof z.ZodError) {
             return NextResponse.json(
