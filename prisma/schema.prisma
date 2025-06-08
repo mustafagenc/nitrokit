@@ -85,6 +85,12 @@ model User {
 
   notificationPreferences NotificationPreferences?
 
+  // 2FA fields
+  twoFactorEnabled    Boolean   @default(false) @map("two_factor_enabled")
+  twoFactorSecret     String?   @map("two_factor_secret")
+  twoFactorBackupCodes String[] @map("two_factor_backup_codes")
+  twoFactorVerifiedAt DateTime? @map("two_factor_verified_at")
+
   @@map("users")
 }
 

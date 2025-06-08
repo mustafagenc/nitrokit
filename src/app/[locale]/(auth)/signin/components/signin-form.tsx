@@ -27,20 +27,13 @@ export default function SigninForm() {
     const router = useRouter();
     const searchParams = useSearchParams();
     const [isLoading, setIsLoading] = useState(false);
+    const [showTwoFactor, setShowTwoFactor] = useState(false);
     const callbackUrl = searchParams.get('callbackUrl') || '/dashboard';
 
     const formSchema = z.object({
-        email: z
-            .string()
-            .min(5, {
-                message: t('validation.required.email'),
-            })
-            .email({
-                message: t('validation.invalid.email'),
-            }),
-        password: z.string().min(2, {
-            message: t('validation.required.password'),
-        }),
+        email: z.string().min(5).email(),
+        password: z.string().min(2),
+        twoFactorCode: z.string().optional(),
     });
 
     const form = useForm<z.infer<typeof formSchema>>({
@@ -48,31 +41,67 @@ export default function SigninForm() {
         defaultValues: {
             email: '',
             password: '',
+            twoFactorCode: '',
         },
     });
 
     async function onSubmit(values: z.infer<typeof formSchema>) {
         setIsLoading(true);
+
         try {
+            if (!showTwoFactor) {
+                const checkResponse = await fetch('/api/auth/2fa/check', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        email: values.email,
+                        password: values.password,
+                    }),
+                });
+
+                if (!checkResponse.ok) {
+                    toast.error('Invalid email or password');
+                    setIsLoading(false);
+                    return;
+                }
+
+                const checkData = await checkResponse.json();
+
+                if (checkData.requiresTwoFactor) {
+                    setShowTwoFactor(true);
+                    toast.info('Please enter your 2FA code');
+                    setIsLoading(false);
+                    return;
+                }
+            }
+
             const result = await signIn('credentials', {
                 email: values.email,
                 password: values.password,
+                twoFactorCode: values.twoFactorCode,
                 callbackUrl,
                 redirect: false,
             });
 
             if (result?.error) {
-                toast.error(t('auth.signin.invalidCredentials'));
+                toast.error('Invalid credentials or 2FA code');
             } else if (result?.ok) {
-                toast.success(t('auth.signin.success'));
+                toast.success('Login successful!');
                 router.push(callbackUrl);
             }
-        } catch {
-            toast.error(t('auth.signin.error'));
+        } catch (error) {
+            console.error('Signin error:', error);
+            toast.error('An error occurred during sign in');
         } finally {
             setIsLoading(false);
         }
     }
+
+    const resetForm = () => {
+        setShowTwoFactor(false);
+        form.setValue('twoFactorCode', '');
+    };
+
     return (
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6">
@@ -87,12 +116,14 @@ export default function SigninForm() {
                                     {...field}
                                     placeholder={t('placeholder.enterYourEmail')}
                                     type="email"
+                                    disabled={showTwoFactor}
                                 />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
                     )}
                 />
+
                 <FormField
                     control={form.control}
                     name="password"
@@ -100,25 +131,74 @@ export default function SigninForm() {
                         <FormItem>
                             <div className="grid grid-cols-2 gap-1">
                                 <FormLabel>{t('auth.password')}</FormLabel>
-                                <p className="text-muted-foreground text-right text-sm font-bold">
-                                    <Link href={'/reset-password'}>{t('auth.forgotPassword')}</Link>
-                                </p>
+                                {!showTwoFactor && (
+                                    <p className="text-muted-foreground text-right text-sm font-bold">
+                                        <Link href={'/reset-password'}>
+                                            {t('auth.forgotPassword')}
+                                        </Link>
+                                    </p>
+                                )}
                             </div>
                             <FormControl>
                                 <PasswordInput
                                     {...field}
                                     placeholder={t('placeholder.enterYourPassword')}
+                                    disabled={showTwoFactor}
                                 />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
                     )}
                 />
-                <Button
-                    type="submit"
-                    className="flex w-full cursor-pointer items-center justify-center gap-2 bg-blue-600 hover:bg-blue-600/80">
-                    {isLoading ? t('auth.signin.signing') : t('auth.signin.title')}
-                </Button>
+
+                {showTwoFactor && (
+                    <FormField
+                        control={form.control}
+                        name="twoFactorCode"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>Two-Factor Authentication</FormLabel>
+                                <FormControl>
+                                    <Input
+                                        {...field}
+                                        placeholder="Enter 6-digit code or backup code"
+                                        className="text-center font-mono"
+                                        autoFocus
+                                    />
+                                </FormControl>
+                                <p className="text-muted-foreground text-xs">
+                                    Enter code from your authenticator app or use backup code
+                                </p>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                )}
+
+                <div className="space-y-2">
+                    <Button
+                        type="submit"
+                        className="w-full bg-blue-600 hover:bg-blue-600/80"
+                        disabled={isLoading}>
+                        {isLoading
+                            ? showTwoFactor
+                                ? 'Verifying...'
+                                : 'Checking...'
+                            : showTwoFactor
+                              ? 'Verify & Sign In'
+                              : t('auth.signin.title')}
+                    </Button>
+
+                    {showTwoFactor && (
+                        <Button
+                            type="button"
+                            variant="outline"
+                            className="w-full"
+                            onClick={resetForm}>
+                            Back to Login
+                        </Button>
+                    )}
+                </div>
             </form>
         </Form>
     );

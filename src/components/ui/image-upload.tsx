@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Upload, X, Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
 import { UserAvatar } from '../dashboard/user-avatar';
-import { useNotificationService } from '@/hooks/useNotificationService';
+import { useInAppNotificationService } from '@/hooks/useInAppNotificationService';
 
 interface ImageUploadProps {
     value: string;
@@ -21,7 +21,7 @@ export function ImageUpload({ value, onChange, onRemove, disabled, fallback }: I
     const [isRemoving, setIsRemoving] = useState(false);
     const [preview, setPreview] = useState<string | null>(value || null);
     const fileInputRef = useRef<HTMLInputElement>(null);
-    const { createAvatarUpdated, createAvatarRemoved } = useNotificationService();
+    const { createAvatarUpdated, createAvatarRemoved } = useInAppNotificationService();
 
     useEffect(() => {
         setPreview(value || null);

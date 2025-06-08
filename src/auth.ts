@@ -11,6 +11,7 @@ import bcrypt from 'bcryptjs';
 
 import { prisma } from '@/lib/prisma';
 import { PrismaAdapter } from '@auth/prisma-adapter';
+import { TwoFactorService } from './lib/auth/two-factor-service';
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
     adapter: PrismaAdapter(prisma),
@@ -27,6 +28,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             credentials: {
                 email: { label: 'Email', type: 'email' },
                 password: { label: 'Password', type: 'password' },
+                twoFactorCode: { label: '2FA Code', type: 'text' },
             },
             async authorize(credentials) {
                 if (!credentials?.email || !credentials?.password) {
@@ -46,7 +48,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                     }
 
                     if (!user.emailVerified) {
-                        throw new Error('Please verify your email before signing in');
+                        return null;
                     }
 
                     const isValidPassword = await bcrypt.compare(
@@ -56,6 +58,21 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
                     if (!isValidPassword) {
                         return null;
+                    }
+
+                    if (user.twoFactorEnabled) {
+                        if (!credentials.twoFactorCode) {
+                            return null;
+                        }
+
+                        const verification = await TwoFactorService.verifyToken(
+                            user.id,
+                            credentials.twoFactorCode as string
+                        );
+
+                        if (!verification.success) {
+                            return null;
+                        }
                     }
 
                     await prisma.user.update({
@@ -69,6 +86,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                         name: user.name,
                         image: user.image,
                         role: user.role,
+                        twoFactorEnabled: user.twoFactorEnabled,
+                        emailVerified: !!user.emailVerified,
                     };
                 } catch (error) {
                     console.error('Authentication error:', error);
@@ -82,6 +101,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             if (token.sub && session.user) {
                 session.user.id = token.sub;
                 session.user.role = token.role;
+                session.user.twoFactorEnabled = token.twoFactorEnabled;
             }
             return session;
         },
@@ -89,6 +109,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             if (user) {
                 token.sub = user.id;
                 token.role = user.role;
+                token.twoFactorEnabled = user.twoFactorEnabled;
             }
             return token;
         },

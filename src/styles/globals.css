@@ -127,6 +127,7 @@
     from {
         transform: rotate(0deg);
     }
+
     to {
         transform: rotate(360deg);
     }
@@ -141,12 +142,15 @@
     100% {
         transform: translateY(0px) translateX(0px);
     }
+
     25% {
         transform: translateY(-10px) translateX(5px);
     }
+
     50% {
         transform: translateY(-5px) translateX(-5px);
     }
+
     75% {
         transform: translateY(-15px) translateX(3px);
     }
@@ -169,4 +173,24 @@
 .animate-float-delay-3 {
     animation: float 6s ease-in-out infinite;
     animation-delay: 3s;
+}
+
+.border-b-3 {
+    border-bottom-width: 3px;
+}
+
+[data-slot='menubar-trigger'] {
+    background-color: transparent !important;
+}
+
+[data-slot='menubar-trigger']:hover {
+    background-color: transparent !important;
+}
+
+[data-slot='menubar-trigger']:focus {
+    background-color: transparent !important;
+}
+
+[data-slot='menubar-trigger'][data-state='open'] {
+    background-color: transparent !important;
 }

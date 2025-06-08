@@ -22,9 +22,9 @@ import {
     AlertCircle,
 } from 'lucide-react';
 import { useAvatar } from '@/contexts/avatar-context';
-import { useNotificationService } from '@/hooks/useNotificationService';
+import { useInAppNotificationService } from '@/hooks/useInAppNotificationService';
 import { User } from 'next-auth';
-import { NotificationService } from '@/lib/services/notification-service';
+import { InAppNotificationService } from '@/lib/services/inapp-notification-service';
 
 const profileSchema = z.object({
     firstName: z.string().min(1, 'First name is required').max(50),
@@ -145,7 +145,7 @@ export function ProfileForm({ user }: ProfileFormProps) {
         cooldown: 0,
         isVerified: Boolean(user.phoneVerified),
     });
-    const { createProfileUpdated } = useNotificationService();
+    const { createProfileUpdated } = useInAppNotificationService();
     const router = useRouter();
 
     const {
@@ -286,7 +286,7 @@ export function ProfileForm({ user }: ProfileFormProps) {
 
                 toast.success('Phone number verified successfully!');
 
-                await NotificationService.createPhoneVerifiedFromClient(
+                await InAppNotificationService.createPhoneVerifiedFromClient(
                     cleanPhone,
                     getCountryFlag(watchedPhone)
                 );

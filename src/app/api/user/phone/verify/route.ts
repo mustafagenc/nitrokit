@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
-import { PhoneVerificationService } from '@/lib/services/phone-verification-service';
+import { PhoneVerificationService } from '@/lib/notifications/sms-notifications';
 
 export async function POST(request: NextRequest) {
     try {

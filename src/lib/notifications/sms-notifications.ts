@@ -1,5 +1,5 @@
 import { prisma } from '@/lib/prisma';
-import { getSMSService } from './sms-service';
+import { getSMSService } from '@/lib/services/sms-service';
 import crypto from 'crypto';
 
 export class PhoneVerificationService {
@@ -26,7 +26,6 @@ export class PhoneVerificationService {
         try {
             let formattedPhone = phoneNumber.trim();
 
-            // Türkiye numarası için format düzeltme
             if (formattedPhone.startsWith('0')) {
                 formattedPhone = '+90' + formattedPhone.substring(1);
             } else if (formattedPhone.startsWith('90')) {

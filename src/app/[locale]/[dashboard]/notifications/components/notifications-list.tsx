@@ -9,7 +9,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { formatDistanceToNow } from 'date-fns';
 import { cn } from '@/lib';
 import { Bell, Check, Trash2, RefreshCw, AlertTriangle } from 'lucide-react';
-import { useNotificationContext } from '@/contexts/notification-context';
+import { useInAppNotificationContext } from '@/contexts/inapp-notification-context';
 import { getNotificationColors, getNotificationIcon } from '@/constants/notification';
 import { Notification } from '@/types/notification';
 
@@ -23,7 +23,7 @@ export function NotificationsList() {
         markAllAsRead,
         deleteNotification,
         refresh,
-    } = useNotificationContext();
+    } = useInAppNotificationContext();
 
     const [filter, setFilter] = useState<'all' | 'unread'>('unread');
 

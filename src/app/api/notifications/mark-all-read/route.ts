@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { auth } from '@/auth';
-import { NotificationService } from '@/lib/services/notification-service';
+import { InAppNotificationService } from '@/lib/services/inapp-notification-service';
 
 export async function POST() {
     try {
@@ -10,7 +10,7 @@ export async function POST() {
             return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
         }
 
-        await NotificationService.markAllAsRead(session.user.id);
+        await InAppNotificationService.markAllAsRead(session.user.id);
 
         return NextResponse.json({ success: true });
     } catch (error) {

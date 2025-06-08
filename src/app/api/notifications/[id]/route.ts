@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
-import { NotificationService } from '@/lib/services/notification-service';
+import { InAppNotificationService } from '@/lib/services/inapp-notification-service';
 
 export async function PATCH(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
     try {
@@ -15,7 +15,7 @@ export async function PATCH(request: NextRequest, { params }: { params: Promise<
         const { read } = body;
 
         if (read) {
-            await NotificationService.markAsRead(id, session.user.id);
+            await InAppNotificationService.markAsRead(id, session.user.id);
         }
 
         return NextResponse.json({ success: true });
@@ -38,7 +38,7 @@ export async function DELETE(
 
         const { id } = await params;
 
-        await NotificationService.delete(id, session.user.id);
+        await InAppNotificationService.delete(id, session.user.id);
 
         return NextResponse.json({ success: true });
     } catch (error) {

@@ -12,6 +12,8 @@ declare module 'next-auth' {
         phone?: string | null;
         phoneVerified?: boolean | null;
         role: string;
+        twoFactorEnabled?: boolean;
+        emailVerified?: boolean;
     }
 
     interface Session {
@@ -25,6 +27,7 @@ declare module 'next-auth' {
             phone?: string | null;
             phoneVerified?: boolean | null;
             role: string;
+            twoFactorEnabled?: boolean;
         };
     }
 }
@@ -34,5 +37,6 @@ declare module 'next-auth/jwt' {
         sub: string;
         role: string;
         phoneVerified?: boolean | null;
+        twoFactorEnabled?: boolean;
     }
 }

@@ -8,7 +8,7 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { Bell, AlertTriangle, X } from 'lucide-react';
 import { Link } from '@/lib/i18n/navigation';
 import { cn } from '@/lib';
-import { useNotificationContext } from '@/contexts/notification-context';
+import { useInAppNotificationContext } from '@/contexts/inapp-notification-context';
 import { formatDistanceToNow } from 'date-fns';
 import { getNotificationColors, getNotificationIcon } from '@/constants/notification';
 
@@ -23,7 +23,7 @@ export function Notifications() {
         deleteNotification,
         refresh,
         triggerRefresh,
-    } = useNotificationContext();
+    } = useInAppNotificationContext();
 
     const recentNotifications = useMemo(() => {
         return notifications.slice(0, 10);
