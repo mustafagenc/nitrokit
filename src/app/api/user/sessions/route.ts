@@ -25,6 +25,17 @@ export async function GET(request: NextRequest) {
                 isCurrent: true,
                 userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36',
             },
+            {
+                id: '2',
+                deviceType: 'mobile',
+                browser: 'Safari Mobile',
+                os: 'iOS 17',
+                location: 'Istanbul, Turkey',
+                ipAddress: '192.168.1.101',
+                lastActive: new Date(Date.now() - 1000 * 60 * 30),
+                isCurrent: false,
+                userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X)',
+            },
         ];
 
         return NextResponse.json({ sessions });

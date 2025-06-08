@@ -1,7 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
 
-export async function DELETE(request: NextRequest, { params }: { params: { sessionId: string } }) {
+export async function DELETE(
+    request: NextRequest,
+    { params }: { params: Promise<{ sessionId: string }> }
+) {
     try {
         const session = await auth();
 
@@ -9,7 +12,7 @@ export async function DELETE(request: NextRequest, { params }: { params: { sessi
             return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
         }
 
-        const { sessionId } = params;
+        const { sessionId } = await params;
 
         // TODO: Implement session termination
         console.log('Terminating session:', sessionId);

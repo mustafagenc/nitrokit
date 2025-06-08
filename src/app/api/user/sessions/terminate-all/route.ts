@@ -8,7 +8,9 @@ export async function POST(request: NextRequest) {
         if (!session) {
             return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
         }
+
         console.log(request);
+
         // TODO: Implement terminating all other sessions
         console.log('Terminating all other sessions for user:', session.user.id);
 
