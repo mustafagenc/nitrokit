@@ -61,7 +61,7 @@ export default async function AccountPage() {
                     <CardDescription>Your account status and basic information</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+                    <div className="grid grid-cols-2 gap-4 md:grid-cols-2 lg:grid-cols-4">
                         <div className="space-y-2">
                             <div className="text-muted-foreground text-sm">Email Status</div>
                             <Badge variant={user.emailVerified ? 'default' : 'secondary'}>

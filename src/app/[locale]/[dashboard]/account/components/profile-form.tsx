@@ -87,7 +87,6 @@ const formatPhoneForDisplay = (phone: string): string => {
 const getCountryFlag = (phone: string): string => {
     const cleaned = phone.replace(/\D/g, '');
 
-    // Common country codes and their flags
     const countryFlags: { [key: string]: string } = {
         '1': '🇺🇸', // US/Canada
         '44': '🇬🇧', // UK
@@ -172,7 +171,6 @@ export function ProfileForm({ user }: ProfileFormProps) {
         const formatted = formatPhoneNumber(e.target.value);
         setValue('phone', formatted, { shouldDirty: true });
 
-        // Reset verification if phone changes
         if (formatted !== user.phone) {
             setPhoneVerification(prev => ({
                 ...prev,

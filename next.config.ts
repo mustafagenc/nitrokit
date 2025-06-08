@@ -10,6 +10,14 @@ const nextConfig: NextConfig = {
             optimizeCss: false,
         },
     },
+    serverExternalPackages: [
+        'nodemailer',
+        '@sendgrid/mail',
+        '@sendgrid/helpers',
+        'resend',
+        '@aws-sdk/client-ses',
+        'postmark',
+    ],
     images: {
         remotePatterns: [
             {
@@ -27,6 +35,54 @@ const nextConfig: NextConfig = {
                 destination: '/storybook-static/:path*',
             },
         ];
+    },
+    webpack: (config, { isServer, webpack }) => {
+        if (!isServer) {
+            config.resolve.fallback = {
+                ...config.resolve.fallback,
+                child_process: false,
+                fs: false,
+                path: false,
+                crypto: require.resolve('crypto-browserify'),
+                buffer: require.resolve('buffer'),
+                stream: require.resolve('stream-browserify'),
+                'stream/promises': false,
+                os: false,
+                net: false,
+                tls: false,
+                dns: false,
+                module: false,
+                perf_hooks: false,
+                util: false,
+                url: false,
+                zlib: false,
+                http: false,
+                https: false,
+                assert: false,
+                constants: false,
+                vm: false,
+                querystring: false,
+            };
+
+            config.plugins.push(
+                new webpack.ProvidePlugin({
+                    Buffer: ['buffer', 'Buffer'],
+                    process: 'process/browser',
+                })
+            );
+
+            config.externals = config.externals || [];
+            config.externals.push({
+                '@sendgrid/mail': 'commonjs @sendgrid/mail',
+                '@sendgrid/helpers': 'commonjs @sendgrid/helpers',
+                nodemailer: 'commonjs nodemailer',
+                resend: 'commonjs resend',
+                '@aws-sdk/client-ses': 'commonjs @aws-sdk/client-ses',
+                postmark: 'commonjs postmark',
+            });
+        }
+
+        return config;
     },
 };
 
