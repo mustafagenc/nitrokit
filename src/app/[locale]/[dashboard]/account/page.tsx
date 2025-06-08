@@ -9,6 +9,7 @@ import { DeleteAccountForm } from './components/delete-account-form';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Shield, Calendar } from 'lucide-react';
+import { TwoFactorManagement } from './components/two-factor-management';
 
 export async function generateMetadata(): Promise<Metadata> {
     return await generatePageMetadata({
@@ -28,22 +29,6 @@ export default async function AccountPage() {
 
     const user = await prisma.user.findUnique({
         where: { id: session.user.id },
-        select: {
-            id: true,
-            email: true,
-            name: true,
-            firstName: true,
-            lastName: true,
-            image: true,
-            phone: true,
-            phoneVerified: true,
-            emailVerified: true,
-            role: true,
-            password: true,
-            createdAt: true,
-            updatedAt: true,
-            isActive: true,
-        },
     });
 
     if (!user) {
@@ -93,8 +78,14 @@ export default async function AccountPage() {
                     </div>
                 </CardContent>
             </Card>
-            <ProfileForm user={user} />
+            <ProfileForm user={{ ...user, emailVerified: !!user.emailVerified }} />
             {user.password && <PasswordForm />}
+            <TwoFactorManagement
+                userId={user.id}
+                twoFactorEnabled={user.twoFactorEnabled}
+                twoFactorVerifiedAt={user.twoFactorVerifiedAt}
+            />
+
             <DeleteAccountForm hasPassword={!!user.password} userEmail={user.email} />
         </div>
     );
