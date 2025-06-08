@@ -1,20 +1,9 @@
 'use server';
 
-import { sendContactEmail } from '@/lib/email';
 import { type ContactFormData } from '@/lib/validations';
+import { EmailServiceResult, sendContactEmail } from '@/lib/notifications/contact-emails';
 
-interface EmailData {
-    id?: string;
-    [key: string]: unknown;
-}
-
-interface ActionResult {
-    success: boolean;
-    error?: string;
-    data?: EmailData;
-}
-
-export async function sendEmail(data: ContactFormData): Promise<ActionResult> {
+export async function sendEmail(data: ContactFormData): Promise<EmailServiceResult> {
     try {
         const result = await sendContactEmail({
             name: data.name,

@@ -2,8 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import bcrypt from 'bcryptjs';
 import { z } from 'zod';
 import { prisma } from '@/lib/prisma';
-import { sendVerificationEmail } from '@/lib/email';
 import { generateVerificationToken } from '@/lib/tokens';
+import { sendVerificationEmail } from '@/lib/notifications/auth-emails';
 
 const registerSchema = z.object({
     firstName: z.string().min(2).max(50),

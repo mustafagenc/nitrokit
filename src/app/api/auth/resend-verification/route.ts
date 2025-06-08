@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { prisma } from '@/lib/prisma';
-import { sendVerificationEmail } from '@/lib/email';
 import { generateVerificationToken } from '@/lib/tokens';
 import { emailResendRateLimit } from '@/lib/ratelimit';
+import { sendVerificationEmail } from '@/lib/notifications/auth-emails';
 
 const resendSchema = z.object({
     email: z.string().email(),
