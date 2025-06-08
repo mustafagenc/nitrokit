@@ -20,7 +20,7 @@ export interface CreateNotificationData {
     data?: NotificationData;
 }
 
-export class NotificationService {
+export class InAppNotificationService {
     // ========================================
     // SERVER-SIDE METHODS (Database Operations)
     // ========================================

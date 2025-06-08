@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
-import { NotificationService } from '@/lib/services/notification-service';
+import { InAppNotificationService } from '@/lib/services/inapp-notification-service';
 
 export async function GET(request: NextRequest) {
     try {
@@ -15,13 +15,13 @@ export async function GET(request: NextRequest) {
         const limit = parseInt(searchParams.get('limit') || '20');
         const offset = parseInt(searchParams.get('offset') || '0');
 
-        const notifications = await NotificationService.getByUserId(session.user.id, {
+        const notifications = await InAppNotificationService.getByUserId(session.user.id, {
             unreadOnly,
             limit,
             offset,
         });
 
-        const unreadCount = await NotificationService.getUnreadCount(session.user.id);
+        const unreadCount = await InAppNotificationService.getUnreadCount(session.user.id);
 
         return NextResponse.json({
             notifications,
@@ -54,7 +54,7 @@ export async function POST(request: NextRequest) {
         }
 
         // Create notification
-        const notification = await NotificationService.create({
+        const notification = await InAppNotificationService.create({
             userId: session.user.id,
             type,
             title,

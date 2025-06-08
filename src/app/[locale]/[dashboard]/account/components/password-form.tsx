@@ -10,7 +10,7 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Lock, Eye, EyeOff, Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
-import { useNotificationService } from '@/hooks/useNotificationService';
+import { useInAppNotificationService } from '@/hooks/useInAppNotificationService';
 
 const passwordSchema = z
     .object({
@@ -30,7 +30,7 @@ export function PasswordForm() {
     const [showCurrentPassword, setShowCurrentPassword] = useState(false);
     const [showNewPassword, setShowNewPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-    const { createPasswordChanged } = useNotificationService();
+    const { createPasswordChanged } = useInAppNotificationService();
 
     const {
         register,

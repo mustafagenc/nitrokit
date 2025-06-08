@@ -7,13 +7,12 @@ import { toast } from 'sonner';
 
 const NotificationContext = createContext<NotificationContextType | undefined>(undefined);
 
-function useNotifications() {
+function useInAppNotifications() {
     const [notifications, setNotifications] = useState<Notification[]>([]);
     const [unreadCount, setUnreadCount] = useState(0);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
-    // Fetch notifications
     const fetchNotifications = useCallback(async (showLoading = false) => {
         try {
             if (showLoading) setIsLoading(true);
@@ -146,8 +145,8 @@ function useNotifications() {
     };
 }
 
-export function NotificationProvider({ children }: { children: ReactNode }) {
-    const notificationHook = useNotifications();
+export function InAppNotificationProvider({ children }: { children: ReactNode }) {
+    const notificationHook = useInAppNotifications();
 
     const triggerRefresh = useCallback(() => {
         notificationHook.refetch(false);
@@ -163,10 +162,12 @@ export function NotificationProvider({ children }: { children: ReactNode }) {
     );
 }
 
-export function useNotificationContext() {
+export function useInAppNotificationContext() {
     const context = useContext(NotificationContext);
     if (context === undefined) {
-        throw new Error('useNotificationContext must be used within a NotificationProvider');
+        throw new Error(
+            'useInAppNotificationContext must be used within a InAppNotificationProvider'
+        );
     }
     return context;
 }

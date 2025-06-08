@@ -1,12 +1,11 @@
-// src/hooks/useNotificationService.ts
 'use client';
 
 import { useCallback } from 'react';
-import { useNotificationContext } from '@/contexts/notification-context';
+import { useInAppNotificationContext } from '@/contexts/inapp-notification-context';
 import { NotificationData, NotificationMetadata } from '@/types/notification';
 
-export function useNotificationService() {
-    const { triggerRefresh } = useNotificationContext();
+export function useInAppNotificationService() {
+    const { triggerRefresh } = useInAppNotificationContext();
 
     const createNotification = useCallback(
         async (type: string, title: string, message: string, data?: NotificationData) => {
