@@ -1,7 +1,6 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
-import { Link } from '@/lib/i18n/navigation';
+import { usePathname, Link } from '@/lib/i18n/navigation';
 import {
     LayoutDashboard,
     User,
@@ -24,10 +23,20 @@ export function AccountNavigation() {
     const pathname = usePathname();
 
     const isActive = (path: string) => {
+        console.log(path, pathname);
         if (path === '/dashboard/account') {
-            return pathname === path;
+            return pathname === '/dashboard/account/';
         }
-        return pathname.includes(path.replace('/dashboard/account', ''));
+        if (path === '/profile') {
+            return pathname.includes('/profile');
+        }
+        if (path === '/security') {
+            return pathname.includes('/security');
+        }
+        if (path === '/notifications') {
+            return pathname.includes('/notifications');
+        }
+        return false;
     };
 
     const getNavItemClasses = (path: string) => {
@@ -107,7 +116,7 @@ export function AccountNavigation() {
                                 <MenubarContent className="bg-white dark:bg-zinc-950">
                                     <MenubarItem asChild>
                                         <Link
-                                            href="/dashboard/account/security"
+                                            href="/dashboard/account/security/password"
                                             className="flex cursor-pointer items-center gap-2 rounded-sm px-2 py-1.5 hover:bg-gray-100 dark:hover:bg-gray-800">
                                             <Shield className="h-4 w-4" />
                                             Password & Security
@@ -115,7 +124,7 @@ export function AccountNavigation() {
                                     </MenubarItem>
                                     <MenubarItem asChild>
                                         <Link
-                                            href="/dashboard/account/2fa"
+                                            href="/dashboard/account/security/two-factor"
                                             className="flex cursor-pointer items-center gap-2 rounded-sm px-2 py-1.5 hover:bg-gray-100 dark:hover:bg-gray-800">
                                             <Smartphone className="h-4 w-4" />
                                             Two-Factor Authentication
@@ -124,7 +133,7 @@ export function AccountNavigation() {
                                     <MenubarSeparator />
                                     <MenubarItem asChild>
                                         <Link
-                                            href="/dashboard/account/sessions"
+                                            href="/dashboard/account/security/sessions"
                                             className="flex cursor-pointer items-center gap-2 rounded-sm px-2 py-1.5 hover:bg-gray-100 dark:hover:bg-gray-800">
                                             <Settings className="h-4 w-4" />
                                             Active Sessions
