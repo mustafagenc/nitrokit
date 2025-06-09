@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
+import { prisma } from '@/lib/prisma';
 
 export async function DELETE(
     request: NextRequest,
@@ -8,14 +9,26 @@ export async function DELETE(
     try {
         const session = await auth();
 
-        if (!session) {
+        if (!session?.user?.id) {
             return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
         }
 
         const { sessionId } = await params;
 
-        // TODO: Implement session termination
-        console.log('Terminating session:', sessionId);
+        const sessionToDelete = await prisma.session.findFirst({
+            where: {
+                id: sessionId,
+                userId: session.user.id,
+            },
+        });
+
+        if (!sessionToDelete) {
+            return NextResponse.json({ error: 'Session not found' }, { status: 404 });
+        }
+
+        await prisma.session.delete({
+            where: { id: sessionId },
+        });
 
         return NextResponse.json({ success: true });
     } catch (error) {

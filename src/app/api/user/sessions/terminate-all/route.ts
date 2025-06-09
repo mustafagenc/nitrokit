@@ -1,18 +1,27 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
+import { prisma } from '@/lib/prisma';
 
 export async function POST(request: NextRequest) {
     try {
         const session = await auth();
 
-        if (!session) {
+        if (!session?.user?.id) {
             return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
         }
 
-        console.log(request);
+        const currentSessionToken =
+            request.cookies.get('authjs.session-token')?.value ||
+            request.cookies.get('__Secure-authjs.session-token')?.value;
 
-        // TODO: Implement terminating all other sessions
-        console.log('Terminating all other sessions for user:', session.user.id);
+        await prisma.session.deleteMany({
+            where: {
+                userId: session.user.id,
+                sessionToken: {
+                    not: currentSessionToken,
+                },
+            },
+        });
 
         return NextResponse.json({ success: true });
     } catch (error) {
