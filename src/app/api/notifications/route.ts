@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
 import { InAppNotificationService } from '@/lib/services/inapp-notification-service';
+import { logger } from '@/lib/logger';
+import { normalizeError } from '@/lib';
 
 export async function GET(request: NextRequest) {
     try {
@@ -29,7 +31,12 @@ export async function GET(request: NextRequest) {
             hasMore: notifications.length === limit,
         });
     } catch (error) {
-        console.error('Get notifications error:', error);
+        const session = await auth();
+        logger.error('Get notifications error', normalizeError(error), {
+            userId: session?.user?.id,
+            url: request.url,
+            method: request.method,
+        });
         return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
     }
 }
@@ -45,7 +52,6 @@ export async function POST(request: NextRequest) {
         const body = await request.json();
         const { type, title, message, data } = body;
 
-        // Validation
         if (!type || !title || !message) {
             return NextResponse.json(
                 { error: 'Type, title, and message are required' },
@@ -53,7 +59,6 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        // Create notification
         const notification = await InAppNotificationService.create({
             userId: session.user.id,
             type,
@@ -67,7 +72,12 @@ export async function POST(request: NextRequest) {
             notification,
         });
     } catch (error) {
-        console.error('Create notification error:', error);
+        const session = await auth();
+        logger.error('Post notifications error', normalizeError(error), {
+            userId: session?.user?.id,
+            url: request.url,
+            method: request.method,
+        });
         return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
     }
 }
