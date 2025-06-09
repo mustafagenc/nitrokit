@@ -1,6 +1,7 @@
 'use client';
 
 import { usePathname, Link } from '@/lib/i18n/navigation';
+import { useState } from 'react';
 import {
     LayoutDashboard,
     User,
@@ -9,6 +10,7 @@ import {
     Bell,
     Settings,
     ChevronDown,
+    Menu,
 } from 'lucide-react';
 import {
     Menubar,
@@ -18,12 +20,16 @@ import {
     MenubarSeparator,
     MenubarTrigger,
 } from '@/components/ui/menubar';
+import { Button } from '@/components/ui/button';
+import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from '@/components/ui/sheet';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { cn } from '@/lib';
 
 export function AccountNavigation() {
     const pathname = usePathname();
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     const isActive = (path: string) => {
-        console.log(path, pathname);
         if (path === '/dashboard/account') {
             return pathname === '/dashboard/account/';
         }
@@ -44,12 +50,12 @@ export function AccountNavigation() {
 
         return `
             group flex cursor-pointer items-center gap-1 rounded-none 
-            bg-transparent px-0 py-3.5 text-sm font-medium text-nowrap 
+            bg-transparent px-3 py-3.5 text-sm font-medium text-nowrap 
             outline-none select-none transition-all duration-200
-            border-b-3 ${
+            relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:transition-all after:duration-200 ${
                 isCurrentlyActive
-                    ? 'text-primary border-primary font-semibold'
-                    : 'text-muted-foreground border-transparent hover:text-foreground'
+                    ? 'text-primary after:bg-primary font-semibold'
+                    : 'text-muted-foreground after:bg-transparent hover:text-foreground'
             }
             hover:bg-transparent focus:bg-transparent 
             data-[state=open]:bg-transparent data-[state=open]:text-foreground
@@ -65,10 +71,10 @@ export function AccountNavigation() {
             group flex cursor-pointer items-center rounded-none 
             bg-transparent px-3 py-3.5 text-sm font-medium text-nowrap 
             outline-none select-none transition-all duration-200
-            border-b-3 ${
+            relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:transition-all after:duration-200 ${
                 isCurrentlyActive
-                    ? 'text-primary border-primary font-semibold'
-                    : 'text-muted-foreground border-transparent hover:text-foreground'
+                    ? 'text-primary after:bg-primary font-semibold'
+                    : 'text-muted-foreground after:bg-transparent hover:text-foreground'
             }
             hover:bg-transparent focus:bg-transparent
         `
@@ -76,10 +82,35 @@ export function AccountNavigation() {
             .trim();
     };
 
+    // Mobile menu item classes
+    const getMobileMenuItemClasses = (path: string) => {
+        const isCurrentlyActive = isActive(path);
+
+        return cn(
+            'flex items-center gap-3 rounded-lg px-3 py-3 text-sm font-medium transition-all',
+            isCurrentlyActive
+                ? 'bg-primary/10 text-primary border-l-4 border-primary'
+                : 'text-muted-foreground hover:bg-muted hover:text-foreground'
+        );
+    };
+
+    const handleMobileMenuClose = () => {
+        setIsMobileMenuOpen(false);
+    };
+
+    const getCurrentPageTitle = () => {
+        if (isActive('/dashboard/account')) return 'Overview';
+        if (isActive('/profile')) return 'Profile';
+        if (isActive('/security')) return 'Security';
+        if (isActive('/notifications')) return 'Notifications';
+        return 'Account';
+    };
+
     return (
         <div className="sticky top-0 z-10 rounded-t-2xl border-b border-gray-200 bg-white dark:border-gray-800 dark:bg-zinc-950">
             <div className="mx-auto flex w-full items-stretch justify-between gap-5 px-4 lg:px-6">
-                <div className="grid">
+                {/* Desktop Navigation */}
+                <div className="hidden md:grid">
                     <div className="kt-scrollable-x-auto flex items-stretch">
                         <Menubar className="flex h-auto items-stretch gap-5 space-x-0 rounded-none border-none bg-transparent p-0">
                             {/* Account Overview */}
@@ -153,88 +184,97 @@ export function AccountNavigation() {
                                     </Link>
                                 </MenubarTrigger>
                             </MenubarMenu>
-
-                            {/* <MenubarMenu>
-                                <MenubarTrigger className={getNavItemClasses('/billing')}>
-                                    <CreditCard className="h-4 w-4" />
-                                    Billing
-                                    <ChevronDown className="ms-auto size-3.5" />
-                                </MenubarTrigger>
-                                <MenubarContent className="bg-white dark:bg-zinc-950">
-                                    <MenubarItem asChild>
-                                        <Link
-                                            href="/dashboard/account/billing"
-                                            className="flex cursor-pointer items-center gap-2 rounded-sm px-2 py-1.5 hover:bg-gray-100 dark:hover:bg-gray-800">
-                                            <CreditCard className="h-4 w-4" />
-                                            Plans & Billing
-                                        </Link>
-                                    </MenubarItem>
-                                    <MenubarItem asChild>
-                                        <Link
-                                            href="/dashboard/account/billing/invoices"
-                                            className="flex cursor-pointer items-center gap-2 rounded-sm px-2 py-1.5 hover:bg-gray-100 dark:hover:bg-gray-800">
-                                            <Settings className="h-4 w-4" />
-                                            Invoice History
-                                        </Link>
-                                    </MenubarItem>
-                                    <MenubarSeparator />
-                                    <MenubarItem asChild>
-                                        <Link
-                                            href="/dashboard/account/billing/payment-methods"
-                                            className="flex cursor-pointer items-center gap-2 rounded-sm px-2 py-1.5 hover:bg-gray-100 dark:hover:bg-gray-800">
-                                            <Key className="h-4 w-4" />
-                                            Payment Methods
-                                        </Link>
-                                    </MenubarItem>
-                                </MenubarContent>
-                            </MenubarMenu> */}
-
-                            {/* <MenubarMenu>
-                                <MenubarTrigger asChild>
-                                    <Link
-                                        href="/dashboard/account/api-keys"
-                                        className={getSimpleNavItemClasses('/api-keys')}>
-                                        <Key className="mr-2 h-4 w-4" />
-                                        API Keys
-                                    </Link>
-                                </MenubarTrigger>
-                            </MenubarMenu>
-
-                            <MenubarMenu>
-                                <MenubarTrigger className="group text-muted-foreground hover:text-foreground data-[state=open]:text-foreground flex cursor-pointer items-center gap-1 rounded-none border-b-3 border-transparent bg-transparent px-0 py-3.5 text-sm font-medium text-nowrap transition-all duration-200 outline-none select-none hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent">
-                                    More
-                                    <ChevronDown className="ms-auto size-3.5" />
-                                </MenubarTrigger>
-                                <MenubarContent className="bg-white dark:bg-zinc-950">
-                                    <MenubarItem asChild>
-                                        <Link
-                                            href="/dashboard/account/preferences"
-                                            className="flex cursor-pointer items-center gap-2 rounded-sm px-2 py-1.5 hover:bg-gray-100 dark:hover:bg-gray-800">
-                                            <Settings className="h-4 w-4" />
-                                            Preferences
-                                        </Link>
-                                    </MenubarItem>
-                                    <MenubarItem asChild>
-                                        <Link
-                                            href="/dashboard/account/integrations"
-                                            className="flex cursor-pointer items-center gap-2 rounded-sm px-2 py-1.5 hover:bg-gray-100 dark:hover:bg-gray-800">
-                                            <Key className="h-4 w-4" />
-                                            Integrations
-                                        </Link>
-                                    </MenubarItem>
-                                    <MenubarSeparator />
-                                    <MenubarItem asChild>
-                                        <Link
-                                            href="/dashboard/account/advanced"
-                                            className="flex cursor-pointer items-center gap-2 rounded-sm px-2 py-1.5 hover:bg-gray-100 dark:hover:bg-gray-800">
-                                            <Shield className="h-4 w-4" />
-                                            Advanced Settings
-                                        </Link>
-                                    </MenubarItem>
-                                </MenubarContent>
-                            </MenubarMenu> */}
                         </Menubar>
                     </div>
+                </div>
+
+                {/* Mobile Navigation */}
+                <div className="flex w-full items-center justify-between md:hidden">
+                    <div className="flex items-center gap-3">
+                        <h1 className="text-foreground text-lg font-semibold">
+                            {getCurrentPageTitle()}
+                        </h1>
+                    </div>
+
+                    <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+                        <SheetTrigger asChild>
+                            <Button variant="ghost" size="sm" className="h-9 w-9 p-0">
+                                <Menu className="h-5 w-5" />
+                                <span className="sr-only">Open menu</span>
+                            </Button>
+                        </SheetTrigger>
+                        <SheetContent side="right" className="w-80 sm:w-80">
+                            <SheetHeader className="text-left">
+                                <SheetTitle className="flex items-center gap-2">
+                                    <User className="h-5 w-5" />
+                                    Account Settings
+                                </SheetTitle>
+                            </SheetHeader>
+
+                            <ScrollArea className="mt-6 h-[calc(100vh-120px)]">
+                                <div className="space-y-1">
+                                    {/* Overview */}
+                                    <Link
+                                        href="/dashboard/account"
+                                        className={getMobileMenuItemClasses('/dashboard/account')}
+                                        onClick={handleMobileMenuClose}>
+                                        <LayoutDashboard className="h-5 w-5" />
+                                        <span>Overview</span>
+                                    </Link>
+
+                                    {/* Profile */}
+                                    <Link
+                                        href="/dashboard/account/profile"
+                                        className={getMobileMenuItemClasses('/profile')}
+                                        onClick={handleMobileMenuClose}>
+                                        <User className="h-5 w-5" />
+                                        <span>Profile</span>
+                                    </Link>
+
+                                    {/* Security Section */}
+                                    <div className="pt-2">
+                                        <div className="px-3 py-2">
+                                            <h3 className="text-muted-foreground text-xs font-semibold tracking-wider uppercase">
+                                                Security
+                                            </h3>
+                                        </div>
+                                        <div className="space-y-1 pl-3">
+                                            <Link
+                                                href="/dashboard/account/security/password"
+                                                className="hover:bg-muted hover:text-foreground text-muted-foreground flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-all"
+                                                onClick={handleMobileMenuClose}>
+                                                <Shield className="h-4 w-4" />
+                                                <span>Password & Security</span>
+                                            </Link>
+                                            <Link
+                                                href="/dashboard/account/security/two-factor"
+                                                className="hover:bg-muted hover:text-foreground text-muted-foreground flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-all"
+                                                onClick={handleMobileMenuClose}>
+                                                <Smartphone className="h-4 w-4" />
+                                                <span>Two-Factor Auth</span>
+                                            </Link>
+                                            <Link
+                                                href="/dashboard/account/security/sessions"
+                                                className="hover:bg-muted hover:text-foreground text-muted-foreground flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-all"
+                                                onClick={handleMobileMenuClose}>
+                                                <Settings className="h-4 w-4" />
+                                                <span>Active Sessions</span>
+                                            </Link>
+                                        </div>
+                                    </div>
+
+                                    {/* Notifications */}
+                                    <Link
+                                        href="/dashboard/account/notifications"
+                                        className={getMobileMenuItemClasses('/notifications')}
+                                        onClick={handleMobileMenuClose}>
+                                        <Bell className="h-5 w-5" />
+                                        <span>Notifications</span>
+                                    </Link>
+                                </div>
+                            </ScrollArea>
+                        </SheetContent>
+                    </Sheet>
                 </div>
             </div>
         </div>

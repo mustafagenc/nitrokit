@@ -8,19 +8,16 @@ import {
     Shield,
     Bell,
     Settings,
+    Key,
+    Smartphone,
+    Monitor,
+    ChevronRight,
+    LucideIcon,
 } from 'lucide-react';
 import { useSession } from 'next-auth/react';
 import { useTranslations } from 'next-intl';
 import React from 'react';
 
-import {
-    Command,
-    CommandGroup,
-    CommandItem,
-    CommandList,
-    CommandShortcut,
-    CommandSeparator,
-} from '@/components/ui/command';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { useHotkeys } from '@/hooks/useHotkeys';
 
@@ -31,14 +28,24 @@ import { SignUpButton } from '@/components/auth/signup-button';
 
 import { useRouter } from '@/lib/i18n/navigation';
 import { UserAvatar } from '@/components/dashboard/user-avatar';
+import { cn } from '@/lib';
 
 interface UserMenuProps {
     size?: string;
 }
 
+interface MenuItemProps {
+    icon: LucideIcon;
+    children: React.ReactNode;
+    onClick?: () => void;
+    shortcut?: string;
+    className?: string;
+}
+
 export function UserMenu({ size = 'size-10' }: UserMenuProps) {
     const { data: session, status } = useSession();
     const [open, setOpen] = React.useState(false);
+    const [securityOpen, setSecurityOpen] = React.useState(false);
     const router = useRouter();
 
     const t = useTranslations();
@@ -46,6 +53,7 @@ export function UserMenu({ size = 'size-10' }: UserMenuProps) {
     const handleNavigation = React.useCallback(
         (route: string) => {
             setOpen(false);
+            setSecurityOpen(false);
             router.push(route);
         },
         [router]
@@ -94,6 +102,66 @@ export function UserMenu({ size = 'size-10' }: UserMenuProps) {
         return session?.user?.name || 'User';
     };
 
+    const MenuItem = ({
+        icon: Icon,
+        children,
+        onClick,
+        shortcut,
+        className = '',
+    }: MenuItemProps) => (
+        <button
+            onClick={onClick}
+            className={cn(
+                'flex w-full items-center gap-2.5 rounded-md px-2.5 py-1.5 text-sm transition-colors hover:bg-gray-100 dark:hover:bg-gray-800',
+                className
+            )}>
+            <Icon className="h-4 w-4 flex-shrink-0" />
+            <span className="flex-1 text-left">{children}</span>
+            {shortcut && (
+                <span className="text-xs text-gray-500 dark:text-gray-400">{shortcut}</span>
+            )}
+        </button>
+    );
+
+    const SecurityMenuItem = () => (
+        <Popover open={securityOpen} onOpenChange={setSecurityOpen}>
+            <PopoverTrigger asChild>
+                <button className="flex w-full items-center gap-2.5 rounded-md px-2.5 py-1.5 text-sm transition-colors hover:bg-gray-100 dark:hover:bg-gray-800">
+                    <Shield className="h-4 w-4 flex-shrink-0" />
+                    <span className="flex-1 text-left">Security</span>
+                    <ChevronRight className="h-4 w-4 flex-shrink-0" />
+                </button>
+            </PopoverTrigger>
+            <PopoverContent side="right" align="start" className="w-52 p-1.5" sideOffset={8}>
+                <div className="space-y-0.5">
+                    <MenuItem
+                        icon={Shield}
+                        onClick={() => handleNavigation('/dashboard/account/security')}>
+                        Security Overview
+                    </MenuItem>
+
+                    <div className="my-1.5 h-px bg-gray-200 dark:bg-gray-700" />
+
+                    <MenuItem
+                        icon={Key}
+                        onClick={() => handleNavigation('/dashboard/account/security/password')}>
+                        Password
+                    </MenuItem>
+                    <MenuItem
+                        icon={Smartphone}
+                        onClick={() => handleNavigation('/dashboard/account/security/two-factor')}>
+                        Two-Factor Auth
+                    </MenuItem>
+                    <MenuItem
+                        icon={Monitor}
+                        onClick={() => handleNavigation('/dashboard/account/security/sessions')}>
+                        Active Sessions
+                    </MenuItem>
+                </div>
+            </PopoverContent>
+        </Popover>
+    );
+
     if (status === 'unauthenticated') {
         return (
             <div className="flex items-center gap-2 lg:ml-4">
@@ -114,90 +182,88 @@ export function UserMenu({ size = 'size-10' }: UserMenuProps) {
             <PopoverTrigger asChild>
                 <UserAvatar useSessionData={true} size={size} className="ml-4" />
             </PopoverTrigger>
-            <PopoverContent className="w-62 p-0 shadow-xs" side="bottom" align="end">
-                <div className="flex w-full flex-row items-center justify-start gap-3 p-4">
+            <PopoverContent className="w-62 p-0 shadow-lg" side="bottom" align="end">
+                <div className="flex w-full flex-row items-center justify-start gap-3 border-b border-gray-200 p-3 dark:border-gray-700">
                     <div>
                         <UserAvatar
                             useSessionData={true}
                             size={size}
-                            className="border-green-500"
+                            className="border-2 border-green-500"
                         />
                     </div>
                     <div className="min-w-0 flex-1">
-                        <h4 className="mt-2 truncate text-sm font-semibold text-gray-800 dark:text-white">
+                        <h4 className="truncate text-sm font-semibold text-gray-900 dark:text-white">
                             {getDisplayName()}
                         </h4>
                         <p className="truncate text-xs font-normal text-gray-600 dark:text-gray-400">
                             {session.user.email}
                         </p>
                     </div>
-                    <div className="focus:ring-ring inline-flex h-5 min-w-5 items-center justify-center gap-1 rounded-sm border border-blue-700/10 bg-blue-700/10 px-[0.325rem] text-[0.6875rem] leading-[0.75rem] font-medium text-blue-700 focus:ring-2 focus:ring-offset-2 focus:outline-hidden [&_svg]:-ms-px [&_svg]:size-3 [&_svg]:shrink-0">
+                    <div className="flex h-6 min-w-6 items-center justify-center rounded border border-blue-200 bg-blue-50 px-2 text-xs font-medium text-blue-700 dark:border-blue-800 dark:bg-blue-900/20 dark:text-blue-400">
                         {session.user.role || 'User'}
                     </div>
                 </div>
 
-                <hr className="h-px w-full border-0 bg-gray-200 dark:bg-gray-700" />
+                <div className="p-1.5">
+                    <div className="mb-3">
+                        <div className="mb-1.5 px-2 py-1">
+                            <h3 className="text-xs font-semibold tracking-wider text-gray-500 uppercase dark:text-gray-400">
+                                Account
+                            </h3>
+                        </div>
+                        <div className="space-y-0.5">
+                            <MenuItem
+                                icon={CircleUserRound}
+                                onClick={() => handleNavigation('/dashboard/account')}
+                                shortcut="⌘J">
+                                Account Overview
+                            </MenuItem>
+                            <MenuItem
+                                icon={User}
+                                onClick={() => handleNavigation('/dashboard/account/profile')}
+                                shortcut="⌘P">
+                                Profile Settings
+                            </MenuItem>
+                            <SecurityMenuItem />
+                            <MenuItem
+                                icon={Bell}
+                                onClick={() =>
+                                    handleNavigation('/dashboard/account/notifications')
+                                }>
+                                Notifications
+                            </MenuItem>
+                        </div>
+                    </div>
 
-                <div>
-                    <Command>
-                        <CommandList>
-                            <CommandGroup heading="Account">
-                                <CommandItem
-                                    onSelect={() => handleNavigation('/dashboard/account')}>
-                                    <CircleUserRound className="mr-2 h-4 w-4" />
-                                    <span>Account Overview</span>
-                                    <CommandShortcut>⌘J</CommandShortcut>
-                                </CommandItem>
-                                <CommandItem
-                                    onSelect={() => handleNavigation('/dashboard/account/profile')}>
-                                    <User className="mr-2 h-4 w-4" />
-                                    <span>Profile Settings</span>
-                                    <CommandShortcut>⌘P</CommandShortcut>
-                                </CommandItem>
-                                <CommandItem
-                                    onSelect={() =>
-                                        handleNavigation('/dashboard/account/security')
-                                    }>
-                                    <Shield className="mr-2 h-4 w-4" />
-                                    <span>Security</span>
-                                    <CommandShortcut>⌘S</CommandShortcut>
-                                </CommandItem>
-                                <CommandItem
-                                    onSelect={() =>
-                                        handleNavigation('/dashboard/account/notifications')
-                                    }>
-                                    <Bell className="mr-2 h-4 w-4" />
-                                    <span>Notifications</span>
-                                </CommandItem>
-                            </CommandGroup>
+                    <div className="my-2 h-px bg-gray-200 dark:bg-gray-700" />
 
-                            <CommandSeparator />
-
-                            <CommandGroup heading="Other">
-                                <CommandItem
-                                    onSelect={() => handleNavigation('/dashboard/support')}>
-                                    <HeartHandshake className="mr-2 h-4 w-4" />
-                                    <span>{t('dashboard.navigation.support')}</span>
-                                </CommandItem>
-                                <CommandItem
-                                    onSelect={() => handleNavigation('/dashboard/billing')}>
-                                    <ReceiptText className="mr-2 h-4 w-4" />
-                                    <span>Billing</span>
-                                </CommandItem>
-                                <CommandItem
-                                    onSelect={() => handleNavigation('/dashboard/settings')}>
-                                    <Settings className="mr-2 h-4 w-4" />
-                                    <span>Settings</span>
-                                </CommandItem>
-                            </CommandGroup>
-                        </CommandList>
-                    </Command>
+                    <div className="mb-3">
+                        <div className="mb-1.5 px-2 py-1">
+                            <h3 className="text-xs font-semibold tracking-wider text-gray-500 uppercase dark:text-gray-400">
+                                Other
+                            </h3>
+                        </div>
+                        <div className="space-y-0.5">
+                            <MenuItem
+                                icon={HeartHandshake}
+                                onClick={() => handleNavigation('/dashboard/support')}>
+                                {t('dashboard.navigation.support')}
+                            </MenuItem>
+                            <MenuItem
+                                icon={ReceiptText}
+                                onClick={() => handleNavigation('/dashboard/billing')}>
+                                Billing & Plans
+                            </MenuItem>
+                            <MenuItem
+                                icon={Settings}
+                                onClick={() => handleNavigation('/dashboard/settings')}>
+                                Settings
+                            </MenuItem>
+                        </div>
+                    </div>
                 </div>
 
-                <hr className="h-px w-full border-0 bg-gray-200 dark:bg-gray-700" />
-
-                {/* Sign Out */}
-                <div className="p-3">
+                <div className="border-t border-gray-200 p-2 dark:border-gray-700">
                     <SignOutButton />
                 </div>
             </PopoverContent>
