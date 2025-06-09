@@ -2,7 +2,7 @@
 
 import { useSession } from 'next-auth/react';
 import { useEffect } from 'react';
-import { logger } from '@/lib/logger';
+import { logger } from '@/lib/services/logger';
 
 export function useLoggerContext() {
     const { data: session, status } = useSession();

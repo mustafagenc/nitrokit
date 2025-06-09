@@ -1,6 +1,6 @@
 import { EmailService } from './email-service';
 import { EmailProviderType, EmailProviderConfig } from './providers';
-import { logger } from '@/lib/logger';
+import { logger } from '@/lib/services/logger';
 
 let emailService: EmailService;
 

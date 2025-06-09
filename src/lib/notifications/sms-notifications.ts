@@ -1,6 +1,6 @@
 import { prisma } from '@/lib/prisma';
 import { getSMSService } from '@/lib/services/sms';
-import { logger } from '@/lib/logger';
+import { logger } from '@/lib/services/logger';
 import crypto from 'crypto';
 
 export class PhoneVerificationService {

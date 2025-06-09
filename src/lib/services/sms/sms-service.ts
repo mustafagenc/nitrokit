@@ -1,6 +1,6 @@
 import { SMSProvider, SMSResult } from './types';
 import { createSMSProvider, SMSProviderType, SMSProviderConfig } from './providers';
-import { logger } from '@/lib/logger';
+import { logger } from '@/lib/services/logger';
 
 export class SMSService {
     private provider: SMSProvider;

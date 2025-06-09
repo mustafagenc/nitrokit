@@ -1,6 +1,6 @@
 import { EmailProvider, EmailData, EmailResult, EmailTemplate, BulkEmailResult } from './types';
 import { createEmailProvider, EmailProviderType, EmailProviderConfig } from './providers';
-import { logger } from '@/lib/logger';
+import { logger } from '@/lib/services/logger';
 
 export class EmailService {
     private provider: EmailProvider;

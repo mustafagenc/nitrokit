@@ -1,6 +1,6 @@
 import twilio, { Twilio } from 'twilio';
 import { SMSProvider, SMSResult } from '../types';
-import { logger } from '@/lib/logger';
+import { logger } from '@/lib/services/logger';
 
 export interface TwilioConfig {
     accountSid: string;

@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
 import { InAppNotificationService } from '@/lib/services/inapp-notification-service';
-import { logger } from '@/lib/logger';
-import { normalizeError } from '@/lib';
-import { setLoggerContextFromRequest } from '@/lib/logger/auth-middleware';
+import { logger } from '@/lib/services/logger';
+import { normalizeError } from '@/lib/utils/error-handler';
+import { setLoggerContextFromRequest } from '@/lib/services/logger/auth-middleware';
 
 export async function GET(request: NextRequest) {
     try {

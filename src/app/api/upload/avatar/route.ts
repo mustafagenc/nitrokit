@@ -2,8 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import { del, put } from '@vercel/blob';
 import { auth } from '@/auth';
 import { prisma } from '@/lib/prisma';
-import { logger } from '@/lib/logger';
-import { normalizeError } from '@/lib';
+import { logger } from '@/lib/services/logger';
+import { normalizeError } from '@/lib/utils/error-handler';
 
 export async function POST(request: NextRequest) {
     try {

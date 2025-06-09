@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import bcrypt from 'bcryptjs';
 import { prisma } from '@/lib/prisma';
-import { verifyPasswordResetToken } from '@/lib/tokens';
+import { verifyPasswordResetToken } from '@/lib/auth/tokens';
 
 const confirmResetSchema = z.object({
     token: z.string(),

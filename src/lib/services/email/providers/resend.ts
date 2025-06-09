@@ -1,5 +1,5 @@
 import { EmailProvider, EmailData, EmailResult } from '../types';
-import { logger } from '@/lib/logger';
+import { logger } from '@/lib/services/logger';
 
 export interface ResendConfig {
     apiKey: string;

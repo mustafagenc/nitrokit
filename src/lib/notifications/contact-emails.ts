@@ -2,7 +2,7 @@ import { render } from '@react-email/render';
 import { ContactEmail } from '@/components/emails/contact-email';
 import { PUBLIC_MAIL } from '@/constants/site';
 import { getEmailService } from '@/lib/services/email';
-import { logger } from '@/lib/logger';
+import { logger } from '@/lib/services/logger';
 
 interface SendContactEmailProps {
     name: string;

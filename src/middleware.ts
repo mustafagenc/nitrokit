@@ -3,9 +3,9 @@ import { NextResponse } from 'next/server';
 
 import { auth } from '@/auth';
 import { routing } from '@/lib/i18n/routing';
-import { apiRateLimit, fallbackRateLimit } from '@/lib/ratelimit';
+import { apiRateLimit, fallbackRateLimit } from '@/lib/security/rate-limit';
 import type { NextRequest } from 'next/server';
-import { updateSessionInfo } from '@/lib/session-tracking';
+import { updateSessionInfo } from '@/lib/auth/session-tracking';
 
 const intlMiddleware = createIntlMiddleware(routing);
 

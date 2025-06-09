@@ -4,7 +4,7 @@ import { PasswordResetEmail } from '@/components/emails/password-reset-email';
 import { WelcomeEmail } from '@/components/emails/welcome-email';
 import { getBaseUrl } from '@/lib';
 import { getEmailService } from '@/lib/services/email';
-import { logger } from '@/lib/logger';
+import { logger } from '@/lib/services/logger';
 
 interface SendVerificationEmailProps {
     email: string;

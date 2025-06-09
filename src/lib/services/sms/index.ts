@@ -1,6 +1,6 @@
 import { SMSService } from './sms-service';
 import { SMSProviderType, SMSProviderConfig } from './providers';
-import { logger } from '@/lib/logger';
+import { logger } from '@/lib/services/logger';
 
 let smsService: SMSService;
 

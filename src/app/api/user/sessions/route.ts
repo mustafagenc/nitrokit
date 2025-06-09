@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
 import { prisma } from '@/lib/prisma';
-import { createOrUpdateSessionInfo } from '@/lib/session-tracking';
+import { createOrUpdateSessionInfo } from '@/lib/auth/session-tracking';
 
 export async function GET(request: NextRequest) {
     try {

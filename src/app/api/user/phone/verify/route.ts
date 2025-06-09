@@ -1,8 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
 import { PhoneVerificationService } from '@/lib/notifications/sms-notifications';
-import { logger } from '@/lib/logger';
-import { setLoggerContextFromRequest, clearLoggerContext } from '@/lib/logger/auth-middleware';
+import { logger } from '@/lib/services/logger';
+import {
+    setLoggerContextFromRequest,
+    clearLoggerContext,
+} from '@/lib/services/logger/auth-middleware';
 
 export async function POST(request: NextRequest) {
     try {

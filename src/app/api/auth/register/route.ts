@@ -2,10 +2,13 @@ import { NextRequest, NextResponse } from 'next/server';
 import bcrypt from 'bcryptjs';
 import { z } from 'zod';
 import { prisma } from '@/lib/prisma';
-import { generateVerificationToken } from '@/lib/tokens';
+import { generateVerificationToken } from '@/lib/auth/tokens';
 import { sendVerificationEmail, sendWelcomeEmail } from '@/lib/notifications/auth-emails';
-import { logger } from '@/lib/logger';
-import { setLoggerContextFromRequest, clearLoggerContext } from '@/lib/logger/auth-middleware';
+import {
+    clearLoggerContext,
+    setLoggerContextFromRequest,
+} from '@/lib/services/logger/auth-middleware';
+import { logger } from '@/lib/services/logger';
 
 const registerSchema = z.object({
     firstName: z.string().min(2).max(50),
@@ -31,12 +34,7 @@ const registerSchema = z.object({
 
 export async function POST(request: NextRequest) {
     try {
-        // Set up logger context
         await setLoggerContextFromRequest(request);
-
-        logger.info('User registration attempt started', {
-            action: 'user_registration_attempt',
-        });
 
         const body = await request.json();
         const result = registerSchema.safeParse(body);
@@ -288,7 +286,6 @@ export async function POST(request: NextRequest) {
             { status: 500 }
         );
     } finally {
-        // Clean up logger context
         clearLoggerContext();
     }
 }

@@ -1,5 +1,5 @@
 import { SMSProvider, SMSResult } from '../types';
-import { logger } from '@/lib/logger';
+import { logger } from '@/lib/services/logger';
 
 export interface MutlucellConfig {
     username: string;
