@@ -1,10 +1,9 @@
-// src/app/[locale]/[dashboard]/account/sessions/components/sessions-table.tsx
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { format } from 'date-fns';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { format } from 'date-fns';
 import {
     Table,
     TableBody,
@@ -121,12 +120,25 @@ export function SessionsTable({ userId, currentSessionId }: SessionsTableProps) 
             });
 
             if (response.ok) {
+                const data = await response.json();
+
+                // If user terminated their own session, redirect to login
+                if (data.currentSessionDeleted) {
+                    toast.success('Current session terminated. Redirecting to login...');
+
+                    // Wait a moment for the toast to be visible
+                    setTimeout(() => {
+                        window.location.href = '/signin';
+                    }, 1500);
+
+                    return;
+                }
+
+                // Otherwise, just remove from list
                 setSessions(prev => prev.filter(session => session.id !== sessionId));
                 toast.success('Session terminated successfully');
             } else {
-                // Mock termination for demo
-                setSessions(prev => prev.filter(session => session.id !== sessionId));
-                toast.success('Session terminated successfully');
+                toast.error('Failed to terminate session');
             }
         } catch (error) {
             console.error('Failed to terminate session:', error);
@@ -143,13 +155,19 @@ export function SessionsTable({ userId, currentSessionId }: SessionsTableProps) 
             });
 
             if (response.ok) {
-                // Keep only current session
-                setSessions(prev => prev.filter(session => session.isCurrent));
-                toast.success('All other sessions terminated successfully');
+                const data = await response.json();
+
+                if (data.currentSessionPreserved) {
+                    setSessions(prev => prev.filter(session => session.isCurrent));
+                    toast.success('All other sessions terminated successfully');
+                } else {
+                    toast.success('All sessions terminated. Redirecting to login...');
+                    setTimeout(() => {
+                        window.location.href = '/signin';
+                    }, 1500);
+                }
             } else {
-                // Mock termination for demo
-                setSessions(prev => prev.filter(session => session.isCurrent));
-                toast.success('All other sessions terminated successfully');
+                toast.error('Failed to terminate sessions');
             }
         } catch (error) {
             console.error('Failed to terminate all sessions:', error);

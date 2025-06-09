@@ -15,6 +15,10 @@ export async function DELETE(
 
         const { sessionId } = await params;
 
+        const currentSessionToken =
+            request.cookies.get('authjs.session-token')?.value ||
+            request.cookies.get('__Secure-authjs.session-token')?.value;
+
         const sessionToDelete = await prisma.session.findFirst({
             where: {
                 id: sessionId,
@@ -26,11 +30,27 @@ export async function DELETE(
             return NextResponse.json({ error: 'Session not found' }, { status: 404 });
         }
 
+        const isDeletingCurrentSession = sessionToDelete.sessionToken === currentSessionToken;
+
         await prisma.session.delete({
             where: { id: sessionId },
         });
 
-        return NextResponse.json({ success: true });
+        if (isDeletingCurrentSession) {
+            const response = NextResponse.json({
+                success: true,
+                currentSessionDeleted: true,
+            });
+
+            response.cookies.delete('authjs.session-token');
+            response.cookies.delete('__Secure-authjs.session-token');
+            response.cookies.delete('authjs.csrf-token');
+            response.cookies.delete('__Secure-authjs.csrf-token');
+
+            return response;
+        }
+
+        return NextResponse.json({ success: true, currentSessionDeleted: false });
     } catch (error) {
         console.error('❌ Failed to terminate session:', error);
         return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
