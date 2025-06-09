@@ -5,12 +5,30 @@ import { auth } from '@/auth';
 import { routing } from '@/lib/i18n/routing';
 import { apiRateLimit, fallbackRateLimit } from '@/lib/ratelimit';
 import type { NextRequest } from 'next/server';
+import { updateSessionInfo } from '@/lib/session-tracking';
 
 const intlMiddleware = createIntlMiddleware(routing);
 
 export async function middleware(request: NextRequest) {
     if (process.env.SKIP_MIDDLEWARE === 'true') {
         return NextResponse.next();
+    }
+
+    if (request.nextUrl.pathname.startsWith('/dashboard')) {
+        try {
+            const session = await auth();
+            if (session?.user?.id) {
+                const sessionToken =
+                    request.cookies.get('authjs.session-token')?.value ||
+                    request.cookies.get('__Secure-authjs.session-token')?.value;
+
+                if (sessionToken) {
+                    updateSessionInfo(sessionToken, request).catch(() => {});
+                }
+            }
+        } catch (error) {
+            console.error('Middleware session tracking error:', error);
+        }
     }
 
     if (request.nextUrl.pathname.startsWith('/api/')) {
@@ -74,5 +92,9 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-    matcher: ['/api/(.*)', '/((?!api|trpc|_next|_vercel|sitemap|robots|storybook|.*\\..*).*)'],
+    matcher: [
+        '/api/(.*)',
+        '/dashboard/:path*',
+        '/((?!api|trpc|_next|_vercel|sitemap|robots|storybook|.*\\..*).*)',
+    ],
 };

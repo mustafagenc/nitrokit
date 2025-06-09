@@ -99,10 +99,14 @@ export function UserMenu({ size = 'size-11' }: UserMenuProps) {
             <PopoverTrigger asChild>
                 <UserAvatar useSessionData={true} size={size} className="ml-4" />
             </PopoverTrigger>
-            <PopoverContent className="w-60 p-0 shadow-xs" side="bottom" align="end">
-                <div className="flex w-full flex-row items-start justify-start gap-3 p-3">
+            <PopoverContent className="w-70 p-0 shadow-xs" side="bottom" align="end">
+                <div className="flex w-full flex-row items-center justify-start gap-3 p-3">
                     <div>
-                        <UserAvatar useSessionData={true} size={size} />
+                        <UserAvatar
+                            useSessionData={true}
+                            size={size}
+                            className="border-green-500"
+                        />
                     </div>
                     <div className="min-w-0 flex-1">
                         <h4 className="mt-2 truncate text-xs font-semibold text-gray-800 dark:text-white">
@@ -111,6 +115,9 @@ export function UserMenu({ size = 'size-11' }: UserMenuProps) {
                         <p className="truncate text-xs font-normal text-gray-600 dark:text-gray-400">
                             {session.user.email}
                         </p>
+                    </div>
+                    <div className="focus:ring-ring inline-flex h-5 min-w-5 items-center justify-center gap-1 rounded-sm border border-blue-700/10 bg-blue-700/10 px-[0.325rem] text-[0.6875rem] leading-[0.75rem] font-medium text-blue-700 focus:ring-2 focus:ring-offset-2 focus:outline-hidden [&_svg]:-ms-px [&_svg]:size-3 [&_svg]:shrink-0">
+                        {session.user.role}
                     </div>
                 </div>
                 <hr className="h-px w-full border-0 bg-gray-200 dark:bg-gray-700" />
