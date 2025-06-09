@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import { del, put } from '@vercel/blob';
 import { auth } from '@/auth';
 import { prisma } from '@/lib/prisma';
+import { logger } from '@/lib/services/logger';
+import { normalizeError } from '@/lib/utils/error-handler';
 
 export async function POST(request: NextRequest) {
     try {
@@ -66,7 +68,12 @@ export async function POST(request: NextRequest) {
             message: 'Image uploaded successfully',
         });
     } catch (error) {
-        console.error('Upload error:', error);
+        const session = await auth();
+        logger.error('Avatar upload error:', normalizeError(error), {
+            userId: session?.user?.id,
+            url: request.url,
+            method: request.method,
+        });
         return NextResponse.json({ error: 'Upload failed. Please try again.' }, { status: 500 });
     }
 }

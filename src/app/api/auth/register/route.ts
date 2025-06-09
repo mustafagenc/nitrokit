@@ -2,8 +2,13 @@ import { NextRequest, NextResponse } from 'next/server';
 import bcrypt from 'bcryptjs';
 import { z } from 'zod';
 import { prisma } from '@/lib/prisma';
-import { generateVerificationToken } from '@/lib/tokens';
-import { sendVerificationEmail } from '@/lib/notifications/auth-emails';
+import { generateVerificationToken } from '@/lib/auth/tokens';
+import { sendVerificationEmail, sendWelcomeEmail } from '@/lib/notifications/auth-emails';
+import {
+    clearLoggerContext,
+    setLoggerContextFromRequest,
+} from '@/lib/services/logger/auth-middleware';
+import { logger } from '@/lib/services/logger';
 
 const registerSchema = z.object({
     firstName: z.string().min(2).max(50),
@@ -29,10 +34,28 @@ const registerSchema = z.object({
 
 export async function POST(request: NextRequest) {
     try {
+        await setLoggerContextFromRequest(request);
+
         const body = await request.json();
         const result = registerSchema.safeParse(body);
 
         if (!result.success) {
+            const validationErrors = result.error.errors.reduce(
+                (acc, err) => {
+                    const field = err.path.join('.');
+                    acc[field] = err.message;
+                    return acc;
+                },
+                {} as Record<string, string>
+            );
+
+            logger.warn('Invalid registration data provided', {
+                ...validationErrors,
+                action: 'validation_failed',
+                errorCount: result.error.errors.length,
+                fields: result.error.errors.map(err => err.path.join('.')).join(', '),
+            });
+
             return NextResponse.json(
                 {
                     error: 'Invalid input data',
@@ -43,24 +66,61 @@ export async function POST(request: NextRequest) {
         }
 
         const { firstName, lastName, email, password } = result.data;
+        const normalizedEmail = email.toLowerCase();
+
+        logger.info('Registration data validated successfully', {
+            email: email.split('@')[0] + '@***',
+            hasFirstName: !!firstName,
+            hasLastName: !!lastName,
+            passwordLength: password.length,
+        });
+
         const existingUser = await prisma.user.findUnique({
-            where: { email: email.toLowerCase() },
+            where: { email: normalizedEmail },
         });
 
         if (existingUser) {
+            logger.warn('Registration attempt with existing email', {
+                email: email.split('@')[0] + '@***',
+                existingUserId: existingUser.id,
+                action: 'duplicate_email_attempt',
+            });
+
+            logger.logSecurityEvent('duplicate_registration_attempt', {
+                severity: 'low',
+                email: email.split('@')[0] + '@***',
+                ip: logger.getContext().ip,
+                userAgent: logger.getContext().userAgent,
+            });
+
             return NextResponse.json(
                 { error: 'A user with this email already exists' },
                 { status: 400 }
             );
         }
+
+        // Hash password
+        logger.debug('Hashing password', {
+            action: 'password_hashing',
+        });
+
         const hashedPassword = await bcrypt.hash(password, 12);
-        const verificationToken = await generateVerificationToken(email.toLowerCase());
+
+        // Generate verification token
+        const verificationToken = await generateVerificationToken(normalizedEmail);
+
+        logger.info('Verification token generated', {
+            tokenLength: verificationToken.token.length,
+            expiresAt: verificationToken.expires.toISOString(),
+        });
+
+        // Create user
         const user = await prisma.user.create({
             data: {
                 firstName,
                 lastName,
                 name: `${firstName} ${lastName}`,
-                email: email.toLowerCase(),
+                email: normalizedEmail,
                 password: hashedPassword,
                 role: 'USER',
                 isActive: true,
@@ -80,19 +140,93 @@ export async function POST(request: NextRequest) {
             },
         });
 
+        // Set user context for logging
+        logger.setUserId(user.id);
+
+        logger.info('User created successfully', {
+            userId: user.id,
+            email: email.split('@')[0] + '@***',
+            name: user.name,
+            action: 'user_created',
+        });
+
+        // Log user action
+        logger.logUserAction('user_registered', 'auth', {
+            email: email.split('@')[0] + '@***',
+            firstName,
+            lastName,
+            registrationMethod: 'email',
+        });
+
+        // Send verification email
         try {
-            await sendVerificationEmail({
+            logger.info('Sending verification email', {
+                action: 'send_verification_email',
+            });
+
+            const emailResult = await sendVerificationEmail({
                 email: user.email,
                 name: user.name || 'User',
                 token: verificationToken.token,
+                userId: user.id,
+            });
+
+            logger.info('Verification email sent successfully', {
+                messageId: emailResult.id,
+                action: 'verification_email_sent',
+            });
+
+            // Send welcome email asynchronously (non-blocking)
+            sendWelcomeEmail({
+                email: user.email,
+                name: user.name || 'User',
+                userId: user.id,
+            }).catch(error => {
+                // Welcome email failure shouldn't block registration
+                logger.warn('Welcome email failed but registration succeeded', {
+                    error: error instanceof Error ? error.message : 'Unknown error',
+                    userId: user.id,
+                    action: 'welcome_email_failed',
+                });
             });
         } catch (emailError) {
-            await prisma.user.delete({
-                where: { id: user.id },
-            });
-            await prisma.verificationToken.delete({
-                where: { token: verificationToken.token },
-            });
+            logger.error(
+                'Verification email failed to send',
+                emailError instanceof Error ? emailError : undefined,
+                {
+                    userId: user.id,
+                    email: email.split('@')[0] + '@***',
+                    action: 'verification_email_failed',
+                }
+            );
+
+            // Rollback user creation if verification email fails
+            try {
+                await Promise.all([
+                    prisma.user.delete({
+                        where: { id: user.id },
+                    }),
+                    prisma.verificationToken.delete({
+                        where: { token: verificationToken.token },
+                    }),
+                ]);
+
+                logger.info('User and token deleted due to email failure', {
+                    userId: user.id,
+                    action: 'registration_rollback',
+                });
+            } catch (cleanupError) {
+                logger.error(
+                    'Failed to cleanup after email error',
+                    cleanupError instanceof Error ? cleanupError : undefined,
+                    {
+                        userId: user.id,
+                        originalEmailError:
+                            emailError instanceof Error ? emailError.message : 'Unknown',
+                    }
+                );
+            }
+
             return NextResponse.json(
                 {
                     error: 'Failed to send verification email. Please try again or contact support.',
@@ -102,6 +236,13 @@ export async function POST(request: NextRequest) {
                 { status: 500 }
             );
         }
+
+        logger.info('User registration completed successfully', {
+            userId: user.id,
+            email: email.split('@')[0] + '@***',
+            action: 'registration_completed',
+        });
+
         return NextResponse.json(
             {
                 message:
@@ -112,14 +253,28 @@ export async function POST(request: NextRequest) {
             { status: 201 }
         );
     } catch (error) {
-        console.error('❌ Registration error details:');
-        console.error('Error name:', error instanceof Error ? error.name : 'Unknown');
-        console.error('Error message:', error instanceof Error ? error.message : error);
-        console.error('Error stack:', error instanceof Error ? error.stack : 'No stack');
+        logger.error('User registration error', error instanceof Error ? error : undefined, {
+            action: 'registration_error',
+            errorType: error instanceof Error ? error.name : 'Unknown',
+        });
 
-        if (error instanceof Error && error.message.includes('Prisma')) {
-            console.error('🗃️ This appears to be a Prisma error');
+        // Enhanced error logging for development
+        if (process.env.NODE_ENV === 'development') {
+            logger.debug('Detailed registration error', {
+                errorName: error instanceof Error ? error.name : 'Unknown',
+                errorMessage: error instanceof Error ? error.message : String(error),
+                errorStack: error instanceof Error ? error.stack : 'No stack',
+                isPrismaError: error instanceof Error && error.message.includes('Prisma'),
+            });
         }
+
+        // Log security event for registration errors
+        logger.logSecurityEvent('registration_error', {
+            severity: 'medium',
+            errorType: error instanceof Error ? error.name : 'Unknown',
+            ip: logger.getContext().ip,
+            userAgent: logger.getContext().userAgent,
+        });
 
         return NextResponse.json(
             {
@@ -130,5 +285,7 @@ export async function POST(request: NextRequest) {
             },
             { status: 500 }
         );
+    } finally {
+        clearLoggerContext();
     }
 }

@@ -29,7 +29,7 @@ export function DashboardBreadcrumb() {
     });
 
     return (
-        <nav className="hidden items-center justify-start space-x-1 text-xs lg:flex">
+        <nav className="hidden items-center justify-start space-x-1 text-sm lg:flex">
             {breadcrumbs.map(breadcrumb => (
                 <div key={breadcrumb.href} className="flex items-center space-x-1">
                     <ChevronRight className="h-3 w-3 text-gray-400 dark:text-zinc-500" />
