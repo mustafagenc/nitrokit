@@ -4,7 +4,6 @@ import { auth } from '@/auth';
 import { prisma } from '@/lib/prisma';
 import { generatePageMetadata } from '@/lib';
 import { SessionsPageClient } from './components/sessions-page-client';
-import { logger } from '@/lib/logger/logger';
 
 export async function generateMetadata(): Promise<Metadata> {
     return await generatePageMetadata({
@@ -34,22 +33,6 @@ export default async function ActiveSessionsPage() {
     if (!user) {
         redirect('/signin');
     }
-
-    logger.logUserAction(session.user.id, 'view_sessions_page', 'sessions', {
-        timestamp: new Date().toISOString(),
-        userAgent: 'server-side-render',
-    });
-
-    logger.setUser(session.user.id, {
-        email: session.user.email || undefined,
-        name: session.user.name || undefined,
-        lastLoginAt: new Date(),
-    });
-
-    logger.logSecurityEvent(session.user.id, 'sessions_page_access', {
-        severity: 'low',
-        timestamp: new Date().toISOString(),
-    });
 
     return <SessionsPageClient userId={user.id} currentSessionId={session.user.id} />;
 }

@@ -12,7 +12,6 @@ export class SentryProvider implements LoggerProvider {
                 tracesSampleRate: process.env.NODE_ENV === 'production' ? 0.1 : 1.0,
                 debug: process.env.NODE_ENV === 'development',
                 beforeSend(event) {
-                    // Filter out noisy errors in production
                     if (process.env.NODE_ENV === 'production') {
                         const errorMessage = event.exception?.values?.[0]?.value;
                         if (errorMessage?.includes('Network Error')) {
@@ -21,6 +20,7 @@ export class SentryProvider implements LoggerProvider {
                     }
                     return event;
                 },
+                _experiments: { enableLogs: true },
             });
             this.initialized = true;
         }
@@ -119,7 +119,6 @@ export class SentryProvider implements LoggerProvider {
                 username: userInfo.name,
             };
 
-            // Add custom user properties
             const extras: Record<string, string | undefined> = {};
             if (userInfo.role) extras.role = userInfo.role;
             if (userInfo.lastLoginAt) {

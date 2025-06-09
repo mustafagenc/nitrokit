@@ -104,7 +104,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                         where: { id: session.user.id },
                         data: { lastLoginAt: new Date() },
                     });
-                    console.log(token);
                 } catch (error) {
                     console.error('Failed to update last login:', error);
                 }
