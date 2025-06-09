@@ -1,4 +1,3 @@
-// src/lib/notifications/sms-notifications.ts
 import { prisma } from '@/lib/prisma';
 import { getSMSService } from '@/lib/services/sms';
 import { logger } from '@/lib/logger';
@@ -45,18 +44,16 @@ export class PhoneVerificationService {
         cooldownSeconds?: number;
     }> {
         try {
-            // Set user context for logging
             logger.setUserId(userId);
 
             const formattedPhone = this.formatPhoneNumber(phoneNumber);
 
             logger.info('Initiating phone verification', {
                 action: 'send_verification_code',
-                originalPhone: phoneNumber.slice(-4), // Log only last 4 digits for privacy
+                originalPhone: phoneNumber.slice(-4),
                 formattedPhone: formattedPhone.slice(-4),
             });
 
-            // Validate phone number format
             if (!this.validatePhoneNumber(formattedPhone)) {
                 logger.warn('Invalid phone number format provided', {
                     phoneNumber: phoneNumber.slice(-4),
@@ -70,7 +67,6 @@ export class PhoneVerificationService {
                 };
             }
 
-            // Check database rate limiting
             if (this.isDatabaseRateLimitingEnabled) {
                 const recentRequest = await prisma.phoneVerification.findFirst({
                     where: {
@@ -103,7 +99,6 @@ export class PhoneVerificationService {
                 }
             }
 
-            // Generate and store verification code
             const code = this.generateCode();
             const expiresAt = new Date(Date.now() + this.CODE_EXPIRY_MINUTES * 60 * 1000);
 
@@ -123,7 +118,6 @@ export class PhoneVerificationService {
                 expiresAt: expiresAt.toISOString(),
             });
 
-            // Send SMS
             const smsService = getSMSService();
             const smsMessage = `Your Nitrokit verification code is: ${code}. Valid for ${this.CODE_EXPIRY_MINUTES} minutes.`;
 
@@ -192,7 +186,6 @@ export class PhoneVerificationService {
         verified?: boolean;
     }> {
         try {
-            // Set user context for logging
             logger.setUserId(userId);
 
             const formattedPhone = this.formatPhoneNumber(phoneNumber);
@@ -203,7 +196,6 @@ export class PhoneVerificationService {
                 codeLength: code.length,
             });
 
-            // Find valid verification record
             const verification = await prisma.phoneVerification.findFirst({
                 where: {
                     userId,
@@ -226,7 +218,6 @@ export class PhoneVerificationService {
                 };
             }
 
-            // Check max attempts
             if (verification.attempts >= this.MAX_ATTEMPTS) {
                 logger.warn('Maximum verification attempts exceeded', {
                     verificationId: verification.id,
@@ -245,13 +236,11 @@ export class PhoneVerificationService {
                 };
             }
 
-            // Increment attempts
             await prisma.phoneVerification.update({
                 where: { id: verification.id },
                 data: { attempts: verification.attempts + 1 },
             });
 
-            // Verify code
             if (verification.code !== code) {
                 const remainingAttempts = this.MAX_ATTEMPTS - (verification.attempts + 1);
 
@@ -297,7 +286,6 @@ export class PhoneVerificationService {
                 phoneNumber: formattedPhone.slice(-4),
             });
 
-            // Log security event for successful verification
             logger.logSecurityEvent('phone_verification_success', {
                 severity: 'low',
                 verificationId: verification.id,
