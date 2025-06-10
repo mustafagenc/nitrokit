@@ -141,7 +141,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                 if (dbUser) {
                     user.role = dbUser.role;
                 } else {
-                    user.role = 'USER';
+                    user.role = 'User';
                 }
             }
             return true;

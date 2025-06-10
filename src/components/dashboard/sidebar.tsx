@@ -82,16 +82,18 @@ export function MobileSidebarTrigger() {
             <SheetContent side="left" className="w-64 p-0">
                 <div className="flex h-full flex-col bg-white dark:bg-zinc-950">
                     <div className="flex h-12 items-center border-b border-gray-200 px-6 dark:border-zinc-800">
-                        <Link href="/" className="group flex items-center space-x-3">
-                            <div className="relative flex h-8 w-8 items-center justify-center">
-                                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 opacity-90 shadow-lg backdrop-blur-sm transition-all duration-300 group-hover:scale-105 group-hover:opacity-100 group-hover:shadow-xl"></div>
-                                <div className="absolute inset-0.5 rounded-xl bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400 opacity-50 blur-sm"></div>
-                                <span className="relative z-10 text-xl font-black text-white drop-shadow-lg transition-all duration-300 group-hover:drop-shadow-xl">
+                        <Link href="/" className="group flex items-center space-x-4">
+                            <div className="relative flex h-9 w-9 items-center justify-center">
+                                <div
+                                    className="absolute inset-0 bg-slate-900 transition-all duration-500 group-hover:bg-gradient-to-br group-hover:from-blue-600 group-hover:to-purple-600 dark:bg-slate-100"
+                                    style={{
+                                        borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%',
+                                    }}></div>
+                                <span className="relative z-10 text-lg font-bold text-white transition-all duration-300 group-hover:text-blue-100 dark:text-slate-900 dark:group-hover:text-white">
                                     N
                                 </span>
-                                <div className="absolute top-1 left-1 h-2 w-2 rounded-full bg-white/30 blur-[1px]"></div>
                             </div>
-                            <div>
+                            <div className="hidden lg:block">
                                 <span className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700 bg-clip-text text-xl font-bold tracking-tight text-transparent transition-all duration-300 group-hover:from-blue-600 group-hover:via-purple-600 group-hover:to-pink-600 dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-300 dark:group-hover:from-blue-400 dark:group-hover:via-purple-400 dark:group-hover:to-pink-400">
                                     Nitrokit
                                 </span>

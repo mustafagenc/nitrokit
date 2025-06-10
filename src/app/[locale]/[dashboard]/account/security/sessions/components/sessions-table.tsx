@@ -38,18 +38,10 @@ interface Session {
     userAgent: string;
 }
 
-interface SessionsTableProps {
-    userId: string;
-    currentSessionId: string;
-}
-
-export function SessionsTable({ userId, currentSessionId }: SessionsTableProps) {
+export function SessionsTable() {
     const [sessions, setSessions] = useState<Session[]>([]);
     const [loading, setLoading] = useState(true);
     const [terminating, setTerminating] = useState<string | null>(null);
-
-    console.log('Current Session ID:', currentSessionId);
-    console.log('User ID:', userId);
 
     const getMockSessions = useCallback(
         (): Session[] => [
@@ -122,11 +114,9 @@ export function SessionsTable({ userId, currentSessionId }: SessionsTableProps) 
             if (response.ok) {
                 const data = await response.json();
 
-                // If user terminated their own session, redirect to login
                 if (data.currentSessionDeleted) {
                     toast.success('Current session terminated. Redirecting to login...');
 
-                    // Wait a moment for the toast to be visible
                     setTimeout(() => {
                         window.location.href = '/signin';
                     }, 1500);
@@ -134,7 +124,6 @@ export function SessionsTable({ userId, currentSessionId }: SessionsTableProps) 
                     return;
                 }
 
-                // Otherwise, just remove from list
                 setSessions(prev => prev.filter(session => session.id !== sessionId));
                 toast.success('Session terminated successfully');
             } else {

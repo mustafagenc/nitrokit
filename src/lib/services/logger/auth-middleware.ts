@@ -19,7 +19,6 @@ export async function setLoggerContextFromRequest(request: NextRequest): Promise
         if (session?.user?.id) {
             logger.setUserId(session.user.id);
 
-            // Also set user info if available
             if (session.user.email || session.user.name) {
                 logger.setUser({
                     email: session.user.email ?? undefined,
@@ -28,7 +27,6 @@ export async function setLoggerContextFromRequest(request: NextRequest): Promise
             }
         }
     } catch (error) {
-        // Don't let logging errors break the app
         console.error('Failed to set logger context:', error);
     }
 }

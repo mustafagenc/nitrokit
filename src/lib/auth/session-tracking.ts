@@ -70,7 +70,6 @@ export async function updateSessionInfo(sessionToken: string, request: NextReque
         const ipAddress = getClientIP(request);
         const deviceInfo = parseUserAgent(userAgent);
 
-        // First check if session exists
         const existingSession = await prisma.session.findUnique({
             where: { sessionToken },
         });
@@ -82,7 +81,7 @@ export async function updateSessionInfo(sessionToken: string, request: NextReque
 
         // Get location (can be slow, so we might want to skip this for now)
         // const location = await getLocationFromIP(ipAddress);
-        const location = `${ipAddress} Location`; // Temporary fallback
+        const location = `${ipAddress} Location`;
 
         await prisma.session.update({
             where: { sessionToken },
@@ -98,7 +97,6 @@ export async function updateSessionInfo(sessionToken: string, request: NextReque
         });
     } catch (error) {
         console.error('Failed to update session info:', error);
-        // Don't throw error, just log it
     }
 }
 
@@ -113,7 +111,6 @@ export async function createOrUpdateSessionInfo(
         const deviceInfo = parseUserAgent(userAgent);
         const location = `${ipAddress} Location`; // Temporary
 
-        // Use upsert to create or update
         await prisma.session.upsert({
             where: { sessionToken },
             update: {

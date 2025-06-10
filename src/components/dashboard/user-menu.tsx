@@ -112,7 +112,7 @@ export function UserMenu({ size = 'size-10' }: UserMenuProps) {
         <button
             onClick={onClick}
             className={cn(
-                'flex w-full items-center gap-2.5 rounded-md px-2.5 py-1.5 text-sm transition-colors hover:bg-gray-100 dark:hover:bg-gray-800',
+                'flex w-full items-center gap-2.5 px-2.5 py-1.5 text-xs transition-colors hover:bg-gray-100 dark:hover:bg-gray-800',
                 className
             )}>
             <Icon className="h-4 w-4 flex-shrink-0" />
@@ -126,7 +126,7 @@ export function UserMenu({ size = 'size-10' }: UserMenuProps) {
     const SecurityMenuItem = () => (
         <Popover open={securityOpen} onOpenChange={setSecurityOpen}>
             <PopoverTrigger asChild>
-                <button className="flex w-full items-center gap-2.5 rounded-md px-2.5 py-1.5 text-sm transition-colors hover:bg-gray-100 dark:hover:bg-gray-800">
+                <button className="flex w-full items-center gap-2.5 px-2.5 py-1.5 text-xs transition-colors hover:bg-gray-100 dark:hover:bg-gray-800">
                     <Shield className="h-4 w-4 flex-shrink-0" />
                     <span className="flex-1 text-left">Security</span>
                     <ChevronRight className="h-4 w-4 flex-shrink-0" />
@@ -199,7 +199,7 @@ export function UserMenu({ size = 'size-10' }: UserMenuProps) {
                             {session.user.email}
                         </p>
                     </div>
-                    <div className="flex h-6 min-w-6 items-center justify-center rounded border border-blue-200 bg-blue-50 px-2 text-xs font-medium text-blue-700 dark:border-blue-800 dark:bg-blue-900/20 dark:text-blue-400">
+                    <div className="flex h-6 min-w-6 items-center justify-center rounded border border-blue-200 bg-blue-50 px-2 text-xs font-medium text-blue-700 normal-case dark:border-blue-800 dark:bg-blue-900/20 dark:text-blue-400">
                         {session.user.role || 'User'}
                     </div>
                 </div>

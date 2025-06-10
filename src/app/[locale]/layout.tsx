@@ -16,6 +16,7 @@ import notFound from './not-found';
 
 import type { Viewport } from 'next';
 import { AvatarProvider } from '@/contexts/avatar-context';
+import { CookieConsent } from '@/components/shared/cookie-consent';
 export async function generateMetadata(): Promise<Metadata> {
     return await generateSiteMetadata();
 }
@@ -52,7 +53,10 @@ export default async function RootLayout({
                 <NextIntlClientProvider>
                     <NextThemeProvider>
                         <AnalyticsProvider>
-                            <AvatarProvider>{children}</AvatarProvider>
+                            <AvatarProvider>
+                                {children}
+                                <CookieConsent />
+                            </AvatarProvider>
                         </AnalyticsProvider>
                         <Toaster />
                     </NextThemeProvider>

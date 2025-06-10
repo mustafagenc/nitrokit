@@ -148,7 +148,7 @@ export class PosthogProvider implements LoggerProvider {
                 properties: userProperties,
             });
         }
-        console.info(`👤 User identified: ${userId}`, userInfo);
+        // console.info(`👤 User identified: ${userId}`, userInfo);
     }
 
     async shutdown(): Promise<void> {

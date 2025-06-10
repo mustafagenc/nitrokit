@@ -134,6 +134,6 @@ export class SentryProvider implements LoggerProvider {
 
             Sentry.setUser(sentryUser);
         }
-        console.info(`👤 User identified: ${userId}`, userInfo);
+        // console.info(`👤 User identified: ${userId}`, userInfo);
     }
 }

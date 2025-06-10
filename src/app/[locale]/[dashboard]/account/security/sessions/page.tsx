@@ -34,5 +34,5 @@ export default async function ActiveSessionsPage() {
         redirect('/signin');
     }
 
-    return <SessionsPageClient userId={user.id} currentSessionId={session.user.id} />;
+    return <SessionsPageClient />;
 }
