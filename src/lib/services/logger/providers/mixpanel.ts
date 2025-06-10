@@ -132,6 +132,6 @@ export class MixpanelProvider implements LoggerProvider {
 
             mixpanel.people.set(userProperties);
         }
-        console.info(`👤 User identified: ${userId}`, userInfo);
+        // console.info(`👤 User identified: ${userId}`, userInfo);
     }
 }

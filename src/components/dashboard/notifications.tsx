@@ -24,7 +24,7 @@ import {
 import { cn } from '@/lib';
 import { useInAppNotificationContext } from '@/contexts/inapp-notification-context';
 import { formatDistanceToNow } from 'date-fns';
-import { getNotificationColors, getNotificationIcon } from '@/constants/notification';
+import { getNotificationColors, getNotificationIcon } from '@/types/notification';
 
 export function Notifications() {
     const [isSheetOpen, setIsSheetOpen] = useState(false);

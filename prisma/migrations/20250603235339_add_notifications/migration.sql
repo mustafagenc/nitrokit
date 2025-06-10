@@ -2,7 +2,7 @@
 CREATE TYPE "NotificationType" AS ENUM ('PROFILE_UPDATED', 'PASSWORD_CHANGED', 'AVATAR_UPDATED', 'AVATAR_REMOVED', 'SUPPORT_MESSAGE', 'INVOICE_CREATED', 'INVOICE_PAID', 'SYSTEM_ALERT');
 
 -- CreateEnum
-CREATE TYPE "Role" AS ENUM ('USER', 'ADMIN', 'MODERATOR');
+CREATE TYPE "Role" AS ENUM ('User', 'Admin', 'Moderator');
 
 -- CreateEnum
 CREATE TYPE "token_types" AS ENUM ('EMAIL_VERIFICATION', 'PASSWORD_RESET', 'MAGIC_LINK');
@@ -30,7 +30,7 @@ CREATE TABLE "users" (
     "emailVerified" TIMESTAMP(3),
     "image" TEXT,
     "password" TEXT,
-    "role" "Role" NOT NULL DEFAULT 'USER',
+    "role" "Role" NOT NULL DEFAULT 'User',
     "isActive" BOOLEAN NOT NULL DEFAULT true,
     "firstName" TEXT,
     "lastName" TEXT,

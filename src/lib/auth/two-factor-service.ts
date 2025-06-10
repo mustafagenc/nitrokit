@@ -199,8 +199,6 @@ export class TwoFactorService {
                     twoFactorVerifiedAt: new Date(),
                 },
             });
-
-            console.log('✅ 2FA enabled for user:', userId);
             return true;
         } catch (error) {
             console.error('❌ Failed to enable 2FA:', error);
@@ -208,7 +206,6 @@ export class TwoFactorService {
         }
     }
 
-    // Disable 2FA
     static async disable(userId: string, token: string): Promise<boolean> {
         try {
             const user = await prisma.user.findUnique({
@@ -236,7 +233,6 @@ export class TwoFactorService {
                 },
             });
 
-            console.log('✅ 2FA disabled for user:', userId);
             return true;
         } catch (error) {
             console.error('❌ Failed to disable 2FA:', error);
@@ -276,7 +272,6 @@ export class TwoFactorService {
                     data: { twoFactorBackupCodes: updatedBackupCodes },
                 });
 
-                console.log('✅ Backup code used for user:', userId);
                 return { success: true, backupCodeUsed: true };
             }
 
@@ -302,7 +297,6 @@ export class TwoFactorService {
                 data: { twoFactorBackupCodes: newBackupCodes },
             });
 
-            console.log('✅ Backup codes regenerated for user:', userId);
             return newBackupCodes;
         } catch (error) {
             console.error('❌ Failed to regenerate backup codes:', error);

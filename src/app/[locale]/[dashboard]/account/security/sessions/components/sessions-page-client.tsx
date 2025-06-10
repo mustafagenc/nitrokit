@@ -6,12 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Shield, AlertTriangle } from 'lucide-react';
 
-interface SessionsPageClientProps {
-    userId: string;
-    currentSessionId: string;
-}
-
-export function SessionsPageClient({ userId, currentSessionId }: SessionsPageClientProps) {
+export function SessionsPageClient() {
     useSessionCheck();
 
     return (
@@ -43,7 +38,7 @@ export function SessionsPageClient({ userId, currentSessionId }: SessionsPageCli
                         </CardDescription>
                     </CardHeader>
                     <CardContent>
-                        <SessionsTable userId={userId} currentSessionId={currentSessionId} />
+                        <SessionsTable />
                     </CardContent>
                 </Card>
 

@@ -6,6 +6,7 @@ import {
     setLoggerContextFromRequest,
     clearLoggerContext,
 } from '@/lib/services/logger/auth-middleware';
+import { normalizeError } from '@/utils/error-handler';
 
 export async function POST(request: NextRequest) {
     try {
@@ -13,60 +14,46 @@ export async function POST(request: NextRequest) {
 
         const session = await auth();
         if (!session?.user?.id) {
-            logger.warn('Unauthorized phone verification attempt');
             return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
         }
 
-        const { phoneNumber, code, action } = await request.json();
+        const { phoneNumber, code } = await request.json();
 
-        if (action === 'send') {
-            if (!phoneNumber) {
-                logger.warn('Phone verification request missing phone number');
-                return NextResponse.json({ error: 'Phone number is required' }, { status: 400 });
-            }
-
-            const result = await PhoneVerificationService.sendVerificationCode(
-                session.user.id,
-                phoneNumber
+        if (!phoneNumber || !code) {
+            return NextResponse.json(
+                { error: 'Phone number and code are required' },
+                { status: 400 }
             );
-
-            logger.logUserAction('request_phone_verification', 'auth', {
-                success: result.success,
-                phoneNumber: phoneNumber.slice(-4),
-            });
-
-            return NextResponse.json(result);
         }
 
-        if (action === 'verify') {
-            if (!phoneNumber || !code) {
-                logger.warn('Phone verification missing required fields');
-                return NextResponse.json(
-                    { error: 'Phone number and code are required' },
-                    { status: 400 }
-                );
-            }
+        logger.info('Verifying phone code', {
+            userId: session.user.id,
+            phoneNumber: phoneNumber.substring(0, 3) + '***',
+            codeLength: code.length,
+        });
 
-            const result = await PhoneVerificationService.verifyCode(
-                session.user.id,
-                phoneNumber,
-                code
-            );
+        const result = await PhoneVerificationService.verifyCode(
+            session.user.id,
+            phoneNumber,
+            code
+        );
 
-            logger.logUserAction('verify_phone_code', 'auth', {
-                success: result.success,
-                verified: result.verified,
-                phoneNumber: phoneNumber.slice(-4),
-            });
+        logger.info('Phone verification result', {
+            userId: session.user.id,
+            success: result.success,
+            message: result.message,
+        });
 
-            return NextResponse.json(result);
-        }
-
-        logger.warn('Invalid phone verification action', { action });
-        return NextResponse.json({ error: 'Invalid action' }, { status: 400 });
+        return NextResponse.json(result);
     } catch (error) {
-        logger.error('Phone verification API error', error instanceof Error ? error : undefined);
-        return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+        logger.error('Phone verification API error', normalizeError(error));
+        return NextResponse.json(
+            {
+                success: false,
+                error: 'Internal server error',
+            },
+            { status: 500 }
+        );
     } finally {
         clearLoggerContext();
     }

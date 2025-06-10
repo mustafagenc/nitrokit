@@ -667,3 +667,90 @@ export function maskEmail(email: string): string {
 
     return `${maskedLocal}@${domain}`;
 }
+
+export function sanitizeEmailTags(tags: string[]): string[] {
+    if (!isArray(tags)) {
+        logger.warn('Invalid input for email tag sanitization', {
+            inputType: typeof tags,
+        });
+        return [];
+    }
+
+    try {
+        const sanitized = tags
+            .map(tag => {
+                if (!isString(tag)) {
+                    logger.warn('Non-string tag found during sanitization', {
+                        tagType: typeof tag,
+                    });
+                    return '';
+                }
+
+                // Convert to ASCII-compatible format for Resend API
+                return tag
+                    .toLowerCase()
+                    .trim()
+                    .replace(/[^a-zA-Z0-9_-]/g, '_') // Replace non-ASCII chars with underscore
+                    .replace(/_{2,}/g, '_') // Replace multiple underscores with single
+                    .replace(/^_+|_+$/g, '') // Remove leading/trailing underscores
+                    .substring(0, 50); // Limit length
+            })
+            .filter(tag => tag.length > 0) // Remove empty tags
+            .slice(0, 10); // Limit number of tags
+        return sanitized;
+    } catch (error) {
+        logger.error('Email tag sanitization failed', error instanceof Error ? error : undefined, {
+            tagsCount: tags.length,
+        });
+        return [];
+    }
+}
+
+// Validate email tag format for Resend API
+export function isValidEmailTag(tag: string): boolean {
+    if (!isString(tag)) return false;
+
+    // Resend API requirements: ASCII letters, numbers, underscores, or dashes only
+    const tagRegex = /^[a-zA-Z0-9_-]+$/;
+    return tagRegex.test(tag) && tag.length > 0 && tag.length <= 50;
+}
+
+// Email template data sanitization
+export interface EmailTemplateData {
+    [key: string]: string | number | boolean | undefined;
+}
+
+export function sanitizeEmailTemplateData(data: EmailTemplateData): EmailTemplateData {
+    if (!isObject(data)) {
+        logger.warn('Invalid input for email template data sanitization', {
+            inputType: typeof data,
+        });
+        return {};
+    }
+
+    const sanitized: EmailTemplateData = {};
+
+    for (const [key, value] of Object.entries(data)) {
+        if (isString(value)) {
+            // For email templates, we want to preserve some HTML but sanitize dangerous content
+            sanitized[key] = sanitizeHtml(value, {
+                allowedTags: ['strong', 'em', 'u', 'br', 'p', 'a'],
+                allowedAttributes: {
+                    a: ['href', 'title'],
+                },
+            });
+        } else if (typeof value === 'number' || typeof value === 'boolean') {
+            sanitized[key] = value;
+        } else if (value === undefined) {
+            sanitized[key] = undefined;
+        } else {
+            logger.warn('Unsupported value type in email template data', {
+                key,
+                valueType: typeof value,
+            });
+            sanitized[key] = String(value);
+        }
+    }
+
+    return sanitized;
+}

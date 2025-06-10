@@ -2,7 +2,7 @@
 
 import { useCallback } from 'react';
 import { useInAppNotificationContext } from '@/contexts/inapp-notification-context';
-import { NotificationData, NotificationMetadata } from '@/types/notification';
+import { NOTIFICATION_TYPES, NotificationData, NotificationMetadata } from '@/types/notification';
 
 export function useInAppNotificationService() {
     const { triggerRefresh } = useInAppNotificationContext();
@@ -42,7 +42,7 @@ export function useInAppNotificationService() {
     const createProfileUpdated = useCallback(
         async (changes: string[]) => {
             return await createNotification(
-                'PROFILE_UPDATED',
+                NOTIFICATION_TYPES.PROFILE_UPDATED,
                 'Profile Updated',
                 `Your profile has been updated. Changes: ${changes.join(', ')}`,
                 { changes, changeSource: 'settings_page' }
@@ -54,7 +54,7 @@ export function useInAppNotificationService() {
     const createPasswordChanged = useCallback(
         async (metadata?: NotificationMetadata) => {
             return await createNotification(
-                'PASSWORD_CHANGED',
+                NOTIFICATION_TYPES.PASSWORD_CHANGED,
                 'Password Changed',
                 'Your password has been successfully changed for security.',
                 { changeSource: 'settings_page', ...metadata }
@@ -65,7 +65,7 @@ export function useInAppNotificationService() {
 
     const createAvatarUpdated = useCallback(async () => {
         return await createNotification(
-            'AVATAR_UPDATED',
+            NOTIFICATION_TYPES.AVATAR_UPDATED,
             'Avatar Updated',
             'Your profile picture has been updated successfully.',
             { changeSource: 'settings_page' }
@@ -74,7 +74,7 @@ export function useInAppNotificationService() {
 
     const createAvatarRemoved = useCallback(async () => {
         return await createNotification(
-            'AVATAR_REMOVED',
+            NOTIFICATION_TYPES.AVATAR_REMOVED,
             'Avatar Removed',
             'Your profile picture has been removed.',
             { changeSource: 'settings_page' }

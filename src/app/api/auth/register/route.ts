@@ -122,7 +122,7 @@ export async function POST(request: NextRequest) {
                 name: `${firstName} ${lastName}`,
                 email: normalizedEmail,
                 password: hashedPassword,
-                role: 'USER',
+                role: 'User',
                 isActive: true,
                 emailVerified: null,
             },
