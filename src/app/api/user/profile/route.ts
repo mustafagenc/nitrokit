@@ -8,6 +8,8 @@ const updateProfileSchema = z.object({
     lastName: z.string().min(1, 'Last name is required').max(50),
     phone: z.string().optional(),
     image: z.string().url().optional().or(z.literal('')),
+    locale: z.string().optional(),
+    theme: z.enum(['light', 'dark', 'system']).optional(),
 });
 
 interface UserUpdateData {
@@ -17,6 +19,8 @@ interface UserUpdateData {
     phone: string | null;
     image: string | null;
     phoneVerified?: boolean;
+    locale?: string;
+    theme?: string;
 }
 
 export async function PUT(request: NextRequest) {
@@ -35,6 +39,9 @@ export async function PUT(request: NextRequest) {
             select: {
                 phone: true,
                 phoneVerified: true,
+                // ✨ Mevcut locale ve theme değerlerini al
+                locale: true,
+                theme: true,
             },
         });
 
@@ -54,6 +61,14 @@ export async function PUT(request: NextRequest) {
             image: validatedData.image || null,
         };
 
+        if (validatedData.locale && validatedData.locale !== currentUser.locale) {
+            updateData.locale = validatedData.locale;
+        }
+
+        if (validatedData.theme && validatedData.theme !== currentUser.theme) {
+            updateData.theme = validatedData.theme;
+        }
+
         if (isPhoneChanging && currentUser.phoneVerified) {
             updateData.phoneVerified = false;
         }
@@ -71,6 +86,8 @@ export async function PUT(request: NextRequest) {
                 phoneVerified: true,
                 image: true,
                 role: true,
+                locale: true,
+                theme: true,
             },
         });
 
@@ -79,6 +96,8 @@ export async function PUT(request: NextRequest) {
             message: 'Profile updated successfully',
             user: updatedUser,
             phoneVerificationReset: isPhoneChanging && currentUser.phoneVerified,
+            localeChanged: validatedData.locale && validatedData.locale !== currentUser.locale,
+            themeChanged: validatedData.theme && validatedData.theme !== currentUser.theme,
         };
 
         return NextResponse.json(response);

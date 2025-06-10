@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Lock, Eye, EyeOff, Loader2 } from 'lucide-react';
+import { Lock, Eye, EyeOff, Loader2, Save } from 'lucide-react';
 import { toast } from 'sonner';
 import { useInAppNotificationService } from '@/hooks/useInAppNotificationService';
 
@@ -207,7 +207,7 @@ export function PasswordForm() {
                             disabled={isLoading || !isDirty}
                             className="flex-1 md:flex-none">
                             {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                            Update Password
+                            <Save className="mr-2 h-4 w-4" /> Update Password
                         </Button>
                         <Button
                             type="button"

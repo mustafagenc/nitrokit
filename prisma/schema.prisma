@@ -91,6 +91,10 @@ model User {
   twoFactorBackupCodes String[] @map("two_factor_backup_codes")
   twoFactorVerifiedAt DateTime? @map("two_factor_verified_at")
 
+  // Preferences
+  locale    String  @default("en")
+  theme     String  @default("system") // light, dark, system
+
   @@map("users")
 }
 
