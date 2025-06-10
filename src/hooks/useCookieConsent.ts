@@ -9,12 +9,48 @@ interface CookiePreferences {
     functional: boolean;
 }
 
+function isBot(): boolean {
+    if (typeof window === 'undefined') return false;
+
+    const userAgent = navigator.userAgent.toLowerCase();
+    const botPatterns = [
+        'googlebot',
+        'bingbot',
+        'slurp',
+        'duckduckbot',
+        'baiduspider',
+        'yandexbot',
+        'facebookexternalhit',
+        'twitterbot',
+        'rogerbot',
+        'linkedinbot',
+        'embedly',
+        'quora link preview',
+        'showyoubot',
+        'outbrain',
+        'pinterest',
+        'developers.google.com/+/web/snippet',
+    ];
+
+    return botPatterns.some(pattern => userAgent.includes(pattern));
+}
+
 export function useCookieConsent() {
     const [preferences, setPreferences] = useState<CookiePreferences | null>(null);
     const [hasConsent, setHasConsent] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
+    const [isBotDetected, setIsBotDetected] = useState(false);
 
     useEffect(() => {
+        const botDetected = isBot();
+        setIsBotDetected(botDetected);
+
+        if (botDetected) {
+            console.log('🤖 Bot detected - enabling analytics for SEO');
+            setIsLoading(false);
+            return;
+        }
+
         const consent = localStorage.getItem('nitrokit-cookie-consent');
         const savedPreferences = localStorage.getItem('nitrokit-cookie-preferences');
 
@@ -42,8 +78,9 @@ export function useCookieConsent() {
         preferences,
         hasConsent,
         isLoading,
-        canUseAnalytics: hasConsent && preferences?.analytics,
-        canUseMarketing: hasConsent && preferences?.marketing,
-        canUseFunctional: hasConsent && preferences?.functional,
+        isBotDetected,
+        canUseAnalytics: isBotDetected || (hasConsent && preferences?.analytics),
+        canUseMarketing: isBotDetected || (hasConsent && preferences?.marketing),
+        canUseFunctional: isBotDetected || (hasConsent && preferences?.functional),
     };
 }
