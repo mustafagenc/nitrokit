@@ -22,8 +22,3 @@ updates:
     ignore:
       - dependency-name: eslint
         versions: [">=9"]
-    post-update:
-      commands:
-        - yarn 
-        - yarn test
-        - yarn build
