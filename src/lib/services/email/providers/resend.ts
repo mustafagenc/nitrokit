@@ -1,5 +1,6 @@
 import { EmailProvider, EmailData, EmailResult } from '../types';
 import { logger } from '@/lib/services/logger';
+import { sanitizeEmailTags } from '@/lib/security/sanitization';
 
 export interface ResendConfig {
     apiKey: string;
@@ -95,10 +96,14 @@ export class ResendProvider implements EmailProvider {
                 }));
             }
 
+            // ✨ Sanitize metadata tags
             if (data.metadata) {
-                emailOptions.tags = Object.entries(data.metadata).map(([key, value]) => ({
+                const metadataKeys = Object.keys(data.metadata);
+                const sanitizedKeys = sanitizeEmailTags(metadataKeys);
+
+                emailOptions.tags = sanitizedKeys.map(key => ({
                     name: key,
-                    value: String(value),
+                    value: String(data.metadata![key]),
                 }));
             }
 

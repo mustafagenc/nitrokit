@@ -121,6 +121,6 @@ export class LogRocketProvider implements LoggerProvider {
 
             LogRocket.identify(userId, userPayload);
         }
-        console.info(`👤 User identified: ${userId}`, userInfo);
+        // console.info(`👤 User identified: ${userId}`, userInfo);
     }
 }

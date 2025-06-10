@@ -58,7 +58,7 @@ model User {
   emailVerified DateTime?
   image         String?
   password      String? // Credentials authentication için
-  role          Role      @default(USER)
+  role          Role      @default(User)
   isActive      Boolean   @default(true)
 
   // Relations
@@ -99,9 +99,9 @@ model User {
 }
 
 enum Role {
-  USER
-  ADMIN
-  MODERATOR
+  User
+  Admin
+  Moderator
 }
 
 model NotificationPreferences {

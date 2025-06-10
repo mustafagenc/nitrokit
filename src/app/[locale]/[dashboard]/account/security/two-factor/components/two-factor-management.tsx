@@ -38,9 +38,8 @@ export function TwoFactorManagement({
     const [backupCodesDialogOpen, setBackupCodesDialogOpen] = useState(false);
     const [loading, setLoading] = useState(false);
 
-    console.log(userId, initialEnabled, initialVerifiedAt);
+    console.log(`Two factor management ${userId}`);
 
-    // 2FA durumunu yükle
     useEffect(() => {
         const fetchStatus = async () => {
             try {

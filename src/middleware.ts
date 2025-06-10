@@ -1,11 +1,9 @@
 import createIntlMiddleware from 'next-intl/middleware';
 import { NextResponse } from 'next/server';
-
-import { auth } from '@/auth';
+import { getToken } from 'next-auth/jwt';
 import { routing } from '@/lib/i18n/routing';
 import { apiRateLimit, fallbackRateLimit } from '@/lib/security/rate-limit';
 import type { NextRequest } from 'next/server';
-import { updateSessionInfo } from '@/lib/auth/session-tracking';
 
 const intlMiddleware = createIntlMiddleware(routing);
 
@@ -16,14 +14,32 @@ export async function middleware(request: NextRequest) {
 
     if (request.nextUrl.pathname.startsWith('/dashboard')) {
         try {
-            const session = await auth();
-            if (session?.user?.id) {
+            const token = await getToken({
+                req: request,
+                secret: process.env.NEXTAUTH_SECRET,
+            });
+
+            if (token?.sub) {
                 const sessionToken =
                     request.cookies.get('authjs.session-token')?.value ||
                     request.cookies.get('__Secure-authjs.session-token')?.value;
 
                 if (sessionToken) {
-                    updateSessionInfo(sessionToken, request).catch(() => {});
+                    fetch(new URL('/api/internal/session-update', request.url), {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            Authorization: `Bearer ${sessionToken}`,
+                        },
+                        body: JSON.stringify({
+                            sessionToken,
+                            userAgent: request.headers.get('user-agent'),
+                            ip:
+                                request.headers.get('x-forwarded-for') ||
+                                request.headers.get('x-real-ip') ||
+                                'unknown',
+                        }),
+                    }).catch(() => {});
                 }
             }
         } catch (error) {
@@ -33,8 +49,9 @@ export async function middleware(request: NextRequest) {
 
     if (request.nextUrl.pathname.startsWith('/api/')) {
         const isAuthRoute = request.nextUrl.pathname.startsWith('/api/auth/');
+        const isInternalRoute = request.nextUrl.pathname.startsWith('/api/internal/');
 
-        if (!isAuthRoute) {
+        if (!isAuthRoute && !isInternalRoute) {
             const ip =
                 request.headers.get('x-forwarded-for') ||
                 request.headers.get('x-real-ip') ||
@@ -83,8 +100,12 @@ export async function middleware(request: NextRequest) {
     const intlResponse = await intlMiddleware(request);
     if (intlResponse) return intlResponse;
 
-    const session = await auth();
-    if (!session) {
+    const token = await getToken({
+        req: request,
+        secret: process.env.NEXTAUTH_SECRET,
+    });
+
+    if (!token) {
         return NextResponse.redirect(new URL('/signin', request.url));
     }
 
