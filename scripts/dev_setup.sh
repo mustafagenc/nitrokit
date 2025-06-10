@@ -12,18 +12,57 @@ echo "📁 Project root: $PROJECT_ROOT"
 # Change to project root directory
 cd "$PROJECT_ROOT"
 
-# Install dependencies first if needed
-if [ ! -d "$PROJECT_ROOT/node_modules" ]; then
-    echo "📥 Installing dependencies..."
-    if command -v yarn &> /dev/null; then
-        yarn install
-    elif command -v pnpm &> /dev/null; then
-        pnpm install
+# 🧹 Clean up build artifacts and cache files before setup
+echo "🧹 Cleaning up previous build artifacts..."
+
+# Remove directories
+for dir in ".next" "coverage" "generated" "node_modules"; do
+    if [ -d "$PROJECT_ROOT/$dir" ]; then
+        echo "🗑️  Removing $dir..."
+        rm -rf "$PROJECT_ROOT/$dir"
     else
-        npm install
+        echo "✅ $dir already clean"
     fi
+done
+
+# Remove files
+for file in "tsconfig.tsbuildinfo"; do
+    if [ -f "$PROJECT_ROOT/$file" ]; then
+        echo "🗑️  Removing $file..."
+        rm -f "$PROJECT_ROOT/$file"
+    else
+        echo "✅ $file already clean"
+    fi
+done
+
+# Clean Yarn/npm cache directories if they exist
+if [ -d "$PROJECT_ROOT/.yarn/cache" ]; then
+    echo "🗑️  Cleaning Yarn cache..."
+    rm -rf "$PROJECT_ROOT/.yarn/cache"
+fi
+
+if [ -d "$PROJECT_ROOT/.npm" ]; then
+    echo "🗑️  Cleaning npm cache..."
+    rm -rf "$PROJECT_ROOT/.npm"
+fi
+
+# Clean Prisma generated files
+if [ -d "$PROJECT_ROOT/prisma/generated" ]; then
+    echo "🗑️  Cleaning Prisma generated files..."
+    rm -rf "$PROJECT_ROOT/prisma/generated"
+fi
+
+echo "✅ Cleanup completed!"
+echo ""
+
+# Install dependencies (now that node_modules is clean)
+echo "📥 Installing dependencies..."
+if command -v yarn &> /dev/null; then
+    yarn install
+elif command -v pnpm &> /dev/null; then
+    pnpm install
 else
-    echo "✅ Dependencies already installed"
+    npm install
 fi
 
 # Check for Prisma schema and handle database setup
@@ -58,27 +97,6 @@ if [ -f "$PROJECT_ROOT/next.config.js" ] || [ -f "$PROJECT_ROOT/next.config.ts" 
     echo "✅ Next.js configuration found"
 else
     echo "⚠️  Next.js configuration not found"
-fi
-
-# Clean any corrupted Prisma client
-if [ -d "$PROJECT_ROOT/node_modules/.prisma" ]; then
-    echo "🔧 Cleaning Prisma client cache..."
-    rm -rf "$PROJECT_ROOT/node_modules/.prisma"
-    rm -rf "$PROJECT_ROOT/node_modules/@prisma/client"
-    
-    # Reinstall Prisma client
-    if command -v yarn &> /dev/null; then
-        yarn add @prisma/client
-    elif command -v pnpm &> /dev/null; then
-        pnpm add @prisma/client
-    else
-        npm install @prisma/client
-    fi
-    
-    # Regenerate client
-    if [ -f "$PROJECT_ROOT/prisma/schema.prisma" ]; then
-        npx prisma generate --no-engine
-    fi
 fi
 
 # Show available scripts
