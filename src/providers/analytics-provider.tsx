@@ -1,13 +1,13 @@
 'use client';
 
 import { GoogleAnalytics } from '@/components/analytics/google-analytics';
-import { env } from '@/lib/env';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { useCookieConsent } from '@/hooks/useCookieConsent';
 
 export default function AnalyticsProvider({ children }: { children: React.ReactNode }) {
     const { canUseAnalytics, canUseFunctional, isLoading } = useCookieConsent();
+    const googleAnalyticsId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS;
 
     if (isLoading) {
         return <>{children}</>;
@@ -18,8 +18,8 @@ export default function AnalyticsProvider({ children }: { children: React.ReactN
             {children}
             {canUseAnalytics && <Analytics />}
             {canUseFunctional && <SpeedInsights />}
-            {canUseAnalytics && env.GOOGLE_ANALYTICS && (
-                <GoogleAnalytics measurementId={env.GOOGLE_ANALYTICS} />
+            {canUseAnalytics && googleAnalyticsId && (
+                <GoogleAnalytics measurementId={googleAnalyticsId} />
             )}
         </>
     );
