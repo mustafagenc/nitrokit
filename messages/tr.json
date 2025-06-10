@@ -329,5 +329,49 @@
     "footer": {
         "copyright": "© Telif Hakkı {year, date, ::yyyy} {name} ♥️ Tüm Hakları Saklıdır.",
         "poweredBy": "<link>Ekipisi</link> tarafından desteklenmektedir."
+    },
+    "cookies": {
+        "banner": {
+            "title": "Çerez kullanıyoruz",
+            "description": "Tarayıcı deneyiminizi geliştirmek, kişiselleştirilmiş içerik sunmak ve trafiğimizi analiz etmek için çerezler kullanıyoruz.",
+            "learnMore": "Daha fazla bilgi",
+            "accept": "Tümünü Kabul Et",
+            "reject": "Tümünü Reddet",
+            "settings": "Çerez Ayarları"
+        },
+        "settings": {
+            "title": "Çerez Tercihleri",
+            "description": "Hangi çerezleri kabul etmek istediğinizi seçin. Bu ayarları istediğiniz zaman değiştirebilirsiniz.",
+            "save": "Tercihleri Kaydet",
+            "rejectAll": "Tümünü Reddet"
+        },
+        "categories": {
+            "necessary": {
+                "title": "Gerekli Çerezler",
+                "description": "Bu çerezler web sitesinin düzgün çalışması için gereklidir. Devre dışı bırakılamazlar."
+            },
+            "analytics": {
+                "title": "Analitik Çerezler",
+                "description": "Bu çerezler, ziyaretçilerin web sitemizle nasıl etkileşim kurduğunu anonim olarak toplanan bilgilerle anlamamıza yardımcı olur."
+            },
+            "marketing": {
+                "title": "Pazarlama Çerezler",
+                "description": "Bu çerezler size ve ilgi alanlarınıza daha uygun reklamlar sunmak için kullanılır."
+            },
+            "functional": {
+                "title": "İşlevsel Çerezler",
+                "description": "Bu çerezler, tercihlerinizi hatırlama gibi gelişmiş işlevsellik ve kişiselleştirme sağlar."
+            }
+        }
+    },
+    "dashboard": {
+        "navigation": {
+            "dashboard": "Dashboard",
+            "invoices": "Invoices",
+            "support": "Support",
+            "settings": "Settings",
+            "account": "Account information",
+            "billing": "My Invoices"
+        }
     }
 }
