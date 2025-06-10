@@ -1,4 +1,3 @@
-// src/components/dashboard/header.tsx
 'use client';
 
 import { ReactNode } from 'react';
@@ -6,9 +5,7 @@ import { Link } from '@/lib/i18n/navigation';
 import { SessionProvider } from 'next-auth/react';
 import { MobileSidebarTrigger } from '@/components/dashboard/sidebar';
 import { UserMenu } from '@/components/dashboard/user-menu';
-import { CompactLocaleSwitcher } from '@/components/locale/compact-locale-switcher';
 import { Notifications } from '@/components/dashboard/notifications';
-import { ThemeToggle } from '@/components/theme/theme-toggle';
 
 interface DashboardHeaderProps {
     children?: ReactNode;
@@ -38,8 +35,6 @@ export function DashboardHeader({ children }: DashboardHeaderProps) {
                 <div className="hidden md:block">{children}</div>
             </div>
             <div className="mr-1 flex items-center space-x-2">
-                <CompactLocaleSwitcher />
-                <ThemeToggle />
                 <Notifications />
                 <SessionProvider>
                     <UserMenu size={'size-10'} />

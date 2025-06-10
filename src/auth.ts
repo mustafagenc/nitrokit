@@ -88,6 +88,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                         role: user.role,
                         twoFactorEnabled: user.twoFactorEnabled,
                         emailVerified: !!user.emailVerified,
+                        locale: user.locale || 'en',
+                        theme: user.theme || 'light',
                     };
                 } catch (error) {
                     console.error('Authentication error:', error);
@@ -117,6 +119,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                 session.user.id = token.sub;
                 session.user.role = token.role;
                 session.user.twoFactorEnabled = token.twoFactorEnabled;
+                session.user.locale = (token.locale as string) || 'en';
+                session.user.theme = (token.theme as string) || 'light';
             }
             return session;
         },

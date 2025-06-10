@@ -7,13 +7,12 @@ import { cn } from '@/lib';
 import { Button } from '@/components/ui/button';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Home, Settings, Menu, HeartHandshake, ReceiptText } from 'lucide-react';
+import { Home, Menu, HeartHandshake, ReceiptText } from 'lucide-react';
 
 const navigationItems = [
     { key: 'navigation.dashboard', href: '/dashboard', icon: Home },
     { key: 'navigation.invoices', href: '/dashboard/invoices', icon: ReceiptText },
     { key: 'navigation.support', href: '/dashboard/support', icon: HeartHandshake },
-    { key: 'navigation.settings', href: '/dashboard/settings', icon: Settings },
 ];
 
 function isActiveRoute(pathname: string, href: string) {

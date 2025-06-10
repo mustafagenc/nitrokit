@@ -14,6 +14,8 @@ declare module 'next-auth' {
         role: string;
         twoFactorEnabled?: boolean;
         emailVerified?: boolean;
+        locale: string;
+        theme: string;
     }
 
     interface Session {
@@ -28,6 +30,8 @@ declare module 'next-auth' {
             phoneVerified?: boolean | null;
             role: string;
             twoFactorEnabled?: boolean;
+            locale: string;
+            theme: string;
         };
     }
 }
