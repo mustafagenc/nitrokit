@@ -1,5 +1,6 @@
 import { logger } from '@/lib/services/logger';
 import crypto from 'crypto';
+import DOMPurify from 'dompurify';
 
 // Type definitions
 interface SanitizeHtmlOptions {
@@ -91,24 +92,27 @@ export function sanitizeHtml(dirty: string, options: SanitizeHtmlOptions = {}): 
             'blockquote',
         ];
 
-        // Remove script tags and dangerous content
-        let clean = dirty
-            .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
-            .replace(/<iframe\b[^<]*(?:(?!<\/iframe>)<[^<]*)*<\/iframe>/gi, '')
-            .replace(/<object\b[^<]*(?:(?!<\/object>)<[^<]*)*<\/object>/gi, '')
-            .replace(/<embed\b[^<]*(?:(?!<\/embed>)<[^<]*)*<\/embed>/gi, '')
-            .replace(/<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/gi, '')
-            .replace(/javascript:/gi, '')
-            .replace(/on\w+\s*=/gi, '');
-
-        // Remove non-allowed tags
-        clean = clean.replace(/<\/?([a-zA-Z][a-zA-Z0-9]*)\b[^>]*>/gi, (match, tagName) => {
-            if (allowedTags.includes(tagName.toLowerCase())) {
-                // Keep allowed tags but remove attributes
-                const isClosing = match.startsWith('</');
-                return isClosing ? `</${tagName}>` : `<${tagName}>`;
-            }
-            return '';
+        // Use DOMPurify for sanitization
+        const clean = DOMPurify.sanitize(dirty, {
+            ALLOWED_TAGS: options.allowedTags || [
+                'p',
+                'br',
+                'strong',
+                'em',
+                'u',
+                's',
+                'h1',
+                'h2',
+                'h3',
+                'h4',
+                'h5',
+                'h6',
+                'ul',
+                'ol',
+                'li',
+                'blockquote',
+            ],
+            ALLOWED_ATTR: options.allowedAttributes || {},
         });
 
         logger.debug('HTML sanitization completed', {
