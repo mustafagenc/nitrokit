@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 import { Link } from '@/lib/i18n/navigation';
-import { auth } from '@/auth';
+import { auth } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
 import { generatePageMetadata } from '@/lib';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';

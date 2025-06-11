@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { Alert } from '../alert';
+import { describe, it, expect } from 'vitest';
 
 describe('Alert', () => {
     it('renders alert with different variants', () => {

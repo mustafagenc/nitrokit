@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { auth } from '@/auth';
+import { auth } from '@/lib/auth';
 import { TwoFactorService } from '@/lib/auth/two-factor-service';
 import { z } from 'zod';
 

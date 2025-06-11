@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { auth } from '@/auth';
+import { auth } from '@/lib/auth';
 import { PhoneVerificationService } from '@/lib/notifications/sms-notifications';
 import { logger } from '@/lib/services/logger';
 import {

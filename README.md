@@ -23,7 +23,7 @@
 - 📧 **Email** with Resend
 - 📊 **Analytics** (Google Analytics, Yandex Metrica)
 - 🛠️ **Development automation** scripts
-- 🧪 **Testing** with Jest
+- 🧪 **Testing** with Vitest
 - 📖 **Storybook** for components
 
 ## 🚀 Quick Start

@@ -9,6 +9,7 @@ import {
     PaginationNext,
     PaginationPrevious,
 } from '../pagination';
+import { describe, it, expect, vi } from 'vitest';
 
 describe('Pagination', () => {
     it('renders pagination component', () => {
@@ -62,7 +63,7 @@ describe('Pagination', () => {
 
     it('handles click events on pagination links', async () => {
         const user = userEvent.setup();
-        const handleClick = jest.fn();
+        const handleClick = vi.fn();
 
         render(
             <Pagination>

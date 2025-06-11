@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { Link } from '@/lib/i18n/navigation';
 
-import { auth } from '@/auth';
+import { auth } from '@/lib/auth';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { getUserSecurityStatus } from '@/lib/auth/security-status';
 

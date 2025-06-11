@@ -7,6 +7,7 @@ import {
     BreadcrumbPage,
     BreadcrumbSeparator,
 } from '../breadcrumb';
+import { describe, it, expect } from 'vitest';
 
 describe('Breadcrumb', () => {
     it('renders breadcrumb with items', () => {

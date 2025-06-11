@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Checkbox } from '../checkbox';
+import { describe, it, expect, vi } from 'vitest';
 
 describe('Checkbox', () => {
     it('renders checkbox', () => {
@@ -31,7 +32,7 @@ describe('Checkbox', () => {
     });
 
     it('handles onChange event', async () => {
-        const handleChange = jest.fn();
+        const handleChange = vi.fn();
         render(<Checkbox onCheckedChange={handleChange} />);
         const checkbox = screen.getByRole('checkbox');
 

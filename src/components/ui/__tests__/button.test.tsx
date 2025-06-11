@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Link from 'next/link';
 import { Button } from '../button';
+import { describe, it, expect, vi } from 'vitest';
 
 describe('Button', () => {
     it('renders button with default props', () => {
@@ -65,7 +66,7 @@ describe('Button', () => {
     });
 
     it('handles click events', async () => {
-        const handleClick = jest.fn();
+        const handleClick = vi.fn();
         render(<Button onClick={handleClick}>Click me</Button>);
         const button = screen.getByRole('button');
         await userEvent.click(button);

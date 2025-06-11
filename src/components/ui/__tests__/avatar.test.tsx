@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { Avatar, AvatarImage, AvatarFallback } from '../avatar';
+import { describe, it, expect } from 'vitest';
 
 describe('Avatar', () => {
     it('Avatar bileşeni ve fallback render ediliyor', () => {

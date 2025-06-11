@@ -11,7 +11,7 @@ import bcrypt from 'bcryptjs';
 
 import { prisma } from '@/lib/prisma';
 import { PrismaAdapter } from '@auth/prisma-adapter';
-import { TwoFactorService } from './lib/auth/two-factor-service';
+import { TwoFactorService } from './two-factor-service';
 
 const defaultLocale = 'en';
 const defaultTheme = 'system';
@@ -199,7 +199,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                         where: { id: session.user.id },
                         data: { lastLoginAt: new Date() },
                     });
-                    console.log(token); //ToDo: Kaldırılacak
+                    console.info('Session updated', token);
                 } catch (error) {
                     console.error('Failed to update last login:', error);
                 }
@@ -248,36 +248,16 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             }
             return token;
         },
-        async signIn({ user, account }) {
-            if (account?.provider !== 'credentials') {
-                const dbUser = await prisma.user.findUnique({
-                    where: { email: user.email! },
-                });
-
-                if (dbUser) {
-                    user.role = dbUser.role;
-                    await prisma.user.update({
-                        where: { id: dbUser.id },
-                        data: {
-                            name: user.name || dbUser.name,
-                            image: user.image || dbUser.image,
-                            firstName: user.firstName || dbUser.firstName,
-                            lastName: user.lastName || dbUser.lastName,
-                            lastLoginAt: new Date(),
-                        },
-                    });
-                } else {
-                    user.role = 'User';
-                }
-            }
-            return true;
-        },
+    },
+    pages: {
+        signIn: '/signin',
+        signOut: '/signout',
+        error: '/error',
+        verifyRequest: '/verify-request',
+        newUser: '/new-user',
     },
     session: {
         strategy: 'jwt',
     },
-    pages: {
-        signIn: '/signin',
-        error: '/auth/error',
-    },
+    secret: process.env.NEXTAUTH_SECRET,
 });
