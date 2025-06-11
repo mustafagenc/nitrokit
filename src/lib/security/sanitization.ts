@@ -118,11 +118,57 @@ export function sanitizeHtml(dirty: string, options: SanitizeHtmlOptions = {}): 
 }
 
 // Strip all HTML tags
+// Secure implementation of stripAllTags
 export function stripAllTags(input: string): string {
     if (!isString(input)) {
         return '';
     }
-    return input.replace(/<[^>]*>/g, '').trim();
+
+    try {
+        // ✨ Simplified approach for better security
+        let sanitized = input;
+
+        // Use DOMPurify as the primary sanitization mechanism
+        if (typeof DOMPurify !== 'undefined') {
+            sanitized = DOMPurify.sanitize(input, {
+                ALLOWED_TAGS: [],
+                ALLOWED_ATTR: [],
+                KEEP_CONTENT: true,
+            });
+        }
+
+        // Step 2: Use DOMPurify as additional security layer if available
+        if (typeof DOMPurify !== 'undefined') {
+            sanitized = DOMPurify.sanitize(sanitized, {
+                ALLOWED_TAGS: [],
+                ALLOWED_ATTR: [],
+                KEEP_CONTENT: true,
+            });
+        }
+
+        // Step 3: Final cleanup
+        sanitized = sanitized
+            .replace(/\s+/g, ' ') // Normalize whitespace
+            .trim();
+
+        logger.debug('Tags stripped from content', {
+            originalLength: input.length,
+            sanitizedLength: sanitized.length,
+            removed: input.length - sanitized.length,
+        });
+
+        return sanitized;
+    } catch (error) {
+        logger.error('Tag stripping failed', error instanceof Error ? error : undefined, {
+            inputLength: input.length,
+        });
+
+        // Fallback: very aggressive sanitization
+        return input
+            .replace(/[<>&"']/g, '') // Remove all potentially dangerous characters
+            .replace(/\s+/g, ' ')
+            .trim();
+    }
 }
 
 // SQL injection prevention
