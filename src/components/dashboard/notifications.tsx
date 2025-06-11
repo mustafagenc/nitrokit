@@ -48,7 +48,6 @@ export function Notifications() {
         return notifications.slice(0, 10);
     }, [notifications]);
 
-    // ✨ Filtered notifications for sheet
     const filteredNotifications = useMemo(() => {
         return notifications.filter(notification => {
             const matchesSearch =
@@ -114,7 +113,6 @@ export function Notifications() {
         setIsSheetOpen(true);
     };
 
-    // ✨ Clear filters
     const clearFilters = () => {
         setSearchQuery('');
         setFilterType('all');
@@ -123,19 +121,18 @@ export function Notifications() {
 
     return (
         <>
-            {/* Bell Icon Popover */}
             <Popover>
                 <PopoverTrigger asChild>
                     <Button
                         variant="ghost"
                         size="sm"
-                        className="relative h-8 w-8 rounded-full hover:bg-white hover:shadow-sm dark:hover:bg-zinc-800"
+                        className="relative h-9 w-9 rounded-full hover:bg-white hover:shadow-sm dark:hover:bg-zinc-800"
                         aria-label="Notifications">
-                        <Bell className="h-4 w-4" />
+                        <Bell className="h-7 w-7" />
                         {unreadCount > 0 && (
                             <Badge
                                 variant="destructive"
-                                className="absolute -top-1 -right-1 h-5 w-5 animate-pulse rounded-full p-0 text-xs">
+                                className="absolute top-0 -right-1 h-4 w-4 animate-pulse rounded-full p-0 text-xs">
                                 {unreadCount > 9 ? '9+' : unreadCount}
                             </Badge>
                         )}
@@ -303,7 +300,6 @@ export function Notifications() {
                 </PopoverContent>
             </Popover>
 
-            {/* ✨ All Notifications Sheet */}
             <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
                 <SheetContent className="w-full sm:w-[540px] sm:max-w-[540px]">
                     <SheetHeader className="space-y-4">
@@ -331,7 +327,6 @@ export function Notifications() {
                             </div>
                         </div>
 
-                        {/* ✨ Search and Filters */}
                         <div className="space-y-3">
                             <div className="relative">
                                 <Search className="text-muted-foreground absolute top-2.5 left-2 h-4 w-4" />
@@ -389,7 +384,6 @@ export function Notifications() {
                         </SheetDescription>
                     </SheetHeader>
 
-                    {/* ✨ Notifications List */}
                     <div className="mt-6">
                         {isLoading ? (
                             <div className="text-muted-foreground flex flex-col items-center justify-center py-12">

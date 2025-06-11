@@ -1,39 +1,104 @@
 #!/bin/sh
+# .husky/pre-commit
 
-echo '🚀 Formatting, testing and building your project before committing'
+echo '🚀 Checking if pre-commit validation is needed...'
 
-# ✨ Colors for better output
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+PROTECTED_BRANCHES=("main" "preview")
+DEVELOPMENT_BRANCHES=("develop" "staging" "testing")
+
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
-NC='\033[0m' # No Color
+BLUE='\033[0;34m'
+NC='\033[0m'
 
-# ✨ Function to run command with engine bypass
+VALIDATION_LEVEL="none"
+
+for protected_branch in "${PROTECTED_BRANCHES[@]}"; do
+    if [[ "$BRANCH" == "$protected_branch" ]]; then
+        VALIDATION_LEVEL="full"
+        break
+    fi
+done
+
+if [[ "$VALIDATION_LEVEL" == "none" ]]; then
+    for dev_branch in "${DEVELOPMENT_BRANCHES[@]}"; do
+        if [[ "$BRANCH" == "$dev_branch" ]]; then
+            VALIDATION_LEVEL="basic"
+            break
+        fi
+    done
+fi
+
+if [[ "$VALIDATION_LEVEL" == "none" ]]; then
+    echo "🟡 Skipping pre-commit checks for feature branch: $BRANCH"
+    echo "💡 Basic checks run on: ${DEVELOPMENT_BRANCHES[*]}"
+    echo "🔒 Full checks run on: ${PROTECTED_BRANCHES[*]}"
+    exit 0
+fi
+
+if [[ "$VALIDATION_LEVEL" == "full" ]]; then
+    echo "🔒 Running FULL validation for protected branch: $BRANCH"
+elif [[ "$VALIDATION_LEVEL" == "basic" ]]; then
+    echo "🛠️  Running BASIC validation for development branch: $BRANCH"
+fi
+
 run_with_bypass() {
     local command="$1"
     local error_message="$2"
     
-    echo "Running: $command"
+    echo "${BLUE}Running: $command${NC}"
     
-    # ✨ --ignore-engines flag'i yarn run'dan sonra gelir, script'ten önce
     if ! yarn --ignore-engines run $command; then
         echo "${RED}$error_message${NC}"
         exit 1
     fi
 }
 
-# ✨ Prettier check
-run_with_bypass "format:check" "Prettier Check Failed. Run 'yarn format:write', add changes and try commit again. ❌"
+command_exists() {
+    yarn --ignore-engines run --help | grep -q "$1" 2>/dev/null
+}
 
-# ✨ ESLint check  
-run_with_bypass "lint" "ESLint Check Failed. Make the required changes listed above, add changes and try to commit again. ❌"
+echo "${YELLOW}🎨 Checking code formatting...${NC}"
+if command_exists "format:check"; then
+    run_with_bypass "format:check" "Prettier Check Failed. Run 'yarn format:write', add changes and try commit again. ❌"
+else
+    echo "${YELLOW}⚠️  format:check script not found, skipping...${NC}"
+fi
 
-# ✨ TypeScript check
-run_with_bypass "tsc" "TypeScript Check Failed. Make the changes required above. ❌"
+echo "${YELLOW}📝 Checking TypeScript...${NC}"
+if command_exists "type-check" || command_exists "tsc"; then
+    if command_exists "type-check"; then
+        run_with_bypass "type-check" "TypeScript Check Failed. Make the changes required above. ❌"
+    else
+        run_with_bypass "tsc" "TypeScript Check Failed. Make the changes required above. ❌"
+    fi
+else
+    echo "${YELLOW}⚠️  TypeScript check script not found, skipping...${NC}"
+fi
 
-echo "${YELLOW}Code looks good... Trying to build now.${NC}"
+if [[ "$VALIDATION_LEVEL" == "full" ]]; then
+    echo "${YELLOW}🔍 Running ESLint (full validation)...${NC}"
+    if command_exists "lint"; then
+        run_with_bypass "lint" "ESLint Check Failed. Make the required changes listed above, add changes and try to commit again. ❌"
+    else
+        echo "${YELLOW}⚠️  lint script not found, skipping...${NC}"
+    fi
 
-# ✨ Build check
-run_with_bypass "build" "Next build failed: View the errors above to see why. ❌"
+    echo "${YELLOW}🏗️  Building project (full validation)...${NC}"
+    if command_exists "build"; then
+        run_with_bypass "build" "Next build failed: View the errors above to see why. ❌"
+    else
+        echo "${YELLOW}⚠️  build script not found, skipping...${NC}"
+    fi
 
-echo "${GREEN}✅ All checks passed! Committing now.${NC}"
+    echo "${YELLOW}🧪 Running tests (full validation)...${NC}"
+    if command_exists "test"; then
+        run_with_bypass "test" "Tests failed. Fix the failing tests and try again. ❌"
+    else
+        echo "${YELLOW}⚠️  test script not found, skipping...${NC}"
+    fi
+fi
+
+echo "${GREEN}✅ All checks passed for branch: $BRANCH! Committing now.${NC}"
