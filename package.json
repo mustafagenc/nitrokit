@@ -125,6 +125,7 @@
         "zod": "^3.25.61"
     },
     "devDependencies": {
+        "@codecov/vite-plugin": "^1.9.1",
         "@eslint/eslintrc": "^3",
         "@react-email/render": "^1.1.2",
         "@storybook/addon-a11y": "^9.0.8",
