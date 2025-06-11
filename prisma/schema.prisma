@@ -70,6 +70,7 @@ model User {
   // Profile fields
   firstName String?
   lastName  String?
+  username  String?
   
   phone              String?
   phoneVerified      Boolean @default(false)

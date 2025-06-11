@@ -5,6 +5,7 @@ import { prisma } from '@/lib/prisma';
 import { generatePageMetadata } from '@/lib';
 import { PasswordForm } from './components/password-form';
 import { DeleteAccountForm } from './components/delete-account-form';
+import { PasswordCreateForm } from './components/password-create-form';
 
 export async function generateMetadata(): Promise<Metadata> {
     return await generatePageMetadata({
@@ -46,7 +47,7 @@ export default async function SecurityPage() {
 
             <div className="space-y-8">
                 {user.password && <PasswordForm />}
-
+                {!user.password && <PasswordCreateForm />}
                 <DeleteAccountForm hasPassword={!!user.password} userEmail={user.email} />
             </div>
         </div>
