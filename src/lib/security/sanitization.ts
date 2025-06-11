@@ -75,7 +75,7 @@ export function sanitizeHtml(dirty: string, options: SanitizeHtmlOptions = {}): 
         const allowedAttrs = options.allowedAttributes
             ? Object.keys(options.allowedAttributes).reduce((acc, tag) => {
                   const attrs = options.allowedAttributes![tag];
-                  return acc.concat(attrs.map(attr => `${tag}:${attr}`));
+                  return acc.concat(attrs.map((attr) => `${tag}:${attr}`));
               }, [] as string[])
             : [];
 
@@ -385,7 +385,7 @@ export function sanitizeObject<T extends Record<string, unknown>>(
                 sanitized[key as keyof T] = sanitizedValue as T[keyof T];
             } else if (isArray(value)) {
                 // Handle arrays
-                const sanitizedArray = value.map(item => {
+                const sanitizedArray = value.map((item) => {
                     if (isString(item)) {
                         let sanitizedItem = item;
                         if (options.sanitizeStrings) {
@@ -548,7 +548,7 @@ export function sanitizeStringArray(
         return [];
     }
 
-    return data.map(item => {
+    return data.map((item) => {
         if (isString(item)) {
             return sanitizeString(item, options);
         }
@@ -580,7 +580,7 @@ export function sanitizeFormData<T extends Record<string, string | string[] | un
             const sanitizedValue = sanitizeString(value, options);
             sanitized[typedKey] = sanitizedValue as T[keyof T];
         } else if (isArray(value)) {
-            const sanitizedArray = value.map(v => (isString(v) ? sanitizeString(v, options) : v));
+            const sanitizedArray = value.map((v) => (isString(v) ? sanitizeString(v, options) : v));
             sanitized[typedKey] = sanitizedArray as T[keyof T];
         } else {
             // Handle other value types (null, etc.)
@@ -656,7 +656,7 @@ export function isSafeString(input: string): boolean {
         /vbscript:/i,
     ];
 
-    return !dangerousPatterns.some(pattern => pattern.test(input));
+    return !dangerousPatterns.some((pattern) => pattern.test(input));
 }
 
 export function isSafeUrl(url: string): boolean {
@@ -713,7 +713,7 @@ export function sanitizeEmailTags(tags: string[]): string[] {
 
     try {
         const sanitized = tags
-            .map(tag => {
+            .map((tag) => {
                 if (!isString(tag)) {
                     logger.warn('Non-string tag found during sanitization', {
                         tagType: typeof tag,
@@ -730,7 +730,7 @@ export function sanitizeEmailTags(tags: string[]): string[] {
                     .replace(/^_+|_+$/g, '') // Remove leading/trailing underscores
                     .substring(0, 50); // Limit length
             })
-            .filter(tag => tag.length > 0) // Remove empty tags
+            .filter((tag) => tag.length > 0) // Remove empty tags
             .slice(0, 10); // Limit number of tags
         return sanitized;
     } catch (error) {

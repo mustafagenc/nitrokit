@@ -28,7 +28,7 @@ const passwordSchema = z
             .regex(/[^A-Za-z0-9]/, 'Password must contain at least one special character'),
         confirmPassword: z.string().min(1, 'Please confirm your new password'),
     })
-    .refine(data => data.newPassword === data.confirmPassword, {
+    .refine((data) => data.newPassword === data.confirmPassword, {
         message: "Passwords don't match",
         path: ['confirmPassword'],
     });
@@ -138,7 +138,8 @@ export function PasswordForm() {
                                 size="sm"
                                 className="absolute top-0 right-0 h-full px-3 py-2 hover:bg-transparent"
                                 onClick={() => setShowCurrentPassword(!showCurrentPassword)}
-                                disabled={isLoading}>
+                                disabled={isLoading}
+                            >
                                 {showCurrentPassword ? (
                                     <EyeOff className="text-muted-foreground h-4 w-4" />
                                 ) : (
@@ -171,7 +172,8 @@ export function PasswordForm() {
                                 size="sm"
                                 className="absolute top-0 right-0 h-full px-3 py-2 hover:bg-transparent"
                                 onClick={() => setShowNewPassword(!showNewPassword)}
-                                disabled={isLoading}>
+                                disabled={isLoading}
+                            >
                                 {showNewPassword ? (
                                     <EyeOff className="text-muted-foreground h-4 w-4" />
                                 ) : (
@@ -209,7 +211,8 @@ export function PasswordForm() {
                                 size="sm"
                                 className="absolute top-0 right-0 h-full px-3 py-2 hover:bg-transparent"
                                 onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                                disabled={isLoading}>
+                                disabled={isLoading}
+                            >
                                 {showConfirmPassword ? (
                                     <EyeOff className="text-muted-foreground h-4 w-4" />
                                 ) : (
@@ -228,7 +231,8 @@ export function PasswordForm() {
                         <Button
                             type="submit"
                             disabled={isLoading || !isDirty || isWeak}
-                            className="flex-1 md:flex-none">
+                            className="flex-1 md:flex-none"
+                        >
                             {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                             <Save className="mr-2 h-4 w-4" /> Update Password
                         </Button>
@@ -236,7 +240,8 @@ export function PasswordForm() {
                             type="button"
                             variant="outline"
                             onClick={() => reset()}
-                            disabled={isLoading}>
+                            disabled={isLoading}
+                        >
                             Cancel
                         </Button>
                     </div>

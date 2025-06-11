@@ -51,7 +51,8 @@ export function NavbarMobile({ className }: NavbarMobileProps) {
                         'hover:bg-accent/30 m-0 rounded-lg p-0 transition-all duration-200 hover:scale-105 lg:hidden',
                         className
                     )}
-                    aria-label="Open navigation menu">
+                    aria-label="Open navigation menu"
+                >
                     <Menu size={20} strokeWidth={1.5} className="size-8" />
                 </Button>
             </SheetTrigger>
@@ -70,7 +71,8 @@ export function NavbarMobile({ className }: NavbarMobileProps) {
                             className={cn(
                                 'hover:bg-accent hover:text-accent-foreground flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors',
                                 isActive('/') && 'bg-accent text-accent-foreground'
-                            )}>
+                            )}
+                        >
                             <Home size={18} />
                             {t('navigation.home')}
                         </Link>
@@ -102,14 +104,15 @@ export function NavbarMobile({ className }: NavbarMobileProps) {
                                 </div>
 
                                 {/* Services List */}
-                                {SERVICES.map(service => {
+                                {SERVICES.map((service) => {
                                     const Icon = service.icon;
                                     return (
                                         <Link
                                             key={service.href}
                                             href={service.href}
                                             onClick={handleLinkClick}
-                                            className="group hover:bg-accent block rounded-lg p-3 transition-colors">
+                                            className="group hover:bg-accent block rounded-lg p-3 transition-colors"
+                                        >
                                             <div className="flex items-start gap-3">
                                                 <Icon
                                                     size={16}
@@ -127,7 +130,8 @@ export function NavbarMobile({ className }: NavbarMobileProps) {
                                                                         ? 'default'
                                                                         : 'secondary'
                                                                 }
-                                                                className="text-xs">
+                                                                className="text-xs"
+                                                            >
                                                                 {t(service.badgeKey)}
                                                             </Badge>
                                                         )}
@@ -170,12 +174,13 @@ export function NavbarMobile({ className }: NavbarMobileProps) {
                                 </div>
 
                                 {/* Components List */}
-                                {COMPONENTS.map(component => (
+                                {COMPONENTS.map((component) => (
                                     <Link
                                         key={component.href}
                                         href={component.href}
                                         onClick={handleLinkClick}
-                                        className="group hover:bg-accent block rounded-lg p-3 transition-colors">
+                                        className="group hover:bg-accent block rounded-lg p-3 transition-colors"
+                                    >
                                         <div className="flex items-start gap-3">
                                             <span className="text-lg">{component.icon}</span>
                                             <div className="flex-1 space-y-1">
@@ -200,7 +205,8 @@ export function NavbarMobile({ className }: NavbarMobileProps) {
                                     <Link
                                         href="/components"
                                         onClick={handleLinkClick}
-                                        className="hover:bg-accent flex items-center justify-between rounded-lg p-3 transition-colors">
+                                        className="hover:bg-accent flex items-center justify-between rounded-lg p-3 transition-colors"
+                                    >
                                         <div className="text-primary flex items-center gap-2 text-sm font-medium">
                                             {t('navigation.components.view_all')}
                                             <ExternalLink size={14} />
@@ -219,7 +225,8 @@ export function NavbarMobile({ className }: NavbarMobileProps) {
                             className={cn(
                                 'hover:bg-accent hover:text-accent-foreground flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors',
                                 isActive('/pricing') && 'bg-accent text-accent-foreground'
-                            )}>
+                            )}
+                        >
                             <CreditCard size={18} />
                             {t('navigation.pricing')}
                         </Link>
@@ -230,7 +237,8 @@ export function NavbarMobile({ className }: NavbarMobileProps) {
                             className={cn(
                                 'hover:bg-accent hover:text-accent-foreground flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors',
                                 isActive('/contact') && 'bg-accent text-accent-foreground'
-                            )}>
+                            )}
+                        >
                             <MessageCircle size={18} />
                             {t('navigation.contact')}
                         </Link>

@@ -12,7 +12,8 @@ export function VerificationEmail({ name, verificationUrl }: VerificationEmailPr
         <BaseEmail
             preview="Verify your email address - Welcome to Nitrokit!"
             headerTitle="Welcome to Nitrokit!"
-            headerGradient="linear-gradient(135deg, #667eea 0%, #764ba2 100%)">
+            headerGradient="linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+        >
             <Text style={emailStyles.greeting}>Hi {name}! 👋</Text>
 
             <Text style={emailStyles.paragraph}>
@@ -26,7 +27,8 @@ export function VerificationEmail({ name, verificationUrl }: VerificationEmailPr
                     style={{
                         ...emailStyles.button,
                         backgroundColor: '#667eea',
-                    }}>
+                    }}
+                >
                     ✅ Verify Email Address
                 </Button>
             </Section>

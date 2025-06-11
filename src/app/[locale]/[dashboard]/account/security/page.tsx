@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { Link } from '@/lib/i18n/navigation';
 
-import { auth } from '@/auth';
+import { auth } from '@/lib/auth';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { getUserSecurityStatus } from '@/lib/auth/security-status';
 
@@ -43,7 +43,8 @@ export default async function SecurityPage() {
                                     className="text-primary h-5 w-5"
                                     fill="none"
                                     stroke="currentColor"
-                                    viewBox="0 0 24 24">
+                                    viewBox="0 0 24 24"
+                                >
                                     <path
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
@@ -66,7 +67,8 @@ export default async function SecurityPage() {
                                             : securityStatus.passwordStrength === 'medium'
                                               ? 'text-yellow-600'
                                               : 'text-red-600'
-                                    }`}>
+                                    }`}
+                                >
                                     {securityStatus.passwordStrength === 'strong' && 'Strong'}
                                     {securityStatus.passwordStrength === 'medium' && 'Medium'}
                                     {securityStatus.passwordStrength === 'weak' && 'Weak'}
@@ -76,7 +78,8 @@ export default async function SecurityPage() {
                                     className="text-muted-foreground h-4 w-4"
                                     fill="none"
                                     stroke="currentColor"
-                                    viewBox="0 0 24 24">
+                                    viewBox="0 0 24 24"
+                                >
                                     <path
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
@@ -98,7 +101,8 @@ export default async function SecurityPage() {
                                     className="text-primary h-5 w-5"
                                     fill="none"
                                     stroke="currentColor"
-                                    viewBox="0 0 24 24">
+                                    viewBox="0 0 24 24"
+                                >
                                     <path
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
@@ -119,14 +123,16 @@ export default async function SecurityPage() {
                                         securityStatus.twoFactorEnabled
                                             ? 'text-green-600'
                                             : 'text-yellow-600'
-                                    }`}>
+                                    }`}
+                                >
                                     {securityStatus.twoFactorEnabled ? 'Enabled' : 'Disabled'}
                                 </span>
                                 <svg
                                     className="text-muted-foreground h-4 w-4"
                                     fill="none"
                                     stroke="currentColor"
-                                    viewBox="0 0 24 24">
+                                    viewBox="0 0 24 24"
+                                >
                                     <path
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
@@ -148,7 +154,8 @@ export default async function SecurityPage() {
                                     className="text-primary h-5 w-5"
                                     fill="none"
                                     stroke="currentColor"
-                                    viewBox="0 0 24 24">
+                                    viewBox="0 0 24 24"
+                                >
                                     <path
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
@@ -171,7 +178,8 @@ export default async function SecurityPage() {
                                     className="text-muted-foreground h-4 w-4"
                                     fill="none"
                                     stroke="currentColor"
-                                    viewBox="0 0 24 24">
+                                    viewBox="0 0 24 24"
+                                >
                                     <path
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
@@ -193,7 +201,8 @@ export default async function SecurityPage() {
                             className="text-primary h-5 w-5"
                             fill="none"
                             stroke="currentColor"
-                            viewBox="0 0 24 24">
+                            viewBox="0 0 24 24"
+                        >
                             <path
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
@@ -215,7 +224,8 @@ export default async function SecurityPage() {
                                         : securityStatus.passwordStrength === 'medium'
                                           ? 'text-yellow-600'
                                           : 'text-red-600'
-                                }`}>
+                                }`}
+                            >
                                 {securityStatus.passwordStrength === 'strong' && 'Strong'}
                                 {securityStatus.passwordStrength === 'medium' && 'Medium'}
                                 {securityStatus.passwordStrength === 'weak' && 'Weak'}
@@ -229,7 +239,8 @@ export default async function SecurityPage() {
                                     securityStatus.twoFactorEnabled
                                         ? 'text-green-600'
                                         : 'text-yellow-600'
-                                }`}>
+                                }`}
+                            >
                                 {securityStatus.twoFactorEnabled ? 'On' : 'Off'}
                             </div>
                             <div className="text-muted-foreground text-sm">Two-Factor Auth</div>

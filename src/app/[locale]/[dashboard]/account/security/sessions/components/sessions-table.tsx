@@ -84,7 +84,7 @@ export function SessionsTable() {
 
     const fetchSessions = useCallback(async () => {
         try {
-            const response = await fetch(`/api/user/sessions`);
+            const response = await fetch('/api/user/sessions');
             if (response.ok) {
                 const data = await response.json();
                 setSessions(data.sessions || getMockSessions());
@@ -124,7 +124,7 @@ export function SessionsTable() {
                     return;
                 }
 
-                setSessions(prev => prev.filter(session => session.id !== sessionId));
+                setSessions((prev) => prev.filter((session) => session.id !== sessionId));
                 toast.success('Session terminated successfully');
             } else {
                 toast.error('Failed to terminate session');
@@ -147,7 +147,7 @@ export function SessionsTable() {
                 const data = await response.json();
 
                 if (data.currentSessionPreserved) {
-                    setSessions(prev => prev.filter(session => session.isCurrent));
+                    setSessions((prev) => prev.filter((session) => session.isCurrent));
                     toast.success('All other sessions terminated successfully');
                 } else {
                     toast.success('All sessions terminated. Redirecting to login...');
@@ -194,7 +194,7 @@ export function SessionsTable() {
                 <p className="text-muted-foreground text-sm">
                     {sessions.length} active session{sessions.length !== 1 ? 's' : ''}
                 </p>
-                {sessions.filter(s => !s.isCurrent).length > 0 && (
+                {sessions.filter((s) => !s.isCurrent).length > 0 && (
                     <AlertDialog>
                         <AlertDialogTrigger asChild>
                             <Button variant="outline" size="sm">
@@ -232,7 +232,7 @@ export function SessionsTable() {
                     </TableRow>
                 </TableHeader>
                 <TableBody>
-                    {sessions.map(session => (
+                    {sessions.map((session) => (
                         <TableRow key={session.id}>
                             <TableCell>
                                 <div className="flex items-center gap-3">
@@ -268,7 +268,8 @@ export function SessionsTable() {
                                 {session.isCurrent ? (
                                     <Badge
                                         variant="default"
-                                        className="flex w-fit items-center gap-1">
+                                        className="flex w-fit items-center gap-1"
+                                    >
                                         <Shield className="h-3 w-3" />
                                         Current
                                     </Badge>
@@ -283,7 +284,8 @@ export function SessionsTable() {
                                             <Button
                                                 variant="ghost"
                                                 size="sm"
-                                                disabled={terminating === session.id}>
+                                                disabled={terminating === session.id}
+                                            >
                                                 <Trash2 className="h-4 w-4" />
                                             </Button>
                                         </AlertDialogTrigger>
@@ -300,7 +302,8 @@ export function SessionsTable() {
                                             <AlertDialogFooter>
                                                 <AlertDialogCancel>Cancel</AlertDialogCancel>
                                                 <AlertDialogAction
-                                                    onClick={() => terminateSession(session.id)}>
+                                                    onClick={() => terminateSession(session.id)}
+                                                >
                                                     Terminate
                                                 </AlertDialogAction>
                                             </AlertDialogFooter>

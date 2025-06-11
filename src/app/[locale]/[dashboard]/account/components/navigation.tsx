@@ -118,7 +118,8 @@ export function AccountNavigation() {
                                 <MenubarTrigger asChild>
                                     <Link
                                         href="/dashboard/account"
-                                        className={getNavItemClasses('/dashboard/account')}>
+                                        className={getNavItemClasses('/dashboard/account')}
+                                    >
                                         <LayoutDashboard className="h-4 w-4" />
                                         Overview
                                     </Link>
@@ -130,7 +131,8 @@ export function AccountNavigation() {
                                 <MenubarTrigger asChild>
                                     <Link
                                         href="/dashboard/account/profile"
-                                        className={getNavItemClasses('/profile')}>
+                                        className={getNavItemClasses('/profile')}
+                                    >
                                         <User className="h-4 w-4" />
                                         Profile
                                     </Link>
@@ -148,7 +150,8 @@ export function AccountNavigation() {
                                     <MenubarItem asChild>
                                         <Link
                                             href="/dashboard/account/security/password"
-                                            className="flex cursor-pointer items-center gap-2 rounded-sm px-2 py-1.5 hover:bg-gray-100 dark:hover:bg-gray-800">
+                                            className="flex cursor-pointer items-center gap-2 rounded-sm px-2 py-1.5 hover:bg-gray-100 dark:hover:bg-gray-800"
+                                        >
                                             <Shield className="h-4 w-4" />
                                             Password & Security
                                         </Link>
@@ -156,7 +159,8 @@ export function AccountNavigation() {
                                     <MenubarItem asChild>
                                         <Link
                                             href="/dashboard/account/security/two-factor"
-                                            className="flex cursor-pointer items-center gap-2 rounded-sm px-2 py-1.5 hover:bg-gray-100 dark:hover:bg-gray-800">
+                                            className="flex cursor-pointer items-center gap-2 rounded-sm px-2 py-1.5 hover:bg-gray-100 dark:hover:bg-gray-800"
+                                        >
                                             <Smartphone className="h-4 w-4" />
                                             Two-Factor Authentication
                                         </Link>
@@ -165,7 +169,8 @@ export function AccountNavigation() {
                                     <MenubarItem asChild>
                                         <Link
                                             href="/dashboard/account/security/sessions"
-                                            className="flex cursor-pointer items-center gap-2 rounded-sm px-2 py-1.5 hover:bg-gray-100 dark:hover:bg-gray-800">
+                                            className="flex cursor-pointer items-center gap-2 rounded-sm px-2 py-1.5 hover:bg-gray-100 dark:hover:bg-gray-800"
+                                        >
                                             <Settings className="h-4 w-4" />
                                             Active Sessions
                                         </Link>
@@ -178,7 +183,8 @@ export function AccountNavigation() {
                                 <MenubarTrigger asChild>
                                     <Link
                                         href="/dashboard/account/notifications"
-                                        className={getSimpleNavItemClasses('/notifications')}>
+                                        className={getSimpleNavItemClasses('/notifications')}
+                                    >
                                         <Bell className="mr-2 h-4 w-4" />
                                         Notifications
                                     </Link>
@@ -217,7 +223,8 @@ export function AccountNavigation() {
                                     <Link
                                         href="/dashboard/account"
                                         className={getMobileMenuItemClasses('/dashboard/account')}
-                                        onClick={handleMobileMenuClose}>
+                                        onClick={handleMobileMenuClose}
+                                    >
                                         <LayoutDashboard className="h-5 w-5" />
                                         <span>Overview</span>
                                     </Link>
@@ -226,7 +233,8 @@ export function AccountNavigation() {
                                     <Link
                                         href="/dashboard/account/profile"
                                         className={getMobileMenuItemClasses('/profile')}
-                                        onClick={handleMobileMenuClose}>
+                                        onClick={handleMobileMenuClose}
+                                    >
                                         <User className="h-5 w-5" />
                                         <span>Profile</span>
                                     </Link>
@@ -242,21 +250,24 @@ export function AccountNavigation() {
                                             <Link
                                                 href="/dashboard/account/security/password"
                                                 className="hover:bg-muted hover:text-foreground text-muted-foreground flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-all"
-                                                onClick={handleMobileMenuClose}>
+                                                onClick={handleMobileMenuClose}
+                                            >
                                                 <Shield className="h-4 w-4" />
                                                 <span>Password & Security</span>
                                             </Link>
                                             <Link
                                                 href="/dashboard/account/security/two-factor"
                                                 className="hover:bg-muted hover:text-foreground text-muted-foreground flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-all"
-                                                onClick={handleMobileMenuClose}>
+                                                onClick={handleMobileMenuClose}
+                                            >
                                                 <Smartphone className="h-4 w-4" />
                                                 <span>Two-Factor Auth</span>
                                             </Link>
                                             <Link
                                                 href="/dashboard/account/security/sessions"
                                                 className="hover:bg-muted hover:text-foreground text-muted-foreground flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-all"
-                                                onClick={handleMobileMenuClose}>
+                                                onClick={handleMobileMenuClose}
+                                            >
                                                 <Settings className="h-4 w-4" />
                                                 <span>Active Sessions</span>
                                             </Link>
@@ -267,7 +278,8 @@ export function AccountNavigation() {
                                     <Link
                                         href="/dashboard/account/notifications"
                                         className={getMobileMenuItemClasses('/notifications')}
-                                        onClick={handleMobileMenuClose}>
+                                        onClick={handleMobileMenuClose}
+                                    >
                                         <Bell className="h-5 w-5" />
                                         <span>Notifications</span>
                                     </Link>

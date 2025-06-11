@@ -26,7 +26,7 @@ export const Default: Story = {
     args: {
         variant: 'default',
     },
-    render: args => (
+    render: (args) => (
         <Alert {...args} className="w-[400px]">
             <Terminal className="size-4" />
             <AlertTitle>Heads up!</AlertTitle>
@@ -39,7 +39,7 @@ export const Destructive: Story = {
     args: {
         variant: 'destructive',
     },
-    render: args => (
+    render: (args) => (
         <Alert {...args} className="w-[400px]">
             <AlertCircle className="size-4" />
             <AlertTitle>Error</AlertTitle>
@@ -52,7 +52,7 @@ export const Success: Story = {
     args: {
         variant: 'default',
     },
-    render: args => (
+    render: (args) => (
         <Alert {...args} className="w-[400px]">
             <CheckCircle className="size-4" />
             <AlertTitle>Success</AlertTitle>
@@ -65,7 +65,7 @@ export const Null: Story = {
     args: {
         variant: null,
     },
-    render: args => (
+    render: (args) => (
         <Alert {...args} className="w-[400px]">
             <TriangleAlert className="size-4" />
             <AlertTitle>Null</AlertTitle>
@@ -80,7 +80,7 @@ export const Undefined: Story = {
     args: {
         variant: undefined,
     },
-    render: args => (
+    render: (args) => (
         <Alert {...args} className="w-[400px]">
             <TriangleAlert className="size-4" />
             <AlertTitle>Undefined</AlertTitle>

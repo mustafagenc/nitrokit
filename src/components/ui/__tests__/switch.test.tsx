@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { describe, it, expect, vi } from 'vitest';
 import { Switch } from '../switch';
 
 describe('Switch', () => {
@@ -31,7 +32,7 @@ describe('Switch', () => {
     });
 
     it('handles onChange event', async () => {
-        const handleChange = jest.fn();
+        const handleChange = vi.fn();
         render(<Switch onCheckedChange={handleChange} />);
         const switchEl = screen.getByRole('switch');
 

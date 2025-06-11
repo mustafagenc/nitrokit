@@ -22,17 +22,17 @@ export function AvatarProvider({ children }: AvatarProviderProps) {
 
     const updateAvatar = useCallback((url: string | null) => {
         setAvatarUrl(url);
-        setForceUpdate(prev => prev + 1);
+        setForceUpdate((prev) => prev + 1);
     }, []);
 
     const removeAvatar = useCallback(() => {
         setAvatarUrl(null);
-        setForceUpdate(prev => prev + 1);
+        setForceUpdate((prev) => prev + 1);
     }, []);
 
     const initializeAvatar = useCallback((url: string | null) => {
         setAvatarUrl(url);
-        setForceUpdate(prev => prev + 1);
+        setForceUpdate((prev) => prev + 1);
     }, []);
 
     return (
@@ -43,7 +43,8 @@ export function AvatarProvider({ children }: AvatarProviderProps) {
                 removeAvatar,
                 initializeAvatar,
                 forceUpdate,
-            }}>
+            }}
+        >
             {children}
         </AvatarContext.Provider>
     );

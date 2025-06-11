@@ -31,17 +31,17 @@ export const slugSchema = z
 // Enhanced contact form validation
 export const contactFormSchema = (t: (key: string) => string) => {
     return z.object({
-        name: nameSchema.refine(name => !containsSuspiciousPatterns(name), {
+        name: nameSchema.refine((name) => !containsSuspiciousPatterns(name), {
             message: t('validation.suspicious.name'),
         }),
-        email: emailSchema.refine(email => !isDisposableEmail(email), {
+        email: emailSchema.refine((email) => !isDisposableEmail(email), {
             message: t('validation.disposable.email'),
         }),
         message: z
             .string()
             .min(10, { message: t('validation.required.message') })
             .max(2000, { message: t('validation.maxLength.message') })
-            .refine(message => !containsSpam(message), { message: t('validation.spam.message') }),
+            .refine((message) => !containsSpam(message), { message: t('validation.spam.message') }),
         subject: z
             .string()
             .max(200, { message: t('validation.maxLength.subject') })
@@ -56,15 +56,15 @@ export const registerSchema = z
         firstName: nameSchema,
         lastName: nameSchema,
         email: emailSchema.refine(
-            email => !isDisposableEmail(email),
+            (email) => !isDisposableEmail(email),
             'Disposable email addresses are not allowed'
         ),
         password: passwordSchema,
         confirmPassword: z.string(),
-        terms: z.boolean().refine(val => val === true, 'You must accept the terms'),
+        terms: z.boolean().refine((val) => val === true, 'You must accept the terms'),
         honeypot: z.string().max(0, 'Bot detected').optional(),
     })
-    .refine(data => data.password === data.confirmPassword, {
+    .refine((data) => data.password === data.confirmPassword, {
         message: 'Passwords do not match',
         path: ['confirmPassword'],
     });
@@ -84,7 +84,7 @@ export const resetPasswordSchema = z
         password: passwordSchema,
         confirmPassword: z.string(),
     })
-    .refine(data => data.password === data.confirmPassword, {
+    .refine((data) => data.password === data.confirmPassword, {
         message: 'Passwords do not match',
         path: ['confirmPassword'],
     });
@@ -101,7 +101,7 @@ export function containsSuspiciousPatterns(text: string): boolean {
         /on\w+\s*=/i,
     ];
 
-    return suspiciousPatterns.some(pattern => pattern.test(text));
+    return suspiciousPatterns.some((pattern) => pattern.test(text));
 }
 
 export function isDisposableEmail(email: string): boolean {
@@ -125,7 +125,7 @@ export function containsSpam(text: string): boolean {
         /\b(viagra|casino|poker|lottery)\b/i,
     ];
 
-    return spamPatterns.some(pattern => pattern.test(text));
+    return spamPatterns.some((pattern) => pattern.test(text));
 }
 
 // Validation middleware
@@ -143,7 +143,7 @@ export function validateRequest<T>(
         const result = schema.safeParse(data);
 
         if (!result.success) {
-            const errors = result.error.errors.map(err => err.message);
+            const errors = result.error.errors.map((err) => err.message);
 
             logger.warn('Request validation failed', {
                 action,

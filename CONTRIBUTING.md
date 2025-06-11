@@ -260,6 +260,7 @@ components/
 ```typescript
 // components/Button/Button.test.tsx
 import { render, screen, fireEvent } from '@testing-library/react';
+import { describe, it, expect, vi } from 'vitest';
 import { Button } from './Button';
 
 describe('Button', () => {
@@ -269,7 +270,7 @@ describe('Button', () => {
   });
 
   it('calls onClick when clicked', () => {
-    const handleClick = jest.fn();
+    const handleClick = vi.fn();
     render(<Button onClick={handleClick}>Click me</Button>);
 
     fireEvent.click(screen.getByRole('button'));
@@ -287,8 +288,8 @@ describe('Button', () => {
 
 - **Test behavior**, not implementation
 - Use **descriptive test names**
-- Follow **AAA pattern** (Arrange, Act, Assert)
-- Mock **external dependencies**
+- Follow the **AAA pattern** (Arrange, Act, Assert)
+- Mock **external dependencies** (`vi.mock` or `vi.fn`)
 - Aim for **80%+ coverage**
 
 ### Running Tests
@@ -300,8 +301,8 @@ yarn test
 # Run tests in watch mode
 yarn test --watch
 
-# Run specific test file
-yarn test Button.test.tsx
+# Run a specific test file
+yarn test src/components/Button/Button.test.tsx
 
 # Run tests with coverage
 yarn test:coverage

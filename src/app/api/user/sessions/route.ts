@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { auth } from '@/auth';
+import { auth } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
 import { createOrUpdateSessionInfo } from '@/lib/auth/session-tracking';
 
@@ -50,7 +50,7 @@ export async function GET(request: NextRequest) {
             return NextResponse.json({ sessions: mockSessions });
         }
 
-        const formattedSessions = userSessions.map(s => ({
+        const formattedSessions = userSessions.map((s) => ({
             id: s.id,
             deviceType: s.deviceType || 'desktop',
             browser: s.browser || 'Unknown',

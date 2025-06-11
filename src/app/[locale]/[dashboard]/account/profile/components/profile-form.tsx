@@ -219,14 +219,14 @@ export function ProfileForm({ user }: ProfileFormProps) {
         setValue('phone', formatted, { shouldDirty: true });
 
         if (formatted !== user.phone) {
-            setPhoneVerification(prev => ({
+            setPhoneVerification((prev) => ({
                 ...prev,
                 isVerified: false,
                 codeSent: false,
                 code: '',
             }));
         } else if (formatted === user.phone && user.phoneVerified) {
-            setPhoneVerification(prev => ({
+            setPhoneVerification((prev) => ({
                 ...prev,
                 isVerified: true,
                 codeSent: false,
@@ -247,7 +247,7 @@ export function ProfileForm({ user }: ProfileFormProps) {
         }
 
         const cleanPhone = getCleanPhoneNumber(watchedPhone);
-        setPhoneVerification(prev => ({ ...prev, isVerifying: true }));
+        setPhoneVerification((prev) => ({ ...prev, isVerifying: true }));
 
         try {
             const response = await fetch('/api/user/phone/send-verification', {
@@ -259,7 +259,7 @@ export function ProfileForm({ user }: ProfileFormProps) {
             const result = await response.json();
 
             if (result.success) {
-                setPhoneVerification(prev => ({
+                setPhoneVerification((prev) => ({
                     ...prev,
                     codeSent: true,
                     cooldown: result.cooldownSeconds || 60,
@@ -267,7 +267,7 @@ export function ProfileForm({ user }: ProfileFormProps) {
                 toast.success('Verification code sent!');
 
                 const timer = setInterval(() => {
-                    setPhoneVerification(prev => {
+                    setPhoneVerification((prev) => {
                         if (prev.cooldown <= 1) {
                             clearInterval(timer);
                             return { ...prev, cooldown: 0 };
@@ -278,7 +278,7 @@ export function ProfileForm({ user }: ProfileFormProps) {
             } else {
                 toast.error(result.message);
                 if (result.cooldownSeconds) {
-                    setPhoneVerification(prev => ({
+                    setPhoneVerification((prev) => ({
                         ...prev,
                         cooldown: result.cooldownSeconds,
                     }));
@@ -288,7 +288,7 @@ export function ProfileForm({ user }: ProfileFormProps) {
             console.error('Send verification error:', error);
             toast.error('Failed to send verification code');
         } finally {
-            setPhoneVerification(prev => ({ ...prev, isVerifying: false }));
+            setPhoneVerification((prev) => ({ ...prev, isVerifying: false }));
         }
     };
 
@@ -304,7 +304,7 @@ export function ProfileForm({ user }: ProfileFormProps) {
         }
 
         const cleanPhone = getCleanPhoneNumber(watchedPhone);
-        setPhoneVerification(prev => ({ ...prev, isVerifying: true }));
+        setPhoneVerification((prev) => ({ ...prev, isVerifying: true }));
 
         try {
             const response = await fetch('/api/user/phone/verify', {
@@ -319,7 +319,7 @@ export function ProfileForm({ user }: ProfileFormProps) {
             const result = await response.json();
 
             if (result.success) {
-                setPhoneVerification(prev => ({
+                setPhoneVerification((prev) => ({
                     ...prev,
                     isVerified: true,
                     codeSent: false,
@@ -344,7 +344,7 @@ export function ProfileForm({ user }: ProfileFormProps) {
             console.error('Verify code error:', error);
             toast.error('Failed to verify code');
         } finally {
-            setPhoneVerification(prev => ({ ...prev, isVerifying: false }));
+            setPhoneVerification((prev) => ({ ...prev, isVerifying: false }));
         }
     };
 
@@ -393,7 +393,7 @@ export function ProfileForm({ user }: ProfileFormProps) {
                 }
 
                 if (result.phoneVerificationReset) {
-                    setPhoneVerification(prev => ({
+                    setPhoneVerification((prev) => ({
                         ...prev,
                         isVerified: false,
                         codeSent: false,
@@ -597,7 +597,8 @@ export function ProfileForm({ user }: ProfileFormProps) {
                                             phoneVerification.isVerifying ||
                                             phoneVerification.cooldown > 0
                                         }
-                                        className="shrink-0">
+                                        className="shrink-0"
+                                    >
                                         {phoneVerification.isVerifying ? (
                                             <Loader2 className="h-4 w-4 animate-spin" />
                                         ) : (
@@ -638,8 +639,8 @@ export function ProfileForm({ user }: ProfileFormProps) {
                                             <Input
                                                 placeholder="000000"
                                                 value={phoneVerification.code}
-                                                onChange={e =>
-                                                    setPhoneVerification(prev => ({
+                                                onChange={(e) =>
+                                                    setPhoneVerification((prev) => ({
                                                         ...prev,
                                                         code: e.target.value
                                                             .replace(/\D/g, '')
@@ -657,7 +658,8 @@ export function ProfileForm({ user }: ProfileFormProps) {
                                                     phoneVerification.isVerifying ||
                                                     phoneVerification.code.length !== 6
                                                 }
-                                                className="shrink-0">
+                                                className="shrink-0"
+                                            >
                                                 {phoneVerification.isVerifying ? (
                                                     <Loader2 className="h-4 w-4 animate-spin" />
                                                 ) : (
@@ -707,15 +709,16 @@ export function ProfileForm({ user }: ProfileFormProps) {
                                 </Label>
                                 <Select
                                     value={watchedLocale || currentLocale}
-                                    onValueChange={value =>
+                                    onValueChange={(value) =>
                                         setValue('locale', value, { shouldDirty: true })
                                     }
-                                    disabled={isLoading}>
+                                    disabled={isLoading}
+                                >
                                     <SelectTrigger>
                                         <SelectValue placeholder="Select language" />
                                     </SelectTrigger>
                                     <SelectContent>
-                                        {localesWithFlag.map(locale => (
+                                        {localesWithFlag.map((locale) => (
                                             <SelectItem key={locale.id} value={locale.id}>
                                                 <div className="flex items-center gap-2">
                                                     <Image
@@ -741,17 +744,18 @@ export function ProfileForm({ user }: ProfileFormProps) {
                                 </Label>
                                 <Select
                                     value={watchedTheme || theme || 'system'}
-                                    onValueChange={value =>
+                                    onValueChange={(value) =>
                                         setValue('theme', value as 'light' | 'dark' | 'system', {
                                             shouldDirty: true,
                                         })
                                     }
-                                    disabled={isLoading}>
+                                    disabled={isLoading}
+                                >
                                     <SelectTrigger>
                                         <SelectValue placeholder="Select theme" />
                                     </SelectTrigger>
                                     <SelectContent>
-                                        {themeOptions.map(option => {
+                                        {themeOptions.map((option) => {
                                             const Icon = option.icon;
                                             return (
                                                 <SelectItem key={option.value} value={option.value}>
@@ -777,17 +781,18 @@ export function ProfileForm({ user }: ProfileFormProps) {
                                     <Globe className="h-4 w-4" />
                                     <span>
                                         {localesWithFlag.find(
-                                            opt => opt.id === (watchedLocale || currentLocale)
+                                            (opt) => opt.id === (watchedLocale || currentLocale)
                                         )?.name || 'English'}
                                     </span>
                                 </div>
                                 <div className="flex items-center gap-2">
-                                    {themeOptions.find(opt => opt.value === (watchedTheme || theme))
-                                        ?.icon && (
+                                    {themeOptions.find(
+                                        (opt) => opt.value === (watchedTheme || theme)
+                                    )?.icon && (
                                         <>
                                             {(() => {
                                                 const Icon = themeOptions.find(
-                                                    opt => opt.value === (watchedTheme || theme)
+                                                    (opt) => opt.value === (watchedTheme || theme)
                                                 )!.icon;
                                                 return <Icon className="h-4 w-4" />;
                                             })()}
@@ -795,7 +800,7 @@ export function ProfileForm({ user }: ProfileFormProps) {
                                     )}
                                     <span>
                                         {themeOptions.find(
-                                            opt => opt.value === (watchedTheme || theme)
+                                            (opt) => opt.value === (watchedTheme || theme)
                                         )?.label || 'System'}{' '}
                                         Theme
                                     </span>
@@ -807,7 +812,8 @@ export function ProfileForm({ user }: ProfileFormProps) {
                             <Button
                                 type="submit"
                                 disabled={isLoading || !isDirty}
-                                className="flex-1 md:flex-none">
+                                className="flex-1 md:flex-none"
+                            >
                                 {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                                 <Save className="mr-1 h-4 w-4" /> Save Changes
                             </Button>
@@ -815,7 +821,8 @@ export function ProfileForm({ user }: ProfileFormProps) {
                                 type="button"
                                 variant="outline"
                                 onClick={() => router.refresh()}
-                                disabled={isLoading}>
+                                disabled={isLoading}
+                            >
                                 Cancel
                             </Button>
                         </div>

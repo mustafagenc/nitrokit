@@ -26,7 +26,7 @@ export default meta;
 type Story = StoryObj<typeof Skeleton>;
 
 export const Default: Story = {
-    render: args => (
+    render: (args) => (
         <div className="flex flex-col space-y-3">
             <Skeleton {...args} className="h-[125px] w-[250px] rounded-xl" />
             <div className="space-y-2">
@@ -38,15 +38,15 @@ export const Default: Story = {
 };
 
 export const SingleLine: Story = {
-    render: args => <Skeleton {...args} className="h-4 w-full max-w-md" />,
+    render: (args) => <Skeleton {...args} className="h-4 w-full max-w-md" />,
 };
 
 export const Circle: Story = {
-    render: args => <Skeleton {...args} className="size-12 rounded-full" />,
+    render: (args) => <Skeleton {...args} className="size-12 rounded-full" />,
 };
 
 export const CardSkeleton: Story = {
-    render: args => (
+    render: (args) => (
         <div className="flex w-80 flex-col space-y-3 rounded-lg border p-4">
             <Skeleton {...args} className="h-32 w-full rounded-xl" />
             <div className="space-y-2">
@@ -63,7 +63,7 @@ export const CardSkeleton: Story = {
 };
 
 export const ListItemSkeleton: Story = {
-    render: args => (
+    render: (args) => (
         <div className="flex w-96 items-center space-x-4 rounded-lg border p-4">
             <Skeleton {...args} className="size-12 rounded-full" />
             <div className="flex-grow space-y-2">
@@ -79,7 +79,7 @@ export const ListItemSkeleton: Story = {
 };
 
 export const ProfileHeaderSkeleton: Story = {
-    render: args => (
+    render: (args) => (
         <div className="flex w-full max-w-md items-center space-x-4 p-4">
             <Skeleton {...args} className="size-16 rounded-full" />
             <div className="space-y-2">
@@ -94,7 +94,7 @@ export const ProfileHeaderSkeleton: Story = {
 };
 
 export const MultipleLines: Story = {
-    render: args => (
+    render: (args) => (
         <div className="w-64 space-y-2">
             <Skeleton {...args} className="h-4 w-full" />
             <Skeleton {...args} className="h-4 w-full" />

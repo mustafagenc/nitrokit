@@ -167,12 +167,14 @@ function ProfileFormStory() {
                     <Button
                         type="button"
                         variant="outline"
-                        onClick={() => form.reset(defaultValues)}>
+                        onClick={() => form.reset(defaultValues)}
+                    >
                         Reset
                     </Button>
                     <Button
                         type="submit"
-                        disabled={!form.formState.isValid || form.formState.isSubmitting}>
+                        disabled={!form.formState.isValid || form.formState.isSubmitting}
+                    >
                         {form.formState.isSubmitting ? 'Updating...' : 'Update profile'}
                     </Button>
                 </div>

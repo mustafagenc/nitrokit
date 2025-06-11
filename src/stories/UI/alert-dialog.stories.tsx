@@ -28,7 +28,7 @@ export default meta;
 type Story = StoryObj<typeof AlertDialog>;
 
 export const Default: Story = {
-    render: args => (
+    render: (args) => (
         <AlertDialog {...args}>
             <AlertDialogTrigger asChild>
                 <Button variant="outline">Show Dialog</Button>
@@ -51,7 +51,7 @@ export const Default: Story = {
 };
 
 export const DestructiveAction: Story = {
-    render: args => (
+    render: (args) => (
         <AlertDialog {...args}>
             <AlertDialogTrigger asChild>
                 <Button variant="destructive">Delete Account</Button>

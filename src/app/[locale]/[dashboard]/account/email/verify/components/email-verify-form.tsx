@@ -160,7 +160,8 @@ export function EmailVerifyForm({ user }: EmailVerifyFormProps) {
                                     </p>
                                 </div>
                                 <Button
-                                    onClick={() => router.push('/dashboard/account/email/verify')}>
+                                    onClick={() => router.push('/dashboard/account/email/verify')}
+                                >
                                     Try Again
                                 </Button>
                             </>
@@ -227,7 +228,8 @@ export function EmailVerifyForm({ user }: EmailVerifyFormProps) {
                                 onClick={sendVerificationEmail}
                                 disabled={isLoading}
                                 className="w-full"
-                                size="lg">
+                                size="lg"
+                            >
                                 {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                                 <Send className="mr-2 h-4 w-4" />
                                 Send Verification Email
@@ -238,7 +240,8 @@ export function EmailVerifyForm({ user }: EmailVerifyFormProps) {
                                     onClick={resendVerificationEmail}
                                     disabled={isLoading || countdown > 0}
                                     variant="outline"
-                                    className="w-full">
+                                    className="w-full"
+                                >
                                     {isLoading ? (
                                         <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                                     ) : (

@@ -44,7 +44,7 @@ export const ContactForm = () => {
         formState: { isSubmitting, errors, isValid, touchedFields },
     } = form;
 
-    const handleFormSubmit: SubmitHandler<ContactFormData> = async data => {
+    const handleFormSubmit: SubmitHandler<ContactFormData> = async (data) => {
         startTransition(async () => {
             try {
                 setFormStatus('idle');
@@ -88,7 +88,8 @@ export const ContactForm = () => {
                     {formStatus === 'success' && (
                         <Badge
                             variant="secondary"
-                            className="border-green-200 bg-green-50 text-green-700">
+                            className="border-green-200 bg-green-50 text-green-700"
+                        >
                             <CheckCircle className="mr-1 h-3 w-3" />
                             Sent
                         </Badge>
@@ -206,7 +207,8 @@ export const ContactForm = () => {
                                 'h-12 w-full transition-all duration-200',
                                 formStatus === 'success' && 'bg-green-600 hover:bg-green-700',
                                 isLoading && 'cursor-not-allowed'
-                            )}>
+                            )}
+                        >
                             {isLoading ? (
                                 <>
                                     <div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
@@ -231,7 +233,8 @@ export const ContactForm = () => {
                             <button
                                 type="button"
                                 className="hover:text-foreground underline transition-colors"
-                                onClick={() => window.open('/privacy', '_blank')}>
+                                onClick={() => window.open('/privacy', '_blank')}
+                            >
                                 Privacy Policy
                             </button>
                         </p>

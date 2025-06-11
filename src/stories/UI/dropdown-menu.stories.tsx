@@ -75,7 +75,7 @@ export default meta;
 type Story = StoryObj<typeof DropdownMenu>;
 
 export const Default: Story = {
-    render: args => (
+    render: (args) => (
         <DropdownMenu {...args}>
             <DropdownMenuTrigger asChild>
                 <Button variant="outline">
@@ -182,13 +182,15 @@ export const WithCheckboxes: Story = {
                     <DropdownMenuSeparator />
                     <DropdownMenuCheckboxItem
                         checked={showStatusBar}
-                        onCheckedChange={setShowStatusBar}>
+                        onCheckedChange={setShowStatusBar}
+                    >
                         Status Bar
                     </DropdownMenuCheckboxItem>
                     <DropdownMenuCheckboxItem
                         checked={showActivityBar}
                         onCheckedChange={setShowActivityBar}
-                        disabled>
+                        disabled
+                    >
                         Activity Bar (Disabled)
                     </DropdownMenuCheckboxItem>
                     <DropdownMenuCheckboxItem checked={showPanel} onCheckedChange={setShowPanel}>
@@ -224,7 +226,7 @@ export const WithRadioGroup: Story = {
 };
 
 export const LongContentScrollable: Story = {
-    render: args => (
+    render: (args) => (
         <DropdownMenu {...args}>
             <DropdownMenuTrigger asChild>
                 <Button variant="outline">

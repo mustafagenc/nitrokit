@@ -27,7 +27,7 @@ const meta: Meta<TooltipStoryArgs> = {
         layout: 'centered',
     },
     decorators: [
-        Story => (
+        (Story) => (
             // TooltipProvider is often needed at a higher level in your app
             <TooltipProvider>
                 <Story />
@@ -80,7 +80,7 @@ export default meta;
 type Story = StoryObj<TooltipStoryArgs>;
 
 export const Default: Story = {
-    render: args => {
+    render: (args) => {
         const { side, align, sideOffset, alignOffset, tooltipText, ...tooltipProps } = args;
         return (
             <Tooltip {...tooltipProps}>
@@ -94,7 +94,8 @@ export const Default: Story = {
                     side={side}
                     align={align}
                     sideOffset={sideOffset}
-                    alignOffset={alignOffset}>
+                    alignOffset={alignOffset}
+                >
                     <p>{tooltipText}</p>
                 </TooltipContent>
             </Tooltip>
@@ -111,9 +112,9 @@ export const Default: Story = {
 };
 
 export const SidePlacement: Story = {
-    render: args => (
+    render: (args) => (
         <div className="flex flex-wrap gap-4">
-            {(['top', 'right', 'bottom', 'left'] as const).map(side => (
+            {(['top', 'right', 'bottom', 'left'] as const).map((side) => (
                 <Tooltip key={side} {...args} delayDuration={0}>
                     <TooltipTrigger asChild>
                         <Button variant="outline">
@@ -133,7 +134,7 @@ export const SidePlacement: Story = {
 };
 
 export const WithCustomContent: Story = {
-    render: args => (
+    render: (args) => (
         <Tooltip {...args}>
             <TooltipTrigger asChild>
                 <Button variant="ghost" size="icon">
@@ -158,7 +159,7 @@ export const WithCustomContent: Story = {
 };
 
 export const OnDisabledButton: Story = {
-    render: args => (
+    render: (args) => (
         <Tooltip {...args}>
             {/* For disabled elements, the trigger often needs to be wrapped if it doesn't forward refs correctly or handle pointer events when disabled.
                 Using `asChild` with a span wrapper is a common pattern. */}
@@ -182,7 +183,7 @@ export const OnDisabledButton: Story = {
 };
 
 export const LongDelay: Story = {
-    render: args => (
+    render: (args) => (
         <Tooltip {...args}>
             <TooltipTrigger asChild>
                 <Button variant="outline">Hover for a bit</Button>
@@ -198,7 +199,7 @@ export const LongDelay: Story = {
 };
 
 export const NoDelay: Story = {
-    render: args => (
+    render: (args) => (
         <Tooltip {...args}>
             <TooltipTrigger asChild>
                 <Button variant="secondary">Instant Tooltip</Button>

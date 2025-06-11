@@ -42,14 +42,14 @@ export default meta;
 type Story = StoryObj<typeof Textarea>;
 
 export const Default: Story = {
-    render: args => <Textarea {...args} className="w-80" />, // Added width for better visibility
+    render: (args) => <Textarea {...args} className="w-80" />, // Added width for better visibility
     args: {
         placeholder: 'Type your message here.',
     },
 };
 
 export const WithDefaultValue: Story = {
-    render: args => <Textarea {...args} className="w-80" />,
+    render: (args) => <Textarea {...args} className="w-80" />,
     args: {
         defaultValue: 'This is some default text that appears in the textarea.',
         placeholder: 'Type your message here.',
@@ -57,7 +57,7 @@ export const WithDefaultValue: Story = {
 };
 
 export const Disabled: Story = {
-    render: args => <Textarea {...args} className="w-80" />,
+    render: (args) => <Textarea {...args} className="w-80" />,
     args: {
         placeholder: 'This textarea is disabled.',
         defaultValue: "You can't edit this.",
@@ -66,7 +66,7 @@ export const Disabled: Story = {
 };
 
 export const WithLabel: Story = {
-    render: args => (
+    render: (args) => (
         <div className="grid w-full max-w-sm gap-1.5">
             <Label htmlFor="message">Your Message</Label>
             <Textarea {...args} id="message" />
@@ -101,7 +101,8 @@ export const CharacterLimit: Story = {
                     maxLength={maxLength} // HTML5 maxLength for basic enforcement
                 />
                 <p
-                    className={`text-sm ${value.length > maxLength - 20 ? (value.length === maxLength ? 'text-destructive' : 'text-orange-500') : 'text-muted-foreground'}`}>
+                    className={`text-sm ${value.length > maxLength - 20 ? (value.length === maxLength ? 'text-destructive' : 'text-orange-500') : 'text-muted-foreground'}`}
+                >
                     {value.length}/{maxLength}
                 </p>
             </div>
@@ -116,7 +117,7 @@ export const CharacterLimit: Story = {
 };
 
 export const NonResizable: Story = {
-    render: args => <Textarea {...args} className="w-80 resize-none" />,
+    render: (args) => <Textarea {...args} className="w-80 resize-none" />,
     args: {
         placeholder: 'This textarea cannot be resized.',
         rows: 3,
@@ -124,7 +125,7 @@ export const NonResizable: Story = {
 };
 
 export const InAForm: Story = {
-    render: args => {
+    render: (args) => {
         const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
             event.preventDefault();
             const formData = new FormData(event.currentTarget);

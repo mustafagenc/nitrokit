@@ -33,7 +33,7 @@ export const CompactLocaleSwitcher = () => {
     };
 
     const getCurrentLocale = () => {
-        return localesWithFlag.find(locale => locale.id === currentLocale) || localesWithFlag[0];
+        return localesWithFlag.find((locale) => locale.id === currentLocale) || localesWithFlag[0];
     };
 
     if (!mounted) {
@@ -53,7 +53,8 @@ export const CompactLocaleSwitcher = () => {
                                     <Button
                                         variant="ghost"
                                         size="sm"
-                                        className="border-border/30 bg-background/60 hover:bg-accent/30 h-8 gap-2 rounded-lg border px-1 transition-all duration-200">
+                                        className="border-border/30 bg-background/60 hover:bg-accent/30 h-8 gap-2 rounded-lg border px-1 transition-all duration-200"
+                                    >
                                         <Image
                                             src={currentLocaleData.flag}
                                             width={14}
@@ -73,7 +74,7 @@ export const CompactLocaleSwitcher = () => {
                         </Tooltip>
                         <PopoverContent className="w-43 p-1">
                             <div className="space-y-0.5">
-                                {localesWithFlag.map(locale => (
+                                {localesWithFlag.map((locale) => (
                                     <Button
                                         key={locale.id}
                                         variant="ghost"
@@ -84,7 +85,8 @@ export const CompactLocaleSwitcher = () => {
                                             currentLocale === locale.id
                                                 ? 'bg-accent text-accent-foreground'
                                                 : 'hover:bg-accent hover:text-accent-foreground'
-                                        )}>
+                                        )}
+                                    >
                                         <Image
                                             src={locale.flag}
                                             width={16}
@@ -111,7 +113,8 @@ export const CompactLocaleSwitcher = () => {
                                     <Button
                                         variant="ghost"
                                         size="sm"
-                                        className="h-7 w-7 rounded-lg p-0 transition-all duration-200">
+                                        className="h-7 w-7 rounded-lg p-0 transition-all duration-200"
+                                    >
                                         <div className="relative">
                                             <Image
                                                 src={currentLocaleData.flag}
@@ -133,7 +136,7 @@ export const CompactLocaleSwitcher = () => {
 
                         <PopoverContent className="w-32 p-1">
                             <div className="space-y-0.5">
-                                {localesWithFlag.map(locale => (
+                                {localesWithFlag.map((locale) => (
                                     <Button
                                         key={locale.id}
                                         variant="ghost"
@@ -144,7 +147,8 @@ export const CompactLocaleSwitcher = () => {
                                             currentLocale === locale.id
                                                 ? 'bg-accent text-accent-foreground'
                                                 : 'hover:bg-accent hover:text-accent-foreground'
-                                        )}>
+                                        )}
+                                    >
                                         <Image
                                             src={locale.flag}
                                             width={14}

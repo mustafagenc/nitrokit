@@ -103,7 +103,7 @@ export function TwoFactorDisableDialog({
                             type="text"
                             placeholder="000000"
                             value={verificationCode}
-                            onChange={e => {
+                            onChange={(e) => {
                                 const value = e.target.value.replace(/\D/g, '').slice(0, 6);
                                 setVerificationCode(value);
                             }}
@@ -120,7 +120,8 @@ export function TwoFactorDisableDialog({
                             variant="destructive"
                             onClick={handleDisable}
                             disabled={loading || verificationCode.length !== 6}
-                            className="flex-1">
+                            className="flex-1"
+                        >
                             {loading ? 'Disabling...' : 'Disable 2FA'}
                         </Button>
                     </div>

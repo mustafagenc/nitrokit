@@ -36,7 +36,7 @@ export default meta;
 type Story = StoryObj<typeof HoverCard>;
 
 export const Default: Story = {
-    render: args => (
+    render: (args) => (
         <HoverCard {...args}>
             <HoverCardTrigger asChild>
                 <Button variant="link">@nextjs</Button>
@@ -70,7 +70,7 @@ export const Default: Story = {
 };
 
 export const WithCustomTrigger: Story = {
-    render: args => (
+    render: (args) => (
         <HoverCard {...args}>
             <HoverCardTrigger asChild>
                 <span className="text-primary cursor-pointer font-bold underline">
@@ -85,7 +85,7 @@ export const WithCustomTrigger: Story = {
 };
 
 export const SimpleTextContent: Story = {
-    render: args => (
+    render: (args) => (
         <HoverCard {...args}>
             <HoverCardTrigger asChild>
                 <Button variant="outline">Info</Button>

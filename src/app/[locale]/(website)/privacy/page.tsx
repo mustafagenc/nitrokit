@@ -18,7 +18,7 @@ export default async function Page() {
     const t = await getTranslations('privacy');
     return (
         <SharedLayout>
-            {Array.from(Array(400).keys()).map(i => (
+            {Array.from(Array(400).keys()).map((i) => (
                 <p key={i} className="text-md mb-6">
                     {t('title')}
                 </p>

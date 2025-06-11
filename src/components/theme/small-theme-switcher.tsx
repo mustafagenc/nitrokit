@@ -24,7 +24,7 @@ export const SmallThemeSwitcher = () => {
             <Switch
                 id={`theme-switch-${id}`}
                 checked={isDark === 'dark'}
-                onCheckedChange={checked => setTheme(checked ? 'dark' : 'light')}
+                onCheckedChange={(checked) => setTheme(checked ? 'dark' : 'light')}
             />
             <MoonIcon className="h-4 w-4" />
         </div>

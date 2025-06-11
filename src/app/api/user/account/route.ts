@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { auth } from '@/auth';
+import { auth } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
 import { del } from '@vercel/blob';
 import bcrypt from 'bcryptjs';
@@ -53,7 +53,7 @@ export async function DELETE(request: NextRequest) {
             }
         }
 
-        await prisma.$transaction(async tx => {
+        await prisma.$transaction(async (tx) => {
             await tx.session.deleteMany({
                 where: { userId: session.user.id },
             });

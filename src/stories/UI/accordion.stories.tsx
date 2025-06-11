@@ -56,9 +56,9 @@ export const Default: Story = {
         collapsible: true,
         className: 'w-[300px]',
     },
-    render: args => (
+    render: (args) => (
         <Accordion {...args}>
-            {defaultItems.map(item => (
+            {defaultItems.map((item) => (
                 <AccordionItem key={item.value} value={item.value}>
                     <AccordionTrigger>{item.trigger}</AccordionTrigger>
                     <AccordionContent>{item.content}</AccordionContent>
@@ -73,9 +73,9 @@ export const Multiple: Story = {
         type: 'multiple',
         className: 'w-[300px]',
     },
-    render: args => (
+    render: (args) => (
         <Accordion {...args}>
-            {defaultItems.map(item => (
+            {defaultItems.map((item) => (
                 <AccordionItem key={item.value} value={item.value}>
                     <AccordionTrigger>{item.trigger}</AccordionTrigger>
                     <AccordionContent>{item.content}</AccordionContent>
@@ -92,9 +92,9 @@ export const DefaultValueSingle: Story = {
         defaultValue: 'item-2',
         className: 'w-[300px]',
     },
-    render: args => (
+    render: (args) => (
         <Accordion {...args}>
-            {defaultItems.map(item => (
+            {defaultItems.map((item) => (
                 <AccordionItem key={item.value} value={item.value}>
                     <AccordionTrigger>{item.trigger}</AccordionTrigger>
                     <AccordionContent>{item.content}</AccordionContent>
@@ -110,9 +110,9 @@ export const DefaultValueMultiple: Story = {
         defaultValue: ['item-1', 'item-3'],
         className: 'w-[300px]',
     },
-    render: args => (
+    render: (args) => (
         <Accordion {...args}>
-            {defaultItems.map(item => (
+            {defaultItems.map((item) => (
                 <AccordionItem key={item.value} value={item.value}>
                     <AccordionTrigger>{item.trigger}</AccordionTrigger>
                     <AccordionContent>{item.content}</AccordionContent>

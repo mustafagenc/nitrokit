@@ -35,7 +35,7 @@ export const Default: Story = {
         children: 'Your Name',
         htmlFor: 'name-input',
     },
-    render: args => (
+    render: (args) => (
         <div>
             <Label {...args} />
             <Input type="text" id="name-input" placeholder="Enter your name" className="mt-1" />
@@ -44,7 +44,7 @@ export const Default: Story = {
 };
 
 export const WithCheckbox: Story = {
-    render: args => (
+    render: (args) => (
         <div className="flex items-center space-x-2">
             <Checkbox id="terms-checkbox" />
             <Label {...args} htmlFor="terms-checkbox">
@@ -62,7 +62,7 @@ export const Required: Story = {
         children: 'Email Address',
         htmlFor: 'email-required',
     },
-    render: args => (
+    render: (args) => (
         <div>
             <Label {...args}>
                 {args.children} <span className="text-destructive">*</span>
@@ -83,7 +83,7 @@ export const DisabledInputLabel: Story = {
         htmlFor: 'subscription-disabled',
         // className: 'text-muted-foreground', // Example of how you might style a label for a disabled input
     },
-    render: args => (
+    render: (args) => (
         <div className="items-top flex space-x-2">
             <Checkbox id="subscription-disabled" disabled />
             <div className="grid gap-1.5 leading-none">
@@ -106,7 +106,7 @@ export const InlineWithOtherText: Story = {
         children: 'Username:',
         className: 'font-semibold mr-2', // Example styling
     },
-    render: args => (
+    render: (args) => (
         <p className="text-sm">
             <Label {...args} />
             <span className="text-muted-foreground">nitrokit</span>

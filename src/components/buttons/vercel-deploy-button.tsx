@@ -42,7 +42,8 @@ export const VercelDeployButton = () => {
         <div className="relative" ref={dropdownRef}>
             <button
                 onClick={toggleDropdown}
-                className="group flex items-center gap-3 rounded-xl border border-gray-900 bg-gray-900 px-5 py-3 text-base font-medium text-white shadow-sm transition-all duration-300 hover:border-black hover:bg-black hover:shadow-md dark:border-white dark:bg-white dark:text-gray-900 dark:hover:border-gray-200 dark:hover:bg-gray-100">
+                className="group flex items-center gap-3 rounded-xl border border-gray-900 bg-gray-900 px-5 py-3 text-base font-medium text-white shadow-sm transition-all duration-300 hover:border-black hover:bg-black hover:shadow-md dark:border-white dark:bg-white dark:text-gray-900 dark:hover:border-gray-200 dark:hover:bg-gray-100"
+            >
                 <div className="flex h-8 w-8 items-center justify-center rounded-lg transition-colors">
                     <VercelIcon size={30} className="text-white dark:text-gray-900" />
                 </div>
@@ -57,7 +58,8 @@ export const VercelDeployButton = () => {
                     }`}
                     fill="none"
                     stroke="currentColor"
-                    viewBox="0 0 24 24">
+                    viewBox="0 0 24 24"
+                >
                     <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -72,7 +74,8 @@ export const VercelDeployButton = () => {
                     <div className="p-2">
                         <button
                             onClick={() => handleMenuClick(VERCEL_DEPLOY_URL)}
-                            className="flex w-full items-center gap-3 rounded-lg px-3 py-3 text-gray-700 transition-all duration-200 hover:bg-gray-900/5 dark:text-gray-200 dark:hover:bg-white/5">
+                            className="flex w-full items-center gap-3 rounded-lg px-3 py-3 text-gray-700 transition-all duration-200 hover:bg-gray-900/5 dark:text-gray-200 dark:hover:bg-white/5"
+                        >
                             <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gray-900 dark:bg-white">
                                 <VercelIcon size={16} className="text-white dark:text-gray-900" />
                             </div>
@@ -97,7 +100,8 @@ export const VercelDeployButton = () => {
                         </button>
                         <button
                             onClick={() => handleMenuClick(VERCEL_PREVIEW_URL)}
-                            className="flex w-full items-center gap-3 rounded-lg px-3 py-3 text-gray-700 transition-all duration-200 hover:bg-blue-50 dark:text-gray-200 dark:hover:bg-blue-900/20">
+                            className="flex w-full items-center gap-3 rounded-lg px-3 py-3 text-gray-700 transition-all duration-200 hover:bg-blue-50 dark:text-gray-200 dark:hover:bg-blue-900/20"
+                        >
                             <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-100 dark:bg-blue-900/40">
                                 <FaGlobe className="text-blue-500 dark:text-blue-400" size={16} />
                             </div>
@@ -122,7 +126,8 @@ export const VercelDeployButton = () => {
                         </button>
                         <button
                             onClick={() => handleMenuClick('https://vercel.com/docs')}
-                            className="flex w-full items-center gap-3 rounded-lg px-3 py-3 text-gray-700 transition-all duration-200 hover:bg-purple-50 dark:text-gray-200 dark:hover:bg-purple-900/20">
+                            className="flex w-full items-center gap-3 rounded-lg px-3 py-3 text-gray-700 transition-all duration-200 hover:bg-purple-50 dark:text-gray-200 dark:hover:bg-purple-900/20"
+                        >
                             <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-purple-100 dark:bg-purple-900/40">
                                 <FaCode
                                     className="text-purple-500 dark:text-purple-400"

@@ -129,7 +129,8 @@ export function ImageUpload({ value, onChange, onRemove, disabled, fallback }: I
                         variant="outline"
                         size="sm"
                         onClick={() => fileInputRef.current?.click()}
-                        disabled={disabled || isUploading || isRemoving}>
+                        disabled={disabled || isUploading || isRemoving}
+                    >
                         {isUploading ? (
                             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                         ) : (
@@ -143,7 +144,8 @@ export function ImageUpload({ value, onChange, onRemove, disabled, fallback }: I
                             variant="outline"
                             size="sm"
                             onClick={handleRemove}
-                            disabled={disabled || isUploading || isRemoving}>
+                            disabled={disabled || isUploading || isRemoving}
+                        >
                             {isRemoving ? (
                                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                             ) : (

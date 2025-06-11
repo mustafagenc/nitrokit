@@ -639,7 +639,7 @@ function isApiTokenData(data: unknown): data is ApiTokenData {
         isString(clientId) &&
         clientId.length > 0 &&
         Array.isArray(scopes) &&
-        scopes.every(scope => isString(scope)) &&
+        scopes.every((scope) => isString(scope)) &&
         isNumber(rateLimit) &&
         rateLimit > 0
     );
@@ -790,7 +790,7 @@ export function verifyApiToken(token: string): {
 
     const apiData: ApiTokenData = {
         clientId,
-        scopes: scopes.split(',').filter(scope => scope.length > 0),
+        scopes: scopes.split(',').filter((scope) => scope.length > 0),
         rateLimit,
     };
 

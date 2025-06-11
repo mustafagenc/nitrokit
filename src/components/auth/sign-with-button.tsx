@@ -3,7 +3,7 @@ import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import * as React from 'react';
 
-import { signIn } from '@/auth';
+import { signIn } from '@/lib/auth';
 import { Button, buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib';
 
@@ -81,7 +81,8 @@ function SignWithButton({
             action={async () => {
                 'use server';
                 await signIn(provider, { redirectTo: '/dashboard' });
-            }}>
+            }}
+        >
             <Button
                 type="submit"
                 aria-label={text}
@@ -92,10 +93,12 @@ function SignWithButton({
                 )}
                 variant={variant}
                 size={size}
-                {...props}>
+                {...props}
+            >
                 <Image src={icon} alt="Github" width={18} height={18} className="h-5 w-5" />
                 <span
-                    className={`text-sm text-black dark:text-gray-400 ${onlyIcon ? 'hidden' : ''}`}>
+                    className={`text-sm text-black dark:text-gray-400 ${onlyIcon ? 'hidden' : ''}`}
+                >
                     {text}
                 </span>
             </Button>

@@ -30,7 +30,8 @@ export function Navbar() {
                         className={cn(
                             'group hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors focus:outline-none disabled:pointer-events-none disabled:opacity-50',
                             isActive('/') && 'bg-accent text-accent-foreground'
-                        )}>
+                        )}
+                    >
                         <Home size={16} className="mr-2" />
                         {t('navigation.home')}
                     </Link>
@@ -61,13 +62,14 @@ export function Navbar() {
 
                             {/* Services Grid */}
                             <div className="grid gap-3">
-                                {SERVICES.map(service => {
+                                {SERVICES.map((service) => {
                                     const Icon = service.icon;
                                     return (
                                         <Link
                                             key={service.href}
                                             href={service.href}
-                                            className="group hover:bg-accent block space-y-1 rounded-lg p-3 transition-all hover:shadow-sm">
+                                            className="group hover:bg-accent block space-y-1 rounded-lg p-3 transition-all hover:shadow-sm"
+                                        >
                                             <div className="flex items-center justify-between">
                                                 <div className="flex items-center space-x-2">
                                                     <Icon size={16} className={service.color} />
@@ -82,7 +84,8 @@ export function Navbar() {
                                                                 ? 'default'
                                                                 : 'secondary'
                                                         }
-                                                        className="text-xs">
+                                                        className="text-xs"
+                                                    >
                                                         {t(service.badgeKey)}
                                                     </Badge>
                                                 )}
@@ -116,11 +119,12 @@ export function Navbar() {
                             </div>
 
                             <div className="grid grid-cols-2 gap-3">
-                                {COMPONENTS.map(component => (
+                                {COMPONENTS.map((component) => (
                                     <Link
                                         key={component.href}
                                         href={component.href}
-                                        className="group hover:bg-accent block space-y-1 rounded-lg p-3 transition-all hover:shadow-sm">
+                                        className="group hover:bg-accent block space-y-1 rounded-lg p-3 transition-all hover:shadow-sm"
+                                    >
                                         <div className="flex items-center space-x-3">
                                             <span className="text-lg">{component.icon}</span>
                                             <div className="flex-1">
@@ -144,7 +148,8 @@ export function Navbar() {
                             <div className="mt-4 flex items-center justify-between border-t pt-4">
                                 <Link
                                     href="/components"
-                                    className="text-primary flex items-center text-sm font-medium hover:underline">
+                                    className="text-primary flex items-center text-sm font-medium hover:underline"
+                                >
                                     {t('navigation.components.view_all')}
                                     <ExternalLink size={14} className="ml-1" />
                                 </Link>
@@ -163,7 +168,8 @@ export function Navbar() {
                         className={cn(
                             'group hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors focus:outline-none disabled:pointer-events-none disabled:opacity-50',
                             isActive('/pricing') && 'bg-accent text-accent-foreground'
-                        )}>
+                        )}
+                    >
                         <CreditCard size={16} className="mr-2" />
                         {t('navigation.pricing')}
                     </Link>
@@ -176,7 +182,8 @@ export function Navbar() {
                         className={cn(
                             'group hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors focus:outline-none disabled:pointer-events-none disabled:opacity-50',
                             isActive('/contact') && 'bg-accent text-accent-foreground'
-                        )}>
+                        )}
+                    >
                         <MessageCircle size={16} className="mr-2" />
                         {t('navigation.contact')}
                     </Link>

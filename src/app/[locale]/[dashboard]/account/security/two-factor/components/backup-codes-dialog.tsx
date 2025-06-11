@@ -144,7 +144,7 @@ Generated on: ${new Date().toLocaleDateString()}
                                     type="text"
                                     placeholder="000000"
                                     value={verificationCode}
-                                    onChange={e => {
+                                    onChange={(e) => {
                                         const value = e.target.value.replace(/\D/g, '').slice(0, 6);
                                         setVerificationCode(value);
                                     }}
@@ -157,13 +157,15 @@ Generated on: ${new Date().toLocaleDateString()}
                                 <Button
                                     variant="outline"
                                     onClick={() => setShowRegenerate(false)}
-                                    className="flex-1">
+                                    className="flex-1"
+                                >
                                     Cancel
                                 </Button>
                                 <Button
                                     onClick={regenerateCodes}
                                     disabled={loading || verificationCode.length !== 6}
-                                    className="flex-1">
+                                    className="flex-1"
+                                >
                                     {loading ? 'Generating...' : 'Generate'}
                                 </Button>
                             </div>
@@ -186,7 +188,8 @@ Generated on: ${new Date().toLocaleDateString()}
                                         {backupCodes.map((code, index) => (
                                             <div
                                                 key={index}
-                                                className="bg-muted rounded p-2 text-center">
+                                                className="bg-muted rounded p-2 text-center"
+                                            >
                                                 {code}
                                             </div>
                                         ))}
@@ -198,7 +201,8 @@ Generated on: ${new Date().toLocaleDateString()}
                                 <Button
                                     variant="outline"
                                     onClick={downloadCodes}
-                                    className="flex-1">
+                                    className="flex-1"
+                                >
                                     <Download className="mr-2 h-4 w-4" />
                                     Download
                                 </Button>

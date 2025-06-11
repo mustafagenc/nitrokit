@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { logger } from '@/lib/services/logger';
 
 // CSRF token configuration
-const CSRF_TOKEN_LENGTH = 32;
+const CSRF_TOKEN_LENGTH = 32; // 32 byte = 64 karakterlik hex string
 const CSRF_TOKEN_LIFETIME = 60 * 60 * 1000; // 1 hour
 const CSRF_HEADER_NAME = 'x-csrf-token';
 const CSRF_COOKIE_NAME = 'csrf-token';
@@ -15,13 +15,18 @@ interface CSRFToken {
 }
 
 // In-memory store (use Redis in production)
-const tokenStore = new Map<string, CSRFToken>();
+export const tokenStore = new Map<string, CSRFToken>();
+
+function getTokenKey(token: string, userId?: string): string {
+    return `${token}:${userId || ''}`;
+}
 
 // Generate CSRF token
 export function generateCSRFToken(userId?: string): string {
-    const token = crypto.randomBytes(CSRF_TOKEN_LENGTH).toString('hex');
+    const randomBytes = crypto.randomBytes(CSRF_TOKEN_LENGTH);
+    const token = randomBytes.toString('hex');
 
-    tokenStore.set(token, {
+    tokenStore.set(getTokenKey(token, userId), {
         token,
         timestamp: Date.now(),
         userId,
@@ -39,9 +44,28 @@ export function generateCSRFToken(userId?: string): string {
 }
 
 // Verify CSRF token
-export function verifyCSRFToken(token: string, userId?: string): boolean {
+export function verifyCSRFToken(token: string | null | undefined, userId?: string): boolean {
     try {
-        const storedToken = tokenStore.get(token);
+        if (!token) {
+            logger.warn('CSRF token is null or undefined');
+            return false;
+        }
+
+        // Önce userId ile arama yap
+        const storedToken = tokenStore.get(getTokenKey(token, userId));
+
+        // Eğer userId ile bulunamazsa, userId'siz arama yap
+        if (!storedToken && userId) {
+            const fallbackToken = tokenStore.get(getTokenKey(token));
+            if (fallbackToken) {
+                // Token var ama userId uyuşmuyor
+                logger.warn('CSRF token user mismatch', {
+                    expectedUserId: userId,
+                    tokenUserId: fallbackToken.userId,
+                });
+                return false;
+            }
+        }
 
         if (!storedToken) {
             logger.warn('CSRF token not found', {
@@ -51,21 +75,13 @@ export function verifyCSRFToken(token: string, userId?: string): boolean {
         }
 
         // Check expiration
-        if (Date.now() - storedToken.timestamp > CSRF_TOKEN_LIFETIME) {
+        const tokenAge = Date.now() - storedToken.timestamp;
+        if (tokenAge > CSRF_TOKEN_LIFETIME) {
             logger.warn('CSRF token expired', {
-                tokenAge: Date.now() - storedToken.timestamp,
+                tokenAge,
                 tokenLength: token.length,
             });
-            tokenStore.delete(token);
-            return false;
-        }
-
-        // Check user association
-        if (userId && storedToken.userId !== userId) {
-            logger.warn('CSRF token user mismatch', {
-                expectedUserId: userId,
-                tokenUserId: storedToken.userId,
-            });
+            tokenStore.delete(getTokenKey(token, userId));
             return false;
         }
 
@@ -77,7 +93,7 @@ export function verifyCSRFToken(token: string, userId?: string): boolean {
         return true;
     } catch (error) {
         logger.error('CSRF token verification failed', error instanceof Error ? error : undefined, {
-            tokenLength: token.length,
+            tokenLength: token?.length ?? 0,
         });
         return false;
     }
@@ -88,9 +104,9 @@ function cleanupExpiredTokens(): void {
     const now = Date.now();
     let cleanedCount = 0;
 
-    for (const [token, data] of tokenStore.entries()) {
+    for (const [key, data] of tokenStore.entries()) {
         if (now - data.timestamp > CSRF_TOKEN_LIFETIME) {
-            tokenStore.delete(token);
+            tokenStore.delete(key);
             cleanedCount++;
         }
     }
@@ -257,7 +273,7 @@ export function validateOrigin(request: NextRequest, allowedOrigins: string[]): 
 
     const sourceOrigin = origin || (referer ? new URL(referer).origin : '');
 
-    const isAllowed = allowedOrigins.some(allowed => {
+    const isAllowed = allowedOrigins.some((allowed) => {
         if (allowed === '*') return true;
         if (allowed.startsWith('*.')) {
             const domain = allowed.substring(2);

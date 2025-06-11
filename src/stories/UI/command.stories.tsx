@@ -52,7 +52,7 @@ export default meta;
 type Story = StoryObj<typeof Command>;
 
 export const Default: Story = {
-    render: args => (
+    render: (args) => (
         <Command {...args} className="rounded-lg border shadow-md">
             <CommandInput placeholder="Type a command or search..." />
             <CommandList>
@@ -105,7 +105,7 @@ export const InDialog: Story = {
             const down = (e: KeyboardEvent) => {
                 if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
                     e.preventDefault();
-                    setOpen(prevOpen => !prevOpen);
+                    setOpen((prevOpen) => !prevOpen);
                 }
             };
             document.addEventListener('keydown', down);
@@ -134,7 +134,8 @@ export const InDialog: Story = {
                                 onSelect={() => {
                                     console.log('Calendar selected');
                                     setOpen(false);
-                                }}>
+                                }}
+                            >
                                 <Calendar className="mr-2 size-4" />
                                 <span>Calendar</span>
                             </CommandItem>
@@ -142,7 +143,8 @@ export const InDialog: Story = {
                                 onSelect={() => {
                                     console.log('Search Emoji selected');
                                     setOpen(false);
-                                }}>
+                                }}
+                            >
                                 <Smile className="mr-2 size-4" />
                                 <span>Search Emoji</span>
                             </CommandItem>
@@ -150,7 +152,8 @@ export const InDialog: Story = {
                                 onSelect={() => {
                                     console.log('Calculator selected');
                                     setOpen(false);
-                                }}>
+                                }}
+                            >
                                 <Calculator className="mr-2 size-4" />
                                 <span>Calculator</span>
                             </CommandItem>
@@ -161,7 +164,8 @@ export const InDialog: Story = {
                                 onSelect={() => {
                                     console.log('Profile selected');
                                     setOpen(false);
-                                }}>
+                                }}
+                            >
                                 <User className="mr-2 size-4" />
                                 <span>Profile</span>
                                 <CommandShortcut>⌘P</CommandShortcut>
@@ -170,7 +174,8 @@ export const InDialog: Story = {
                                 onSelect={() => {
                                     console.log('Billing selected');
                                     setOpen(false);
-                                }}>
+                                }}
+                            >
                                 <CreditCard className="mr-2 size-4" />
                                 <span>Billing</span>
                                 <CommandShortcut>⌘B</CommandShortcut>
@@ -179,7 +184,8 @@ export const InDialog: Story = {
                                 onSelect={() => {
                                     console.log('Settings selected');
                                     setOpen(false);
-                                }}>
+                                }}
+                            >
                                 <Settings className="mr-2 size-4" />
                                 <span>Settings</span>
                                 <CommandShortcut>⌘S</CommandShortcut>
@@ -235,7 +241,8 @@ export const WithNestedItems: Story = {
                                 onSelect={() => {
                                     console.log('Light Theme');
                                     setPage('root');
-                                }}>
+                                }}
+                            >
                                 <Sun className="mr-2 size-4" />
                                 <span>Light</span>
                             </CommandItem>
@@ -243,7 +250,8 @@ export const WithNestedItems: Story = {
                                 onSelect={() => {
                                     console.log('Dark Theme');
                                     setPage('root');
-                                }}>
+                                }}
+                            >
                                 <Moon className="mr-2 size-4" />
                                 <span>Dark</span>
                             </CommandItem>
@@ -251,7 +259,8 @@ export const WithNestedItems: Story = {
                                 onSelect={() => {
                                     console.log('System Theme');
                                     setPage('root');
-                                }}>
+                                }}
+                            >
                                 <Laptop className="mr-2 size-4" />
                                 <span>System</span>
                             </CommandItem>
@@ -267,7 +276,8 @@ export const WithNestedItems: Story = {
                             onClick={() => {
                                 setPage('root');
                                 inputRef.current?.focus();
-                            }}>
+                            }}
+                        >
                             Back
                         </Button>
                     </div>
