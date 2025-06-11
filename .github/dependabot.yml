@@ -22,7 +22,3 @@ updates:
     ignore:
       - dependency-name: eslint
         versions: [">=9"]
-      - dependency-name: jest
-        versions: [">=30.0.0"]
-      - dependency-name: "@types/jest"
-        versions: [">=30.0.0"]
