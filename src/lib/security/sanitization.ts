@@ -118,11 +118,61 @@ export function sanitizeHtml(dirty: string, options: SanitizeHtmlOptions = {}): 
 }
 
 // Strip all HTML tags
+// Secure implementation of stripAllTags
 export function stripAllTags(input: string): string {
     if (!isString(input)) {
         return '';
     }
-    return input.replace(/<[^>]*>/g, '').trim();
+
+    try {
+        // ✨ Multi-step approach for better security
+        let sanitized = input;
+
+        // Step 1: Handle malformed tags and edge cases
+        sanitized = sanitized
+            // Remove script and style content entirely
+            .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
+            .replace(/<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/gi, '')
+            // Handle malformed tags with missing closing >
+            .replace(/<[^>]*(?:[^>]|$)/g, '')
+            // Handle HTML entities that might bypass detection
+            .replace(/&lt;[^&]*?(?:&gt;|$)/gi, '')
+            .replace(/&#x?[0-9a-f]+;?/gi, '')
+            // Remove any remaining < or > characters
+            .replace(/[<>]/g, '');
+
+        // Step 2: Use DOMPurify as additional security layer if available
+        if (typeof DOMPurify !== 'undefined') {
+            sanitized = DOMPurify.sanitize(sanitized, {
+                ALLOWED_TAGS: [],
+                ALLOWED_ATTR: [],
+                KEEP_CONTENT: true,
+            });
+        }
+
+        // Step 3: Final cleanup
+        sanitized = sanitized
+            .replace(/\s+/g, ' ') // Normalize whitespace
+            .trim();
+
+        logger.debug('Tags stripped from content', {
+            originalLength: input.length,
+            sanitizedLength: sanitized.length,
+            removed: input.length - sanitized.length,
+        });
+
+        return sanitized;
+    } catch (error) {
+        logger.error('Tag stripping failed', error instanceof Error ? error : undefined, {
+            inputLength: input.length,
+        });
+
+        // Fallback: very aggressive sanitization
+        return input
+            .replace(/[<>&"']/g, '') // Remove all potentially dangerous characters
+            .replace(/\s+/g, ' ')
+            .trim();
+    }
 }
 
 // SQL injection prevention
