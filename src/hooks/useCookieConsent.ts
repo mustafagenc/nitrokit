@@ -32,7 +32,7 @@ function isBot(): boolean {
         'developers.google.com/+/web/snippet',
     ];
 
-    return botPatterns.some(pattern => userAgent.includes(pattern));
+    return botPatterns.some((pattern) => userAgent.includes(pattern));
 }
 
 export function useCookieConsent() {

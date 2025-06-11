@@ -80,10 +80,10 @@ export class EmailService {
 
         for (let i = 0; i < emailsData.length; i += batchSize) {
             const batch = emailsData.slice(i, i + batchSize);
-            const batchPromises = batch.map(emailData => this.sendEmail(emailData));
+            const batchPromises = batch.map((emailData) => this.sendEmail(emailData));
             const batchResults = await Promise.allSettled(batchPromises);
 
-            batchResults.forEach(result => {
+            batchResults.forEach((result) => {
                 if (result.status === 'fulfilled') {
                     results.push(result.value);
                     if (result.value.success) successful++;
@@ -97,7 +97,7 @@ export class EmailService {
 
             // Delay between batches
             if (i + batchSize < emailsData.length) {
-                await new Promise(resolve => setTimeout(resolve, 1000));
+                await new Promise((resolve) => setTimeout(resolve, 1000));
             }
         }
 

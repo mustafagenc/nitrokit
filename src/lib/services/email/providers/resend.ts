@@ -90,7 +90,7 @@ export class ResendProvider implements EmailProvider {
             if (data.replyTo) emailOptions.replyTo = data.replyTo;
 
             if (data.attachments?.length) {
-                emailOptions.attachments = data.attachments.map(att => ({
+                emailOptions.attachments = data.attachments.map((att) => ({
                     filename: att.filename,
                     content: att.content,
                 }));
@@ -101,7 +101,7 @@ export class ResendProvider implements EmailProvider {
                 const metadataKeys = Object.keys(data.metadata);
                 const sanitizedKeys = sanitizeEmailTags(metadataKeys);
 
-                emailOptions.tags = sanitizedKeys.map(key => ({
+                emailOptions.tags = sanitizedKeys.map((key) => ({
                     name: key,
                     value: String(data.metadata![key]),
                 }));

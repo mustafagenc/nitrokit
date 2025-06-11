@@ -46,7 +46,7 @@ type Story = StoryObj<typeof SheetContent>; // Story for SheetContent to control
 const SHEET_SIDES = ['top', 'right', 'bottom', 'left'] as const;
 
 export const Default: Story = {
-    render: args => (
+    render: (args) => (
         <Sheet>
             <SheetTrigger asChild>
                 <Button variant="outline">Open Sheet (Right)</Button>
@@ -125,7 +125,7 @@ export const FromTop: Story = {
     args: {
         side: 'top',
     },
-    render: args => (
+    render: (args) => (
         <Sheet>
             <SheetTrigger asChild>
                 <Button variant="outline">Open Sheet (Top)</Button>
@@ -156,7 +156,7 @@ export const FromBottom: Story = {
     args: {
         side: 'bottom',
     },
-    render: args => (
+    render: (args) => (
         <Sheet>
             <SheetTrigger asChild>
                 <Button variant="outline">Open Sheet (Bottom)</Button>
@@ -182,7 +182,7 @@ export const FromBottom: Story = {
 };
 
 export const WithForm: Story = {
-    render: args => (
+    render: (args) => (
         <Sheet>
             <SheetTrigger asChild>
                 <Button variant="outline">Edit Profile</Button>
@@ -245,7 +245,8 @@ export const Controlled: Story = {
                             <Button
                                 onClick={() => setIsOpen(false)}
                                 variant="destructive"
-                                className="w-full">
+                                className="w-full"
+                            >
                                 Close Programmatically
                             </Button>
                         </div>
@@ -267,7 +268,7 @@ export const Controlled: Story = {
 export const AllSidesDemo: Story = {
     render: () => (
         <div className="grid grid-cols-2 gap-4">
-            {SHEET_SIDES.map(side => (
+            {SHEET_SIDES.map((side) => (
                 <Sheet key={side}>
                     <SheetTrigger asChild>
                         <Button variant="outline">Open {side}</Button>

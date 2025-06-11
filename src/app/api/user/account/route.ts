@@ -53,7 +53,7 @@ export async function DELETE(request: NextRequest) {
             }
         }
 
-        await prisma.$transaction(async tx => {
+        await prisma.$transaction(async (tx) => {
             await tx.session.deleteMany({
                 where: { userId: session.user.id },
             });

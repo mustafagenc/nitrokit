@@ -51,7 +51,7 @@ export default meta;
 type Story = StoryObj<typeof ToggleGroup>;
 
 export const DefaultMultiple: Story = {
-    render: args => (
+    render: (args) => (
         <ToggleGroup {...args}>
             <ToggleGroupItem value="bold" aria-label="Toggle bold">
                 <Bold className="size-4" />
@@ -72,7 +72,7 @@ export const DefaultMultiple: Story = {
 };
 
 export const SingleSelection: Story = {
-    render: args => (
+    render: (args) => (
         <ToggleGroup {...args}>
             <ToggleGroupItem value="left" aria-label="Align left">
                 <AlignLeft className="size-4" />
@@ -93,7 +93,7 @@ export const SingleSelection: Story = {
 };
 
 export const OutlineVariant: Story = {
-    render: args => (
+    render: (args) => (
         <ToggleGroup {...args}>
             <ToggleGroupItem value="bold" aria-label="Toggle bold">
                 <Bold className="size-4" />
@@ -114,7 +114,7 @@ export const OutlineVariant: Story = {
 };
 
 export const Disabled: Story = {
-    render: args => (
+    render: (args) => (
         <ToggleGroup {...args}>
             <ToggleGroupItem value="bold" aria-label="Toggle bold">
                 <Bold className="size-4" />
@@ -135,7 +135,7 @@ export const Disabled: Story = {
 };
 
 export const WithText: Story = {
-    render: args => (
+    render: (args) => (
         <ToggleGroup {...args}>
             <ToggleGroupItem value="option1">Option 1</ToggleGroupItem>
             <ToggleGroupItem value="option2">Option 2</ToggleGroupItem>
@@ -150,7 +150,7 @@ export const WithText: Story = {
 };
 
 export const SmallSize: Story = {
-    render: args => (
+    render: (args) => (
         <ToggleGroup {...args}>
             <ToggleGroupItem value="left" aria-label="Align left">
                 <AlignLeft className="size-3.5" /> {/* Adjust icon size if needed */}
@@ -171,7 +171,7 @@ export const SmallSize: Story = {
 };
 
 export const LargeSize: Story = {
-    render: args => (
+    render: (args) => (
         <ToggleGroup {...args}>
             <ToggleGroupItem value="bold" aria-label="Toggle bold">
                 <Bold className="size-5" /> {/* Adjust icon size if needed */}
@@ -200,7 +200,7 @@ export const ControlledSingle: Story = {
                     {...args}
                     type="single"
                     value={value}
-                    onValueChange={val => {
+                    onValueChange={(val) => {
                         if (val) setValue(val); // For single, it won't be empty unless all are unselected (if allowed)
                     }}
                     defaultValue={undefined} // Ensure defaultValue is compatible with single type, overriding args
@@ -237,7 +237,8 @@ export const ControlledMultiple: Story = {
                     type="multiple"
                     value={value}
                     onValueChange={setValue}
-                    defaultValue={undefined}>
+                    defaultValue={undefined}
+                >
                     <ToggleGroupItem value="bold" aria-label="Toggle bold">
                         <Bold className="size-4" />
                     </ToggleGroupItem>
@@ -251,7 +252,8 @@ export const ControlledMultiple: Story = {
                 <p className="text-sm">Selected: {value.join(', ') || 'None'}</p>
                 <button
                     onClick={() => setValue(['italic', 'underline'])}
-                    className="rounded border p-1 text-xs">
+                    className="rounded border p-1 text-xs"
+                >
                     Set Italic & Underline
                 </button>
             </div>
@@ -263,7 +265,7 @@ export const ControlledMultiple: Story = {
 };
 
 export const WithLabelAndGroup: Story = {
-    render: args => (
+    render: (args) => (
         <div className="flex flex-col items-start gap-2">
             <Label htmlFor="text-format">Text Formatting</Label>
             <ToggleGroup {...args} id="text-format">

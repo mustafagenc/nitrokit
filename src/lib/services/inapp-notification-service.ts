@@ -385,7 +385,7 @@ export class InAppNotificationService {
         notificationData: Omit<CreateNotificationData, 'userId'>
     ) {
         try {
-            const notifications = userIds.map(userId => ({
+            const notifications = userIds.map((userId) => ({
                 userId,
                 type: notificationData.type,
                 title: notificationData.title,

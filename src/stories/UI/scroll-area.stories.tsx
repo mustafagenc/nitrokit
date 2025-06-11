@@ -28,11 +28,11 @@ const generateItems = (count: number, prefix = 'Item') =>
     Array.from({ length: count }, (_, i) => `${prefix} ${i + 1}`);
 
 export const DefaultVertical: Story = {
-    render: args => (
+    render: (args) => (
         <ScrollArea {...args} className="h-72 w-48 rounded-md border">
             <div className="p-4">
                 <h4 className="mb-4 text-sm leading-none font-medium">Items</h4>
-                {generateItems(20).map(item => (
+                {generateItems(20).map((item) => (
                     <React.Fragment key={item}>
                         <div className="text-sm">{item}</div>
                         <Separator className="my-2" />
@@ -45,10 +45,10 @@ export const DefaultVertical: Story = {
 };
 
 export const Horizontal: Story = {
-    render: args => (
+    render: (args) => (
         <ScrollArea {...args} className="w-96 rounded-md border whitespace-nowrap">
             <div className="flex w-max space-x-4 p-4">
-                {generateItems(10, 'Wide Content').map(item => (
+                {generateItems(10, 'Wide Content').map((item) => (
                     <figure key={item} className="shrink-0">
                         <div className="overflow-hidden rounded-md">
                             <div className="bg-secondary text-secondary-foreground flex h-32 w-64 items-center justify-center">
@@ -68,11 +68,11 @@ export const Horizontal: Story = {
 };
 
 export const BothScrollbars: Story = {
-    render: args => (
+    render: (args) => (
         <ScrollArea {...args} className="h-[300px] w-[400px] rounded-md border">
             <div className="p-4" style={{ width: '600px' /* Make content wider */ }}>
                 <h4 className="mb-4 text-sm leading-none font-medium">Long and Wide Content</h4>
-                {generateItems(30, 'Line').map(item => (
+                {generateItems(30, 'Line').map((item) => (
                     <div key={item} className="py-1 text-sm whitespace-nowrap">
                         {item} - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
                         placerat.
@@ -88,11 +88,11 @@ export const BothScrollbars: Story = {
 const tags = Array.from({ length: 50 }).map((_, i, a) => `v1.2.0-beta.${a.length - i}`);
 
 export const WithTags: Story = {
-    render: args => (
+    render: (args) => (
         <ScrollArea {...args} className="h-72 w-full max-w-md rounded-md border">
             <div className="p-4">
                 <h4 className="mb-4 text-sm leading-none font-medium">Tags</h4>
-                {tags.map(tag => (
+                {tags.map((tag) => (
                     <React.Fragment key={tag}>
                         <div className="text-sm">{tag}</div>
                         <Separator className="my-2" />
@@ -105,10 +105,10 @@ export const WithTags: Story = {
 };
 
 export const WithBadgesHorizontal: Story = {
-    render: args => (
+    render: (args) => (
         <ScrollArea {...args} className="w-full max-w-lg rounded-md border whitespace-nowrap">
             <div className="flex space-x-2 p-4">
-                {tags.slice(0, 15).map(tag => (
+                {tags.slice(0, 15).map((tag) => (
                     <Badge key={tag} variant="secondary">
                         {tag}
                     </Badge>

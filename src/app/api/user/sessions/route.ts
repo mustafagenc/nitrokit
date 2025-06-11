@@ -50,7 +50,7 @@ export async function GET(request: NextRequest) {
             return NextResponse.json({ sessions: mockSessions });
         }
 
-        const formattedSessions = userSessions.map(s => ({
+        const formattedSessions = userSessions.map((s) => ({
             id: s.id,
             deviceType: s.deviceType || 'desktop',
             browser: s.browser || 'Unknown',

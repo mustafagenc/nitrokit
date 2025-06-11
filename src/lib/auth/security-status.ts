@@ -117,7 +117,7 @@ async function getRecentLoginAttempts(userId: string): Promise<number> {
         });
 
         // Son 24 saat içinde oluşturulan account'ları say
-        const recentAccounts = accounts.filter(account => {
+        const recentAccounts = accounts.filter((account) => {
             if (!account.createdAt) return false;
             const dayAgo = new Date(Date.now() - 24 * 60 * 60 * 1000);
             return account.createdAt > dayAgo;

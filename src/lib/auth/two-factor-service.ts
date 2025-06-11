@@ -265,7 +265,9 @@ export class TwoFactorService {
 
             // Backup code verification
             if (user.twoFactorBackupCodes && user.twoFactorBackupCodes.includes(token)) {
-                const updatedBackupCodes = user.twoFactorBackupCodes.filter(code => code !== token);
+                const updatedBackupCodes = user.twoFactorBackupCodes.filter(
+                    (code) => code !== token
+                );
 
                 await prisma.user.update({
                     where: { id: userId },
@@ -310,7 +312,7 @@ export class TwoFactorService {
         for (let i = 0; i < 10; i++) {
             const buffer = crypto.getRandomValues(new Uint8Array(4));
             const code = Array.from(buffer)
-                .map(b => b.toString(16).padStart(2, '0'))
+                .map((b) => b.toString(16).padStart(2, '0'))
                 .join('')
                 .toUpperCase();
             codes.push(`${code.slice(0, 4)}-${code.slice(4, 8)}`);

@@ -53,7 +53,7 @@ export const Disabled: Story = {
 };
 
 export const WithLabel: Story = {
-    render: args => (
+    render: (args) => (
         <div className="grid w-full max-w-sm items-center gap-1.5">
             <Label htmlFor="password-labeled">Password</Label>
             <PasswordInput {...args} id="password-labeled" />
@@ -79,7 +79,7 @@ const FormComponent = (args: any) => {
                     {...args}
                     id="login-password"
                     value={password}
-                    onChange={e => setPassword(e.target.value)}
+                    onChange={(e) => setPassword(e.target.value)}
                 />
             </div>
             <Button type="submit">Login</Button>
@@ -88,7 +88,7 @@ const FormComponent = (args: any) => {
 };
 
 export const InAForm: Story = {
-    render: args => <FormComponent {...args} />,
+    render: (args) => <FormComponent {...args} />,
     args: {
         placeholder: 'Enter password to login',
     },

@@ -37,7 +37,7 @@ export default meta;
 type Story = StoryObj<typeof Collapsible>;
 
 export const Default: Story = {
-    render: args => (
+    render: (args) => (
         <Collapsible {...args} className="w-[350px] space-y-2">
             <div className="flex items-center justify-between space-x-4 px-4">
                 <h4 className="text-sm font-semibold">@peduarte starred 3 repositories</h4>
@@ -65,7 +65,7 @@ export const InitiallyOpen: Story = {
     args: {
         defaultOpen: true,
     },
-    render: args => (
+    render: (args) => (
         <Collapsible {...args} className="w-[350px] space-y-2">
             <div className="flex items-center justify-between space-x-4 px-4">
                 <h4 className="text-sm font-semibold">View Profile</h4>
@@ -94,7 +94,8 @@ export const Controlled: Story = {
                 {...args}
                 open={isOpen}
                 onOpenChange={setIsOpen}
-                className="w-[350px] space-y-2">
+                className="w-[350px] space-y-2"
+            >
                 <div className="flex items-center justify-between space-x-4 px-4">
                     <h4 className="text-sm font-semibold">
                         {isOpen ? 'Hide' : 'Show'} Advanced Settings
@@ -120,7 +121,7 @@ export const Disabled: Story = {
         disabled: true,
         defaultOpen: true, // To show content is not accessible
     },
-    render: args => (
+    render: (args) => (
         <Collapsible {...args} className="w-[350px] space-y-2">
             <div className="flex items-center justify-between space-x-4 px-4">
                 <h4 className="text-sm font-semibold">Disabled Section</h4>

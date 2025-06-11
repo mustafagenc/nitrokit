@@ -326,7 +326,7 @@ export async function sendBulkVerificationEmails(
         }
 
         // Rate limiting delay
-        await new Promise(resolve => setTimeout(resolve, 100));
+        await new Promise((resolve) => setTimeout(resolve, 100));
     }
 
     logger.info('Bulk verification email send completed', {
@@ -385,7 +385,7 @@ export async function sendBulkWelcomeEmails(
         }
 
         // Rate limiting delay
-        await new Promise(resolve => setTimeout(resolve, 200));
+        await new Promise((resolve) => setTimeout(resolve, 200));
     }
 
     logger.info('Bulk welcome email send completed', {

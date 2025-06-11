@@ -28,7 +28,7 @@ const passwordSchema = z
             .regex(/[^A-Za-z0-9]/, 'Password must contain at least one special character'),
         confirmPassword: z.string().min(1, 'Please confirm your password'),
     })
-    .refine(data => data.password === data.confirmPassword, {
+    .refine((data) => data.password === data.confirmPassword, {
         message: "Passwords don't match",
         path: ['confirmPassword'],
     });
@@ -121,7 +121,8 @@ export function PasswordCreateForm() {
                                 size="sm"
                                 className="absolute top-0 right-0 h-full px-3 py-2 hover:bg-transparent"
                                 onClick={() => setShowPassword(!showPassword)}
-                                disabled={isLoading}>
+                                disabled={isLoading}
+                            >
                                 {showPassword ? (
                                     <EyeOff className="text-muted-foreground h-4 w-4" />
                                 ) : (
@@ -161,7 +162,8 @@ export function PasswordCreateForm() {
                                 size="sm"
                                 className="absolute top-0 right-0 h-full px-3 py-2 hover:bg-transparent"
                                 onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                                disabled={isLoading}>
+                                disabled={isLoading}
+                            >
                                 {showConfirmPassword ? (
                                     <EyeOff className="text-muted-foreground h-4 w-4" />
                                 ) : (
@@ -180,7 +182,8 @@ export function PasswordCreateForm() {
                         <Button
                             type="submit"
                             className="w-full"
-                            disabled={isLoading || isWeak || !allRequirementsMet}>
+                            disabled={isLoading || isWeak || !allRequirementsMet}
+                        >
                             {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                             {isLoading ? 'Creating Password...' : 'Create Password'}
                         </Button>

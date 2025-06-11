@@ -25,7 +25,8 @@ export default async function AuthLayout({
     return (
         <div className="flex min-h-screen w-full flex-row items-center justify-between gap-6 p-6">
             <div
-                className={`absolute top-5 z-20 flex w-[calc(100%-66px)] flex-row items-center justify-between gap-3 lg:max-w-xs ${isRtl ? 'right-9' : 'left-9'}`}>
+                className={`absolute top-5 z-20 flex w-[calc(100%-66px)] flex-row items-center justify-between gap-3 lg:max-w-xs ${isRtl ? 'right-9' : 'left-9'}`}
+            >
                 <BackButton className="border-1 bg-white lg:border-0 dark:bg-transparent" />
                 <div className="flex flex-row gap-4">
                     <CompactLocaleSwitcher />
@@ -43,7 +44,8 @@ export default async function AuthLayout({
                                 <Link
                                     href={'/privacy'}
                                     className="text-blue-700 hover:underline hover:underline-offset-2"
-                                    target="_blank">
+                                    target="_blank"
+                                >
                                     {t('auth.privacyPolicy')}
                                 </Link>
                             </div>
@@ -103,7 +105,7 @@ export default async function AuthLayout({
                     <div className="text-md mt-8 ml-4 max-w-[400px] p-6 font-[family-name:var(--font-lexend)] leading-7">
                         <p className="text-gray-800 dark:text-gray-100">
                             {t.rich('auth.slogan1', {
-                                span: children => (
+                                span: (children) => (
                                     <span className="inline-block bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 bg-clip-text font-extrabold text-transparent">
                                         {children}
                                     </span>
@@ -112,11 +114,12 @@ export default async function AuthLayout({
                         </p>
                         <p className="text-gray-700 dark:text-gray-200">
                             {t.rich('auth.slogan2', {
-                                link: children => (
+                                link: (children) => (
                                     <a
                                         href="https://github.com/mustafagenc/nitrokit"
                                         target="_blank"
-                                        className="inline-block bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 bg-clip-text font-extrabold text-transparent underline underline-offset-2 transition-all duration-300 hover:scale-105">
+                                        className="inline-block bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 bg-clip-text font-extrabold text-transparent underline underline-offset-2 transition-all duration-300 hover:scale-105"
+                                    >
                                         {children}
                                     </a>
                                 ),

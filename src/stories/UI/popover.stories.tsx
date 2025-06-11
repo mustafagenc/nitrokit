@@ -31,7 +31,7 @@ export default meta;
 type Story = StoryObj<typeof Popover>;
 
 export const Default: Story = {
-    render: args => (
+    render: (args) => (
         <Popover {...args}>
             <PopoverTrigger asChild>
                 <Button variant="outline">Open Popover</Button>
@@ -69,7 +69,7 @@ export const Default: Story = {
 };
 
 export const WithIconButtonTrigger: Story = {
-    render: args => (
+    render: (args) => (
         <Popover {...args}>
             <PopoverTrigger asChild>
                 <Button variant="outline" size="icon">
@@ -109,7 +109,8 @@ export const Controlled: Story = {
                             variant="outline"
                             size="sm"
                             className="mt-2 w-full"
-                            onClick={() => setIsOpen(false)}>
+                            onClick={() => setIsOpen(false)}
+                        >
                             Close from inside
                         </Button>
                     </PopoverContent>
@@ -123,7 +124,7 @@ export const Controlled: Story = {
 };
 
 export const CustomPlacement: Story = {
-    render: args => (
+    render: (args) => (
         <div className="flex gap-4">
             <Popover {...args}>
                 <PopoverTrigger asChild>

@@ -2,7 +2,6 @@ import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { FlatCompat } from '@eslint/eslintrc';
 import eslintPluginPrettier from 'eslint-plugin-prettier';
-import eslintPluginStorybook from 'eslint-plugin-storybook';
 import eslintPluginTypescript from '@typescript-eslint/eslint-plugin';
 import eslintParserTypescript from '@typescript-eslint/parser';
 
@@ -15,7 +14,17 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
     {
-        ignores: ['node_modules/**', '.next/**', 'coverage/**', 'dist/**', 'build/**'],
+        ignores: [
+            'node_modules/**',
+            '.next/**',
+            'coverage/**',
+            'dist/**',
+            'build/**',
+            'stories/**',
+            '**/*.stories.{ts,tsx}',
+            'messages/**',
+            '**/*.json'
+        ],
     },
     ...compat.extends('next/core-web-vitals'),
     {
@@ -35,7 +44,7 @@ const eslintConfig = [
             'prettier': eslintPluginPrettier,
         },
         rules: {
-            'quotes': ['error', 'single'],
+            'quotes': ['error', 'single', { 'avoidEscape': true }],
             'semi': ['error', 'always'],
             '@typescript-eslint/interface-name-prefix': 'off',
             '@typescript-eslint/explicit-function-return-type': 'off',
@@ -51,19 +60,25 @@ const eslintConfig = [
             ],
             'prefer-const': 'error',
             'react-hooks/exhaustive-deps': 'error',
-            'prettier/prettier': 'error',
+            'prettier/prettier': ['error', {
+                'singleQuote': true,
+                'semi': true,
+                'tabWidth': 4,
+                'trailingComma': 'es5',
+                'printWidth': 100,
+                'bracketSpacing': true,
+                'arrowParens': 'always',
+                'endOfLine': 'lf'
+            }],
         },
     },
     {
-        files: ['**/*.stories.{ts,tsx}'],
-        plugins: {
-            'storybook': eslintPluginStorybook,
-        },
+        files: ['**/sanitization.ts'],
         rules: {
-            'storybook/hierarchy-separator': 'error',
-            'storybook/default-exports': 'error',
-        },
-    },
+            'quotes': 'off',
+            'prettier/prettier': 'off'
+        }
+    }
 ];
 
 export default eslintConfig;

@@ -29,7 +29,7 @@ export default meta;
 type Story = StoryObj<typeof Card>;
 
 export const Default: Story = {
-    render: args => (
+    render: (args) => (
         <Card {...args} className="w-[380px]">
             <CardHeader>
                 <CardTitle>Create project</CardTitle>
@@ -63,7 +63,7 @@ const notifications = [
 ];
 
 export const WithNotifications: Story = {
-    render: args => (
+    render: (args) => (
         <Card {...args} className="w-[380px]">
             <CardHeader>
                 <CardTitle>Notifications</CardTitle>
@@ -84,7 +84,8 @@ export const WithNotifications: Story = {
                     {notifications.map((notification, index) => (
                         <div
                             key={index}
-                            className="mb-4 grid grid-cols-[25px_1fr] items-start pb-4 last:mb-0 last:pb-0">
+                            className="mb-4 grid grid-cols-[25px_1fr] items-start pb-4 last:mb-0 last:pb-0"
+                        >
                             <span className="flex size-2 translate-y-1 rounded-full bg-sky-500" />
                             <div className="space-y-1">
                                 <p className="text-sm leading-none font-medium">
@@ -108,7 +109,7 @@ export const WithNotifications: Story = {
 };
 
 export const Simple: Story = {
-    render: args => (
+    render: (args) => (
         <Card {...args} className="w-[300px]">
             <CardHeader>
                 <CardTitle>Simple Card</CardTitle>
@@ -121,7 +122,7 @@ export const Simple: Story = {
 };
 
 export const WithOnlyContent: Story = {
-    render: args => (
+    render: (args) => (
         <Card {...args} className="w-[300px]">
             <CardContent className="pt-6">
                 {' '}
@@ -136,7 +137,7 @@ export const WithOnlyContent: Story = {
 };
 
 export const WithFormElements: Story = {
-    render: args => (
+    render: (args) => (
         <Card className="w-[350px]" {...args}>
             <CardHeader>
                 <CardTitle>Login</CardTitle>

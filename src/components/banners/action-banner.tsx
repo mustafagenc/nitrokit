@@ -110,7 +110,8 @@ export function ActionBanner({
                 className
             )}
             onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}>
+            onMouseLeave={() => setIsHovered(false)}
+        >
             {/* Content Section */}
             <div className="flex flex-1 flex-col items-center gap-2 lg:items-start">
                 {/* Title with Icon */}
@@ -120,7 +121,8 @@ export function ActionBanner({
                             className={cn(
                                 'flex-shrink-0 transition-transform duration-300',
                                 animated && isHovered && 'scale-110'
-                            )}>
+                            )}
+                        >
                             {icon}
                         </div>
                     )}
@@ -129,7 +131,8 @@ export function ActionBanner({
                             currentSize.title,
                             currentVariant.title,
                             'text-center lg:text-left'
-                        )}>
+                        )}
+                    >
                         {title}
                     </h3>
                 </div>
@@ -140,7 +143,8 @@ export function ActionBanner({
                         currentSize.description,
                         currentVariant.description,
                         'text-center leading-relaxed lg:text-left'
-                    )}>
+                    )}
+                >
                     {description}
                 </p>
             </div>
@@ -154,7 +158,8 @@ export function ActionBanner({
                     buttonStyles[buttonVariant],
                     'flex-shrink-0 whitespace-nowrap'
                 )}
-                {...(external && { target: '_blank', rel: 'noopener noreferrer' })}>
+                {...(external && { target: '_blank', rel: 'noopener noreferrer' })}
+            >
                 {buttonText}
                 <ButtonIcon
                     size={16}

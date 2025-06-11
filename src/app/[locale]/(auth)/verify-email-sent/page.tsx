@@ -31,7 +31,7 @@ export default function Page() {
             });
 
             if (response.ok) {
-                setResendCount(prev => prev + 1);
+                setResendCount((prev) => prev + 1);
                 toast.success('Verification email sent!', {
                     description: `A new verification email has been sent to ${email}`,
                 });
@@ -76,7 +76,8 @@ export default function Page() {
                     onClick={handleResendEmail}
                     variant="outline"
                     className="w-full"
-                    disabled={isResendDisabled}>
+                    disabled={isResendDisabled}
+                >
                     <RefreshCw className={`mr-2 h-4 w-4 ${isResending ? 'animate-spin' : ''}`} />
                     {isResending
                         ? 'Sending...'

@@ -27,7 +27,7 @@ export default meta;
 type Story = StoryObj<typeof Breadcrumb>;
 
 export const Default: Story = {
-    render: args => (
+    render: (args) => (
         <Breadcrumb {...args}>
             <BreadcrumbList>
                 <BreadcrumbItem>
@@ -47,7 +47,7 @@ export const Default: Story = {
 };
 
 export const WithCustomSeparator: Story = {
-    render: args => (
+    render: (args) => (
         <Breadcrumb {...args}>
             <BreadcrumbList>
                 <BreadcrumbItem>
@@ -71,7 +71,7 @@ export const WithCustomSeparator: Story = {
 };
 
 export const WithEllipsis: Story = {
-    render: args => (
+    render: (args) => (
         <Breadcrumb {...args}>
             <BreadcrumbList>
                 <BreadcrumbItem>
@@ -95,7 +95,7 @@ export const WithEllipsis: Story = {
 };
 
 export const Collapsed: Story = {
-    render: args => (
+    render: (args) => (
         <Breadcrumb {...args}>
             <BreadcrumbList>
                 <BreadcrumbItem>
@@ -124,7 +124,7 @@ export const Collapsed: Story = {
 
 // Example of using asChild if BreadcrumbLink supports it for custom link components
 export const WithAsChildLink: Story = {
-    render: args => (
+    render: (args) => (
         <Breadcrumb {...args}>
             <BreadcrumbList>
                 <BreadcrumbItem>

@@ -172,7 +172,8 @@ export function CookieConsent() {
                                     {t('banner.description')}
                                     <button
                                         onClick={() => setShowSettings(true)}
-                                        className="ml-1 text-blue-600 underline hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300">
+                                        className="ml-1 text-blue-600 underline hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+                                    >
                                         {t('banner.learnMore')}
                                     </button>
                                 </p>
@@ -184,14 +185,16 @@ export function CookieConsent() {
                                     <Button
                                         variant="outline"
                                         size="sm"
-                                        className="w-full sm:w-auto">
+                                        className="w-full sm:w-auto"
+                                    >
                                         <Settings className="mr-2 h-4 w-4" />
                                         {t('banner.settings')}
                                     </Button>
                                 </SheetTrigger>
                                 <SheetContent
                                     side="right"
-                                    className="w-full overflow-y-auto p-6 sm:max-w-lg">
+                                    className="w-full overflow-y-auto p-6 sm:max-w-lg"
+                                >
                                     <SheetHeader>
                                         <SheetTitle className="flex items-center gap-2">
                                             <Shield className="h-5 w-5" />
@@ -229,8 +232,8 @@ export function CookieConsent() {
                                                     </div>
                                                     <Checkbox
                                                         checked={preferences.analytics}
-                                                        onCheckedChange={checked =>
-                                                            setPreferences(prev => ({
+                                                        onCheckedChange={(checked) =>
+                                                            setPreferences((prev) => ({
                                                                 ...prev,
                                                                 analytics: !!checked,
                                                             }))
@@ -253,8 +256,8 @@ export function CookieConsent() {
                                                     </div>
                                                     <Checkbox
                                                         checked={preferences.marketing}
-                                                        onCheckedChange={checked =>
-                                                            setPreferences(prev => ({
+                                                        onCheckedChange={(checked) =>
+                                                            setPreferences((prev) => ({
                                                                 ...prev,
                                                                 marketing: !!checked,
                                                             }))
@@ -277,8 +280,8 @@ export function CookieConsent() {
                                                     </div>
                                                     <Checkbox
                                                         checked={preferences.functional}
-                                                        onCheckedChange={checked =>
-                                                            setPreferences(prev => ({
+                                                        onCheckedChange={(checked) =>
+                                                            setPreferences((prev) => ({
                                                                 ...prev,
                                                                 functional: !!checked,
                                                             }))
@@ -298,7 +301,8 @@ export function CookieConsent() {
                                         <Button
                                             variant="outline"
                                             onClick={acceptNecessary}
-                                            className="flex-1">
+                                            className="flex-1"
+                                        >
                                             {t('settings.rejectAll')}
                                         </Button>
                                     </div>

@@ -25,7 +25,8 @@ export default async function Page() {
                                 <Skeleton className="h-8 w-48" />
                                 <Skeleton className="h-96 w-full" />
                             </div>
-                        }>
+                        }
+                    >
                         Dashboard
                     </Suspense>
                 </div>

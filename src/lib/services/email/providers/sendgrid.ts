@@ -90,7 +90,7 @@ export class SendGridProvider implements EmailProvider {
     }
 
     private convertAttachments(attachments: EmailAttachment[]): SendGridAttachment[] {
-        return attachments.map(att => ({
+        return attachments.map((att) => ({
             filename: att.filename,
             content: typeof att.content === 'string' ? att.content : att.content.toString('base64'),
             type: att.contentType,
@@ -129,7 +129,7 @@ export class SendGridProvider implements EmailProvider {
 
         // Check for SendGrid API errors
         if (sgError.response?.body?.errors) {
-            return sgError.response.body.errors.map(e => e.message).join(', ');
+            return sgError.response.body.errors.map((e) => e.message).join(', ');
         }
 
         // Fallback to error message

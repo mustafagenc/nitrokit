@@ -74,7 +74,7 @@ export class SentryProvider implements LoggerProvider {
         console.error(`❌ ${message}`, error, metadata);
 
         if (this.initialized) {
-            Sentry.withScope(scope => {
+            Sentry.withScope((scope) => {
                 if (metadata) {
                     scope.setContext('metadata', this.convertMetadataForSentry(metadata));
                 }

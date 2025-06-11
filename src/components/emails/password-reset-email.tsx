@@ -12,7 +12,8 @@ export function PasswordResetEmail({ name, resetUrl }: PasswordResetEmailProps) 
         <BaseEmail
             preview="Reset your password - Nitrokit"
             headerTitle="🔐 Password Reset"
-            headerGradient="linear-gradient(135deg, #f093fb 0%, #f5576c 100%)">
+            headerGradient="linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"
+        >
             <Text style={emailStyles.greeting}>Hi {name}!</Text>
 
             <Text style={emailStyles.paragraph}>
@@ -26,7 +27,8 @@ export function PasswordResetEmail({ name, resetUrl }: PasswordResetEmailProps) 
                     style={{
                         ...emailStyles.button,
                         backgroundColor: '#f5576c',
-                    }}>
+                    }}
+                >
                     🔑 Reset Password
                 </Button>
             </Section>

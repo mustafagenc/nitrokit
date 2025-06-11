@@ -23,10 +23,11 @@ export default async function Page() {
             <SigninForm />
             <div className="text-sm">
                 {t.rich('signin.dontHaveAnAccount', {
-                    link: children => (
+                    link: (children) => (
                         <Link
                             href={'/signup'}
-                            className="text-blue-600 hover:text-blue-700 hover:underline hover:underline-offset-2">
+                            className="text-blue-600 hover:text-blue-700 hover:underline hover:underline-offset-2"
+                        >
                             {children}
                         </Link>
                     ),

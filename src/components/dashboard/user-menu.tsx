@@ -65,7 +65,7 @@ export function UserMenu({ size = 'size-10' }: UserMenuProps) {
                 key: 'e',
                 metaKey: true,
                 action: () => {
-                    setOpen(prevOpen => !prevOpen);
+                    setOpen((prevOpen) => !prevOpen);
                 },
             },
             {
@@ -114,7 +114,8 @@ export function UserMenu({ size = 'size-10' }: UserMenuProps) {
             className={cn(
                 'flex w-full items-center gap-2.5 px-2.5 py-1.5 text-xs transition-colors hover:bg-gray-100 dark:hover:bg-gray-800',
                 className
-            )}>
+            )}
+        >
             <Icon className="h-4 w-4 flex-shrink-0" />
             <span className="flex-1 text-left">{children}</span>
             {shortcut && (
@@ -136,7 +137,8 @@ export function UserMenu({ size = 'size-10' }: UserMenuProps) {
                 <div className="space-y-0.5">
                     <MenuItem
                         icon={Shield}
-                        onClick={() => handleNavigation('/dashboard/account/security')}>
+                        onClick={() => handleNavigation('/dashboard/account/security')}
+                    >
                         Security Overview
                     </MenuItem>
 
@@ -144,17 +146,20 @@ export function UserMenu({ size = 'size-10' }: UserMenuProps) {
 
                     <MenuItem
                         icon={Key}
-                        onClick={() => handleNavigation('/dashboard/account/security/password')}>
+                        onClick={() => handleNavigation('/dashboard/account/security/password')}
+                    >
                         Password
                     </MenuItem>
                     <MenuItem
                         icon={Smartphone}
-                        onClick={() => handleNavigation('/dashboard/account/security/two-factor')}>
+                        onClick={() => handleNavigation('/dashboard/account/security/two-factor')}
+                    >
                         Two-Factor Auth
                     </MenuItem>
                     <MenuItem
                         icon={Monitor}
-                        onClick={() => handleNavigation('/dashboard/account/security/sessions')}>
+                        onClick={() => handleNavigation('/dashboard/account/security/sessions')}
+                    >
                         Active Sessions
                     </MenuItem>
                 </div>
@@ -215,21 +220,22 @@ export function UserMenu({ size = 'size-10' }: UserMenuProps) {
                             <MenuItem
                                 icon={CircleUserRound}
                                 onClick={() => handleNavigation('/dashboard/account')}
-                                shortcut="⌘J">
+                                shortcut="⌘J"
+                            >
                                 Account Overview
                             </MenuItem>
                             <MenuItem
                                 icon={User}
                                 onClick={() => handleNavigation('/dashboard/account/profile')}
-                                shortcut="⌘P">
+                                shortcut="⌘P"
+                            >
                                 Profile Settings
                             </MenuItem>
                             <SecurityMenuItem />
                             <MenuItem
                                 icon={Bell}
-                                onClick={() =>
-                                    handleNavigation('/dashboard/account/notifications')
-                                }>
+                                onClick={() => handleNavigation('/dashboard/account/notifications')}
+                            >
                                 Notifications
                             </MenuItem>
                         </div>
@@ -246,17 +252,20 @@ export function UserMenu({ size = 'size-10' }: UserMenuProps) {
                         <div className="space-y-0.5">
                             <MenuItem
                                 icon={HeartHandshake}
-                                onClick={() => handleNavigation('/dashboard/support')}>
+                                onClick={() => handleNavigation('/dashboard/support')}
+                            >
                                 {t('dashboard.navigation.support')}
                             </MenuItem>
                             <MenuItem
                                 icon={ReceiptText}
-                                onClick={() => handleNavigation('/dashboard/billing')}>
+                                onClick={() => handleNavigation('/dashboard/billing')}
+                            >
                                 Billing & Plans
                             </MenuItem>
                             <MenuItem
                                 icon={Settings}
-                                onClick={() => handleNavigation('/dashboard/settings')}>
+                                onClick={() => handleNavigation('/dashboard/settings')}
+                            >
                                 Settings
                             </MenuItem>
                         </div>

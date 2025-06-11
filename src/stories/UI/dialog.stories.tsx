@@ -44,7 +44,7 @@ export default meta;
 type Story = StoryObj<typeof Dialog>;
 
 export const Default: Story = {
-    render: args => (
+    render: (args) => (
         <Dialog {...args}>
             <DialogTrigger asChild>
                 <Button variant="outline">Open Dialog</Button>
@@ -74,7 +74,7 @@ export const Default: Story = {
 };
 
 export const WithForm: Story = {
-    render: args => (
+    render: (args) => (
         <Dialog {...args}>
             <DialogTrigger asChild>
                 <Button variant="outline">Edit Profile</Button>
@@ -146,7 +146,7 @@ export const Controlled: Story = {
 };
 
 export const WithoutHeader: Story = {
-    render: args => (
+    render: (args) => (
         <Dialog {...args}>
             <DialogTrigger asChild>
                 <Button variant="outline">Dialog (No Header)</Button>
@@ -171,7 +171,7 @@ export const WithoutHeader: Story = {
 };
 
 export const LongContent: Story = {
-    render: args => (
+    render: (args) => (
         <Dialog {...args}>
             <DialogTrigger asChild>
                 <Button variant="outline">Dialog with Long Content</Button>

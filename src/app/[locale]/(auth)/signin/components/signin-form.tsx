@@ -179,7 +179,8 @@ export default function SigninForm() {
                     <Button
                         type="submit"
                         className="w-full bg-blue-600 hover:bg-blue-600/80"
-                        disabled={isLoading}>
+                        disabled={isLoading}
+                    >
                         {isLoading
                             ? showTwoFactor
                                 ? 'Verifying...'
@@ -194,7 +195,8 @@ export default function SigninForm() {
                             type="button"
                             variant="outline"
                             className="w-full"
-                            onClick={resetForm}>
+                            onClick={resetForm}
+                        >
                             Back to Login
                         </Button>
                     )}

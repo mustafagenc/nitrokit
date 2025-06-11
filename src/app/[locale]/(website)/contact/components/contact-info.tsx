@@ -77,7 +77,8 @@ export const ContactInfo = () => {
                                             variant="ghost"
                                             size="sm"
                                             onClick={detail.action}
-                                            className="text-primary hover:text-primary/80 h-auto p-0 font-normal transition-colors">
+                                            className="text-primary hover:text-primary/80 h-auto p-0 font-normal transition-colors"
+                                        >
                                             {detail.actionLabel}
                                             <ExternalLink className="ml-2 h-3 w-3" />
                                         </Button>

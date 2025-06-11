@@ -19,7 +19,8 @@ export const FooterNavbar = ({ className }: NavbarProps) => {
                 <Link
                     key={index}
                     href={link.path}
-                    className="text-sm text-gray-500 no-underline underline-offset-2 hover:text-blue-600 hover:underline dark:text-gray-400 dark:hover:text-white">
+                    className="text-sm text-gray-500 no-underline underline-offset-2 hover:text-blue-600 hover:underline dark:text-gray-400 dark:hover:text-white"
+                >
                     {t(link.name)}
                 </Link>
             ))}

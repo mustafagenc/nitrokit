@@ -13,7 +13,8 @@ export function ContactEmail({ name, email, message }: ContactEmailProps) {
         <BaseEmail
             preview={`New contact form submission from ${name}`}
             headerTitle="📬 New Contact Message"
-            headerGradient="linear-gradient(135deg, #06b6d4 0%, #0891b2 100%)">
+            headerGradient="linear-gradient(135deg, #06b6d4 0%, #0891b2 100%)"
+        >
             {/* Contact Info Section */}
             <Section style={section}>
                 <Text style={heading}>
@@ -52,7 +53,8 @@ export function ContactEmail({ name, email, message }: ContactEmailProps) {
             <Section style={buttonContainer}>
                 <Button
                     href={`mailto:${email}?subject=Re: Your message to Nitrokit`}
-                    style={replyButton}>
+                    style={replyButton}
+                >
                     📩 Reply to {name}
                 </Button>
             </Section>

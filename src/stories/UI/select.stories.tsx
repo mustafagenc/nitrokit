@@ -89,7 +89,7 @@ const timezones = [
 ];
 
 export const Default: Story = {
-    render: args => (
+    render: (args) => (
         <Select {...args}>
             <SelectTrigger className="w-[180px]">
                 <SelectValue placeholder="Select a fruit" />
@@ -97,7 +97,7 @@ export const Default: Story = {
             <SelectContent>
                 <SelectGroup>
                     <SelectLabel>Fruits</SelectLabel>
-                    {fruits.map(fruit => (
+                    {fruits.map((fruit) => (
                         <SelectItem key={fruit.value} value={fruit.value}>
                             {fruit.label}
                         </SelectItem>
@@ -109,7 +109,7 @@ export const Default: Story = {
 };
 
 export const WithDefaultValue: Story = {
-    render: args => (
+    render: (args) => (
         <Select {...args} defaultValue="banana">
             <SelectTrigger className="w-[180px]">
                 <SelectValue placeholder="Select a fruit" />
@@ -117,7 +117,7 @@ export const WithDefaultValue: Story = {
             <SelectContent>
                 <SelectGroup>
                     <SelectLabel>Fruits</SelectLabel>
-                    {fruits.map(fruit => (
+                    {fruits.map((fruit) => (
                         <SelectItem key={fruit.value} value={fruit.value}>
                             {fruit.label}
                         </SelectItem>
@@ -132,7 +132,7 @@ export const Disabled: Story = {
     args: {
         disabled: true,
     },
-    render: args => (
+    render: (args) => (
         <Select {...args}>
             <SelectTrigger className="w-[180px]">
                 <SelectValue placeholder="Select a fruit (disabled)" />
@@ -146,7 +146,7 @@ export const Disabled: Story = {
 };
 
 export const WithGroupsAndSeparator: Story = {
-    render: args => (
+    render: (args) => (
         <Select {...args}>
             <SelectTrigger className="w-[280px]">
                 <SelectValue placeholder="Select a timezone" />
@@ -156,7 +156,7 @@ export const WithGroupsAndSeparator: Story = {
                     <React.Fragment key={group.label}>
                         <SelectGroup>
                             <SelectLabel>{group.label}</SelectLabel>
-                            {group.options.map(option => (
+                            {group.options.map((option) => (
                                 <SelectItem key={option.value} value={option.value}>
                                     {option.label}
                                 </SelectItem>
@@ -171,7 +171,7 @@ export const WithGroupsAndSeparator: Story = {
 };
 
 export const ScrollableContent: Story = {
-    render: args => (
+    render: (args) => (
         <Select {...args}>
             <SelectTrigger className="w-[280px]">
                 <SelectValue placeholder="Select an item from a long list" />
@@ -189,7 +189,7 @@ export const ScrollableContent: Story = {
 };
 
 export const InAFormContext: Story = {
-    render: args => (
+    render: (args) => (
         <div className="grid w-full max-w-sm items-center gap-1.5">
             <Label htmlFor="framework-select">Favorite Framework</Label>
             <Select {...args}>

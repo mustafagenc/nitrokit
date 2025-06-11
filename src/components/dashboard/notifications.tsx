@@ -49,7 +49,7 @@ export function Notifications() {
     }, [notifications]);
 
     const filteredNotifications = useMemo(() => {
-        return notifications.filter(notification => {
+        return notifications.filter((notification) => {
             const matchesSearch =
                 notification.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
                 notification.message.toLowerCase().includes(searchQuery.toLowerCase());
@@ -127,12 +127,14 @@ export function Notifications() {
                         variant="ghost"
                         size="sm"
                         className="relative h-9 w-9 rounded-full hover:bg-white hover:shadow-sm dark:hover:bg-zinc-800"
-                        aria-label="Notifications">
+                        aria-label="Notifications"
+                    >
                         <Bell className="h-7 w-7" />
                         {unreadCount > 0 && (
                             <Badge
                                 variant="destructive"
-                                className="absolute top-0 -right-1 h-4 w-4 animate-pulse rounded-full p-0 text-xs">
+                                className="absolute top-0 -right-1 h-4 w-4 animate-pulse rounded-full p-0 text-xs"
+                            >
                                 {unreadCount > 9 ? '9+' : unreadCount}
                             </Badge>
                         )}
@@ -148,7 +150,8 @@ export function Notifications() {
                                     size="sm"
                                     onClick={refresh}
                                     className="h-8 px-2 text-xs text-orange-600"
-                                    title="Retry">
+                                    title="Retry"
+                                >
                                     ↻
                                 </Button>
                             )}
@@ -158,7 +161,8 @@ export function Notifications() {
                                     size="sm"
                                     onClick={handleMarkAllAsRead}
                                     className="h-8 px-2 text-xs"
-                                    disabled={isLoading}>
+                                    disabled={isLoading}
+                                >
                                     Mark all read
                                 </Button>
                             )}
@@ -179,7 +183,8 @@ export function Notifications() {
                                     variant="outline"
                                     size="sm"
                                     onClick={refresh}
-                                    className="mt-2">
+                                    className="mt-2"
+                                >
                                     Try Again
                                 </Button>
                             </div>
@@ -191,7 +196,7 @@ export function Notifications() {
                         ) : (
                             <ScrollArea className="h-[318px]">
                                 <div>
-                                    {recentNotifications.map(notification => {
+                                    {recentNotifications.map((notification) => {
                                         const Icon = getNotificationIcon(notification.type);
                                         const colors = getNotificationColors(notification.type);
 
@@ -208,12 +213,14 @@ export function Notifications() {
                                                         notification.id,
                                                         notification.read
                                                     )
-                                                }>
+                                                }
+                                            >
                                                 <div
                                                     className={cn(
                                                         'flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full',
                                                         colors
-                                                    )}>
+                                                    )}
+                                                >
                                                     <Icon className="h-4 w-4" />
                                                 </div>
                                                 <div className="min-w-0 flex-1">
@@ -241,26 +248,28 @@ export function Notifications() {
                                                                 <Button
                                                                     variant="ghost"
                                                                     size="sm"
-                                                                    onClick={e => {
+                                                                    onClick={(e) => {
                                                                         e.stopPropagation();
                                                                         markAsRead(notification.id);
                                                                     }}
                                                                     className="h-6 w-6 p-0 hover:bg-blue-100 dark:hover:bg-blue-900/20"
-                                                                    title="Mark as read">
+                                                                    title="Mark as read"
+                                                                >
                                                                     <div className="h-2 w-2 animate-pulse rounded-full bg-blue-500" />
                                                                 </Button>
                                                             )}
                                                             <Button
                                                                 variant="ghost"
                                                                 size="sm"
-                                                                onClick={e => {
+                                                                onClick={(e) => {
                                                                     e.stopPropagation();
                                                                     handleRemoveNotification(
                                                                         notification.id
                                                                     );
                                                                 }}
                                                                 className="h-6 w-6 p-0 hover:bg-red-100 hover:text-red-600 dark:hover:bg-red-900/20"
-                                                                title="Remove notification">
+                                                                title="Remove notification"
+                                                            >
                                                                 <X className="h-3 w-3" />
                                                             </Button>
                                                         </div>
@@ -286,7 +295,8 @@ export function Notifications() {
                                     variant="ghost"
                                     size="sm"
                                     className="h-8 w-full justify-center text-xs"
-                                    onClick={handleViewAllNotifications}>
+                                    onClick={handleViewAllNotifications}
+                                >
                                     View all notifications
                                     {notifications.length > 10 && (
                                         <span className="text-muted-foreground ml-1">
@@ -319,7 +329,8 @@ export function Notifications() {
                                         size="sm"
                                         onClick={handleMarkAllAsRead}
                                         className="h-8 text-xs"
-                                        disabled={isLoading}>
+                                        disabled={isLoading}
+                                    >
                                         <CheckCircle2 className="mr-1 h-3 w-3" />
                                         Mark all read
                                     </Button>
@@ -333,7 +344,7 @@ export function Notifications() {
                                 <Input
                                     placeholder="Search notifications..."
                                     value={searchQuery}
-                                    onChange={e => setSearchQuery(e.target.value)}
+                                    onChange={(e) => setSearchQuery(e.target.value)}
                                     className="pl-8"
                                 />
                             </div>
@@ -370,7 +381,8 @@ export function Notifications() {
                                         variant="outline"
                                         size="sm"
                                         onClick={clearFilters}
-                                        className="h-9 px-3">
+                                        className="h-9 px-3"
+                                    >
                                         <X className="h-3 w-3" />
                                     </Button>
                                 )}
@@ -398,7 +410,8 @@ export function Notifications() {
                                     variant="outline"
                                     size="sm"
                                     onClick={refresh}
-                                    className="mt-4">
+                                    className="mt-4"
+                                >
                                     Try Again
                                 </Button>
                             </div>
@@ -417,7 +430,8 @@ export function Notifications() {
                                         variant="outline"
                                         size="sm"
                                         onClick={clearFilters}
-                                        className="mt-2">
+                                        className="mt-2"
+                                    >
                                         Clear filters
                                     </Button>
                                 )}
@@ -425,7 +439,7 @@ export function Notifications() {
                         ) : (
                             <ScrollArea className="h-[calc(100vh-280px)]">
                                 <div className="space-y-2">
-                                    {filteredNotifications.map(notification => {
+                                    {filteredNotifications.map((notification) => {
                                         const Icon = getNotificationIcon(notification.type);
                                         const colors = getNotificationColors(notification.type);
 
@@ -442,12 +456,14 @@ export function Notifications() {
                                                         notification.id,
                                                         notification.read
                                                     )
-                                                }>
+                                                }
+                                            >
                                                 <div
                                                     className={cn(
                                                         'flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full',
                                                         colors
-                                                    )}>
+                                                    )}
+                                                >
                                                     <Icon className="h-5 w-5" />
                                                 </div>
                                                 <div className="min-w-0 flex-1">
@@ -467,7 +483,8 @@ export function Notifications() {
                                                             <div className="mt-2 flex items-center gap-2">
                                                                 <Badge
                                                                     variant="outline"
-                                                                    className="text-xs capitalize">
+                                                                    className="text-xs capitalize"
+                                                                >
                                                                     {notification.type}
                                                                 </Badge>
                                                                 <span className="text-muted-foreground text-xs">
@@ -485,26 +502,28 @@ export function Notifications() {
                                                                 <Button
                                                                     variant="ghost"
                                                                     size="sm"
-                                                                    onClick={e => {
+                                                                    onClick={(e) => {
                                                                         e.stopPropagation();
                                                                         markAsRead(notification.id);
                                                                     }}
                                                                     className="h-8 w-8 p-0 hover:bg-blue-100 dark:hover:bg-blue-900/20"
-                                                                    title="Mark as read">
+                                                                    title="Mark as read"
+                                                                >
                                                                     <CheckCircle2 className="h-4 w-4" />
                                                                 </Button>
                                                             )}
                                                             <Button
                                                                 variant="ghost"
                                                                 size="sm"
-                                                                onClick={e => {
+                                                                onClick={(e) => {
                                                                     e.stopPropagation();
                                                                     handleRemoveNotification(
                                                                         notification.id
                                                                     );
                                                                 }}
                                                                 className="h-8 w-8 p-0 hover:bg-red-100 hover:text-red-600 dark:hover:bg-red-900/20"
-                                                                title="Remove notification">
+                                                                title="Remove notification"
+                                                            >
                                                                 <X className="h-4 w-4" />
                                                             </Button>
                                                         </div>

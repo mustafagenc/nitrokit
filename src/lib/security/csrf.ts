@@ -257,7 +257,7 @@ export function validateOrigin(request: NextRequest, allowedOrigins: string[]): 
 
     const sourceOrigin = origin || (referer ? new URL(referer).origin : '');
 
-    const isAllowed = allowedOrigins.some(allowed => {
+    const isAllowed = allowedOrigins.some((allowed) => {
         if (allowed === '*') return true;
         if (allowed.startsWith('*.')) {
             const domain = allowed.substring(2);
