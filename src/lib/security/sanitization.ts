@@ -53,7 +53,7 @@ function isPrimitive(value: unknown): value is string | number | boolean | null 
     );
 }
 
-// HTML sanitization without DOMPurify (manual implementation)
+// Fix the sanitizeHtml function
 export function sanitizeHtml(dirty: string, options: SanitizeHtmlOptions = {}): string {
     if (!isString(dirty)) {
         logger.warn('Invalid input for HTML sanitization', {
@@ -72,27 +72,13 @@ export function sanitizeHtml(dirty: string, options: SanitizeHtmlOptions = {}): 
             return stripAllTags(dirty);
         }
 
-        // Manual HTML sanitization
-        const allowedTags = options.allowedTags || [
-            'p',
-            'br',
-            'strong',
-            'em',
-            'u',
-            's',
-            'h1',
-            'h2',
-            'h3',
-            'h4',
-            'h5',
-            'h6',
-            'ul',
-            'ol',
-            'li',
-            'blockquote',
-        ];
+        const allowedAttrs = options.allowedAttributes
+            ? Object.keys(options.allowedAttributes).reduce((acc, tag) => {
+                  const attrs = options.allowedAttributes![tag];
+                  return acc.concat(attrs.map(attr => `${tag}:${attr}`));
+              }, [] as string[])
+            : [];
 
-        // Use DOMPurify for sanitization
         const clean = DOMPurify.sanitize(dirty, {
             ALLOWED_TAGS: options.allowedTags || [
                 'p',
@@ -112,7 +98,7 @@ export function sanitizeHtml(dirty: string, options: SanitizeHtmlOptions = {}): 
                 'li',
                 'blockquote',
             ],
-            ALLOWED_ATTR: options.allowedAttributes || {},
+            ALLOWED_ATTR: allowedAttrs.length > 0 ? allowedAttrs : undefined,
         });
 
         logger.debug('HTML sanitization completed', {
@@ -127,7 +113,6 @@ export function sanitizeHtml(dirty: string, options: SanitizeHtmlOptions = {}): 
             inputLength: dirty.length,
         });
 
-        // Fallback: strip all tags
         return stripAllTags(dirty);
     }
 }
