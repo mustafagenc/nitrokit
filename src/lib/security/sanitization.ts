@@ -125,21 +125,17 @@ export function stripAllTags(input: string): string {
     }
 
     try {
-        // ✨ Multi-step approach for better security
+        // ✨ Simplified approach for better security
         let sanitized = input;
 
-        // Step 1: Handle malformed tags and edge cases
-        sanitized = sanitized
-            // Remove script and style content entirely
-            .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
-            .replace(/<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/gi, '')
-            // Handle malformed tags with missing closing >
-            .replace(/<[^>]*(?:[^>]|$)/g, '')
-            // Handle HTML entities that might bypass detection
-            .replace(/&lt;[^&]*?(?:&gt;|$)/gi, '')
-            .replace(/&#x?[0-9a-f]+;?/gi, '')
-            // Remove any remaining < or > characters
-            .replace(/[<>]/g, '');
+        // Use DOMPurify as the primary sanitization mechanism
+        if (typeof DOMPurify !== 'undefined') {
+            sanitized = DOMPurify.sanitize(input, {
+                ALLOWED_TAGS: [],
+                ALLOWED_ATTR: [],
+                KEEP_CONTENT: true,
+            });
+        }
 
         // Step 2: Use DOMPurify as additional security layer if available
         if (typeof DOMPurify !== 'undefined') {
