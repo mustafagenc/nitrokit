@@ -134,7 +134,8 @@ export function PasswordStrengthIndicator({
                                 <span
                                     className={`text-xs ${
                                         requirement.met ? 'text-green-600' : 'text-gray-500'
-                                    }`}>
+                                    }`}
+                                >
                                     {requirement.label}
                                 </span>
                             </div>
@@ -191,7 +192,7 @@ export function usePasswordStrength(password: string) {
 
     const strength = calculatePasswordStrength(password);
     const requirements = getPasswordRequirements(password);
-    const allRequirementsMet = requirements.every(req => req.met);
+    const allRequirementsMet = requirements.every((req) => req.met);
 
     return {
         strength,

@@ -153,7 +153,8 @@ export default function Home() {
                                     asChild
                                     variant="outline"
                                     size="sm"
-                                    className="bg-white/70 backdrop-blur-sm hover:bg-white dark:bg-gray-900/70 dark:hover:bg-gray-900">
+                                    className="bg-white/70 backdrop-blur-sm hover:bg-white dark:bg-gray-900/70 dark:hover:bg-gray-900"
+                                >
                                     <Link href={GITHUB_URL}>
                                         <Github className="mr-2 h-4 w-4" />
                                         {t('cta.github')}
@@ -164,7 +165,8 @@ export default function Home() {
                                     asChild
                                     variant="ghost"
                                     size="sm"
-                                    className="hover:bg-white/50 dark:hover:bg-gray-900/50">
+                                    className="hover:bg-white/50 dark:hover:bg-gray-900/50"
+                                >
                                     <Link href={GITHUB_URL + '/wiki'}>
                                         <ExternalLink className="mr-2 h-4 w-4" />
                                         {t('cta.docs')}

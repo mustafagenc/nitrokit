@@ -57,7 +57,7 @@ const meta = {
         },
     },
     decorators: [
-        Story => (
+        (Story) => (
             <NextIntlClientProvider locale="en" messages={messages.en}>
                 <div className="p-8">
                     <Story />

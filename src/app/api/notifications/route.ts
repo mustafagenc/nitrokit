@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { auth } from '@/auth';
+import { auth } from '@/lib/auth';
 import { InAppNotificationService } from '@/lib/services/inapp-notification-service';
 import { logger } from '@/lib/services/logger';
 import { normalizeError } from '@/lib/utils/error-handler';

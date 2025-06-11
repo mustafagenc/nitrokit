@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { ScrollArea } from '../scroll-area';
+import { describe, it, expect } from 'vitest';
 
 describe('ScrollArea', () => {
     it('renders scroll area', () => {

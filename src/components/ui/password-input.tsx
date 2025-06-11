@@ -27,8 +27,9 @@ const PasswordInput = React.forwardRef<HTMLInputElement, InputProps>(
                     variant="ghost"
                     size="sm"
                     className="absolute top-0 right-0 h-full px-3 py-2 hover:bg-transparent"
-                    onClick={() => setShowPassword(prev => !prev)}
-                    disabled={disabled}>
+                    onClick={() => setShowPassword((prev) => !prev)}
+                    disabled={disabled}
+                >
                     {showPassword && !disabled ? (
                         <EyeIcon className="h-4 w-4" aria-hidden="true" />
                     ) : (

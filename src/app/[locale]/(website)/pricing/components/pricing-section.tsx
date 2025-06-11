@@ -23,7 +23,7 @@ export default function PricingSection({ plans }: PricingProps) {
                     {billingCycle === 'yearly' && (
                         <p>
                             {t.rich('pricing.annual-payment', {
-                                span: children => (
+                                span: (children) => (
                                     <span className="font-bold text-fuchsia-700">{children}</span>
                                 ),
                             })}
@@ -32,8 +32,8 @@ export default function PricingSection({ plans }: PricingProps) {
                 </div>
             </div>
 
-            <div className={`mt-6 grid grid-cols-1 items-end gap-0 md:grid-cols-2 lg:grid-cols-3`}>
-                {plans.map(plan => {
+            <div className={'mt-6 grid grid-cols-1 items-end gap-0 md:grid-cols-2 lg:grid-cols-3'}>
+                {plans.map((plan) => {
                     const price = billingCycle === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice;
                     const priceSuffixKey =
                         billingCycle === 'monthly' ? 'pricePerMonth' : 'pricePerYear';
@@ -54,7 +54,8 @@ export default function PricingSection({ plans }: PricingProps) {
                         <div key={plan.id} className={cardWrapperClasses}>
                             <div className={`${cardClasses} ${heightClass}`}>
                                 <h3
-                                    className={`${titleSize} font-semibold text-shadow-xs ${titleColor} text-center`}>
+                                    className={`${titleSize} font-semibold text-shadow-xs ${titleColor} text-center`}
+                                >
                                     {t(`pricing.${plan.id}.title`)}
                                 </h3>
                                 <p className="mt-6 text-center text-base/7 text-neutral-600 dark:text-neutral-300">
@@ -89,7 +90,8 @@ export default function PricingSection({ plans }: PricingProps) {
                                 <Button
                                     variant={plan.isFeatured ? 'default' : 'outline'}
                                     size={'rlg'}
-                                    className={`mt-10 w-full ${plan.isFeatured ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-white hover:bg-gradient-to-l' : 'border-neutral-300 text-neutral-700 hover:bg-neutral-50 dark:border-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-800/50'}`}>
+                                    className={`mt-10 w-full ${plan.isFeatured ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-white hover:bg-gradient-to-l' : 'border-neutral-300 text-neutral-700 hover:bg-neutral-50 dark:border-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-800/50'}`}
+                                >
                                     {t('pricing.purchasePlan')}
                                 </Button>
                             </div>

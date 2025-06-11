@@ -48,7 +48,7 @@ export default meta;
 type Story = StoryObj<typeof Drawer>;
 
 export const Default: Story = {
-    render: args => (
+    render: (args) => (
         <Drawer {...args}>
             <DrawerTrigger asChild>
                 <Button variant="outline">Open Drawer</Button>
@@ -78,7 +78,7 @@ export const FromRight: Story = {
     // If not, this story might need adjustment based on your component's API
     // For now, let's assume it's controlled by a prop or a different component variant
     // If your Drawer is always bottom, this story might be redundant or named differently.
-    render: args => (
+    render: (args) => (
         <Drawer {...args}>
             <DrawerTrigger asChild>
                 <Button variant="outline">Open From Right</Button>
@@ -129,7 +129,8 @@ function Counter({ goal }: { goal: number }) {
                     size="icon"
                     className="size-8 shrink-0 rounded-full"
                     onClick={() => onClick(-10)}
-                    disabled={currentGoal <= 20}>
+                    disabled={currentGoal <= 20}
+                >
                     <Minus className="size-4" />
                     <span className="sr-only">Decrease</span>
                 </Button>
@@ -144,7 +145,8 @@ function Counter({ goal }: { goal: number }) {
                     size="icon"
                     className="size-8 shrink-0 rounded-full"
                     onClick={() => onClick(10)}
-                    disabled={currentGoal >= 400}>
+                    disabled={currentGoal >= 400}
+                >
                     <Plus className="size-4" />
                     <span className="sr-only">Increase</span>
                 </Button>
@@ -154,7 +156,7 @@ function Counter({ goal }: { goal: number }) {
 }
 
 export const WithComplexContent: Story = {
-    render: args => (
+    render: (args) => (
         <Drawer {...args}>
             <DrawerTrigger asChild>
                 <Button variant="outline">Set Daily Goal</Button>
@@ -216,7 +218,7 @@ export const Controlled: Story = {
 };
 
 export const NonModal: Story = {
-    render: args => (
+    render: (args) => (
         <div className="bg-background h-[300px] w-full rounded-lg border p-4">
             <p className="mb-4">This is the background content. You can interact with it.</p>
             <Drawer {...args}>

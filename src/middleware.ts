@@ -1,9 +1,9 @@
 import createIntlMiddleware from 'next-intl/middleware';
 import { NextResponse } from 'next/server';
-import { getToken } from 'next-auth/jwt';
 import { routing } from '@/lib/i18n/routing';
-import { apiRateLimit, fallbackRateLimit } from '@/lib/security/rate-limit';
 import type { NextRequest } from 'next/server';
+import { handleSessionTracking, checkAuthentication } from './middleware/session';
+import { handleRateLimit } from './middleware/rate-limit';
 
 const intlMiddleware = createIntlMiddleware(routing);
 
@@ -13,38 +13,7 @@ export async function middleware(request: NextRequest) {
     }
 
     if (request.nextUrl.pathname.startsWith('/dashboard')) {
-        try {
-            const token = await getToken({
-                req: request,
-                secret: process.env.NEXTAUTH_SECRET,
-            });
-
-            if (token?.sub) {
-                const sessionToken =
-                    request.cookies.get('authjs.session-token')?.value ||
-                    request.cookies.get('__Secure-authjs.session-token')?.value;
-
-                if (sessionToken) {
-                    fetch(new URL('/api/internal/session-update', request.url), {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            Authorization: `Bearer ${sessionToken}`,
-                        },
-                        body: JSON.stringify({
-                            sessionToken,
-                            userAgent: request.headers.get('user-agent'),
-                            ip:
-                                request.headers.get('x-forwarded-for') ||
-                                request.headers.get('x-real-ip') ||
-                                'unknown',
-                        }),
-                    }).catch(() => {});
-                }
-            }
-        } catch (error) {
-            console.error('Middleware session tracking error:', error);
-        }
+        await handleSessionTracking(request);
     }
 
     if (request.nextUrl.pathname.startsWith('/api/')) {
@@ -52,46 +21,7 @@ export async function middleware(request: NextRequest) {
         const isInternalRoute = request.nextUrl.pathname.startsWith('/api/internal/');
 
         if (!isAuthRoute && !isInternalRoute) {
-            const ip =
-                request.headers.get('x-forwarded-for') ||
-                request.headers.get('x-real-ip') ||
-                'anonymous';
-
-            try {
-                const rateLimit = apiRateLimit || fallbackRateLimit;
-                const { success, limit, remaining, reset } = await rateLimit.limit(ip);
-
-                if (!success) {
-                    return NextResponse.json(
-                        {
-                            error: 'Too many requests',
-                            rateLimit: {
-                                limit,
-                                remaining: 0,
-                                reset: new Date(reset).toISOString(),
-                            },
-                        },
-                        {
-                            status: 429,
-                            headers: {
-                                'X-RateLimit-Limit': limit.toString(),
-                                'X-RateLimit-Remaining': '0',
-                                'X-RateLimit-Reset': new Date(reset).toISOString(),
-                            },
-                        }
-                    );
-                }
-
-                const response = NextResponse.next();
-                response.headers.set('X-RateLimit-Limit', limit.toString());
-                response.headers.set('X-RateLimit-Remaining', remaining.toString());
-                response.headers.set('X-RateLimit-Reset', new Date(reset).toISOString());
-
-                return response;
-            } catch (error) {
-                console.error('Rate limit error (bypassing):', error);
-                return NextResponse.next();
-            }
+            return handleRateLimit(request);
         }
 
         return NextResponse.next();
@@ -100,14 +30,8 @@ export async function middleware(request: NextRequest) {
     const intlResponse = await intlMiddleware(request);
     if (intlResponse) return intlResponse;
 
-    const token = await getToken({
-        req: request,
-        secret: process.env.NEXTAUTH_SECRET,
-    });
-
-    if (!token) {
-        return NextResponse.redirect(new URL('/signin', request.url));
-    }
+    const authResponse = await checkAuthentication(request);
+    if (authResponse) return authResponse;
 
     return NextResponse.next();
 }

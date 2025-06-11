@@ -17,7 +17,8 @@ export const Header = () => {
                 sticky
                     ? 'border-stroke sticky z-[999] bg-white/80 shadow-md backdrop-blur-[5px] dark:bg-black/80'
                     : 'border-0 bg-transparent'
-            }`}>
+            }`}
+        >
             <div className="mx-auto flex h-20 w-full flex-row items-center bg-transparent lg:w-7xl">
                 <div className="text-foreground flex flex-row items-center justify-center gap-2">
                     <Logo />

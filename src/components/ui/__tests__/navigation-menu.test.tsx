@@ -9,6 +9,7 @@ import {
     NavigationMenuLink,
     navigationMenuTriggerStyle,
 } from '../navigation-menu';
+import { describe, it, expect } from 'vitest';
 
 describe('NavigationMenu', () => {
     it('renders navigation menu with items', () => {

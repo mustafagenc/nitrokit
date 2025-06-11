@@ -30,7 +30,7 @@ function DesktopSidebar() {
         <TooltipProvider>
             <aside className="hidden w-16 flex-col bg-gray-100 md:flex dark:bg-zinc-900">
                 <nav className="flex flex-1 flex-col items-center justify-start space-y-3 p-2">
-                    {navigationItems.map(item => {
+                    {navigationItems.map((item) => {
                         const isActive = isActiveRoute(pathname, item.href);
                         const Icon = item.icon;
 
@@ -44,7 +44,8 @@ function DesktopSidebar() {
                                             isActive
                                                 ? 'bg-white text-blue-600 shadow-lg ring-2 ring-blue-100 dark:bg-zinc-800 dark:text-blue-400 dark:ring-blue-900/20'
                                                 : 'text-gray-600 hover:bg-white hover:text-gray-900 hover:shadow-md dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-100'
-                                        )}>
+                                        )}
+                                    >
                                         <Icon className="h-5 w-5" />
                                     </Link>
                                 </TooltipTrigger>
@@ -75,7 +76,8 @@ export function MobileSidebarTrigger() {
                 <Button
                     variant="ghost"
                     size="sm"
-                    className="h-8 w-8 rounded-full hover:bg-white hover:shadow-sm md:hidden dark:hover:bg-zinc-800">
+                    className="h-8 w-8 rounded-full hover:bg-white hover:shadow-sm md:hidden dark:hover:bg-zinc-800"
+                >
                     <Menu className="h-4 w-4" />
                 </Button>
             </SheetTrigger>
@@ -88,7 +90,8 @@ export function MobileSidebarTrigger() {
                                     className="absolute inset-0 bg-slate-900 transition-all duration-500 group-hover:bg-gradient-to-br group-hover:from-blue-600 group-hover:to-purple-600 dark:bg-slate-100"
                                     style={{
                                         borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%',
-                                    }}></div>
+                                    }}
+                                ></div>
                                 <span className="relative z-10 text-lg font-bold text-white transition-all duration-300 group-hover:text-blue-100 dark:text-slate-900 dark:group-hover:text-white">
                                     N
                                 </span>
@@ -103,7 +106,7 @@ export function MobileSidebarTrigger() {
                     </div>
 
                     <nav className="flex-1 space-y-2 px-4 pt-4">
-                        {navigationItems.map(item => {
+                        {navigationItems.map((item) => {
                             const isActive = isActiveRoute(pathname, item.href);
                             const Icon = item.icon;
 
@@ -116,7 +119,8 @@ export function MobileSidebarTrigger() {
                                         isActive
                                             ? 'border border-blue-100 bg-blue-50 text-blue-600 shadow-sm dark:border-blue-800/30 dark:bg-blue-900/20 dark:text-blue-400'
                                             : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-zinc-100'
-                                    )}>
+                                    )}
+                                >
                                     <Icon className="h-5 w-5" />
                                     <span className="text-sm font-medium">{t(item.key)}</span>
                                 </Link>

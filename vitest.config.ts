@@ -1,34 +1,54 @@
-import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-
 import { defineConfig } from 'vitest/config';
+import react from '@vitejs/plugin-react';
+import tsconfigPaths from 'vite-tsconfig-paths';
+import { codecovVitePlugin } from '@codecov/vite-plugin';
 
-const dirname =
-    typeof __dirname !== 'undefined' ? __dirname : path.dirname(fileURLToPath(import.meta.url));
-
-// More info at: https://storybook.js.org/docs/next/writing-tests/vitest-addon
 export default defineConfig({
+    plugins: [
+        react(),
+        tsconfigPaths(),
+        codecovVitePlugin({
+            enableBundleAnalysis: process.env.CODECOV_TOKEN !== undefined,
+            bundleName: 'nitrokit',
+            uploadToken: process.env.CODECOV_TOKEN,
+        }),
+    ],
     test: {
-        workspace: [
-            {
-                extends: true,
-                plugins: [
-                    // The plugin will run tests for the stories defined in your Storybook config
-                    // See options at: https://storybook.js.org/docs/next/writing-tests/vitest-addon#storybooktest
-                    storybookTest({ configDir: path.join(dirname, '.storybook') }),
-                ],
-                test: {
-                    name: 'storybook',
-                    browser: {
-                        enabled: true,
-                        headless: true,
-                        provider: 'playwright',
-                        instances: [{ browser: 'chromium' }],
-                    },
-                    setupFiles: ['.storybook/vitest.setup.ts'],
-                },
-            },
+        environment: 'jsdom',
+        globals: true,
+        setupFiles: ['./src/test/setup.ts'],
+        coverage: {
+            provider: 'v8',
+            reporter: ['text', 'json', 'html'],
+            exclude: [
+                'node_modules/**',
+                '.next/**',
+                'coverage/**',
+                'dist/**',
+                'build/**',
+                'stories/**',
+                '**/*.stories.{ts,tsx}',
+                'messages/**',
+                '**/*.json',
+                'src/test/**',
+            ],
+        },
+        include: ['src/**/*.{test,spec}.{js,jsx,ts,tsx}'],
+        exclude: [
+            'node_modules/**',
+            '.next/**',
+            'coverage/**',
+            'dist/**',
+            'build/**',
+            'stories/**',
+            '**/*.stories.{ts,tsx}',
+            'messages/**',
+            '**/*.json',
         ],
+    },
+    resolve: {
+        alias: {
+            '@': '/src',
+        },
     },
 });

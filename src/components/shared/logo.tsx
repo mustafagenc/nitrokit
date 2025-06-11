@@ -21,11 +21,12 @@ export default function Logo({
                 alt="Next.js logo"
                 width={size}
                 height={size}
-                className={`drop-shadow-xs`}
+                className={'drop-shadow-xs'}
             />
             {!onlyIcon && (
                 <span
-                    className={`${forceText ? '' : 'hidden lg:inline-block'} font-[family-name:var(--font-lexend)] text-2xl font-bold text-shadow-2xs`}>
+                    className={`${forceText ? '' : 'hidden lg:inline-block'} font-[family-name:var(--font-lexend)] text-2xl font-bold text-shadow-2xs`}
+                >
                     {t('name')}
                 </span>
             )}

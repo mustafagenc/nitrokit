@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { Select, SelectTrigger, SelectValue } from '../select';
+import { describe, it, expect } from 'vitest';
 
 describe('Select', () => {
     it('renders select', () => {

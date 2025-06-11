@@ -1,5 +1,5 @@
 import { NextRequest } from 'next/server';
-import { auth } from '@/auth';
+import { auth } from '@/lib/auth';
 import { logger } from './logger';
 
 export async function setLoggerContextFromRequest(request: NextRequest): Promise<void> {

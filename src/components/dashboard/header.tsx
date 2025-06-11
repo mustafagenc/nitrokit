@@ -20,7 +20,8 @@ export function DashboardHeader({ children }: DashboardHeaderProps) {
                     <div className="relative flex h-9 w-9 items-center justify-center">
                         <div
                             className="absolute inset-0 bg-slate-900 transition-all duration-500 group-hover:bg-gradient-to-br group-hover:from-blue-600 group-hover:to-purple-600 dark:bg-slate-100"
-                            style={{ borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%' }}></div>
+                            style={{ borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%' }}
+                        ></div>
                         <span className="relative z-10 text-lg font-bold text-white transition-all duration-300 group-hover:text-blue-100 dark:text-slate-900 dark:group-hover:text-white">
                             N
                         </span>

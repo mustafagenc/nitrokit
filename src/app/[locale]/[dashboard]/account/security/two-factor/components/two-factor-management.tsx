@@ -57,13 +57,13 @@ export function TwoFactorManagement({
     }, []);
 
     const handleSetupComplete = () => {
-        setStatus(prev => ({ ...prev, enabled: true, verifiedAt: new Date() }));
+        setStatus((prev) => ({ ...prev, enabled: true, verifiedAt: new Date() }));
         setSetupDialogOpen(false);
         toast.success('Two-factor authentication has been enabled successfully!');
     };
 
     const handleDisableComplete = () => {
-        setStatus(prev => ({
+        setStatus((prev) => ({
             ...prev,
             enabled: false,
             verifiedAt: null,
@@ -93,7 +93,8 @@ export function TwoFactorManagement({
                                 status.enabled
                                     ? 'bg-green-100 text-green-600'
                                     : 'bg-gray-100 text-gray-600'
-                            }`}>
+                            }`}
+                        >
                             <Smartphone className="h-4 w-4" />
                         </div>
                         <div>
@@ -125,7 +126,8 @@ export function TwoFactorManagement({
                             <Button
                                 onClick={() => setSetupDialogOpen(true)}
                                 disabled={loading}
-                                className="w-full sm:w-auto">
+                                className="w-full sm:w-auto"
+                            >
                                 <Shield className="mr-2 h-4 w-4" />
                                 Enable Two-Factor Authentication
                             </Button>
@@ -149,7 +151,8 @@ export function TwoFactorManagement({
                                 <Button
                                     variant="outline"
                                     onClick={() => setBackupCodesDialogOpen(true)}
-                                    disabled={loading}>
+                                    disabled={loading}
+                                >
                                     <Key className="mr-2 h-4 w-4" />
                                     View Backup Codes
                                 </Button>
@@ -157,7 +160,8 @@ export function TwoFactorManagement({
                                 <Button
                                     variant="destructive"
                                     onClick={() => setDisableDialogOpen(true)}
-                                    disabled={loading}>
+                                    disabled={loading}
+                                >
                                     Disable 2FA
                                 </Button>
                             </div>

@@ -49,7 +49,7 @@ export async function generateSiteMetadata(): Promise<Metadata> {
         alternates: {
             canonical: baseUrl,
             languages: Object.fromEntries(
-                localesForMetadata().map(locale => [locale.code, locale.url])
+                localesForMetadata().map((locale) => [locale.code, locale.url])
             ),
         },
         icons: {

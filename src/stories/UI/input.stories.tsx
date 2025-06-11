@@ -79,7 +79,7 @@ export const Disabled: Story = {
 };
 
 export const WithLabel: Story = {
-    render: args => (
+    render: (args) => (
         <div className="grid w-full max-w-sm items-center gap-1.5">
             <Label htmlFor="email-labeled">Email</Label>
             <Input {...args} id="email-labeled" />
@@ -92,7 +92,7 @@ export const WithLabel: Story = {
 };
 
 export const WithButton: Story = {
-    render: args => (
+    render: (args) => (
         <div className="flex w-full max-w-sm items-center space-x-2">
             <Input {...args} />
             <Button type="submit">Subscribe</Button>
@@ -106,7 +106,7 @@ export const WithButton: Story = {
 
 //ToDo: Update icon positioning
 export const WithIcon: Story = {
-    render: args => (
+    render: (args) => (
         <div className="relative w-full max-w-sm items-center">
             <Input {...args} className="pl-10" />
             <span className="absolute inset-y-0 start-0 flex items-center justify-center px-2">
@@ -122,7 +122,7 @@ export const WithIcon: Story = {
 
 //ToDo: Update icon positioning
 export const WithIconAndButton: Story = {
-    render: args => (
+    render: (args) => (
         <div className="flex w-full max-w-md items-center space-x-2">
             <div className="relative flex-grow items-center">
                 <Input {...args} className="pl-10" />
@@ -142,7 +142,7 @@ export const WithIconAndButton: Story = {
 };
 
 export const FileInput: Story = {
-    render: args => (
+    render: (args) => (
         <div className="grid w-full max-w-sm items-center gap-1.5">
             <Label htmlFor="picture">Picture</Label>
             <Input id="picture" {...args} />
@@ -155,7 +155,7 @@ export const FileInput: Story = {
 
 export const WithErrorState: Story = {
     // Note: Actual error styling might come from a FormField component or utility classes
-    render: args => (
+    render: (args) => (
         <div className="grid w-full max-w-sm items-center gap-1.5">
             <Label htmlFor="username-error" className="text-destructive">
                 Username

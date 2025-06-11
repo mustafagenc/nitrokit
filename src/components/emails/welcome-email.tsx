@@ -11,7 +11,8 @@ export function WelcomeEmail({ name, dashboardUrl }: WelcomeEmailProps) {
         <BaseEmail
             preview="Welcome to Nitrokit! Your account is now active 🚀"
             headerTitle="Welcome to Nitrokit! 🚀"
-            headerGradient="linear-gradient(135deg, #4ade80 0%, #22c55e 100%)">
+            headerGradient="linear-gradient(135deg, #4ade80 0%, #22c55e 100%)"
+        >
             <Text style={emailStyles.greeting}>Welcome {name}! 🎉</Text>
 
             <Text style={emailStyles.paragraph}>
@@ -35,7 +36,8 @@ export function WelcomeEmail({ name, dashboardUrl }: WelcomeEmailProps) {
                         style={{
                             ...emailStyles.button,
                             backgroundColor: '#22c55e',
-                        }}>
+                        }}
+                    >
                         🎯 Go to Dashboard
                     </Button>
                 </Section>

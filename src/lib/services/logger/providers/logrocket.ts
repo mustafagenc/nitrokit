@@ -14,7 +14,7 @@ export class LogRocketProvider implements LoggerProvider {
                         shouldAggregateConsoleErrors: true,
                     },
                     network: {
-                        requestSanitizer: request => {
+                        requestSanitizer: (request) => {
                             // Don't log sensitive headers
                             if (request.headers && request.headers['authorization']) {
                                 request.headers['authorization'] = '[REDACTED]';

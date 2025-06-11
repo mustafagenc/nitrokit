@@ -215,7 +215,8 @@ Generated on: ${new Date().toLocaleDateString()}
                                         type="button"
                                         variant="outline"
                                         size="icon"
-                                        onClick={copyManualKey}>
+                                        onClick={copyManualKey}
+                                    >
                                         <Copy className="h-4 w-4" />
                                     </Button>
                                 </div>
@@ -239,7 +240,7 @@ Generated on: ${new Date().toLocaleDateString()}
                                     type="text"
                                     placeholder="000000"
                                     value={verificationCode}
-                                    onChange={e => {
+                                    onChange={(e) => {
                                         const value = e.target.value.replace(/\D/g, '').slice(0, 6);
                                         setVerificationCode(value);
                                     }}
@@ -252,13 +253,15 @@ Generated on: ${new Date().toLocaleDateString()}
                                 <Button
                                     variant="outline"
                                     onClick={() => setStep('setup')}
-                                    className="flex-1">
+                                    className="flex-1"
+                                >
                                     Back
                                 </Button>
                                 <Button
                                     onClick={handleVerify}
                                     disabled={loading || verificationCode.length !== 6}
-                                    className="flex-1">
+                                    className="flex-1"
+                                >
                                     {loading ? 'Verifying...' : 'Verify'}
                                 </Button>
                             </div>
@@ -282,7 +285,8 @@ Generated on: ${new Date().toLocaleDateString()}
                                         {setupData.backupCodes.map((code, index) => (
                                             <div
                                                 key={index}
-                                                className="bg-muted rounded p-2 text-center">
+                                                className="bg-muted rounded p-2 text-center"
+                                            >
                                                 {code}
                                             </div>
                                         ))}
@@ -294,7 +298,8 @@ Generated on: ${new Date().toLocaleDateString()}
                                 <Button
                                     variant="outline"
                                     onClick={downloadBackupCodes}
-                                    className="flex-1">
+                                    className="flex-1"
+                                >
                                     <Download className="mr-2 h-4 w-4" />
                                     Download
                                 </Button>
@@ -303,7 +308,8 @@ Generated on: ${new Date().toLocaleDateString()}
                                         onComplete();
                                         handleClose();
                                     }}
-                                    className="flex-1">
+                                    className="flex-1"
+                                >
                                     Complete Setup
                                 </Button>
                             </div>

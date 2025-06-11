@@ -81,7 +81,7 @@ export function NotificationSettingsForm({
     const router = useRouter();
 
     const updatePreference = (key: keyof NotificationPreferences, value: boolean) => {
-        setPreferences(prev => ({
+        setPreferences((prev) => ({
             ...prev,
             [key]: value,
         }));
@@ -260,13 +260,14 @@ export function NotificationSettingsForm({
 
                             {/* ✅ Settings Grid - Adjusted column widths */}
                             <div className="space-y-4">
-                                {category.settings.map(setting => {
+                                {category.settings.map((setting) => {
                                     const SettingIcon = setting.icon;
 
                                     return (
                                         <div
                                             key={setting.key}
-                                            className="grid grid-cols-[1fr_100px_100px_100px] items-center gap-4 rounded-lg border px-4 py-4">
+                                            className="grid grid-cols-[1fr_100px_100px_100px] items-center gap-4 rounded-lg border px-4 py-4"
+                                        >
                                             {/* ✅ Setting Info - Now takes more space */}
                                             <div className="flex items-start space-x-3">
                                                 <SettingIcon className="text-muted-foreground mt-0.5 h-5 w-5 flex-shrink-0" />
@@ -278,7 +279,8 @@ export function NotificationSettingsForm({
                                                         {setting.recommended && (
                                                             <Badge
                                                                 variant="secondary"
-                                                                className="flex-shrink-0 text-xs">
+                                                                className="flex-shrink-0 text-xs"
+                                                            >
                                                                 Recommended
                                                             </Badge>
                                                         )}
@@ -297,7 +299,7 @@ export function NotificationSettingsForm({
                                                         checked={getPreferenceValue(
                                                             setting.channels.email
                                                         )}
-                                                        onCheckedChange={checked =>
+                                                        onCheckedChange={(checked) =>
                                                             updatePreference(
                                                                 setting.channels.email!,
                                                                 checked
@@ -319,7 +321,7 @@ export function NotificationSettingsForm({
                                                         checked={getPreferenceValue(
                                                             setting.channels.sms
                                                         )}
-                                                        onCheckedChange={checked =>
+                                                        onCheckedChange={(checked) =>
                                                             updatePreference(
                                                                 setting.channels.sms!,
                                                                 checked
@@ -341,7 +343,7 @@ export function NotificationSettingsForm({
                                                         checked={getPreferenceValue(
                                                             setting.channels.app
                                                         )}
-                                                        onCheckedChange={checked =>
+                                                        onCheckedChange={(checked) =>
                                                             updatePreference(
                                                                 setting.channels.app!,
                                                                 checked
@@ -383,9 +385,10 @@ export function NotificationSettingsForm({
                                             'emailMarketing',
                                             'emailNewsletters',
                                         ];
-                                        emailKeys.forEach(key => updatePreference(key, true));
+                                        emailKeys.forEach((key) => updatePreference(key, true));
                                         toast.success('All email notifications enabled');
-                                    }}>
+                                    }}
+                                >
                                     <Mail className="mr-2 h-4 w-4" />
                                     Enable All Email
                                 </Button>
@@ -405,7 +408,7 @@ export function NotificationSettingsForm({
                                             'appSystemUpdates',
                                         ];
 
-                                        Object.keys(preferences).forEach(key => {
+                                        Object.keys(preferences).forEach((key) => {
                                             if (key !== 'id' && key !== 'userId') {
                                                 updatePreference(
                                                     key as keyof NotificationPreferences,
@@ -414,9 +417,10 @@ export function NotificationSettingsForm({
                                             }
                                         });
 
-                                        essentialKeys.forEach(key => updatePreference(key, true));
+                                        essentialKeys.forEach((key) => updatePreference(key, true));
                                         toast.success('Essential notifications enabled');
-                                    }}>
+                                    }}
+                                >
                                     <Shield className="mr-2 h-4 w-4" />
                                     Essential Only
                                 </Button>

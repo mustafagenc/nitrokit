@@ -24,7 +24,8 @@ export async function GET() {
                     alignItems: 'center',
                     justifyContent: 'center',
                     backgroundImage: `url(${baseUrl}/images/bg/patterns/geometry2.png)`,
-                }}>
+                }}
+            >
                 <div tw="flex">
                     <div tw="flex flex-col w-full py-12 px-4 md:items-center justify-between p-8 ">
                         <p>
@@ -45,18 +46,19 @@ export async function GET() {
                         </p>
                         <p tw="text-3xl font-bold text-gray-900">
                             {t.rich('auth.slogan1', {
-                                span: children => (
+                                span: (children) => (
                                     <span className="font-extrabold text-red-600">{children}</span>
                                 ),
                             })}
                         </p>
                         <p tw="text-3xl font-bold text-gray-900">
                             {t.rich('auth.slogan2', {
-                                link: children => (
+                                link: (children) => (
                                     <a
                                         href="https://github.com/mustafagenc/nitrokit"
                                         target="_blank"
-                                        className="text-blue-700 underline underline-offset-2 hover:text-blue-800">
+                                        className="text-blue-700 underline underline-offset-2 hover:text-blue-800"
+                                    >
                                         {children}
                                     </a>
                                 ),

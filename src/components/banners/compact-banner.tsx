@@ -61,7 +61,8 @@ export const CompactBanner = ({
                 className
             )}
             onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}>
+            onMouseLeave={() => setIsHovered(false)}
+        >
             {/* Background glow effect */}
             <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
@@ -71,7 +72,8 @@ export const CompactBanner = ({
                     'relative z-10 flex items-center gap-1.5 rounded-xl px-3 py-1 text-xs font-bold transition-all duration-300',
                     currentVariant.badge,
                     animated && 'group-hover:scale-105'
-                )}>
+                )}
+            >
                 {icon && <span className="text-current">{icon}</span>}
                 {badge}
             </span>

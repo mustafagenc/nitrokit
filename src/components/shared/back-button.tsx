@@ -12,7 +12,8 @@ export default function BackButton({ href, className }: { href?: string; classNa
             className={cn(
                 'flex flex-row items-center justify-center gap-1 rounded-sm py-1 pr-6 pl-3 text-sm hover:underline hover:underline-offset-2',
                 className
-            )}>
+            )}
+        >
             <ChevronLeft className="size-4" />
             {t(href ? 'common.goBack' : 'common.backToHome')}
         </Link>

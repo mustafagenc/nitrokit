@@ -28,7 +28,7 @@ const deleteAccountSchema = z
         password: z.string().optional(),
         confirmText: z.string().min(1, 'Please type "DELETE" to confirm'),
     })
-    .refine(data => data.confirmText === 'DELETE', {
+    .refine((data) => data.confirmText === 'DELETE', {
         message: 'You must type "DELETE" exactly',
         path: ['confirmText'],
     });
@@ -163,7 +163,8 @@ export function DeleteAccountForm({ hasPassword, userEmail }: DeleteAccountFormP
                                                 size="sm"
                                                 className="absolute top-0 right-0 h-full px-3 py-2 hover:bg-transparent"
                                                 onClick={() => setShowPassword(!showPassword)}
-                                                disabled={isLoading}>
+                                                disabled={isLoading}
+                                            >
                                                 {showPassword ? (
                                                     <EyeOff className="text-muted-foreground h-4 w-4" />
                                                 ) : (
@@ -206,7 +207,8 @@ export function DeleteAccountForm({ hasPassword, userEmail }: DeleteAccountFormP
                                     <AlertDialogAction
                                         type="submit"
                                         disabled={isLoading || !isValid}
-                                        className="bg-destructive hover:bg-destructive/90">
+                                        className="bg-destructive hover:bg-destructive/90"
+                                    >
                                         {isLoading && (
                                             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                                         )}

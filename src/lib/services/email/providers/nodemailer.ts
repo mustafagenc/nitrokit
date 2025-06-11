@@ -172,7 +172,7 @@ export class NodemailerProvider implements EmailProvider {
     }
 
     private convertAttachments(attachments: EmailAttachment[]): NodemailerAttachment[] {
-        return attachments.map(att => ({
+        return attachments.map((att) => ({
             filename: att.filename,
             content: att.content,
             contentType: att.contentType,

@@ -49,7 +49,8 @@ const ListItem = React.forwardRef<React.ElementRef<'a'>, React.ComponentPropsWit
                             'hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground block space-y-1 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none',
                             className
                         )}
-                        {...props}>
+                        {...props}
+                    >
                         <div className="text-sm leading-none font-medium">{title}</div>
                         <p className="text-muted-foreground line-clamp-2 text-sm leading-snug">
                             {children}
@@ -100,7 +101,7 @@ const components: { title: string; href: string; description: string }[] = [
 ];
 
 export const Default: Story = {
-    render: args => (
+    render: (args) => (
         <NavigationMenu {...args}>
             <NavigationMenuList>
                 <NavigationMenuItem>
@@ -111,7 +112,8 @@ export const Default: Story = {
                                 <NavigationMenuLink asChild>
                                     <a
                                         className="from-muted/50 to-muted flex size-full flex-col justify-end rounded-md bg-gradient-to-b p-6 no-underline outline-none select-none focus:shadow-md"
-                                        href="/">
+                                        href="/"
+                                    >
                                         <Rocket className="size-6" />
                                         <div className="mt-4 mb-2 text-lg font-medium">
                                             Nitro UI
@@ -139,11 +141,12 @@ export const Default: Story = {
                     <NavigationMenuTrigger>Components</NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                            {components.map(component => (
+                            {components.map((component) => (
                                 <ListItem
                                     key={component.title}
                                     title={component.title}
-                                    href={component.href}>
+                                    href={component.href}
+                                >
                                     {component.description}
                                 </ListItem>
                             ))}
@@ -159,7 +162,8 @@ export const Default: Story = {
                     <NavigationMenuLink
                         href="https://github.com/m-gdev/nitrokit"
                         target="_blank"
-                        className={navigationMenuTriggerStyle()}>
+                        className={navigationMenuTriggerStyle()}
+                    >
                         GitHub
                     </NavigationMenuLink>
                 </NavigationMenuItem>
@@ -170,7 +174,7 @@ export const Default: Story = {
 };
 
 export const SimpleLinks: Story = {
-    render: args => (
+    render: (args) => (
         <NavigationMenu {...args}>
             <NavigationMenuList>
                 <NavigationMenuItem>
@@ -195,7 +199,7 @@ export const SimpleLinks: Story = {
 };
 
 export const WithIndicator: Story = {
-    render: args => (
+    render: (args) => (
         <NavigationMenu {...args}>
             <NavigationMenuList>
                 <NavigationMenuItem>

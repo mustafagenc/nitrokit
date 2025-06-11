@@ -16,7 +16,8 @@ export const GithubButton = () => {
                 size="icon"
                 variant="outline"
                 className="hidden cursor-pointer rounded-full text-gray-500 hover:text-gray-700 lg:inline-flex"
-                onClick={githubUrl}>
+                onClick={githubUrl}
+            >
                 <GitHubIcon className="h-4 w-4" aria-hidden="true" />
             </Button>
         </Suspense>

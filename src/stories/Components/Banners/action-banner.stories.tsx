@@ -76,7 +76,7 @@ const meta = {
         },
     },
     decorators: [
-        Story => (
+        (Story) => (
             <NextIntlClientProvider locale="en" messages={messages.en}>
                 <div className="w-full max-w-4xl p-8">
                     <Story />

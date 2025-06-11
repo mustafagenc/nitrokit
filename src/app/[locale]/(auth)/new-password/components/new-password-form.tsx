@@ -44,7 +44,7 @@ export default function NewPasswordForm({ token }: NewPasswordFormProps) {
                 }),
             confirmPassword: z.string(),
         })
-        .refine(data => data.password === data.confirmPassword, {
+        .refine((data) => data.password === data.confirmPassword, {
             message: t('validation.password.noMatch'),
             path: ['confirmPassword'],
         });
@@ -128,7 +128,8 @@ export default function NewPasswordForm({ token }: NewPasswordFormProps) {
                                             variant="ghost"
                                             size="sm"
                                             className="absolute top-0 right-0 h-full px-3 py-2 hover:bg-transparent"
-                                            onClick={() => setShowPassword(!showPassword)}>
+                                            onClick={() => setShowPassword(!showPassword)}
+                                        >
                                             {showPassword ? (
                                                 <EyeOff className="h-4 w-4" />
                                             ) : (
@@ -163,7 +164,8 @@ export default function NewPasswordForm({ token }: NewPasswordFormProps) {
                                             className="absolute top-0 right-0 h-full px-3 py-2 hover:bg-transparent"
                                             onClick={() =>
                                                 setShowConfirmPassword(!showConfirmPassword)
-                                            }>
+                                            }
+                                        >
                                             {showConfirmPassword ? (
                                                 <EyeOff className="h-4 w-4" />
                                             ) : (
@@ -180,7 +182,8 @@ export default function NewPasswordForm({ token }: NewPasswordFormProps) {
                     <Button
                         type="submit"
                         className="flex w-full cursor-pointer items-center justify-center gap-2 bg-blue-600 hover:bg-blue-600/80"
-                        disabled={isLoading}>
+                        disabled={isLoading}
+                    >
                         {isLoading ? t('common.loading') : t('auth.resetPassword.confirm')}
                     </Button>
                 </form>

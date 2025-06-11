@@ -45,14 +45,14 @@ function useInAppNotifications() {
             });
 
             if (response.ok) {
-                setNotifications(prev =>
-                    prev.map(notification =>
+                setNotifications((prev) =>
+                    prev.map((notification) =>
                         notification.id === notificationId
                             ? { ...notification, read: true }
                             : notification
                     )
                 );
-                setUnreadCount(prev => Math.max(0, prev - 1));
+                setUnreadCount((prev) => Math.max(0, prev - 1));
             }
         } catch (error) {
             console.error('Mark as read error:', error);
@@ -68,8 +68,8 @@ function useInAppNotifications() {
             });
 
             if (response.ok) {
-                setNotifications(prev =>
-                    prev.map(notification => ({ ...notification, read: true }))
+                setNotifications((prev) =>
+                    prev.map((notification) => ({ ...notification, read: true }))
                 );
                 setUnreadCount(0);
                 toast.success('All notifications marked as read');
@@ -89,11 +89,11 @@ function useInAppNotifications() {
                 });
 
                 if (response.ok) {
-                    const deletedNotification = notifications.find(n => n.id === notificationId);
-                    setNotifications(prev => prev.filter(n => n.id !== notificationId));
+                    const deletedNotification = notifications.find((n) => n.id === notificationId);
+                    setNotifications((prev) => prev.filter((n) => n.id !== notificationId));
 
                     if (deletedNotification && !deletedNotification.read) {
-                        setUnreadCount(prev => Math.max(0, prev - 1));
+                        setUnreadCount((prev) => Math.max(0, prev - 1));
                     }
 
                     toast.success('Notification deleted');

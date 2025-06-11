@@ -26,11 +26,12 @@ export const CompactThemeSwitcher = () => {
                 <ToggleGroup
                     type="single"
                     value={theme || 'system'}
-                    onValueChange={value => {
+                    onValueChange={(value) => {
                         if (value) setTheme(value);
                     }}
                     className="border-border/30 bg-background/60 rounded-lg border p-1 backdrop-blur-sm"
-                    size="sm">
+                    size="sm"
+                >
                     {themes.map(({ value, icon: Icon, label }) => (
                         <Tooltip key={value}>
                             <TooltipTrigger asChild>
@@ -41,7 +42,8 @@ export const CompactThemeSwitcher = () => {
                                         theme === value
                                             ? 'bg-primary/10 text-primary'
                                             : 'hover:bg-accent/30 opacity-60 hover:opacity-100'
-                                    } `}>
+                                    } `}
+                                >
                                     <Icon
                                         size={12}
                                         className={theme === value ? 'text-primary' : 'opacity-70'}

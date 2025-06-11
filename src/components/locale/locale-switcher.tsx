@@ -37,19 +37,21 @@ export const LocaleSwitcher = () => {
                     <Button
                         size="icon"
                         variant="outline"
-                        className="cursor-pointer rounded-full text-gray-500 hover:text-gray-700">
+                        className="cursor-pointer rounded-full text-gray-500 hover:text-gray-700"
+                    >
                         <Globe className="h-4 w-4" />
                     </Button>
                 </PopoverTrigger>
                 <PopoverContent className="w-35 p-1 shadow-xs" side="bottom">
-                    {localesWithFlag.map(elt => (
+                    {localesWithFlag.map((elt) => (
                         <div
                             key={elt.id}
                             className="flex cursor-pointer flex-row items-center gap-3 p-1 hover:bg-gray-100 dark:hover:bg-gray-700"
                             onClick={() => {
                                 handleChange(elt.id);
                                 setOpen(false);
-                            }}>
+                            }}
+                        >
                             <div className="flex">
                                 <Image
                                     src={elt.flag}

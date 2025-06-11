@@ -47,9 +47,11 @@ export default async function RootLayout({
             lang={locale}
             dir={direction}
             suppressHydrationWarning={true}
-            className="scroll-smooth">
+            className="scroll-smooth"
+        >
             <body
-                className={`${geistSans.variable} ${geistMono.variable} ${lexend.variable} font-[family-name:var(--font-lexend)] antialiased`}>
+                className={`${geistSans.variable} ${geistMono.variable} ${lexend.variable} font-[family-name:var(--font-lexend)] antialiased`}
+            >
                 <NextIntlClientProvider>
                     <NextThemeProvider>
                         <AnalyticsProvider>

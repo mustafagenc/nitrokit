@@ -18,16 +18,16 @@ const registerSchema = z.object({
         .string()
         .min(6)
         .max(20)
-        .refine(password => /[A-Z]/.test(password), {
+        .refine((password) => /[A-Z]/.test(password), {
             message: 'Password must contain at least one uppercase letter',
         })
-        .refine(password => /[a-z]/.test(password), {
+        .refine((password) => /[a-z]/.test(password), {
             message: 'Password must contain at least one lowercase letter',
         })
-        .refine(password => /[0-9]/.test(password), {
+        .refine((password) => /[0-9]/.test(password), {
             message: 'Password must contain at least one number',
         })
-        .refine(password => /[!@#$%^&*]/.test(password), {
+        .refine((password) => /[!@#$%^&*]/.test(password), {
             message: 'Password must contain at least one special character',
         }),
 });
@@ -53,7 +53,7 @@ export async function POST(request: NextRequest) {
                 ...validationErrors,
                 action: 'validation_failed',
                 errorCount: result.error.errors.length,
-                fields: result.error.errors.map(err => err.path.join('.')).join(', '),
+                fields: result.error.errors.map((err) => err.path.join('.')).join(', '),
             });
 
             return NextResponse.json(
@@ -181,7 +181,7 @@ export async function POST(request: NextRequest) {
                 email: user.email,
                 name: user.name || 'User',
                 userId: user.id,
-            }).catch(error => {
+            }).catch((error) => {
                 // Welcome email failure shouldn't block registration
                 logger.warn('Welcome email failed but registration succeeded', {
                     error: error instanceof Error ? error.message : 'Unknown error',

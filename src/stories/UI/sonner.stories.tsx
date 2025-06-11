@@ -63,7 +63,7 @@ export default meta;
 type Story = StoryObj<typeof Toaster>;
 
 const ToastDemoButtons: React.FC = () => {
-    const promise = () => new Promise(resolve => setTimeout(resolve, 2000));
+    const promise = () => new Promise((resolve) => setTimeout(resolve, 2000));
 
     return (
         <div className="flex flex-col items-start gap-4 p-8">
@@ -78,7 +78,8 @@ const ToastDemoButtons: React.FC = () => {
                         toast.message('Event has been created', {
                             description: 'Monday, January 23, 2024 at 10:00 AM',
                         })
-                    }>
+                    }
+                >
                     With Description
                 </Button>
                 <Button
@@ -87,7 +88,8 @@ const ToastDemoButtons: React.FC = () => {
                         toast.success('Event has been created successfully!', {
                             description: 'Your event is now live.',
                         })
-                    }>
+                    }
+                >
                     Success
                 </Button>
                 <Button
@@ -96,7 +98,8 @@ const ToastDemoButtons: React.FC = () => {
                         toast.info('Event has been updated.', {
                             description: 'Changes have been saved.',
                         })
-                    }>
+                    }
+                >
                     Info
                 </Button>
                 <Button
@@ -105,7 +108,8 @@ const ToastDemoButtons: React.FC = () => {
                         toast.warning('Event has a conflict.', {
                             description: 'Please check the schedule.',
                         })
-                    }>
+                    }
+                >
                     Warning
                 </Button>
                 <Button
@@ -114,7 +118,8 @@ const ToastDemoButtons: React.FC = () => {
                         toast.error('Event could not be created.', {
                             description: 'An unexpected error occurred.',
                         })
-                    }>
+                    }
+                >
                     Error
                 </Button>
                 <Button
@@ -126,7 +131,8 @@ const ToastDemoButtons: React.FC = () => {
                                 onClick: () => console.log('Undo!'),
                             },
                         })
-                    }>
+                    }
+                >
                     With Action
                 </Button>
                 <Button
@@ -137,7 +143,8 @@ const ToastDemoButtons: React.FC = () => {
                             success: 'Data fetched successfully!',
                             error: 'Error fetching data.',
                         })
-                    }>
+                    }
+                >
                     With Promise
                 </Button>
                 <Button
@@ -158,7 +165,8 @@ const ToastDemoButtons: React.FC = () => {
                                 </div>
                             </div>
                         )
-                    }>
+                    }
+                >
                     Custom JSX
                 </Button>
                 <Button
@@ -168,7 +176,8 @@ const ToastDemoButtons: React.FC = () => {
                             description: 'This may take a few moments.',
                             duration: 5000, // Show loading for 5s
                         })
-                    }>
+                    }
+                >
                     Loading Toast
                 </Button>
                 <Button
@@ -178,7 +187,8 @@ const ToastDemoButtons: React.FC = () => {
                         setTimeout(() => {
                             toast.success('Profile updated!', { id });
                         }, 2000);
-                    }}>
+                    }}
+                >
                     Update Toast (Loading then Success)
                 </Button>
                 <Button
@@ -192,7 +202,8 @@ const ToastDemoButtons: React.FC = () => {
                                 duration: 10000,
                             }
                         )
-                    }>
+                    }
+                >
                     Long Content (Expandable)
                 </Button>
             </div>
@@ -206,7 +217,7 @@ const ToastDemoButtons: React.FC = () => {
 };
 
 export const Default: Story = {
-    render: args => (
+    render: (args) => (
         <>
             <Toaster {...args} />
             <ToastDemoButtons />
@@ -268,7 +279,7 @@ export const DarkTheme: Story = {
 // Sonner's richColors prop automatically adds icons.
 // If you want fully custom icons, you'd typically use the custom JSX method.
 export const CustomIconsInJSX: Story = {
-    render: args => (
+    render: (args) => (
         <>
             <Toaster {...args} />
             <div className="flex flex-col items-start gap-4 p-8">
@@ -286,7 +297,8 @@ export const CustomIconsInJSX: Story = {
                                 </div>
                             </div>
                         )
-                    }>
+                    }
+                >
                     Custom Success JSX
                 </Button>
                 <Button
@@ -304,7 +316,8 @@ export const CustomIconsInJSX: Story = {
                             </div>,
                             { duration: 6000 }
                         )
-                    }>
+                    }
+                >
                     Custom Error JSX
                 </Button>
             </div>

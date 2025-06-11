@@ -81,7 +81,7 @@ export const DisabledIndeterminate: Story = {
 };
 
 export const WithLabel: Story = {
-    render: args => (
+    render: (args) => (
         <div className="flex items-center space-x-2">
             <Checkbox id="terms" {...args} />
             <Label htmlFor="terms">Accept terms and conditions</Label>
@@ -93,7 +93,7 @@ export const WithLabel: Story = {
 };
 
 export const WithLabelDisabled: Story = {
-    render: args => (
+    render: (args) => (
         <div className="flex items-center space-x-2">
             <Checkbox id="newsletter" {...args} />
             <Label htmlFor="newsletter" className={args.disabled ? 'text-muted-foreground' : ''}>
@@ -108,13 +108,14 @@ export const WithLabelDisabled: Story = {
 };
 
 export const WithLabelAndLongText: Story = {
-    render: args => (
+    render: (args) => (
         <div className="items-top flex space-x-2">
             <Checkbox id="long-text" {...args} />
             <div className="grid gap-1.5 leading-none">
                 <Label
                     htmlFor="long-text"
-                    className="text-sm leading-none font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                    className="text-sm leading-none font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                >
                     I agree to the terms and conditions
                 </Label>
                 <p className="text-muted-foreground text-sm">

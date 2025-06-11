@@ -17,7 +17,7 @@ const meta: Meta<typeof Pagination> = {
     parameters: {
         layout: 'centered',
     },
-    render: args => (
+    render: (args) => (
         <Pagination {...args}>
             <PaginationContent>
                 <PaginationItem>
@@ -53,7 +53,7 @@ export const Default: Story = {
 };
 
 export const WithMorePages: Story = {
-    render: args => (
+    render: (args) => (
         <Pagination {...args}>
             <PaginationContent>
                 <PaginationItem>
@@ -91,13 +91,13 @@ export const WithMorePages: Story = {
 };
 
 export const FirstPage: Story = {
-    render: args => (
+    render: (args) => (
         <Pagination {...args}>
             <PaginationContent>
                 <PaginationItem>
                     <PaginationPrevious
                         href="#"
-                        onClick={e => e.preventDefault()}
+                        onClick={(e) => e.preventDefault()}
                         className="pointer-events-none opacity-50"
                     />
                 </PaginationItem>
@@ -127,7 +127,7 @@ export const FirstPage: Story = {
 };
 
 export const LastPage: Story = {
-    render: args => (
+    render: (args) => (
         <Pagination {...args}>
             <PaginationContent>
                 <PaginationItem>
@@ -153,7 +153,7 @@ export const LastPage: Story = {
                 <PaginationItem>
                     <PaginationNext
                         href="#"
-                        onClick={e => e.preventDefault()}
+                        onClick={(e) => e.preventDefault()}
                         className="pointer-events-none opacity-50"
                     />
                 </PaginationItem>

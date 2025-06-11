@@ -73,7 +73,7 @@ const localesWithFlag = [
  */
 function localesForMetadata(): { [key: string]: string }[] {
     const baseUrl = getBaseUrl();
-    return locales.map(locale => {
+    return locales.map((locale) => {
         return {
             [locale]: `${baseUrl}/${locale}`,
         };

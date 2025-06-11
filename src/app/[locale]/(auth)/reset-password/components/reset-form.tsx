@@ -116,7 +116,8 @@ export default function ResetPasswordForm() {
                 <Button
                     type="submit"
                     className="flex w-full cursor-pointer items-center justify-center gap-2 bg-blue-600 hover:bg-blue-600/80"
-                    disabled={isLoading}>
+                    disabled={isLoading}
+                >
                     {isLoading ? t('common.loading') : t('auth.resetPassword.sendEmail')}
                 </Button>
             </form>

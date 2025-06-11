@@ -44,14 +44,14 @@ export default meta;
 type Story = StoryObj<typeof Switch>;
 
 export const Default: Story = {
-    render: args => <Switch {...args} />,
+    render: (args) => <Switch {...args} />,
     args: {
         // Default args if any, e.g., defaultChecked: false
     },
 };
 
 export const Checked: Story = {
-    render: args => <Switch {...args} />,
+    render: (args) => <Switch {...args} />,
     args: {
         checked: true,
     },
@@ -73,7 +73,7 @@ export const Disabled: Story = {
 };
 
 export const WithLabel: Story = {
-    render: args => (
+    render: (args) => (
         <div className="flex items-center space-x-2">
             <Switch {...args} id="airplane-mode" />
             <Label htmlFor="airplane-mode">Airplane Mode</Label>
@@ -104,7 +104,8 @@ export const Controlled: Story = {
                 </p>
                 <button
                     onClick={() => setIsChecked(!isChecked)}
-                    className="mt-2 rounded border p-1 text-xs">
+                    className="mt-2 rounded border p-1 text-xs"
+                >
                     Toggle Programmatically
                 </button>
             </div>
@@ -116,7 +117,7 @@ export const Controlled: Story = {
 };
 
 export const WithLabelOnLeft: Story = {
-    render: args => (
+    render: (args) => (
         <div className="flex items-center space-x-2">
             <Label htmlFor="dark-mode-switch">Dark Mode</Label>
             <Switch {...args} id="dark-mode-switch" />

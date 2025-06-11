@@ -9,7 +9,8 @@ export function SignOutButton() {
         <Button
             size={'sm'}
             className="text-primary w-full cursor-pointer border-1 bg-white p-2 text-xs shadow-2xs outline-hidden hover:bg-gray-100 dark:bg-black dark:hover:bg-black/60"
-            onClick={() => signOut()}>
+            onClick={() => signOut()}
+        >
             <span>{t('signout')}</span>
         </Button>
     );

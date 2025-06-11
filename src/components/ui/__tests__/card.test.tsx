@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent } from '../card';
+import { describe, it, expect } from 'vitest';
 
 describe('Card', () => {
     it('renders card with all subcomponents', () => {

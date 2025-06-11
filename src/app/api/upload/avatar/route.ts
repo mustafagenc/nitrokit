@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { del, put } from '@vercel/blob';
-import { auth } from '@/auth';
+import { auth } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
 import { logger } from '@/lib/services/logger';
 import { normalizeError } from '@/lib/utils/error-handler';

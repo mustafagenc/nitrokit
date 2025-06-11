@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { auth } from '@/auth';
+import { auth } from '@/lib/auth';
 import { InAppNotificationService } from '@/lib/services/inapp-notification-service';
 
 export async function POST() {
