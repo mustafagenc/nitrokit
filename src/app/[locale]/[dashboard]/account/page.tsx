@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { redirect } from 'next/navigation';
-import Link from 'next/link';
+import { Link } from '@/lib/i18n/navigation';
 import { auth } from '@/auth';
 import { prisma } from '@/lib/prisma';
 import { generatePageMetadata } from '@/lib';
@@ -79,7 +79,6 @@ export default async function AccountOverviewPage() {
     const getRecentActivity = () => {
         const activities = [];
 
-        // Add actual sessions if they exist (sadece 2 tane al)
         if (user.sessions && user.sessions.length > 0) {
             user.sessions.slice(0, 2).forEach((session, index) => {
                 activities.push({
@@ -94,7 +93,6 @@ export default async function AccountOverviewPage() {
             });
         }
 
-        // Add account creation activity
         activities.push({
             id: 'account-created',
             type: 'account',
@@ -105,7 +103,6 @@ export default async function AccountOverviewPage() {
             status: 'completed',
         });
 
-        // Add email verification if verified
         if (user.emailVerified) {
             activities.push({
                 id: 'email-verified',
@@ -118,9 +115,8 @@ export default async function AccountOverviewPage() {
             });
         }
 
-        // Add connected accounts (sadece 1 tane al)
         if (user.accounts.length > 0) {
-            const account = user.accounts[0]; // Sadece ilk account'u al
+            const account = user.accounts[0];
             activities.push({
                 id: `account-0`,
                 type: 'connection',
@@ -132,7 +128,6 @@ export default async function AccountOverviewPage() {
             });
         }
 
-        // Sort by date and return latest 3 (4 yerine 3)
         return activities
             .sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime())
             .slice(0, 3);
@@ -140,26 +135,26 @@ export default async function AccountOverviewPage() {
 
     const recentActivity = getRecentActivity();
 
-    // Security score hesaplama
     const calculateSecurityScore = () => {
         let score = 0;
         const maxScore = 100;
 
-        // Email verified (+25)
         if (user.emailVerified) score += 25;
 
-        // Password strength (+30)
-        if (securityStatus.passwordStrength === 'strong') score += 30;
-        else if (securityStatus.passwordStrength === 'medium') score += 20;
-        else if (securityStatus.passwordStrength === 'weak') score += 10;
+        if (!user.password) {
+            score += 0;
+        } else if (securityStatus.passwordStrength === 'strong') {
+            score += 30;
+        } else if (securityStatus.passwordStrength === 'medium') {
+            score += 20;
+        } else if (securityStatus.passwordStrength === 'weak') {
+            score += 10;
+        }
 
-        // 2FA enabled (+25)
         if (securityStatus.twoFactorEnabled) score += 25;
 
-        // Phone verified (+10)
         if (user.phoneVerified) score += 10;
 
-        // Recent activity (+10)
         if (securityStatus.activeSessions <= 3) score += 10;
 
         return Math.min(score, maxScore);
@@ -167,7 +162,6 @@ export default async function AccountOverviewPage() {
 
     const securityScore = calculateSecurityScore();
 
-    // Security recommendations
     const getSecurityRecommendations = () => {
         const recommendations = [];
 
@@ -181,6 +175,24 @@ export default async function AccountOverviewPage() {
             });
         }
 
+        if (!user.password) {
+            recommendations.push({
+                type: 'warning',
+                title: 'Set account password',
+                description: 'Add a password to enable backup login method and enhance security',
+                action: 'Set Password',
+                href: '/dashboard/account/security/password',
+            });
+        } else if (securityStatus.passwordStrength === 'weak') {
+            recommendations.push({
+                type: 'error',
+                title: 'Weak password detected',
+                description: 'Your password is weak and should be updated',
+                action: 'Change Password',
+                href: '/dashboard/account/security/password',
+            });
+        }
+
         if (!securityStatus.twoFactorEnabled) {
             recommendations.push({
                 type: 'warning',
@@ -188,16 +200,6 @@ export default async function AccountOverviewPage() {
                 description: 'Add an extra layer of security to your account',
                 action: 'Enable 2FA',
                 href: '/dashboard/account/security/two-factor',
-            });
-        }
-
-        if (securityStatus.passwordStrength === 'weak') {
-            recommendations.push({
-                type: 'error',
-                title: 'Weak password detected',
-                description: 'Your password is weak and should be updated',
-                action: 'Change Password',
-                href: '/dashboard/account/security/password',
             });
         }
 
@@ -233,7 +235,6 @@ export default async function AccountOverviewPage() {
                 </Button>
             </div>
 
-            {/* Security Recommendations */}
             {recommendations.length > 0 && (
                 <div className="space-y-3">
                     <h3 className="text-lg font-semibold">Security Recommendations</h3>
@@ -257,7 +258,6 @@ export default async function AccountOverviewPage() {
             )}
 
             <div className="grid gap-6 lg:grid-cols-3">
-                {/* Security Score */}
                 <Card className="lg:col-span-1">
                     <CardHeader>
                         <CardTitle className="flex items-center gap-2">
@@ -303,7 +303,6 @@ export default async function AccountOverviewPage() {
                     </CardContent>
                 </Card>
 
-                {/* Account Status */}
                 <Card className="lg:col-span-2">
                     <CardHeader>
                         <CardTitle className="flex items-center gap-2">
@@ -370,28 +369,34 @@ export default async function AccountOverviewPage() {
                                 </div>
                                 <Badge
                                     variant={
-                                        securityStatus.passwordStrength === 'strong'
-                                            ? 'default'
-                                            : securityStatus.passwordStrength === 'medium'
-                                              ? 'secondary'
-                                              : 'destructive'
+                                        !user.password
+                                            ? 'destructive'
+                                            : securityStatus.passwordStrength === 'strong'
+                                              ? 'default'
+                                              : securityStatus.passwordStrength === 'medium'
+                                                ? 'secondary'
+                                                : 'destructive'
                                     }
                                     className={
-                                        securityStatus.passwordStrength === 'strong'
-                                            ? 'bg-green-500 hover:bg-green-600'
-                                            : securityStatus.passwordStrength === 'medium'
-                                              ? 'bg-yellow-500 hover:bg-yellow-600'
-                                              : securityStatus.passwordStrength === 'weak'
-                                                ? 'bg-red-500 hover:bg-red-600'
-                                                : 'bg-gray-500 hover:bg-gray-600'
+                                        !user.password
+                                            ? 'bg-red-500 hover:bg-red-600'
+                                            : securityStatus.passwordStrength === 'strong'
+                                              ? 'bg-green-500 hover:bg-green-600'
+                                              : securityStatus.passwordStrength === 'medium'
+                                                ? 'bg-yellow-500 hover:bg-yellow-600'
+                                                : securityStatus.passwordStrength === 'weak'
+                                                  ? 'bg-red-500 hover:bg-red-600'
+                                                  : 'bg-gray-500 hover:bg-gray-600'
                                     }>
-                                    {securityStatus.passwordStrength === 'strong'
-                                        ? 'Strong'
-                                        : securityStatus.passwordStrength === 'medium'
-                                          ? 'Medium'
-                                          : securityStatus.passwordStrength === 'weak'
-                                            ? 'Weak'
-                                            : 'Unknown'}
+                                    {!user.password
+                                        ? 'Not Set'
+                                        : securityStatus.passwordStrength === 'strong'
+                                          ? 'Strong'
+                                          : securityStatus.passwordStrength === 'medium'
+                                            ? 'Medium'
+                                            : securityStatus.passwordStrength === 'weak'
+                                              ? 'Weak'
+                                              : 'Unknown'}
                                 </Badge>
                             </div>
 
@@ -424,7 +429,6 @@ export default async function AccountOverviewPage() {
             </div>
 
             <div className="grid gap-6 md:grid-cols-2">
-                {/* Account Details */}
                 <Card>
                     <CardHeader>
                         <CardTitle className="flex items-center gap-2">
@@ -470,7 +474,6 @@ export default async function AccountOverviewPage() {
                     </CardContent>
                 </Card>
 
-                {/* Recent Activity */}
                 <Card>
                     <CardHeader>
                         <CardTitle className="flex items-center gap-2">
@@ -561,7 +564,6 @@ export default async function AccountOverviewPage() {
                 </Card>
             </div>
 
-            {/* Connected Accounts */}
             {user.accounts.length > 0 && (
                 <Card>
                     <CardHeader>

@@ -13,9 +13,10 @@ export default async function Page() {
             <h2 className="text-center text-xl font-bold">
                 {t('signup.title', { appName: t('app.name') })}
             </h2>
-            <div className="mt-3 grid w-full grid-cols-1 gap-3 text-center lg:grid-cols-2">
-                <SignWithButton provider="google" />
-                <SignWithButton provider="github" />
+            <div className="mt-3 grid w-full grid-cols-3 gap-3 text-center">
+                <SignWithButton provider="google" onlyIcon={true} />
+                <SignWithButton provider="github" onlyIcon={true} />
+                <SignWithButton provider="facebook" onlyIcon={true} />
             </div>
             <hr className="my-3 h-px w-64 border-0 bg-gray-200 dark:bg-gray-700" />
             <SignupForm />

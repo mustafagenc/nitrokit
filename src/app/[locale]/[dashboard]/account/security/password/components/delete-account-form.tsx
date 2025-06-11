@@ -1,4 +1,3 @@
-// src/app/[locale]/[dashboard]/account/components/delete-account-form.tsx
 'use client';
 
 import { useState } from 'react';

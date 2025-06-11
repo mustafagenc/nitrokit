@@ -13,16 +13,109 @@ import { prisma } from '@/lib/prisma';
 import { PrismaAdapter } from '@auth/prisma-adapter';
 import { TwoFactorService } from './lib/auth/two-factor-service';
 
+const defaultLocale = 'en';
+const defaultTheme = 'system';
+const defaultRole = 'User';
+
 export const { handlers, signIn, signOut, auth } = NextAuth({
     adapter: PrismaAdapter(prisma),
     providers: [
-        Google,
-        GitHub,
-        GitLab,
         Resend,
-        Apple,
-        Instagram,
-        Facebook,
+        Google({
+            profile(profile) {
+                return {
+                    id: profile.sub,
+                    email: profile.email || '',
+                    name: profile.name || '',
+                    image: profile.picture || '',
+                    firstName: profile.given_name,
+                    lastName: profile.family_name,
+                    role: defaultRole,
+                    locale: profile.locale || defaultLocale,
+                    theme: defaultTheme,
+                    twoFactorEnabled: false,
+                    emailVerified: true,
+                };
+            },
+        }),
+        GitHub({
+            profile(profile) {
+                return {
+                    id: profile.id.toString(),
+                    email: profile.email || '',
+                    name: profile.name || profile.login || '',
+                    image: profile.avatar_url || '',
+                    role: defaultRole,
+                    locale: defaultLocale,
+                    theme: defaultTheme,
+                    twoFactorEnabled: false,
+                    emailVerified: true,
+                };
+            },
+        }),
+        GitLab({
+            profile(profile) {
+                return {
+                    id: profile.id.toString(),
+                    email: profile.email || '',
+                    name: profile.name || '',
+                    image: profile.avatar_url || '',
+                    role: defaultRole,
+                    locale: defaultLocale,
+                    theme: defaultTheme,
+                    twoFactorEnabled: false,
+                    emailVerified: true,
+                };
+            },
+        }),
+        Facebook({
+            profile(profile) {
+                return {
+                    id: profile.id,
+                    email: profile.email || '',
+                    name: profile.name || '',
+                    image: profile.picture?.data?.url || '',
+                    role: defaultRole,
+                    locale: profile.locale || defaultLocale,
+                    theme: defaultTheme,
+                    twoFactorEnabled: false,
+                    emailVerified: true,
+                };
+            },
+        }),
+        Apple({
+            profile(profile) {
+                return {
+                    id: profile.sub,
+                    email: profile.email || '',
+                    name:
+                        profile.name ||
+                        `${profile.firstName || ''} ${profile.lastName || ''}`.trim() ||
+                        '',
+                    image: profile.picture || '',
+                    role: defaultRole,
+                    locale: defaultLocale,
+                    theme: defaultTheme,
+                    twoFactorEnabled: false,
+                    emailVerified: true,
+                };
+            },
+        }),
+        Instagram({
+            profile(profile) {
+                return {
+                    id: profile.id.toString(),
+                    email: profile.email || '',
+                    name: profile.name || profile.username || '',
+                    image: profile.picture || '',
+                    role: defaultRole,
+                    locale: defaultLocale,
+                    theme: defaultTheme,
+                    twoFactorEnabled: false,
+                    emailVerified: !!profile.email,
+                };
+            },
+        }),
         Credentials({
             name: 'credentials',
             credentials: {
@@ -121,6 +214,29 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                 session.user.twoFactorEnabled = token.twoFactorEnabled;
                 session.user.locale = (token.locale as string) || 'en';
                 session.user.theme = (token.theme as string) || 'light';
+
+                try {
+                    const dbUser = await prisma.user.findUnique({
+                        where: { id: token.sub },
+                        select: {
+                            name: true,
+                            image: true,
+                            firstName: true,
+                            lastName: true,
+                            username: true,
+                        },
+                    });
+
+                    if (dbUser) {
+                        session.user.name = dbUser.name;
+                        session.user.image = dbUser.image;
+                        session.user.firstName = dbUser.firstName;
+                        session.user.lastName = dbUser.lastName;
+                        session.user.username = dbUser.username;
+                    }
+                } catch (error) {
+                    console.error('Session update error:', error);
+                }
             }
             return session;
         },
@@ -140,6 +256,16 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
                 if (dbUser) {
                     user.role = dbUser.role;
+                    await prisma.user.update({
+                        where: { id: dbUser.id },
+                        data: {
+                            name: user.name || dbUser.name,
+                            image: user.image || dbUser.image,
+                            firstName: user.firstName || dbUser.firstName,
+                            lastName: user.lastName || dbUser.lastName,
+                            lastLoginAt: new Date(),
+                        },
+                    });
                 } else {
                     user.role = 'User';
                 }
