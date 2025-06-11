@@ -2,6 +2,9 @@ import crypto from 'crypto';
 import { prisma } from '@/lib/prisma';
 import { v4 as uuidv4 } from 'uuid';
 import { logger } from '@/lib/services/logger';
+import { randomBytes } from 'crypto';
+import { sign } from 'jsonwebtoken';
+import { User } from 'generated/prisma';
 
 export async function generateVerificationToken(email: string) {
     try {
@@ -306,4 +309,71 @@ export async function verifyTokenWithType(token: string) {
         );
         return { valid: false, error: 'Token verification failed' };
     }
+}
+
+export async function generateRefreshToken(userId: string): Promise<string> {
+    const token = randomBytes(40).toString('hex');
+    const expires = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000); // 30 gün
+
+    await prisma.refreshToken.create({
+        data: {
+            token,
+            userId,
+            expires,
+        },
+    });
+
+    return token;
+}
+
+export async function refreshAccessToken(refreshToken: string) {
+    try {
+        const token = await prisma.refreshToken.findUnique({
+            where: { token: refreshToken },
+            include: { user: true },
+        });
+
+        if (!token || token.expires < new Date()) {
+            throw new Error('Invalid or expired refresh token');
+        }
+
+        // Eski refresh token'ı sil
+        await prisma.refreshToken.delete({
+            where: { id: token.id },
+        });
+
+        // Yeni access token ve refresh token oluştur
+        const newRefreshToken = await generateRefreshToken(token.userId);
+        const newAccessToken = await generateAccessToken(token.user);
+
+        return {
+            accessToken: newAccessToken,
+            refreshToken: newRefreshToken,
+            exp: Math.floor(Date.now() / 1000) + 30 * 24 * 60 * 60,
+        };
+    } catch (error) {
+        console.error('Token refresh error:', error);
+        throw error;
+    }
+}
+
+export async function revokeRefreshToken(token: string) {
+    await prisma.refreshToken.delete({
+        where: { token },
+    });
+}
+
+export async function generateAccessToken(user: User): Promise<string> {
+    const payload = {
+        sub: user.id,
+        email: user.email,
+        role: user.role,
+        twoFactorEnabled: user.twoFactorEnabled,
+        locale: user.locale,
+        theme: user.theme,
+    };
+
+    return sign(payload, process.env.NEXTAUTH_SECRET!, {
+        expiresIn: '30d',
+    });
 }

@@ -50,4 +50,3 @@ storybook-static
 
 /.dependency
 /public/storybook
-test-report.junit.xml
