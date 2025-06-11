@@ -8,6 +8,8 @@ jobs:
   validate:
     if: ${{ github.actor == 'dependabot[bot]' }}
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     
     strategy:
       matrix:
@@ -49,6 +51,8 @@ jobs:
     needs: validate
     runs-on: ubuntu-latest
     if: ${{ github.actor == 'dependabot[bot]' && success() }}
+    permissions:
+      pull-requests: write
     
     steps:
       - name: Auto-merge approved PRs
