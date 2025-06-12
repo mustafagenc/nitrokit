@@ -161,6 +161,7 @@ export async function GET() {
             },
         });
     } catch (error) {
+        console.error('Error fetching user preferences:', error);
         return NextResponse.json(
             {
                 error: 'Internal server error',

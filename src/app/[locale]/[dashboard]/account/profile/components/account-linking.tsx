@@ -33,6 +33,7 @@ export function AccountLinking({ accounts, className }: AccountLinkingProps) {
                 redirect: true,
             });
         } catch (error) {
+            console.error('Account Linking', error);
             toast.error('Failed to connect account');
         } finally {
             setLoading(null);
@@ -59,6 +60,7 @@ export function AccountLinking({ accounts, className }: AccountLinkingProps) {
             toast.success('Account disconnected successfully');
             setTimeout(() => window.location.reload(), 1000);
         } catch (error) {
+            console.error('Account Linking handle disconnect', error);
             toast.error('Failed to disconnect account');
         } finally {
             setLoading(null);
