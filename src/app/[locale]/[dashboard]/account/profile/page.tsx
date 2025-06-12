@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { redirect } from 'next/navigation';
+import { getTranslations } from 'next-intl/server';
 import { auth } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
 import { generatePageMetadata } from '@/lib';
@@ -8,10 +9,11 @@ import { ProfileInformation } from './components/profile-information';
 import { Preferences } from './components/preferences';
 
 export async function generateMetadata(): Promise<Metadata> {
+    const t = await getTranslations('dashboard.account.profile');
     return await generatePageMetadata({
         params: Promise.resolve({
-            title: 'Profile Settings',
-            description: 'Manage your personal information and profile settings',
+            title: t('page.title'),
+            description: t('page.description'),
         }),
     });
 }
@@ -42,6 +44,7 @@ async function AccountLinkingContent({ userId }: { userId: string }) {
 
 export default async function ProfilePage() {
     const session = await auth();
+    const t = await getTranslations('dashboard.account.profile');
 
     if (!session) {
         redirect('/signin');
@@ -58,10 +61,8 @@ export default async function ProfilePage() {
     return (
         <div className="mx-auto w-full space-y-6 px-4 sm:px-6 lg:max-w-4xl lg:px-8">
             <div>
-                <h2 className="text-2xl font-bold tracking-tight">Profile Settings</h2>
-                <p className="text-muted-foreground">
-                    Manage your personal information and profile preferences.
-                </p>
+                <h2 className="text-2xl font-bold tracking-tight">{t('page.heading')}</h2>
+                <p className="text-muted-foreground">{t('page.subheading')}</p>
             </div>
 
             <ProfileInformation user={{ ...user, emailVerified: !!user.emailVerified }} />

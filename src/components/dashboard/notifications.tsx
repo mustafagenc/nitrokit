@@ -311,7 +311,7 @@ export function Notifications() {
             </Popover>
 
             <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
-                <SheetContent className="w-full sm:w-[540px] sm:max-w-[540px]">
+                <SheetContent className="w-full px-6 py-6 sm:w-[540px] sm:max-w-[540px]">
                     <SheetHeader className="space-y-4">
                         <div className="flex items-center justify-between">
                             <SheetTitle className="text-xl font-semibold">
@@ -396,7 +396,7 @@ export function Notifications() {
                         </SheetDescription>
                     </SheetHeader>
 
-                    <div className="mt-6">
+                    <div>
                         {isLoading ? (
                             <div className="text-muted-foreground flex flex-col items-center justify-center py-12">
                                 <div className="mb-4 h-8 w-8 animate-spin rounded-full border-2 border-current border-t-transparent opacity-50" />

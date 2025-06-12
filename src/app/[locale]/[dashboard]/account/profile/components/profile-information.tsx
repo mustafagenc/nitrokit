@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from '@/lib/i18n/navigation';
+import { useTranslations } from 'next-intl';
 import { toast } from 'sonner';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -28,8 +29,8 @@ import { User } from 'next-auth';
 import { InAppNotificationService } from '@/lib/services/inapp-notification-service';
 
 const profileInfoSchema = z.object({
-    firstName: z.string().min(1, 'First name is required').max(50),
-    lastName: z.string().min(1, 'Last name is required').max(50),
+    firstName: z.string().min(1, 'validation.required.firstName').max(50),
+    lastName: z.string().min(1, 'validation.required.lastName').max(50),
     phone: z.string().optional(),
     image: z.string().optional(),
 });
@@ -134,6 +135,8 @@ export function ProfileInformation({ user }: ProfileInformationProps) {
     });
     const { createProfileUpdated } = useInAppNotificationService();
     const router = useRouter();
+    const t = useTranslations('dashboard.account.profile.profileInformation');
+    const tValidation = useTranslations('validation');
 
     const {
         register,
@@ -179,7 +182,7 @@ export function ProfileInformation({ user }: ProfileInformationProps) {
 
     const sendVerificationCode = async () => {
         if (!watchedPhone || !validatePhoneNumber(watchedPhone)) {
-            toast.error('Please enter a valid international phone number');
+            toast.error(t('phone.validation.invalidFormat'));
             return;
         }
 
@@ -201,7 +204,7 @@ export function ProfileInformation({ user }: ProfileInformationProps) {
                     codeSent: true,
                     cooldown: result.cooldownSeconds || 60,
                 }));
-                toast.success('Verification code sent!');
+                toast.success(t('phone.verification.codeSent'));
 
                 const timer = setInterval(() => {
                     setPhoneVerification((prev) => {
@@ -223,7 +226,7 @@ export function ProfileInformation({ user }: ProfileInformationProps) {
             }
         } catch (error) {
             console.error('Send verification error:', error);
-            toast.error('Failed to send verification code');
+            toast.error(t('phone.verification.sendError'));
         } finally {
             setPhoneVerification((prev) => ({ ...prev, isVerifying: false }));
         }
@@ -231,7 +234,7 @@ export function ProfileInformation({ user }: ProfileInformationProps) {
 
     const verifyCode = async () => {
         if (!phoneVerification.code || !watchedPhone) {
-            toast.error('Please enter the verification code');
+            toast.error(t('phone.verification.enterCode'));
             return;
         }
 
@@ -260,7 +263,7 @@ export function ProfileInformation({ user }: ProfileInformationProps) {
                 }));
 
                 setValue('phone', watchedPhone, { shouldDirty: false });
-                toast.success('Phone number verified successfully!');
+                toast.success(t('phone.verification.success'));
 
                 await InAppNotificationService.createPhoneVerifiedFromClient(
                     cleanPhone,
@@ -273,7 +276,7 @@ export function ProfileInformation({ user }: ProfileInformationProps) {
             }
         } catch (error) {
             console.error('Verify code error:', error);
-            toast.error('Failed to verify code');
+            toast.error(t('phone.verification.verifyError'));
         } finally {
             setPhoneVerification((prev) => ({ ...prev, isVerifying: false }));
         }
@@ -283,10 +286,10 @@ export function ProfileInformation({ user }: ProfileInformationProps) {
         setIsLoading(true);
         try {
             const changes: string[] = [];
-            if (data.firstName !== user.firstName) changes.push('First Name');
-            if (data.lastName !== user.lastName) changes.push('Last Name');
-            if (data.phone !== user.phone) changes.push('Phone Number');
-            if (data.image !== user.image) changes.push('Profile Picture');
+            if (data.firstName !== user.firstName) changes.push(t('form.changeTypes.firstName'));
+            if (data.lastName !== user.lastName) changes.push(t('form.changeTypes.lastName'));
+            if (data.phone !== user.phone) changes.push(t('form.changeTypes.phone'));
+            if (data.image !== user.image) changes.push(t('form.changeTypes.image'));
 
             const response = await fetch('/api/user/profile', {
                 method: 'PUT',
@@ -311,11 +314,11 @@ export function ProfileInformation({ user }: ProfileInformationProps) {
                         code: '',
                         cooldown: 0,
                     }));
-                    toast.info('Phone number updated. Please verify your new number.', {
+                    toast.info(t('messages.phoneUpdated'), {
                         duration: 4000,
                     });
                 } else {
-                    toast.success('Profile updated successfully!');
+                    toast.success(t('messages.updateSuccess'));
                 }
 
                 if (changes.length > 0) {
@@ -325,11 +328,11 @@ export function ProfileInformation({ user }: ProfileInformationProps) {
                 updateAvatar(data.image || null);
                 router.refresh();
             } else {
-                toast.error(result.error || 'Failed to update profile');
+                toast.error(result.error || t('messages.updateFailed'));
             }
         } catch (error) {
             console.error('Profile update error:', error);
-            toast.error('Something went wrong. Please try again.');
+            toast.error(t('messages.updateError'));
         } finally {
             setIsLoading(false);
         }
@@ -356,14 +359,14 @@ export function ProfileInformation({ user }: ProfileInformationProps) {
             if (result.success) {
                 setValue('image', '', { shouldDirty: true });
                 removeAvatar();
-                toast.success('Profile picture removed successfully!');
+                toast.success(t('image.removeSuccess'));
                 router.refresh();
             } else {
                 throw new Error(result.error || 'Failed to remove image');
             }
         } catch (error) {
             console.error('Remove image error:', error);
-            toast.error('Failed to remove profile picture.');
+            toast.error(t('image.removeError'));
         }
     };
 
@@ -385,17 +388,15 @@ export function ProfileInformation({ user }: ProfileInformationProps) {
             <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                     <UserIcon className="h-5 w-5" />
-                    Profile Information
+                    {t('title')}
                 </CardTitle>
-                <CardDescription>
-                    Update your personal information and profile picture
-                </CardDescription>
+                <CardDescription>{t('description')}</CardDescription>
             </CardHeader>
             <CardContent>
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                     {/* Profile Picture */}
                     <div className="space-y-2">
-                        <Label>Profile Picture</Label>
+                        <Label>{t('image.label')}</Label>
                         <ImageUpload
                             value={watchedImage || ''}
                             onChange={handleImageChange}
@@ -412,30 +413,30 @@ export function ProfileInformation({ user }: ProfileInformationProps) {
                     {/* Name Fields */}
                     <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                         <div className="space-y-2">
-                            <Label htmlFor="firstName">First Name *</Label>
+                            <Label htmlFor="firstName">{t('firstName.label')} *</Label>
                             <Input
                                 id="firstName"
-                                placeholder="Enter your first name"
+                                placeholder={t('firstName.placeholder')}
                                 {...register('firstName')}
                                 disabled={isLoading}
                             />
                             {errors.firstName && (
                                 <p className="text-destructive text-sm">
-                                    {errors.firstName.message}
+                                    {tValidation(errors.firstName.message as any)}
                                 </p>
                             )}
                         </div>
                         <div className="space-y-2">
-                            <Label htmlFor="lastName">Last Name *</Label>
+                            <Label htmlFor="lastName">{t('lastName.label')} *</Label>
                             <Input
                                 id="lastName"
-                                placeholder="Enter your last name"
+                                placeholder={t('lastName.placeholder')}
                                 {...register('lastName')}
                                 disabled={isLoading}
                             />
                             {errors.lastName && (
                                 <p className="text-destructive text-sm">
-                                    {errors.lastName.message}
+                                    {tValidation(errors.lastName.message as any)}
                                 </p>
                             )}
                         </div>
@@ -443,7 +444,7 @@ export function ProfileInformation({ user }: ProfileInformationProps) {
 
                     {/* Email Field */}
                     <div className="space-y-2">
-                        <Label htmlFor="email">Email Address</Label>
+                        <Label htmlFor="email">{t('email.label')}</Label>
                         <div className="relative">
                             <Mail className="text-muted-foreground absolute top-3 left-3 h-4 w-4" />
                             <Input
@@ -459,7 +460,7 @@ export function ProfileInformation({ user }: ProfileInformationProps) {
                     {/* Phone Field with Verification */}
                     <div className="space-y-3">
                         <div className="flex items-center gap-2">
-                            <Label htmlFor="phone">Phone Number</Label>
+                            <Label htmlFor="phone">{t('phone.label')}</Label>
 
                             {watchedPhone && (
                                 <span className="text-sm">{getCountryFlag(watchedPhone)}</span>
@@ -468,7 +469,7 @@ export function ProfileInformation({ user }: ProfileInformationProps) {
                             {isCurrentPhoneVerified ? (
                                 <span className="flex items-center gap-1 rounded-full bg-green-100 px-2 py-1 text-xs font-medium text-green-700 dark:bg-green-900/20 dark:text-green-400">
                                     <Check className="h-3 w-3" />
-                                    Verified
+                                    {t('phone.status.verified')}
                                 </span>
                             ) : watchedPhone &&
                               watchedPhone === user.phone &&
@@ -476,12 +477,12 @@ export function ProfileInformation({ user }: ProfileInformationProps) {
                               !phoneVerification.isVerified ? (
                                 <span className="flex items-center gap-1 rounded-full bg-orange-100 px-2 py-1 text-xs font-medium text-orange-700 dark:bg-orange-900/20 dark:text-orange-400">
                                     <AlertCircle className="h-3 w-3" />
-                                    Not Verified
+                                    {t('phone.status.notVerified')}
                                 </span>
                             ) : phoneNeedsVerification ? (
                                 <span className="flex items-center gap-1 rounded-full bg-blue-100 px-2 py-1 text-xs font-medium text-blue-700 dark:bg-blue-900/20 dark:text-blue-400">
                                     <AlertCircle className="h-3 w-3" />
-                                    Verification Required
+                                    {t('phone.status.verificationRequired')}
                                 </span>
                             ) : null}
                         </div>
@@ -492,7 +493,7 @@ export function ProfileInformation({ user }: ProfileInformationProps) {
                                 <Input
                                     id="phone"
                                     type="tel"
-                                    placeholder="+1 234 567 8900"
+                                    placeholder={t('phone.placeholder')}
                                     className="pl-10"
                                     value={watchedPhone || ''}
                                     onChange={handlePhoneChange}
@@ -518,15 +519,17 @@ export function ProfileInformation({ user }: ProfileInformationProps) {
                                         <Send className="h-4 w-4" />
                                     )}
                                     {phoneVerification.cooldown > 0
-                                        ? `${phoneVerification.cooldown}s`
-                                        : 'Send Code'}
+                                        ? t('phone.verification.cooldown', {
+                                              seconds: phoneVerification.cooldown,
+                                          })
+                                        : t('phone.verification.sendCode')}
                                 </Button>
                             )}
                         </div>
 
                         {watchedPhone && !validatePhoneNumber(watchedPhone) && (
                             <p className="text-destructive text-xs">
-                                ⚠️ Please enter a valid international phone number (7-15 digits)
+                                ⚠️ {t('phone.validation.invalidFormat')}
                             </p>
                         )}
 
@@ -537,16 +540,19 @@ export function ProfileInformation({ user }: ProfileInformationProps) {
                                     <div className="flex items-center gap-2">
                                         <Shield className="h-4 w-4 text-blue-600 dark:text-blue-400" />
                                         <span className="text-sm font-medium text-blue-800 dark:text-blue-200">
-                                            Enter Verification Code
+                                            {t('phone.verification.enterCodeTitle')}
                                         </span>
                                     </div>
 
                                     <p className="text-xs text-blue-700 dark:text-blue-300">
-                                        We sent a 6-digit code to{' '}
-                                        {watchedPhone ? getCountryFlag(watchedPhone) : '🌍'}{' '}
-                                        {watchedPhone
-                                            ? formatPhoneForDisplay(watchedPhone)
-                                            : 'your phone'}
+                                        {t('phone.verification.codeInstructions', {
+                                            flag: watchedPhone
+                                                ? getCountryFlag(watchedPhone)
+                                                : '🌍',
+                                            phone: watchedPhone
+                                                ? formatPhoneForDisplay(watchedPhone)
+                                                : t('phone.verification.yourPhone'),
+                                        })}
                                     </p>
 
                                     <div className="flex gap-2">
@@ -579,7 +585,7 @@ export function ProfileInformation({ user }: ProfileInformationProps) {
                                             ) : (
                                                 <Shield className="h-4 w-4" />
                                             )}
-                                            Verify
+                                            {t('phone.verification.verify')}
                                         </Button>
                                     </div>
                                 </div>
@@ -594,8 +600,7 @@ export function ProfileInformation({ user }: ProfileInformationProps) {
                             validatePhoneNumber(watchedPhone) &&
                             !isCurrentPhoneVerified && (
                                 <p className="text-muted-foreground text-xs">
-                                    📱 Phone verification is required for security features and
-                                    notifications
+                                    📱 {t('phone.verification.requirement')}
                                 </p>
                             )}
                     </div>
@@ -608,7 +613,7 @@ export function ProfileInformation({ user }: ProfileInformationProps) {
                             className="flex-1 md:flex-none"
                         >
                             {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                            <Save className="mr-1 h-4 w-4" /> Save Changes
+                            <Save className="mr-1 h-4 w-4" /> {t('form.saveChanges')}
                         </Button>
                         <Button
                             type="button"
@@ -616,7 +621,7 @@ export function ProfileInformation({ user }: ProfileInformationProps) {
                             onClick={() => router.refresh()}
                             disabled={isLoading}
                         >
-                            Cancel
+                            {t('form.cancel')}
                         </Button>
                     </div>
                 </form>

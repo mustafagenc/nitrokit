@@ -30,7 +30,6 @@ export default async function EmailVerifyPage() {
         redirect('/signin');
     }
 
-    // Eğer email zaten doğrulanmışsa account sayfasına yönlendir
     if (user.emailVerified) {
         redirect('/dashboard/account?message=email-already-verified');
     }

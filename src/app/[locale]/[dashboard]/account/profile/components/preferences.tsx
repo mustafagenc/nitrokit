@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from '@/lib/i18n/navigation';
+import { useTranslations } from 'next-intl';
 import { toast } from 'sonner';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -34,17 +35,18 @@ interface PreferencesProps {
     user: User;
 }
 
-const themeOptions = [
-    { value: 'light', label: 'Light', icon: Sun },
-    { value: 'dark', label: 'Dark', icon: Moon },
-    { value: 'system', label: 'System', icon: Monitor },
-];
-
 export function Preferences({ user }: PreferencesProps) {
     const { setTheme, theme } = useTheme();
     const currentLocale = useLocale();
     const [isLoading, setIsLoading] = useState(false);
     const router = useRouter();
+    const t = useTranslations('dashboard.account.profile.preferences');
+
+    const themeOptions = [
+        { value: 'light', label: t('theme.options.light'), icon: Sun },
+        { value: 'dark', label: t('theme.options.dark'), icon: Moon },
+        { value: 'system', label: t('theme.options.system'), icon: Monitor },
+    ];
 
     const {
         handleSubmit,
@@ -76,8 +78,9 @@ export function Preferences({ user }: PreferencesProps) {
         try {
             const changes: string[] = [];
             if (data.locale && data.locale !== (user.locale || currentLocale))
-                changes.push('Language');
-            if (data.theme && data.theme !== (user.theme || theme)) changes.push('Theme');
+                changes.push(t('messages.changeTypes.language'));
+            if (data.theme && data.theme !== (user.theme || theme))
+                changes.push(t('messages.changeTypes.theme'));
 
             const response = await fetch('/api/user/preferences', {
                 method: 'PUT',
@@ -96,32 +99,24 @@ export function Preferences({ user }: PreferencesProps) {
 
                 if (result.themeChanged && data.theme) {
                     setTheme(data.theme);
-                    toast.success('Theme updated successfully!');
+                    toast.success(t('messages.themeUpdateSuccess'));
                 }
 
                 if (result.localeChanged && data.locale) {
-                    toast.success('Language updated! Redirecting...');
-                    const pathWithoutLocale = window.location.pathname.replace(
-                        `/${currentLocale}`,
-                        ''
-                    );
-                    setTimeout(() => {
-                        window.location.href = `/${data.locale}${pathWithoutLocale}`;
-                    }, 1000);
-                    return;
+                    toast.success(t('messages.languageUpdateSuccess'));
+                    router.push('/dashboard/account/profile/', { locale: data.locale });
+                    router.refresh();
                 }
 
                 if (changes.length === 0) {
-                    toast.success('Preferences updated successfully!');
+                    toast.success(t('messages.updateSuccess'));
                 }
-
-                router.refresh();
             } else {
-                toast.error(result.error || 'Failed to update preferences');
+                toast.error(result.error || t('messages.updateFailed'));
             }
         } catch (error) {
             console.error('Preferences update error:', error);
-            toast.error('Something went wrong. Please try again.');
+            toast.error(t('messages.updateError'));
         } finally {
             setIsLoading(false);
         }
@@ -132,9 +127,9 @@ export function Preferences({ user }: PreferencesProps) {
             <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                     <Palette className="h-5 w-5" />
-                    Preferences
+                    {t('title')}
                 </CardTitle>
-                <CardDescription>Customize your language and theme preferences</CardDescription>
+                <CardDescription>{t('description')}</CardDescription>
             </CardHeader>
             <CardContent>
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
@@ -142,7 +137,7 @@ export function Preferences({ user }: PreferencesProps) {
                         <div className="space-y-2">
                             <Label className="flex items-center gap-2">
                                 <Globe className="h-4 w-4" />
-                                Language
+                                {t('language.label')}
                             </Label>
                             <Select
                                 value={watchedLocale || currentLocale}
@@ -152,7 +147,7 @@ export function Preferences({ user }: PreferencesProps) {
                                 disabled={isLoading}
                             >
                                 <SelectTrigger>
-                                    <SelectValue placeholder="Select language" />
+                                    <SelectValue placeholder={t('language.placeholder')} />
                                 </SelectTrigger>
                                 <SelectContent>
                                     {localesWithFlag.map((locale) => (
@@ -160,7 +155,9 @@ export function Preferences({ user }: PreferencesProps) {
                                             <div className="flex items-center gap-2">
                                                 <Image
                                                     src={locale.flag}
-                                                    alt={`${locale.name} flag`}
+                                                    alt={t('language.flagAlt', {
+                                                        language: locale.name,
+                                                    })}
                                                     width={16}
                                                     height={12}
                                                     className="rounded-sm"
@@ -176,7 +173,7 @@ export function Preferences({ user }: PreferencesProps) {
                         <div className="space-y-2">
                             <Label className="flex items-center gap-2">
                                 <Palette className="h-4 w-4" />
-                                Theme
+                                {t('theme.label')}
                             </Label>
                             <Select
                                 value={watchedTheme || theme || 'system'}
@@ -188,7 +185,7 @@ export function Preferences({ user }: PreferencesProps) {
                                 disabled={isLoading}
                             >
                                 <SelectTrigger>
-                                    <SelectValue placeholder="Select theme" />
+                                    <SelectValue placeholder={t('theme.placeholder')} />
                                 </SelectTrigger>
                                 <SelectContent>
                                     {themeOptions.map((option) => {
@@ -214,7 +211,8 @@ export function Preferences({ user }: PreferencesProps) {
                             className="flex-1 md:flex-none"
                         >
                             {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                            <Save className="mr-1 h-4 w-4" /> Save Preferences
+                            <Save className="mr-1 h-4 w-4" />
+                            {t('buttons.save')}
                         </Button>
                         <Button
                             type="button"
@@ -222,7 +220,7 @@ export function Preferences({ user }: PreferencesProps) {
                             onClick={() => router.refresh()}
                             disabled={isLoading}
                         >
-                            Cancel
+                            {t('buttons.cancel')}
                         </Button>
                     </div>
                 </form>

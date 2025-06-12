@@ -1,7 +1,9 @@
 import { Metadata } from 'next';
 import { redirect } from 'next/navigation';
+import { getTranslations } from 'next-intl/server';
 import { auth } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
+import { generatePageMetadata } from '@/lib';
 import { NotificationSettingsForm } from './components/notification-settings-form';
 
 async function getNotificationPreferences(userId: string) {
@@ -18,13 +20,19 @@ async function getNotificationPreferences(userId: string) {
     return preferences;
 }
 
-export const metadata: Metadata = {
-    title: 'Notification Settings',
-    description: 'Manage your notification preferences',
-};
+export async function generateMetadata(): Promise<Metadata> {
+    const t = await getTranslations('dashboard.account.notifications');
+    return await generatePageMetadata({
+        params: Promise.resolve({
+            title: t('page.title'),
+            description: t('page.description'),
+        }),
+    });
+}
 
 export default async function NotificationSettingsPage() {
     const session = await auth();
+    const t = await getTranslations('dashboard.account.notifications');
 
     if (!session) {
         redirect('/signin');
@@ -43,10 +51,8 @@ export default async function NotificationSettingsPage() {
     return (
         <div className="space-y-6">
             <div>
-                <h2 className="text-2xl font-bold tracking-tight">Notification Settings</h2>
-                <p className="text-muted-foreground">
-                    Choose how you want to be notified about account activity and updates.
-                </p>
+                <h2 className="text-2xl font-bold tracking-tight">{t('page.heading')}</h2>
+                <p className="text-muted-foreground">{t('page.subheading')}</p>
             </div>
 
             <NotificationSettingsForm preferences={preferences} />

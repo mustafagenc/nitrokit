@@ -373,7 +373,7 @@ export async function generateAccessToken(user: User): Promise<string> {
         theme: user.theme,
     };
 
-    return sign(payload, process.env.NEXTAUTH_SECRET!, {
+    return sign(payload, process.env.AUTH_SECRET!, {
         expiresIn: '30d',
     });
 }

@@ -1,3 +1,12 @@
+import {
+    GoogleIcon,
+    FacebookIcon,
+    TwitterIcon,
+    GithubIcon,
+    GitlabIcon,
+    LinkedinIcon,
+} from '@/components/icons/brands';
+
 export type Provider =
     | 'google'
     | 'github'
@@ -5,38 +14,44 @@ export type Provider =
     | 'apple'
     | 'instagram'
     | 'facebook'
-    | 'twitter';
+    | 'twitter'
+    | 'linkedin';
 
 export interface ProviderConfig {
     id: Provider;
     name: string;
-    logo: string;
+    logo: React.ComponentType<{ className?: string; color?: string }>;
 }
 
 export const providers: ProviderConfig[] = [
     {
         id: 'google',
         name: 'Google',
-        logo: '/images/brands/google.svg',
+        logo: GoogleIcon,
     },
     {
         id: 'facebook',
         name: 'Facebook',
-        logo: '/images/brands/facebook.svg',
+        logo: FacebookIcon,
     },
     {
         id: 'twitter',
         name: 'Twitter',
-        logo: '/images/brands/twitter.svg',
+        logo: TwitterIcon,
+    },
+    {
+        id: 'linkedin',
+        name: 'LinkedIn',
+        logo: LinkedinIcon,
     },
     {
         id: 'github',
         name: 'GitHub',
-        logo: '/images/brands/github.svg',
+        logo: GithubIcon,
     },
     {
         id: 'gitlab',
         name: 'GitLab',
-        logo: '/images/brands/gitlab.svg',
+        logo: GitlabIcon,
     },
 ];
