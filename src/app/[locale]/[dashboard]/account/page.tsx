@@ -574,49 +574,6 @@ export default async function AccountOverviewPage() {
                     </CardContent>
                 </Card>
             </div>
-
-            {user.accounts.length > 0 && (
-                <Card>
-                    <CardHeader>
-                        <CardTitle className="flex items-center gap-2">
-                            <CheckCircle className="h-5 w-5" />
-                            Connected Accounts
-                        </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
-                            {user.accounts.map((account, index) => (
-                                <div
-                                    key={index}
-                                    className="flex items-center justify-between rounded-lg border p-3"
-                                >
-                                    <div className="flex items-center gap-2">
-                                        <div className="bg-primary/10 flex h-8 w-8 items-center justify-center rounded-full">
-                                            <span className="text-xs font-medium capitalize">
-                                                {account.provider.charAt(0).toUpperCase()}
-                                            </span>
-                                        </div>
-                                        <div>
-                                            <p className="text-sm font-medium capitalize">
-                                                {account.provider}
-                                            </p>
-                                            <p className="text-muted-foreground text-xs">
-                                                {account.type}
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <Badge
-                                        variant="outline"
-                                        className="border-green-200 bg-green-50 text-xs text-green-700"
-                                    >
-                                        Connected
-                                    </Badge>
-                                </div>
-                            ))}
-                        </div>
-                    </CardContent>
-                </Card>
-            )}
         </div>
     );
 }

@@ -6,8 +6,7 @@ import * as React from 'react';
 import { signIn } from '@/lib/auth';
 import { Button, buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib';
-
-type Provider = 'google' | 'github' | 'gitlab' | 'apple' | 'instagram' | 'facebook';
+import { Provider } from '@/lib/auth/providers';
 
 function getProviderDetail({ t, provider }: { t: (key: string) => string; provider: Provider }): {
     text: string;
@@ -44,7 +43,11 @@ function getProviderDetail({ t, provider }: { t: (key: string) => string; provid
                 text: t('auth.signinWithFacebook'),
                 icon: '/images/brands/facebook.svg',
             };
-
+        case 'twitter':
+            return {
+                text: t('auth.signinWithTwitter'),
+                icon: '/images/brands/twitter.svg',
+            };
         default:
             throw new Error('Unsupported provider');
     }

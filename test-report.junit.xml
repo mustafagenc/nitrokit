@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="vitest tests" tests="197" failures="0" errors="0" time="4.441148019">
+    <testsuite name="src/components/ui/__tests__/accordion.test.tsx" timestamp="2025-06-11T22:27:51.435Z" hostname="mustafagenc.local" tests="5" failures="0" errors="0" skipped="0" time="0.547796865">
+        <testcase classname="src/components/ui/__tests__/accordion.test.tsx" name="Accordion &gt; renders accordion items" time="0.17048511">
+        </testcase>
+        <testcase classname="src/components/ui/__tests__/accordion.test.tsx" name="Accordion &gt; expands and collapses accordion items" time="0.157051525">
+        </testcase>
+        <testcase classname="src/components/ui/__tests__/accordion.test.tsx" name="Accordion &gt; handles multiple accordion items" time="0.173485151">
+        </testcase>
+        <testcase classname="src/components/ui/__tests__/accordion.test.tsx" name="Accordion &gt; applies custom className to accordion item" time="0.018167836">
+        </testcase>
+        <testcase classname="src/components/ui/__tests__/accordion.test.tsx" name="Accordion &gt; handles disabled accordion item" time="0.025120859">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/components/ui/__tests__/alert.test.tsx" timestamp="2025-06-11T22:27:51.439Z" hostname="mustafagenc.local" tests="3" failures="0" errors="0" skipped="0" time="0.065634471">
+        <testcase classname="src/components/ui/__tests__/alert.test.tsx" name="Alert &gt; renders alert with different variants" time="0.051189625">
+        </testcase>
+        <testcase classname="src/components/ui/__tests__/alert.test.tsx" name="Alert &gt; renders alert with different text content" time="0.005851186">
+        </testcase>
+        <testcase classname="src/components/ui/__tests__/alert.test.tsx" name="Alert &gt; applies custom className" time="0.005556459">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/components/ui/__tests__/avatar.test.tsx" timestamp="2025-06-11T22:27:51.440Z" hostname="mustafagenc.local" tests="2" failures="0" errors="0" skipped="0" time="0.074133432">
+        <testcase classname="src/components/ui/__tests__/avatar.test.tsx" name="Avatar &gt; Avatar bileşeni ve fallback render ediliyor" time="0.065296257">
+        </testcase>
+        <testcase classname="src/components/ui/__tests__/avatar.test.tsx" name="Avatar &gt; AvatarFallback içeriği doğru gösteriliyor" time="0.006301132">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/components/ui/__tests__/breadcrumb.test.tsx" timestamp="2025-06-11T22:27:51.441Z" hostname="mustafagenc.local" tests="4" failures="0" errors="0" skipped="0" time="0.201604765">
+        <testcase classname="src/components/ui/__tests__/breadcrumb.test.tsx" name="Breadcrumb &gt; renders breadcrumb with items" time="0.143841841">
+        </testcase>
+        <testcase classname="src/components/ui/__tests__/breadcrumb.test.tsx" name="Breadcrumb &gt; renders breadcrumb links with correct hrefs" time="0.032821706">
+        </testcase>
+        <testcase classname="src/components/ui/__tests__/breadcrumb.test.tsx" name="Breadcrumb &gt; applies custom className to breadcrumb list" time="0.014312806">
+        </testcase>
+        <testcase classname="src/components/ui/__tests__/breadcrumb.test.tsx" name="Breadcrumb &gt; renders breadcrumb with custom separator" time="0.00827382">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/components/ui/__tests__/button.test.tsx" timestamp="2025-06-11T22:27:51.443Z" hostname="mustafagenc.local" tests="7" failures="0" errors="0" skipped="0" time="0.243574128">
+        <testcase classname="src/components/ui/__tests__/button.test.tsx" name="Button &gt; renders button with default props" time="0.119265571">
+        </testcase>
+        <testcase classname="src/components/ui/__tests__/button.test.tsx" name="Button &gt; renders button with different variants" time="0.034865708">
+        </testcase>
+        <testcase classname="src/components/ui/__tests__/button.test.tsx" name="Button &gt; renders button with different sizes" time="0.028350272">
+        </testcase>
+        <testcase classname="src/components/ui/__tests__/button.test.tsx" name="Button &gt; applies custom className" time="0.006151802">
+        </testcase>
+        <testcase classname="src/components/ui/__tests__/button.test.tsx" name="Button &gt; handles disabled state" time="0.006125817">
+        </testcase>
+        <testcase classname="src/components/ui/__tests__/button.test.tsx" name="Button &gt; handles click events" time="0.034141904">
+        </testcase>
+        <testcase classname="src/components/ui/__tests__/button.test.tsx" name="Button &gt; handles asChild prop" time="0.012947635">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/components/ui/__tests__/card.test.tsx" timestamp="2025-06-11T22:27:51.446Z" hostname="mustafagenc.local" tests="3" failures="0" errors="0" skipped="0" time="0.130323109">
+        <testcase classname="src/components/ui/__tests__/card.test.tsx" name="Card &gt; renders card with all subcomponents" time="0.112036741">
+        </testcase>
+        <testcase classname="src/components/ui/__tests__/card.test.tsx" name="Card &gt; applies custom className to card" time="0.007909928">
+        </testcase>
+        <testcase classname="src/components/ui/__tests__/card.test.tsx" name="Card &gt; renders card with only required components" time="0.007666858">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/components/ui/__tests__/checkbox.test.tsx" timestamp="2025-06-11T22:27:51.447Z" hostname="mustafagenc.local" tests="5" failures="0" errors="0" skipped="0" time="0.322200593">
+        <testcase classname="src/components/ui/__tests__/checkbox.test.tsx" name="Checkbox &gt; renders checkbox" time="0.123693261">
+        </testcase>
+        <testcase classname="src/components/ui/__tests__/checkbox.test.tsx" name="Checkbox &gt; handles checked state" time="0.11054521">
+        </testcase>
+        <testcase classname="src/components/ui/__tests__/checkbox.test.tsx" name="Checkbox &gt; handles disabled state" time="0.026354886">
+        </testcase>
+        <testcase classname="src/components/ui/__tests__/checkbox.test.tsx" name="Checkbox &gt; applies custom className" time="0.018063959">
+        </testcase>
+        <testcase classname="src/components/ui/__tests__/checkbox.test.tsx" name="Checkbox &gt; handles onChange event" time="0.040502902">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/components/ui/__tests__/input.test.tsx" timestamp="2025-06-11T22:27:51.448Z" hostname="mustafagenc.local" tests="3" failures="0" errors="0" skipped="0" time="0.347519748">
+        <testcase classname="src/components/ui/__tests__/input.test.tsx" name="Input &gt; renders input" time="0.20815069">
+        </testcase>
+        <testcase classname="src/components/ui/__tests__/input.test.tsx" name="Input &gt; applies custom className" time="0.125655519">
+        </testcase>
+        <testcase classname="src/components/ui/__tests__/input.test.tsx" name="Input &gt; handles disabled prop" time="0.011019393">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/components/ui/__tests__/label.test.tsx" timestamp="2025-06-11T22:27:51.449Z" hostname="mustafagenc.local" tests="2" failures="0" errors="0" skipped="0" time="0.049852251">
+        <testcase classname="src/components/ui/__tests__/label.test.tsx" name="Label &gt; renders label" time="0.043996567">
+        </testcase>
+        <testcase classname="src/components/ui/__tests__/label.test.tsx" name="Label &gt; applies custom className" time="0.004332884">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/components/ui/__tests__/navigation-menu.test.tsx" timestamp="2025-06-11T22:27:51.450Z" hostname="mustafagenc.local" tests="3" failures="0" errors="0" skipped="0" time="0.40188758">
+        <testcase classname="src/components/ui/__tests__/navigation-menu.test.tsx" name="NavigationMenu &gt; renders navigation menu with items" time="0.173020059">
+        </testcase>
+        <testcase classname="src/components/ui/__tests__/navigation-menu.test.tsx" name="NavigationMenu &gt; renders navigation menu with trigger and content" time="0.177269188">
+        </testcase>
+        <testcase classname="src/components/ui/__tests__/navigation-menu.test.tsx" name="NavigationMenu &gt; applies custom className to navigation menu link" time="0.047312168">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/components/ui/__tests__/pagination.test.tsx" timestamp="2025-06-11T22:27:51.450Z" hostname="mustafagenc.local" tests="4" failures="0" errors="0" skipped="0" time="0.233840059">
+        <testcase classname="src/components/ui/__tests__/pagination.test.tsx" name="Pagination &gt; renders pagination component" time="0.13902996">
+        </testcase>
+        <testcase classname="src/components/ui/__tests__/pagination.test.tsx" name="Pagination &gt; applies active state to current page" time="0.007635065">
+        </testcase>
+        <testcase classname="src/components/ui/__tests__/pagination.test.tsx" name="Pagination &gt; handles click events on pagination links" time="0.074204375">
+        </testcase>
+        <testcase classname="src/components/ui/__tests__/pagination.test.tsx" name="Pagination &gt; renders ellipsis with correct accessibility attributes" time="0.010669975">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/components/ui/__tests__/scroll-area.test.tsx" timestamp="2025-06-11T22:27:51.451Z" hostname="mustafagenc.local" tests="4" failures="0" errors="0" skipped="0" time="0.452092917">
+        <testcase classname="src/components/ui/__tests__/scroll-area.test.tsx" name="ScrollArea &gt; renders scroll area" time="0.271318532">
+        </testcase>
+        <testcase classname="src/components/ui/__tests__/scroll-area.test.tsx" name="ScrollArea &gt; applies custom className" time="0.025672955">
+        </testcase>
+        <testcase classname="src/components/ui/__tests__/scroll-area.test.tsx" name="ScrollArea &gt; renders scroll area with different orientations" time="0.02340776">
+        </testcase>
+        <testcase classname="src/components/ui/__tests__/scroll-area.test.tsx" name="ScrollArea &gt; renders scroll area with different types" time="0.128833673">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/components/ui/__tests__/select.test.tsx" timestamp="2025-06-11T22:27:51.452Z" hostname="mustafagenc.local" tests="3" failures="0" errors="0" skipped="0" time="0.318559875">
+        <testcase classname="src/components/ui/__tests__/select.test.tsx" name="Select &gt; renders select" time="0.262738389">
+        </testcase>
+        <testcase classname="src/components/ui/__tests__/select.test.tsx" name="Select &gt; applies custom className" time="0.028584966">
+        </testcase>
+        <testcase classname="src/components/ui/__tests__/select.test.tsx" name="Select &gt; handles disabled state" time="0.02422744">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/components/ui/__tests__/skeleton.test.tsx" timestamp="2025-06-11T22:27:51.452Z" hostname="mustafagenc.local" tests="2" failures="0" errors="0" skipped="0" time="0.055350387">
+        <testcase classname="src/components/ui/__tests__/skeleton.test.tsx" name="Skeleton &gt; renders skeleton" time="0.048041913">
+        </testcase>
+        <testcase classname="src/components/ui/__tests__/skeleton.test.tsx" name="Skeleton &gt; applies custom className" time="0.004486256">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/components/ui/__tests__/switch.test.tsx" timestamp="2025-06-11T22:27:51.453Z" hostname="mustafagenc.local" tests="6" failures="0" errors="0" skipped="0" time="0.23350884">
+        <testcase classname="src/components/ui/__tests__/switch.test.tsx" name="Switch &gt; renders switch" time="0.117475905">
+        </testcase>
+        <testcase classname="src/components/ui/__tests__/switch.test.tsx" name="Switch &gt; handles checked state" time="0.037760286">
+        </testcase>
+        <testcase classname="src/components/ui/__tests__/switch.test.tsx" name="Switch &gt; handles disabled state" time="0.029216357">
+        </testcase>
+        <testcase classname="src/components/ui/__tests__/switch.test.tsx" name="Switch &gt; applies custom className" time="0.014452717">
+        </testcase>
+        <testcase classname="src/components/ui/__tests__/switch.test.tsx" name="Switch &gt; handles onChange event" time="0.025812038">
+        </testcase>
+        <testcase classname="src/components/ui/__tests__/switch.test.tsx" name="Switch &gt; handles default checked state" time="0.006995476">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/components/ui/__tests__/textarea.test.tsx" timestamp="2025-06-11T22:27:51.454Z" hostname="mustafagenc.local" tests="3" failures="0" errors="0" skipped="0" time="0.31863005">
+        <testcase classname="src/components/ui/__tests__/textarea.test.tsx" name="Textarea &gt; renders textarea" time="0.059338742">
+        </testcase>
+        <testcase classname="src/components/ui/__tests__/textarea.test.tsx" name="Textarea &gt; applies custom className" time="0.245196059">
+        </testcase>
+        <testcase classname="src/components/ui/__tests__/textarea.test.tsx" name="Textarea &gt; handles disabled prop" time="0.011601542">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/lib/__tests__/metadata/generators.test.ts" timestamp="2025-06-11T22:27:51.455Z" hostname="mustafagenc.local" tests="6" failures="0" errors="0" skipped="0" time="0.037811268">
+        <testcase classname="src/lib/__tests__/metadata/generators.test.ts" name="Metadata Generators &gt; generateSiteMetadata &gt; should generate complete site metadata" time="0.005654329">
+        </testcase>
+        <testcase classname="src/lib/__tests__/metadata/generators.test.ts" name="Metadata Generators &gt; generateSiteMetadata &gt; should call all required dependencies" time="0.003802016">
+        </testcase>
+        <testcase classname="src/lib/__tests__/metadata/generators.test.ts" name="Metadata Generators &gt; generateSiteMetadata &gt; should handle different base URLs" time="0.004612131">
+        </testcase>
+        <testcase classname="src/lib/__tests__/metadata/generators.test.ts" name="Metadata Generators &gt; generateSiteMetadata &gt; should handle empty locales" time="0.001189963">
+        </testcase>
+        <testcase classname="src/lib/__tests__/metadata/generators.test.ts" name="Metadata Generators &gt; generatePageMetadata &gt; should generate page metadata with provided title and description" time="0.000924598">
+        </testcase>
+        <testcase classname="src/lib/__tests__/metadata/generators.test.ts" name="Metadata Generators &gt; generatePageMetadata &gt; should handle async params correctly" time="0.017681266">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/lib/__tests__/utils/cn.test.ts" timestamp="2025-06-11T22:27:51.457Z" hostname="mustafagenc.local" tests="23" failures="0" errors="0" skipped="0" time="0.039954143">
+        <testcase classname="src/lib/__tests__/utils/cn.test.ts" name="cn utility function &gt; Basic functionality &gt; should merge single class string" time="0.009734445">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/cn.test.ts" name="cn utility function &gt; Basic functionality &gt; should merge multiple class strings" time="0.000853553">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/cn.test.ts" name="cn utility function &gt; Basic functionality &gt; should handle empty inputs" time="0.000553556">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/cn.test.ts" name="cn utility function &gt; Basic functionality &gt; should handle undefined and null values" time="0.000303668">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/cn.test.ts" name="cn utility function &gt; Conditional classes &gt; should handle boolean conditions" time="0.000357172">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/cn.test.ts" name="cn utility function &gt; Conditional classes &gt; should handle object notation" time="0.000311703">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/cn.test.ts" name="cn utility function &gt; Conditional classes &gt; should handle mixed input types" time="0.000241789">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/cn.test.ts" name="cn utility function &gt; Tailwind CSS class merging &gt; should merge conflicting Tailwind classes correctly" time="0.000265981">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/cn.test.ts" name="cn utility function &gt; Tailwind CSS class merging &gt; should handle responsive variants" time="0.000280591">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/cn.test.ts" name="cn utility function &gt; Tailwind CSS class merging &gt; should handle state variants" time="0.000186925">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/cn.test.ts" name="cn utility function &gt; Tailwind CSS class merging &gt; should merge complex conflicting classes" time="0.000135884">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/cn.test.ts" name="cn utility function &gt; Edge cases &gt; should handle very long class strings" time="0.000519561">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/cn.test.ts" name="cn utility function &gt; Edge cases &gt; should handle special characters in class names" time="0.000502264">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/cn.test.ts" name="cn utility function &gt; Edge cases &gt; should handle custom class names mixed with Tailwind" time="0.000585262">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/cn.test.ts" name="cn utility function &gt; Edge cases &gt; should deduplicate identical classes" time="0.000399082">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/cn.test.ts" name="cn utility function &gt; Edge cases &gt; should handle whitespace normalization" time="0.00027549">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/cn.test.ts" name="cn utility function &gt; Real-world usage scenarios &gt; should handle button variant combinations" time="0.000310634">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/cn.test.ts" name="cn utility function &gt; Real-world usage scenarios &gt; should handle component size variations" time="0.00043898">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/cn.test.ts" name="cn utility function &gt; Real-world usage scenarios &gt; should handle conditional disabled state" time="0.000338255">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/cn.test.ts" name="cn utility function &gt; Real-world usage scenarios &gt; should handle form input states" time="0.000417447">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/cn.test.ts" name="cn utility function &gt; Performance considerations &gt; should handle many class combinations efficiently" time="0.014930423">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/cn.test.ts" name="cn utility function &gt; Performance considerations &gt; should return consistent results for same inputs" time="0.000346671">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/cn.test.ts" name="cn utility function &gt; Type safety &gt; should accept various ClassValue types" time="0.004024916">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/lib/__tests__/utils/error-handler.test.ts" timestamp="2025-06-11T22:27:51.460Z" hostname="mustafagenc.local" tests="41" failures="0" errors="0" skipped="0" time="0.289162742">
+        <testcase classname="src/lib/__tests__/utils/error-handler.test.ts" name="Error Handler Utils &gt; normalizeError &gt; should return Error instance unchanged" time="0.002113185">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/error-handler.test.ts" name="Error Handler Utils &gt; normalizeError &gt; should convert string to Error instance" time="0.000462657">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/error-handler.test.ts" name="Error Handler Utils &gt; normalizeError &gt; should convert object with message property to Error" time="0.000593143">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/error-handler.test.ts" name="Error Handler Utils &gt; normalizeError &gt; should handle object with non-string message" time="0.000382492">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/error-handler.test.ts" name="Error Handler Utils &gt; normalizeError &gt; should handle object with null message" time="0.000343416">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/error-handler.test.ts" name="Error Handler Utils &gt; normalizeError &gt; should handle object with undefined message" time="0.000397989">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/error-handler.test.ts" name="Error Handler Utils &gt; normalizeError &gt; should return default error for null" time="0.000223676">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/error-handler.test.ts" name="Error Handler Utils &gt; normalizeError &gt; should return default error for undefined" time="0.000170526">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/error-handler.test.ts" name="Error Handler Utils &gt; normalizeError &gt; should return default error for number" time="0.000500767">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/error-handler.test.ts" name="Error Handler Utils &gt; normalizeError &gt; should return default error for boolean" time="0.000267301">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/error-handler.test.ts" name="Error Handler Utils &gt; normalizeError &gt; should return default error for array" time="0.00017981">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/error-handler.test.ts" name="Error Handler Utils &gt; normalizeError &gt; should return default error for function" time="0.000151629">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/error-handler.test.ts" name="Error Handler Utils &gt; normalizeError &gt; should handle object without message property" time="0.000203452">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/error-handler.test.ts" name="Error Handler Utils &gt; normalizeError &gt; should handle empty string" time="0.00064935">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/error-handler.test.ts" name="Error Handler Utils &gt; normalizeError &gt; should handle empty object" time="0.000262558">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/error-handler.test.ts" name="Error Handler Utils &gt; getErrorMessage &gt; should return message from Error instance" time="0.000185589">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/error-handler.test.ts" name="Error Handler Utils &gt; getErrorMessage &gt; should return string error directly" time="0.000122531">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/error-handler.test.ts" name="Error Handler Utils &gt; getErrorMessage &gt; should return message from object with message property" time="0.000195447">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/error-handler.test.ts" name="Error Handler Utils &gt; getErrorMessage &gt; should return default message for unknown error types" time="0.000118065">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/error-handler.test.ts" name="Error Handler Utils &gt; getErrorMessage &gt; should handle null input" time="0.000243539">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/error-handler.test.ts" name="Error Handler Utils &gt; getErrorMessage &gt; should handle undefined input" time="0.000161188">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/error-handler.test.ts" name="Error Handler Utils &gt; getErrorMessage &gt; should handle empty string" time="0.000133693">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/error-handler.test.ts" name="Error Handler Utils &gt; getErrorMessage &gt; should handle complex object with message" time="0.000153091">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/error-handler.test.ts" name="Error Handler Utils &gt; getErrorStack &gt; should return stack from Error instance" time="0.006854928">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/error-handler.test.ts" name="Error Handler Utils &gt; getErrorStack &gt; should return undefined for string error (no stack)" time="0.001118941">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/error-handler.test.ts" name="Error Handler Utils &gt; getErrorStack &gt; should return stack for object converted to Error" time="0.001070848">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/error-handler.test.ts" name="Error Handler Utils &gt; getErrorStack &gt; should handle null input" time="0.000630425">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/error-handler.test.ts" name="Error Handler Utils &gt; getErrorStack &gt; should handle undefined input" time="0.000703084">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/error-handler.test.ts" name="Error Handler Utils &gt; getErrorStack &gt; should preserve original stack trace when possible" time="0.000455839">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/error-handler.test.ts" name="Error Handler Utils &gt; Edge cases and integration &gt; should handle Error subclasses correctly" time="0.00057741">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/error-handler.test.ts" name="Error Handler Utils &gt; Edge cases and integration &gt; should handle TypeError" time="0.000282477">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/error-handler.test.ts" name="Error Handler Utils &gt; Edge cases and integration &gt; should handle RangeError" time="0.000359178">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/error-handler.test.ts" name="Error Handler Utils &gt; Edge cases and integration &gt; should handle nested error objects" time="0.000275286">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/error-handler.test.ts" name="Error Handler Utils &gt; Edge cases and integration &gt; should handle circular references safely" time="0.002576791">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/error-handler.test.ts" name="Error Handler Utils &gt; Edge cases and integration &gt; should handle very long error messages" time="0.000465716">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/error-handler.test.ts" name="Error Handler Utils &gt; Edge cases and integration &gt; should handle unicode characters in error messages" time="0.000263224">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/error-handler.test.ts" name="Error Handler Utils &gt; Edge cases and integration &gt; should handle error-like objects from different contexts" time="0.00046024">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/error-handler.test.ts" name="Error Handler Utils &gt; Performance considerations &gt; should handle many error normalizations efficiently" time="0.144391886">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/error-handler.test.ts" name="Error Handler Utils &gt; Performance considerations &gt; should not leak memory with repeated calls" time="0.116310656">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/error-handler.test.ts" name="Error Handler Utils &gt; Type guard behavior &gt; should work as type guard for Error instances" time="0.000268783">
+        </testcase>
+        <testcase classname="src/lib/__tests__/utils/error-handler.test.ts" name="Error Handler Utils &gt; Type guard behavior &gt; should ensure consistent return type" time="0.000730096">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/lib/__tests__/security/csrf.test.ts" timestamp="2025-06-11T22:27:51.467Z" hostname="mustafagenc.local" tests="17" failures="0" errors="0" skipped="0" time="0.031035438">
+        <testcase classname="src/lib/__tests__/security/csrf.test.ts" name="CSRF Security Module &gt; generateCSRFToken &gt; should generate a valid CSRF token" time="0.006230795">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/csrf.test.ts" name="CSRF Security Module &gt; generateCSRFToken &gt; should generate token with user ID" time="0.001384614">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/csrf.test.ts" name="CSRF Security Module &gt; verifyCSRFToken &gt; should verify valid token" time="0.00071993">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/csrf.test.ts" name="CSRF Security Module &gt; verifyCSRFToken &gt; should reject non-existent token" time="0.000609014">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/csrf.test.ts" name="CSRF Security Module &gt; verifyCSRFToken &gt; should reject expired token" time="0.001371416">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/csrf.test.ts" name="CSRF Security Module &gt; verifyCSRFToken &gt; should verify token with matching user ID" time="0.000743425">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/csrf.test.ts" name="CSRF Security Module &gt; verifyCSRFToken &gt; should reject token with mismatched user ID" time="0.000647295">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/csrf.test.ts" name="CSRF Security Module &gt; csrfProtection middleware &gt; should allow safe methods and generate new token" time="0.001539028">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/csrf.test.ts" name="CSRF Security Module &gt; csrfProtection middleware &gt; should reject unsafe method without token" time="0.001413264">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/csrf.test.ts" name="CSRF Security Module &gt; csrfProtection middleware &gt; should accept valid token in header" time="0.001175284">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/csrf.test.ts" name="CSRF Security Module &gt; csrfProtection middleware &gt; should accept valid token in cookie" time="0.00060061">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/csrf.test.ts" name="CSRF Security Module &gt; addCSRFTokenToResponse &gt; should add token to response headers and cookies" time="0.004860121">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/csrf.test.ts" name="CSRF Security Module &gt; Double Submit Cookie Pattern &gt; should generate token and signature" time="0.000639303">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/csrf.test.ts" name="CSRF Security Module &gt; Double Submit Cookie Pattern &gt; should verify valid token and signature" time="0.001029022">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/csrf.test.ts" name="CSRF Security Module &gt; Double Submit Cookie Pattern &gt; should reject invalid signature" time="0.000803569">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/csrf.test.ts" name="CSRF Security Module &gt; Origin Validation &gt; should validate allowed origin" time="0.001173477">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/csrf.test.ts" name="CSRF Security Module &gt; Origin Validation &gt; should reject disallowed origin" time="0.001441475">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/lib/__tests__/security/encryption.test.ts" timestamp="2025-06-11T22:27:51.469Z" hostname="mustafagenc.local" tests="13" failures="0" errors="0" skipped="0" time="0.009952219">
+        <testcase classname="src/lib/__tests__/security/encryption.test.ts" name="encryption utils &gt; generateEncryptionKey bir hex string döndürür" time="0.002901371">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/encryption.test.ts" name="encryption utils &gt; generateSecureToken doğru uzunlukta string döndürür" time="0.000579746">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/encryption.test.ts" name="encryption utils &gt; createHmacSignature string döndürür" time="0.001015428">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/encryption.test.ts" name="encryption utils &gt; maskSensitiveData doğru şekilde maskeleme yapar" time="0.000372926">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/encryption.test.ts" name="encryption utils &gt; maskEmail doğru şekilde maskeleme yapar" time="0.000258282">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/encryption.test.ts" name="encryption utils &gt; maskCreditCard doğru şekilde maskeleme yapar" time="0.000299259">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/encryption.test.ts" name="encryption utils &gt; maskPhoneNumber doğru şekilde maskeleme yapar" time="0.000204037">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/encryption.test.ts" name="encryption utils &gt; generateSalt doğru uzunlukta string döndürür" time="0.000232265">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/encryption.test.ts" name="encryption utils &gt; hashWithSalt hash ve salt döndürür" time="0.000586719">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/encryption.test.ts" name="encryption utils &gt; verifyHashWithSalt true döndürür" time="0.000530429">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/encryption.test.ts" name="encryption utils &gt; deriveKey 32 byte buffer döndürür" time="0.000214034">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/encryption.test.ts" name="encryption utils &gt; generateSecureRandomString hex döndürür" time="0.000220537">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/encryption.test.ts" name="encryption utils &gt; constantTimeEquals true döndürür" time="0.000204431">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/lib/__tests__/security/rate-limit.test.ts" timestamp="2025-06-11T22:27:51.472Z" hostname="mustafagenc.local" tests="4" failures="0" errors="0" skipped="0" time="0.008136621">
+        <testcase classname="src/lib/__tests__/security/rate-limit.test.ts" name="rate-limit utils &gt; getRateLimitHeaders doğru header değerlerini döndürür" time="0.002618961">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/rate-limit.test.ts" name="rate-limit utils &gt; isRateLimited true döndürür" time="0.000403877">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/rate-limit.test.ts" name="rate-limit utils &gt; isRateLimited false döndürür" time="0.000318556">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/rate-limit.test.ts" name="rate-limit utils &gt; checkRateLimit fallback ile çalışır" time="0.002756428">
+            <system-out>
+Using fallback rate limit for key: test-key
+
+            </system-out>
+        </testcase>
+    </testsuite>
+    <testsuite name="src/lib/__tests__/security/sanitization.test.ts" timestamp="2025-06-11T22:27:51.474Z" hostname="mustafagenc.local" tests="9" failures="0" errors="0" skipped="0" time="0.007144067">
+        <testcase classname="src/lib/__tests__/security/sanitization.test.ts" name="sanitization utils &gt; sanitizeHtml zararlı script etiketini temizler" time="0.001738175">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/sanitization.test.ts" name="sanitization utils &gt; stripAllTags tüm HTML etiketlerini kaldırır" time="0.000485843">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/sanitization.test.ts" name="sanitization utils &gt; sanitizeSqlInput SQL injection karakterlerini temizler" time="0.000385991">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/sanitization.test.ts" name="sanitization utils &gt; sanitizeUserInput temel temizlik yapar" time="0.000561469">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/sanitization.test.ts" name="sanitization utils &gt; sanitizeFileName geçersiz karakterleri temizler" time="0.000293632">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/sanitization.test.ts" name="sanitization utils &gt; sanitizeUrl geçerli bir URL döndürür" time="0.001103224">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/sanitization.test.ts" name="sanitization utils &gt; sanitizePhoneNumber sadece rakamları döndürür" time="0.000274678">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/sanitization.test.ts" name="sanitization utils &gt; sanitizeEmail küçük harfe çevirir ve boşlukları kırpar" time="0.000254445">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/sanitization.test.ts" name="sanitization utils &gt; sanitizeObject derin nesneleri temizler" time="0.000517769">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/lib/__tests__/security/validation.test.ts" timestamp="2025-06-11T22:27:51.476Z" hostname="mustafagenc.local" tests="25" failures="0" errors="0" skipped="0" time="0.021442451">
+        <testcase classname="src/lib/__tests__/security/validation.test.ts" name="validation utils &gt; emailSchema geçerli email formatını kabul eder" time="0.003018853">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/validation.test.ts" name="validation utils &gt; emailSchema geçersiz email formatını reddeder" time="0.000711341">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/validation.test.ts" name="validation utils &gt; passwordSchema geçerli şifreyi kabul eder" time="0.000419621">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/validation.test.ts" name="validation utils &gt; passwordSchema geçersiz şifreyi reddeder" time="0.000484518">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/validation.test.ts" name="validation utils &gt; nameSchema geçerli ismi kabul eder" time="0.000247661">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/validation.test.ts" name="validation utils &gt; nameSchema geçersiz ismi reddeder" time="0.00027574">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/validation.test.ts" name="validation utils &gt; phoneSchema geçerli telefon numarasını kabul eder" time="0.000233466">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/validation.test.ts" name="validation utils &gt; phoneSchema geçersiz telefon numarasını reddeder" time="0.00021452">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/validation.test.ts" name="validation utils &gt; urlSchema geçerli URL formatını kabul eder" time="0.000860297">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/validation.test.ts" name="validation utils &gt; urlSchema geçersiz URL formatını reddeder" time="0.000544182">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/validation.test.ts" name="validation utils &gt; slugSchema geçerli slug formatını kabul eder" time="0.000221593">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/validation.test.ts" name="validation utils &gt; slugSchema geçersiz slug formatını reddeder" time="0.000411868">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/validation.test.ts" name="validation utils &gt; contactFormSchema geçerli form verisini kabul eder" time="0.002121567">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/validation.test.ts" name="validation utils &gt; contactFormSchema geçersiz form verisini reddeder" time="0.001259966">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/validation.test.ts" name="validation utils &gt; registerSchema geçerli kayıt verisini kabul eder" time="0.001294965">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/validation.test.ts" name="validation utils &gt; registerSchema geçersiz kayıt verisini reddeder" time="0.000863371">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/validation.test.ts" name="validation utils &gt; loginSchema geçerli giriş verisini kabul eder" time="0.000395848">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/validation.test.ts" name="validation utils &gt; loginSchema geçersiz giriş verisini reddeder" time="0.000593282">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/validation.test.ts" name="validation utils &gt; resetPasswordSchema geçerli şifre sıfırlama verisini kabul eder" time="0.000834285">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/validation.test.ts" name="validation utils &gt; resetPasswordSchema geçersiz şifre sıfırlama verisini reddeder" time="0.000846826">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/validation.test.ts" name="validation utils &gt; containsSuspiciousPatterns şüpheli metni tespit eder" time="0.00048947">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/validation.test.ts" name="validation utils &gt; isDisposableEmail geçici email adresini tespit eder" time="0.000258484">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/validation.test.ts" name="validation utils &gt; containsSpam spam metni tespit eder" time="0.000184121">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/validation.test.ts" name="validation utils &gt; validateRequest geçerli veriyi kabul eder" time="0.000434159">
+        </testcase>
+        <testcase classname="src/lib/__tests__/security/validation.test.ts" name="validation utils &gt; validateRequest geçersiz veriyi reddeder" time="0.001259722">
+        </testcase>
+    </testsuite>
+</testsuites>

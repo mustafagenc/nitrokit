@@ -7,7 +7,9 @@ import Resend from 'next-auth/providers/resend';
 import Apple from 'next-auth/providers/apple';
 import Instagram from 'next-auth/providers/instagram';
 import Facebook from 'next-auth/providers/facebook';
+import Twitter from 'next-auth/providers/twitter';
 import bcrypt from 'bcryptjs';
+import { generateRefreshToken, refreshAccessToken } from './tokens';
 
 import { prisma } from '@/lib/prisma';
 import { PrismaAdapter } from '@auth/prisma-adapter';
@@ -16,6 +18,37 @@ import { TwoFactorService } from './two-factor-service';
 const defaultLocale = 'en';
 const defaultTheme = 'system';
 const defaultRole = 'User';
+
+declare module 'next-auth' {
+    interface Session {
+        user: {
+            id: string;
+            email: string;
+            name?: string | null;
+            firstName?: string | null;
+            lastName?: string | null;
+            username?: string | null;
+            image?: string | null;
+            phone?: string | null;
+            phoneVerified?: boolean | null;
+            role: string;
+            twoFactorEnabled?: boolean;
+            locale: string;
+            theme: string;
+            refreshToken?: string;
+        };
+    }
+}
+
+declare module 'next-auth/jwt' {
+    interface JWT {
+        sub: string;
+        role: string;
+        phoneVerified?: boolean | null;
+        twoFactorEnabled?: boolean;
+        refreshToken?: string;
+    }
+}
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
     adapter: PrismaAdapter(prisma),
@@ -113,6 +146,29 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                     theme: defaultTheme,
                     twoFactorEnabled: false,
                     emailVerified: !!profile.email,
+                };
+            },
+        }),
+        Twitter({
+            authorization: {
+                params: {
+                    scope: 'tweet.read users.read offline.access',
+                },
+            },
+            profile(profile) {
+                const data = profile.data || profile;
+
+                return {
+                    id: data.id?.toString() || '',
+                    email: data.email || '',
+                    name: data.name || data.username || '',
+                    image: data.profile_image_url?.replace('_normal', '_400x400') || '',
+                    username: data.username || '',
+                    role: defaultRole,
+                    locale: defaultLocale,
+                    theme: defaultTheme,
+                    twoFactorEnabled: false,
+                    emailVerified: !!data.email,
                 };
             },
         }),
@@ -214,6 +270,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                 session.user.twoFactorEnabled = token.twoFactorEnabled;
                 session.user.locale = (token.locale as string) || 'en';
                 session.user.theme = (token.theme as string) || 'light';
+                session.user.refreshToken = token.refreshToken;
 
                 try {
                     const dbUser = await prisma.user.findUnique({
@@ -240,12 +297,36 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             }
             return session;
         },
-        async jwt({ token, user }) {
+        async jwt({ token, user, account }) {
             if (user) {
                 token.sub = user.id;
                 token.role = user.role;
                 token.twoFactorEnabled = user.twoFactorEnabled;
+
+                // Yeni bir refresh token oluştur
+                if (account) {
+                    const refreshToken = await generateRefreshToken(user.id);
+                    token.refreshToken = refreshToken;
+                }
             }
+
+            // Token'ın süresi dolmak üzereyse yenile
+            const shouldRefresh =
+                token.exp && token.exp - Math.floor(Date.now() / 1000) < 24 * 60 * 60; // 24 saat
+
+            if (shouldRefresh && token.refreshToken) {
+                try {
+                    const newTokens = await refreshAccessToken(token.refreshToken);
+                    return {
+                        ...token,
+                        ...newTokens,
+                    };
+                } catch (error) {
+                    console.error('Token refresh error:', error);
+                    return token;
+                }
+            }
+
             return token;
         },
     },
@@ -258,6 +339,11 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     },
     session: {
         strategy: 'jwt',
+        maxAge: 30 * 24 * 60 * 60, // 30 gün
+        updateAge: 24 * 60 * 60, // 24 saat
+    },
+    jwt: {
+        maxAge: 30 * 24 * 60 * 60, // 30 gün
     },
     secret: process.env.NEXTAUTH_SECRET,
 });

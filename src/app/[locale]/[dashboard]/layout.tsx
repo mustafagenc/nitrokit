@@ -21,7 +21,7 @@ export default async function DashboardLayout({
                 <DashboardHeader>
                     <DashboardBreadcrumb />
                 </DashboardHeader>
-                <div className="flex h-[calc(100vh-4rem)] overflow-hidden">
+                <div className="flex h-[calc(100vh-5rem)] overflow-hidden">
                     <DashboardSidebar />
                     <div className="flex-1 overflow-hidden px-5 md:pt-0 md:pr-5 md:pb-0 md:pl-0">
                         <main className="h-full rounded-2xl border border-gray-200 bg-white shadow-sm dark:border-gray-800 dark:bg-zinc-950">

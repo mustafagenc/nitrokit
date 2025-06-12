@@ -20,7 +20,7 @@ export class SentryProvider implements LoggerProvider {
                     }
                     return event;
                 },
-                _experiments: { enableLogs: true },
+                _experiments: { enableLogs: false },
             });
             this.initialized = true;
         }
