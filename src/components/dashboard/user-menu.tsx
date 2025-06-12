@@ -187,9 +187,9 @@ export function UserMenu({ size = 'size-10' }: UserMenuProps) {
             <PopoverTrigger asChild>
                 <UserAvatar useSessionData={true} size={size} className="ml-4" />
             </PopoverTrigger>
-            <PopoverContent className="w-62 p-0 shadow-lg" side="bottom" align="end">
+            <PopoverContent className="w-58 p-0 shadow-lg" side="bottom" align="end">
                 <div className="flex w-full flex-row items-center justify-start gap-3 border-b border-gray-200 p-3 dark:border-gray-700">
-                    <div>
+                    <div className="relative">
                         <UserAvatar
                             useSessionData={true}
                             size={size}
@@ -197,19 +197,16 @@ export function UserMenu({ size = 'size-10' }: UserMenuProps) {
                         />
                     </div>
                     <div className="min-w-0 flex-1">
-                        <h4 className="truncate text-sm font-semibold text-gray-900 dark:text-white">
+                        <h4 className="truncate text-xs font-semibold text-gray-900 dark:text-white">
                             {getDisplayName()}
                         </h4>
-                        <p className="truncate text-xs font-normal text-gray-600 dark:text-gray-400">
+                        <p className="truncate text-xs text-gray-600 dark:text-gray-400">
                             {session.user.email}
                         </p>
                     </div>
-                    <div className="flex h-6 min-w-6 items-center justify-center rounded border border-blue-200 bg-blue-50 px-2 text-xs font-medium text-blue-700 normal-case dark:border-blue-800 dark:bg-blue-900/20 dark:text-blue-400">
-                        {session.user.role || 'User'}
-                    </div>
                 </div>
 
-                <div className="p-1.5">
+                <div className="p-0.5">
                     <div className="mb-3">
                         <div className="mb-1.5 px-2 py-1">
                             <h3 className="text-xs font-semibold tracking-wider text-gray-500 uppercase dark:text-gray-400">
