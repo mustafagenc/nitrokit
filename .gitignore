@@ -50,3 +50,7 @@ storybook-static
 
 /.dependency
 /public/storybook
+
+codecov
+playwright-report/
+test-results/
