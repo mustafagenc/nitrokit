@@ -79,7 +79,6 @@ export function AccountLinking({ accounts, className }: AccountLinkingProps) {
                 <CardDescription>Link your social accounts for easier sign-in</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
-                {/* Warning for single account */}
                 {accounts.length <= 1 && (
                     <div className="flex items-center gap-2 rounded-lg border border-amber-200 bg-amber-50 p-3 dark:border-amber-800 dark:bg-amber-950/20">
                         <AlertTriangle className="h-4 w-4 text-amber-600 dark:text-amber-400" />
@@ -88,7 +87,6 @@ export function AccountLinking({ accounts, className }: AccountLinkingProps) {
                         </p>
                     </div>
                 )}
-
                 <div className="grid grid-cols-2 gap-3">
                     {providers.map((provider) => {
                         const connected = isConnected(provider.id);
