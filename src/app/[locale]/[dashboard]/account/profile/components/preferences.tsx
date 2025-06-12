@@ -101,21 +101,13 @@ export function Preferences({ user }: PreferencesProps) {
 
                 if (result.localeChanged && data.locale) {
                     toast.success('Language updated! Redirecting...');
-                    const pathWithoutLocale = window.location.pathname.replace(
-                        `/${currentLocale}`,
-                        ''
-                    );
-                    setTimeout(() => {
-                        window.location.href = `/${data.locale}${pathWithoutLocale}`;
-                    }, 1000);
-                    return;
+                    router.push('/dashboard/account/profile/', { locale: data.locale });
+                    router.refresh();
                 }
 
                 if (changes.length === 0) {
                     toast.success('Preferences updated successfully!');
                 }
-
-                router.refresh();
             } else {
                 toast.error(result.error || 'Failed to update preferences');
             }
