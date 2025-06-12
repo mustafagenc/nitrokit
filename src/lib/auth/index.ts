@@ -20,37 +20,6 @@ const defaultLocale = 'en';
 const defaultTheme = 'system';
 const defaultRole = 'User';
 
-declare module 'next-auth' {
-    interface Session {
-        user: {
-            id: string;
-            email: string;
-            name?: string | null;
-            firstName?: string | null;
-            lastName?: string | null;
-            username?: string | null;
-            image?: string | null;
-            phone?: string | null;
-            phoneVerified?: boolean | null;
-            role: string;
-            twoFactorEnabled?: boolean;
-            locale: string;
-            theme: string;
-            refreshToken?: string;
-        };
-    }
-}
-
-declare module 'next-auth/jwt' {
-    interface JWT {
-        sub: string;
-        role: string;
-        phoneVerified?: boolean | null;
-        twoFactorEnabled?: boolean;
-        refreshToken?: string;
-    }
-}
-
 export const { handlers, signIn, signOut, auth } = NextAuth({
     adapter: PrismaAdapter(prisma),
     providers: [
@@ -306,6 +275,44 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         },
     },
     callbacks: {
+        async signIn({ user, account }) {
+            if (account?.provider === 'credentials') {
+                return true;
+            }
+
+            if (user.email) {
+                try {
+                    const existingUser = await prisma.user.findUnique({
+                        where: { email: user.email },
+                        include: {
+                            accounts: true,
+                        },
+                    });
+
+                    if (existingUser) {
+                        const existingAccount = existingUser.accounts.find(
+                            (acc) => acc.provider === account?.provider
+                        );
+
+                        if (!existingAccount && account) {
+                            console.log(
+                                `Linking ${account.provider} to existing user ${existingUser.id}`
+                            );
+                        }
+
+                        user.id = existingUser.id;
+                        return true;
+                    }
+
+                    return true;
+                } catch (error) {
+                    console.error('Account linking error:', error);
+                    return false;
+                }
+            }
+
+            return true;
+        },
         async session({ session, token }) {
             if (token.sub && session.user) {
                 session.user.id = token.sub;
@@ -313,7 +320,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                 session.user.twoFactorEnabled = token.twoFactorEnabled;
                 session.user.locale = (token.locale as string) || 'en';
                 session.user.theme = (token.theme as string) || 'light';
-                session.user.refreshToken = token.refreshToken;
+                session.user.refreshToken = token.refreshToken as string | undefined;
 
                 try {
                     const dbUser = await prisma.user.findUnique({
@@ -324,6 +331,12 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                             firstName: true,
                             lastName: true,
                             username: true,
+                            accounts: {
+                                select: {
+                                    provider: true,
+                                    type: true,
+                                },
+                            },
                         },
                     });
 
@@ -333,6 +346,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                         session.user.firstName = dbUser.firstName;
                         session.user.lastName = dbUser.lastName;
                         session.user.username = dbUser.username;
+                        session.user.linkedAccounts = dbUser.accounts;
                     }
                 } catch (error) {
                     console.error('Session update error:', error);
@@ -346,20 +360,18 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                 token.role = user.role;
                 token.twoFactorEnabled = user.twoFactorEnabled;
 
-                // Yeni bir refresh token oluştur
                 if (account) {
                     const refreshToken = await generateRefreshToken(user.id);
                     token.refreshToken = refreshToken;
                 }
             }
 
-            // Token'ın süresi dolmak üzereyse yenile
             const shouldRefresh =
                 token.exp && token.exp - Math.floor(Date.now() / 1000) < 24 * 60 * 60; // 24 saat
 
             if (shouldRefresh && token.refreshToken) {
                 try {
-                    const newTokens = await refreshAccessToken(token.refreshToken);
+                    const newTokens = await refreshAccessToken(token.refreshToken as string);
                     return {
                         ...token,
                         ...newTokens,
