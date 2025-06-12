@@ -1,52 +1,60 @@
 import { VariantProps } from 'class-variance-authority';
 import { useTranslations } from 'next-intl';
-import Image from 'next/image';
 import * as React from 'react';
 
 import { signIn } from '@/lib/auth';
 import { Button, buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib';
 import { Provider } from '@/lib/auth/providers';
+import {
+    GoogleIcon,
+    GithubIcon,
+    GitlabIcon,
+    AppleIcon,
+    InstagramIcon,
+    FacebookIcon,
+    TwitterIcon,
+} from '@/components/icons/brands';
 
 function getProviderDetail({ t, provider }: { t: (key: string) => string; provider: Provider }): {
     text: string;
-    icon: string;
+    Icon: React.ComponentType<{ className?: string; color?: string }>;
 } {
     switch (provider) {
         case 'google':
             return {
                 text: t('auth.signinWithGoogle'),
-                icon: '/images/brands/google.svg',
+                Icon: GoogleIcon,
             };
         case 'github':
             return {
                 text: t('auth.signinWithGithub'),
-                icon: '/images/brands/github.svg',
+                Icon: GithubIcon,
             };
         case 'gitlab':
             return {
                 text: t('auth.signinWithGitlab'),
-                icon: '/images/brands/gitlab.svg',
+                Icon: GitlabIcon,
             };
         case 'apple':
             return {
                 text: t('auth.signinWithApple'),
-                icon: '/images/brands/apple.svg',
+                Icon: AppleIcon,
             };
         case 'instagram':
             return {
                 text: t('auth.signinWithInstagram'),
-                icon: '/images/brands/instagram.svg',
+                Icon: InstagramIcon,
             };
         case 'facebook':
             return {
                 text: t('auth.signinWithFacebook'),
-                icon: '/images/brands/facebook.svg',
+                Icon: FacebookIcon,
             };
         case 'twitter':
             return {
                 text: t('auth.signinWithTwitter'),
-                icon: '/images/brands/twitter.svg',
+                Icon: TwitterIcon,
             };
         default:
             throw new Error('Unsupported provider');
@@ -77,7 +85,7 @@ function SignWithButton({
         asChild?: boolean;
     }) {
     const t = useTranslations();
-    const { text, icon } = getProviderDetail({ t, provider });
+    const { text, Icon } = getProviderDetail({ t, provider });
 
     return (
         <form
@@ -98,7 +106,7 @@ function SignWithButton({
                 size={size}
                 {...props}
             >
-                <Image src={icon} alt="Github" width={18} height={18} className="h-5 w-5" />
+                <Icon className="h-5 w-5 text-black dark:text-white" />
                 <span
                     className={`text-sm text-black dark:text-gray-400 ${onlyIcon ? 'hidden' : ''}`}
                 >

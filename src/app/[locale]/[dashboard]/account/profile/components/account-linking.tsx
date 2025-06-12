@@ -7,7 +7,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { toast } from 'sonner';
 import { Loader2, Users, AlertTriangle, ExternalLink, Unlink } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import Image from 'next/image';
 import { providers } from '@/lib/auth/providers';
 
 interface Account {
@@ -99,13 +98,7 @@ export function AccountLinking({ accounts, className }: AccountLinkingProps) {
                             >
                                 <div className="flex items-center gap-3">
                                     <div className="flex h-8 w-8 items-center justify-center rounded-full">
-                                        <Image
-                                            src={provider.logo}
-                                            alt={`${provider.name} logo`}
-                                            width={30}
-                                            height={30}
-                                            className="h-7 w-7"
-                                        />
+                                        <provider.logo className="h-7 w-7 text-black dark:text-white" />
                                     </div>
                                     <div>
                                         <div className="flex items-center gap-2">
