@@ -4,6 +4,7 @@ import { SignWithButton } from '@/components/auth/sign-with-button';
 import { Link } from '@/lib/i18n/navigation';
 
 import SigninForm from './components/signin-form';
+import { providers } from '@/lib/auth/providers';
 
 export default async function Page() {
     const t = await getTranslations();
@@ -15,9 +16,9 @@ export default async function Page() {
             </h2>
             <h3 className="text-center text-xs">{t('signin.description')}</h3>
             <div className="mt-3 grid w-full grid-cols-3 gap-3 text-center">
-                <SignWithButton provider="google" onlyIcon={true} />
-                <SignWithButton provider="github" onlyIcon={true} />
-                <SignWithButton provider="facebook" onlyIcon={true} />
+                {providers.map((provider) => (
+                    <SignWithButton key={provider.id} provider={provider.id} onlyIcon={true} />
+                ))}
             </div>
             <hr className="my-3 h-px w-64 border-0 bg-gray-200 dark:bg-gray-700" />
             <SigninForm />

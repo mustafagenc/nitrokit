@@ -8,6 +8,7 @@ import { toast } from 'sonner';
 import { Loader2, Users, AlertTriangle, ExternalLink, Unlink } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
+import { providers, Provider } from '@/lib/auth/providers';
 
 interface Account {
     id: string;
@@ -20,24 +21,6 @@ interface AccountLinkingProps {
     accounts: Account[];
     className?: string;
 }
-
-const providers = [
-    {
-        id: 'google',
-        name: 'Google',
-        logo: '/images/brands/google.svg',
-    },
-    {
-        id: 'github',
-        name: 'GitHub',
-        logo: '/images/brands/github.svg',
-    },
-    {
-        id: 'facebook',
-        name: 'Facebook',
-        logo: '/images/brands/facebook.svg',
-    },
-];
 
 export function AccountLinking({ accounts, className }: AccountLinkingProps) {
     const [loading, setLoading] = useState<string | null>(null);
