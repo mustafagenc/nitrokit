@@ -66,8 +66,67 @@
         }
     },
     "auth": {
-        "signin": "Se connecter",
-        "signup": "S'inscrire",
+        "signin": {
+            "title": "Se connecter",
+            "description": "Bienvenue, veuillez vous connecter pour continuer.",
+            "signing": "Connexion en cours...",
+            "success": "Connexion réussie !",
+            "error": "Échec de la connexion",
+            "invalidCredentials": "E-mail ou mot de passe invalide"
+        },
+        "signup": {
+            "title": "S'inscrire",
+            "description": "Rejoignez-nous pour accéder aux fonctionnalités et contenus exclusifs.",
+            "creating": "Création du compte...",
+            "success": "Compte créé avec succès !",
+            "successDescription": "Vous pouvez maintenant vous connecter avec vos identifiants.",
+            "error": "Impossible de créer le compte",
+            "verificationRequired": "Compte créé ! Veuillez vérifier votre adresse e-mail",
+            "verificationDescription": "Nous avons envoyé un lien de vérification à {email}. Veuillez vérifier votre boîte de réception et cliquez sur le lien pour activer votre compte."
+        },
+        "verifyEmail": {
+            "title": "Vérifiez votre email",
+            "description": "Nous vous avons envoyé un lien de vérification",
+            "sentTo": "E-mail envoyé à :",
+            "instructions": {
+                "check": "1. Vérifiez votre boîte de réception",
+                "click": "2. Cliquez sur le lien de vérification dans l'e-mail",
+                "spam": "3. N'oubliez pas de vérifier votre dossier spam si vous ne le voyez pas"
+            },
+            "resend": "Renvoyer l'e-mail de vérification",
+            "backToSignin": "Retour à la connexion"
+        },
+        "emailVerification": {
+            "title": "Email vérifié ! ✅",
+            "description": "Votre adresse e-mail a été vérifiée avec succès. Vous pouvez maintenant vous connecter à votre compte.",
+            "signIn": "Connectez-vous à votre compte"
+        },
+        "resetPassword": {
+            "sendEmail": "Envoyer un e-mail de réinitialisation",
+            "emailSent": "E-mail de réinitialisation envoyé !",
+            "checkEmail": "Veuillez vérifier votre email à {email}",
+            "error": "Échec de l'envoi de l'e-mail de réinitialisation",
+            "emailSentTitle": "Vérifiez votre email",
+            "emailSentDescription": "Nous vous avons envoyé un lien de réinitialisation du mot de passe",
+            "emailSentTo": "E-mail de réinitialisation envoyé à:",
+            "instructions": {
+                "check": "1. Vérifiez votre boîte de réception",
+                "click": "2. Cliquez sur le lien de réinitialisation dans l'e-mail",
+                "expire": "3. Le lien expirera dans 1 heure"
+            },
+            "newPassword": "Nouveau mot de passe",
+            "confirmPassword": "Confirmer le mot de passe",
+            "confirm": "Réinitialiser le mot de passe",
+            "success": "Mot de passe réinitialisé avec succès !",
+            "successDescription": "Vous pouvez maintenant vous connecter avec votre nouveau mot de passe",
+            "confirmError": "Échec de la réinitialisation du mot de passe",
+            "newPasswordTitle": "Définir un nouveau mot de passe",
+            "newPasswordDescription": "Entrez votre nouveau mot de passe ci-dessous",
+            "invalidResetLink": {
+                "title": "Invalid Reset Link",
+                "description": "Le lien de réinitialisation du mot de passe est invalide ou a expiré."
+            }
+        },
         "signout": "Se déconnecter",
         "signinWithGoogle": "Se connecter avec Google",
         "signinWithFacebook": "Se connecter avec Facebook",
@@ -78,6 +137,8 @@
         "signinWithGitlab": "Se connecter avec GitLab",
         "signinWithMicrosoft": "Se connecter avec Microsoft",
         "signinWithInstagram": "Se connecter avec Instagram",
+        "firstName": "Prénom",
+        "lastName": "Nom de famille",
         "email": "E-mail",
         "password": "Mot de passe",
         "confirmPassword": "Confirmer le mot de passe",
@@ -85,10 +146,7 @@
         "name": "Votre nom",
         "privacyPolicy": "Notre politique de confidentialité",
         "slogan1": "Donnez à vos projets un démarrage <span>fusée 🚀</span> !",
-        "slogan2": "Gagnez du temps avec <link>Nitrokit</link> et concentrez-vous sur le développement...",
-        "account": "Informations du compte",
-        "support": "Support",
-        "billing": "Mes factures"
+        "slogan2": "Gagnez du temps avec <link>Nitrokit</link> et concentrez-vous sur le développement..."
     },
     "signin": {
         "title": "Connectez-vous à {appName}",
@@ -106,6 +164,8 @@
     },
     "validation": {
         "required": {
+            "firstName": "Le champ Prénom est obligatoire.",
+            "lastName": "Le champ Nom est obligatoire.",
             "name": "Le champ Nom est requis.",
             "email": "Le champ E-mail est requis.",
             "message": "Le champ Message est requis.",
@@ -132,6 +192,8 @@
     },
     "placeholder": {
         "enterYourName": "Entrez votre nom",
+        "enterYourFirstName": "Entrez votre prénom",
+        "enterYourLastName": "Entrez votre nom de famille",
         "enterYourEmail": "Entrez votre adresse e-mail",
         "enterYourMessage": "Entrez votre message",
         "enterYourPassword": "Entrez votre mot de passe",
@@ -329,5 +391,513 @@
     "footer": {
         "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ Tous droits réservés.",
         "poweredBy": "Propulsé par <link>Ekipisi</link>."
+    },
+    "cookies": {
+        "banner": {
+            "title": "Nous utilisons des cookies",
+            "description": "Nous utilisons des cookies pour améliorer votre expérience de navigation, servir des contenus personnalisés et analyser notre trafic.",
+            "learnMore": "En savoir plus",
+            "accept": "Accepter tout",
+            "reject": "Rejeter tout",
+            "settings": "Paramètres des cookies"
+        },
+        "settings": {
+            "title": "Préférences des cookies",
+            "description": "Choisissez les cookies que vous souhaitez accepter. Vous pouvez modifier ces paramètres à tout moment.",
+            "save": "Enregistrer les préférences",
+            "rejectAll": "Rejeter tout"
+        },
+        "categories": {
+            "necessary": {
+                "title": "Cookies nécessaires",
+                "description": "Ces cookies sont essentiels au bon fonctionnement du site Web. Ils ne peuvent pas être désactivés."
+            },
+            "analytics": {
+                "title": "Cookies d'analyse",
+                "description": "Ces cookies nous aident à comprendre comment les visiteurs interagissent avec notre site Web en recueillant et en signalant des informations de manière anonyme."
+            },
+            "marketing": {
+                "title": "Cookies de marketing",
+                "description": "Ces cookies sont utilisés pour diffuser des publicités qui sont plus pertinentes pour vous et vos intérêts."
+            },
+            "functional": {
+                "title": "Cookies fonctionnels",
+                "description": "Ces cookies permettent une fonctionnalité et une personnalisation améliorées, comme la mémorisation de vos préférences."
+            }
+        }
+    },
+    "dashboard": {
+        "navigation": {
+            "dashboard": "Tableau de bord",
+            "invoices": "Factures",
+            "support": "Soutien",
+            "settings": "Réglages",
+            "account": "Informations sur le compte",
+            "billing": "Mes factures"
+        },
+        "userMenu": {
+            "defaultUserName": "Utilisateur",
+            "sections": {
+                "account": "Compte client",
+                "other": "Autres"
+            },
+            "account": {
+                "overview": "Aperçu du compte client",
+                "profile": "Paramètres du profil",
+                "notifications": "Notifications"
+            },
+            "security": {
+                "title": "Sécurité",
+                "overview": "Aperçu de la sécurité",
+                "password": "Mot de passe",
+                "twoFactor": "Auth à deux facteurs",
+                "sessions": "Sessions actives"
+            },
+            "other": {
+                "billing": "Facturation & Plans",
+                "settings": "Réglages"
+            }
+        },
+        "account": {
+            "navigation": {
+                "overview": "Aperçu",
+                "profile": "Profil",
+                "account": "Compte client",
+                "notifications": "Notifications",
+                "security": {
+                    "title": "Sécurité",
+                    "password": "Mot de passe & Sécurité",
+                    "twoFactor": "Authentification à deux facteurs",
+                    "twoFactorShort": "Auth à deux facteurs",
+                    "sessions": "Sessions actives"
+                },
+                "mobile": {
+                    "title": "Paramètres du compte",
+                    "openMenu": "Ouvrir le menu"
+                }
+            },
+            "notifications": {
+                "page": {
+                    "title": "Paramètres de notification",
+                    "description": "Gérer vos préférences de notification",
+                    "heading": "Paramètres de notification",
+                    "subheading": "Choisissez comment vous voulez être informé de l'activité du compte et des mises à jour."
+                },
+                "headers": {
+                    "notificationType": "Type de notification",
+                    "email": "Courriel",
+                    "sms": "SMS",
+                    "inApp": "In-App"
+                },
+                "badges": {
+                    "recommended": "Recommandé"
+                },
+                "categories": {
+                    "security": {
+                        "title": "Sécurité & Compte",
+                        "settings": {
+                            "accountSecurity": {
+                                "label": "Sécurité du compte",
+                                "description": "Mises à jour et alertes de sécurité importantes"
+                            },
+                            "loginAlerts": {
+                                "label": "Alertes de connexion",
+                                "description": "Nouvelles notifications de connexion de différents appareils"
+                            },
+                            "passwordChanges": {
+                                "label": "Changements de mot de passe",
+                                "description": "Réinitialisation du mot de passe et modification des confirmations"
+                            },
+                            "profileUpdates": {
+                                "label": "Mises à jour du profil",
+                                "description": "Changements des informations sur le profil et le compte"
+                            }
+                        }
+                    },
+                    "marketing": {
+                        "title": "Marketing & Mises à jour",
+                        "settings": {
+                            "marketing": {
+                                "label": "Communications marketing",
+                                "description": "Mises à jour du produit et contenu promotionnel"
+                            },
+                            "newsletters": {
+                                "label": "Newsletters",
+                                "description": "Newsletters et conseils hebdomadaires"
+                            },
+                            "systemUpdates": {
+                                "label": "Mises à jour du système",
+                                "description": "Mises à jour des applications et avis de maintenance"
+                            }
+                        }
+                    }
+                },
+                "quickActions": {
+                    "title": "Actions rapides",
+                    "description": "Activer ou désactiver toutes les notifications pour chaque canal",
+                    "enableAllEmail": "Activer tous les e-mails",
+                    "essentialOnly": "Essentiel uniquement",
+                    "enableAllEmailSuccess": "Toutes les notifications par e-mail sont activées",
+                    "essentialOnlySuccess": "Notifications essentielles activées"
+                },
+                "form": {
+                    "savePreferences": "Enregistrer les préférences",
+                    "saving": "Sauvegarde en cours...",
+                    "saveSuccess": "Préférences de notification enregistrées avec succès !",
+                    "saveError": "Échec de l'enregistrement des préférences. Veuillez réessayer."
+                }
+            },
+            "overview": {
+                "title": "Aperçu du compte client",
+                "description": "Le statut de votre compte et la sécurité en un coup d'œil.",
+                "editProfile": "Modifier le profil"
+            },
+            "security": {
+                "recommendations": {
+                    "title": "Recommandations de sécurité",
+                    "verifyEmail": {
+                        "title": "Vérifiez votre adresse e-mail",
+                        "description": "Sécurisez votre compte en vérifiant votre adresse e-mail",
+                        "action": "Vérifier l'e-mail"
+                    },
+                    "setPassword": {
+                        "title": "Définir le mot de passe du compte",
+                        "description": "Ajouter un mot de passe pour activer la méthode de connexion de sauvegarde et améliorer la sécurité",
+                        "action": "Définir le mot de passe"
+                    },
+                    "weakPassword": {
+                        "title": "Mot de passe faible détecté",
+                        "description": "Votre mot de passe est faible et devrait être mis à jour",
+                        "action": "Changer le mot de passe"
+                    },
+                    "enableTwoFactor": {
+                        "title": "Activer l'authentification à deux facteurs",
+                        "description": "Ajoutez une couche de sécurité supplémentaire à votre compte",
+                        "action": "Activer l'A2F"
+                    },
+                    "addPhone": {
+                        "title": "Ajouter un numéro de téléphone",
+                        "description": "Ajouter un numéro de téléphone pour la récupération du compte",
+                        "action": "Ajouter un téléphone"
+                    }
+                },
+                "score": {
+                    "title": "Score de sécurité",
+                    "subtitle": "Sécurité globale",
+                    "excellent": "Excellent",
+                    "good": "Bon",
+                    "needsImprovement": "Besoin d'amélioration",
+                    "settings": "Paramètres de sécurité"
+                },
+                "page": {
+                    "title": "Paramètres de sécurité",
+                    "description": "Gérer les paramètres de sécurité de votre compte",
+                    "heading": "Sécurité",
+                    "subheading": "Gérer votre mot de passe, l'authentification à deux facteurs et les sessions actives"
+                },
+                "passwordStrength": {
+                    "strong": "Forte",
+                    "medium": "Moyenne",
+                    "weak": "Faible",
+                    "unknown": "Inconnu"
+                },
+                "status": {
+                    "enabled": "Activé",
+                    "disabled": "Désactivé"
+                },
+                "cards": {
+                    "password": {
+                        "title": "Mot de passe",
+                        "description": "Changez votre mot de passe et gérez la sécurité du mot de passe"
+                    },
+                    "twoFactor": {
+                        "title": "Authentification à deux facteurs",
+                        "description": "Ajoutez une couche de sécurité supplémentaire à votre compte"
+                    },
+                    "sessions": {
+                        "title": "Sessions actives",
+                        "description": "Voir et gérer vos sessions de connexion actives",
+                        "activeCount": "{count} Actif"
+                    }
+                },
+                "overview": {
+                    "title": "Aperçu de la sécurité",
+                    "description": "Statut actuel de la sécurité de votre compte",
+                    "metrics": {
+                        "passwordStrength": "Force du mot de passe",
+                        "twoFactorAuth": "Auth à deux facteurs",
+                        "twoFactorOn": "Activé",
+                        "twoFactorOff": "Désactivé",
+                        "activeSessions": "Sessions actives"
+                    }
+                }
+            },
+            "status": {
+                "title": "Statut du compte",
+                "email": {
+                    "label": "Courriel",
+                    "verified": "Vérifié",
+                    "unverified": "Non vérifié"
+                },
+                "phone": {
+                    "label": "Téléphone",
+                    "verified": "Vérifié",
+                    "notAdded": "Non Ajouté"
+                },
+                "twoFactor": {
+                    "label": "Auth à deux facteurs",
+                    "enabled": "Activé",
+                    "disabled": "Désactivé"
+                },
+                "password": {
+                    "label": "Mot de passe",
+                    "notSet": "Non défini",
+                    "strong": "Forte",
+                    "medium": "Moyenne",
+                    "weak": "Faible",
+                    "unknown": "Inconnu"
+                },
+                "sessions": {
+                    "label": "Sessions actives",
+                    "active": "{count} Actif"
+                },
+                "accountType": {
+                    "label": "Type de compte client"
+                }
+            },
+            "personalInfo": {
+                "title": "Informations personnelles",
+                "fullName": "Nom complet",
+                "emailAddress": "Adresse e-mail",
+                "phoneNumber": "Numéro de téléphone",
+                "memberSince": "Membre depuis",
+                "notSet": "Non défini",
+                "notAdded": "Non ajouté"
+            },
+            "recentActivity": {
+                "title": "Activité récente",
+                "currentSession": "Session en cours",
+                "sessionLogin": "Connexion à la session",
+                "accountCreated": "Compte créé",
+                "emailVerified": "Courriel vérifié",
+                "connectedProvider": "{provider} Connecté",
+                "activeTill": "Actif jusqu'à {date}",
+                "welcome": "Bienvenue sur la plateforme !",
+                "emailConfirmed": "Adresse e-mail confirmée",
+                "accountLinked": "Compte {type} lié",
+                "noActivity": "Aucune activité récente",
+                "viewAllSessions": "Voir toutes les sessions",
+                "statuses": {
+                    "active": "Actif",
+                    "completed": "Terminé",
+                    "expiresSoon": "Expire bientôt",
+                    "unknown": "Inconnu"
+                }
+            },
+            "linkedAccounts": {
+                "title": "Comptes liés",
+                "connect": "Connecter le compte",
+                "disconnect": "Déconnecter",
+                "alreadyConnected": "Cette plateforme est déjà connectée",
+                "accountBelongsToOther": "Ce compte appartient à un autre utilisateur",
+                "cannotRemoveLast": "Vous ne pouvez pas supprimer votre seule méthode d'authentification. Veuillez d'abord définir un mot de passe.",
+                "linkSuccess": "Compte lié avec succès",
+                "unlinkSuccess": "Compte dissocié avec succès",
+                "linkError": "Impossible de lier le compte",
+                "unlinkError": "Échec de la dissociation du compte",
+                "hasPassword": "A un mot de passe",
+                "canRemoveAccounts": "Peut supprimer des comptes"
+            },
+            "profile": {
+                "page": {
+                    "title": "Paramètres du profil",
+                    "description": "Gérer vos informations personnelles et vos paramètres de profil",
+                    "heading": "Paramètres du profil",
+                    "subheading": "Gérez vos informations personnelles et vos préférences de profil."
+                },
+                "accountLinking": {
+                    "title": "Comptes connectés",
+                    "description": "Lier vos comptes sociaux pour faciliter la connexion",
+                    "warning": {
+                        "keepOneAccount": "Conserver au moins un compte connecté pour maintenir l'accès"
+                    },
+                    "status": {
+                        "activeSince": "Actif depuis {date}",
+                        "recently": "récemment"
+                    },
+                    "buttons": {
+                        "connect": "Connecter",
+                        "disconnect": "Déconnecter",
+                        "connecting": "Connexion en cours...",
+                        "removing": "Suppression en cours..."
+                    },
+                    "messages": {
+                        "connectFailed": "Échec de la connexion au compte",
+                        "disconnectSuccess": "Compte déconnecté avec succès",
+                        "disconnectFailed": "Échec de la déconnexion du compte",
+                        "cannotRemoveLast": "Impossible de supprimer le dernier compte connecté"
+                    }
+                },
+                "preferences": {
+                    "title": "Préférences",
+                    "description": "Personnalisez vos préférences de langue et de thème",
+                    "language": {
+                        "label": "Langue",
+                        "placeholder": "Sélectionner la langue",
+                        "flagAlt": "Drapeau {language}"
+                    },
+                    "theme": {
+                        "label": "Thème",
+                        "placeholder": "Sélectionner un thème",
+                        "options": {
+                            "light": "Lumière",
+                            "dark": "Sombre",
+                            "system": "Système"
+                        }
+                    },
+                    "buttons": {
+                        "save": "Enregistrer les préférences",
+                        "cancel": "Abandonner"
+                    },
+                    "messages": {
+                        "changeTypes": {
+                            "language": "Langue",
+                            "theme": "Thème"
+                        },
+                        "themeUpdateSuccess": "Thème mis à jour avec succès !",
+                        "languageUpdateSuccess": "Langue mise à jour ! Redirection...",
+                        "updateSuccess": "Préférences mises à jour avec succès !",
+                        "updateFailed": "Échec de la mise à jour des préférences",
+                        "updateError": "Une erreur s'est produite. Veuillez réessayer."
+                    }
+                },
+                "profileInformation": {
+                    "title": "Informations sur le profil",
+                    "description": "Mettre à jour vos informations personnelles et votre photo de profil",
+                    "firstName": {
+                        "label": "Prénom",
+                        "placeholder": "Entrez votre prénom"
+                    },
+                    "lastName": {
+                        "label": "Nom de famille",
+                        "placeholder": "Entrez votre nom de famille"
+                    },
+                    "email": {
+                        "label": "Adresse e-mail"
+                    },
+                    "image": {
+                        "label": "Photo de profil",
+                        "removeSuccess": "Photo de profil supprimée avec succès !",
+                        "removeError": "Impossible de supprimer l'image de profil."
+                    },
+                    "phone": {
+                        "label": "Numéro de téléphone",
+                        "placeholder": "+1 234 567 8900",
+                        "status": {
+                            "verified": "Vérifié",
+                            "notVerified": "Non vérifié",
+                            "verificationRequired": "Vérification requise"
+                        },
+                        "validation": {
+                            "invalidFormat": "Veuillez entrer un numéro de téléphone international valide (7-15 chiffres)"
+                        },
+                        "verification": {
+                            "sendCode": "Envoyer le code",
+                            "codeSent": "Code de vérification envoyé !",
+                            "sendError": "Impossible d'envoyer le code de vérification",
+                            "enterCode": "Veuillez entrer le code de vérification",
+                            "enterCodeTitle": "Entrez le code de vérification",
+                            "codeInstructions": "Nous avons envoyé un code à 6 chiffres à {flag} {phone}",
+                            "yourPhone": "votre téléphone",
+                            "verify": "Vérifier",
+                            "success": "Numéro de téléphone vérifié avec succès !",
+                            "verifyError": "Impossible de vérifier le code",
+                            "requirement": "La vérification du téléphone est nécessaire pour les fonctionnalités de sécurité et les notifications",
+                            "cooldown": "{seconds}s"
+                        }
+                    },
+                    "form": {
+                        "saveChanges": "Enregistrer les modifications",
+                        "cancel": "Abandonner",
+                        "changeTypes": {
+                            "firstName": "Prénom",
+                            "lastName": "Nom de famille",
+                            "phone": "Numéro de téléphone",
+                            "image": "Photo de profil"
+                        }
+                    },
+                    "messages": {
+                        "updateSuccess": "Profil mis à jour avec succès !",
+                        "updateFailed": "Impossible de mettre à jour le profil",
+                        "updateError": "Une erreur s'est produite. Veuillez réessayer.",
+                        "phoneUpdated": "Numéro de téléphone mis à jour. Veuillez vérifier votre nouveau numéro."
+                    }
+                },
+                "email": {
+                    "verify": {
+                        "page": {
+                            "title": "Vérifier l'e-mail",
+                            "description": "Vérifiez votre adresse e-mail pour sécuriser votre compte",
+                            "heading": "Vérifier l'adresse e-mail",
+                            "subheading": "Nous devons vérifier votre adresse e-mail pour sécuriser votre compte et activer toutes les fonctionnalités."
+                        },
+                        "tokenVerification": {
+                            "loading": {
+                                "title": "Vérification de l'adresse électronique...",
+                                "description": "Veuillez patienter pendant que nous vérifions votre adresse e-mail."
+                            },
+                            "success": {
+                                "title": "Courriel vérifié !",
+                                "description": "Votre adresse e-mail a été vérifiée avec succès.",
+                                "redirecting": "Redirection vers les paramètres du compte..."
+                            },
+                            "error": {
+                                "title": "Échec de la vérification",
+                                "description": "Le lien de vérification est invalide ou a expiré.",
+                                "tryAgain": "Réessayez"
+                            }
+                        },
+                        "emailStatus": {
+                            "title": "Email Status",
+                            "primaryEmail": "Adresse e-mail principale",
+                            "unverified": "Non vérifié"
+                        },
+                        "form": {
+                            "title": "Vérifiez votre adresse e-mail",
+                            "description": "Cliquez sur le bouton ci-dessous pour envoyer un e-mail de vérification à {email}",
+                            "alerts": {
+                                "emailSent": "E-mail de vérification envoyé ! Vérifiez votre boîte de réception et cliquez sur le lien de vérification. Si vous ne le voyez pas, vérifiez votre dossier de spam.",
+                                "notVerified": "Votre adresse e-mail n'est pas vérifiée. Certaines fonctionnalités peuvent être limitées jusqu'à ce que vous vérifiez votre e-mail."
+                            },
+                            "buttons": {
+                                "sendVerification": "Envoyer un e-mail de vérification",
+                                "resendEmail": "Renvoyer l'e-mail de vérification",
+                                "resendCountdown": "Renvoyer dans {seconds}s"
+                            },
+                            "status": {
+                                "pleaseWait": "Veuillez attendre {seconds} secondes avant de renvoyer"
+                            }
+                        },
+                        "help": {
+                            "title": "Besoin d'aide ?",
+                            "tips": {
+                                "checkSpam": "Vérifiez votre dossier spam/courrier indésirable",
+                                "checkEmail": "Assurez-vous que {email} est correct",
+                                "linkExpiry": "Le lien de vérification expire dans 24 heures",
+                                "contactSupport": "Contactez le support si vous continuez à rencontrer des problèmes"
+                            }
+                        },
+                        "messages": {
+                            "emailSent": "E-mail de vérification envoyé ! Vérifiez votre boîte de réception.",
+                            "sendFailed": "Échec de l'envoi de l'e-mail de vérification",
+                            "sendError": "Une erreur s'est produite lors de l'envoi de l'e-mail de vérification",
+                            "verifySuccess": "E-mail vérifié avec succès!",
+                            "verifyFailed": "Échec de la vérification de l'e-mail",
+                            "verifyError": "Une erreur s'est produite lors de la vérification de l'e-mail"
+                        }
+                    }
+                }
+            }
+        }
     }
 }
