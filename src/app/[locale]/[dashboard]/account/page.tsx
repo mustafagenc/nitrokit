@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { redirect } from 'next/navigation';
+import { getTranslations } from 'next-intl/server';
 import { Link } from '@/lib/i18n/navigation';
 import { auth } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
@@ -26,16 +27,18 @@ import {
 import { getSafeSecurityStatus } from '@/lib/auth/security-status';
 
 export async function generateMetadata(): Promise<Metadata> {
+    const t = await getTranslations('dashboard.account.overview');
     return await generatePageMetadata({
         params: Promise.resolve({
-            title: 'Account Overview',
-            description: 'Your account status and overview',
+            title: t('title'),
+            description: t('description'),
         }),
     });
 }
 
 export default async function AccountOverviewPage() {
     const session = await auth();
+    const t = await getTranslations('dashboard.account');
 
     if (!session) {
         redirect('/signin');
@@ -84,8 +87,13 @@ export default async function AccountOverviewPage() {
                 activities.push({
                     id: session.id,
                     type: 'session',
-                    title: index === 0 ? 'Current Session' : 'Session Login',
-                    description: `Active until ${new Date(session.expires).toLocaleDateString()}`,
+                    title:
+                        index === 0
+                            ? t('recentActivity.currentSession')
+                            : t('recentActivity.sessionLogin'),
+                    description: t('recentActivity.activeTill', {
+                        date: new Date(session.expires).toLocaleDateString(),
+                    }),
                     timestamp: session.createdAt,
                     icon: Monitor,
                     status: index === 0 ? 'active' : 'expires-soon',
@@ -96,8 +104,8 @@ export default async function AccountOverviewPage() {
         activities.push({
             id: 'account-created',
             type: 'account',
-            title: 'Account Created',
-            description: 'Welcome to the platform!',
+            title: t('recentActivity.accountCreated'),
+            description: t('recentActivity.welcome'),
             timestamp: user.createdAt,
             icon: User,
             status: 'completed',
@@ -107,8 +115,8 @@ export default async function AccountOverviewPage() {
             activities.push({
                 id: 'email-verified',
                 type: 'security',
-                title: 'Email Verified',
-                description: 'Email address confirmed',
+                title: t('recentActivity.emailVerified'),
+                description: t('recentActivity.emailConfirmed'),
                 timestamp: user.emailVerified,
                 icon: Mail,
                 status: 'completed',
@@ -120,8 +128,10 @@ export default async function AccountOverviewPage() {
             activities.push({
                 id: 'account-0',
                 type: 'connection',
-                title: `${account.provider.charAt(0).toUpperCase() + account.provider.slice(1)} Connected`,
-                description: `${account.type} account linked`,
+                title: t('recentActivity.connectedProvider', {
+                    provider: account.provider.charAt(0).toUpperCase() + account.provider.slice(1),
+                }),
+                description: t('recentActivity.accountLinked', { type: account.type }),
                 timestamp: account.createdAt,
                 icon: CheckCircle,
                 status: 'completed',
@@ -168,9 +178,9 @@ export default async function AccountOverviewPage() {
         if (!user.emailVerified) {
             recommendations.push({
                 type: 'warning',
-                title: 'Verify your email',
-                description: 'Secure your account by verifying your email address',
-                action: 'Verify Email',
+                title: t('security.recommendations.verifyEmail.title'),
+                description: t('security.recommendations.verifyEmail.description'),
+                action: t('security.recommendations.verifyEmail.action'),
                 href: '/dashboard/account/email/verify',
             });
         }
@@ -178,17 +188,17 @@ export default async function AccountOverviewPage() {
         if (!user.password) {
             recommendations.push({
                 type: 'warning',
-                title: 'Set account password',
-                description: 'Add a password to enable backup login method and enhance security',
-                action: 'Set Password',
+                title: t('security.recommendations.setPassword.title'),
+                description: t('security.recommendations.setPassword.description'),
+                action: t('security.recommendations.setPassword.action'),
                 href: '/dashboard/account/security/password',
             });
         } else if (securityStatus.passwordStrength === 'weak') {
             recommendations.push({
                 type: 'error',
-                title: 'Weak password detected',
-                description: 'Your password is weak and should be updated',
-                action: 'Change Password',
+                title: t('security.recommendations.weakPassword.title'),
+                description: t('security.recommendations.weakPassword.description'),
+                action: t('security.recommendations.weakPassword.action'),
                 href: '/dashboard/account/security/password',
             });
         }
@@ -196,9 +206,9 @@ export default async function AccountOverviewPage() {
         if (!securityStatus.twoFactorEnabled) {
             recommendations.push({
                 type: 'warning',
-                title: 'Enable two-factor authentication',
-                description: 'Add an extra layer of security to your account',
-                action: 'Enable 2FA',
+                title: t('security.recommendations.enableTwoFactor.title'),
+                description: t('security.recommendations.enableTwoFactor.description'),
+                action: t('security.recommendations.enableTwoFactor.action'),
                 href: '/dashboard/account/security/two-factor',
             });
         }
@@ -206,9 +216,9 @@ export default async function AccountOverviewPage() {
         if (!user.phoneVerified) {
             recommendations.push({
                 type: 'info',
-                title: 'Add phone number',
-                description: 'Add a phone number for account recovery',
-                action: 'Add Phone',
+                title: t('security.recommendations.addPhone.title'),
+                description: t('security.recommendations.addPhone.description'),
+                action: t('security.recommendations.addPhone.action'),
                 href: '/dashboard/account/profile',
             });
         }
@@ -222,22 +232,20 @@ export default async function AccountOverviewPage() {
         <div className="space-y-6">
             <div className="flex items-center justify-between">
                 <div>
-                    <h2 className="text-2xl font-bold tracking-tight">Account Overview</h2>
-                    <p className="text-muted-foreground">
-                        Your account status and security overview at a glance.
-                    </p>
+                    <h2 className="text-2xl font-bold tracking-tight">{t('overview.title')}</h2>
+                    <p className="text-muted-foreground">{t('overview.description')}</p>
                 </div>
                 <Button asChild variant="outline">
                     <Link href="/dashboard/account/profile">
                         <Edit className="mr-2 h-4 w-4" />
-                        Edit Profile
+                        {t('overview.editProfile')}
                     </Link>
                 </Button>
             </div>
 
             {recommendations.length > 0 && (
                 <div className="space-y-3">
-                    <h3 className="text-lg font-semibold">Security Recommendations</h3>
+                    <h3 className="text-lg font-semibold">{t('security.recommendations.title')}</h3>
                     {recommendations.map((rec, index) => (
                         <Alert
                             key={index}
@@ -263,13 +271,15 @@ export default async function AccountOverviewPage() {
                     <CardHeader>
                         <CardTitle className="flex items-center gap-2">
                             <Shield className="h-5 w-5" />
-                            Security Score
+                            {t('security.score.title')}
                         </CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-4">
                         <div className="text-center">
                             <div className="text-3xl font-bold">{securityScore}%</div>
-                            <p className="text-muted-foreground text-sm">Overall Security</p>
+                            <p className="text-muted-foreground text-sm">
+                                {t('security.score.subtitle')}
+                            </p>
                         </div>
                         <Progress value={securityScore} className="h-2" />
                         <div className="text-center">
@@ -290,16 +300,16 @@ export default async function AccountOverviewPage() {
                                 }
                             >
                                 {securityScore >= 80
-                                    ? 'Excellent'
+                                    ? t('security.score.excellent')
                                     : securityScore >= 60
-                                      ? 'Good'
-                                      : 'Needs Improvement'}
+                                      ? t('security.score.good')
+                                      : t('security.score.needsImprovement')}
                             </Badge>
                         </div>
                         <Button asChild className="w-full" variant="outline">
                             <Link href="/dashboard/account/security">
                                 <Settings className="mr-2 h-4 w-4" />
-                                Security Settings
+                                {t('security.score.settings')}
                             </Link>
                         </Button>
                     </CardContent>
@@ -309,7 +319,7 @@ export default async function AccountOverviewPage() {
                     <CardHeader>
                         <CardTitle className="flex items-center gap-2">
                             <User className="h-5 w-5" />
-                            Account Status
+                            {t('status.title')}
                         </CardTitle>
                     </CardHeader>
                     <CardContent>
@@ -317,7 +327,7 @@ export default async function AccountOverviewPage() {
                             <div className="flex items-center justify-between">
                                 <div className="flex items-center gap-2">
                                     <Mail className="text-muted-foreground h-4 w-4" />
-                                    <span className="text-sm">Email</span>
+                                    <span className="text-sm">{t('status.email.label')}</span>
                                 </div>
                                 <Badge
                                     variant={user.emailVerified ? 'default' : 'destructive'}
@@ -327,14 +337,16 @@ export default async function AccountOverviewPage() {
                                             : 'bg-red-500 hover:bg-red-600'
                                     }
                                 >
-                                    {user.emailVerified ? 'Verified' : 'Unverified'}
+                                    {user.emailVerified
+                                        ? t('status.email.verified')
+                                        : t('status.email.unverified')}
                                 </Badge>
                             </div>
 
                             <div className="flex items-center justify-between">
                                 <div className="flex items-center gap-2">
                                     <Phone className="text-muted-foreground h-4 w-4" />
-                                    <span className="text-sm">Phone</span>
+                                    <span className="text-sm">{t('status.phone.label')}</span>
                                 </div>
                                 <Badge
                                     variant={user.phoneVerified ? 'default' : 'secondary'}
@@ -344,14 +356,16 @@ export default async function AccountOverviewPage() {
                                             : 'bg-gray-500 hover:bg-gray-600'
                                     }
                                 >
-                                    {user.phoneVerified ? 'Verified' : 'Not Added'}
+                                    {user.phoneVerified
+                                        ? t('status.phone.verified')
+                                        : t('status.phone.notAdded')}
                                 </Badge>
                             </div>
 
                             <div className="flex items-center justify-between">
                                 <div className="flex items-center gap-2">
                                     <Key className="text-muted-foreground h-4 w-4" />
-                                    <span className="text-sm">Two-Factor Auth</span>
+                                    <span className="text-sm">{t('status.twoFactor.label')}</span>
                                 </div>
                                 <Badge
                                     variant={
@@ -363,14 +377,16 @@ export default async function AccountOverviewPage() {
                                             : 'bg-orange-500 hover:bg-orange-600'
                                     }
                                 >
-                                    {securityStatus.twoFactorEnabled ? 'Enabled' : 'Disabled'}
+                                    {securityStatus.twoFactorEnabled
+                                        ? t('status.twoFactor.enabled')
+                                        : t('status.twoFactor.disabled')}
                                 </Badge>
                             </div>
 
                             <div className="flex items-center justify-between">
                                 <div className="flex items-center gap-2">
                                     <Shield className="text-muted-foreground h-4 w-4" />
-                                    <span className="text-sm">Password</span>
+                                    <span className="text-sm">{t('status.password.label')}</span>
                                 </div>
                                 <Badge
                                     variant={
@@ -395,34 +411,36 @@ export default async function AccountOverviewPage() {
                                     }
                                 >
                                     {!user.password
-                                        ? 'Not Set'
+                                        ? t('status.password.notSet')
                                         : securityStatus.passwordStrength === 'strong'
-                                          ? 'Strong'
+                                          ? t('status.password.strong')
                                           : securityStatus.passwordStrength === 'medium'
-                                            ? 'Medium'
+                                            ? t('status.password.medium')
                                             : securityStatus.passwordStrength === 'weak'
-                                              ? 'Weak'
-                                              : 'Unknown'}
+                                              ? t('status.password.weak')
+                                              : t('status.password.unknown')}
                                 </Badge>
                             </div>
 
                             <div className="flex items-center justify-between">
                                 <div className="flex items-center gap-2">
                                     <Monitor className="text-muted-foreground h-4 w-4" />
-                                    <span className="text-sm">Active Sessions</span>
+                                    <span className="text-sm">{t('status.sessions.label')}</span>
                                 </div>
                                 <Badge
                                     variant="outline"
                                     className="border-blue-200 bg-blue-50 text-blue-700 hover:bg-blue-100"
                                 >
-                                    {securityStatus.activeSessions} Active
+                                    {t('status.sessions.active', {
+                                        count: securityStatus.activeSessions,
+                                    })}
                                 </Badge>
                             </div>
 
                             <div className="flex items-center justify-between">
                                 <div className="flex items-center gap-2">
                                     <User className="text-muted-foreground h-4 w-4" />
-                                    <span className="text-sm">Account Type</span>
+                                    <span className="text-sm">{t('status.accountType.label')}</span>
                                 </div>
                                 <Badge
                                     variant="outline"
@@ -441,35 +459,35 @@ export default async function AccountOverviewPage() {
                     <CardHeader>
                         <CardTitle className="flex items-center gap-2">
                             <User className="h-5 w-5" />
-                            Personal Information
+                            {t('personalInfo.title')}
                         </CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-4">
                         <div>
                             <label className="text-muted-foreground text-sm font-medium">
-                                Full Name
+                                {t('personalInfo.fullName')}
                             </label>
-                            <p className="text-sm">{user.name || 'Not set'}</p>
+                            <p className="text-sm">{user.name || t('personalInfo.notSet')}</p>
                         </div>
 
                         <div>
                             <label className="text-muted-foreground text-sm font-medium">
-                                Email Address
+                                {t('personalInfo.emailAddress')}
                             </label>
                             <p className="text-sm">{user.email}</p>
                         </div>
 
                         <div>
                             <label className="text-muted-foreground text-sm font-medium">
-                                Phone Number
+                                {t('personalInfo.phoneNumber')}
                             </label>
-                            <p className="text-sm">{user.phone || 'Not added'}</p>
+                            <p className="text-sm">{user.phone || t('personalInfo.notAdded')}</p>
                         </div>
 
                         <div>
                             <label className="text-muted-foreground flex items-center gap-1 text-sm font-medium">
                                 <Calendar className="h-3 w-3" />
-                                Member Since
+                                {t('personalInfo.memberSince')}
                             </label>
                             <p className="text-sm">
                                 {new Date(user.createdAt).toLocaleDateString('en-US', {
@@ -486,7 +504,7 @@ export default async function AccountOverviewPage() {
                     <CardHeader>
                         <CardTitle className="flex items-center gap-2">
                             <Clock className="h-5 w-5" />
-                            Recent Activity
+                            {t('recentActivity.title')}
                         </CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-4">
@@ -544,12 +562,12 @@ export default async function AccountOverviewPage() {
                                                 }`}
                                             >
                                                 {activity.status === 'active'
-                                                    ? 'Active'
+                                                    ? t('recentActivity.statuses.active')
                                                     : activity.status === 'completed'
-                                                      ? 'Completed'
+                                                      ? t('recentActivity.statuses.completed')
                                                       : activity.status === 'expires-soon'
-                                                        ? 'Expires Soon'
-                                                        : 'Unknown'}
+                                                        ? t('recentActivity.statuses.expiresSoon')
+                                                        : t('recentActivity.statuses.unknown')}
                                             </Badge>
                                         </div>
                                     );
@@ -558,7 +576,7 @@ export default async function AccountOverviewPage() {
                                 <div className="py-8 text-center">
                                     <Clock className="text-muted-foreground mx-auto mb-4 h-12 w-12" />
                                     <p className="text-muted-foreground text-sm">
-                                        No recent activity
+                                        {t('recentActivity.noActivity')}
                                     </p>
                                 </div>
                             )}
@@ -567,7 +585,7 @@ export default async function AccountOverviewPage() {
                         <div className="pt-2">
                             <Button asChild variant="outline" className="w-full">
                                 <Link href="/dashboard/account/security/sessions">
-                                    View All Sessions
+                                    {t('recentActivity.viewAllSessions')}
                                 </Link>
                             </Button>
                         </div>

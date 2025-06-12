@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { signIn } from 'next-auth/react';
+import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { toast } from 'sonner';
@@ -23,6 +24,7 @@ interface AccountLinkingProps {
 
 export function AccountLinking({ accounts, className }: AccountLinkingProps) {
     const [loading, setLoading] = useState<string | null>(null);
+    const t = useTranslations('dashboard.account.profile.accountLinking');
 
     const handleConnect = async (provider: string) => {
         try {
@@ -33,7 +35,7 @@ export function AccountLinking({ accounts, className }: AccountLinkingProps) {
             });
         } catch (error) {
             console.error('Account Linking', error);
-            toast.error('Failed to connect account');
+            toast.error(t('messages.connectFailed'));
         } finally {
             setLoading(null);
         }
@@ -41,7 +43,7 @@ export function AccountLinking({ accounts, className }: AccountLinkingProps) {
 
     const handleDisconnect = async (provider: string) => {
         if (accounts.length <= 1) {
-            toast.error('Cannot remove the last connected account');
+            toast.error(t('messages.cannotRemoveLast'));
             return;
         }
 
@@ -56,11 +58,11 @@ export function AccountLinking({ accounts, className }: AccountLinkingProps) {
 
             if (!response.ok) throw new Error('Failed to disconnect');
 
-            toast.success('Account disconnected successfully');
+            toast.success(t('messages.disconnectSuccess'));
             setTimeout(() => window.location.reload(), 1000);
         } catch (error) {
             console.error('Account Linking handle disconnect', error);
-            toast.error('Failed to disconnect account');
+            toast.error(t('messages.disconnectFailed'));
         } finally {
             setLoading(null);
         }
@@ -73,16 +75,16 @@ export function AccountLinking({ accounts, className }: AccountLinkingProps) {
             <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                     <Users className="h-5 w-5" />
-                    Connected Accounts
+                    {t('title')}
                 </CardTitle>
-                <CardDescription>Link your social accounts for easier sign-in</CardDescription>
+                <CardDescription>{t('description')}</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
                 {accounts.length <= 1 && (
                     <div className="flex items-center gap-2 rounded-lg border border-amber-200 bg-amber-50 p-3 dark:border-amber-800 dark:bg-amber-950/20">
                         <AlertTriangle className="h-4 w-4 text-amber-600 dark:text-amber-400" />
                         <p className="text-xs text-amber-700 dark:text-amber-300">
-                            Keep at least one account connected to maintain access
+                            {t('warning.keepOneAccount')}
                         </p>
                     </div>
                 )}
@@ -106,16 +108,18 @@ export function AccountLinking({ accounts, className }: AccountLinkingProps) {
                                         </div>
                                         {connected && (
                                             <p className="text-muted-foreground text-xs">
-                                                Active since{' '}
-                                                {accounts.find(
-                                                    (acc) => acc.provider === provider.id
-                                                )?.createdAt
-                                                    ? new Date(
-                                                          accounts.find(
-                                                              (acc) => acc.provider === provider.id
-                                                          )!.createdAt!
-                                                      ).toLocaleDateString()
-                                                    : 'recently'}
+                                                {t('status.activeSince', {
+                                                    date: accounts.find(
+                                                        (acc) => acc.provider === provider.id
+                                                    )?.createdAt
+                                                        ? new Date(
+                                                              accounts.find(
+                                                                  (acc) =>
+                                                                      acc.provider === provider.id
+                                                              )!.createdAt!
+                                                          ).toLocaleDateString()
+                                                        : t('status.recently'),
+                                                })}
                                             </p>
                                         )}
                                     </div>
@@ -140,17 +144,19 @@ export function AccountLinking({ accounts, className }: AccountLinkingProps) {
                                     {isLoading ? (
                                         <>
                                             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                                            {connected ? 'Removing...' : 'Connecting...'}
+                                            {connected
+                                                ? t('buttons.removing')
+                                                : t('buttons.connecting')}
                                         </>
                                     ) : connected ? (
                                         <>
                                             <Unlink className="mr-2 h-4 w-4" />
-                                            Disconnect
+                                            {t('buttons.disconnect')}
                                         </>
                                     ) : (
                                         <>
                                             <ExternalLink className="mr-2 h-4 w-4" />
-                                            Connect
+                                            {t('buttons.connect')}
                                         </>
                                     )}
                                 </Button>

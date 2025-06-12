@@ -434,6 +434,470 @@
             "settings": "Settings",
             "account": "Account information",
             "billing": "My Invoices"
+        },
+        "userMenu": {
+            "defaultUserName": "User",
+            "sections": {
+                "account": "Account",
+                "other": "Other"
+            },
+            "account": {
+                "overview": "Account Overview",
+                "profile": "Profile Settings",
+                "notifications": "Notifications"
+            },
+            "security": {
+                "title": "Security",
+                "overview": "Security Overview",
+                "password": "Password",
+                "twoFactor": "Two-Factor Auth",
+                "sessions": "Active Sessions"
+            },
+            "other": {
+                "billing": "Billing & Plans",
+                "settings": "Settings"
+            }
+        },
+        "account": {
+            "navigation": {
+                "overview": "Overview",
+                "profile": "Profile",
+                "account": "Account",
+                "notifications": "Notifications",
+                "security": {
+                    "title": "Security",
+                    "password": "Password & Security",
+                    "twoFactor": "Two-Factor Authentication",
+                    "twoFactorShort": "Two-Factor Auth",
+                    "sessions": "Active Sessions"
+                },
+                "mobile": {
+                    "title": "Account Settings",
+                    "openMenu": "Open menu"
+                }
+            },
+            "notifications": {
+                "page": {
+                    "title": "Notification Settings",
+                    "description": "Manage your notification preferences",
+                    "heading": "Notification Settings",
+                    "subheading": "Choose how you want to be notified about account activity and updates."
+                },
+                "headers": {
+                    "notificationType": "Notification Type",
+                    "email": "Email",
+                    "sms": "SMS",
+                    "inApp": "In-App"
+                },
+                "badges": {
+                    "recommended": "Recommended"
+                },
+                "categories": {
+                    "security": {
+                        "title": "Security & Account",
+                        "settings": {
+                            "accountSecurity": {
+                                "label": "Account Security",
+                                "description": "Important security updates and alerts"
+                            },
+                            "loginAlerts": {
+                                "label": "Login Alerts",
+                                "description": "New login notifications from different devices"
+                            },
+                            "passwordChanges": {
+                                "label": "Password Changes",
+                                "description": "Password reset and change confirmations"
+                            },
+                            "profileUpdates": {
+                                "label": "Profile Updates",
+                                "description": "Profile and account information changes"
+                            }
+                        }
+                    },
+                    "marketing": {
+                        "title": "Marketing & Updates",
+                        "settings": {
+                            "marketing": {
+                                "label": "Marketing Communications",
+                                "description": "Product updates and promotional content"
+                            },
+                            "newsletters": {
+                                "label": "Newsletters",
+                                "description": "Weekly newsletters and tips"
+                            },
+                            "systemUpdates": {
+                                "label": "System Updates",
+                                "description": "App updates and maintenance notices"
+                            }
+                        }
+                    }
+                },
+                "quickActions": {
+                    "title": "Quick Actions",
+                    "description": "Enable or disable all notifications for each channel",
+                    "enableAllEmail": "Enable All Email",
+                    "essentialOnly": "Essential Only",
+                    "enableAllEmailSuccess": "All email notifications enabled",
+                    "essentialOnlySuccess": "Essential notifications enabled"
+                },
+                "form": {
+                    "savePreferences": "Save Preferences",
+                    "saving": "Saving...",
+                    "saveSuccess": "Notification preferences saved successfully!",
+                    "saveError": "Failed to save preferences. Please try again."
+                }
+            },
+            "overview": {
+                "title": "Account Overview",
+                "description": "Your account status and security overview at a glance.",
+                "editProfile": "Edit Profile"
+            },
+            "security": {
+                "recommendations": {
+                    "title": "Security Recommendations",
+                    "verifyEmail": {
+                        "title": "Verify your email",
+                        "description": "Secure your account by verifying your email address",
+                        "action": "Verify Email"
+                    },
+                    "setPassword": {
+                        "title": "Set account password",
+                        "description": "Add a password to enable backup login method and enhance security",
+                        "action": "Set Password"
+                    },
+                    "weakPassword": {
+                        "title": "Weak password detected",
+                        "description": "Your password is weak and should be updated",
+                        "action": "Change Password"
+                    },
+                    "enableTwoFactor": {
+                        "title": "Enable two-factor authentication",
+                        "description": "Add an extra layer of security to your account",
+                        "action": "Enable 2FA"
+                    },
+                    "addPhone": {
+                        "title": "Add phone number",
+                        "description": "Add a phone number for account recovery",
+                        "action": "Add Phone"
+                    }
+                },
+                "score": {
+                    "title": "Security Score",
+                    "subtitle": "Overall Security",
+                    "excellent": "Excellent",
+                    "good": "Good",
+                    "needsImprovement": "Needs Improvement",
+                    "settings": "Security Settings"
+                },
+                "page": {
+                    "title": "Security Settings",
+                    "description": "Manage your account security settings",
+                    "heading": "Security",
+                    "subheading": "Manage your password, two-factor authentication, and active sessions"
+                },
+                "passwordStrength": {
+                    "strong": "Strong",
+                    "medium": "Medium",
+                    "weak": "Weak",
+                    "unknown": "Unknown"
+                },
+                "status": {
+                    "enabled": "Enabled",
+                    "disabled": "Disabled"
+                },
+                "cards": {
+                    "password": {
+                        "title": "Password",
+                        "description": "Change your password and manage password security"
+                    },
+                    "twoFactor": {
+                        "title": "Two-Factor Authentication",
+                        "description": "Add an extra layer of security to your account"
+                    },
+                    "sessions": {
+                        "title": "Active Sessions",
+                        "description": "View and manage your active login sessions",
+                        "activeCount": "{count} Active"
+                    }
+                },
+                "overview": {
+                    "title": "Security Overview",
+                    "description": "Current status of your account security",
+                    "metrics": {
+                        "passwordStrength": "Password Strength",
+                        "twoFactorAuth": "Two-Factor Auth",
+                        "twoFactorOn": "On",
+                        "twoFactorOff": "Off",
+                        "activeSessions": "Active Sessions"
+                    }
+                }
+            },
+            "status": {
+                "title": "Account Status",
+                "email": {
+                    "label": "Email",
+                    "verified": "Verified",
+                    "unverified": "Unverified"
+                },
+                "phone": {
+                    "label": "Phone",
+                    "verified": "Verified",
+                    "notAdded": "Not Added"
+                },
+                "twoFactor": {
+                    "label": "Two-Factor Auth",
+                    "enabled": "Enabled",
+                    "disabled": "Disabled"
+                },
+                "password": {
+                    "label": "Password",
+                    "notSet": "Not Set",
+                    "strong": "Strong",
+                    "medium": "Medium",
+                    "weak": "Weak",
+                    "unknown": "Unknown"
+                },
+                "sessions": {
+                    "label": "Active Sessions",
+                    "active": "{count} Active"
+                },
+                "accountType": {
+                    "label": "Account Type"
+                }
+            },
+            "personalInfo": {
+                "title": "Personal Information",
+                "fullName": "Full Name",
+                "emailAddress": "Email Address",
+                "phoneNumber": "Phone Number",
+                "memberSince": "Member Since",
+                "notSet": "Not set",
+                "notAdded": "Not added"
+            },
+            "recentActivity": {
+                "title": "Recent Activity",
+                "currentSession": "Current Session",
+                "sessionLogin": "Session Login",
+                "accountCreated": "Account Created",
+                "emailVerified": "Email Verified",
+                "connectedProvider": "{provider} Connected",
+                "activeTill": "Active until {date}",
+                "welcome": "Welcome to the platform!",
+                "emailConfirmed": "Email address confirmed",
+                "accountLinked": "{type} account linked",
+                "noActivity": "No recent activity",
+                "viewAllSessions": "View All Sessions",
+                "statuses": {
+                    "active": "Active",
+                    "completed": "Completed",
+                    "expiresSoon": "Expires Soon",
+                    "unknown": "Unknown"
+                }
+            },
+            "linkedAccounts": {
+                "title": "Linked Accounts",
+                "connect": "Connect Account",
+                "disconnect": "Disconnect",
+                "alreadyConnected": "This platform is already connected",
+                "accountBelongsToOther": "This account belongs to another user",
+                "cannotRemoveLast": "You cannot remove your only authentication method. Please set a password first.",
+                "linkSuccess": "Account linked successfully",
+                "unlinkSuccess": "Account unlinked successfully",
+                "linkError": "Failed to link account",
+                "unlinkError": "Failed to unlink account",
+                "hasPassword": "Has Password",
+                "canRemoveAccounts": "Can Remove Accounts"
+            },
+            "profile": {
+                "page": {
+                    "title": "Profile Settings",
+                    "description": "Manage your personal information and profile settings",
+                    "heading": "Profile Settings",
+                    "subheading": "Manage your personal information and profile preferences."
+                },
+                "accountLinking": {
+                    "title": "Connected Accounts",
+                    "description": "Link your social accounts for easier sign-in",
+                    "warning": {
+                        "keepOneAccount": "Keep at least one account connected to maintain access"
+                    },
+                    "status": {
+                        "activeSince": "Active since {date}",
+                        "recently": "recently"
+                    },
+                    "buttons": {
+                        "connect": "Connect",
+                        "disconnect": "Disconnect",
+                        "connecting": "Connecting...",
+                        "removing": "Removing..."
+                    },
+                    "messages": {
+                        "connectFailed": "Failed to connect account",
+                        "disconnectSuccess": "Account disconnected successfully",
+                        "disconnectFailed": "Failed to disconnect account",
+                        "cannotRemoveLast": "Cannot remove the last connected account"
+                    }
+                },
+                "preferences": {
+                    "title": "Preferences",
+                    "description": "Customize your language and theme preferences",
+                    "language": {
+                        "label": "Language",
+                        "placeholder": "Select language",
+                        "flagAlt": "{language} flag"
+                    },
+                    "theme": {
+                        "label": "Theme",
+                        "placeholder": "Select theme",
+                        "options": {
+                            "light": "Light",
+                            "dark": "Dark",
+                            "system": "System"
+                        }
+                    },
+                    "buttons": {
+                        "save": "Save Preferences",
+                        "cancel": "Cancel"
+                    },
+                    "messages": {
+                        "changeTypes": {
+                            "language": "Language",
+                            "theme": "Theme"
+                        },
+                        "themeUpdateSuccess": "Theme updated successfully!",
+                        "languageUpdateSuccess": "Language updated! Redirecting...",
+                        "updateSuccess": "Preferences updated successfully!",
+                        "updateFailed": "Failed to update preferences",
+                        "updateError": "Something went wrong. Please try again."
+                    }
+                },
+                "profileInformation": {
+                    "title": "Profile Information",
+                    "description": "Update your personal information and profile picture",
+                    "firstName": {
+                        "label": "First Name",
+                        "placeholder": "Enter your first name"
+                    },
+                    "lastName": {
+                        "label": "Last Name",
+                        "placeholder": "Enter your last name"
+                    },
+                    "email": {
+                        "label": "Email Address"
+                    },
+                    "image": {
+                        "label": "Profile Picture",
+                        "removeSuccess": "Profile picture removed successfully!",
+                        "removeError": "Failed to remove profile picture."
+                    },
+                    "phone": {
+                        "label": "Phone Number",
+                        "placeholder": "+1 234 567 8900",
+                        "status": {
+                            "verified": "Verified",
+                            "notVerified": "Not Verified",
+                            "verificationRequired": "Verification Required"
+                        },
+                        "validation": {
+                            "invalidFormat": "Please enter a valid international phone number (7-15 digits)"
+                        },
+                        "verification": {
+                            "sendCode": "Send Code",
+                            "codeSent": "Verification code sent!",
+                            "sendError": "Failed to send verification code",
+                            "enterCode": "Please enter the verification code",
+                            "enterCodeTitle": "Enter Verification Code",
+                            "codeInstructions": "We sent a 6-digit code to {flag} {phone}",
+                            "yourPhone": "your phone",
+                            "verify": "Verify",
+                            "success": "Phone number verified successfully!",
+                            "verifyError": "Failed to verify code",
+                            "requirement": "Phone verification is required for security features and notifications",
+                            "cooldown": "{seconds}s"
+                        }
+                    },
+                    "form": {
+                        "saveChanges": "Save Changes",
+                        "cancel": "Cancel",
+                        "changeTypes": {
+                            "firstName": "First Name",
+                            "lastName": "Last Name",
+                            "phone": "Phone Number",
+                            "image": "Profile Picture"
+                        }
+                    },
+                    "messages": {
+                        "updateSuccess": "Profile updated successfully!",
+                        "updateFailed": "Failed to update profile",
+                        "updateError": "Something went wrong. Please try again.",
+                        "phoneUpdated": "Phone number updated. Please verify your new number."
+                    }
+                },
+                "email": {
+                    "verify": {
+                        "page": {
+                            "title": "Verify Email",
+                            "description": "Verify your email address to secure your account",
+                            "heading": "Verify Email Address",
+                            "subheading": "We need to verify your email address to secure your account and enable all features."
+                        },
+                        "tokenVerification": {
+                            "loading": {
+                                "title": "Verifying Email...",
+                                "description": "Please wait while we verify your email address."
+                            },
+                            "success": {
+                                "title": "Email Verified!",
+                                "description": "Your email address has been successfully verified.",
+                                "redirecting": "Redirecting to account settings..."
+                            },
+                            "error": {
+                                "title": "Verification Failed",
+                                "description": "The verification link is invalid or has expired.",
+                                "tryAgain": "Try Again"
+                            }
+                        },
+                        "emailStatus": {
+                            "title": "Email Status",
+                            "primaryEmail": "Primary email address",
+                            "unverified": "Unverified"
+                        },
+                        "form": {
+                            "title": "Verify Your Email",
+                            "description": "Click the button below to send a verification email to {email}",
+                            "alerts": {
+                                "emailSent": "Verification email sent! Check your inbox and click the verification link. If you don't see it, check your spam folder.",
+                                "notVerified": "Your email address is not verified. Some features may be limited until you verify your email."
+                            },
+                            "buttons": {
+                                "sendVerification": "Send Verification Email",
+                                "resendEmail": "Resend Verification Email",
+                                "resendCountdown": "Resend in {seconds}s"
+                            },
+                            "status": {
+                                "pleaseWait": "Please wait {seconds} seconds before resending"
+                            }
+                        },
+                        "help": {
+                            "title": "Need help?",
+                            "tips": {
+                                "checkSpam": "Check your spam/junk folder",
+                                "checkEmail": "Make sure {email} is correct",
+                                "linkExpiry": "The verification link expires in 24 hours",
+                                "contactSupport": "Contact support if you continue having issues"
+                            }
+                        },
+                        "messages": {
+                            "emailSent": "Verification email sent! Check your inbox.",
+                            "sendFailed": "Failed to send verification email",
+                            "sendError": "An error occurred while sending verification email",
+                            "verifySuccess": "Email verified successfully!",
+                            "verifyFailed": "Failed to verify email",
+                            "verifyError": "An error occurred while verifying email"
+                        }
+                    }
+                }
+            }
         }
     }
 }

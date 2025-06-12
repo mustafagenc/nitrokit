@@ -59,7 +59,7 @@ function getProviderDetail({ t, provider }: { t: (key: string) => string; provid
             };
         case 'linkedin':
             return {
-                text: t('auth.signinWithLinkedin'),
+                text: t('auth.signinWithLinkedIn'),
                 Icon: LinkedinIcon,
             };
         default:

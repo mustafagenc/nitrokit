@@ -1,6 +1,7 @@
 'use client';
 
 import { usePathname, Link } from '@/lib/i18n/navigation';
+import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import {
     LayoutDashboard,
@@ -28,6 +29,7 @@ import { cn } from '@/lib';
 export function AccountNavigation() {
     const pathname = usePathname();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const t = useTranslations('dashboard.account.navigation');
 
     const isActive = (path: string) => {
         if (path === '/dashboard/account') {
@@ -99,11 +101,11 @@ export function AccountNavigation() {
     };
 
     const getCurrentPageTitle = () => {
-        if (isActive('/dashboard/account')) return 'Overview';
-        if (isActive('/profile')) return 'Profile';
-        if (isActive('/security')) return 'Security';
-        if (isActive('/notifications')) return 'Notifications';
-        return 'Account';
+        if (isActive('/dashboard/account')) return t('overview');
+        if (isActive('/profile')) return t('profile');
+        if (isActive('/security')) return t('security.title');
+        if (isActive('/notifications')) return t('notifications');
+        return t('account');
     };
 
     return (
@@ -121,7 +123,7 @@ export function AccountNavigation() {
                                         className={getNavItemClasses('/dashboard/account')}
                                     >
                                         <LayoutDashboard className="h-4 w-4" />
-                                        Overview
+                                        {t('overview')}
                                     </Link>
                                 </MenubarTrigger>
                             </MenubarMenu>
@@ -134,7 +136,7 @@ export function AccountNavigation() {
                                         className={getNavItemClasses('/profile')}
                                     >
                                         <User className="h-4 w-4" />
-                                        Profile
+                                        {t('profile')}
                                     </Link>
                                 </MenubarTrigger>
                             </MenubarMenu>
@@ -143,7 +145,7 @@ export function AccountNavigation() {
                             <MenubarMenu>
                                 <MenubarTrigger className={getNavItemClasses('/security')}>
                                     <Shield className="h-4 w-4" />
-                                    Security
+                                    {t('security.title')}
                                     <ChevronDown className="ms-auto size-3.5" />
                                 </MenubarTrigger>
                                 <MenubarContent className="bg-white dark:bg-zinc-950">
@@ -153,7 +155,7 @@ export function AccountNavigation() {
                                             className="flex cursor-pointer items-center gap-2 rounded-sm px-2 py-1.5 hover:bg-gray-100 dark:hover:bg-gray-800"
                                         >
                                             <Shield className="h-4 w-4" />
-                                            Password & Security
+                                            {t('security.password')}
                                         </Link>
                                     </MenubarItem>
                                     <MenubarItem asChild>
@@ -162,7 +164,7 @@ export function AccountNavigation() {
                                             className="flex cursor-pointer items-center gap-2 rounded-sm px-2 py-1.5 hover:bg-gray-100 dark:hover:bg-gray-800"
                                         >
                                             <Smartphone className="h-4 w-4" />
-                                            Two-Factor Authentication
+                                            {t('security.twoFactor')}
                                         </Link>
                                     </MenubarItem>
                                     <MenubarSeparator />
@@ -172,7 +174,7 @@ export function AccountNavigation() {
                                             className="flex cursor-pointer items-center gap-2 rounded-sm px-2 py-1.5 hover:bg-gray-100 dark:hover:bg-gray-800"
                                         >
                                             <Settings className="h-4 w-4" />
-                                            Active Sessions
+                                            {t('security.sessions')}
                                         </Link>
                                     </MenubarItem>
                                 </MenubarContent>
@@ -186,7 +188,7 @@ export function AccountNavigation() {
                                         className={getSimpleNavItemClasses('/notifications')}
                                     >
                                         <Bell className="mr-2 h-4 w-4" />
-                                        Notifications
+                                        {t('notifications')}
                                     </Link>
                                 </MenubarTrigger>
                             </MenubarMenu>
@@ -206,14 +208,14 @@ export function AccountNavigation() {
                         <SheetTrigger asChild>
                             <Button variant="ghost" size="sm" className="h-9 w-9 p-0">
                                 <Menu className="h-5 w-5" />
-                                <span className="sr-only">Open menu</span>
+                                <span className="sr-only">{t('mobile.openMenu')}</span>
                             </Button>
                         </SheetTrigger>
                         <SheetContent side="right" className="w-80 sm:w-80">
                             <SheetHeader className="text-left">
                                 <SheetTitle className="flex items-center gap-2">
                                     <User className="h-5 w-5" />
-                                    Account Settings
+                                    {t('mobile.title')}
                                 </SheetTitle>
                             </SheetHeader>
 
@@ -226,7 +228,7 @@ export function AccountNavigation() {
                                         onClick={handleMobileMenuClose}
                                     >
                                         <LayoutDashboard className="h-5 w-5" />
-                                        <span>Overview</span>
+                                        <span>{t('overview')}</span>
                                     </Link>
 
                                     {/* Profile */}
@@ -236,14 +238,14 @@ export function AccountNavigation() {
                                         onClick={handleMobileMenuClose}
                                     >
                                         <User className="h-5 w-5" />
-                                        <span>Profile</span>
+                                        <span>{t('profile')}</span>
                                     </Link>
 
                                     {/* Security Section */}
                                     <div className="pt-2">
                                         <div className="px-3 py-2">
                                             <h3 className="text-muted-foreground text-xs font-semibold tracking-wider uppercase">
-                                                Security
+                                                {t('security.title')}
                                             </h3>
                                         </div>
                                         <div className="space-y-1 pl-3">
@@ -253,7 +255,7 @@ export function AccountNavigation() {
                                                 onClick={handleMobileMenuClose}
                                             >
                                                 <Shield className="h-4 w-4" />
-                                                <span>Password & Security</span>
+                                                <span>{t('security.password')}</span>
                                             </Link>
                                             <Link
                                                 href="/dashboard/account/security/two-factor"
@@ -261,7 +263,7 @@ export function AccountNavigation() {
                                                 onClick={handleMobileMenuClose}
                                             >
                                                 <Smartphone className="h-4 w-4" />
-                                                <span>Two-Factor Auth</span>
+                                                <span>{t('security.twoFactorShort')}</span>
                                             </Link>
                                             <Link
                                                 href="/dashboard/account/security/sessions"
@@ -269,7 +271,7 @@ export function AccountNavigation() {
                                                 onClick={handleMobileMenuClose}
                                             >
                                                 <Settings className="h-4 w-4" />
-                                                <span>Active Sessions</span>
+                                                <span>{t('security.sessions')}</span>
                                             </Link>
                                         </div>
                                     </div>
@@ -281,7 +283,7 @@ export function AccountNavigation() {
                                         onClick={handleMobileMenuClose}
                                     >
                                         <Bell className="h-5 w-5" />
-                                        <span>Notifications</span>
+                                        <span>{t('notifications')}</span>
                                     </Link>
                                 </div>
                             </ScrollArea>

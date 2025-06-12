@@ -2,8 +2,9 @@
 
 import { useState } from 'react';
 import { useRouter } from '@/lib/i18n/navigation';
+import { useTranslations } from 'next-intl';
 import { toast } from 'sonner';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Switch } from '@/components/ui/switch';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
@@ -79,6 +80,7 @@ export function NotificationSettingsForm({
     const [preferences, setPreferences] = useState(initialPreferences);
     const [isLoading, setIsLoading] = useState(false);
     const router = useRouter();
+    const t = useTranslations('dashboard.account.notifications');
 
     const updatePreference = (key: keyof NotificationPreferences, value: boolean) => {
         setPreferences((prev) => ({
@@ -110,25 +112,24 @@ export function NotificationSettingsForm({
                 throw new Error('Failed to save preferences');
             }
 
-            toast.success('Notification preferences saved successfully!');
+            toast.success(t('form.saveSuccess'));
             router.refresh();
         } catch (error) {
-            toast.error('Failed to save preferences. Please try again.');
+            toast.error(t('form.saveError'));
             console.error('Save preferences error:', error);
         } finally {
             setIsLoading(false);
         }
     };
 
-    // ✅ Unified notification configuration
     const notificationCategories: NotificationCategory[] = [
         {
-            title: 'Security & Account',
+            title: t('categories.security.title'),
             settings: [
                 {
                     key: 'accountSecurity',
-                    label: 'Account Security',
-                    description: 'Important security updates and alerts',
+                    label: t('categories.security.settings.accountSecurity.label'),
+                    description: t('categories.security.settings.accountSecurity.description'),
                     icon: Shield,
                     recommended: true,
                     channels: {
@@ -139,8 +140,8 @@ export function NotificationSettingsForm({
                 },
                 {
                     key: 'loginAlerts',
-                    label: 'Login Alerts',
-                    description: 'New login notifications from different devices',
+                    label: t('categories.security.settings.loginAlerts.label'),
+                    description: t('categories.security.settings.loginAlerts.description'),
                     icon: LogIn,
                     recommended: true,
                     channels: {
@@ -151,8 +152,8 @@ export function NotificationSettingsForm({
                 },
                 {
                     key: 'passwordChanges',
-                    label: 'Password Changes',
-                    description: 'Password reset and change confirmations',
+                    label: t('categories.security.settings.passwordChanges.label'),
+                    description: t('categories.security.settings.passwordChanges.description'),
                     icon: Key,
                     recommended: true,
                     channels: {
@@ -163,8 +164,8 @@ export function NotificationSettingsForm({
                 },
                 {
                     key: 'profileUpdates',
-                    label: 'Profile Updates',
-                    description: 'Profile and account information changes',
+                    label: t('categories.security.settings.profileUpdates.label'),
+                    description: t('categories.security.settings.profileUpdates.description'),
                     icon: User,
                     channels: {
                         email: 'emailProfileUpdates',
@@ -175,12 +176,12 @@ export function NotificationSettingsForm({
             ],
         },
         {
-            title: 'Marketing & Updates',
+            title: t('categories.marketing.title'),
             settings: [
                 {
                     key: 'marketing',
-                    label: 'Marketing Communications',
-                    description: 'Product updates and promotional content',
+                    label: t('categories.marketing.settings.marketing.label'),
+                    description: t('categories.marketing.settings.marketing.description'),
                     icon: Megaphone,
                     channels: {
                         email: 'emailMarketing',
@@ -190,8 +191,8 @@ export function NotificationSettingsForm({
                 },
                 {
                     key: 'newsletters',
-                    label: 'Newsletters',
-                    description: 'Weekly newsletters and tips',
+                    label: t('categories.marketing.settings.newsletters.label'),
+                    description: t('categories.marketing.settings.newsletters.description'),
                     icon: Newspaper,
                     channels: {
                         email: 'emailNewsletters',
@@ -199,8 +200,8 @@ export function NotificationSettingsForm({
                 },
                 {
                     key: 'systemUpdates',
-                    label: 'System Updates',
-                    description: 'App updates and maintenance notices',
+                    label: t('categories.marketing.settings.systemUpdates.label'),
+                    description: t('categories.marketing.settings.systemUpdates.description'),
                     icon: Settings,
                     recommended: true,
                     channels: {
@@ -214,37 +215,27 @@ export function NotificationSettingsForm({
     return (
         <div className="space-y-8">
             <Card>
-                <CardHeader>
-                    <CardTitle className="flex items-center gap-3">
-                        <Bell className="h-5 w-5" />
-                        Notification Preferences
-                    </CardTitle>
-                    <CardDescription>
-                        Choose how you want to receive notifications for different types of events.
-                    </CardDescription>
-                </CardHeader>
                 <CardContent className="space-y-8">
-                    {/* ✅ Channel Headers - Adjusted column widths */}
                     <div className="grid grid-cols-[1fr_100px_100px_100px] gap-4">
                         <div className="text-muted-foreground text-sm font-medium">
-                            Notification Type
+                            {t('headers.notificationType')}
                         </div>
                         <div className="text-center">
                             <div className="flex items-center justify-center gap-2 text-sm font-medium">
                                 <Mail className="h-4 w-4" />
-                                Email
+                                {t('headers.email')}
                             </div>
                         </div>
                         <div className="text-center">
                             <div className="flex items-center justify-center gap-2 text-sm font-medium">
                                 <MessageSquare className="h-4 w-4" />
-                                SMS
+                                {t('headers.sms')}
                             </div>
                         </div>
                         <div className="text-center">
                             <div className="flex items-center justify-center gap-2 text-sm font-medium">
                                 <Bell className="h-4 w-4" />
-                                In-App
+                                {t('headers.inApp')}
                             </div>
                         </div>
                     </div>
@@ -253,12 +244,10 @@ export function NotificationSettingsForm({
                         <div key={category.title}>
                             {categoryIndex > 0 && <Separator className="mb-8" />}
 
-                            {/* ✅ Category Title */}
                             <div className="mb-6">
                                 <h3 className="mb-2 text-lg font-semibold">{category.title}</h3>
                             </div>
 
-                            {/* ✅ Settings Grid - Adjusted column widths */}
                             <div className="space-y-4">
                                 {category.settings.map((setting) => {
                                     const SettingIcon = setting.icon;
@@ -268,7 +257,6 @@ export function NotificationSettingsForm({
                                             key={setting.key}
                                             className="grid grid-cols-[1fr_100px_100px_100px] items-center gap-4 rounded-lg border px-4 py-4"
                                         >
-                                            {/* ✅ Setting Info - Now takes more space */}
                                             <div className="flex items-start space-x-3">
                                                 <SettingIcon className="text-muted-foreground mt-0.5 h-5 w-5 flex-shrink-0" />
                                                 <div className="min-w-0 flex-1 space-y-1">
@@ -281,7 +269,7 @@ export function NotificationSettingsForm({
                                                                 variant="secondary"
                                                                 className="flex-shrink-0 text-xs"
                                                             >
-                                                                Recommended
+                                                                {t('badges.recommended')}
                                                             </Badge>
                                                         )}
                                                     </div>
@@ -291,7 +279,6 @@ export function NotificationSettingsForm({
                                                 </div>
                                             </div>
 
-                                            {/* ✅ Email Switch - Fixed width */}
                                             <div className="flex justify-center">
                                                 {setting.channels.email ? (
                                                     <Switch
@@ -313,7 +300,6 @@ export function NotificationSettingsForm({
                                                 )}
                                             </div>
 
-                                            {/* ✅ SMS Switch - Fixed width */}
                                             <div className="flex justify-center">
                                                 {setting.channels.sms ? (
                                                     <Switch
@@ -335,7 +321,6 @@ export function NotificationSettingsForm({
                                                 )}
                                             </div>
 
-                                            {/* ✅ In-App Switch - Fixed width */}
                                             <div className="flex justify-center">
                                                 {setting.channels.app ? (
                                                     <Switch
@@ -363,13 +348,12 @@ export function NotificationSettingsForm({
                         </div>
                     ))}
 
-                    {/* ✅ Bulk Actions */}
                     <div className="border-t pt-6">
                         <div className="flex items-center justify-between">
                             <div>
-                                <h4 className="mb-1 font-medium">Quick Actions</h4>
+                                <h4 className="mb-1 font-medium">{t('quickActions.title')}</h4>
                                 <p className="text-muted-foreground text-sm">
-                                    Enable or disable all notifications for each channel
+                                    {t('quickActions.description')}
                                 </p>
                             </div>
                             <div className="flex gap-2">
@@ -386,11 +370,11 @@ export function NotificationSettingsForm({
                                             'emailNewsletters',
                                         ];
                                         emailKeys.forEach((key) => updatePreference(key, true));
-                                        toast.success('All email notifications enabled');
+                                        toast.success(t('quickActions.enableAllEmailSuccess'));
                                     }}
                                 >
                                     <Mail className="mr-2 h-4 w-4" />
-                                    Enable All Email
+                                    {t('quickActions.enableAllEmail')}
                                 </Button>
                                 <Button
                                     variant="outline"
@@ -418,28 +402,27 @@ export function NotificationSettingsForm({
                                         });
 
                                         essentialKeys.forEach((key) => updatePreference(key, true));
-                                        toast.success('Essential notifications enabled');
+                                        toast.success(t('quickActions.essentialOnlySuccess'));
                                     }}
                                 >
                                     <Shield className="mr-2 h-4 w-4" />
-                                    Essential Only
+                                    {t('quickActions.essentialOnly')}
                                 </Button>
                             </div>
                         </div>
                     </div>
 
-                    {/* ✅ Save Button */}
                     <div className="flex justify-end pt-6">
                         <Button onClick={handleSave} disabled={isLoading} className="min-w-32">
                             {isLoading ? (
                                 <>
                                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                                    Saving...
+                                    {t('form.saving')}
                                 </>
                             ) : (
                                 <>
                                     <Save className="mr-1 h-4 w-4" />
-                                    Save Preferences
+                                    {t('form.savePreferences')}
                                 </>
                             )}
                         </Button>
