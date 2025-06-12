@@ -4,6 +4,7 @@ import {
     TwitterIcon,
     GithubIcon,
     GitlabIcon,
+    LinkedinIcon,
 } from '@/components/icons/brands';
 
 export type Provider =
@@ -13,7 +14,8 @@ export type Provider =
     | 'apple'
     | 'instagram'
     | 'facebook'
-    | 'twitter';
+    | 'twitter'
+    | 'linkedin';
 
 export interface ProviderConfig {
     id: Provider;
@@ -36,6 +38,11 @@ export const providers: ProviderConfig[] = [
         id: 'twitter',
         name: 'Twitter',
         logo: TwitterIcon,
+    },
+    {
+        id: 'linkedin',
+        name: 'LinkedIn',
+        logo: LinkedinIcon,
     },
     {
         id: 'github',

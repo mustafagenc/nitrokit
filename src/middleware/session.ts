@@ -5,7 +5,7 @@ export async function handleSessionTracking(request: NextRequest) {
     try {
         const token = await getToken({
             req: request,
-            secret: process.env.NEXTAUTH_SECRET,
+            secret: process.env.NEXT_SECRET,
         });
 
         if (token?.sub) {
@@ -39,7 +39,7 @@ export async function handleSessionTracking(request: NextRequest) {
 export async function checkAuthentication(request: NextRequest) {
     const token = await getToken({
         req: request,
-        secret: process.env.NEXTAUTH_SECRET,
+        secret: process.env.AUTH_SECRET,
     });
 
     if (!token) {

@@ -8,6 +8,7 @@ import Apple from 'next-auth/providers/apple';
 import Instagram from 'next-auth/providers/instagram';
 import Facebook from 'next-auth/providers/facebook';
 import Twitter from 'next-auth/providers/twitter';
+import LinkedIn from 'next-auth/providers/linkedin';
 import bcrypt from 'bcryptjs';
 import { generateRefreshToken, refreshAccessToken } from './tokens';
 
@@ -151,24 +152,66 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         }),
         Twitter({
             authorization: {
+                url: 'https://twitter.com/i/oauth2/authorize',
                 params: {
                     scope: 'tweet.read users.read offline.access',
+                    response_type: 'code',
+                    code_challenge_method: 'S256',
                 },
             },
+            token: 'https://api.twitter.com/2/oauth2/token',
+            userinfo:
+                'https://api.twitter.com/2/users/me?user.fields=id,name,username,profile_image_url',
             profile(profile) {
                 const data = profile.data || profile;
-
                 return {
-                    id: data.id?.toString() || '',
+                    id: data.id?.toString() || profile.id?.toString() || '',
                     email: data.email || '',
                     name: data.name || data.username || '',
                     image: data.profile_image_url?.replace('_normal', '_400x400') || '',
+                    firstName: data.name?.split(' ')[0] || '',
+                    lastName: data.name?.split(' ').slice(1).join(' ') || '',
                     username: data.username || '',
                     role: defaultRole,
                     locale: defaultLocale,
                     theme: defaultTheme,
                     twoFactorEnabled: false,
                     emailVerified: !!data.email,
+                };
+            },
+        }),
+        LinkedIn({
+            authorization: {
+                params: {
+                    scope: 'openid profile email',
+                },
+            },
+            profile(profile) {
+                const email = profile.email || profile.emailAddress || '';
+                const firstName = profile.firstName || profile.given_name || '';
+                const lastName = profile.lastName || profile.family_name || '';
+                return {
+                    id: profile.id || profile.sub || '',
+                    email: email,
+                    name:
+                        profile.name ||
+                        `${firstName} ${lastName}`.trim() ||
+                        profile.localizedFirstName ||
+                        '',
+                    image:
+                        profile.picture ||
+                        profile.profilePicture?.displayImage ||
+                        profile['profilePicture(displayImage~:playableStreams)']?.displayImage
+                            ?.elements?.[0]?.identifiers?.[0]?.identifier ||
+                        '',
+                    firstName: firstName,
+                    lastName: lastName,
+                    username: profile.vanityName || '', // LinkedIn vanity URL
+                    role: defaultRole,
+                    locale: profile.locale || defaultLocale,
+                    theme: defaultTheme,
+                    twoFactorEnabled: false,
+                    emailVerified: !!email,
                 };
             },
         }),
@@ -345,5 +388,21 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     jwt: {
         maxAge: 30 * 24 * 60 * 60, // 30 gün
     },
-    secret: process.env.NEXTAUTH_SECRET,
+    secret: process.env.AUTH_SECRET,
+    debug: process.env.NODE_ENV === 'development',
+    useSecureCookies: process.env.NODE_ENV === 'production',
+    cookies: {
+        sessionToken: {
+            name:
+                process.env.NODE_ENV === 'production'
+                    ? '__Secure-authjs.session-token'
+                    : 'authjs.session-token',
+            options: {
+                httpOnly: true,
+                sameSite: 'lax',
+                path: '/',
+                secure: process.env.NODE_ENV === 'production',
+            },
+        },
+    },
 });

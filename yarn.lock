@@ -4993,13 +4993,6 @@
     "@types/ms" "*"
     "@types/node" "*"
 
-"@types/logrocket-react@^3.0.3":
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/@types/logrocket-react/-/logrocket-react-3.0.3.tgz#544aedcd1313fc01653fe8f9cb090c1358638b9e"
-  integrity sha512-fGpJV4ccwfWAL0293EQx5HrS4PGMvXBpTQOXpA/SLXSCm7fC2O19w7Y3CcgWDmyawQnqbzd8faKAL12VhPdZKA==
-  dependencies:
-    logrocket "1.0.1"
-
 "@types/mdx@^2.0.0":
   version "2.0.13"
   resolved "https://registry.yarnpkg.com/@types/mdx/-/mdx-2.0.13.tgz#68f6877043d377092890ff5b298152b0a21671bd"
@@ -9513,21 +9506,6 @@ log-symbols@^7.0.0:
   dependencies:
     is-unicode-supported "^2.0.0"
     yoctocolors "^2.1.1"
-
-logrocket-react@^6.0.3:
-  version "6.0.3"
-  resolved "https://registry.yarnpkg.com/logrocket-react/-/logrocket-react-6.0.3.tgz#62c2ce18b9197058f5ba60e54e3f2b084d6588ee"
-  integrity sha512-mU2QMFy5lfogXeAb+djy5XcAL5lAxPovRiN62lb4EzeuvuYmXJJmArniK3K2P9Gu02auWTiSwKHISFS0JH+eyA==
-
-logrocket@1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/logrocket/-/logrocket-1.0.1.tgz#0555ec619d2db54a7b345c4e8df09baea835b176"
-  integrity sha512-oPA0c5GzMKsWp/6p19OaujZQMzttluqVOI+989uHeciPAljPZvGEpZRbNO3Rr+jC/8jVLJdlMP9IHuyhKsASGA==
-
-logrocket@^10.1.0:
-  version "10.1.0"
-  resolved "https://registry.yarnpkg.com/logrocket/-/logrocket-10.1.0.tgz#923c3d498c3a2250f2284b51510b9cf550574073"
-  integrity sha512-wcVb+fkM7V6+nhUkhpTdnY/b31C5xy0hlEEs8UOMZiHFUrv0/2kIV+NjtmOlksniIQmUawC5ozw6ZID4qbJmUg==
 
 loose-envify@^1.4.0:
   version "1.4.0"

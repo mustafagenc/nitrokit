@@ -14,6 +14,7 @@ import {
     InstagramIcon,
     FacebookIcon,
     TwitterIcon,
+    LinkedinIcon,
 } from '@/components/icons/brands';
 
 function getProviderDetail({ t, provider }: { t: (key: string) => string; provider: Provider }): {
@@ -55,6 +56,11 @@ function getProviderDetail({ t, provider }: { t: (key: string) => string; provid
             return {
                 text: t('auth.signinWithTwitter'),
                 Icon: TwitterIcon,
+            };
+        case 'linkedin':
+            return {
+                text: t('auth.signinWithLinkedin'),
+                Icon: LinkedinIcon,
             };
         default:
             throw new Error('Unsupported provider');
