@@ -7,6 +7,7 @@ import Resend from 'next-auth/providers/resend';
 import Apple from 'next-auth/providers/apple';
 import Instagram from 'next-auth/providers/instagram';
 import Facebook from 'next-auth/providers/facebook';
+import Twitter from 'next-auth/providers/twitter';
 import bcrypt from 'bcryptjs';
 import { generateRefreshToken, refreshAccessToken } from './tokens';
 
@@ -145,6 +146,29 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                     theme: defaultTheme,
                     twoFactorEnabled: false,
                     emailVerified: !!profile.email,
+                };
+            },
+        }),
+        Twitter({
+            authorization: {
+                params: {
+                    scope: 'tweet.read users.read offline.access',
+                },
+            },
+            profile(profile) {
+                const data = profile.data || profile;
+
+                return {
+                    id: data.id?.toString() || '',
+                    email: data.email || '',
+                    name: data.name || data.username || '',
+                    image: data.profile_image_url?.replace('_normal', '_400x400') || '',
+                    username: data.username || '',
+                    role: defaultRole,
+                    locale: defaultLocale,
+                    theme: defaultTheme,
+                    twoFactorEnabled: false,
+                    emailVerified: !!data.email,
                 };
             },
         }),

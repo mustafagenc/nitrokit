@@ -8,7 +8,7 @@ import { toast } from 'sonner';
 import { Loader2, Users, AlertTriangle, ExternalLink, Unlink } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
-import { providers, Provider } from '@/lib/auth/providers';
+import { providers } from '@/lib/auth/providers';
 
 interface Account {
     id: string;
