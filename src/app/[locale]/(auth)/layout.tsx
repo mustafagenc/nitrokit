@@ -130,8 +130,8 @@ export default async function AuthLayout({
 
                 <div className="relative z-10 mx-auto mb-8 flex flex-row justify-items-center gap-6 p-6">
                     <ThemedImage
-                        darkSrc="/images/brand-logo/nextjs-white.svg"
-                        lightSrc="/images/brand-logo/nextjs-black.svg"
+                        darkSrc="/images/brands/nextjs-white.svg"
+                        lightSrc="/images/brands/nextjs-black.svg"
                         alt="Next.js"
                         width={150}
                         height={30}
@@ -139,8 +139,8 @@ export default async function AuthLayout({
                         className="transition-transform duration-200 ease-in-out hover:scale-105"
                     />
                     <ThemedImage
-                        darkSrc="/images/brand-logo/typescript.svg"
-                        lightSrc="/images/brand-logo/typescript.svg"
+                        darkSrc="/images/brands/typescript.svg"
+                        lightSrc="/images/brands/typescript.svg"
                         alt="Typescript"
                         width={36}
                         height={36}
@@ -148,8 +148,8 @@ export default async function AuthLayout({
                         className="transition-transform duration-200 ease-in-out hover:scale-105"
                     />
                     <ThemedImage
-                        darkSrc="/images/brand-logo/tailwindcss.svg"
-                        lightSrc="/images/brand-logo/tailwindcss.svg"
+                        darkSrc="/images/brands/tailwindcss.svg"
+                        lightSrc="/images/brands/tailwindcss.svg"
                         alt="Tailwind CSS"
                         width={50}
                         height={30}
@@ -157,8 +157,8 @@ export default async function AuthLayout({
                         className="transition-transform duration-200 ease-in-out hover:scale-105"
                     />
                     <ThemedImage
-                        darkSrc="/images/brand-logo/prisma-white.svg"
-                        lightSrc="/images/brand-logo/prisma-black.svg"
+                        darkSrc="/images/brands/prisma-white.svg"
+                        lightSrc="/images/brands/prisma-black.svg"
                         alt="Prisma"
                         width={100}
                         height={30}
@@ -166,8 +166,8 @@ export default async function AuthLayout({
                         className="transition-transform duration-200 ease-in-out hover:scale-105"
                     />
                     <ThemedImage
-                        darkSrc="/images/brand-logo/radix-white.svg"
-                        lightSrc="/images/brand-logo/radix-black.svg"
+                        darkSrc="/images/brands/radix-white.svg"
+                        lightSrc="/images/brands/radix-black.svg"
                         alt="Radix-UI"
                         width={95}
                         height={30}
@@ -175,8 +175,8 @@ export default async function AuthLayout({
                         className="transition-transform duration-200 ease-in-out hover:scale-105"
                     />
                     <ThemedImage
-                        darkSrc="/images/brand-logo/next-intl-white.svg"
-                        lightSrc="/images/brand-logo/next-intl-black.svg"
+                        darkSrc="/images/brands/next-intl-white.svg"
+                        lightSrc="/images/brands/next-intl-black.svg"
                         alt="Next-Intl"
                         width={130}
                         height={30}
@@ -187,8 +187,8 @@ export default async function AuthLayout({
 
                 <div className="relative z-10 mx-auto mb-42 flex min-w-2xl flex-row items-center justify-center gap-8 p-6">
                     <ThemedImage
-                        darkSrc="/images/brand-logo/react-white.svg"
-                        lightSrc="/images/brand-logo/react-black.svg"
+                        darkSrc="/images/brands/react-white.svg"
+                        lightSrc="/images/brands/react-black.svg"
                         alt="React"
                         width={53}
                         height={50}
@@ -196,8 +196,8 @@ export default async function AuthLayout({
                         className="transition-transform duration-200 ease-in-out hover:scale-105"
                     />
                     <ThemedImage
-                        darkSrc="/images/brand-logo/authjs.svg"
-                        lightSrc="/images/brand-logo/authjs.svg"
+                        darkSrc="/images/brands/authjs.svg"
+                        lightSrc="/images/brands/authjs.svg"
                         alt="Auth.js"
                         width={47}
                         height={50}
@@ -205,8 +205,8 @@ export default async function AuthLayout({
                         className="transition-transform duration-200 ease-in-out hover:scale-105"
                     />
                     <ThemedImage
-                        darkSrc="/images/brand-logo/resend-white.svg"
-                        lightSrc="/images/brand-logo/resend-black.svg"
+                        darkSrc="/images/brands/resend-white.svg"
+                        lightSrc="/images/brands/resend-black.svg"
                         alt="Resend"
                         width={50}
                         height={50}
@@ -214,8 +214,8 @@ export default async function AuthLayout({
                         className="transition-transform duration-200 ease-in-out hover:scale-105"
                     />
                     <ThemedImage
-                        darkSrc="/images/brand-logo/lucide-white.svg"
-                        lightSrc="/images/brand-logo/lucide-black.svg"
+                        darkSrc="/images/brands/lucide-white.svg"
+                        lightSrc="/images/brands/lucide-black.svg"
                         alt="Lucide-react"
                         width={50}
                         height={50}
@@ -223,8 +223,8 @@ export default async function AuthLayout({
                         className="transition-transform duration-200 ease-in-out hover:scale-105"
                     />
                     <ThemedImage
-                        darkSrc="/images/brand-logo/zod.svg"
-                        lightSrc="/images/brand-logo/zod.svg"
+                        darkSrc="/images/brands/zod.svg"
+                        lightSrc="/images/brands/zod.svg"
                         alt="Zod"
                         width={50}
                         height={50}
