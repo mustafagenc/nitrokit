@@ -1,4 +1,3 @@
-// src/components/emails/contact-email.tsx
 import { BaseEmail } from './base-email';
 import { Button, Section, Text, Hr } from '@react-email/components';
 
@@ -15,7 +14,6 @@ export function ContactEmail({ name, email, message }: ContactEmailProps) {
             headerTitle="📬 New Contact Message"
             headerGradient="linear-gradient(135deg, #06b6d4 0%, #0891b2 100%)"
         >
-            {/* Contact Info Section */}
             <Section style={section}>
                 <Text style={heading}>
                     You have received a new message from your website contact form:
@@ -24,7 +22,6 @@ export function ContactEmail({ name, email, message }: ContactEmailProps) {
 
             <Hr style={divider} />
 
-            {/* Sender Information */}
             <Section style={section}>
                 <div style={infoContainer}>
                     <div style={infoRow}>
@@ -41,7 +38,6 @@ export function ContactEmail({ name, email, message }: ContactEmailProps) {
 
             <Hr style={divider} />
 
-            {/* Message Content */}
             <Section style={section}>
                 <Text style={infoLabel}>💬 Message:</Text>
                 <div style={messageContainer}>
@@ -49,7 +45,6 @@ export function ContactEmail({ name, email, message }: ContactEmailProps) {
                 </div>
             </Section>
 
-            {/* Reply Button */}
             <Section style={buttonContainer}>
                 <Button
                     href={`mailto:${email}?subject=Re: Your message to Nitrokit`}
@@ -61,7 +56,6 @@ export function ContactEmail({ name, email, message }: ContactEmailProps) {
 
             <Hr style={divider} />
 
-            {/* Footer */}
             <Section style={section}>
                 <Text style={footerText}>
                     This email was sent from your website contact form. Click the button above or
@@ -72,7 +66,6 @@ export function ContactEmail({ name, email, message }: ContactEmailProps) {
     );
 }
 
-// Local styles for contact email
 const section = {
     padding: '0 24px',
     margin: '16px 0',
