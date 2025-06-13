@@ -15,6 +15,9 @@ interface Account {
     provider: string;
     providerAccountId: string;
     createdAt?: string;
+    user?: {
+        email?: string;
+    };
 }
 
 interface AccountLinkingProps {
@@ -25,7 +28,6 @@ interface AccountLinkingProps {
 export function AccountLinking({ accounts, className }: AccountLinkingProps) {
     const [loading, setLoading] = useState<string | null>(null);
     const t = useTranslations('dashboard.account.profile.accountLinking');
-
     const handleConnect = async (provider: string) => {
         try {
             setLoading(provider);
@@ -92,6 +94,7 @@ export function AccountLinking({ accounts, className }: AccountLinkingProps) {
                     {providers.map((provider) => {
                         const connected = isConnected(provider.id);
                         const isLoading = loading === provider.id;
+                        const account = accounts.find((acc) => acc.provider === provider.id);
 
                         return (
                             <div
@@ -109,23 +112,14 @@ export function AccountLinking({ accounts, className }: AccountLinkingProps) {
                                         {connected && (
                                             <p className="text-muted-foreground text-xs">
                                                 {t('status.activeSince', {
-                                                    date: accounts.find(
-                                                        (acc) => acc.provider === provider.id
-                                                    )?.createdAt
-                                                        ? new Date(
-                                                              accounts.find(
-                                                                  (acc) =>
-                                                                      acc.provider === provider.id
-                                                              )!.createdAt!
-                                                          ).toLocaleDateString()
+                                                    date: account?.createdAt
+                                                        ? new Date(account!.createdAt!)
                                                         : t('status.recently'),
                                                 })}
                                             </p>
                                         )}
                                     </div>
                                 </div>
-
-                                {/* Action Button */}
                                 <Button
                                     variant={connected ? 'outline' : 'default'}
                                     size="sm"
