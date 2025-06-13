@@ -112,10 +112,10 @@
             "instructions": {
                 "check": "1. E-posta gelen kutunuzu kontrol edin",
                 "click": "2. E-postadaki sıfırlama bağlantısına tıklayın",
-                "expire": "3. Bağlantı 1 saat içinde sona erecek"
+                "expire": "3. Bağlantının süresi 1 saat içinde dolacak"
             },
             "newPassword": "Yeni Şifre",
-            "confirmPassword": "Yeni Şifreyi Onayla",
+            "confirmPassword": "Şifreyi Onayla",
             "confirm": "Şifreyi Sıfırla",
             "success": "Şifre başarıyla sıfırlandı!",
             "successDescription": "Artık yeni şifrenizle giriş yapabilirsiniz",
@@ -422,7 +422,7 @@
             },
             "functional": {
                 "title": "İşlevsel Çerezler",
-                "description": "Bu çerezler, tercihlerinizi hatırlamak gibi gelişmiş işlevsellik ve kişiselleştirme sağlar."
+                "description": "Bu çerezler, tercihlerinizin hatırlanması gibi gelişmiş işlevsellik ve kişiselleştirme sağlar."
             }
         }
     },
@@ -519,7 +519,7 @@
                         "settings": {
                             "marketing": {
                                 "label": "Pazarlama İletişimleri",
-                                "description": "Ürün güncellemeleri ve promosyon içeriği"
+                                "description": "Ürün güncellemeleri ve promosyonel içerik"
                             },
                             "newsletters": {
                                 "label": "Bültenler",
@@ -533,7 +533,7 @@
                     }
                 },
                 "quickActions": {
-                    "title": "Hızlı Eylemler",
+                    "title": "Hızlı İşlemler",
                     "description": "Her kanal için tüm bildirimleri etkinleştirin veya devre dışı bırakın",
                     "enableAllEmail": "Tüm E-postaları Etkinleştir",
                     "essentialOnly": "Yalnızca Gerekli Olanlar",
@@ -566,7 +566,7 @@
                         "action": "Şifre Belirle"
                     },
                     "weakPassword": {
-                        "title": "Zayıf şifre algılandı",
+                        "title": "Zayıf şifre tespit edildi",
                         "description": "Şifreniz zayıf ve güncellenmeli",
                         "action": "Şifreyi Değiştir"
                     },
@@ -630,6 +630,389 @@
                         "twoFactorOff": "Kapalı",
                         "activeSessions": "Aktif Oturumlar"
                     }
+                },
+                "password": {
+                    "page": {
+                        "title": "Güvenlik Ayarları",
+                        "description": "Hesap güvenliğinizi ve şifre ayarlarınızı yönetin",
+                        "heading": "Güvenlik Ayarları",
+                        "subheading": "Şifrenizi ve hesap güvenlik tercihlerinizi yönetin."
+                    },
+                    "deleteAccount": {
+                        "card": {
+                            "title": "Tehlikeli Bölge",
+                            "description": "Hesabınızı ve ilişkili tüm verileri kalıcı olarak silin. Bu işlem geri alınamaz."
+                        },
+                        "warning": {
+                            "title": "Silinecekler:",
+                            "items": {
+                                "profile": "Profiliniz ve kişisel bilgileriniz",
+                                "files": "Yüklenen tüm dosyalar ve profil resimleri",
+                                "settings": "Hesap ayarları ve tercihleri",
+                                "sessions": "Giriş oturumları ve bağlı hesaplar",
+                                "data": "Tüm ilişkili veriler ve geçmiş"
+                            }
+                        },
+                        "buttons": {
+                            "deleteAccount": "Hesabımı Sil",
+                            "cancel": "İptal",
+                            "deleteForever": "Hesabı Kalıcı Olarak Sil"
+                        },
+                        "dialog": {
+                            "title": "Hesabı Sil",
+                            "description": "Hesabınızı ({email}) kalıcı olarak silmek üzeresiniz. Bu işlem geri alınamaz ve tüm verileriniz kalıcı olarak kaybolacaktır."
+                        },
+                        "form": {
+                            "password": {
+                                "label": "Şifreyi Onayla *",
+                                "placeholder": "Şifrenizi girin",
+                                "required": "Şifre zorunludur"
+                            },
+                            "confirmText": {
+                                "label": "Onaylamak için \"SİL\" yazın *",
+                                "placeholder": "Buraya SİL yazın"
+                            }
+                        },
+                        "validation": {
+                            "confirmRequired": "Lütfen onaylamak için \"SİL\" yazın",
+                            "mustTypeDelete": "Tam olarak \"SİL\" yazmalısınız"
+                        },
+                        "messages": {
+                            "deleteSuccess": "Hesap başarıyla silindi. Yönlendiriliyor...",
+                            "deleteFailed": "Hesap silinemedi",
+                            "deleteError": "Bir şeyler ters gitti. Lütfen tekrar deneyin."
+                        }
+                    },
+                    "create": {
+                        "card": {
+                            "title": "Şifre Oluştur"
+                        },
+                        "form": {
+                            "password": {
+                                "label": "Yeni Şifre *",
+                                "placeholder": "Yeni şifrenizi girin"
+                            },
+                            "confirmPassword": {
+                                "label": "Şifreyi Onayla *",
+                                "placeholder": "Şifrenizi onaylayın"
+                            }
+                        },
+                        "validation": {
+                            "password": {
+                                "minLength": "Şifre en az 8 karakter olmalıdır",
+                                "uppercase": "Şifre en az bir büyük harf içermelidir",
+                                "lowercase": "Şifre en az bir küçük harf içermelidir",
+                                "number": "Şifre en az bir rakam içermelidir",
+                                "special": "Şifre en az bir özel karakter içermelidir"
+                            },
+                            "confirmPassword": {
+                                "required": "Lütfen şifrenizi onaylayın",
+                                "mismatch": "Şifreler eşleşmiyor"
+                            }
+                        },
+                        "buttons": {
+                            "create": "Şifre Oluştur",
+                            "creating": "Şifre Oluşturuluyor..."
+                        },
+                        "help": {
+                            "requirements": "Şifreniz tüm gereksinimleri karşılamalı ve en az orta güçte olmalıdır."
+                        },
+                        "messages": {
+                            "createSuccess": "Şifre başarıyla oluşturuldu!",
+                            "createFailed": "Şifre oluşturulamadı",
+                            "createError": "Bir şeyler ters gitti"
+                        }
+                    },
+                    "change": {
+                        "card": {
+                            "title": "Şifreyi Değiştir",
+                            "description": "Hesabınızı güvende tutmak için şifrenizi güncelleyin. Şifreniz değiştirildiğinde bir bildirim alacaksınız."
+                        },
+                        "form": {
+                            "currentPassword": {
+                                "label": "Mevcut Şifre *",
+                                "placeholder": "Mevcut şifrenizi girin"
+                            },
+                            "newPassword": {
+                                "label": "Yeni Şifre *",
+                                "placeholder": "Yeni şifrenizi girin"
+                            },
+                            "confirmPassword": {
+                                "label": "Yeni Şifreyi Onayla *",
+                                "placeholder": "Yeni şifrenizi onaylayın"
+                            }
+                        },
+                        "validation": {
+                            "currentPassword": {
+                                "required": "Mevcut şifre zorunludur"
+                            },
+                            "newPassword": {
+                                "minLength": "Yeni şifre en az 8 karakter olmalıdır",
+                                "uppercase": "Şifre en az bir büyük harf içermelidir",
+                                "lowercase": "Şifre en az bir küçük harf içermelidir",
+                                "number": "Şifre en az bir rakam içermelidir",
+                                "special": "Şifre en az bir özel karakter içermelidir"
+                            },
+                            "confirmPassword": {
+                                "required": "Lütfen yeni şifrenizi onaylayın",
+                                "mismatch": "Şifreler eşleşmiyor"
+                            }
+                        },
+                        "buttons": {
+                            "update": "Şifreyi Güncelle",
+                            "updating": "Güncelleniyor...",
+                            "cancel": "İptal"
+                        },
+                        "messages": {
+                            "updateSuccess": "Şifre başarıyla güncellendi!",
+                            "updateFailed": "Şifre güncellenemedi",
+                            "errors": {
+                                "unauthorized": "Devam etmek için lütfen tekrar giriş yapın",
+                                "invalidData": "Geçersiz şifre verisi. Lütfen girdinizi kontrol edin.",
+                                "incorrectPassword": "Mevcut şifre yanlış",
+                                "serverError": "Sunucu hatası. Lütfen daha sonra tekrar deneyin.",
+                                "generic": "Bir şeyler ters gitti. Lütfen tekrar deneyin."
+                            }
+                        }
+                    }
+                },
+                "sessions": {
+                    "page": {
+                        "title": "Aktif Oturumlar",
+                        "description": "Aktif giriş oturumlarınızı ve güvenliğinizi yönetin",
+                        "heading": "Aktif Oturumlar",
+                        "subheading": "Hesabınıza şu anda giriş yapmış tüm cihazları ve uygulamaları görüntüleyin ve yönetin."
+                    },
+                    "client": {
+                        "heading": "Aktif Oturumlar",
+                        "subheading": "Tüm cihazlardaki aktif giriş oturumlarınızı izleyin ve yönetin.",
+                        "securityAlert": "Güvenlik nedeniyle, tanımadığınız herhangi bir oturum görürseniz, derhal sonlandırın ve şifrenizi değiştirin.",
+                        "currentSessions": {
+                            "title": "Mevcut Oturumlar",
+                            "description": "Bunlar, hesabınıza şu anda giriş yapmış olan cihazlar ve tarayıcılardır."
+                        },
+                        "securityTips": {
+                            "title": "Güvenlik İpuçları",
+                            "subtitle": "Hesabınızı güvence altına alın:",
+                            "tips": {
+                                "publicComputers": "Halka açık bilgisayarları kullanırken her zaman çıkış yapın",
+                                "reviewSessions": "Aktif oturumlarınızı düzenli olarak gözden geçirin",
+                                "twoFactor": "Ekstra güvenlik için iki faktörlü kimlik doğrulamayı etkinleştirin",
+                                "strongPasswords": "Güçlü, benzersiz şifreler kullanın",
+                                "signOutAll": "Yetkisiz erişimden şüpheleniyorsanız tüm oturumlardan çıkış yapın"
+                            }
+                        }
+                    },
+                    "table": {
+                        "sessionCount": "{count} aktif oturum",
+                        "headers": {
+                            "deviceBrowser": "Cihaz ve Tarayıcı",
+                            "location": "Konum",
+                            "lastActive": "Son Aktif",
+                            "status": "Durum",
+                            "actions": "Eylemler"
+                        },
+                        "status": {
+                            "current": "Mevcut",
+                            "active": "Aktif"
+                        },
+                        "buttons": {
+                            "terminateAllOthers": "Diğer Tümünü Sonlandır",
+                            "terminateAll": "Tümünü Sonlandır",
+                            "terminate": "Sonlandır",
+                            "cancel": "İptal"
+                        },
+                        "dialogs": {
+                            "terminateAll": {
+                                "title": "Diğer Tüm Oturumlar Sonlandırılsın mı?",
+                                "description": "Bu, diğer tüm cihazlardan ve tarayıcılardan çıkış yapmanızı sağlayacaktır. Mevcut oturumunuz aktif kalacaktır."
+                            },
+                            "terminateSession": {
+                                "title": "Oturum Sonlandırılsın mı?",
+                                "description": "Bu, bu cihazdan/tarayıcıdan çıkış yapacaktır. Kullanıcının tekrar giriş yapması gerekecektir."
+                            }
+                        },
+                        "messages": {
+                            "currentSessionTerminated": "Mevcut oturum sonlandırıldı. Girişe yönlendiriliyor...",
+                            "sessionTerminated": "Oturum başarıyla sonlandırıldı",
+                            "terminateFailed": "Oturum sonlandırılamadı",
+                            "terminateError": "Oturum sonlandırılamadı",
+                            "allOthersTerminated": "Diğer tüm oturumlar başarıyla sonlandırıldı",
+                            "allSessionsTerminated": "Tüm oturumlar sonlandırıldı. Girişe yönlendiriliyor...",
+                            "terminateAllFailed": "Oturumlar sonlandırılamadı",
+                            "terminateAllError": "Oturumlar sonlandırılamadı"
+                        }
+                    }
+                },
+                "twoFactor": {
+                    "page": {
+                        "title": "İki Faktörlü Kimlik Doğrulama",
+                        "description": "Gelişmiş güvenlik için iki faktörlü kimlik doğrulama ayarlarınızı yönetin",
+                        "heading": "İki Faktörlü Kimlik Doğrulama",
+                        "subheading": "2FA ile hesabınıza ekstra bir güvenlik katmanı ekleyin."
+                    },
+                    "backupCodes": {
+                        "dialog": {
+                            "title": "Yedek Kodlar",
+                            "description": "Doğrulayıcı uygulamanıza erişiminizi kaybederseniz bu kodları kullanın."
+                        },
+                        "alerts": {
+                            "verifyIdentity": "Yedek kodlarınızı görüntülemek veya yeniden oluşturmak için kimliğinizi doğrulamanız gerekir.",
+                            "invalidatePrevious": "Yeni kodlar oluşturmak, önceki tüm yedek kodları geçersiz kılacaktır.",
+                            "saveCodes": "Bu kodları güvenli bir yerde saklayın. Her kod yalnızca bir kez kullanılabilir."
+                        },
+                        "form": {
+                            "verificationCode": {
+                                "label": "Kimlik doğrulama kodunuzu girin:",
+                                "placeholder": "000000"
+                            }
+                        },
+                        "buttons": {
+                            "generateNew": "Yeni Yedek Kodlar Oluştur",
+                            "cancel": "İptal",
+                            "generate": "Oluştur",
+                            "generating": "Oluşturuluyor...",
+                            "download": "İndir",
+                            "regenerate": "Yeniden Oluştur"
+                        },
+                        "validation": {
+                            "validCode": "Lütfen geçerli bir 6 haneli kod girin"
+                        },
+                        "messages": {
+                            "downloaded": "Yedek kodlar indirildi",
+                            "regenerateSuccess": "Yeni yedek kodlar oluşturuldu",
+                            "regenerateFailed": "Kodlar yeniden oluşturulamadı",
+                            "regenerateError": "Kodlar yeniden oluşturulamadı"
+                        },
+                        "download": {
+                            "title": "Nitrokit İki Faktörlü Kimlik Doğrulama Yedek Kodları",
+                            "warning": "ÖNEMLİ: Bu kodları güvenli bir yerde saklayın.\nHer kod yalnızca bir kez kullanılabilir.",
+                            "generatedOn": "Oluşturulma tarihi: {date}"
+                        }
+                    },
+                    "disable": {
+                        "dialog": {
+                            "title": "İki Faktörlü Kimlik Doğrulamayı Devre Dışı Bırak",
+                            "description": "Bu, hesabınızdan ekstra güvenlik katmanını kaldıracaktır."
+                        },
+                        "warning": {
+                            "message": "Uyarı: 2FA'yı devre dışı bırakmak hesabınızı daha az güvenli hale getirecektir. Etkin tutmanızı öneririz."
+                        },
+                        "form": {
+                            "verificationCode": {
+                                "label": "Onaylamak için kimlik doğrulama kodunuzu girin:",
+                                "placeholder": "000000"
+                            }
+                        },
+                        "buttons": {
+                            "cancel": "İptal",
+                            "disable": "2FA'yı Devre Dışı Bırak",
+                            "disabling": "Devre dışı bırakılıyor..."
+                        },
+                        "validation": {
+                            "validCode": "Lütfen geçerli bir 6 haneli kod girin"
+                        },
+                        "messages": {
+                            "disableFailed": "2FA devre dışı bırakılamadı",
+                            "disableError": "2FA devre dışı bırakılamadı"
+                        }
+                    },
+                    "management": {
+                        "card": {
+                            "title": "İki Faktörlü Kimlik Doğrulama",
+                            "description": "İki faktörlü kimlik doğrulama ile hesabınıza ekstra bir güvenlik katmanı ekleyin."
+                        },
+                        "status": {
+                            "title": "İki Faktörlü Kimlik Doğrulama",
+                            "enabled": "{date} tarihinde etkinleştirildi",
+                            "notEnabled": "Etkin değil",
+                            "unknown": "Bilinmiyor"
+                        },
+                        "badge": {
+                            "enabled": "Etkin",
+                            "disabled": "Devre Dışı"
+                        },
+                        "alerts": {
+                            "recommendation": "Hesabınızı güvende tutmak için iki faktörlü kimlik doğrulamayı etkinleştirmenizi öneririz.",
+                            "protected": "Hesabınız iki faktörlü kimlik doğrulama ile korunmaktadır.",
+                            "backupCodes": "{count} yedek kodunuz kaldı."
+                        },
+                        "buttons": {
+                            "enable": "İki Faktörlü Kimlik Doğrulamayı Etkinleştir",
+                            "viewBackupCodes": "Yedek Kodları Görüntüle",
+                            "disable": "2FA'yı Devre Dışı Bırak"
+                        },
+                        "howItWorks": {
+                            "title": "Nasıl çalışır",
+                            "steps": {
+                                "download": "Google Authenticator veya benzeri bir uygulama indirin",
+                                "scan": "QR kodunu tarayın veya kurulum anahtarını girin",
+                                "verify": "Kurulumu tamamlamak için doğrulama kodunu girin",
+                                "backup": "Yedek kodlarınızı güvenli bir yerde saklayın"
+                            }
+                        },
+                        "messages": {
+                            "enableSuccess": "İki faktörlü kimlik doğrulama başarıyla etkinleştirildi!",
+                            "disableSuccess": "İki faktörlü kimlik doğrulama devre dışı bırakıldı."
+                        }
+                    },
+                    "setup": {
+                        "steps": {
+                            "loading": {
+                                "title": "2FA ayarlanıyor...",
+                                "description": "Kurulumunuzu hazırlarken lütfen bekleyin..."
+                            },
+                            "setup": {
+                                "title": "İki Faktörlü Kimlik Doğrulamayı Ayarla",
+                                "description": "Doğrulayıcı uygulamanızla QR kodunu tarayın"
+                            },
+                            "verify": {
+                                "title": "Kurulumunuzu Doğrulayın",
+                                "description": "Doğrulayıcı uygulamanızdan kodu girin"
+                            },
+                            "backup": {
+                                "title": "Yedek Kodlarınızı Kaydedin",
+                                "description": "Bu kodları güvenli bir yerde saklayın"
+                            }
+                        },
+                        "qr": {
+                            "alt": "2FA QR Kodu"
+                        },
+                        "manualEntry": {
+                            "label": "Tarayamıyor musunuz? Bu anahtarı manuel olarak girin:"
+                        },
+                        "verify": {
+                            "codeLabel": "Uygulamanızdan 6 haneli kodu girin:",
+                            "codePlaceholder": "000000"
+                        },
+                        "backup": {
+                            "warning": "Bu yedek kodları güvenli bir yerde saklayın. Her kod yalnızca bir kez kullanılabilir."
+                        },
+                        "buttons": {
+                            "accountAdded": "Hesabı Ekledim",
+                            "back": "Geri",
+                            "verify": "Doğrula",
+                            "verifying": "Doğrulanıyor...",
+                            "download": "İndir",
+                            "complete": "Kurulumu Tamamla"
+                        },
+                        "validation": {
+                            "validCode": "Lütfen geçerli bir 6 haneli kod girin"
+                        },
+                        "messages": {
+                            "setupFailed": "2FA kurulumu başarısız oldu",
+                            "setupError": "2FA kurulumu başlatılamadı. Lütfen tekrar deneyin.",
+                            "verifyFailed": "Doğrulama başarısız oldu",
+                            "verifyError": "Doğrulama başarısız oldu",
+                            "keyCopied": "Kurulum anahtarı panoya kopyalandı",
+                            "codesDownloaded": "Yedek kodlar indirildi"
+                        },
+                        "download": {
+                            "title": "Nitrokit İki Faktörlü Kimlik Doğrulama Yedek Kodları",
+                            "warning": "ÖNEMLİ: Bu kodları güvenli bir yerde saklayın.\nHer kod yalnızca bir kez kullanılabilir.",
+                            "generatedOn": "Oluşturulma tarihi: {date}"
+                        }
+                    }
                 }
             },
             "status": {
@@ -675,7 +1058,7 @@
                 "notAdded": "Eklenmedi"
             },
             "recentActivity": {
-                "title": "Son Etkinlikler",
+                "title": "Son Etkinlik",
                 "currentSession": "Mevcut Oturum",
                 "sessionLogin": "Oturum Girişi",
                 "accountCreated": "Hesap Oluşturuldu",
@@ -696,7 +1079,7 @@
             },
             "linkedAccounts": {
                 "title": "Bağlı Hesaplar",
-                "connect": "Hesap Bağla",
+                "connect": "Hesabı Bağla",
                 "disconnect": "Bağlantıyı Kes",
                 "alreadyConnected": "Bu platform zaten bağlı",
                 "accountBelongsToOther": "Bu hesap başka bir kullanıcıya ait",
@@ -722,7 +1105,7 @@
                         "keepOneAccount": "Erişimi sürdürmek için en az bir hesabı bağlı tutun"
                     },
                     "status": {
-                        "activeSince": "{date, date, ::yyyy MM dd} tarihinden beri aktif",
+                        "activeSince": "{date, date, ::yyyyMMMd} tarihinden beri aktif",
                         "recently": "yakın zamanda"
                     },
                     "buttons": {
@@ -792,7 +1175,7 @@
                     },
                     "phone": {
                         "label": "Telefon Numarası",
-                        "placeholder": "+90 5xxxxxxxxx",
+                        "placeholder": "+90 5XX XXX XX XX",
                         "status": {
                             "verified": "Doğrulandı",
                             "notVerified": "Doğrulanmadı",
@@ -832,71 +1215,126 @@
                         "updateError": "Bir şeyler ters gitti. Lütfen tekrar deneyin.",
                         "phoneUpdated": "Telefon numarası güncellendi. Lütfen yeni numaranızı doğrulayın."
                     }
-                },
-                "email": {
-                    "verify": {
-                        "page": {
-                            "title": "E-postayı Doğrula",
-                            "description": "Hesabınızı güvence altına almak için e-posta adresinizi doğrulayın",
-                            "heading": "E-posta Adresini Doğrula",
-                            "subheading": "Hesabınızı güvence altına almak ve tüm özellikleri etkinleştirmek için e-posta adresinizi doğrulamamız gerekiyor."
-                        },
-                        "tokenVerification": {
-                            "loading": {
-                                "title": "E-posta Doğrulanıyor...",
-                                "description": "E-posta adresinizi doğrularken lütfen bekleyin."
-                            },
-                            "success": {
-                                "title": "E-posta Doğrulandı!",
-                                "description": "E-posta adresiniz başarıyla doğrulandı.",
-                                "redirecting": "Hesap ayarlarına yönlendiriliyor..."
-                            },
-                            "error": {
-                                "title": "Doğrulama Başarısız",
-                                "description": "Doğrulama bağlantısı geçersiz veya süresi dolmuş.",
-                                "tryAgain": "Tekrar Dene"
-                            }
-                        },
-                        "emailStatus": {
-                            "title": "E-posta Durumu",
-                            "primaryEmail": "Birincil e-posta adresi",
-                            "unverified": "Doğrulanmadı"
-                        },
-                        "form": {
-                            "title": "E-postanızı Doğrulayın",
-                            "description": "{email} adresine bir doğrulama e-postası göndermek için aşağıdaki düğmeye tıklayın",
-                            "alerts": {
-                                "emailSent": "Doğrulama e-postası gönderildi! Gelen kutunuzu kontrol edin ve doğrulama bağlantısına tıklayın. Göremezseniz spam klasörünüzü kontrol edin.",
-                                "notVerified": "E-posta adresiniz doğrulanmadı. E-postanızı doğrulayana kadar bazı özellikler sınırlı olabilir."
-                            },
-                            "buttons": {
-                                "sendVerification": "Doğrulama E-postası Gönder",
-                                "resendEmail": "Doğrulama E-postasını Yeniden Gönder",
-                                "resendCountdown": "{seconds}s içinde yeniden gönder"
-                            },
-                            "status": {
-                                "pleaseWait": "Yeniden göndermeden önce lütfen {seconds} saniye bekleyin"
-                            }
-                        },
-                        "help": {
-                            "title": "Yardıma mı ihtiyacınız var?",
-                            "tips": {
-                                "checkSpam": "Spam/önemsiz posta klasörünüzü kontrol edin",
-                                "checkEmail": "{email} adresinin doğru olduğundan emin olun",
-                                "linkExpiry": "Doğrulama bağlantısının süresi 24 saat içinde dolar",
-                                "contactSupport": "Sorun yaşamaya devam ederseniz destekle iletişime geçin"
-                            }
-                        },
-                        "messages": {
-                            "emailSent": "Doğrulama e-postası gönderildi! Gelen kutunuzu kontrol edin.",
-                            "sendFailed": "Doğrulama e-postası gönderilemedi",
-                            "sendError": "Doğrulama e-postası gönderilirken bir hata oluştu",
-                            "verifySuccess": "E-posta başarıyla doğrulandı!",
-                            "verifyFailed": "E-posta doğrulanamadı",
-                            "verifyError": "E-posta doğrulanırken bir hata oluştu"
-                        }
-                    }
                 }
+            },
+            "email": {
+                "verify": {
+                    "page": {
+                        "title": "E-postayı Doğrula",
+                        "description": "Hesabınızı güvence altına almak için e-posta adresinizi doğrulayın",
+                        "heading": "E-posta Adresini Doğrula",
+                        "subheading": "Hesabınızı güvence altına almak ve tüm özellikleri etkinleştirmek için e-posta adresinizi doğrulamamız gerekiyor."
+                    },
+                    "tokenVerification": {
+                        "loading": {
+                            "title": "E-posta Doğrulanıyor...",
+                            "description": "E-posta adresinizi doğrularken lütfen bekleyin."
+                        },
+                        "success": {
+                            "title": "E-posta Doğrulandı!",
+                            "description": "E-posta adresiniz başarıyla doğrulandı.",
+                            "redirecting": "Hesap ayarlarına yönlendiriliyor..."
+                        },
+                        "error": {
+                            "title": "Doğrulama Başarısız",
+                            "description": "Doğrulama bağlantısı geçersiz veya süresi dolmuş.",
+                            "tryAgain": "Tekrar Dene"
+                        }
+                    },
+                    "emailStatus": {
+                        "title": "E-posta Durumu",
+                        "primaryEmail": "Birincil e-posta adresi",
+                        "unverified": "Doğrulanmadı"
+                    },
+                    "form": {
+                        "title": "E-postanızı Doğrulayın",
+                        "description": "{email} adresine bir doğrulama e-postası göndermek için aşağıdaki düğmeye tıklayın",
+                        "alerts": {
+                            "emailSent": "Doğrulama e-postası gönderildi! Gelen kutunuzu kontrol edin ve doğrulama bağlantısına tıklayın. Göremezseniz spam klasörünüzü kontrol edin.",
+                            "notVerified": "E-posta adresiniz doğrulanmadı. E-postanızı doğrulayana kadar bazı özellikler sınırlı olabilir."
+                        },
+                        "buttons": {
+                            "sendVerification": "Doğrulama E-postası Gönder",
+                            "resendEmail": "Doğrulama E-postasını Yeniden Gönder",
+                            "resendCountdown": "{seconds}s içinde yeniden gönder"
+                        },
+                        "status": {
+                            "pleaseWait": "Yeniden göndermeden önce lütfen {seconds} saniye bekleyin"
+                        }
+                    },
+                    "help": {
+                        "title": "Yardıma mı ihtiyacınız var?",
+                        "tips": {
+                            "checkSpam": "Spam/önemsiz posta klasörünüzü kontrol edin",
+                            "checkEmail": "{email} adresinin doğru olduğundan emin olun",
+                            "linkExpiry": "Doğrulama bağlantısının süresi 24 saat içinde dolar",
+                            "contactSupport": "Sorun yaşamaya devam ederseniz destekle iletişime geçin"
+                        }
+                    },
+                    "messages": {
+                        "emailSent": "Doğrulama e-postası gönderildi! Gelen kutunuzu kontrol edin.",
+                        "sendFailed": "Doğrulama e-postası gönderilemedi",
+                        "sendError": "Doğrulama e-postası gönderilirken bir hata oluştu",
+                        "verifySuccess": "E-posta başarıyla doğrulandı!",
+                        "verifyFailed": "E-posta doğrulanamadı",
+                        "verifyError": "E-posta doğrulanırken bir hata oluştu"
+                    }
+                },
+                "page": {
+                    "title": "E-postayı Doğrula",
+                    "description": "Hesabınızı güvence altına almak için e-posta adresinizi doğrulayın",
+                    "heading": "E-posta Adresini Doğrula",
+                    "subheading": "Hesabınızı güvence altına almak ve tüm özellikleri etkinleştirmek için e-posta adresinizi doğrulamamız gerekiyor."
+                }
+            }
+        }
+    },
+    "components": {
+        "imageUpload": {
+            "buttons": {
+                "upload": "Resim Yükle",
+                "uploading": "Yükleniyor...",
+                "remove": "Kaldır",
+                "removing": "Kaldırılıyor..."
+            },
+            "requirements": {
+                "maxSize": "Maksimum dosya boyutu: 5MB",
+                "formats": "Desteklenen formatlar: JPEG, PNG, WebP",
+                "aspectRatio": "Önerilen: Kare en boy oranı"
+            },
+            "errors": {
+                "invalidFileType": "Geçersiz dosya türü. Lütfen bir JPEG, PNG veya WebP resmi seçin.",
+                "fileTooLarge": "Dosya çok büyük. Maksimum boyut 5MB'dir."
+            },
+            "messages": {
+                "uploadSuccess": "Resim başarıyla yüklendi!",
+                "uploadFailed": "Yükleme başarısız oldu",
+                "uploadError": "Yükleme başarısız oldu. Lütfen tekrar deneyin.",
+                "removeError": "Resim kaldırılamadı. Lütfen tekrar deneyin."
+            }
+        },
+        "passwordStrength": {
+            "labels": {
+                "passwordStrength": "Şifre Gücü",
+                "requirements": "Gereksinimler",
+                "strengthPercentage": "%{percentage} güç"
+            },
+            "strength": {
+                "veryWeak": "Çok Zayıf",
+                "weak": "Zayıf",
+                "medium": "Orta",
+                "strong": "Güçlü"
+            },
+            "requirements": {
+                "minLength": "En az 8 karakter",
+                "uppercase": "Bir büyük harf",
+                "lowercase": "Bir küçük harf",
+                "number": "Bir rakam",
+                "special": "Bir özel karakter"
+            },
+            "warning": {
+                "title": "Zayıf Şifre",
+                "description": "Şifreniz zayıf. Daha iyi güvenlik için daha güçlü bir şifre kullanmayı düşünün."
             }
         }
     }

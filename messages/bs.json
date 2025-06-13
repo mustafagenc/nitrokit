@@ -31,7 +31,7 @@
                 },
                 "fork": {
                     "title": "Forkuj repozitorij",
-                    "description": "Napravite vlastitu kopiju",
+                    "description": "Napravite svoju kopiju",
                     "badge": "Fork"
                 },
                 "view": {
@@ -66,59 +66,119 @@
         }
     },
     "auth": {
-        "signin": "Prijava",
-        "signup": "Registracija",
+        "signin": {
+            "title": "Prijava",
+            "description": "Dobrodošli nazad! Molimo prijavite se da nastavite.",
+            "signing": "Prijavljivanje...",
+            "success": "Uspješno ste se prijavili!",
+            "error": "Prijava nije uspjela",
+            "invalidCredentials": "Nevažeća e-pošta ili lozinka"
+        },
+        "signup": {
+            "title": "Registracija",
+            "description": "Pridružite nam se da pristupite ekskluzivnim funkcijama i sadržaju.",
+            "creating": "Kreiranje naloga...",
+            "success": "Nalog uspješno kreiran!",
+            "successDescription": "Sada se možete prijaviti sa svojim podacima.",
+            "error": "Kreiranje naloga nije uspjelo",
+            "verificationRequired": "Nalog kreiran! Molimo potvrdite svoju e-poštu",
+            "verificationDescription": "Poslali smo vam link za potvrdu na {email}. Molimo provjerite svoj inbox i kliknite na link da aktivirate svoj nalog."
+        },
+        "verifyEmail": {
+            "title": "Provjerite svoju e-poštu",
+            "description": "Poslali smo vam link za potvrdu",
+            "sentTo": "E-pošta poslana na:",
+            "instructions": {
+                "check": "1. Provjerite svoj inbox e-pošte",
+                "click": "2. Kliknite na link za potvrdu u e-pošti",
+                "spam": "3. Ne zaboravite provjeriti svoj spam folder ako ga ne vidite"
+            },
+            "resend": "Ponovo pošalji e-poštu za potvrdu",
+            "backToSignin": "Nazad na prijavu"
+        },
+        "emailVerification": {
+            "title": "E-pošta potvrđena! ✅",
+            "description": "Vaša e-pošta je uspješno potvrđena. Sada se možete prijaviti na svoj nalog.",
+            "signIn": "Prijavite se na svoj nalog"
+        },
+        "resetPassword": {
+            "sendEmail": "Pošalji e-poštu za resetovanje",
+            "emailSent": "E-pošta za resetovanje poslana!",
+            "checkEmail": "Molimo provjerite svoju e-poštu na {email}",
+            "error": "Slanje e-pošte za resetovanje nije uspjelo",
+            "emailSentTitle": "Provjerite svoju e-poštu",
+            "emailSentDescription": "Poslali smo vam link za resetovanje lozinke",
+            "emailSentTo": "E-pošta za resetovanje poslana na:",
+            "instructions": {
+                "check": "1. Provjerite svoj inbox e-pošte",
+                "click": "2. Kliknite na link za resetovanje u e-pošti",
+                "expire": "3. Link će isteći za 1 sat"
+            },
+            "newPassword": "Nova lozinka",
+            "confirmPassword": "Potvrdi lozinku",
+            "confirm": "Resetuj lozinku",
+            "success": "Lozinka uspješno resetovana!",
+            "successDescription": "Sada se možete prijaviti sa svojom novom lozinkom",
+            "confirmError": "Resetovanje lozinke nije uspjelo",
+            "newPasswordTitle": "Postavi novu lozinku",
+            "newPasswordDescription": "Unesite svoju novu lozinku ispod",
+            "invalidResetLink": {
+                "title": "Nevažeći link za resetovanje",
+                "description": "Link za resetovanje lozinke je nevažeći ili je istekao."
+            }
+        },
         "signout": "Odjava",
-        "signinWithGoogle": "Prijavite se putem Google-a",
-        "signinWithFacebook": "Prijavite se putem Facebook-a",
-        "signinWithTwitter": "Prijavite se putem Twitter-a",
-        "signinWithGithub": "Prijavite se putem Github-a",
-        "signinWithApple": "Prijavite se putem Apple-a",
-        "signinWithLinkedIn": "Prijavite se putem LinkedIn-a",
-        "signinWithGitlab": "Prijavite se putem GitLab-a",
-        "signinWithMicrosoft": "Prijavite se putem Microsoft-a",
-        "signinWithInstagram": "Prijavite se putem Instagram-a",
-        "email": "Email",
+        "signinWithGoogle": "Prijavi se sa Google-om",
+        "signinWithFacebook": "Prijavi se sa Facebook-om",
+        "signinWithTwitter": "Prijavi se sa Twitter-om",
+        "signinWithGithub": "Prijavi se sa Github-om",
+        "signinWithApple": "Prijavi se sa Apple-om",
+        "signinWithLinkedIn": "Prijavi se sa LinkedIn-om",
+        "signinWithGitlab": "Prijavi se sa GitLab-om",
+        "signinWithMicrosoft": "Prijavi se sa Microsoft-om",
+        "signinWithInstagram": "Prijavi se sa Instagram-om",
+        "firstName": "Ime",
+        "lastName": "Prezime",
+        "email": "E-pošta",
         "password": "Lozinka",
         "confirmPassword": "Potvrdi lozinku",
-        "forgotPassword": "Zaboravljena lozinka",
+        "forgotPassword": "Zaboravili ste lozinku",
         "name": "Vaše ime",
         "privacyPolicy": "Naša politika privatnosti",
         "slogan1": "Dajte svojim projektima <span>raketni 🚀</span> početak!",
-        "slogan2": "Uštedite vrijeme uz <link>Nitrokit</link> i fokusirajte se na razvoj...",
-        "account": "Informacije o računu",
-        "support": "Podrška",
-        "billing": "Moje fakture"
+        "slogan2": "Uštedite vrijeme sa <link>Nitrokit</link> i fokusirajte se na razvoj..."
     },
     "signin": {
         "title": "Prijavite se na {appName}",
         "description": "Dobrodošli nazad! Molimo prijavite se da nastavite",
-        "dontHaveAnAccount": "Nemate račun? <link>Registrujte se</link>."
+        "dontHaveAnAccount": "Nemate nalog? <link>Registrujte se</link>."
     },
     "signup": {
         "title": "Registrujte se za {appName}",
-        "alreadyHaveAnAccount": "Već imate račun? <link>Prijavite se</link>."
+        "alreadyHaveAnAccount": "Već imate nalog? <link>Prijavite se</link>."
     },
     "resetPassword": {
-        "title": "Resetujte Vašu lozinku",
-        "description": "Unesite svoju email adresu i pratite upute za resetovanje lozinke.",
-        "emailSent": "Email poslan! Molimo provjerite Vaš email."
+        "title": "Resetujte svoju lozinku",
+        "description": "Unesite svoju adresu e-pošte i pratite uputstva da resetujete svoju lozinku.",
+        "emailSent": "E-pošta poslana! Molimo provjerite svoju e-poštu."
     },
     "validation": {
         "required": {
+            "firstName": "Polje za ime je obavezno.",
+            "lastName": "Polje za prezime je obavezno.",
             "name": "Polje za ime je obavezno.",
-            "email": "Polje za email je obavezno.",
+            "email": "Polje za e-poštu je obavezno.",
             "message": "Polje za poruku je obavezno.",
             "password": "Polje za lozinku je obavezno.",
             "confirmPassword": "Polje za potvrdu lozinke je obavezno."
         },
         "invalid": {
-            "email": "Nevažeća email adresa."
+            "email": "Nevažeća adresa e-pošte."
         },
         "password": {
             "confirm": "Lozinke se ne podudaraju.",
             "minLength": "Lozinka mora imati najmanje {min} znakova.",
-            "maxLength": "Lozinka može imati najviše {max} znakova.",
+            "maxLength": "Lozinka mora imati najviše {max} znakova.",
             "uppercase": "Mora sadržavati najmanje jedno veliko slovo.",
             "lowercase": "Mora sadržavati najmanje jedno malo slovo.",
             "number": "Mora sadržavati najmanje jedan broj.",
@@ -131,11 +191,13 @@
         }
     },
     "placeholder": {
-        "enterYourName": "Unesite Vaše ime",
-        "enterYourEmail": "Unesite Vašu email adresu",
-        "enterYourMessage": "Unesite Vašu poruku",
-        "enterYourPassword": "Unesite Vašu lozinku",
-        "confirmYourPassword": "Potvrdite Vašu lozinku"
+        "enterYourName": "Unesite svoje ime",
+        "enterYourFirstName": "Unesite svoje ime",
+        "enterYourLastName": "Unesite svoje prezime",
+        "enterYourEmail": "Unesite svoju adresu e-pošte",
+        "enterYourMessage": "Unesite svoju poruku",
+        "enterYourPassword": "Unesite svoju lozinku",
+        "confirmYourPassword": "Potvrdite svoju lozinku"
     },
     "notFound": {
         "title": "Stranica nije pronađena",
@@ -147,34 +209,34 @@
         "retry": "Pokušaj ponovo"
     },
     "metadata": {
-        "applicationName": "Nitrokit Početni Predložak",
+        "applicationName": "Nitrokit početni predložak",
         "description": "Nitrokit početni predložak",
         "author": "Mustafa Genç",
-        "title": "Nitrokit Početni Predložak"
+        "title": "Nitrokit početni predložak"
     },
     "navigation": {
-        "title": "Meni",
+        "title": "Navigacija",
         "home": "Početna",
         "about": "O nama",
         "services": {
             "title": "Usluge",
-            "description": "Usluge profesionalnog razvoja za ostvarenje vaše vizije.",
+            "description": "Profesionalne razvojne usluge za ostvarenje vaše vizije.",
             "premium_badge": "Premium usluge",
             "web_development": {
-                "title": "Web Razvoj",
+                "title": "Web razvoj",
                 "description": "Full-stack web aplikacije sa modernim tehnologijama"
             },
             "ui_ux_design": {
-                "title": "Dizajn korisničkog interfejsa/iskustva",
-                "description": "Prekrasna i intuitivna korisnička sučelja"
+                "title": "UI/UX dizajn",
+                "description": "Lijepa i intuitivna korisnička sučelja"
             },
             "performance_optimization": {
                 "title": "Optimizacija performansi",
-                "description": "Munjevito brze aplikacije i veb-sajtovi"
+                "description": "Munjevito brze aplikacije i web stranice"
             },
             "team_augmentation": {
-                "title": "Pojačanje tima",
-                "description": "Proširite svoj razvojni tim sa stručnjacima"
+                "title": "Proširenje tima",
+                "description": "Povećajte svoj razvojni tim sa stručnjacima"
             },
             "badges": {
                 "popular": "Popularno",
@@ -183,40 +245,40 @@
         },
         "components": {
             "title": "Komponente",
-            "subtitle": "Komponente korisničkog interfejsa",
-            "description": "Ponovo upotrebljivi komponente napravljene sa Radix UI i Tailwind CSS",
-            "view_all": "View all components",
-            "count": "50+ Components",
+            "subtitle": "UI komponente",
+            "description": "Ponovno upotrebljive komponente izgrađene sa Radix UI i Tailwind CSS",
+            "view_all": "Pogledaj sve komponente",
+            "count": "50+ komponenti",
             "button_components": {
-                "title": "Button Components",
-                "description": "Interactive buttons with variants and states"
+                "title": "Komponente dugmadi",
+                "description": "Interaktivna dugmad sa varijantama i stanjima"
             },
             "navigation_components": {
-                "title": "Navigation",
-                "description": "Menu and navigation components"
+                "title": "Navigacija",
+                "description": "Meni i navigacione komponente"
             },
             "data_display": {
-                "title": "Data Display",
-                "description": "Tables, cards, and data visualization"
+                "title": "Prikaz podataka",
+                "description": "Tabele, kartice i vizualizacija podataka"
             },
             "form_controls": {
-                "title": "Form Controls",
-                "description": "Input fields, selects, and form elements"
+                "title": "Kontrole forme",
+                "description": "Polja za unos, odabiri i elementi forme"
             },
             "modals_overlays": {
-                "title": "Modals & Overlays",
-                "description": "Dialogs, tooltips, and overlay components"
+                "title": "Modali i prekrivači",
+                "description": "Dijalozi, opisi alata i komponente prekrivača"
             },
             "feedback": {
-                "title": "Feedback",
-                "description": "Alerts, notifications, and loading states"
+                "title": "Povratne informacije",
+                "description": "Upozorenja, obavještenja i stanja učitavanja"
             },
             "categories": {
-                "form": "Form",
-                "layout": "Layout",
-                "display": "Display",
-                "overlay": "Overlay",
-                "feedback": "Feedback"
+                "form": "Forma",
+                "layout": "Raspored",
+                "display": "Prikaz",
+                "overlay": "Prekrivač",
+                "feedback": "Povratne informacije"
             }
         },
         "blog": "Blog",
@@ -226,27 +288,27 @@
     "home": {
         "banner": {
             "badge": "Novo",
-            "text": "v2.0.1 je objavljen! Pogledajte šta je novo"
+            "text": "v2.0.1 je izašao! Pogledajte šta je novo"
         },
         "hero": {
             "title": {
                 "primary": "Sa Nitrokitom",
-                "secondary": "Brzo razvijajte"
+                "secondary": "Razvijajte brzo"
             },
-            "subtitle": "Početni paket dizajniran za startupe kako bi brzo i efikasno pokrenuli svoje web stranice, uključujući sve potrebne integracije, stranice i komponente."
+            "subtitle": "Početni komplet dizajniran za startupe da brzo i efikasno pokrenu svoje web stranice, uključujući sve potrebne integracije, stranice i komponente."
         },
         "stats": {
             "components": {
                 "number": "50+",
-                "label": "Komponente korisničkog interfejsa"
+                "label": "UI komponente"
             },
             "typescript": {
                 "number": "TypeScript",
-                "label": "Potpuna podrška"
+                "label": "Puna podrška"
             },
             "modern": {
                 "number": "Moderan",
-                "label": "Tehnološki sklop"
+                "label": "Tehnološki stek"
             }
         },
         "technologies": {
@@ -254,14 +316,14 @@
         },
         "cta": {
             "title": "Spremni za početak?",
-            "description": "Pogledajte naš projekat na GitHubu i ubrzajte svoj proces razvoja.",
+            "description": "Pogledajte naš projekat na GitHub-u i ubrzajte svoj proces razvoja.",
             "github": "GitHub repozitorij",
             "docs": "Dokumentacija"
         }
     },
     "about": {
         "title": "O nama",
-        "description": "Ovo je početni predložak izrađen pomoću Next.js. Ovaj predložak je dizajniran za brz i efikasan razvoj web aplikacija."
+        "description": "Ovo je početni predložak izgrađen sa Next.js. Ovaj predložak je dizajniran za brz i efikasan razvoj web aplikacija."
     },
     "services": {
         "title": "Naše usluge",
@@ -269,11 +331,11 @@
     },
     "pricing": {
         "title": "Cijene",
-        "subtitle": "Cijene koje rastu s Vama",
-        "description": "Odaberite pristupačan plan koji je prepun najboljih funkcija za angažovanje Vaše publike, stvaranje lojalnosti kupaca i povećanje prodaje.",
+        "subtitle": "Cijene koje rastu s vama",
+        "description": "Odaberite pristupačan plan koji je prepun najboljih funkcija za angažovanje vaše publike, stvaranje lojalnosti kupaca i povećanje prodaje.",
         "monthly": "Mjesečno",
         "yearly": "Godišnje",
-        "annual-payment": "<span>Uštedite 20%</span> uz godišnju naplatu.",
+        "annual-payment": "<span>Uštedite 20%</span> sa godišnjom naplatom.",
         "pricePerMonth": "Mjesec",
         "pricePerYear": "Godina",
         "purchasePlan": "Kupi plan",
@@ -283,15 +345,15 @@
         },
         "startup": {
             "title": "Startup",
-            "description": "Plan koji se prilagođava Vašem brzo rastućem poslovanju."
+            "description": "Plan koji se prilagođava vašem brzo rastućem poslovanju."
         },
         "pro": {
             "title": "Profesionalni",
-            "description": "Namjenska podrška i infrastruktura izgrađena za Vašu rastuću kompaniju."
+            "description": "Namjenska podrška i infrastruktura izgrađena za vašu rastuću kompaniju."
         },
         "enterprise": {
             "title": "Enterprise",
-            "description": "Kontaktirajte nas za prilagođenu ponudu za Vaše enterprise potrebe."
+            "description": "Kontaktirajte nas za prilagođenu ponudu za vaše enterprise potrebe."
         },
         "features": {
             "5products": "5 proizvoda",
@@ -300,12 +362,12 @@
             "upto1000subscribers": "Do 1000 pretplatnika",
             "upto10000subscribers": "Do 10.000 pretplatnika",
             "unlimitedsubscribers": "Neograničeno pretplatnika",
-            "48hoursupport": "Podrška u roku od 48 sati",
-            "24hoursupport": "Podrška u roku od 24 sata",
-            "1hoursupport": "Podrška u roku od 1 sata",
+            "48hoursupport": "Podrška 48 sati",
+            "24hoursupport": "Podrška 24 sata",
+            "1hoursupport": "Podrška 1 sat",
             "basicanalytics": "Osnovna analitika",
             "advancedanalytics": "Napredna analitika",
-            "xhoursupport": "Podrška u roku od {count} sati",
+            "xhoursupport": "Podrška {count} sati",
             "marketingautomations": "Marketinške automatizacije"
         }
     },
@@ -317,17 +379,963 @@
         "title": "Kontakt",
         "description": "Popunite obrazac ispod da nas kontaktirate.",
         "name": "Vaše ime",
-        "email": "Vaša email adresa",
+        "email": "Vaša adresa e-pošte",
         "message": "Vaša poruka",
         "send": "Pošalji",
-        "messageSent": "Poruka je uspješno poslana!"
+        "messageSent": "Poruka uspješno poslana!"
     },
     "privacy": {
         "title": "Politika privatnosti",
         "description": "Saznajte više o našoj politici privatnosti."
     },
     "footer": {
-        "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ Sva prava pridržana.",
-        "poweredBy": "Pokreće <link>Ekipisi</link>."
+        "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ Sva prava zadržana.",
+        "poweredBy": "Pokreće <link>Ekipisi</link>"
+    },
+    "cookies": {
+        "banner": {
+            "title": "Koristimo kolačiće",
+            "description": "Koristimo kolačiće da poboljšamo vaše iskustvo pregledavanja, serviramo personalizovani sadržaj i analiziramo naš saobraćaj.",
+            "learnMore": "Saznajte više",
+            "accept": "Prihvati sve",
+            "reject": "Odbij sve",
+            "settings": "Postavke kolačića"
+        },
+        "settings": {
+            "title": "Postavke kolačića",
+            "description": "Odaberite koje kolačiće želite prihvatiti. Ove postavke možete promijeniti u bilo kojem trenutku.",
+            "save": "Sačuvaj postavke",
+            "rejectAll": "Odbij sve"
+        },
+        "categories": {
+            "necessary": {
+                "title": "Neophodni kolačići",
+                "description": "Ovi kolačići su neophodni za pravilno funkcionisanje web stranice. Ne mogu se onemogućiti."
+            },
+            "analytics": {
+                "title": "Analitički kolačići",
+                "description": "Ovi kolačići nam pomažu da razumijemo kako posjetioci interaguju sa našom web stranicom prikupljanjem i anonimnim izvještavanjem informacija."
+            },
+            "marketing": {
+                "title": "Marketinški kolačići",
+                "description": "Ovi kolačići se koriste za isporuku oglasa koji su relevantniji za vas i vaše interese."
+            },
+            "functional": {
+                "title": "Funkcionalni kolačići",
+                "description": "Ovi kolačići omogućavaju poboljšanu funkcionalnost i personalizaciju, kao što je pamćenje vaših preferencija."
+            }
+        }
+    },
+    "dashboard": {
+        "navigation": {
+            "dashboard": "Kontrolna tabla",
+            "invoices": "Fakture",
+            "support": "Podrška",
+            "settings": "Postavke",
+            "account": "Informacije o nalogu",
+            "billing": "Moje fakture"
+        },
+        "userMenu": {
+            "defaultUserName": "Korisnik",
+            "sections": {
+                "account": "Nalog",
+                "other": "Ostalo"
+            },
+            "account": {
+                "overview": "Pregled naloga",
+                "profile": "Postavke profila",
+                "notifications": "Obavještenja"
+            },
+            "security": {
+                "title": "Sigurnost",
+                "overview": "Pregled sigurnosti",
+                "password": "Lozinka",
+                "twoFactor": "Dvofaktorska autentifikacija",
+                "sessions": "Aktivne sesije"
+            },
+            "other": {
+                "billing": "Naplata i planovi",
+                "settings": "Postavke"
+            }
+        },
+        "account": {
+            "navigation": {
+                "overview": "Pregled",
+                "profile": "Profil",
+                "account": "Nalog",
+                "notifications": "Obavještenja",
+                "security": {
+                    "title": "Sigurnost",
+                    "password": "Lozinka i sigurnost",
+                    "twoFactor": "Dvofaktorska autentifikacija",
+                    "twoFactorShort": "2FA",
+                    "sessions": "Aktivne sesije"
+                },
+                "mobile": {
+                    "title": "Postavke naloga",
+                    "openMenu": "Otvori meni"
+                }
+            },
+            "notifications": {
+                "page": {
+                    "title": "Postavke obavještenja",
+                    "description": "Upravljajte svojim postavkama obavještenja",
+                    "heading": "Postavke obavještenja",
+                    "subheading": "Odaberite kako želite biti obaviješteni o aktivnostima naloga i ažuriranjima."
+                },
+                "headers": {
+                    "notificationType": "Tip obavještenja",
+                    "email": "E-pošta",
+                    "sms": "SMS",
+                    "inApp": "Unutar aplikacije"
+                },
+                "badges": {
+                    "recommended": "Preporučeno"
+                },
+                "categories": {
+                    "security": {
+                        "title": "Sigurnost i nalog",
+                        "settings": {
+                            "accountSecurity": {
+                                "label": "Sigurnost naloga",
+                                "description": "Važna sigurnosna ažuriranja i upozorenja"
+                            },
+                            "loginAlerts": {
+                                "label": "Upozorenja o prijavi",
+                                "description": "Obavještenja o novim prijavama sa različitih uređaja"
+                            },
+                            "passwordChanges": {
+                                "label": "Promjene lozinke",
+                                "description": "Potvrde o resetovanju i promjeni lozinke"
+                            },
+                            "profileUpdates": {
+                                "label": "Ažuriranja profila",
+                                "description": "Promjene informacija o profilu i nalogu"
+                            }
+                        }
+                    },
+                    "marketing": {
+                        "title": "Marketing i ažuriranja",
+                        "settings": {
+                            "marketing": {
+                                "label": "Marketinške komunikacije",
+                                "description": "Ažuriranja proizvoda i promotivni sadržaj"
+                            },
+                            "newsletters": {
+                                "label": "Newsletteri",
+                                "description": "Sedmični newsletteri i savjeti"
+                            },
+                            "systemUpdates": {
+                                "label": "Sistemska ažuriranja",
+                                "description": "Ažuriranja aplikacije i obavještenja o održavanju"
+                            }
+                        }
+                    }
+                },
+                "quickActions": {
+                    "title": "Brze akcije",
+                    "description": "Omogućite ili onemogućite sva obavještenja za svaki kanal",
+                    "enableAllEmail": "Omogući sva e-pošta obavještenja",
+                    "essentialOnly": "Samo neophodna",
+                    "enableAllEmailSuccess": "Sva e-pošta obavještenja omogućena",
+                    "essentialOnlySuccess": "Neophodna obavještenja omogućena"
+                },
+                "form": {
+                    "savePreferences": "Sačuvaj postavke",
+                    "saving": "Čuvanje...",
+                    "saveSuccess": "Postavke obavještenja uspješno sačuvane!",
+                    "saveError": "Čuvanje postavki nije uspjelo. Molimo pokušajte ponovo."
+                }
+            },
+            "overview": {
+                "title": "Pregled naloga",
+                "description": "Status vašeg naloga i pregled sigurnosti na jednom mjestu.",
+                "editProfile": "Uredi profil"
+            },
+            "security": {
+                "recommendations": {
+                    "title": "Sigurnosne preporuke",
+                    "verifyEmail": {
+                        "title": "Potvrdite svoju e-poštu",
+                        "description": "Osigurajte svoj nalog potvrdom vaše adrese e-pošte",
+                        "action": "Potvrdi e-poštu"
+                    },
+                    "setPassword": {
+                        "title": "Postavite lozinku naloga",
+                        "description": "Dodajte lozinku da omogućite rezervni metod prijave i poboljšate sigurnost",
+                        "action": "Postavi lozinku"
+                    },
+                    "weakPassword": {
+                        "title": "Otkrivena slaba lozinka",
+                        "description": "Vaša lozinka je slaba i treba je ažurirati",
+                        "action": "Promijeni lozinku"
+                    },
+                    "enableTwoFactor": {
+                        "title": "Omogućite dvofaktorsku autentifikaciju",
+                        "description": "Dodajte dodatni sloj sigurnosti svom nalogu",
+                        "action": "Omogući 2FA"
+                    },
+                    "addPhone": {
+                        "title": "Dodajte broj telefona",
+                        "description": "Dodajte broj telefona za oporavak naloga",
+                        "action": "Dodaj telefon"
+                    }
+                },
+                "score": {
+                    "title": "Sigurnosni rezultat",
+                    "subtitle": "Ukupna sigurnost",
+                    "excellent": "Odlično",
+                    "good": "Dobro",
+                    "needsImprovement": "Potrebno poboljšanje",
+                    "settings": "Sigurnosne postavke"
+                },
+                "page": {
+                    "title": "Sigurnosne postavke",
+                    "description": "Upravljajte sigurnosnim postavkama svog naloga",
+                    "heading": "Sigurnost",
+                    "subheading": "Upravljajte svojom lozinkom, dvofaktorskom autentifikacijom i aktivnim sesijama"
+                },
+                "passwordStrength": {
+                    "strong": "Jaka",
+                    "medium": "Srednja",
+                    "weak": "Slaba",
+                    "unknown": "Nepoznato"
+                },
+                "status": {
+                    "enabled": "Omogućeno",
+                    "disabled": "Onemogućeno"
+                },
+                "cards": {
+                    "password": {
+                        "title": "Lozinka",
+                        "description": "Promijenite svoju lozinku i upravljajte sigurnošću lozinke"
+                    },
+                    "twoFactor": {
+                        "title": "Dvofaktorska autentifikacija",
+                        "description": "Dodajte dodatni sloj sigurnosti svom nalogu"
+                    },
+                    "sessions": {
+                        "title": "Aktivne sesije",
+                        "description": "Pregledajte i upravljajte svojim aktivnim sesijama prijave",
+                        "activeCount": "{count} aktivno"
+                    }
+                },
+                "overview": {
+                    "title": "Pregled sigurnosti",
+                    "description": "Trenutni status sigurnosti vašeg naloga",
+                    "metrics": {
+                        "passwordStrength": "Jačina lozinke",
+                        "twoFactorAuth": "Dvofaktorska autentifikacija",
+                        "twoFactorOn": "Uključeno",
+                        "twoFactorOff": "Isključeno",
+                        "activeSessions": "Aktivne sesije"
+                    }
+                },
+                "password": {
+                    "page": {
+                        "title": "Sigurnosne postavke",
+                        "description": "Upravljajte sigurnošću svog naloga i postavkama lozinke",
+                        "heading": "Sigurnosne postavke",
+                        "subheading": "Upravljajte svojom lozinkom i postavkama sigurnosti naloga."
+                    },
+                    "deleteAccount": {
+                        "card": {
+                            "title": "Opasna zona",
+                            "description": "Trajno obrišite svoj nalog i sve povezane podatke. Ova radnja se ne može poništiti."
+                        },
+                        "warning": {
+                            "title": "Šta će biti obrisano:",
+                            "items": {
+                                "profile": "Vaš profil i lične informacije",
+                                "files": "Sve učitane datoteke i profilne slike",
+                                "settings": "Postavke naloga i preferencije",
+                                "sessions": "Sesije prijave i povezani nalozi",
+                                "data": "Svi povezani podaci i historija"
+                            }
+                        },
+                        "buttons": {
+                            "deleteAccount": "Obriši moj nalog",
+                            "cancel": "Otkaži",
+                            "deleteForever": "Obriši nalog zauvijek"
+                        },
+                        "dialog": {
+                            "title": "Obriši nalog",
+                            "description": "Spremate se da trajno obrišete svoj nalog ({email}). Ova radnja se ne može poništiti i svi vaši podaci će biti zauvijek izgubljeni."
+                        },
+                        "form": {
+                            "password": {
+                                "label": "Potvrdi lozinku *",
+                                "placeholder": "Unesite svoju lozinku",
+                                "required": "Lozinka je obavezna"
+                            },
+                            "confirmText": {
+                                "label": "Ukucajte \"DELETE\" da potvrdite *",
+                                "placeholder": "Ukucajte DELETE ovdje"
+                            }
+                        },
+                        "validation": {
+                            "confirmRequired": "Molimo ukucajte \"DELETE\" da potvrdite",
+                            "mustTypeDelete": "Morate tačno ukucati \"DELETE\""
+                        },
+                        "messages": {
+                            "deleteSuccess": "Nalog uspješno obrisan. Preusmjeravanje...",
+                            "deleteFailed": "Brisanje naloga nije uspjelo",
+                            "deleteError": "Nešto je pošlo po zlu. Molimo pokušajte ponovo."
+                        }
+                    },
+                    "create": {
+                        "card": {
+                            "title": "Kreiraj lozinku"
+                        },
+                        "form": {
+                            "password": {
+                                "label": "Nova lozinka *",
+                                "placeholder": "Unesite svoju novu lozinku"
+                            },
+                            "confirmPassword": {
+                                "label": "Potvrdi lozinku *",
+                                "placeholder": "Potvrdite svoju lozinku"
+                            }
+                        },
+                        "validation": {
+                            "password": {
+                                "minLength": "Lozinka mora imati najmanje 8 znakova",
+                                "uppercase": "Lozinka mora sadržavati najmanje jedno veliko slovo",
+                                "lowercase": "Lozinka mora sadržavati najmanje jedno malo slovo",
+                                "number": "Lozinka mora sadržavati najmanje jedan broj",
+                                "special": "Lozinka mora sadržavati najmanje jedan poseban znak"
+                            },
+                            "confirmPassword": {
+                                "required": "Molimo potvrdite svoju lozinku",
+                                "mismatch": "Lozinke se ne podudaraju"
+                            }
+                        },
+                        "buttons": {
+                            "create": "Kreiraj lozinku",
+                            "creating": "Kreiranje lozinke..."
+                        },
+                        "help": {
+                            "requirements": "Vaša lozinka mora ispunjavati sve zahtjeve i biti najmanje srednje jačine."
+                        },
+                        "messages": {
+                            "createSuccess": "Lozinka uspješno kreirana!",
+                            "createFailed": "Kreiranje lozinke nije uspjelo",
+                            "createError": "Nešto je pošlo po zlu"
+                        }
+                    },
+                    "change": {
+                        "card": {
+                            "title": "Promijeni lozinku",
+                            "description": "Ažurirajte svoju lozinku da biste održali sigurnost svog naloga. Primit ćete obavještenje kada se vaša lozinka promijeni."
+                        },
+                        "form": {
+                            "currentPassword": {
+                                "label": "Trenutna lozinka *",
+                                "placeholder": "Unesite svoju trenutnu lozinku"
+                            },
+                            "newPassword": {
+                                "label": "Nova lozinka *",
+                                "placeholder": "Unesite svoju novu lozinku"
+                            },
+                            "confirmPassword": {
+                                "label": "Potvrdi novu lozinku *",
+                                "placeholder": "Potvrdite svoju novu lozinku"
+                            }
+                        },
+                        "validation": {
+                            "currentPassword": {
+                                "required": "Trenutna lozinka je obavezna"
+                            },
+                            "newPassword": {
+                                "minLength": "Nova lozinka mora imati najmanje 8 znakova",
+                                "uppercase": "Lozinka mora sadržavati najmanje jedno veliko slovo",
+                                "lowercase": "Lozinka mora sadržavati najmanje jedno malo slovo",
+                                "number": "Lozinka mora sadržavati najmanje jedan broj",
+                                "special": "Lozinka mora sadržavati najmanje jedan poseban znak"
+                            },
+                            "confirmPassword": {
+                                "required": "Molimo potvrdite svoju novu lozinku",
+                                "mismatch": "Lozinke se ne podudaraju"
+                            }
+                        },
+                        "buttons": {
+                            "update": "Ažuriraj lozinku",
+                            "updating": "Ažuriranje...",
+                            "cancel": "Otkaži"
+                        },
+                        "messages": {
+                            "updateSuccess": "Lozinka uspješno ažurirana!",
+                            "updateFailed": "Ažuriranje lozinke nije uspjelo",
+                            "errors": {
+                                "unauthorized": "Molimo prijavite se ponovo da nastavite",
+                                "invalidData": "Nevažeći podaci o lozinci. Molimo provjerite svoj unos.",
+                                "incorrectPassword": "Trenutna lozinka je netačna",
+                                "serverError": "Greška servera. Molimo pokušajte ponovo kasnije.",
+                                "generic": "Nešto je pošlo po zlu. Molimo pokušajte ponovo."
+                            }
+                        }
+                    }
+                },
+                "sessions": {
+                    "page": {
+                        "title": "Aktivne sesije",
+                        "description": "Upravljajte svojim aktivnim sesijama prijave i sigurnošću",
+                        "heading": "Aktivne sesije",
+                        "subheading": "Pregledajte i upravljajte svim uređajima i aplikacijama koji su trenutno prijavljeni na vaš nalog."
+                    },
+                    "client": {
+                        "heading": "Aktivne sesije",
+                        "subheading": "Pratite i upravljajte svojim aktivnim sesijama prijave na svim uređajima.",
+                        "securityAlert": "Iz sigurnosnih razloga, ako vidite bilo kakve nepoznate sesije, odmah ih prekinite i promijenite lozinku.",
+                        "currentSessions": {
+                            "title": "Trenutne sesije",
+                            "description": "Ovo su uređaji i preglednici koji su trenutno prijavljeni na vaš nalog."
+                        },
+                        "securityTips": {
+                            "title": "Sigurnosni savjeti",
+                            "subtitle": "Osigurajte svoj nalog:",
+                            "tips": {
+                                "publicComputers": "Uvijek se odjavite kada koristite javne računare",
+                                "reviewSessions": "Redovno pregledavajte svoje aktivne sesije",
+                                "twoFactor": "Omogućite dvofaktorsku autentifikaciju za dodatnu sigurnost",
+                                "strongPasswords": "Koristite jake, jedinstvene lozinke",
+                                "signOutAll": "Odjavite se sa svih sesija ako sumnjate na neovlašteni pristup"
+                            }
+                        }
+                    },
+                    "table": {
+                        "sessionCount": "{count} aktivna sesija{plural}",
+                        "headers": {
+                            "deviceBrowser": "Uređaj i preglednik",
+                            "location": "Lokacija",
+                            "lastActive": "Posljednja aktivnost",
+                            "status": "Status",
+                            "actions": "Akcije"
+                        },
+                        "status": {
+                            "current": "Trenutna",
+                            "active": "Aktivna"
+                        },
+                        "buttons": {
+                            "terminateAllOthers": "Prekini sve ostale",
+                            "terminateAll": "Prekini sve",
+                            "terminate": "Prekini",
+                            "cancel": "Otkaži"
+                        },
+                        "dialogs": {
+                            "terminateAll": {
+                                "title": "Prekinuti sve ostale sesije?",
+                                "description": "Ovo će vas odjaviti sa svih ostalih uređaja i preglednika. Vaša trenutna sesija će ostati aktivna."
+                            },
+                            "terminateSession": {
+                                "title": "Prekinuti sesiju?",
+                                "description": "Ovo će odjaviti ovaj uređaj/preglednik. Korisnik će se morati ponovo prijaviti."
+                            }
+                        },
+                        "messages": {
+                            "currentSessionTerminated": "Trenutna sesija prekinuta. Preusmjeravanje na prijavu...",
+                            "sessionTerminated": "Sesija uspješno prekinuta",
+                            "terminateFailed": "Prekidanje sesije nije uspjelo",
+                            "terminateError": "Prekidanje sesije nije uspjelo",
+                            "allOthersTerminated": "Sve ostale sesije uspješno prekinute",
+                            "allSessionsTerminated": "Sve sesije prekinute. Preusmjeravanje na prijavu...",
+                            "terminateAllFailed": "Prekidanje sesija nije uspjelo",
+                            "terminateAllError": "Prekidanje sesija nije uspjelo"
+                        }
+                    }
+                },
+                "twoFactor": {
+                    "page": {
+                        "title": "Dvofaktorska autentifikacija",
+                        "description": "Upravljajte postavkama dvofaktorske autentifikacije za poboljšanu sigurnost",
+                        "heading": "Dvofaktorska autentifikacija",
+                        "subheading": "Dodajte dodatni sloj sigurnosti svom nalogu pomoću 2FA."
+                    },
+                    "backupCodes": {
+                        "dialog": {
+                            "title": "Rezervni kodovi",
+                            "description": "Koristite ove kodove ako izgubite pristup svojoj aplikaciji za autentifikaciju."
+                        },
+                        "alerts": {
+                            "verifyIdentity": "Da biste pregledali ili regenerisali svoje rezervne kodove, morate potvrditi svoj identitet.",
+                            "invalidatePrevious": "Generisanje novih kodova će poništiti sve prethodne rezervne kodove.",
+                            "saveCodes": "Sačuvajte ove kodove na sigurnom mjestu. Svaki kod se može koristiti samo jednom."
+                        },
+                        "form": {
+                            "verificationCode": {
+                                "label": "Unesite svoj kod za autentifikaciju:",
+                                "placeholder": "000000"
+                            }
+                        },
+                        "buttons": {
+                            "generateNew": "Generiši nove rezervne kodove",
+                            "cancel": "Otkaži",
+                            "generate": "Generiši",
+                            "generating": "Generisanje...",
+                            "download": "Preuzmi",
+                            "regenerate": "Regeneriši"
+                        },
+                        "validation": {
+                            "validCode": "Molimo unesite važeći 6-cifreni kod"
+                        },
+                        "messages": {
+                            "downloaded": "Rezervni kodovi preuzeti",
+                            "regenerateSuccess": "Novi rezervni kodovi generisani",
+                            "regenerateFailed": "Regenerisanje kodova nije uspjelo",
+                            "regenerateError": "Regenerisanje kodova nije uspjelo"
+                        },
+                        "download": {
+                            "title": "Nitrokit rezervni kodovi za dvofaktorsku autentifikaciju",
+                            "warning": "VAŽNO: Sačuvajte ove kodove na sigurnom mjestu.\nSvaki kod se može koristiti samo jednom.",
+                            "generatedOn": "Generisano: {date}"
+                        }
+                    },
+                    "disable": {
+                        "dialog": {
+                            "title": "Onemogući dvofaktorsku autentifikaciju",
+                            "description": "Ovo će ukloniti dodatni sloj sigurnosti sa vašeg naloga."
+                        },
+                        "warning": {
+                            "message": "Upozorenje: Onemogućavanje 2FA će učiniti vaš nalog manje sigurnim. Preporučujemo da ga ostavite omogućenim."
+                        },
+                        "form": {
+                            "verificationCode": {
+                                "label": "Unesite svoj kod za autentifikaciju da potvrdite:",
+                                "placeholder": "000000"
+                            }
+                        },
+                        "buttons": {
+                            "cancel": "Otkaži",
+                            "disable": "Onemogući 2FA",
+                            "disabling": "Onemogućavanje..."
+                        },
+                        "validation": {
+                            "validCode": "Molimo unesite važeći 6-cifreni kod"
+                        },
+                        "messages": {
+                            "disableFailed": "Onemogućavanje 2FA nije uspjelo",
+                            "disableError": "Onemogućavanje 2FA nije uspjelo"
+                        }
+                    },
+                    "management": {
+                        "card": {
+                            "title": "Dvofaktorska autentifikacija",
+                            "description": "Dodajte dodatni sloj sigurnosti svom nalogu pomoću dvofaktorske autentifikacije."
+                        },
+                        "status": {
+                            "title": "Dvofaktorska autentifikacija",
+                            "enabled": "Omogućeno {date}",
+                            "notEnabled": "Nije omogućeno",
+                            "unknown": "Nepoznato"
+                        },
+                        "badge": {
+                            "enabled": "Omogućeno",
+                            "disabled": "Onemogućeno"
+                        },
+                        "alerts": {
+                            "recommendation": "Preporučujemo da omogućite dvofaktorsku autentifikaciju da biste održali sigurnost svog naloga.",
+                            "protected": "Vaš nalog je zaštićen dvofaktorskom autentifikacijom.",
+                            "backupCodes": "Imate {count} preostalih rezervnih kodova."
+                        },
+                        "buttons": {
+                            "enable": "Omogući dvofaktorsku autentifikaciju",
+                            "viewBackupCodes": "Pogledaj rezervne kodove",
+                            "disable": "Onemogući 2FA"
+                        },
+                        "howItWorks": {
+                            "title": "Kako funkcioniše",
+                            "steps": {
+                                "download": "Preuzmite Google Authenticator ili sličnu aplikaciju",
+                                "scan": "Skenirajte QR kod ili unesite ključ za podešavanje",
+                                "verify": "Unesite kod za potvrdu da biste dovršili podešavanje",
+                                "backup": "Sačuvajte svoje rezervne kodove na sigurnom mjestu"
+                            }
+                        },
+                        "messages": {
+                            "enableSuccess": "Dvofaktorska autentifikacija je uspješno omogućena!",
+                            "disableSuccess": "Dvofaktorska autentifikacija je onemogućena."
+                        }
+                    },
+                    "setup": {
+                        "steps": {
+                            "loading": {
+                                "title": "Podešavanje 2FA...",
+                                "description": "Molimo sačekajte dok pripremamo vaše podešavanje..."
+                            },
+                            "setup": {
+                                "title": "Podesite dvofaktorsku autentifikaciju",
+                                "description": "Skenirajte QR kod svojom aplikacijom za autentifikaciju"
+                            },
+                            "verify": {
+                                "title": "Potvrdite svoje podešavanje",
+                                "description": "Unesite kod iz svoje aplikacije za autentifikaciju"
+                            },
+                            "backup": {
+                                "title": "Sačuvajte svoje rezervne kodove",
+                                "description": "Sačuvajte ove kodove na sigurnom mjestu"
+                            }
+                        },
+                        "qr": {
+                            "alt": "2FA QR kod"
+                        },
+                        "manualEntry": {
+                            "label": "Ne možete skenirati? Unesite ovaj ključ ručno:"
+                        },
+                        "verify": {
+                            "codeLabel": "Unesite 6-cifreni kod iz svoje aplikacije:",
+                            "codePlaceholder": "000000"
+                        },
+                        "backup": {
+                            "warning": "Sačuvajte ove rezervne kodove na sigurnom mjestu. Svaki kod se može koristiti samo jednom."
+                        },
+                        "buttons": {
+                            "accountAdded": "Dodao/la sam nalog",
+                            "back": "Nazad",
+                            "verify": "Potvrdi",
+                            "verifying": "Potvrđivanje...",
+                            "download": "Preuzmi",
+                            "complete": "Dovrši podešavanje"
+                        },
+                        "validation": {
+                            "validCode": "Molimo unesite važeći 6-cifreni kod"
+                        },
+                        "messages": {
+                            "setupFailed": "Podešavanje 2FA nije uspjelo",
+                            "setupError": "Inicijalizacija podešavanja 2FA nije uspjela. Molimo pokušajte ponovo.",
+                            "verifyFailed": "Potvrda nije uspjela",
+                            "verifyError": "Potvrda nije uspjela",
+                            "keyCopied": "Ključ za podešavanje kopiran u međuspremnik",
+                            "codesDownloaded": "Rezervni kodovi preuzeti"
+                        },
+                        "download": {
+                            "title": "Nitrokit rezervni kodovi za dvofaktorsku autentifikaciju",
+                            "warning": "VAŽNO: Sačuvajte ove kodove na sigurnom mjestu.\nSvaki kod se može koristiti samo jednom.",
+                            "generatedOn": "Generisano: {date}"
+                        }
+                    }
+                }
+            },
+            "status": {
+                "title": "Status naloga",
+                "email": {
+                    "label": "E-pošta",
+                    "verified": "Potvrđeno",
+                    "unverified": "Nepotvrđeno"
+                },
+                "phone": {
+                    "label": "Telefon",
+                    "verified": "Potvrđeno",
+                    "notAdded": "Nije dodano"
+                },
+                "twoFactor": {
+                    "label": "Dvofaktorska autentifikacija",
+                    "enabled": "Omogućeno",
+                    "disabled": "Onemogućeno"
+                },
+                "password": {
+                    "label": "Lozinka",
+                    "notSet": "Nije postavljeno",
+                    "strong": "Jaka",
+                    "medium": "Srednja",
+                    "weak": "Slaba",
+                    "unknown": "Nepoznato"
+                },
+                "sessions": {
+                    "label": "Aktivne sesije",
+                    "active": "{count} aktivno"
+                },
+                "accountType": {
+                    "label": "Tip naloga"
+                }
+            },
+            "personalInfo": {
+                "title": "Lične informacije",
+                "fullName": "Puno ime",
+                "emailAddress": "Adresa e-pošte",
+                "phoneNumber": "Broj telefona",
+                "memberSince": "Član od",
+                "notSet": "Nije postavljeno",
+                "notAdded": "Nije dodano"
+            },
+            "recentActivity": {
+                "title": "Nedavna aktivnost",
+                "currentSession": "Trenutna sesija",
+                "sessionLogin": "Prijava sesije",
+                "accountCreated": "Nalog kreiran",
+                "emailVerified": "E-pošta potvrđena",
+                "connectedProvider": "{provider} povezan",
+                "activeTill": "Aktivno do {date}",
+                "welcome": "Dobrodošli na platformu!",
+                "emailConfirmed": "Adresa e-pošte potvrđena",
+                "accountLinked": "{type} nalog povezan",
+                "noActivity": "Nema nedavne aktivnosti",
+                "viewAllSessions": "Pogledaj sve sesije",
+                "statuses": {
+                    "active": "Aktivno",
+                    "completed": "Završeno",
+                    "expiresSoon": "Uskoro ističe",
+                    "unknown": "Nepoznato"
+                }
+            },
+            "linkedAccounts": {
+                "title": "Povezani nalozi",
+                "connect": "Poveži nalog",
+                "disconnect": "Prekini vezu",
+                "alreadyConnected": "Ova platforma je već povezana",
+                "accountBelongsToOther": "Ovaj nalog pripada drugom korisniku",
+                "cannotRemoveLast": "Ne možete ukloniti svoj jedini metod autentifikacije. Molimo prvo postavite lozinku.",
+                "linkSuccess": "Nalog uspješno povezan",
+                "unlinkSuccess": "Nalog uspješno odvezan",
+                "linkError": "Povezivanje naloga nije uspjelo",
+                "unlinkError": "Odvezivanje naloga nije uspjelo",
+                "hasPassword": "Ima lozinku",
+                "canRemoveAccounts": "Može ukloniti naloge"
+            },
+            "profile": {
+                "page": {
+                    "title": "Postavke profila",
+                    "description": "Upravljajte svojim ličnim informacijama i postavkama profila",
+                    "heading": "Postavke profila",
+                    "subheading": "Upravljajte svojim ličnim informacijama i postavkama profila."
+                },
+                "accountLinking": {
+                    "title": "Povezani nalozi",
+                    "description": "Povežite svoje društvene naloge za lakšu prijavu",
+                    "warning": {
+                        "keepOneAccount": "Održavajte barem jedan povezan nalog da biste zadržali pristup"
+                    },
+                    "status": {
+                        "activeSince": "Aktivno od {date, date, ::yyyyMMMd}",
+                        "recently": "nedavno"
+                    },
+                    "buttons": {
+                        "connect": "Poveži",
+                        "disconnect": "Prekini vezu",
+                        "connecting": "Povezivanje...",
+                        "removing": "Uklanjanje..."
+                    },
+                    "messages": {
+                        "connectFailed": "Povezivanje naloga nije uspjelo",
+                        "disconnectSuccess": "Nalog uspješno odvezan",
+                        "disconnectFailed": "Odvezivanje naloga nije uspjelo",
+                        "cannotRemoveLast": "Ne može se ukloniti posljednji povezani nalog"
+                    }
+                },
+                "preferences": {
+                    "title": "Postavke",
+                    "description": "Prilagodite svoje postavke jezika i teme",
+                    "language": {
+                        "label": "Jezik",
+                        "placeholder": "Odaberite jezik",
+                        "flagAlt": "{language} zastava"
+                    },
+                    "theme": {
+                        "label": "Tema",
+                        "placeholder": "Odaberite temu",
+                        "options": {
+                            "light": "Svijetla",
+                            "dark": "Tamna",
+                            "system": "Sistem"
+                        }
+                    },
+                    "buttons": {
+                        "save": "Sačuvaj postavke",
+                        "cancel": "Otkaži"
+                    },
+                    "messages": {
+                        "changeTypes": {
+                            "language": "Jezik",
+                            "theme": "Tema"
+                        },
+                        "themeUpdateSuccess": "Tema uspješno ažurirana!",
+                        "languageUpdateSuccess": "Jezik ažuriran! Preusmjeravanje...",
+                        "updateSuccess": "Postavke uspješno ažurirane!",
+                        "updateFailed": "Ažuriranje postavki nije uspjelo",
+                        "updateError": "Nešto je pošlo po zlu. Molimo pokušajte ponovo."
+                    }
+                },
+                "profileInformation": {
+                    "title": "Informacije o profilu",
+                    "description": "Ažurirajte svoje lične informacije i profilnu sliku",
+                    "firstName": {
+                        "label": "Ime",
+                        "placeholder": "Unesite svoje ime"
+                    },
+                    "lastName": {
+                        "label": "Prezime",
+                        "placeholder": "Unesite svoje prezime"
+                    },
+                    "email": {
+                        "label": "Adresa e-pošte"
+                    },
+                    "image": {
+                        "label": "Profilna slika",
+                        "removeSuccess": "Profilna slika uspješno uklonjena!",
+                        "removeError": "Uklanjanje profilne slike nije uspjelo."
+                    },
+                    "phone": {
+                        "label": "Broj telefona",
+                        "placeholder": "+1 234 567 8900",
+                        "status": {
+                            "verified": "Potvrđeno",
+                            "notVerified": "Nije potvrđeno",
+                            "verificationRequired": "Potrebna potvrda"
+                        },
+                        "validation": {
+                            "invalidFormat": "Molimo unesite važeći međunarodni broj telefona (7-15 cifara)"
+                        },
+                        "verification": {
+                            "sendCode": "Pošalji kod",
+                            "codeSent": "Kod za potvrdu poslan!",
+                            "sendError": "Slanje koda za potvrdu nije uspjelo",
+                            "enterCode": "Molimo unesite kod za potvrdu",
+                            "enterCodeTitle": "Unesite kod za potvrdu",
+                            "codeInstructions": "Poslali smo 6-cifreni kod na {flag} {phone}",
+                            "yourPhone": "vaš telefon",
+                            "verify": "Potvrdi",
+                            "success": "Broj telefona uspješno potvrđen!",
+                            "verifyError": "Potvrda koda nije uspjela",
+                            "requirement": "Potvrda telefona je potrebna za sigurnosne funkcije i obavještenja",
+                            "cooldown": "{seconds}s"
+                        }
+                    },
+                    "form": {
+                        "saveChanges": "Sačuvaj promjene",
+                        "cancel": "Otkaži",
+                        "changeTypes": {
+                            "firstName": "Ime",
+                            "lastName": "Prezime",
+                            "phone": "Broj telefona",
+                            "image": "Profilna slika"
+                        }
+                    },
+                    "messages": {
+                        "updateSuccess": "Profil uspješno ažuriran!",
+                        "updateFailed": "Ažuriranje profila nije uspjelo",
+                        "updateError": "Nešto je pošlo po zlu. Molimo pokušajte ponovo.",
+                        "phoneUpdated": "Broj telefona ažuriran. Molimo potvrdite svoj novi broj."
+                    }
+                }
+            },
+            "email": {
+                "verify": {
+                    "page": {
+                        "title": "Potvrdi e-poštu",
+                        "description": "Potvrdite svoju adresu e-pošte da biste osigurali svoj nalog",
+                        "heading": "Potvrdi adresu e-pošte",
+                        "subheading": "Moramo potvrditi vašu adresu e-pošte da bismo osigurali vaš nalog i omogućili sve funkcije."
+                    },
+                    "tokenVerification": {
+                        "loading": {
+                            "title": "Potvrđivanje e-pošte...",
+                            "description": "Molimo sačekajte dok potvrđujemo vašu adresu e-pošte."
+                        },
+                        "success": {
+                            "title": "E-pošta potvrđena!",
+                            "description": "Vaša adresa e-pošte je uspješno potvrđena.",
+                            "redirecting": "Preusmjeravanje na postavke naloga..."
+                        },
+                        "error": {
+                            "title": "Potvrda nije uspjela",
+                            "description": "Link za potvrdu je nevažeći ili je istekao.",
+                            "tryAgain": "Pokušaj ponovo"
+                        }
+                    },
+                    "emailStatus": {
+                        "title": "Status e-pošte",
+                        "primaryEmail": "Primarna adresa e-pošte",
+                        "unverified": "Nepotvrđeno"
+                    },
+                    "form": {
+                        "title": "Potvrdite svoju e-poštu",
+                        "description": "Kliknite na dugme ispod da pošaljete e-poštu za potvrdu na {email}",
+                        "alerts": {
+                            "emailSent": "E-pošta za potvrdu poslana! Provjerite svoj inbox i kliknite na link za potvrdu. Ako ga ne vidite, provjerite svoj spam folder.",
+                            "notVerified": "Vaša adresa e-pošte nije potvrđena. Neke funkcije mogu biti ograničene dok ne potvrdite svoju e-poštu."
+                        },
+                        "buttons": {
+                            "sendVerification": "Pošalji e-poštu za potvrdu",
+                            "resendEmail": "Ponovo pošalji e-poštu za potvrdu",
+                            "resendCountdown": "Ponovo pošalji za {seconds}s"
+                        },
+                        "status": {
+                            "pleaseWait": "Molimo sačekajte {seconds} sekundi prije ponovnog slanja"
+                        }
+                    },
+                    "help": {
+                        "title": "Trebate pomoć?",
+                        "tips": {
+                            "checkSpam": "Provjerite svoj spam/junk folder",
+                            "checkEmail": "Provjerite da li je {email} tačna",
+                            "linkExpiry": "Link za potvrdu ističe za 24 sata",
+                            "contactSupport": "Kontaktirajte podršku ako i dalje imate problema"
+                        }
+                    },
+                    "messages": {
+                        "emailSent": "E-pošta za potvrdu poslana! Provjerite svoj inbox.",
+                        "sendFailed": "Slanje e-pošte za potvrdu nije uspjelo",
+                        "sendError": "Došlo je do greške prilikom slanja e-pošte za potvrdu",
+                        "verifySuccess": "E-pošta uspješno potvrđena!",
+                        "verifyFailed": "Potvrda e-pošte nije uspjela",
+                        "verifyError": "Došlo je do greške prilikom potvrde e-pošte"
+                    }
+                },
+                "page": {
+                    "title": "Potvrdi e-poštu",
+                    "description": "Potvrdite svoju adresu e-pošte da biste osigurali svoj nalog",
+                    "heading": "Potvrdi adresu e-pošte",
+                    "subheading": "Moramo potvrditi vašu adresu e-pošte da bismo osigurali vaš nalog i omogućili sve funkcije."
+                }
+            }
+        }
+    },
+    "components": {
+        "imageUpload": {
+            "buttons": {
+                "upload": "Učitaj sliku",
+                "uploading": "Učitavanje...",
+                "remove": "Ukloni",
+                "removing": "Uklanjanje..."
+            },
+            "requirements": {
+                "maxSize": "Maksimalna veličina datoteke: 5MB",
+                "formats": "Podržani formati: JPEG, PNG, WebP",
+                "aspectRatio": "Preporučeno: Kvadratni omjer slike"
+            },
+            "errors": {
+                "invalidFileType": "Nevažeći tip datoteke. Molimo odaberite JPEG, PNG ili WebP sliku.",
+                "fileTooLarge": "Datoteka je prevelika. Maksimalna veličina je 5MB."
+            },
+            "messages": {
+                "uploadSuccess": "Slika uspješno učitana!",
+                "uploadFailed": "Učitavanje nije uspjelo",
+                "uploadError": "Učitavanje nije uspjelo. Molimo pokušajte ponovo.",
+                "removeError": "Uklanjanje slike nije uspjelo. Molimo pokušajte ponovo."
+            }
+        },
+        "passwordStrength": {
+            "labels": {
+                "passwordStrength": "Jačina lozinke",
+                "requirements": "Zahtjevi",
+                "strengthPercentage": "{percentage}% jačine"
+            },
+            "strength": {
+                "veryWeak": "Veoma slaba",
+                "weak": "Slaba",
+                "medium": "Srednja",
+                "strong": "Jaka"
+            },
+            "requirements": {
+                "minLength": "Najmanje 8 znakova",
+                "uppercase": "Jedno veliko slovo",
+                "lowercase": "Jedno malo slovo",
+                "number": "Jedan broj",
+                "special": "Jedan poseban znak"
+            },
+            "warning": {
+                "title": "Slaba lozinka",
+                "description": "Vaša lozinka je slaba. Razmislite o korištenju jače lozinke za bolju sigurnost."
+            }
+        }
     }
 }

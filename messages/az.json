@@ -1,7 +1,7 @@
 {
     "app": {
         "name": "Nitrokit",
-        "shortName": "nitrokit",
+        "shortName": "Nitrokit",
         "description": "Nitrokit başlanğıc şablonu"
     },
     "common": {
@@ -10,7 +10,7 @@
         "notFound": "Axtardığınız səhifə tapılmadı",
         "backToHome": "Ana səhifəyə qayıt",
         "goBack": "Geri qayıt",
-        "ok": "Oldu",
+        "ok": "OK",
         "cancel": "Ləğv et",
         "yes": "Bəli",
         "no": "Xeyr",
@@ -21,21 +21,21 @@
             "button": {
                 "title": "GitHub",
                 "loading": "...",
-                "ready": "Hazırdır"
+                "ready": "Hazır"
             },
             "dropdown": {
                 "star": {
-                    "title": "Deponu Ulduzla",
+                    "title": "Repozitoriyanı Ulduzla",
                     "description": "Dəstəyinizi göstərin",
                     "badge": "Ulduzla"
                 },
                 "fork": {
-                    "title": "Deponu Fork Et",
+                    "title": "Repozitoriyanı Forkla",
                     "description": "Öz nüsxənizi yaradın",
-                    "badge": "Fork Et"
+                    "badge": "Forkla"
                 },
                 "view": {
-                    "title": "Depoya Bax",
+                    "title": "Repozitoriyaya Bax",
                     "description": "Mənbə koduna baxın",
                     "badge": "Bax"
                 }
@@ -43,17 +43,17 @@
         },
         "vercel": {
             "button": {
-                "title": "Vercel-ə Yerləşdirin",
-                "ready": "Hazırdır"
+                "title": "Vercel-ə Yerləşdir",
+                "ready": "Hazır"
             },
             "dropdown": {
                 "deploy": {
-                    "title": "Sürətli Yerləşdirmə",
+                    "title": "Tez Yerləşdirmə",
                     "description": "Bir kliklə yerləşdirin",
                     "badge": "Yerləşdir"
                 },
                 "preview": {
-                    "title": "Demonu Önizlə",
+                    "title": "Demoya Baxış",
                     "description": "Canlı nümunəyə baxın",
                     "badge": "Canlı"
                 },
@@ -66,8 +66,67 @@
         }
     },
     "auth": {
-        "signin": "Daxil Ol",
-        "signup": "Qeydiyyatdan Keç",
+        "signin": {
+            "title": "Daxil Ol",
+            "description": "Xoş gəlmisiniz! Davam etmək üçün daxil olun.",
+            "signing": "Daxil olunur...",
+            "success": "Uğurla daxil olundu!",
+            "error": "Daxil olma uğursuz oldu",
+            "invalidCredentials": "Yanlış e-poçt və ya şifrə"
+        },
+        "signup": {
+            "title": "Qeydiyyatdan Keç",
+            "description": "Xüsusi funksiyalara və məzmuna daxil olmaq üçün bizə qoşulun.",
+            "creating": "Hesab yaradılır...",
+            "success": "Hesab uğurla yaradıldı!",
+            "successDescription": "İndi etimadnamələrinizlə daxil ola bilərsiniz.",
+            "error": "Hesab yaratmaq uğursuz oldu",
+            "verificationRequired": "Hesab yaradıldı! Zəhmət olmasa e-poçtunuzu təsdiqləyin",
+            "verificationDescription": "{email} ünvanına təsdiqləmə linki göndərdik. Zəhmət olmasa gələnlər qutunuzu yoxlayın və hesabınızı aktivləşdirmək üçün linkə klikləyin."
+        },
+        "verifyEmail": {
+            "title": "E-poçtunuzu yoxlayın",
+            "description": "Sizə təsdiqləmə linki göndərdik",
+            "sentTo": "E-poçt göndərildi:",
+            "instructions": {
+                "check": "1. E-poçt gələnlər qutunuzu yoxlayın",
+                "click": "2. E-poçtdakı təsdiqləmə linkinə klikləyin",
+                "spam": "3. Görməsəniz, spam qovluğunuzu yoxlamağı unutmayın"
+            },
+            "resend": "Təsdiqləmə e-poçtunu yenidən göndər",
+            "backToSignin": "Daxil olmaya qayıt"
+        },
+        "emailVerification": {
+            "title": "E-poçt Təsdiqləndi! ✅",
+            "description": "E-poçtunuz uğurla təsdiqləndi. İndi hesabınıza daxil ola bilərsiniz.",
+            "signIn": "Hesabınıza Daxil Olun"
+        },
+        "resetPassword": {
+            "sendEmail": "Sıfırlama E-poçtu Göndər",
+            "emailSent": "Sıfırlama e-poçtu göndərildi!",
+            "checkEmail": "Zəhmət olmasa {email} ünvanındakı e-poçtunuzu yoxlayın",
+            "error": "Sıfırlama e-poçtu göndərmək uğursuz oldu",
+            "emailSentTitle": "E-poçtunuzu yoxlayın",
+            "emailSentDescription": "Sizə şifrə sıfırlama linki göndərdik",
+            "emailSentTo": "Sıfırlama e-poçtu göndərildi:",
+            "instructions": {
+                "check": "1. E-poçt gələnlər qutunuzu yoxlayın",
+                "click": "2. E-poçtdakı sıfırlama linkinə klikləyin",
+                "expire": "3. Link 1 saat ərzində etibarsız olacaq"
+            },
+            "newPassword": "Yeni Şifrə",
+            "confirmPassword": "Şifrəni Təsdiqlə",
+            "confirm": "Şifrəni Sıfırla",
+            "success": "Şifrə uğurla sıfırlandı!",
+            "successDescription": "İndi yeni şifrənizlə daxil ola bilərsiniz",
+            "confirmError": "Şifrəni sıfırlamaq uğursuz oldu",
+            "newPasswordTitle": "Yeni Şifrə Təyin Et",
+            "newPasswordDescription": "Aşağıda yeni şifrənizi daxil edin",
+            "invalidResetLink": {
+                "title": "Yanlış Sıfırlama Linki",
+                "description": "Şifrə sıfırlama linki yanlışdır və ya müddəti bitib."
+            }
+        },
         "signout": "Çıxış Et",
         "signinWithGoogle": "Google ilə Daxil Ol",
         "signinWithFacebook": "Facebook ilə Daxil Ol",
@@ -78,34 +137,35 @@
         "signinWithGitlab": "GitLab ilə Daxil Ol",
         "signinWithMicrosoft": "Microsoft ilə Daxil Ol",
         "signinWithInstagram": "Instagram ilə Daxil Ol",
+        "firstName": "Ad",
+        "lastName": "Soyad",
         "email": "E-poçt",
         "password": "Şifrə",
         "confirmPassword": "Şifrəni Təsdiqlə",
-        "forgotPassword": "Şifrəmi Unutdum",
+        "forgotPassword": "Şifrəni Unutmusunuz",
         "name": "Adınız",
         "privacyPolicy": "Məxfilik Siyasətimiz",
-        "slogan1": "Layihələrinizə <span>raket 🚀</span> kimi bir başlanğıc edin!",
-        "slogan2": "<link>Nitrokit</link> ilə vaxta qənaət edin və inkişafa fokuslanın...",
-        "account": "Hesab məlumatları",
-        "support": "Dəstək",
-        "billing": "Fakturalarım"
+        "slogan1": "Layihələrinizə <span>raket 🚀</span> sürəti ilə başlayın!",
+        "slogan2": "<link>Nitrokit</link> ilə vaxtınıza qənaət edin və inkişafa fokuslanın..."
     },
     "signin": {
-        "title": "{appName}'ə Daxil Ol",
-        "description": "Yenidən xoş gəlmisiniz! Davam etmək üçün lütfən daxil olun",
-        "dontHaveAnAccount": "Hesabınız yoxdur? <link>Qeydiyyatdan Keç</link>."
+        "title": "{appName}-ə Daxil Ol",
+        "description": "Xoş gəlmisiniz! Davam etmək üçün daxil olun",
+        "dontHaveAnAccount": "Hesabınız yoxdur? <link>Qeydiyyatdan Keçin</link>."
     },
     "signup": {
-        "title": "{appName}'ə Qeydiyyatdan Keç",
-        "alreadyHaveAnAccount": "Artıq hesabınız var? <link>Daxil Ol</link>."
+        "title": "{appName} üçün Qeydiyyatdan Keç",
+        "alreadyHaveAnAccount": "Artıq hesabınız var? <link>Daxil Olun</link>."
     },
     "resetPassword": {
         "title": "Şifrənizi Sıfırlayın",
         "description": "E-poçt ünvanınızı daxil edin və şifrənizi sıfırlamaq üçün təlimatları izləyin.",
-        "emailSent": "E-poçt göndərildi! Lütfən e-poçtunuzu yoxlayın."
+        "emailSent": "E-poçt göndərildi! Zəhmət olmasa e-poçtunuzu yoxlayın."
     },
     "validation": {
         "required": {
+            "firstName": "Ad sahəsi tələb olunur.",
+            "lastName": "Soyad sahəsi tələb olunur.",
             "name": "Ad sahəsi tələb olunur.",
             "email": "E-poçt sahəsi tələb olunur.",
             "message": "Mesaj sahəsi tələb olunur.",
@@ -117,12 +177,12 @@
         },
         "password": {
             "confirm": "Şifrələr uyğun gəlmir.",
-            "minLength": "Şifrə ən az {min} simvol olmalıdır.",
+            "minLength": "Şifrə ən azı {min} simvol olmalıdır.",
             "maxLength": "Şifrə ən çox {max} simvol olmalıdır.",
-            "uppercase": "Ən az bir böyük hərf olmalıdır.",
-            "lowercase": "Ən az bir kiçik hərf olmalıdır.",
-            "number": "Ən az bir rəqəm olmalıdır.",
-            "special": "Ən az bir xüsusi simvol olmalıdır.",
+            "uppercase": "Ən azı bir böyük hərf olmalıdır.",
+            "lowercase": "Ən azı bir kiçik hərf olmalıdır.",
+            "number": "Ən azı bir rəqəm olmalıdır.",
+            "special": "Ən azı bir xüsusi simvol olmalıdır.",
             "weak": "zəif",
             "okay": "orta",
             "good": "yaxşı",
@@ -132,10 +192,12 @@
     },
     "placeholder": {
         "enterYourName": "Adınızı daxil edin",
+        "enterYourFirstName": "Adınızı daxil edin",
+        "enterYourLastName": "Soyadınızı daxil edin",
         "enterYourEmail": "E-poçt ünvanınızı daxil edin",
         "enterYourMessage": "Mesajınızı daxil edin",
         "enterYourPassword": "Şifrənizi daxil edin",
-        "confirmYourPassword": "Şifrəni təsdiqləyin"
+        "confirmYourPassword": "Şifrənizi təsdiqləyin"
     },
     "notFound": {
         "title": "Səhifə Tapılmadı",
@@ -144,7 +206,7 @@
     },
     "error": {
         "title": "Xəta Baş Verdi",
-        "retry": "Yenidən Cəhd Edin"
+        "retry": "Yenidən Cəhd Et"
     },
     "metadata": {
         "applicationName": "Nitrokit Başlanğıc Şablonu",
@@ -153,28 +215,28 @@
         "title": "Nitrokit Başlanğıc Şablonu"
     },
     "navigation": {
-        "title": "Menyu",
+        "title": "Naviqasiya",
         "home": "Ana Səhifə",
         "about": "Haqqımızda",
         "services": {
-            "title": "Services",
-            "description": "Vizyanızı gerçəkləşdirmək üçün peşəkar inkişaf xidmətləri.",
+            "title": "Xidmətlər",
+            "description": "Vizyonunuzu həyata keçirmək üçün peşəkar inkişaf xidmətləri.",
             "premium_badge": "Premium Xidmətlər",
             "web_development": {
-                "title": "Vebeb İnkişafı",
-                "description": "Müasir texnologiyalar əsasında tam dəstəli veb tətbiqləri"
+                "title": "Veb İnkişafı",
+                "description": "Müasir texnologiyalarla tam yığınlı veb tətbiqləri"
             },
             "ui_ux_design": {
                 "title": "UI/UX Dizaynı",
                 "description": "Gözəl və intuitiv istifadəçi interfeysləri"
             },
             "performance_optimization": {
-                "title": "Performans Optimallaşdırılması",
-                "description": "Sürətli tətbiqlər və veb saytlar"
+                "title": "Performans Optimizasiyası",
+                "description": "İldırım sürətli tətbiqlər və veb saytlar"
             },
             "team_augmentation": {
-                "title": "Komanda Gücləndirilməsi",
-                "description": "İxtisaslı mütəxəssislərlə inkişaf qrupunuzu genişləndirin"
+                "title": "Komanda Genişləndirilməsi",
+                "description": "İnkişaf komandanızı mütəxəssislərlə genişləndirin"
             },
             "badges": {
                 "popular": "Populyar",
@@ -183,40 +245,40 @@
         },
         "components": {
             "title": "Komponentlər",
-            "subtitle": "İstifadəçi İnterfeysi Komponentləri",
-            "description": "Radix UI və Tailwind CSS ilə yaradılmış təkrar istifadə olunan komponentlər",
-            "view_all": "Bütün komponentləri göstər",
-            "count": "50+ Components",
+            "subtitle": "UI Komponentləri",
+            "description": "Radix UI və Tailwind CSS ilə qurulmuş təkrar istifadə edilə bilən komponentlər",
+            "view_all": "Bütün komponentlərə bax",
+            "count": "50+ Komponent",
             "button_components": {
-                "title": "Button Components",
-                "description": "Interactive buttons with variants and states"
+                "title": "Düymə Komponentləri",
+                "description": "Variantları və vəziyyətləri olan interaktiv düymələr"
             },
             "navigation_components": {
-                "title": "Navigation",
-                "description": "Menu and navigation components"
+                "title": "Naviqasiya",
+                "description": "Menyu və naviqasiya komponentləri"
             },
             "data_display": {
-                "title": "Data Display",
-                "description": "Tables, cards, and data visualization"
+                "title": "Məlumat Göstərimi",
+                "description": "Cədvəllər, kartlar və məlumat vizualizasiyası"
             },
             "form_controls": {
-                "title": "Form Controls",
-                "description": "Input fields, selects, and form elements"
+                "title": "Forma Nəzarətləri",
+                "description": "Giriş sahələri, seçimlər və forma elementləri"
             },
             "modals_overlays": {
-                "title": "Modals & Overlays",
-                "description": "Dialogs, tooltips, and overlay components"
+                "title": "Modallar və Örtüklər",
+                "description": "Dialoqlar, alət ipuçları və örtük komponentləri"
             },
             "feedback": {
-                "title": "Feedback",
-                "description": "Alerts, notifications, and loading states"
+                "title": "Rəy",
+                "description": "Xəbərdarlıqlar, bildirişlər və yükləmə vəziyyətləri"
             },
             "categories": {
-                "form": "Form",
-                "layout": "Layout",
-                "display": "Display",
-                "overlay": "Overlay",
-                "feedback": "Feedback"
+                "form": "Forma",
+                "layout": "Düzən",
+                "display": "Göstərim",
+                "overlay": "Örtük",
+                "feedback": "Rəy"
             }
         },
         "blog": "Bloq",
@@ -233,12 +295,12 @@
                 "primary": "Nitrokit ilə",
                 "secondary": "Sürətlə İnkişaf Edin"
             },
-            "subtitle": "Startapların veb-saytlarını tez və effektiv şəkildə işə salması üçün nəzərdə tutulmuş, bütün lazımi inteqrasiyaları, səhifələri və komponentləri ehtiva edən başlanğıc dəsti."
+            "subtitle": "Startapların veb saytlarını tez və effektiv şəkildə işə salması üçün hazırlanmış, bütün lazımi inteqrasiyaları, səhifələri və komponentləri özündə cəmləşdirən bir başlanğıc dəsti."
         },
         "stats": {
             "components": {
                 "number": "50+",
-                "label": "İstifadəçi İnterfeysi Komponentləri"
+                "label": "UI Komponentləri"
             },
             "typescript": {
                 "number": "TypeScript",
@@ -255,17 +317,17 @@
         "cta": {
             "title": "Başlamağa hazırsınız?",
             "description": "GitHub-dakı layihəmizə baxın və inkişaf prosesinizi sürətləndirin.",
-            "github": "GitHub Deposu",
+            "github": "GitHub Repozitoriyası",
             "docs": "Sənədlər"
         }
     },
     "about": {
         "title": "Haqqımızda",
-        "description": "Bu, Next.js ilə yaradılmış bir başlanğıc şablonudur. Bu şablon, sürətli və effektiv şəkildə veb tətbiqləri hazırlamaq üçün nəzərdə tutulmuşdur."
+        "description": "Bu, Next.js ilə qurulmuş bir başlanğıc şablonudur. Bu şablon veb tətbiqlərini tez və effektiv şəkildə inkişaf etdirmək üçün nəzərdə tutulmuşdur."
     },
     "services": {
         "title": "Xidmətlərimiz",
-        "description": "Təqdim etdiyimiz xidmətlər haqqında daha çox məlumat əldə edin."
+        "description": "Təklif etdiyimiz xidmətlər haqqında daha çox məlumat əldə edin."
     },
     "pricing": {
         "title": "Qiymətlər",
@@ -283,7 +345,7 @@
         },
         "startup": {
             "title": "Startap",
-            "description": "Sürətlə böyüyən biznesinizlə birlikdə genişlənən bir plan."
+            "description": "Sürətlə böyüyən biznesinizlə birlikdə miqyaslanan bir plan."
         },
         "pro": {
             "title": "Peşəkar",
@@ -291,7 +353,7 @@
         },
         "enterprise": {
             "title": "Korporativ",
-            "description": "Şirkətiniz üçün xüsusi dəstək və infrastruktur."
+            "description": "Korporativ ehtiyaclarınız üçün xüsusi təklif almaq üçün bizimlə əlaqə saxlayın."
         },
         "features": {
             "5products": "5 məhsul",
@@ -304,7 +366,7 @@
             "24hoursupport": "24 saatlıq dəstək",
             "1hoursupport": "1 saatlıq dəstək",
             "basicanalytics": "Əsas analitika",
-            "advancedanalytics": "Genişləndirilmiş analitika",
+            "advancedanalytics": "Qabaqcıl analitika",
             "xhoursupport": "{count} saatlıq dəstək",
             "marketingautomations": "Marketinq avtomatlaşdırmaları"
         }
@@ -317,7 +379,7 @@
         "title": "Əlaqə",
         "description": "Bizimlə əlaqə saxlamaq üçün aşağıdakı formanı doldurun.",
         "name": "Adınız",
-        "email": "E-poçt ünvanınız",
+        "email": "E-poçt Ünvanınız",
         "message": "Mesajınız",
         "send": "Göndər",
         "messageSent": "Mesaj uğurla göndərildi!"
@@ -328,6 +390,952 @@
     },
     "footer": {
         "copyright": "© Müəllif Hüquqları {year, date, ::yyyy} {name} ♥️ Bütün Hüquqlar Qorunur.",
-        "poweredBy": "<link>Ekibi</link> tərəfindən işlənir."
+        "poweredBy": "<link>Ekipisi</link> tərəfindən gücləndirilmişdir"
+    },
+    "cookies": {
+        "banner": {
+            "title": "Kukilərdən istifadə edirik",
+            "description": "Baxış təcrübənizi artırmaq, fərdiləşdirilmiş məzmun təqdim etmək və trafikimizi təhlil etmək üçün kukilərdən istifadə edirik.",
+            "learnMore": "Daha çox məlumat əldə et",
+            "accept": "Hamısını Qəbul Et",
+            "reject": "Hamısını Rədd Et",
+            "settings": "Kuki Ayarları"
+        },
+        "settings": {
+            "title": "Kuki Seçimləri",
+            "description": "Hansı kukiləri qəbul etmək istədiyinizi seçin. Bu ayarları istənilən vaxt dəyişə bilərsiniz.",
+            "save": "Seçimləri Yadda Saxla",
+            "rejectAll": "Hamısını Rədd Et"
+        },
+        "categories": {
+            "necessary": {
+                "title": "Lazımlı Kukilər",
+                "description": "Bu kukilər veb saytın düzgün işləməsi üçün vacibdir. Onlar deaktiv edilə bilməz."
+            },
+            "analytics": {
+                "title": "Analitika Kukiləri",
+                "description": "Bu kukilər məlumatları anonim şəkildə toplayaraq və hesabat verərək ziyarətçilərin veb saytımızla necə qarşılıqlı əlaqədə olduqlarını anlamağımıza kömək edir."
+            },
+            "marketing": {
+                "title": "Marketinq Kukiləri",
+                "description": "Bu kukilər sizə və maraqlarınıza daha uyğun reklamlar təqdim etmək üçün istifadə olunur."
+            },
+            "functional": {
+                "title": "Funksional Kukilər",
+                "description": "Bu kukilər seçimlərinizi yadda saxlamaq kimi təkmilləşdirilmiş funksionallıq və fərdiləşdirmə təmin edir."
+            }
+        }
+    },
+    "dashboard": {
+        "navigation": {
+            "dashboard": "İdarə Paneli",
+            "invoices": "Hesab-fakturalar",
+            "support": "Dəstək",
+            "settings": "Ayarlar",
+            "account": "Hesab məlumatları",
+            "billing": "Hesab-fakturalarım"
+        },
+        "userMenu": {
+            "defaultUserName": "İstifadəçi",
+            "sections": {
+                "account": "Hesab",
+                "other": "Digər"
+            },
+            "account": {
+                "overview": "Hesaba Baxış",
+                "profile": "Profil Ayarları",
+                "notifications": "Bildirişlər"
+            },
+            "security": {
+                "title": "Təhlükəsizlik",
+                "overview": "Təhlükəsizliyə Baxış",
+                "password": "Şifrə",
+                "twoFactor": "İki Faktorlu Doğrulama",
+                "sessions": "Aktiv Sessiyalar"
+            },
+            "other": {
+                "billing": "Ödəniş və Planlar",
+                "settings": "Ayarlar"
+            }
+        },
+        "account": {
+            "navigation": {
+                "overview": "Baxış",
+                "profile": "Profil",
+                "account": "Hesab",
+                "notifications": "Bildirişlər",
+                "security": {
+                    "title": "Təhlükəsizlik",
+                    "password": "Şifrə və Təhlükəsizlik",
+                    "twoFactor": "İki Faktorlu Doğrulama",
+                    "twoFactorShort": "İki Faktorlu Doğ.",
+                    "sessions": "Aktiv Sessiyalar"
+                },
+                "mobile": {
+                    "title": "Hesab Ayarları",
+                    "openMenu": "Menyunu aç"
+                }
+            },
+            "notifications": {
+                "page": {
+                    "title": "Bildiriş Ayarları",
+                    "description": "Bildiriş seçimlərinizi idarə edin",
+                    "heading": "Bildiriş Ayarları",
+                    "subheading": "Hesab fəaliyyəti və yeniləmələr haqqında necə bildiriş almaq istədiyinizi seçin."
+                },
+                "headers": {
+                    "notificationType": "Bildiriş Növü",
+                    "email": "E-poçt",
+                    "sms": "SMS",
+                    "inApp": "Tətbiqdaxili"
+                },
+                "badges": {
+                    "recommended": "Tövsiyə Edilir"
+                },
+                "categories": {
+                    "security": {
+                        "title": "Təhlükəsizlik və Hesab",
+                        "settings": {
+                            "accountSecurity": {
+                                "label": "Hesab Təhlükəsizliyi",
+                                "description": "Vacib təhlükəsizlik yeniləmələri və xəbərdarlıqları"
+                            },
+                            "loginAlerts": {
+                                "label": "Giriş Xəbərdarlıqları",
+                                "description": "Fərqli cihazlardan yeni giriş bildirişləri"
+                            },
+                            "passwordChanges": {
+                                "label": "Şifrə Dəyişiklikləri",
+                                "description": "Şifrə sıfırlama və dəyişiklik təsdiqləri"
+                            },
+                            "profileUpdates": {
+                                "label": "Profil Yeniləmələri",
+                                "description": "Profil və hesab məlumatları dəyişiklikləri"
+                            }
+                        }
+                    },
+                    "marketing": {
+                        "title": "Marketinq və Yeniləmələr",
+                        "settings": {
+                            "marketing": {
+                                "label": "Marketinq Kommunikasiyaları",
+                                "description": "Məhsul yeniləmələri və promosyon məzmunu"
+                            },
+                            "newsletters": {
+                                "label": "Xəbər Bülletenləri",
+                                "description": "Həftəlik xəbər bülletenləri və məsləhətlər"
+                            },
+                            "systemUpdates": {
+                                "label": "Sistem Yeniləmələri",
+                                "description": "Tətbiq yeniləmələri və texniki xidmət bildirişləri"
+                            }
+                        }
+                    }
+                },
+                "quickActions": {
+                    "title": "Tez Əməliyyatlar",
+                    "description": "Hər kanal üçün bütün bildirişləri aktivləşdirin və ya deaktiv edin",
+                    "enableAllEmail": "Bütün E-poçtları Aktivləşdir",
+                    "essentialOnly": "Yalnız Vaciblər",
+                    "enableAllEmailSuccess": "Bütün e-poçt bildirişləri aktivləşdirildi",
+                    "essentialOnlySuccess": "Vacib bildirişlər aktivləşdirildi"
+                },
+                "form": {
+                    "savePreferences": "Seçimləri Yadda Saxla",
+                    "saving": "Yadda saxlanılır...",
+                    "saveSuccess": "Bildiriş seçimləri uğurla yadda saxlandı!",
+                    "saveError": "Seçimləri yadda saxlamaq uğursuz oldu. Zəhmət olmasa yenidən cəhd edin."
+                }
+            },
+            "overview": {
+                "title": "Hesaba Baxış",
+                "description": "Hesabınızın vəziyyəti və təhlükəsizlik baxışı bir baxışda.",
+                "editProfile": "Profili Redaktə Et"
+            },
+            "security": {
+                "recommendations": {
+                    "title": "Təhlükəsizlik Tövsiyələri",
+                    "verifyEmail": {
+                        "title": "E-poçtunuzu təsdiqləyin",
+                        "description": "E-poçt ünvanınızı təsdiqləyərək hesabınızı qoruyun",
+                        "action": "E-poçtu Təsdiqlə"
+                    },
+                    "setPassword": {
+                        "title": "Hesab şifrəsini təyin edin",
+                        "description": "Ehtiyat giriş metodunu aktivləşdirmək və təhlükəsizliyi artırmaq üçün şifrə əlavə edin",
+                        "action": "Şifrə Təyin Et"
+                    },
+                    "weakPassword": {
+                        "title": "Zəif şifrə aşkarlandı",
+                        "description": "Şifrəniz zəifdir və yenilənməlidir",
+                        "action": "Şifrəni Dəyiş"
+                    },
+                    "enableTwoFactor": {
+                        "title": "İki faktorlu doğrulamayı aktivləşdirin",
+                        "description": "Hesabınıza əlavə bir təhlükəsizlik qatı əlavə edin",
+                        "action": "2FA-nı Aktivləşdir"
+                    },
+                    "addPhone": {
+                        "title": "Telefon nömrəsi əlavə edin",
+                        "description": "Hesab bərpası üçün telefon nömrəsi əlavə edin",
+                        "action": "Telefon Əlavə Et"
+                    }
+                },
+                "score": {
+                    "title": "Təhlükəsizlik Xalı",
+                    "subtitle": "Ümumi Təhlükəsizlik",
+                    "excellent": "Əla",
+                    "good": "Yaxşı",
+                    "needsImprovement": "Təkmilləşdirməyə Ehtiyac Var",
+                    "settings": "Təhlükəsizlik Ayarları"
+                },
+                "page": {
+                    "title": "Təhlükəsizlik Ayarları",
+                    "description": "Hesab təhlükəsizlik ayarlarınızı idarə edin",
+                    "heading": "Təhlükəsizlik",
+                    "subheading": "Şifrənizi, iki faktorlu doğrulamayı və aktiv sessiyaları idarə edin"
+                },
+                "passwordStrength": {
+                    "strong": "Güclü",
+                    "medium": "Orta",
+                    "weak": "Zəif",
+                    "unknown": "Naməlum"
+                },
+                "status": {
+                    "enabled": "Aktivdir",
+                    "disabled": "Deaktivdir"
+                },
+                "cards": {
+                    "password": {
+                        "title": "Şifrə",
+                        "description": "Şifrənizi dəyişin və şifrə təhlükəsizliyini idarə edin"
+                    },
+                    "twoFactor": {
+                        "title": "İki Faktorlu Doğrulama",
+                        "description": "Hesabınıza əlavə bir təhlükəsizlik qatı əlavə edin"
+                    },
+                    "sessions": {
+                        "title": "Aktiv Sessiyalar",
+                        "description": "Aktiv giriş sessiyalarınıza baxın və idarə edin",
+                        "activeCount": "{count} Aktiv"
+                    }
+                },
+                "overview": {
+                    "title": "Təhlükəsizliyə Baxış",
+                    "description": "Hesab təhlükəsizliyinizin cari vəziyyəti",
+                    "metrics": {
+                        "passwordStrength": "Şifrə Gücü",
+                        "twoFactorAuth": "İki Faktorlu Doğ.",
+                        "twoFactorOn": "Aktiv",
+                        "twoFactorOff": "Deaktiv",
+                        "activeSessions": "Aktiv Sessiyalar"
+                    }
+                },
+                "password": {
+                    "page": {
+                        "title": "Təhlükəsizlik Ayarları",
+                        "description": "Hesab təhlükəsizliyinizi və şifrə ayarlarınızı idarə edin",
+                        "heading": "Təhlükəsizlik Ayarları",
+                        "subheading": "Şifrənizi və hesab təhlükəsizlik seçimlərinizi idarə edin."
+                    },
+                    "deleteAccount": {
+                        "card": {
+                            "title": "Təhlükə Zonası",
+                            "description": "Hesabınızı və bütün əlaqəli məlumatları qalıcı olaraq silin. Bu əməliyyat geri qaytarıla bilməz."
+                        },
+                        "warning": {
+                            "title": "Nələr silinəcək:",
+                            "items": {
+                                "profile": "Profiliniz və şəxsi məlumatlarınız",
+                                "files": "Bütün yüklənmiş fayllar və profil şəkilləri",
+                                "settings": "Hesab ayarları və seçimləri",
+                                "sessions": "Giriş sessiyaları və qoşulmuş hesablar",
+                                "data": "Bütün əlaqəli məlumatlar və tarixçə"
+                            }
+                        },
+                        "buttons": {
+                            "deleteAccount": "Hesabımı Sil",
+                            "cancel": "Ləğv Et",
+                            "deleteForever": "Hesabı Həmişəlik Sil"
+                        },
+                        "dialog": {
+                            "title": "Hesabı Sil",
+                            "description": "Hesabınızı ({email}) qalıcı olaraq silmək üzrəsiniz. Bu əməliyyat geri qaytarıla bilməz və bütün məlumatlarınız həmişəlik itiriləcək."
+                        },
+                        "form": {
+                            "password": {
+                                "label": "Şifrəni Təsdiqlə *",
+                                "placeholder": "Şifrənizi daxil edin",
+                                "required": "Şifrə tələb olunur"
+                            },
+                            "confirmText": {
+                                "label": "Təsdiqləmək üçün \"SİL\" yazın *",
+                                "placeholder": "Buraya SİL yazın"
+                            }
+                        },
+                        "validation": {
+                            "confirmRequired": "Zəhmət olmasa təsdiqləmək üçün \"SİL\" yazın",
+                            "mustTypeDelete": "Tam olaraq \"SİL\" yazmalısınız"
+                        },
+                        "messages": {
+                            "deleteSuccess": "Hesab uğurla silindi. Yönləndirilir...",
+                            "deleteFailed": "Hesabı silmək uğursuz oldu",
+                            "deleteError": "Nəsə səhv getdi. Zəhmət olmasa yenidən cəhd edin."
+                        }
+                    },
+                    "create": {
+                        "card": {
+                            "title": "Şifrə Yarat"
+                        },
+                        "form": {
+                            "password": {
+                                "label": "Yeni Şifrə *",
+                                "placeholder": "Yeni şifrənizi daxil edin"
+                            },
+                            "confirmPassword": {
+                                "label": "Şifrəni Təsdiqlə *",
+                                "placeholder": "Şifrənizi təsdiqləyin"
+                            }
+                        },
+                        "validation": {
+                            "password": {
+                                "minLength": "Şifrə ən azı 8 simvol olmalıdır",
+                                "uppercase": "Şifrədə ən azı bir böyük hərf olmalıdır",
+                                "lowercase": "Şifrədə ən azı bir kiçik hərf olmalıdır",
+                                "number": "Şifrədə ən azı bir rəqəm olmalıdır",
+                                "special": "Şifrədə ən azı bir xüsusi simvol olmalıdır"
+                            },
+                            "confirmPassword": {
+                                "required": "Zəhmət olmasa şifrənizi təsdiqləyin",
+                                "mismatch": "Şifrələr uyğun gəlmir"
+                            }
+                        },
+                        "buttons": {
+                            "create": "Şifrə Yarat",
+                            "creating": "Şifrə Yaradılır..."
+                        },
+                        "help": {
+                            "requirements": "Şifrəniz bütün tələblərə cavab verməli və ən azı orta gücdə olmalıdır."
+                        },
+                        "messages": {
+                            "createSuccess": "Şifrə uğurla yaradıldı!",
+                            "createFailed": "Şifrə yaratmaq uğursuz oldu",
+                            "createError": "Nəsə səhv getdi"
+                        }
+                    },
+                    "change": {
+                        "card": {
+                            "title": "Şifrəni Dəyiş",
+                            "description": "Hesabınızı təhlükəsiz saxlamaq üçün şifrənizi yeniləyin. Şifrəniz dəyişdirildikdə bildiriş alacaqsınız."
+                        },
+                        "form": {
+                            "currentPassword": {
+                                "label": "Cari Şifrə *",
+                                "placeholder": "Cari şifrənizi daxil edin"
+                            },
+                            "newPassword": {
+                                "label": "Yeni Şifrə *",
+                                "placeholder": "Yeni şifrənizi daxil edin"
+                            },
+                            "confirmPassword": {
+                                "label": "Yeni Şifrəni Təsdiqlə *",
+                                "placeholder": "Yeni şifrənizi təsdiqləyin"
+                            }
+                        },
+                        "validation": {
+                            "currentPassword": {
+                                "required": "Cari şifrə tələb olunur"
+                            },
+                            "newPassword": {
+                                "minLength": "Yeni şifrə ən azı 8 simvol olmalıdır",
+                                "uppercase": "Şifrədə ən azı bir böyük hərf olmalıdır",
+                                "lowercase": "Şifrədə ən azı bir kiçik hərf olmalıdır",
+                                "number": "Şifrədə ən azı bir rəqəm olmalıdır",
+                                "special": "Şifrədə ən azı bir xüsusi simvol olmalıdır"
+                            },
+                            "confirmPassword": {
+                                "required": "Zəhmət olmasa yeni şifrənizi təsdiqləyin",
+                                "mismatch": "Şifrələr uyğun gəlmir"
+                            }
+                        },
+                        "buttons": {
+                            "update": "Şifrəni Yenilə",
+                            "updating": "Yenilənir...",
+                            "cancel": "Ləğv Et"
+                        },
+                        "messages": {
+                            "updateSuccess": "Şifrə uğurla yeniləndi!",
+                            "updateFailed": "Şifrəni yeniləmək uğursuz oldu",
+                            "errors": {
+                                "unauthorized": "Davam etmək üçün zəhmət olmasa yenidən daxil olun",
+                                "invalidData": "Yanlış şifrə məlumatları. Zəhmət olmasa daxil etdiyinizi yoxlayın.",
+                                "incorrectPassword": "Cari şifrə yanlışdır",
+                                "serverError": "Server xətası. Zəhmət olmasa sonra yenidən cəhd edin.",
+                                "generic": "Nəsə səhv getdi. Zəhmət olmasa yenidən cəhd edin."
+                            }
+                        }
+                    }
+                },
+                "sessions": {
+                    "page": {
+                        "title": "Aktiv Sessiyalar",
+                        "description": "Aktiv giriş sessiyalarınızı və təhlükəsizliyinizi idarə edin",
+                        "heading": "Aktiv Sessiyalar",
+                        "subheading": "Hesabınıza hazırda daxil olan bütün cihazları və tətbiqləri nəzərdən keçirin və idarə edin."
+                    },
+                    "client": {
+                        "heading": "Aktiv Sessiyalar",
+                        "subheading": "Bütün cihazlardakı aktiv giriş sessiyalarınızı izləyin və idarə edin.",
+                        "securityAlert": "Təhlükəsizlik səbəbi ilə, tanımadığınız sessiyalar görsəniz, onları dərhal dayandırın və şifrənizi dəyişin.",
+                        "currentSessions": {
+                            "title": "Cari Sessiyalar",
+                            "description": "Bunlar hesabınıza hazırda daxil olan cihazlar və brauzerlərdir."
+                        },
+                        "securityTips": {
+                            "title": "Təhlükəsizlik Məsləhətləri",
+                            "subtitle": "Hesabınızı qoruyun:",
+                            "tips": {
+                                "publicComputers": "İctimai kompüterlərdən istifadə edərkən həmişə çıxış edin",
+                                "reviewSessions": "Aktiv sessiyalarınızı mütəmadi olaraq nəzərdən keçirin",
+                                "twoFactor": "Əlavə təhlükəsizlik üçün iki faktorlu doğrulamayı aktivləşdirin",
+                                "strongPasswords": "Güclü, unikal şifrələrdən istifadə edin",
+                                "signOutAll": "İcazəsiz girişdən şübhələnirsinizsə, bütün sessiyalardan çıxış edin"
+                            }
+                        }
+                    },
+                    "table": {
+                        "sessionCount": "{count} aktiv sessiya{plural}",
+                        "headers": {
+                            "deviceBrowser": "Cihaz və Brauzer",
+                            "location": "Məkan",
+                            "lastActive": "Son Aktivlik",
+                            "status": "Vəziyyət",
+                            "actions": "Əməliyyatlar"
+                        },
+                        "status": {
+                            "current": "Cari",
+                            "active": "Aktiv"
+                        },
+                        "buttons": {
+                            "terminateAllOthers": "Digər Hamısını Dayandır",
+                            "terminateAll": "Hamısını Dayandır",
+                            "terminate": "Dayandır",
+                            "cancel": "Ləğv Et"
+                        },
+                        "dialogs": {
+                            "terminateAll": {
+                                "title": "Bütün Digər Sessiyalar Dayandırılsın?",
+                                "description": "Bu, sizi bütün digər cihazlardan və brauzerlərdən çıxaracaq. Cari sessiyanız aktiv qalacaq."
+                            },
+                            "terminateSession": {
+                                "title": "Sessiya Dayandırılsın?",
+                                "description": "Bu, bu cihazı/brauzeri çıxaracaq. İstifadəçi yenidən daxil olmalı olacaq."
+                            }
+                        },
+                        "messages": {
+                            "currentSessionTerminated": "Cari sessiya dayandırıldı. Girişə yönləndirilir...",
+                            "sessionTerminated": "Sessiya uğurla dayandırıldı",
+                            "terminateFailed": "Sessiyanı dayandırmaq uğursuz oldu",
+                            "terminateError": "Sessiyanı dayandırmaq uğursuz oldu",
+                            "allOthersTerminated": "Bütün digər sessiyalar uğurla dayandırıldı",
+                            "allSessionsTerminated": "Bütün sessiyalar dayandırıldı. Girişə yönləndirilir...",
+                            "terminateAllFailed": "Sessiyaları dayandırmaq uğursuz oldu",
+                            "terminateAllError": "Sessiyaları dayandırmaq uğursuz oldu"
+                        }
+                    }
+                },
+                "twoFactor": {
+                    "page": {
+                        "title": "İki Faktorlu Doğrulama",
+                        "description": "Təkmilləşdirilmiş təhlükəsizlik üçün iki faktorlu doğrulama ayarlarınızı idarə edin",
+                        "heading": "İki Faktorlu Doğrulama",
+                        "subheading": "2FA ilə hesabınıza əlavə bir təhlükəsizlik qatı əlavə edin."
+                    },
+                    "backupCodes": {
+                        "dialog": {
+                            "title": "Ehtiyat Kodları",
+                            "description": "Doğrulayıcı tətbiqinizə girişi itirsəniz, bu kodlardan istifadə edin."
+                        },
+                        "alerts": {
+                            "verifyIdentity": "Ehtiyat kodlarınıza baxmaq və ya yenidən yaratmaq üçün şəxsiyyətinizi təsdiqləməlisiniz.",
+                            "invalidatePrevious": "Yeni kodlar yaratmaq bütün əvvəlki ehtiyat kodlarını etibarsız edəcək.",
+                            "saveCodes": "Bu kodları təhlükəsiz bir yerdə saxlayın. Hər kod yalnız bir dəfə istifadə edilə bilər."
+                        },
+                        "form": {
+                            "verificationCode": {
+                                "label": "Doğrulama kodunuzu daxil edin:",
+                                "placeholder": "000000"
+                            }
+                        },
+                        "buttons": {
+                            "generateNew": "Yeni Ehtiyat Kodları Yarat",
+                            "cancel": "Ləğv Et",
+                            "generate": "Yarat",
+                            "generating": "Yaradılır...",
+                            "download": "Yüklə",
+                            "regenerate": "Yenidən Yarat"
+                        },
+                        "validation": {
+                            "validCode": "Zəhmət olmasa etibarlı 6 rəqəmli kod daxil edin"
+                        },
+                        "messages": {
+                            "downloaded": "Ehtiyat kodları yükləndi",
+                            "regenerateSuccess": "Yeni ehtiyat kodları yaradıldı",
+                            "regenerateFailed": "Kodları yenidən yaratmaq uğursuz oldu",
+                            "regenerateError": "Kodları yenidən yaratmaq uğursuz oldu"
+                        },
+                        "download": {
+                            "title": "Nitrokit İki Faktorlu Doğrulama Ehtiyat Kodları",
+                            "warning": "VACİB: Bu kodları təhlükəsiz bir yerdə saxlayın.\nHər kod yalnız bir dəfə istifadə edilə bilər.",
+                            "generatedOn": "Yaradılma tarixi: {date}"
+                        }
+                    },
+                    "disable": {
+                        "dialog": {
+                            "title": "İki Faktorlu Doğrulamayı Deaktiv Et",
+                            "description": "Bu, hesabınızdan əlavə təhlükəsizlik qatını qaldıracaq."
+                        },
+                        "warning": {
+                            "message": "Xəbərdarlıq: 2FA-nı deaktiv etmək hesabınızı daha az təhlükəsiz edəcək. Aktiv saxlamağınızı tövsiyə edirik."
+                        },
+                        "form": {
+                            "verificationCode": {
+                                "label": "Təsdiqləmək üçün doğrulama kodunuzu daxil edin:",
+                                "placeholder": "000000"
+                            }
+                        },
+                        "buttons": {
+                            "cancel": "Ləğv Et",
+                            "disable": "2FA-nı Deaktiv Et",
+                            "disabling": "Deaktiv edilir..."
+                        },
+                        "validation": {
+                            "validCode": "Zəhmət olmasa etibarlı 6 rəqəmli kod daxil edin"
+                        },
+                        "messages": {
+                            "disableFailed": "2FA-nı deaktiv etmək uğursuz oldu",
+                            "disableError": "2FA-nı deaktiv etmək uğursuz oldu"
+                        }
+                    },
+                    "management": {
+                        "card": {
+                            "title": "İki Faktorlu Doğrulama",
+                            "description": "İki faktorlu doğrulama ilə hesabınıza əlavə bir təhlükəsizlik qatı əlavə edin."
+                        },
+                        "status": {
+                            "title": "İki Faktorlu Doğrulama",
+                            "enabled": "{date} tarixində aktivləşdirilib",
+                            "notEnabled": "Aktiv deyil",
+                            "unknown": "Naməlum"
+                        },
+                        "badge": {
+                            "enabled": "Aktivdir",
+                            "disabled": "Deaktivdir"
+                        },
+                        "alerts": {
+                            "recommendation": "Hesabınızı təhlükəsiz saxlamaq üçün iki faktorlu doğrulamayı aktivləşdirməyinizi tövsiyə edirik.",
+                            "protected": "Hesabınız iki faktorlu doğrulama ilə qorunur.",
+                            "backupCodes": "{count} ehtiyat kodunuz qalıb."
+                        },
+                        "buttons": {
+                            "enable": "İki Faktorlu Doğrulamayı Aktivləşdir",
+                            "viewBackupCodes": "Ehtiyat Kodlarına Bax",
+                            "disable": "2FA-nı Deaktiv Et"
+                        },
+                        "howItWorks": {
+                            "title": "Necə işləyir",
+                            "steps": {
+                                "download": "Google Authenticator və ya oxşar tətbiqi yükləyin",
+                                "scan": "QR kodu skan edin və ya quraşdırma açarını daxil edin",
+                                "verify": "Quraşdırmanı tamamlamaq üçün doğrulama kodunu daxil edin",
+                                "backup": "Ehtiyat kodlarınızı təhlükəsiz bir yerdə saxlayın"
+                            }
+                        },
+                        "messages": {
+                            "enableSuccess": "İki faktorlu doğrulama uğurla aktivləşdirildi!",
+                            "disableSuccess": "İki faktorlu doğrulama deaktiv edildi."
+                        }
+                    },
+                    "setup": {
+                        "steps": {
+                            "loading": {
+                                "title": "2FA quraşdırılır...",
+                                "description": "Quraşdırmanızı hazırlayarkən zəhmət olmasa gözləyin..."
+                            },
+                            "setup": {
+                                "title": "İki Faktorlu Doğrulamayı Quraşdırın",
+                                "description": "Doğrulayıcı tətbiqinizlə QR kodu skan edin"
+                            },
+                            "verify": {
+                                "title": "Quraşdırmanızı Təsdiqləyin",
+                                "description": "Doğrulayıcı tətbiqinizdən kodu daxil edin"
+                            },
+                            "backup": {
+                                "title": "Ehtiyat Kodlarınızı Saxlayın",
+                                "description": "Bu kodları təhlükəsiz bir yerdə saxlayın"
+                            }
+                        },
+                        "qr": {
+                            "alt": "2FA QR Kodu"
+                        },
+                        "manualEntry": {
+                            "label": "Skan edə bilmirsiniz? Bu açarı əl ilə daxil edin:"
+                        },
+                        "verify": {
+                            "codeLabel": "Tətbiqinizdən 6 rəqəmli kodu daxil edin:",
+                            "codePlaceholder": "000000"
+                        },
+                        "backup": {
+                            "warning": "Bu ehtiyat kodlarını təhlükəsiz bir yerdə saxlayın. Hər kod yalnız bir dəfə istifadə edilə bilər."
+                        },
+                        "buttons": {
+                            "accountAdded": "Hesabı Əlavə Etdim",
+                            "back": "Geri",
+                            "verify": "Təsdiqlə",
+                            "verifying": "Təsdiqlənir...",
+                            "download": "Yüklə",
+                            "complete": "Quraşdırmanı Tamamla"
+                        },
+                        "validation": {
+                            "validCode": "Zəhmət olmasa etibarlı 6 rəqəmli kod daxil edin"
+                        },
+                        "messages": {
+                            "setupFailed": "2FA quraşdırmaq uğursuz oldu",
+                            "setupError": "2FA quraşdırmasını başlatmaq uğursuz oldu. Zəhmət olmasa yenidən cəhd edin.",
+                            "verifyFailed": "Doğrulama uğursuz oldu",
+                            "verifyError": "Doğrulama uğursuz oldu",
+                            "keyCopied": "Quraşdırma açarı panoya kopyalandı",
+                            "codesDownloaded": "Ehtiyat kodları yükləndi"
+                        },
+                        "download": {
+                            "title": "Nitrokit İki Faktorlu Doğrulama Ehtiyat Kodları",
+                            "warning": "VACİB: Bu kodları təhlükəsiz bir yerdə saxlayın.\nHər kod yalnız bir dəfə istifadə edilə bilər.",
+                            "generatedOn": "Yaradılma tarixi: {date}"
+                        }
+                    }
+                }
+            },
+            "status": {
+                "title": "Hesab Vəziyyəti",
+                "email": {
+                    "label": "E-poçt",
+                    "verified": "Təsdiqlənib",
+                    "unverified": "Təsdiqlənməyib"
+                },
+                "phone": {
+                    "label": "Telefon",
+                    "verified": "Təsdiqlənib",
+                    "notAdded": "Əlavə Edilməyib"
+                },
+                "twoFactor": {
+                    "label": "İki Faktorlu Doğ.",
+                    "enabled": "Aktivdir",
+                    "disabled": "Deaktivdir"
+                },
+                "password": {
+                    "label": "Şifrə",
+                    "notSet": "Təyin Edilməyib",
+                    "strong": "Güclü",
+                    "medium": "Orta",
+                    "weak": "Zəif",
+                    "unknown": "Naməlum"
+                },
+                "sessions": {
+                    "label": "Aktiv Sessiyalar",
+                    "active": "{count} Aktiv"
+                },
+                "accountType": {
+                    "label": "Hesab Növü"
+                }
+            },
+            "personalInfo": {
+                "title": "Şəxsi Məlumatlar",
+                "fullName": "Tam Ad",
+                "emailAddress": "E-poçt Ünvanı",
+                "phoneNumber": "Telefon Nömrəsi",
+                "memberSince": "Üzv Olduğu Tarix",
+                "notSet": "Təyin edilməyib",
+                "notAdded": "Əlavə edilməyib"
+            },
+            "recentActivity": {
+                "title": "Son Fəaliyyət",
+                "currentSession": "Cari Sessiya",
+                "sessionLogin": "Sessiya Girişi",
+                "accountCreated": "Hesab Yaradıldı",
+                "emailVerified": "E-poçt Təsdiqləndi",
+                "connectedProvider": "{provider} Qoşuldu",
+                "activeTill": "{date} tarixinə qədər aktivdir",
+                "welcome": "Platformaya xoş gəlmisiniz!",
+                "emailConfirmed": "E-poçt ünvanı təsdiqləndi",
+                "accountLinked": "{type} hesabı bağlandı",
+                "noActivity": "Son fəaliyyət yoxdur",
+                "viewAllSessions": "Bütün Sessiyalara Bax",
+                "statuses": {
+                    "active": "Aktiv",
+                    "completed": "Tamamlandı",
+                    "expiresSoon": "Tezliklə Bitir",
+                    "unknown": "Naməlum"
+                }
+            },
+            "linkedAccounts": {
+                "title": "Bağlı Hesablar",
+                "connect": "Hesabı Qoş",
+                "disconnect": "Bağlantını Kəs",
+                "alreadyConnected": "Bu platforma artıq qoşulub",
+                "accountBelongsToOther": "Bu hesab başqa istifadəçiyə aiddir",
+                "cannotRemoveLast": "Yeganə doğrulama metodunuzu silə bilməzsiniz. Zəhmət olmasa əvvəlcə şifrə təyin edin.",
+                "linkSuccess": "Hesab uğurla bağlandı",
+                "unlinkSuccess": "Hesab bağlantısı uğurla kəsildi",
+                "linkError": "Hesabı bağlamaq uğursuz oldu",
+                "unlinkError": "Hesab bağlantısını kəsmək uğursuz oldu",
+                "hasPassword": "Şifrəsi Var",
+                "canRemoveAccounts": "Hesabları Silə Bilər"
+            },
+            "profile": {
+                "page": {
+                    "title": "Profil Ayarları",
+                    "description": "Şəxsi məlumatlarınızı və profil ayarlarınızı idarə edin",
+                    "heading": "Profil Ayarları",
+                    "subheading": "Şəxsi məlumatlarınızı və profil seçimlərinizi idarə edin."
+                },
+                "accountLinking": {
+                    "title": "Qoşulmuş Hesablar",
+                    "description": "Daha asan daxil olmaq üçün sosial hesablarınızı bağlayın",
+                    "warning": {
+                        "keepOneAccount": "Girişi qorumaq üçün ən azı bir hesabı bağlı saxlayın"
+                    },
+                    "status": {
+                        "activeSince": "{date, date, ::yyyyMMMd} tarixindən aktivdir",
+                        "recently": "bu yaxınlarda"
+                    },
+                    "buttons": {
+                        "connect": "Qoş",
+                        "disconnect": "Bağlantını Kəs",
+                        "connecting": "Qoşulur...",
+                        "removing": "Silinir..."
+                    },
+                    "messages": {
+                        "connectFailed": "Hesabı qoşmaq uğursuz oldu",
+                        "disconnectSuccess": "Hesab bağlantısı uğurla kəsildi",
+                        "disconnectFailed": "Hesab bağlantısını kəsmək uğursuz oldu",
+                        "cannotRemoveLast": "Son qoşulmuş hesabı silmək mümkün deyil"
+                    }
+                },
+                "preferences": {
+                    "title": "Seçimlər",
+                    "description": "Dil və tema seçimlərinizi fərdiləşdirin",
+                    "language": {
+                        "label": "Dil",
+                        "placeholder": "Dil seçin",
+                        "flagAlt": "{language} bayrağı"
+                    },
+                    "theme": {
+                        "label": "Tema",
+                        "placeholder": "Tema seçin",
+                        "options": {
+                            "light": "Açıq",
+                            "dark": "Tünd",
+                            "system": "Sistem"
+                        }
+                    },
+                    "buttons": {
+                        "save": "Seçimləri Yadda Saxla",
+                        "cancel": "Ləğv Et"
+                    },
+                    "messages": {
+                        "changeTypes": {
+                            "language": "Dil",
+                            "theme": "Tema"
+                        },
+                        "themeUpdateSuccess": "Tema uğurla yeniləndi!",
+                        "languageUpdateSuccess": "Dil yeniləndi! Yönləndirilir...",
+                        "updateSuccess": "Seçimlər uğurla yeniləndi!",
+                        "updateFailed": "Seçimləri yeniləmək uğursuz oldu",
+                        "updateError": "Nəsə səhv getdi. Zəhmət olmasa yenidən cəhd edin."
+                    }
+                },
+                "profileInformation": {
+                    "title": "Profil Məlumatları",
+                    "description": "Şəxsi məlumatlarınızı və profil şəklinizi yeniləyin",
+                    "firstName": {
+                        "label": "Ad",
+                        "placeholder": "Adınızı daxil edin"
+                    },
+                    "lastName": {
+                        "label": "Soyad",
+                        "placeholder": "Soyadınızı daxil edin"
+                    },
+                    "email": {
+                        "label": "E-poçt Ünvanı"
+                    },
+                    "image": {
+                        "label": "Profil Şəkli",
+                        "removeSuccess": "Profil şəkli uğurla silindi!",
+                        "removeError": "Profil şəklini silmək uğursuz oldu."
+                    },
+                    "phone": {
+                        "label": "Telefon Nömrəsi",
+                        "placeholder": "+1 234 567 8900",
+                        "status": {
+                            "verified": "Təsdiqlənib",
+                            "notVerified": "Təsdiqlənməyib",
+                            "verificationRequired": "Doğrulama Tələb Olunur"
+                        },
+                        "validation": {
+                            "invalidFormat": "Zəhmət olmasa etibarlı beynəlxalq telefon nömrəsi daxil edin (7-15 rəqəm)"
+                        },
+                        "verification": {
+                            "sendCode": "Kod Göndər",
+                            "codeSent": "Doğrulama kodu göndərildi!",
+                            "sendError": "Doğrulama kodu göndərmək uğursuz oldu",
+                            "enterCode": "Zəhmət olmasa doğrulama kodunu daxil edin",
+                            "enterCodeTitle": "Doğrulama Kodunu Daxil Edin",
+                            "codeInstructions": "{flag} {phone} ünvanına 6 rəqəmli kod göndərdik",
+                            "yourPhone": "telefonunuza",
+                            "verify": "Təsdiqlə",
+                            "success": "Telefon nömrəsi uğurla təsdiqləndi!",
+                            "verifyError": "Kodu təsdiqləmək uğursuz oldu",
+                            "requirement": "Təhlükəsizlik xüsusiyyətləri və bildirişlər üçün telefon doğrulaması tələb olunur",
+                            "cooldown": "{seconds}s"
+                        }
+                    },
+                    "form": {
+                        "saveChanges": "Dəyişiklikləri Yadda Saxla",
+                        "cancel": "Ləğv Et",
+                        "changeTypes": {
+                            "firstName": "Ad",
+                            "lastName": "Soyad",
+                            "phone": "Telefon Nömrəsi",
+                            "image": "Profil Şəkli"
+                        }
+                    },
+                    "messages": {
+                        "updateSuccess": "Profil uğurla yeniləndi!",
+                        "updateFailed": "Profili yeniləmək uğursuz oldu",
+                        "updateError": "Nəsə səhv getdi. Zəhmət olmasa yenidən cəhd edin.",
+                        "phoneUpdated": "Telefon nömrəsi yeniləndi. Zəhmət olmasa yeni nömrənizi təsdiqləyin."
+                    }
+                }
+            },
+            "email": {
+                "verify": {
+                    "page": {
+                        "title": "E-poçtu Təsdiqlə",
+                        "description": "Hesabınızı qorumaq üçün e-poçt ünvanınızı təsdiqləyin",
+                        "heading": "E-poçt Ünvanını Təsdiqlə",
+                        "subheading": "Hesabınızı qorumaq və bütün xüsusiyyətləri aktivləşdirmək üçün e-poçt ünvanınızı təsdiqləməliyik."
+                    },
+                    "tokenVerification": {
+                        "loading": {
+                            "title": "E-poçt Təsdiqlənir...",
+                            "description": "E-poçt ünvanınızı təsdiqləyərkən zəhmət olmasa gözləyin."
+                        },
+                        "success": {
+                            "title": "E-poçt Təsdiqləndi!",
+                            "description": "E-poçt ünvanınız uğurla təsdiqləndi.",
+                            "redirecting": "Hesab ayarlarına yönləndirilir..."
+                        },
+                        "error": {
+                            "title": "Doğrulama Uğursuz Oldu",
+                            "description": "Doğrulama linki yanlışdır və ya müddəti bitib.",
+                            "tryAgain": "Yenidən Cəhd Et"
+                        }
+                    },
+                    "emailStatus": {
+                        "title": "E-poçt Vəziyyəti",
+                        "primaryEmail": "Əsas e-poçt ünvanı",
+                        "unverified": "Təsdiqlənməyib"
+                    },
+                    "form": {
+                        "title": "E-poçtunuzu Təsdiqləyin",
+                        "description": "{email} ünvanına təsdiqləmə e-poçtu göndərmək üçün aşağıdakı düyməyə klikləyin",
+                        "alerts": {
+                            "emailSent": "Təsdiqləmə e-poçtu göndərildi! Gələnlər qutunuzu yoxlayın və təsdiqləmə linkinə klikləyin. Görməsəniz, spam qovluğunuzu yoxlayın.",
+                            "notVerified": "E-poçt ünvanınız təsdiqlənməyib. E-poçtunuzu təsdiqləyənə qədər bəzi xüsusiyyətlər məhdudlaşdırıla bilər."
+                        },
+                        "buttons": {
+                            "sendVerification": "Təsdiqləmə E-poçtu Göndər",
+                            "resendEmail": "Təsdiqləmə E-poçtunu Yenidən Göndər",
+                            "resendCountdown": "{seconds}s sonra yenidən göndər"
+                        },
+                        "status": {
+                            "pleaseWait": "Yenidən göndərmədən əvvəl zəhmət olmasa {seconds} saniyə gözləyin"
+                        }
+                    },
+                    "help": {
+                        "title": "Kömək lazımdır?",
+                        "tips": {
+                            "checkSpam": "Spam/lazımsız qovluğunuzu yoxlayın",
+                            "checkEmail": "{email} ünvanının düzgün olduğundan əmin olun",
+                            "linkExpiry": "Təsdiqləmə linkinin müddəti 24 saat sonra bitir",
+                            "contactSupport": "Problemlər davam edərsə dəstəklə əlaqə saxlayın"
+                        }
+                    },
+                    "messages": {
+                        "emailSent": "Təsdiqləmə e-poçtu göndərildi! Gələnlər qutunuzu yoxlayın.",
+                        "sendFailed": "Təsdiqləmə e-poçtu göndərmək uğursuz oldu",
+                        "sendError": "Təsdiqləmə e-poçtu göndərilərkən xəta baş verdi",
+                        "verifySuccess": "E-poçt uğurla təsdiqləndi!",
+                        "verifyFailed": "E-poçtu təsdiqləmək uğursuz oldu",
+                        "verifyError": "E-poçt təsdiqlənərkən xəta baş verdi"
+                    }
+                },
+                "page": {
+                    "title": "E-poçtu Təsdiqlə",
+                    "description": "Hesabınızı qorumaq üçün e-poçt ünvanınızı təsdiqləyin",
+                    "heading": "E-poçt Ünvanını Təsdiqlə",
+                    "subheading": "Hesabınızı qorumaq və bütün xüsusiyyətləri aktivləşdirmək üçün e-poçt ünvanınızı təsdiqləməliyik."
+                }
+            }
+        }
+    },
+    "components": {
+        "imageUpload": {
+            "buttons": {
+                "upload": "Şəkil Yüklə",
+                "uploading": "Yüklənir...",
+                "remove": "Sil",
+                "removing": "Silinir..."
+            },
+            "requirements": {
+                "maxSize": "Maksimum fayl ölçüsü: 5MB",
+                "formats": "Dəstəklənən formatlar: JPEG, PNG, WebP",
+                "aspectRatio": "Tövsiyə olunur: Kvadrat aspekt nisbəti"
+            },
+            "errors": {
+                "invalidFileType": "Yanlış fayl növü. Zəhmət olmasa JPEG, PNG və ya WebP şəkli seçin.",
+                "fileTooLarge": "Fayl çox böyükdür. Maksimum ölçü 5MB-dır."
+            },
+            "messages": {
+                "uploadSuccess": "Şəkil uğurla yükləndi!",
+                "uploadFailed": "Yükləmə uğursuz oldu",
+                "uploadError": "Yükləmə uğursuz oldu. Zəhmət olmasa yenidən cəhd edin.",
+                "removeError": "Şəkli silmək uğursuz oldu. Zəhmət olmasa yenidən cəhd edin."
+            }
+        },
+        "passwordStrength": {
+            "labels": {
+                "passwordStrength": "Şifrə Gücü",
+                "requirements": "Tələblər",
+                "strengthPercentage": "{percentage}% güc"
+            },
+            "strength": {
+                "veryWeak": "Çox Zəif",
+                "weak": "Zəif",
+                "medium": "Orta",
+                "strong": "Güclü"
+            },
+            "requirements": {
+                "minLength": "Ən azı 8 simvol",
+                "uppercase": "Bir böyük hərf",
+                "lowercase": "Bir kiçik hərf",
+                "number": "Bir rəqəm",
+                "special": "Bir xüsusi simvol"
+            },
+            "warning": {
+                "title": "Zəif Şifrə",
+                "description": "Şifrəniz zəifdir. Daha yaxşı təhlükəsizlik üçün daha güclü bir şifrə istifadə etməyi düşünün."
+            }
+        }
     }
 }

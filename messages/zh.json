@@ -2,332 +2,1340 @@
     "app": {
         "name": "Nitrokit",
         "shortName": "Nitrokit",
-        "description": "Nitrokit 入門模板"
+        "description": "Nitrokit 入门模板"
     },
     "common": {
-        "loading": "載入中...",
-        "error": "發生錯誤",
-        "notFound": "找不到您要查找的頁面",
-        "backToHome": "返回首頁",
+        "loading": "加载中...",
+        "error": "发生错误",
+        "notFound": "找不到您要查找的页面",
+        "backToHome": "返回首页",
         "goBack": "返回",
-        "ok": "確定",
+        "ok": "确定",
         "cancel": "取消",
         "yes": "是",
         "no": "否",
-        "continue": "繼續",
+        "continue": "继续",
         "submit": "提交",
-        "contactUs": "聯絡我們",
+        "contactUs": "联系我们",
         "github": {
             "button": {
                 "title": "GitHub",
                 "loading": "...",
-                "ready": "準備就緒"
+                "ready": "准备就绪"
             },
             "dropdown": {
                 "star": {
-                    "title": "為儲存庫加上星號",
-                    "description": "表達您的支持",
-                    "badge": "星號"
+                    "title": "Star Repository",
+                    "description": "表示您的支持",
+                    "badge": "Star"
                 },
                 "fork": {
-                    "title": "Fork 儲存庫",
-                    "description": "建立您自己的副本",
+                    "title": "Fork Repository",
+                    "description": "创建您自己的副本",
                     "badge": "Fork"
                 },
                 "view": {
-                    "title": "檢視儲存庫",
-                    "description": "瀏覽原始碼",
-                    "badge": "檢視"
+                    "title": "View Repository",
+                    "description": "浏览源代码",
+                    "badge": "查看"
                 }
             }
         },
         "vercel": {
             "button": {
-                "title": "部署至 Vercel",
-                "ready": "準備就緒"
+                "title": "部署到 Vercel",
+                "ready": "准备就绪"
             },
             "dropdown": {
                 "deploy": {
                     "title": "快速部署",
-                    "description": "一鍵部署",
+                    "description": "一键部署",
                     "badge": "部署"
                 },
                 "preview": {
-                    "title": "預覽示範",
-                    "description": "查看即時範例",
-                    "badge": "即時"
+                    "title": "预览演示",
+                    "description": "查看实时示例",
+                    "badge": "实时"
                 },
                 "docs": {
-                    "title": "文件",
-                    "description": "學習部署",
-                    "badge": "文件"
+                    "title": "文档",
+                    "description": "学习部署",
+                    "badge": "文档"
                 }
             }
         }
     },
     "auth": {
-        "signin": "登入",
-        "signup": "註冊",
-        "signout": "登出",
-        "signinWithGoogle": "使用 Google 登入",
-        "signinWithFacebook": "使用 Facebook 登入",
-        "signinWithTwitter": "使用 Twitter 登入",
-        "signinWithGithub": "使用 Github 登入",
-        "signinWithApple": "使用 Apple 登入",
-        "signinWithLinkedIn": "使用 LinkedIn 登入",
-        "signinWithGitlab": "使用 GitLab 登入",
-        "signinWithMicrosoft": "使用 Microsoft 登入",
-        "signinWithInstagram": "使用 Instagram 登入",
-        "email": "電子郵件",
-        "password": "密碼",
-        "confirmPassword": "確認密碼",
-        "forgotPassword": "忘記密碼",
+        "signin": {
+            "title": "登录",
+            "description": "欢迎回来！请登录以继续。",
+            "signing": "登录中...",
+            "success": "登录成功！",
+            "error": "登录失败",
+            "invalidCredentials": "邮箱或密码无效"
+        },
+        "signup": {
+            "title": "注册",
+            "description": "加入我们以访问独家功能和内容。",
+            "creating": "创建账户中...",
+            "success": "账户创建成功！",
+            "successDescription": "您现在可以使用您的凭据登录。",
+            "error": "创建账户失败",
+            "verificationRequired": "账户已创建！请验证您的邮箱",
+            "verificationDescription": "我们已向 {email} 发送了验证链接。请检查您的收件箱并点击链接以激活您的账户。"
+        },
+        "verifyEmail": {
+            "title": "检查您的邮箱",
+            "description": "我们已向您发送了验证链接",
+            "sentTo": "邮件已发送至：",
+            "instructions": {
+                "check": "1. 检查您的邮箱收件箱",
+                "click": "2. 点击邮件中的验证链接",
+                "spam": "3. 如果没有看到邮件，请不要忘记检查您的垃圾邮件文件夹"
+            },
+            "resend": "重新发送验证邮件",
+            "backToSignin": "返回登录"
+        },
+        "emailVerification": {
+            "title": "邮箱已验证！✅",
+            "description": "您的邮箱已成功验证。您现在可以登录您的账户。",
+            "signIn": "登录您的账户"
+        },
+        "resetPassword": {
+            "sendEmail": "发送重置邮件",
+            "emailSent": "重置邮件已发送！",
+            "checkEmail": "请检查您的邮箱 {email}",
+            "error": "发送重置邮件失败",
+            "emailSentTitle": "检查您的邮箱",
+            "emailSentDescription": "我们已向您发送了密码重置链接",
+            "emailSentTo": "重置邮件已发送至：",
+            "instructions": {
+                "check": "1. 检查您的邮箱收件箱",
+                "click": "2. 点击邮件中的重置链接",
+                "expire": "3. 链接将在 1 小时后失效"
+            },
+            "newPassword": "新密码",
+            "confirmPassword": "确认密码",
+            "confirm": "重置密码",
+            "success": "密码重置成功！",
+            "successDescription": "您现在可以使用新密码登录",
+            "confirmError": "重置密码失败",
+            "newPasswordTitle": "设置新密码",
+            "newPasswordDescription": "在下方输入您的新密码",
+            "invalidResetLink": {
+                "title": "无效的重置链接",
+                "description": "密码重置链接无效或已过期。"
+            }
+        },
+        "signout": "退出登录",
+        "signinWithGoogle": "使用 Google 登录",
+        "signinWithFacebook": "使用 Facebook 登录",
+        "signinWithTwitter": "使用 Twitter 登录",
+        "signinWithGithub": "使用 Github 登录",
+        "signinWithApple": "使用 Apple 登录",
+        "signinWithLinkedIn": "使用 LinkedIn 登录",
+        "signinWithGitlab": "使用 GitLab 登录",
+        "signinWithMicrosoft": "使用 Microsoft 登录",
+        "signinWithInstagram": "使用 Instagram 登录",
+        "firstName": "名字",
+        "lastName": "姓氏",
+        "email": "邮箱",
+        "password": "密码",
+        "confirmPassword": "确认密码",
+        "forgotPassword": "忘记密码",
         "name": "您的姓名",
-        "privacyPolicy": "我們的隱私政策",
-        "slogan1": "讓您的專案有個 <span>火箭 🚀</span> 般的開始！",
-        "slogan2": "使用 <link>Nitrokit</link> 節省時間，專注於開發...",
-        "account": "帳戶資訊",
-        "support": "支援",
-        "billing": "我的發票"
+        "privacyPolicy": "我们的隐私政策",
+        "slogan1": "让您的项目<span>火箭般 🚀</span>启动！",
+        "slogan2": "使用 <link>Nitrokit</link> 节省时间，专注于开发..."
     },
     "signin": {
-        "title": "登入 {appName}",
-        "description": "歡迎回來！請登入以繼續",
-        "dontHaveAnAccount": "還沒有帳戶？ <link>註冊</link>。"
+        "title": "登录 {appName}",
+        "description": "欢迎回来！请登录以继续",
+        "dontHaveAnAccount": "还没有账户？<link>注册</link>。"
     },
     "signup": {
-        "title": "註冊 {appName}",
-        "alreadyHaveAnAccount": "已經有帳戶了？ <link>登入</link>。"
+        "title": "注册 {appName}",
+        "alreadyHaveAnAccount": "已经有账户了？<link>登录</link>。"
     },
     "resetPassword": {
-        "title": "重設您的密碼",
-        "description": "輸入您的電子郵件地址並按照說明重設您的密碼。",
-        "emailSent": "電子郵件已傳送！請檢查您的電子郵件。"
+        "title": "重置您的密码",
+        "description": "输入您的邮箱地址并按照说明重置您的密码。",
+        "emailSent": "邮件已发送！请检查您的邮箱。"
     },
     "validation": {
         "required": {
-            "name": "姓名欄位為必填。",
-            "email": "電子郵件欄位為必填。",
-            "message": "訊息欄位為必填。",
-            "password": "密碼欄位為必填。",
-            "confirmPassword": "確認密碼欄位為必填。"
+            "firstName": "名字字段为必填项。",
+            "lastName": "姓氏字段为必填项。",
+            "name": "姓名字段为必填项。",
+            "email": "邮箱字段为必填项。",
+            "message": "消息字段为必填项。",
+            "password": "密码字段为必填项。",
+            "confirmPassword": "确认密码字段为必填项。"
         },
         "invalid": {
-            "email": "無效的電子郵件地址。"
+            "email": "无效的邮箱地址。"
         },
         "password": {
-            "confirm": "密碼不符。",
-            "minLength": "密碼長度至少需 {min} 個字元。",
-            "maxLength": "密碼長度最多可 {max} 個字元。",
-            "uppercase": "必須包含至少一個大寫字母。",
-            "lowercase": "必須包含至少一個小寫字母。",
-            "number": "必須包含至少一個數字。",
-            "special": "必須包含至少一個特殊字元。",
+            "confirm": "密码不匹配。",
+            "minLength": "密码长度至少为 {min} 个字符。",
+            "maxLength": "密码长度最多为 {max} 个字符。",
+            "uppercase": "必须包含至少一个大写字母。",
+            "lowercase": "必须包含至少一个小写字母。",
+            "number": "必须包含至少一个数字。",
+            "special": "必须包含至少一个特殊字符。",
             "weak": "弱",
-            "okay": "中等",
+            "okay": "一般",
             "good": "良好",
-            "strong": "強",
+            "strong": "强",
             "tooShort": "太短"
         }
     },
     "placeholder": {
-        "enterYourName": "輸入您的姓名",
-        "enterYourEmail": "輸入您的電子郵件地址",
-        "enterYourMessage": "輸入您的訊息",
-        "enterYourPassword": "輸入您的密碼",
-        "confirmYourPassword": "確認您的密碼"
+        "enterYourName": "输入您的姓名",
+        "enterYourFirstName": "输入您的名字",
+        "enterYourLastName": "输入您的姓氏",
+        "enterYourEmail": "输入您的邮箱地址",
+        "enterYourMessage": "输入您的消息",
+        "enterYourPassword": "输入您的密码",
+        "confirmYourPassword": "确认您的密码"
     },
     "notFound": {
-        "title": "找不到頁面",
-        "description": "錯誤！您要查找的頁面不存在。",
-        "returnHome": "返回首頁"
+        "title": "页面未找到",
+        "description": "错误！您要查找的页面不存在。",
+        "returnHome": "返回首页"
     },
     "error": {
-        "title": "發生錯誤",
-        "retry": "重試"
+        "title": "发生错误",
+        "retry": "重试"
     },
     "metadata": {
-        "applicationName": "Nitrokit 入門模板",
-        "description": "Nitrokit 入門模板",
+        "applicationName": "Nitrokit 入门模板",
+        "description": "Nitrokit 入门模板",
         "author": "Mustafa Genç",
-        "title": "Nitrokit 入門模板"
+        "title": "Nitrokit 入门模板"
     },
     "navigation": {
-        "title": "選單",
-        "home": "首頁",
-        "about": "關於我們",
+        "title": "导航",
+        "home": "首页",
+        "about": "关于",
         "services": {
-            "title": "Services",
-            "description": "Professional development services to realize your vision.",
-            "premium_badge": "Premium Services",
+            "title": "服务",
+            "description": "专业的开发服务，助您实现愿景。",
+            "premium_badge": "高级服务",
             "web_development": {
-                "title": "Web Development",
-                "description": "Full-stack web applications with modern technologies"
+                "title": "Web 开发",
+                "description": "使用现代技术开发全栈 Web 应用"
             },
             "ui_ux_design": {
-                "title": "UI/UX Design",
-                "description": "Beautiful and intuitive user interfaces"
+                "title": "UI/UX 设计",
+                "description": "美观直观的用户界面"
             },
             "performance_optimization": {
-                "title": "Performance Optimization",
-                "description": "Lightning-fast applications and websites"
+                "title": "性能优化",
+                "description": "闪电般快速的应用和网站"
             },
             "team_augmentation": {
-                "title": "Team Augmentation",
-                "description": "Scale your development team with experts"
+                "title": "团队增强",
+                "description": "通过专家扩展您的开发团队"
             },
             "badges": {
-                "popular": "Popular",
-                "new": "New"
+                "popular": "热门",
+                "new": "最新"
             }
         },
         "components": {
-            "title": "Components",
-            "subtitle": "UI Components",
-            "description": "Reusable components built with Radix UI and Tailwind CSS",
-            "view_all": "View all components",
-            "count": "50+ Components",
+            "title": "组件",
+            "subtitle": "UI 组件",
+            "description": "使用 Radix UI 和 Tailwind CSS 构建的可重用组件",
+            "view_all": "查看所有组件",
+            "count": "50+ 组件",
             "button_components": {
-                "title": "Button Components",
-                "description": "Interactive buttons with variants and states"
+                "title": "按钮组件",
+                "description": "具有变体和状态的交互式按钮"
             },
             "navigation_components": {
-                "title": "Navigation",
-                "description": "Menu and navigation components"
+                "title": "导航",
+                "description": "菜单和导航组件"
             },
             "data_display": {
-                "title": "Data Display",
-                "description": "Tables, cards, and data visualization"
+                "title": "数据显示",
+                "description": "表格、卡片和数据可视化"
             },
             "form_controls": {
-                "title": "Form Controls",
-                "description": "Input fields, selects, and form elements"
+                "title": "表单控件",
+                "description": "输入字段、选择框和表单元素"
             },
             "modals_overlays": {
-                "title": "Modals & Overlays",
-                "description": "Dialogs, tooltips, and overlay components"
+                "title": "模态框和覆盖层",
+                "description": "对话框、工具提示和覆盖层组件"
             },
             "feedback": {
-                "title": "Feedback",
-                "description": "Alerts, notifications, and loading states"
+                "title": "反馈",
+                "description": "警报、通知和加载状态"
             },
             "categories": {
-                "form": "Form",
-                "layout": "Layout",
-                "display": "Display",
-                "overlay": "Overlay",
-                "feedback": "Feedback"
+                "form": "表单",
+                "layout": "布局",
+                "display": "显示",
+                "overlay": "覆盖层",
+                "feedback": "反馈"
             }
         },
-        "blog": "部落格",
-        "pricing": "價格方案",
-        "contact": "聯絡我們"
+        "blog": "博客",
+        "pricing": "价格",
+        "contact": "联系"
     },
     "home": {
         "banner": {
-            "badge": "New",
-            "text": "v2.0.1 已發布！查看新功能"
+            "badge": "最新",
+            "text": "v2.0.1 已发布！查看新功能"
         },
         "hero": {
             "title": {
                 "primary": "使用 Nitrokit",
-                "secondary": "快速開發"
+                "secondary": "快速开发"
             },
-            "subtitle": "專為新創公司設計的入門套件，可快速有效地啟動其網站，包含所有必要的整合、頁面和元件。"
+            "subtitle": "专为初创公司设计的入门工具包，可快速有效地启动其网站，包括所有必要的集成、页面和组件。"
         },
         "stats": {
             "components": {
-                "number": "50個以上",
-                "label": "UI Components"
+                "number": "50+",
+                "label": "UI 组件"
             },
             "typescript": {
                 "number": "TypeScript",
-                "label": "完整支援"
+                "label": "完全支持"
             },
             "modern": {
-                "number": "現代化",
-                "label": "技術堆疊"
+                "number": "现代",
+                "label": "技术栈"
             }
         },
         "technologies": {
-            "title": "由現代技術驅動"
+            "title": "由现代技术驱动"
         },
         "cta": {
-            "title": "準備好開始了嗎？",
-            "description": "在 GitHub 上查看我們的專案，加速您的開發流程。",
-            "github": "GitHub 儲存庫",
-            "docs": "文件"
+            "title": "准备好开始了吗？",
+            "description": "在 GitHub 上查看我们的项目，加快您的开发过程。",
+            "github": "GitHub 仓库",
+            "docs": "文档"
         }
     },
     "about": {
-        "title": "關於我們",
-        "description": "這是一個使用 Next.js 建置的入門模板。此模板旨在快速有效地開發 Web 應用程式。"
+        "title": "关于我们",
+        "description": "这是一个使用 Next.js 构建的入门模板。此模板旨在快速有效地开发 Web 应用程序。"
     },
     "services": {
-        "title": "我們的服務",
-        "description": "了解更多關於我們提供的服務。"
+        "title": "我们的服务",
+        "description": "了解更多关于我们提供的服务。"
     },
     "pricing": {
-        "title": "價格方案",
-        "subtitle": "與您一同成長的價格方案",
-        "description": "選擇一個經濟實惠的方案，其中包含吸引受眾、建立客戶忠誠度和推動銷售的最佳功能。",
-        "monthly": "月繳",
-        "yearly": "年繳",
-        "annual-payment": "年繳可<span>節省 20%</span>。",
+        "title": "价格",
+        "subtitle": "与您共同成长的定价",
+        "description": "选择一个经济实惠的计划，其中包含吸引受众、建立客户忠诚度和推动销售的最佳功能。",
+        "monthly": "按月",
+        "yearly": "按年",
+        "annual-payment": "<span>年度账单可节省 20%</span>。",
         "pricePerMonth": "月",
         "pricePerYear": "年",
-        "purchasePlan": "購買方案",
+        "purchasePlan": "购买计划",
         "freelancer": {
-            "title": "自由工作者",
-            "description": "為客戶提供最佳工作的基本要素。"
+            "title": "自由职业者",
+            "description": "为客户提供最佳工作的基础。"
         },
         "startup": {
-            "title": "新創公司",
-            "description": "一個能與您快速發展的業務一同擴展的方案。"
+            "title": "初创公司",
+            "description": "一个与您快速发展的业务共同扩展的计划。"
         },
         "pro": {
-            "title": "專業版",
-            "description": "為您不斷發展的公司提供專屬支援和基礎設施。"
+            "title": "专业版",
+            "description": "为您的成长型公司提供专门的支持和基础设施。"
         },
         "enterprise": {
-            "title": "企業版",
-            "description": "聯絡我們以取得企業需求的客製化報價。"
+            "title": "企业版",
+            "description": "联系我们获取您的企业需求的定制报价。"
         },
         "features": {
-            "5products": "5 個產品",
-            "25products": "10 個產品",
-            "unlimitedproducts": "無限產品",
-            "upto1000subscribers": "最多 1000 個訂閱者",
-            "upto10000subscribers": "最多 10,000 個訂閱者",
-            "unlimitedsubscribers": "無限訂閱者",
-            "48hoursupport": "48 小時支援",
-            "24hoursupport": "24 小時支援",
-            "1hoursupport": "1 小時支援",
+            "5products": "5 个产品",
+            "25products": "10 个产品",
+            "unlimitedproducts": "无限产品",
+            "upto1000subscribers": "最多 1000 个订阅者",
+            "upto10000subscribers": "最多 10,000 个订阅者",
+            "unlimitedsubscribers": "无限订阅者",
+            "48hoursupport": "48 小时支持",
+            "24hoursupport": "24 小时支持",
+            "1hoursupport": "1 小时支持",
             "basicanalytics": "基本分析",
-            "advancedanalytics": "進階分析",
-            "xhoursupport": "{count} 小時支援",
-            "marketingautomations": "行銷自動化"
+            "advancedanalytics": "高级分析",
+            "xhoursupport": "{count} 小时支持",
+            "marketingautomations": "营销自动化"
         }
     },
     "blog": {
-        "title": "部落格",
-        "description": "關注我們的部落格以獲取最新消息和更新。"
+        "title": "博客",
+        "description": "关注我们的博客以获取最新消息和更新。"
     },
     "contact": {
-        "title": "聯絡我們",
-        "description": "填寫以下表格以聯絡我們。",
+        "title": "联系",
+        "description": "填写下面的表格与我们联系。",
         "name": "您的姓名",
-        "email": "您的電子郵件地址",
-        "message": "您的訊息",
-        "send": "傳送",
-        "messageSent": "訊息已成功傳送！"
+        "email": "您的邮箱地址",
+        "message": "您的消息",
+        "send": "发送",
+        "messageSent": "消息发送成功！"
     },
     "privacy": {
-        "title": "隱私政策",
-        "description": "了解更多關於我們的隱私政策。"
+        "title": "隐私政策",
+        "description": "了解更多关于我们的隐私政策。"
     },
     "footer": {
-        "copyright": "© 版權所有 {year, date, ::yyyy} {name} ♥️ 保留一切權利。",
-        "poweredBy": "技术支持：<link>Ekipisi</link>"
+        "copyright": "© 版权所有 {year, date, ::yyyy} {name} ♥️ 保留所有权利。",
+        "poweredBy": "由 <link>Ekipisi</link> 提供支持"
+    },
+    "cookies": {
+        "banner": {
+            "title": "我们使用 Cookie",
+            "description": "我们使用 Cookie 来增强您的浏览体验、提供个性化内容并分析我们的流量。",
+            "learnMore": "了解更多",
+            "accept": "全部接受",
+            "reject": "全部拒绝",
+            "settings": "Cookie 设置"
+        },
+        "settings": {
+            "title": "Cookie 偏好设置",
+            "description": "选择您要接受的 Cookie。您可以随时更改这些设置。",
+            "save": "保存偏好设置",
+            "rejectAll": "全部拒绝"
+        },
+        "categories": {
+            "necessary": {
+                "title": "必要的 Cookie",
+                "description": "这些 Cookie 对于网站正常运行至关重要。它们无法被禁用。"
+            },
+            "analytics": {
+                "title": "分析 Cookie",
+                "description": "这些 Cookie 通过匿名收集和报告信息来帮助我们了解访问者如何与我们的网站互动。"
+            },
+            "marketing": {
+                "title": "营销 Cookie",
+                "description": "这些 Cookie 用于投放与您和您的兴趣更相关的广告。"
+            },
+            "functional": {
+                "title": "功能性 Cookie",
+                "description": "这些 Cookie 可实现增强的功能和个性化，例如记住您的偏好设置。"
+            }
+        }
+    },
+    "dashboard": {
+        "navigation": {
+            "dashboard": "仪表盘",
+            "invoices": "发票",
+            "support": "支持",
+            "settings": "设置",
+            "account": "账户信息",
+            "billing": "我的发票"
+        },
+        "userMenu": {
+            "defaultUserName": "用户",
+            "sections": {
+                "account": "账户",
+                "other": "其他"
+            },
+            "account": {
+                "overview": "账户概览",
+                "profile": "个人资料设置",
+                "notifications": "通知"
+            },
+            "security": {
+                "title": "安全",
+                "overview": "安全概览",
+                "password": "密码",
+                "twoFactor": "双因素认证",
+                "sessions": "活动会话"
+            },
+            "other": {
+                "billing": "账单和计划",
+                "settings": "设置"
+            }
+        },
+        "account": {
+            "navigation": {
+                "overview": "概览",
+                "profile": "个人资料",
+                "account": "账户",
+                "notifications": "通知",
+                "security": {
+                    "title": "安全",
+                    "password": "密码和安全",
+                    "twoFactor": "双因素认证",
+                    "twoFactorShort": "双因素认证",
+                    "sessions": "活动会话"
+                },
+                "mobile": {
+                    "title": "账户设置",
+                    "openMenu": "打开菜单"
+                }
+            },
+            "notifications": {
+                "page": {
+                    "title": "通知设置",
+                    "description": "管理您的通知偏好设置",
+                    "heading": "通知设置",
+                    "subheading": "选择您希望如何收到有关账户活动和更新的通知。"
+                },
+                "headers": {
+                    "notificationType": "通知类型",
+                    "email": "邮箱",
+                    "sms": "短信",
+                    "inApp": "应用内"
+                },
+                "badges": {
+                    "recommended": "推荐"
+                },
+                "categories": {
+                    "security": {
+                        "title": "安全和账户",
+                        "settings": {
+                            "accountSecurity": {
+                                "label": "账户安全",
+                                "description": "重要的安全更新和警报"
+                            },
+                            "loginAlerts": {
+                                "label": "登录警报",
+                                "description": "来自不同设备的新登录通知"
+                            },
+                            "passwordChanges": {
+                                "label": "密码更改",
+                                "description": "密码重置和更改确认"
+                            },
+                            "profileUpdates": {
+                                "label": "个人资料更新",
+                                "description": "个人资料和账户信息更改"
+                            }
+                        }
+                    },
+                    "marketing": {
+                        "title": "营销和更新",
+                        "settings": {
+                            "marketing": {
+                                "label": "营销通讯",
+                                "description": "产品更新和促销内容"
+                            },
+                            "newsletters": {
+                                "label": "新闻通讯",
+                                "description": "每周新闻通讯和提示"
+                            },
+                            "systemUpdates": {
+                                "label": "系统更新",
+                                "description": "应用更新和维护通知"
+                            }
+                        }
+                    }
+                },
+                "quickActions": {
+                    "title": "快速操作",
+                    "description": "为每个渠道启用或禁用所有通知",
+                    "enableAllEmail": "启用所有邮件通知",
+                    "essentialOnly": "仅限必要通知",
+                    "enableAllEmailSuccess": "所有邮件通知已启用",
+                    "essentialOnlySuccess": "必要通知已启用"
+                },
+                "form": {
+                    "savePreferences": "保存偏好设置",
+                    "saving": "保存中...",
+                    "saveSuccess": "通知偏好设置保存成功！",
+                    "saveError": "保存偏好设置失败。请重试。"
+                }
+            },
+            "overview": {
+                "title": "账户概览",
+                "description": "您的账户状态和安全概览一目了然。",
+                "editProfile": "编辑个人资料"
+            },
+            "security": {
+                "recommendations": {
+                    "title": "安全建议",
+                    "verifyEmail": {
+                        "title": "验证您的邮箱",
+                        "description": "通过验证您的邮箱地址来保护您的账户",
+                        "action": "验证邮箱"
+                    },
+                    "setPassword": {
+                        "title": "设置账户密码",
+                        "description": "添加密码以启用备用登录方法并增强安全性",
+                        "action": "设置密码"
+                    },
+                    "weakPassword": {
+                        "title": "检测到弱密码",
+                        "description": "您的密码较弱，应进行更新",
+                        "action": "更改密码"
+                    },
+                    "enableTwoFactor": {
+                        "title": "启用双因素认证",
+                        "description": "为您的账户添加额外的安全层",
+                        "action": "启用 2FA"
+                    },
+                    "addPhone": {
+                        "title": "添加电话号码",
+                        "description": "添加电话号码以进行账户恢复",
+                        "action": "添加电话"
+                    }
+                },
+                "score": {
+                    "title": "安全评分",
+                    "subtitle": "整体安全",
+                    "excellent": "优秀",
+                    "good": "良好",
+                    "needsImprovement": "需要改进",
+                    "settings": "安全设置"
+                },
+                "page": {
+                    "title": "安全设置",
+                    "description": "管理您的账户安全设置",
+                    "heading": "安全",
+                    "subheading": "管理您的密码、双因素认证和活动会话"
+                },
+                "passwordStrength": {
+                    "strong": "强",
+                    "medium": "中",
+                    "weak": "弱",
+                    "unknown": "未知"
+                },
+                "status": {
+                    "enabled": "已启用",
+                    "disabled": "已禁用"
+                },
+                "cards": {
+                    "password": {
+                        "title": "密码",
+                        "description": "更改您的密码并管理密码安全"
+                    },
+                    "twoFactor": {
+                        "title": "双因素认证",
+                        "description": "为您的账户添加额外的安全层"
+                    },
+                    "sessions": {
+                        "title": "活动会话",
+                        "description": "查看和管理您的活动登录会话",
+                        "activeCount": "{count} 个活动"
+                    }
+                },
+                "overview": {
+                    "title": "安全概览",
+                    "description": "您账户安全的当前状态",
+                    "metrics": {
+                        "passwordStrength": "密码强度",
+                        "twoFactorAuth": "双因素认证",
+                        "twoFactorOn": "开启",
+                        "twoFactorOff": "关闭",
+                        "activeSessions": "活动会话"
+                    }
+                },
+                "password": {
+                    "page": {
+                        "title": "安全设置",
+                        "description": "管理您的账户安全和密码设置",
+                        "heading": "安全设置",
+                        "subheading": "管理您的密码和账户安全偏好设置。"
+                    },
+                    "deleteAccount": {
+                        "card": {
+                            "title": "危险区域",
+                            "description": "永久删除您的账户和所有相关数据。此操作无法撤销。"
+                        },
+                        "warning": {
+                            "title": "将删除的内容：",
+                            "items": {
+                                "profile": "您的个人资料和个人信息",
+                                "files": "所有上传的文件和个人资料图片",
+                                "settings": "账户设置和偏好设置",
+                                "sessions": "登录会话和已连接的账户",
+                                "data": "所有相关数据和历史记录"
+                            }
+                        },
+                        "buttons": {
+                            "deleteAccount": "删除我的账户",
+                            "cancel": "取消",
+                            "deleteForever": "永久删除账户"
+                        },
+                        "dialog": {
+                            "title": "删除账户",
+                            "description": "您即将永久删除您的账户 ({email})。此操作无法撤销，您的所有数据将永久丢失。"
+                        },
+                        "form": {
+                            "password": {
+                                "label": "确认密码 *",
+                                "placeholder": "输入您的密码",
+                                "required": "密码为必填项"
+                            },
+                            "confirmText": {
+                                "label": "输入“DELETE”以确认 *",
+                                "placeholder": "在此处输入 DELETE"
+                            }
+                        },
+                        "validation": {
+                            "confirmRequired": "请输入“DELETE”以确认",
+                            "mustTypeDelete": "您必须准确输入“DELETE”"
+                        },
+                        "messages": {
+                            "deleteSuccess": "账户删除成功。正在重定向...",
+                            "deleteFailed": "删除账户失败",
+                            "deleteError": "发生错误。请重试。"
+                        }
+                    },
+                    "create": {
+                        "card": {
+                            "title": "创建密码"
+                        },
+                        "form": {
+                            "password": {
+                                "label": "新密码 *",
+                                "placeholder": "输入您的新密码"
+                            },
+                            "confirmPassword": {
+                                "label": "确认密码 *",
+                                "placeholder": "确认您的密码"
+                            }
+                        },
+                        "validation": {
+                            "password": {
+                                "minLength": "密码长度至少为 8 个字符",
+                                "uppercase": "密码必须包含至少一个大写字母",
+                                "lowercase": "密码必须包含至少一个小写字母",
+                                "number": "密码必须包含至少一个数字",
+                                "special": "密码必须包含至少一个特殊字符"
+                            },
+                            "confirmPassword": {
+                                "required": "请确认您的密码",
+                                "mismatch": "密码不匹配"
+                            }
+                        },
+                        "buttons": {
+                            "create": "创建密码",
+                            "creating": "创建密码中..."
+                        },
+                        "help": {
+                            "requirements": "您的密码必须满足所有要求且强度至少为中等。"
+                        },
+                        "messages": {
+                            "createSuccess": "密码创建成功！",
+                            "createFailed": "创建密码失败",
+                            "createError": "发生错误"
+                        }
+                    },
+                    "change": {
+                        "card": {
+                            "title": "更改密码",
+                            "description": "更新您的密码以确保账户安全。密码更改后您将收到通知。"
+                        },
+                        "form": {
+                            "currentPassword": {
+                                "label": "当前密码 *",
+                                "placeholder": "输入您的当前密码"
+                            },
+                            "newPassword": {
+                                "label": "新密码 *",
+                                "placeholder": "输入您的新密码"
+                            },
+                            "confirmPassword": {
+                                "label": "确认新密码 *",
+                                "placeholder": "确认您的新密码"
+                            }
+                        },
+                        "validation": {
+                            "currentPassword": {
+                                "required": "当前密码为必填项"
+                            },
+                            "newPassword": {
+                                "minLength": "新密码长度至少为 8 个字符",
+                                "uppercase": "密码必须包含至少一个大写字母",
+                                "lowercase": "密码必须包含至少一个小写字母",
+                                "number": "密码必须包含至少一个数字",
+                                "special": "密码必须包含至少一个特殊字符"
+                            },
+                            "confirmPassword": {
+                                "required": "请确认您的新密码",
+                                "mismatch": "密码不匹配"
+                            }
+                        },
+                        "buttons": {
+                            "update": "更新密码",
+                            "updating": "更新中...",
+                            "cancel": "取消"
+                        },
+                        "messages": {
+                            "updateSuccess": "密码更新成功！",
+                            "updateFailed": "更新密码失败",
+                            "errors": {
+                                "unauthorized": "请重新登录以继续",
+                                "invalidData": "密码数据无效。请检查您的输入。",
+                                "incorrectPassword": "当前密码不正确",
+                                "serverError": "服务器错误。请稍后重试。",
+                                "generic": "发生错误。请重试。"
+                            }
+                        }
+                    }
+                },
+                "sessions": {
+                    "page": {
+                        "title": "活动会话",
+                        "description": "管理您的活动登录会话和安全",
+                        "heading": "活动会话",
+                        "subheading": "查看和管理当前已登录您账户的所有设备和应用程序。"
+                    },
+                    "client": {
+                        "heading": "活动会话",
+                        "subheading": "监控和管理您在所有设备上的活动登录会话。",
+                        "securityAlert": "为安全起见，如果您看到任何不熟悉的会话，请立即终止它们并更改您的密码。",
+                        "currentSessions": {
+                            "title": "当前会话",
+                            "description": "这些是当前已登录您账户的设备和浏览器。"
+                        },
+                        "securityTips": {
+                            "title": "安全提示",
+                            "subtitle": "保护您的账户：",
+                            "tips": {
+                                "publicComputers": "使用公共计算机时务必退出登录",
+                                "reviewSessions": "定期查看您的活动会话",
+                                "twoFactor": "启用双因素认证以获得额外安全",
+                                "strongPasswords": "使用强大且唯一的密码",
+                                "signOutAll": "如果您怀疑未经授权的访问，请退出所有会话"
+                            }
+                        }
+                    },
+                    "table": {
+                        "sessionCount": "{count} 个活动会话{plural}",
+                        "headers": {
+                            "deviceBrowser": "设备和浏览器",
+                            "location": "位置",
+                            "lastActive": "上次活动",
+                            "status": "状态",
+                            "actions": "操作"
+                        },
+                        "status": {
+                            "current": "当前",
+                            "active": "活动"
+                        },
+                        "buttons": {
+                            "terminateAllOthers": "终止所有其他会话",
+                            "terminateAll": "终止所有会话",
+                            "terminate": "终止",
+                            "cancel": "取消"
+                        },
+                        "dialogs": {
+                            "terminateAll": {
+                                "title": "终止所有其他会话？",
+                                "description": "这将使您从所有其他设备和浏览器中退出。您的当前会话将保持活动状态。"
+                            },
+                            "terminateSession": {
+                                "title": "终止会话？",
+                                "description": "这将使此设备/浏览器退出。用户需要重新登录。"
+                            }
+                        },
+                        "messages": {
+                            "currentSessionTerminated": "当前会话已终止。正在重定向到登录...",
+                            "sessionTerminated": "会话终止成功",
+                            "terminateFailed": "终止会话失败",
+                            "terminateError": "终止会话失败",
+                            "allOthersTerminated": "所有其他会话终止成功",
+                            "allSessionsTerminated": "所有会话已终止。正在重定向到登录...",
+                            "terminateAllFailed": "终止会话失败",
+                            "terminateAllError": "终止会话失败"
+                        }
+                    }
+                },
+                "twoFactor": {
+                    "page": {
+                        "title": "双因素认证",
+                        "description": "管理您的双因素认证设置以增强安全性",
+                        "heading": "双因素认证",
+                        "subheading": "通过 2FA 为您的账户添加额外的安全层。"
+                    },
+                    "backupCodes": {
+                        "dialog": {
+                            "title": "备用码",
+                            "description": "如果您无法访问您的身份验证器应用，请使用这些代码。"
+                        },
+                        "alerts": {
+                            "verifyIdentity": "要查看或重新生成您的备用码，您需要验证您的身份。",
+                            "invalidatePrevious": "生成新代码将使所有以前的备用码失效。",
+                            "saveCodes": "将这些代码保存在安全的位置。每个代码只能使用一次。"
+                        },
+                        "form": {
+                            "verificationCode": {
+                                "label": "输入您的身份验证码：",
+                                "placeholder": "000000"
+                            }
+                        },
+                        "buttons": {
+                            "generateNew": "生成新的备用码",
+                            "cancel": "取消",
+                            "generate": "生成",
+                            "generating": "生成中...",
+                            "download": "下载",
+                            "regenerate": "重新生成"
+                        },
+                        "validation": {
+                            "validCode": "请输入有效的 6 位代码"
+                        },
+                        "messages": {
+                            "downloaded": "备用码已下载",
+                            "regenerateSuccess": "新的备用码已生成",
+                            "regenerateFailed": "重新生成代码失败",
+                            "regenerateError": "重新生成代码失败"
+                        },
+                        "download": {
+                            "title": "Nitrokit 双因素认证备用码",
+                            "warning": "重要提示：将这些代码保存在安全的位置。\n每个代码只能使用一次。",
+                            "generatedOn": "生成于：{date}"
+                        }
+                    },
+                    "disable": {
+                        "dialog": {
+                            "title": "禁用双因素认证",
+                            "description": "这将从您的账户中移除额外的安全层。"
+                        },
+                        "warning": {
+                            "message": "警告：禁用 2FA 将使您的账户安全性降低。我们建议保持启用状态。"
+                        },
+                        "form": {
+                            "verificationCode": {
+                                "label": "输入您的身份验证码以确认：",
+                                "placeholder": "000000"
+                            }
+                        },
+                        "buttons": {
+                            "cancel": "取消",
+                            "disable": "禁用 2FA",
+                            "disabling": "禁用中..."
+                        },
+                        "validation": {
+                            "validCode": "请输入有效的 6 位代码"
+                        },
+                        "messages": {
+                            "disableFailed": "禁用 2FA 失败",
+                            "disableError": "禁用 2FA 失败"
+                        }
+                    },
+                    "management": {
+                        "card": {
+                            "title": "双因素认证",
+                            "description": "通过双因素认证为您的账户添加额外的安全层。"
+                        },
+                        "status": {
+                            "title": "双因素认证",
+                            "enabled": "于 {date} 启用",
+                            "notEnabled": "未启用",
+                            "unknown": "未知"
+                        },
+                        "badge": {
+                            "enabled": "已启用",
+                            "disabled": "已禁用"
+                        },
+                        "alerts": {
+                            "recommendation": "我们建议启用双因素认证以确保您的账户安全。",
+                            "protected": "您的账户受双因素认证保护。",
+                            "backupCodes": "您还剩 {count} 个备用码。"
+                        },
+                        "buttons": {
+                            "enable": "启用双因素认证",
+                            "viewBackupCodes": "查看备用码",
+                            "disable": "禁用 2FA"
+                        },
+                        "howItWorks": {
+                            "title": "工作原理",
+                            "steps": {
+                                "download": "下载 Google Authenticator 或类似应用",
+                                "scan": "扫描二维码或输入设置密钥",
+                                "verify": "输入验证码以完成设置",
+                                "backup": "将您的备用码保存在安全的位置"
+                            }
+                        },
+                        "messages": {
+                            "enableSuccess": "双因素认证已成功启用！",
+                            "disableSuccess": "双因素认证已禁用。"
+                        }
+                    },
+                    "setup": {
+                        "steps": {
+                            "loading": {
+                                "title": "正在设置 2FA...",
+                                "description": "请稍候，我们正在准备您的设置..."
+                            },
+                            "setup": {
+                                "title": "设置双因素认证",
+                                "description": "使用您的身份验证器应用扫描二维码"
+                            },
+                            "verify": {
+                                "title": "验证您的设置",
+                                "description": "输入来自您的身份验证器应用的代码"
+                            },
+                            "backup": {
+                                "title": "保存您的备用码",
+                                "description": "将这些代码保存在安全的位置"
+                            }
+                        },
+                        "qr": {
+                            "alt": "2FA 二维码"
+                        },
+                        "manualEntry": {
+                            "label": "无法扫描？手动输入此密钥："
+                        },
+                        "verify": {
+                            "codeLabel": "输入来自您应用的 6 位代码：",
+                            "codePlaceholder": "000000"
+                        },
+                        "backup": {
+                            "warning": "将这些备用码保存在安全的位置。每个代码只能使用一次。"
+                        },
+                        "buttons": {
+                            "accountAdded": "我已添加账户",
+                            "back": "返回",
+                            "verify": "验证",
+                            "verifying": "验证中...",
+                            "download": "下载",
+                            "complete": "完成设置"
+                        },
+                        "validation": {
+                            "validCode": "请输入有效的 6 位代码"
+                        },
+                        "messages": {
+                            "setupFailed": "设置 2FA 失败",
+                            "setupError": "初始化 2FA 设置失败。请重试。",
+                            "verifyFailed": "验证失败",
+                            "verifyError": "验证失败",
+                            "keyCopied": "设置密钥已复制到剪贴板",
+                            "codesDownloaded": "备用码已下载"
+                        },
+                        "download": {
+                            "title": "Nitrokit 双因素认证备用码",
+                            "warning": "重要提示：将这些代码保存在安全的位置。\n每个代码只能使用一次。",
+                            "generatedOn": "生成于：{date}"
+                        }
+                    }
+                }
+            },
+            "status": {
+                "title": "账户状态",
+                "email": {
+                    "label": "邮箱",
+                    "verified": "已验证",
+                    "unverified": "未验证"
+                },
+                "phone": {
+                    "label": "电话",
+                    "verified": "已验证",
+                    "notAdded": "未添加"
+                },
+                "twoFactor": {
+                    "label": "双因素认证",
+                    "enabled": "已启用",
+                    "disabled": "已禁用"
+                },
+                "password": {
+                    "label": "密码",
+                    "notSet": "未设置",
+                    "strong": "强",
+                    "medium": "中",
+                    "weak": "弱",
+                    "unknown": "未知"
+                },
+                "sessions": {
+                    "label": "活动会话",
+                    "active": "{count} 个活动"
+                },
+                "accountType": {
+                    "label": "账户类型"
+                }
+            },
+            "personalInfo": {
+                "title": "个人信息",
+                "fullName": "全名",
+                "emailAddress": "邮箱地址",
+                "phoneNumber": "电话号码",
+                "memberSince": "注册时间",
+                "notSet": "未设置",
+                "notAdded": "未添加"
+            },
+            "recentActivity": {
+                "title": "最近活动",
+                "currentSession": "当前会话",
+                "sessionLogin": "会话登录",
+                "accountCreated": "账户已创建",
+                "emailVerified": "邮箱已验证",
+                "connectedProvider": "{provider} 已连接",
+                "activeTill": "活动至 {date}",
+                "welcome": "欢迎使用平台！",
+                "emailConfirmed": "邮箱地址已确认",
+                "accountLinked": "{type} 账户已关联",
+                "noActivity": "最近没有活动",
+                "viewAllSessions": "查看所有会话",
+                "statuses": {
+                    "active": "活动",
+                    "completed": "已完成",
+                    "expiresSoon": "即将过期",
+                    "unknown": "未知"
+                }
+            },
+            "linkedAccounts": {
+                "title": "已关联账户",
+                "connect": "关联账户",
+                "disconnect": "断开连接",
+                "alreadyConnected": "此平台已连接",
+                "accountBelongsToOther": "此账户属于其他用户",
+                "cannotRemoveLast": "您无法移除唯一的身份验证方法。请先设置密码。",
+                "linkSuccess": "账户关联成功",
+                "unlinkSuccess": "账户断开连接成功",
+                "linkError": "关联账户失败",
+                "unlinkError": "断开账户连接失败",
+                "hasPassword": "有密码",
+                "canRemoveAccounts": "可以移除账户"
+            },
+            "profile": {
+                "page": {
+                    "title": "个人资料设置",
+                    "description": "管理您的个人信息和个人资料设置",
+                    "heading": "个人资料设置",
+                    "subheading": "管理您的个人信息和个人资料偏好设置。"
+                },
+                "accountLinking": {
+                    "title": "已连接账户",
+                    "description": "关联您的社交账户以便更轻松地登录",
+                    "warning": {
+                        "keepOneAccount": "至少保持一个账户连接以维持访问权限"
+                    },
+                    "status": {
+                        "activeSince": "自 {date, date, ::yyyyMMMd} 起活动",
+                        "recently": "最近"
+                    },
+                    "buttons": {
+                        "connect": "连接",
+                        "disconnect": "断开连接",
+                        "connecting": "连接中...",
+                        "removing": "移除中..."
+                    },
+                    "messages": {
+                        "connectFailed": "连接账户失败",
+                        "disconnectSuccess": "账户断开连接成功",
+                        "disconnectFailed": "断开账户连接失败",
+                        "cannotRemoveLast": "无法移除最后一个已连接的账户"
+                    }
+                },
+                "preferences": {
+                    "title": "偏好设置",
+                    "description": "自定义您的语言和主题偏好设置",
+                    "language": {
+                        "label": "语言",
+                        "placeholder": "选择语言",
+                        "flagAlt": "{language} 旗帜"
+                    },
+                    "theme": {
+                        "label": "主题",
+                        "placeholder": "选择主题",
+                        "options": {
+                            "light": "浅色",
+                            "dark": "深色",
+                            "system": "系统"
+                        }
+                    },
+                    "buttons": {
+                        "save": "保存偏好设置",
+                        "cancel": "取消"
+                    },
+                    "messages": {
+                        "changeTypes": {
+                            "language": "语言",
+                            "theme": "主题"
+                        },
+                        "themeUpdateSuccess": "主题更新成功！",
+                        "languageUpdateSuccess": "语言已更新！正在重定向...",
+                        "updateSuccess": "偏好设置更新成功！",
+                        "updateFailed": "更新偏好设置失败",
+                        "updateError": "发生错误。请重试。"
+                    }
+                },
+                "profileInformation": {
+                    "title": "个人资料信息",
+                    "description": "更新您的个人信息和个人资料图片",
+                    "firstName": {
+                        "label": "名字",
+                        "placeholder": "输入您的名字"
+                    },
+                    "lastName": {
+                        "label": "姓氏",
+                        "placeholder": "输入您的姓氏"
+                    },
+                    "email": {
+                        "label": "邮箱地址"
+                    },
+                    "image": {
+                        "label": "个人资料图片",
+                        "removeSuccess": "个人资料图片移除成功！",
+                        "removeError": "移除个人资料图片失败。"
+                    },
+                    "phone": {
+                        "label": "电话号码",
+                        "placeholder": "+1 234 567 8900",
+                        "status": {
+                            "verified": "已验证",
+                            "notVerified": "未验证",
+                            "verificationRequired": "需要验证"
+                        },
+                        "validation": {
+                            "invalidFormat": "请输入有效的国际电话号码（7-15 位数字）"
+                        },
+                        "verification": {
+                            "sendCode": "发送验证码",
+                            "codeSent": "验证码已发送！",
+                            "sendError": "发送验证码失败",
+                            "enterCode": "请输入验证码",
+                            "enterCodeTitle": "输入验证码",
+                            "codeInstructions": "我们已向 {flag} {phone} 发送了一个 6 位数的验证码",
+                            "yourPhone": "您的手机",
+                            "verify": "验证",
+                            "success": "电话号码验证成功！",
+                            "verifyError": "验证码验证失败",
+                            "requirement": "为了安全功能和通知，需要进行电话验证",
+                            "cooldown": "{seconds}秒"
+                        }
+                    },
+                    "form": {
+                        "saveChanges": "保存更改",
+                        "cancel": "取消",
+                        "changeTypes": {
+                            "firstName": "名字",
+                            "lastName": "姓氏",
+                            "phone": "电话号码",
+                            "image": "个人资料图片"
+                        }
+                    },
+                    "messages": {
+                        "updateSuccess": "个人资料更新成功！",
+                        "updateFailed": "更新个人资料失败",
+                        "updateError": "发生错误。请重试。",
+                        "phoneUpdated": "电话号码已更新。请验证您的新号码。"
+                    }
+                }
+            },
+            "email": {
+                "verify": {
+                    "page": {
+                        "title": "验证邮箱",
+                        "description": "验证您的邮箱地址以保护您的账户",
+                        "heading": "验证邮箱地址",
+                        "subheading": "我们需要验证您的邮箱地址以保护您的账户并启用所有功能。"
+                    },
+                    "tokenVerification": {
+                        "loading": {
+                            "title": "验证邮箱中...",
+                            "description": "请稍候，我们正在验证您的邮箱地址。"
+                        },
+                        "success": {
+                            "title": "邮箱已验证！",
+                            "description": "您的邮箱地址已成功验证。",
+                            "redirecting": "正在重定向到账户设置..."
+                        },
+                        "error": {
+                            "title": "验证失败",
+                            "description": "验证链接无效或已过期。",
+                            "tryAgain": "重试"
+                        }
+                    },
+                    "emailStatus": {
+                        "title": "邮箱状态",
+                        "primaryEmail": "主要邮箱地址",
+                        "unverified": "未验证"
+                    },
+                    "form": {
+                        "title": "验证您的邮箱",
+                        "description": "点击下面的按钮向 {email} 发送验证邮件",
+                        "alerts": {
+                            "emailSent": "验证邮件已发送！检查您的收件箱并点击验证链接。如果您没有看到，请检查您的垃圾邮件文件夹。",
+                            "notVerified": "您的邮箱地址未经验证。在您验证邮箱之前，某些功能可能会受到限制。"
+                        },
+                        "buttons": {
+                            "sendVerification": "发送验证邮件",
+                            "resendEmail": "重新发送验证邮件",
+                            "resendCountdown": "{seconds}秒后重新发送"
+                        },
+                        "status": {
+                            "pleaseWait": "请等待 {seconds} 秒后再重新发送"
+                        }
+                    },
+                    "help": {
+                        "title": "需要帮助？",
+                        "tips": {
+                            "checkSpam": "检查您的垃圾邮件/垃圾邮件文件夹",
+                            "checkEmail": "确保 {email} 正确",
+                            "linkExpiry": "验证链接将在 24 小时后失效",
+                            "contactSupport": "如果问题仍然存在，请联系支持人员"
+                        }
+                    },
+                    "messages": {
+                        "emailSent": "验证邮件已发送！检查您的收件箱。",
+                        "sendFailed": "发送验证邮件失败",
+                        "sendError": "发送验证邮件时发生错误",
+                        "verifySuccess": "邮箱验证成功！",
+                        "verifyFailed": "验证邮箱失败",
+                        "verifyError": "验证邮箱时发生错误"
+                    }
+                },
+                "page": {
+                    "title": "验证邮箱",
+                    "description": "验证您的邮箱地址以保护您的账户",
+                    "heading": "验证邮箱地址",
+                    "subheading": "我们需要验证您的邮箱地址以保护您的账户并启用所有功能。"
+                }
+            }
+        }
+    },
+    "components": {
+        "imageUpload": {
+            "buttons": {
+                "upload": "上传图片",
+                "uploading": "上传中...",
+                "remove": "移除",
+                "removing": "移除中..."
+            },
+            "requirements": {
+                "maxSize": "最大文件大小：5MB",
+                "formats": "支持格式：JPEG、PNG、WebP",
+                "aspectRatio": "推荐：方形宽高比"
+            },
+            "errors": {
+                "invalidFileType": "文件类型无效。请选择 JPEG、PNG 或 WebP 图片。",
+                "fileTooLarge": "文件过大。最大大小为 5MB。"
+            },
+            "messages": {
+                "uploadSuccess": "图片上传成功！",
+                "uploadFailed": "上传失败",
+                "uploadError": "上传失败。请重试。",
+                "removeError": "移除图片失败。请重试。"
+            }
+        },
+        "passwordStrength": {
+            "labels": {
+                "passwordStrength": "密码强度",
+                "requirements": "要求",
+                "strengthPercentage": "{percentage}% 强度"
+            },
+            "strength": {
+                "veryWeak": "非常弱",
+                "weak": "弱",
+                "medium": "中",
+                "strong": "强"
+            },
+            "requirements": {
+                "minLength": "至少 8 个字符",
+                "uppercase": "一个大写字母",
+                "lowercase": "一个小写字母",
+                "number": "一个数字",
+                "special": "一个特殊字符"
+            },
+            "warning": {
+                "title": "弱密码",
+                "description": "您的密码较弱。考虑使用更强的密码以获得更好的安全性。"
+            }
+        }
     }
 }
