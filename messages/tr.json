@@ -14,7 +14,7 @@
         "cancel": "İptal",
         "yes": "Evet",
         "no": "Hayır",
-        "continue": "Devam et",
+        "continue": "Devam Et",
         "submit": "Gönder",
         "contactUs": "Bize Ulaşın",
         "github": {
@@ -26,17 +26,17 @@
             "dropdown": {
                 "star": {
                     "title": "Depoyu Yıldızla",
-                    "description": "Desteğini göster",
+                    "description": "Desteğinizi gösterin",
                     "badge": "Yıldızla"
                 },
                 "fork": {
-                    "title": "Depoyu Fork'la",
-                    "description": "Kendi kopyanı oluştur",
-                    "badge": "Fork'la"
+                    "title": "Depoyu Forkla",
+                    "description": "Kendi kopyanızı oluşturun",
+                    "badge": "Forkla"
                 },
                 "view": {
                     "title": "Depoyu Görüntüle",
-                    "description": "Kaynak koduna göz at",
+                    "description": "Kaynak koduna göz atın",
                     "badge": "Görüntüle"
                 }
             }
@@ -49,25 +49,84 @@
             "dropdown": {
                 "deploy": {
                     "title": "Hızlı Dağıtım",
-                    "description": "Tek tıkla dağıt",
+                    "description": "Tek tıkla dağıtın",
                     "badge": "Dağıt"
                 },
                 "preview": {
-                    "title": "Demoyu Ön İzle",
-                    "description": "Canlı örneği gör",
+                    "title": "Demoyu Önizle",
+                    "description": "Canlı örneği görün",
                     "badge": "Canlı"
                 },
                 "docs": {
-                    "title": "Dokümantasyon",
-                    "description": "Dağıtımı öğren",
+                    "title": "Belgeler",
+                    "description": "Dağıtımı öğrenin",
                     "badge": "Belgeler"
                 }
             }
         }
     },
     "auth": {
-        "signin": "Giriş Yap",
-        "signup": "Kayıt Ol",
+        "signin": {
+            "title": "Giriş Yap",
+            "description": "Tekrar hoş geldiniz! Devam etmek için lütfen giriş yapın.",
+            "signing": "Giriş yapılıyor...",
+            "success": "Başarıyla giriş yapıldı!",
+            "error": "Giriş yapılamadı",
+            "invalidCredentials": "Geçersiz e-posta veya şifre"
+        },
+        "signup": {
+            "title": "Kayıt Ol",
+            "description": "Özel özelliklere ve içeriğe erişmek için bize katılın.",
+            "creating": "Hesap oluşturuluyor...",
+            "success": "Hesap başarıyla oluşturuldu!",
+            "successDescription": "Artık kimlik bilgilerinizle giriş yapabilirsiniz.",
+            "error": "Hesap oluşturulamadı",
+            "verificationRequired": "Hesap oluşturuldu! Lütfen e-postanızı doğrulayın",
+            "verificationDescription": "{email} adresine bir doğrulama bağlantısı gönderdik. Lütfen gelen kutunuzu kontrol edin ve hesabınızı etkinleştirmek için bağlantıya tıklayın."
+        },
+        "verifyEmail": {
+            "title": "E-postanızı kontrol edin",
+            "description": "Size bir doğrulama bağlantısı gönderdik",
+            "sentTo": "E-posta gönderildi:",
+            "instructions": {
+                "check": "1. E-posta gelen kutunuzu kontrol edin",
+                "click": "2. E-postadaki doğrulama bağlantısına tıklayın",
+                "spam": "3. Göremezseniz spam klasörünüzü kontrol etmeyi unutmayın"
+            },
+            "resend": "Doğrulama e-postasını yeniden gönder",
+            "backToSignin": "Giriş yapmaya geri dön"
+        },
+        "emailVerification": {
+            "title": "E-posta Doğrulandı! ✅",
+            "description": "E-postanız başarıyla doğrulandı. Artık hesabınıza giriş yapabilirsiniz.",
+            "signIn": "Hesabınıza Giriş Yapın"
+        },
+        "resetPassword": {
+            "sendEmail": "Sıfırlama E-postası Gönder",
+            "emailSent": "Sıfırlama e-postası gönderildi!",
+            "checkEmail": "Lütfen {email} adresindeki e-postanızı kontrol edin",
+            "error": "Sıfırlama e-postası gönderilemedi",
+            "emailSentTitle": "E-postanızı kontrol edin",
+            "emailSentDescription": "Size bir şifre sıfırlama bağlantısı gönderdik",
+            "emailSentTo": "Sıfırlama e-postası gönderildi:",
+            "instructions": {
+                "check": "1. E-posta gelen kutunuzu kontrol edin",
+                "click": "2. E-postadaki sıfırlama bağlantısına tıklayın",
+                "expire": "3. Bağlantı 1 saat içinde sona erecek"
+            },
+            "newPassword": "Yeni Şifre",
+            "confirmPassword": "Yeni Şifreyi Onayla",
+            "confirm": "Şifreyi Sıfırla",
+            "success": "Şifre başarıyla sıfırlandı!",
+            "successDescription": "Artık yeni şifrenizle giriş yapabilirsiniz",
+            "confirmError": "Şifre sıfırlanamadı",
+            "newPasswordTitle": "Yeni Şifre Belirle",
+            "newPasswordDescription": "Aşağıya yeni şifrenizi girin",
+            "invalidResetLink": {
+                "title": "Geçersiz Sıfırlama Bağlantısı",
+                "description": "Şifre sıfırlama bağlantısı geçersiz veya süresi dolmuş."
+            }
+        },
         "signout": "Çıkış Yap",
         "signinWithGoogle": "Google ile Giriş Yap",
         "signinWithFacebook": "Facebook ile Giriş Yap",
@@ -78,6 +137,8 @@
         "signinWithGitlab": "GitLab ile Giriş Yap",
         "signinWithMicrosoft": "Microsoft ile Giriş Yap",
         "signinWithInstagram": "Instagram ile Giriş Yap",
+        "firstName": "Ad",
+        "lastName": "Soyad",
         "email": "E-posta",
         "password": "Şifre",
         "confirmPassword": "Şifreyi Onayla",
@@ -85,32 +146,31 @@
         "name": "Adınız",
         "privacyPolicy": "Gizlilik Politikamız",
         "slogan1": "Projelerinize <span>roket 🚀</span> gibi bir başlangıç yapın!",
-        "slogan2": "<link>Nitrokit</link> ile zamandan kazanın ve geliştirmeye odaklanın...",
-        "account": "Hesap bilgileri",
-        "support": "Destek",
-        "billing": "Faturalarım"
+        "slogan2": "<link>Nitrokit</link> ile zaman kazanın ve geliştirmeye odaklanın..."
     },
     "signin": {
-        "title": "{appName}'e Giriş Yap",
+        "title": "{appName} Giriş Yap",
         "description": "Tekrar hoş geldiniz! Devam etmek için lütfen giriş yapın",
-        "dontHaveAnAccount": "Hesabınız yok mu? <link>Kaydol</link>."
+        "dontHaveAnAccount": "Hesabınız yok mu? <link>Kayıt Ol</link>."
     },
     "signup": {
-        "title": "{appName}'e Kaydol",
+        "title": "{appName} için Kayıt Ol",
         "alreadyHaveAnAccount": "Zaten bir hesabınız var mı? <link>Giriş Yap</link>."
     },
     "resetPassword": {
         "title": "Şifrenizi Sıfırlayın",
-        "description": "E-posta adresinizi girin ve şifrenizi sıfırlamak için talimatları takip edin.",
+        "description": "E-posta adresinizi girin ve şifrenizi sıfırlamak için talimatları izleyin.",
         "emailSent": "E-posta gönderildi! Lütfen e-postanızı kontrol edin."
     },
     "validation": {
         "required": {
-            "name": "Ad alanı gereklidir.",
-            "email": "E-posta alanı gereklidir.",
-            "message": "Mesaj alanı gereklidir.",
-            "password": "Şifre alanı gereklidir.",
-            "confirmPassword": "Şifreyi onaylama alanı gereklidir."
+            "firstName": "Ad alanı zorunludur.",
+            "lastName": "Soyad alanı zorunludur.",
+            "name": "Ad alanı zorunludur.",
+            "email": "E-posta alanı zorunludur.",
+            "message": "Mesaj alanı zorunludur.",
+            "password": "Şifre alanı zorunludur.",
+            "confirmPassword": "Şifre onayı alanı zorunludur."
         },
         "invalid": {
             "email": "Geçersiz e-posta adresi."
@@ -124,7 +184,7 @@
             "number": "En az bir rakam içermelidir.",
             "special": "En az bir özel karakter içermelidir.",
             "weak": "zayıf",
-            "okay": "iyi sayılır",
+            "okay": "orta",
             "good": "iyi",
             "strong": "güçlü",
             "tooShort": "çok kısa"
@@ -132,10 +192,12 @@
     },
     "placeholder": {
         "enterYourName": "Adınızı girin",
+        "enterYourFirstName": "Adınızı girin",
+        "enterYourLastName": "Soyadınızı girin",
         "enterYourEmail": "E-posta adresinizi girin",
         "enterYourMessage": "Mesajınızı girin",
         "enterYourPassword": "Şifrenizi girin",
-        "confirmYourPassword": "Şifreyi onaylayın"
+        "confirmYourPassword": "Şifrenizi onaylayın"
     },
     "notFound": {
         "title": "Sayfa Bulunamadı",
@@ -144,7 +206,7 @@
     },
     "error": {
         "title": "Bir Hata Oluştu",
-        "retry": "Yeniden Dene"
+        "retry": "Tekrar Dene"
     },
     "metadata": {
         "applicationName": "Nitrokit Başlangıç Şablonu",
@@ -153,92 +215,92 @@
         "title": "Nitrokit Başlangıç Şablonu"
     },
     "navigation": {
-        "title": "Menü",
+        "title": "Navigasyon",
         "home": "Ana Sayfa",
         "about": "Hakkımızda",
         "services": {
-            "title": "Services",
-            "description": "Professional development services to realize your vision.",
-            "premium_badge": "Premium Services",
+            "title": "Hizmetler",
+            "description": "Vizyonunuzu gerçekleştirmek için profesyonel geliştirme hizmetleri.",
+            "premium_badge": "Premium Hizmetler",
             "web_development": {
-                "title": "Web Development",
-                "description": "Full-stack web applications with modern technologies"
+                "title": "Web Geliştirme",
+                "description": "Modern teknolojilerle tam yığın web uygulamaları"
             },
             "ui_ux_design": {
-                "title": "UI/UX Design",
-                "description": "Beautiful and intuitive user interfaces"
+                "title": "UI/UX Tasarımı",
+                "description": "Güzel ve sezgisel kullanıcı arayüzleri"
             },
             "performance_optimization": {
-                "title": "Performance Optimization",
-                "description": "Lightning-fast applications and websites"
+                "title": "Performans Optimizasyonu",
+                "description": "Yıldırım hızında uygulamalar ve web siteleri"
             },
             "team_augmentation": {
-                "title": "Team Augmentation",
-                "description": "Scale your development team with experts"
+                "title": "Ekip Güçlendirme",
+                "description": "Geliştirme ekibinizi uzmanlarla ölçeklendirin"
             },
             "badges": {
-                "popular": "Popular",
-                "new": "New"
+                "popular": "Popüler",
+                "new": "Yeni"
             }
         },
         "components": {
-            "title": "Components",
-            "subtitle": "UI Components",
-            "description": "Reusable components built with Radix UI and Tailwind CSS",
-            "view_all": "View all components",
-            "count": "50+ Components",
+            "title": "Bileşenler",
+            "subtitle": "UI Bileşenleri",
+            "description": "Radix UI ve Tailwind CSS ile oluşturulmuş yeniden kullanılabilir bileşenler",
+            "view_all": "Tüm bileşenleri görüntüle",
+            "count": "50+ Bileşen",
             "button_components": {
-                "title": "Button Components",
-                "description": "Interactive buttons with variants and states"
+                "title": "Düğme Bileşenleri",
+                "description": "Varyantları ve durumları olan etkileşimli düğmeler"
             },
             "navigation_components": {
-                "title": "Navigation",
-                "description": "Menu and navigation components"
+                "title": "Navigasyon",
+                "description": "Menü ve navigasyon bileşenleri"
             },
             "data_display": {
-                "title": "Data Display",
-                "description": "Tables, cards, and data visualization"
+                "title": "Veri Gösterimi",
+                "description": "Tablolar, kartlar ve veri görselleştirme"
             },
             "form_controls": {
-                "title": "Form Controls",
-                "description": "Input fields, selects, and form elements"
+                "title": "Form Kontrolleri",
+                "description": "Giriş alanları, seçimler ve form elemanları"
             },
             "modals_overlays": {
-                "title": "Modals & Overlays",
-                "description": "Dialogs, tooltips, and overlay components"
+                "title": "Modallar ve Katmanlar",
+                "description": "Diyaloglar, araç ipuçları ve katman bileşenleri"
             },
             "feedback": {
-                "title": "Feedback",
-                "description": "Alerts, notifications, and loading states"
+                "title": "Geri Bildirim",
+                "description": "Uyarılar, bildirimler ve yükleme durumları"
             },
             "categories": {
                 "form": "Form",
-                "layout": "Layout",
-                "display": "Display",
-                "overlay": "Overlay",
-                "feedback": "Feedback"
+                "layout": "Düzen",
+                "display": "Gösterim",
+                "overlay": "Katman",
+                "feedback": "Geri Bildirim"
             }
         },
         "blog": "Blog",
-        "pricing": "Fiyatlar",
+        "pricing": "Fiyatlandırma",
         "contact": "İletişim"
     },
     "home": {
         "banner": {
-            "badge": "New",
+            "badge": "Yeni",
             "text": "v2.0.1 çıktı! Yeniliklere göz atın"
         },
         "hero": {
             "title": {
                 "primary": "Nitrokit ile",
-                "secondary": "Hızla Geliştirin"
+                "secondary": "Hızlı Geliştirin"
             },
             "subtitle": "Startup'ların web sitelerini hızlı ve etkili bir şekilde başlatmaları için tasarlanmış, gerekli tüm entegrasyonları, sayfaları ve bileşenleri içeren bir başlangıç kiti."
         },
         "stats": {
             "components": {
                 "number": "50+",
-                "label": "UI Components"
+                "label": "UI Bileşenleri"
             },
             "typescript": {
                 "number": "TypeScript",
@@ -256,42 +318,42 @@
             "title": "Başlamaya hazır mısınız?",
             "description": "GitHub'daki projemize göz atın ve geliştirme sürecinizi hızlandırın.",
             "github": "GitHub Deposu",
-            "docs": "Dokümantasyon"
+            "docs": "Belgeler"
         }
     },
     "about": {
         "title": "Hakkımızda",
-        "description": "Bu, Next.js ile oluşturulmuş bir başlangıç şablonudur. Bu şablon, hızlı ve etkili bir şekilde web uygulamaları geliştirmek için tasarlanmıştır."
+        "description": "Bu, Next.js ile oluşturulmuş bir başlangıç şablonudur. Bu şablon, web uygulamalarını hızlı ve etkili bir şekilde geliştirmek için tasarlanmıştır."
     },
     "services": {
         "title": "Hizmetlerimiz",
         "description": "Sunduğumuz hizmetler hakkında daha fazla bilgi edinin."
     },
     "pricing": {
-        "title": "Fiyatlar",
-        "subtitle": "Ölçeklenebilir fiyatlandırma",
-        "description": "Hedef kitlenizle etkileşim kurmak, müşteri sadakati oluşturmak ve satışları artırmak için en iyi özelliklerle dolu uygun fiyatlı bir plan seçin.",
+        "title": "Fiyatlandırma",
+        "subtitle": "Sizinle birlikte büyüyen fiyatlandırma",
+        "description": "Kitlenizle etkileşim kurmak, müşteri sadakati oluşturmak ve satışları artırmak için en iyi özelliklerle dolu uygun fiyatlı bir plan seçin.",
         "monthly": "Aylık",
         "yearly": "Yıllık",
-        "annual-payment": "Yıllık ödemede <span>%20 tasarruf edin.</span>",
+        "annual-payment": "Yıllık faturalandırma ile <span>%20 tasarruf edin</span>.",
         "pricePerMonth": "Ay",
         "pricePerYear": "Yıl",
-        "purchasePlan": "Satın Al",
+        "purchasePlan": "Planı Satın Al",
         "freelancer": {
             "title": "Serbest Çalışan",
-            "description": "Müşterileriniz için en iyi çalışmanızı sağlamak için temel özellikler."
+            "description": "Müşterileriniz için en iyi işinizi sunmanın temelleri."
         },
         "startup": {
-            "title": "Girişim",
-            "description": "Hızla büyüyen işletmenizle ölçeklenen bir plan."
+            "title": "Startup",
+            "description": "Hızla büyüyen işinizle ölçeklenen bir plan."
         },
         "pro": {
             "title": "Profesyonel",
-            "description": "Şirketiniz için özel destek ve altyapı."
+            "description": "Büyüyen şirketiniz için oluşturulmuş özel destek ve altyapı."
         },
         "enterprise": {
             "title": "Kurumsal",
-            "description": "Kurumsal ihtiyaçlarınız için özel bir fiyat teklifi almak için bizimle iletişime geçin."
+            "description": "Kurumsal ihtiyaçlarınız için özel bir fiyat teklifi almak için iletişime geçin."
         },
         "features": {
             "5products": "5 ürün",
@@ -317,7 +379,7 @@
         "title": "İletişim",
         "description": "Bizimle iletişime geçmek için aşağıdaki formu doldurun.",
         "name": "Adınız",
-        "email": "E-posta adresiniz",
+        "email": "E-posta Adresiniz",
         "message": "Mesajınız",
         "send": "Gönder",
         "messageSent": "Mesaj başarıyla gönderildi!"
@@ -328,13 +390,13 @@
     },
     "footer": {
         "copyright": "© Telif Hakkı {year, date, ::yyyy} {name} ♥️ Tüm Hakları Saklıdır.",
-        "poweredBy": "<link>Ekipisi</link> tarafından desteklenmektedir."
+        "poweredBy": "<link>Ekipisi</link> tarafından desteklenmektedir"
     },
     "cookies": {
         "banner": {
-            "title": "Çerez kullanıyoruz",
-            "description": "Tarayıcı deneyiminizi geliştirmek, kişiselleştirilmiş içerik sunmak ve trafiğimizi analiz etmek için çerezler kullanıyoruz.",
-            "learnMore": "Daha fazla bilgi",
+            "title": "Çerezleri kullanıyoruz",
+            "description": "Tarama deneyiminizi geliştirmek, kişiselleştirilmiş içerik sunmak ve trafiğimizi analiz etmek için çerezleri kullanıyoruz.",
+            "learnMore": "Daha fazla bilgi edin",
             "accept": "Tümünü Kabul Et",
             "reject": "Tümünü Reddet",
             "settings": "Çerez Ayarları"
@@ -351,27 +413,491 @@
                 "description": "Bu çerezler web sitesinin düzgün çalışması için gereklidir. Devre dışı bırakılamazlar."
             },
             "analytics": {
-                "title": "Analitik Çerezler",
-                "description": "Bu çerezler, ziyaretçilerin web sitemizle nasıl etkileşim kurduğunu anonim olarak toplanan bilgilerle anlamamıza yardımcı olur."
+                "title": "Analitik Çerezleri",
+                "description": "Bu çerezler, bilgileri anonim olarak toplayıp raporlayarak ziyaretçilerin web sitemizle nasıl etkileşim kurduğunu anlamamıza yardımcı olur."
             },
             "marketing": {
-                "title": "Pazarlama Çerezler",
-                "description": "Bu çerezler size ve ilgi alanlarınıza daha uygun reklamlar sunmak için kullanılır."
+                "title": "Pazarlama Çerezleri",
+                "description": "Bu çerezler, size ve ilgi alanlarınıza daha uygun reklamlar sunmak için kullanılır."
             },
             "functional": {
                 "title": "İşlevsel Çerezler",
-                "description": "Bu çerezler, tercihlerinizi hatırlama gibi gelişmiş işlevsellik ve kişiselleştirme sağlar."
+                "description": "Bu çerezler, tercihlerinizi hatırlamak gibi gelişmiş işlevsellik ve kişiselleştirme sağlar."
             }
         }
     },
     "dashboard": {
         "navigation": {
-            "dashboard": "Dashboard",
-            "invoices": "Invoices",
-            "support": "Support",
-            "settings": "Settings",
-            "account": "Account information",
-            "billing": "My Invoices"
+            "dashboard": "Kontrol Paneli",
+            "invoices": "Faturalar",
+            "support": "Destek",
+            "settings": "Ayarlar",
+            "account": "Hesap bilgileri",
+            "billing": "Faturalarım"
+        },
+        "userMenu": {
+            "defaultUserName": "Kullanıcı",
+            "sections": {
+                "account": "Hesap",
+                "other": "Diğer"
+            },
+            "account": {
+                "overview": "Hesaba Genel Bakış",
+                "profile": "Profil Ayarları",
+                "notifications": "Bildirimler"
+            },
+            "security": {
+                "title": "Güvenlik",
+                "overview": "Güvenliğe Genel Bakış",
+                "password": "Şifre",
+                "twoFactor": "İki Faktörlü Kimlik Doğrulama",
+                "sessions": "Aktif Oturumlar"
+            },
+            "other": {
+                "billing": "Faturalandırma ve Planlar",
+                "settings": "Ayarlar"
+            }
+        },
+        "account": {
+            "navigation": {
+                "overview": "Genel Bakış",
+                "profile": "Profil",
+                "account": "Hesap",
+                "notifications": "Bildirimler",
+                "security": {
+                    "title": "Güvenlik",
+                    "password": "Şifre ve Güvenlik",
+                    "twoFactor": "İki Faktörlü Kimlik Doğrulama",
+                    "twoFactorShort": "İki Faktörlü Kim. Doğ.",
+                    "sessions": "Aktif Oturumlar"
+                },
+                "mobile": {
+                    "title": "Hesap Ayarları",
+                    "openMenu": "Menüyü aç"
+                }
+            },
+            "notifications": {
+                "page": {
+                    "title": "Bildirim Ayarları",
+                    "description": "Bildirim tercihlerinizi yönetin",
+                    "heading": "Bildirim Ayarları",
+                    "subheading": "Hesap etkinliği ve güncellemeler hakkında nasıl bildirim almak istediğinizi seçin."
+                },
+                "headers": {
+                    "notificationType": "Bildirim Türü",
+                    "email": "E-posta",
+                    "sms": "SMS",
+                    "inApp": "Uygulama İçi"
+                },
+                "badges": {
+                    "recommended": "Önerilen"
+                },
+                "categories": {
+                    "security": {
+                        "title": "Güvenlik ve Hesap",
+                        "settings": {
+                            "accountSecurity": {
+                                "label": "Hesap Güvenliği",
+                                "description": "Önemli güvenlik güncellemeleri ve uyarıları"
+                            },
+                            "loginAlerts": {
+                                "label": "Giriş Uyarıları",
+                                "description": "Farklı cihazlardan yeni giriş bildirimleri"
+                            },
+                            "passwordChanges": {
+                                "label": "Şifre Değişiklikleri",
+                                "description": "Şifre sıfırlama ve değişiklik onayları"
+                            },
+                            "profileUpdates": {
+                                "label": "Profil Güncellemeleri",
+                                "description": "Profil ve hesap bilgisi değişiklikleri"
+                            }
+                        }
+                    },
+                    "marketing": {
+                        "title": "Pazarlama ve Güncellemeler",
+                        "settings": {
+                            "marketing": {
+                                "label": "Pazarlama İletişimleri",
+                                "description": "Ürün güncellemeleri ve promosyon içeriği"
+                            },
+                            "newsletters": {
+                                "label": "Bültenler",
+                                "description": "Haftalık bültenler ve ipuçları"
+                            },
+                            "systemUpdates": {
+                                "label": "Sistem Güncellemeleri",
+                                "description": "Uygulama güncellemeleri ve bakım bildirimleri"
+                            }
+                        }
+                    }
+                },
+                "quickActions": {
+                    "title": "Hızlı Eylemler",
+                    "description": "Her kanal için tüm bildirimleri etkinleştirin veya devre dışı bırakın",
+                    "enableAllEmail": "Tüm E-postaları Etkinleştir",
+                    "essentialOnly": "Yalnızca Gerekli Olanlar",
+                    "enableAllEmailSuccess": "Tüm e-posta bildirimleri etkinleştirildi",
+                    "essentialOnlySuccess": "Gerekli bildirimler etkinleştirildi"
+                },
+                "form": {
+                    "savePreferences": "Tercihleri Kaydet",
+                    "saving": "Kaydediliyor...",
+                    "saveSuccess": "Bildirim tercihleri başarıyla kaydedildi!",
+                    "saveError": "Tercihler kaydedilemedi. Lütfen tekrar deneyin."
+                }
+            },
+            "overview": {
+                "title": "Hesaba Genel Bakış",
+                "description": "Hesap durumunuz ve güvenlik genel bakışınız bir bakışta.",
+                "editProfile": "Profili Düzenle"
+            },
+            "security": {
+                "recommendations": {
+                    "title": "Güvenlik Önerileri",
+                    "verifyEmail": {
+                        "title": "E-postanızı doğrulayın",
+                        "description": "E-posta adresinizi doğrulayarak hesabınızı güvence altına alın",
+                        "action": "E-postayı Doğrula"
+                    },
+                    "setPassword": {
+                        "title": "Hesap şifresi belirleyin",
+                        "description": "Yedek giriş yöntemini etkinleştirmek ve güvenliği artırmak için bir şifre ekleyin",
+                        "action": "Şifre Belirle"
+                    },
+                    "weakPassword": {
+                        "title": "Zayıf şifre algılandı",
+                        "description": "Şifreniz zayıf ve güncellenmeli",
+                        "action": "Şifreyi Değiştir"
+                    },
+                    "enableTwoFactor": {
+                        "title": "İki faktörlü kimlik doğrulamayı etkinleştirin",
+                        "description": "Hesabınıza ekstra bir güvenlik katmanı ekleyin",
+                        "action": "2FA'yı Etkinleştir"
+                    },
+                    "addPhone": {
+                        "title": "Telefon numarası ekleyin",
+                        "description": "Hesap kurtarma için bir telefon numarası ekleyin",
+                        "action": "Telefon Ekle"
+                    }
+                },
+                "score": {
+                    "title": "Güvenlik Puanı",
+                    "subtitle": "Genel Güvenlik",
+                    "excellent": "Mükemmel",
+                    "good": "İyi",
+                    "needsImprovement": "Geliştirilmeli",
+                    "settings": "Güvenlik Ayarları"
+                },
+                "page": {
+                    "title": "Güvenlik Ayarları",
+                    "description": "Hesap güvenlik ayarlarınızı yönetin",
+                    "heading": "Güvenlik",
+                    "subheading": "Şifrenizi, iki faktörlü kimlik doğrulamanızı ve aktif oturumlarınızı yönetin"
+                },
+                "passwordStrength": {
+                    "strong": "Güçlü",
+                    "medium": "Orta",
+                    "weak": "Zayıf",
+                    "unknown": "Bilinmiyor"
+                },
+                "status": {
+                    "enabled": "Etkin",
+                    "disabled": "Devre Dışı"
+                },
+                "cards": {
+                    "password": {
+                        "title": "Şifre",
+                        "description": "Şifrenizi değiştirin ve şifre güvenliğini yönetin"
+                    },
+                    "twoFactor": {
+                        "title": "İki Faktörlü Kimlik Doğrulama",
+                        "description": "Hesabınıza ekstra bir güvenlik katmanı ekleyin"
+                    },
+                    "sessions": {
+                        "title": "Aktif Oturumlar",
+                        "description": "Aktif giriş oturumlarınızı görüntüleyin ve yönetin",
+                        "activeCount": "{count} Aktif"
+                    }
+                },
+                "overview": {
+                    "title": "Güvenliğe Genel Bakış",
+                    "description": "Hesap güvenliğinizin mevcut durumu",
+                    "metrics": {
+                        "passwordStrength": "Şifre Gücü",
+                        "twoFactorAuth": "İki Faktörlü Kim. Doğ.",
+                        "twoFactorOn": "Açık",
+                        "twoFactorOff": "Kapalı",
+                        "activeSessions": "Aktif Oturumlar"
+                    }
+                }
+            },
+            "status": {
+                "title": "Hesap Durumu",
+                "email": {
+                    "label": "E-posta",
+                    "verified": "Doğrulandı",
+                    "unverified": "Doğrulanmadı"
+                },
+                "phone": {
+                    "label": "Telefon",
+                    "verified": "Doğrulandı",
+                    "notAdded": "Eklenmedi"
+                },
+                "twoFactor": {
+                    "label": "İki Faktörlü Kim. Doğ.",
+                    "enabled": "Etkin",
+                    "disabled": "Devre Dışı"
+                },
+                "password": {
+                    "label": "Şifre",
+                    "notSet": "Ayarlanmadı",
+                    "strong": "Güçlü",
+                    "medium": "Orta",
+                    "weak": "Zayıf",
+                    "unknown": "Bilinmiyor"
+                },
+                "sessions": {
+                    "label": "Aktif Oturumlar",
+                    "active": "{count} Aktif"
+                },
+                "accountType": {
+                    "label": "Hesap Türü"
+                }
+            },
+            "personalInfo": {
+                "title": "Kişisel Bilgiler",
+                "fullName": "Tam Ad",
+                "emailAddress": "E-posta Adresi",
+                "phoneNumber": "Telefon Numarası",
+                "memberSince": "Üyelik Tarihi",
+                "notSet": "Ayarlanmadı",
+                "notAdded": "Eklenmedi"
+            },
+            "recentActivity": {
+                "title": "Son Etkinlikler",
+                "currentSession": "Mevcut Oturum",
+                "sessionLogin": "Oturum Girişi",
+                "accountCreated": "Hesap Oluşturuldu",
+                "emailVerified": "E-posta Doğrulandı",
+                "connectedProvider": "{provider} Bağlandı",
+                "activeTill": "{date} tarihine kadar aktif",
+                "welcome": "Platforma hoş geldiniz!",
+                "emailConfirmed": "E-posta adresi onaylandı",
+                "accountLinked": "{type} hesabı bağlandı",
+                "noActivity": "Son etkinlik yok",
+                "viewAllSessions": "Tüm Oturumları Görüntüle",
+                "statuses": {
+                    "active": "Aktif",
+                    "completed": "Tamamlandı",
+                    "expiresSoon": "Yakında Sona Eriyor",
+                    "unknown": "Bilinmiyor"
+                }
+            },
+            "linkedAccounts": {
+                "title": "Bağlı Hesaplar",
+                "connect": "Hesap Bağla",
+                "disconnect": "Bağlantıyı Kes",
+                "alreadyConnected": "Bu platform zaten bağlı",
+                "accountBelongsToOther": "Bu hesap başka bir kullanıcıya ait",
+                "cannotRemoveLast": "Tek kimlik doğrulama yönteminizi kaldıramazsınız. Lütfen önce bir şifre belirleyin.",
+                "linkSuccess": "Hesap başarıyla bağlandı",
+                "unlinkSuccess": "Hesap bağlantısı başarıyla kesildi",
+                "linkError": "Hesap bağlanamadı",
+                "unlinkError": "Hesap bağlantısı kesilemedi",
+                "hasPassword": "Şifresi Var",
+                "canRemoveAccounts": "Hesapları Kaldırabilir"
+            },
+            "profile": {
+                "page": {
+                    "title": "Profil Ayarları",
+                    "description": "Kişisel bilgilerinizi ve profil ayarlarınızı yönetin",
+                    "heading": "Profil Ayarları",
+                    "subheading": "Kişisel bilgilerinizi ve profil tercihlerinizi yönetin."
+                },
+                "accountLinking": {
+                    "title": "Bağlı Hesaplar",
+                    "description": "Daha kolay giriş için sosyal hesaplarınızı bağlayın",
+                    "warning": {
+                        "keepOneAccount": "Erişimi sürdürmek için en az bir hesabı bağlı tutun"
+                    },
+                    "status": {
+                        "activeSince": "{date, date, ::yyyy MM dd} tarihinden beri aktif",
+                        "recently": "yakın zamanda"
+                    },
+                    "buttons": {
+                        "connect": "Bağla",
+                        "disconnect": "Bağlantıyı Kes",
+                        "connecting": "Bağlanıyor...",
+                        "removing": "Kaldırılıyor..."
+                    },
+                    "messages": {
+                        "connectFailed": "Hesap bağlanamadı",
+                        "disconnectSuccess": "Hesap bağlantısı başarıyla kesildi",
+                        "disconnectFailed": "Hesap bağlantısı kesilemedi",
+                        "cannotRemoveLast": "Son bağlı hesap kaldırılamaz"
+                    }
+                },
+                "preferences": {
+                    "title": "Tercihler",
+                    "description": "Dil ve tema tercihlerinizi özelleştirin",
+                    "language": {
+                        "label": "Dil",
+                        "placeholder": "Dil seçin",
+                        "flagAlt": "{language} bayrağı"
+                    },
+                    "theme": {
+                        "label": "Tema",
+                        "placeholder": "Tema seçin",
+                        "options": {
+                            "light": "Açık",
+                            "dark": "Koyu",
+                            "system": "Sistem"
+                        }
+                    },
+                    "buttons": {
+                        "save": "Tercihleri Kaydet",
+                        "cancel": "İptal"
+                    },
+                    "messages": {
+                        "changeTypes": {
+                            "language": "Dil",
+                            "theme": "Tema"
+                        },
+                        "themeUpdateSuccess": "Tema başarıyla güncellendi!",
+                        "languageUpdateSuccess": "Dil güncellendi! Yönlendiriliyor...",
+                        "updateSuccess": "Tercihler başarıyla güncellendi!",
+                        "updateFailed": "Tercihler güncellenemedi",
+                        "updateError": "Bir şeyler ters gitti. Lütfen tekrar deneyin."
+                    }
+                },
+                "profileInformation": {
+                    "title": "Profil Bilgileri",
+                    "description": "Kişisel bilgilerinizi ve profil resminizi güncelleyin",
+                    "firstName": {
+                        "label": "Ad",
+                        "placeholder": "Adınızı girin"
+                    },
+                    "lastName": {
+                        "label": "Soyad",
+                        "placeholder": "Soyadınızı girin"
+                    },
+                    "email": {
+                        "label": "E-posta Adresi"
+                    },
+                    "image": {
+                        "label": "Profil Resmi",
+                        "removeSuccess": "Profil resmi başarıyla kaldırıldı!",
+                        "removeError": "Profil resmi kaldırılamadı."
+                    },
+                    "phone": {
+                        "label": "Telefon Numarası",
+                        "placeholder": "+90 5xxxxxxxxx",
+                        "status": {
+                            "verified": "Doğrulandı",
+                            "notVerified": "Doğrulanmadı",
+                            "verificationRequired": "Doğrulama Gerekli"
+                        },
+                        "validation": {
+                            "invalidFormat": "Lütfen geçerli bir uluslararası telefon numarası girin (7-15 rakam)"
+                        },
+                        "verification": {
+                            "sendCode": "Kod Gönder",
+                            "codeSent": "Doğrulama kodu gönderildi!",
+                            "sendError": "Doğrulama kodu gönderilemedi",
+                            "enterCode": "Lütfen doğrulama kodunu girin",
+                            "enterCodeTitle": "Doğrulama Kodunu Girin",
+                            "codeInstructions": "{flag} {phone} numarasına 6 haneli bir kod gönderdik",
+                            "yourPhone": "telefonunuza",
+                            "verify": "Doğrula",
+                            "success": "Telefon numarası başarıyla doğrulandı!",
+                            "verifyError": "Kod doğrulanamadı",
+                            "requirement": "Güvenlik özellikleri ve bildirimler için telefon doğrulaması gereklidir",
+                            "cooldown": "{seconds}s"
+                        }
+                    },
+                    "form": {
+                        "saveChanges": "Değişiklikleri Kaydet",
+                        "cancel": "İptal",
+                        "changeTypes": {
+                            "firstName": "Ad",
+                            "lastName": "Soyad",
+                            "phone": "Telefon Numarası",
+                            "image": "Profil Resmi"
+                        }
+                    },
+                    "messages": {
+                        "updateSuccess": "Profil başarıyla güncellendi!",
+                        "updateFailed": "Profil güncellenemedi",
+                        "updateError": "Bir şeyler ters gitti. Lütfen tekrar deneyin.",
+                        "phoneUpdated": "Telefon numarası güncellendi. Lütfen yeni numaranızı doğrulayın."
+                    }
+                },
+                "email": {
+                    "verify": {
+                        "page": {
+                            "title": "E-postayı Doğrula",
+                            "description": "Hesabınızı güvence altına almak için e-posta adresinizi doğrulayın",
+                            "heading": "E-posta Adresini Doğrula",
+                            "subheading": "Hesabınızı güvence altına almak ve tüm özellikleri etkinleştirmek için e-posta adresinizi doğrulamamız gerekiyor."
+                        },
+                        "tokenVerification": {
+                            "loading": {
+                                "title": "E-posta Doğrulanıyor...",
+                                "description": "E-posta adresinizi doğrularken lütfen bekleyin."
+                            },
+                            "success": {
+                                "title": "E-posta Doğrulandı!",
+                                "description": "E-posta adresiniz başarıyla doğrulandı.",
+                                "redirecting": "Hesap ayarlarına yönlendiriliyor..."
+                            },
+                            "error": {
+                                "title": "Doğrulama Başarısız",
+                                "description": "Doğrulama bağlantısı geçersiz veya süresi dolmuş.",
+                                "tryAgain": "Tekrar Dene"
+                            }
+                        },
+                        "emailStatus": {
+                            "title": "E-posta Durumu",
+                            "primaryEmail": "Birincil e-posta adresi",
+                            "unverified": "Doğrulanmadı"
+                        },
+                        "form": {
+                            "title": "E-postanızı Doğrulayın",
+                            "description": "{email} adresine bir doğrulama e-postası göndermek için aşağıdaki düğmeye tıklayın",
+                            "alerts": {
+                                "emailSent": "Doğrulama e-postası gönderildi! Gelen kutunuzu kontrol edin ve doğrulama bağlantısına tıklayın. Göremezseniz spam klasörünüzü kontrol edin.",
+                                "notVerified": "E-posta adresiniz doğrulanmadı. E-postanızı doğrulayana kadar bazı özellikler sınırlı olabilir."
+                            },
+                            "buttons": {
+                                "sendVerification": "Doğrulama E-postası Gönder",
+                                "resendEmail": "Doğrulama E-postasını Yeniden Gönder",
+                                "resendCountdown": "{seconds}s içinde yeniden gönder"
+                            },
+                            "status": {
+                                "pleaseWait": "Yeniden göndermeden önce lütfen {seconds} saniye bekleyin"
+                            }
+                        },
+                        "help": {
+                            "title": "Yardıma mı ihtiyacınız var?",
+                            "tips": {
+                                "checkSpam": "Spam/önemsiz posta klasörünüzü kontrol edin",
+                                "checkEmail": "{email} adresinin doğru olduğundan emin olun",
+                                "linkExpiry": "Doğrulama bağlantısının süresi 24 saat içinde dolar",
+                                "contactSupport": "Sorun yaşamaya devam ederseniz destekle iletişime geçin"
+                            }
+                        },
+                        "messages": {
+                            "emailSent": "Doğrulama e-postası gönderildi! Gelen kutunuzu kontrol edin.",
+                            "sendFailed": "Doğrulama e-postası gönderilemedi",
+                            "sendError": "Doğrulama e-postası gönderilirken bir hata oluştu",
+                            "verifySuccess": "E-posta başarıyla doğrulandı!",
+                            "verifyFailed": "E-posta doğrulanamadı",
+                            "verifyError": "E-posta doğrulanırken bir hata oluştu"
+                        }
+                    }
+                }
+            }
         }
     }
 }
