@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
+import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { format } from 'date-fns';
@@ -42,6 +43,7 @@ export function SessionsTable() {
     const [sessions, setSessions] = useState<Session[]>([]);
     const [loading, setLoading] = useState(true);
     const [terminating, setTerminating] = useState<string | null>(null);
+    const t = useTranslations('dashboard.account.security.sessions.table');
 
     const getMockSessions = useCallback(
         (): Session[] => [
@@ -115,7 +117,7 @@ export function SessionsTable() {
                 const data = await response.json();
 
                 if (data.currentSessionDeleted) {
-                    toast.success('Current session terminated. Redirecting to login...');
+                    toast.success(t('messages.currentSessionTerminated'));
 
                     setTimeout(() => {
                         window.location.href = '/signin';
@@ -125,13 +127,13 @@ export function SessionsTable() {
                 }
 
                 setSessions((prev) => prev.filter((session) => session.id !== sessionId));
-                toast.success('Session terminated successfully');
+                toast.success(t('messages.sessionTerminated'));
             } else {
-                toast.error('Failed to terminate session');
+                toast.error(t('messages.terminateFailed'));
             }
         } catch (error) {
             console.error('Failed to terminate session:', error);
-            toast.error('Failed to terminate session');
+            toast.error(t('messages.terminateError'));
         } finally {
             setTerminating(null);
         }
@@ -148,19 +150,19 @@ export function SessionsTable() {
 
                 if (data.currentSessionPreserved) {
                     setSessions((prev) => prev.filter((session) => session.isCurrent));
-                    toast.success('All other sessions terminated successfully');
+                    toast.success(t('messages.allOthersTerminated'));
                 } else {
-                    toast.success('All sessions terminated. Redirecting to login...');
+                    toast.success(t('messages.allSessionsTerminated'));
                     setTimeout(() => {
                         window.location.href = '/signin';
                     }, 1500);
                 }
             } else {
-                toast.error('Failed to terminate sessions');
+                toast.error(t('messages.terminateAllFailed'));
             }
         } catch (error) {
             console.error('Failed to terminate all sessions:', error);
-            toast.error('Failed to terminate sessions');
+            toast.error(t('messages.terminateAllError'));
         }
     };
 
@@ -192,28 +194,32 @@ export function SessionsTable() {
         <div className="space-y-4">
             <div className="flex items-center justify-between">
                 <p className="text-muted-foreground text-sm">
-                    {sessions.length} active session{sessions.length !== 1 ? 's' : ''}
+                    {t('sessionCount', {
+                        count: sessions.length,
+                        plural: sessions.length !== 1 ? 's' : '',
+                    })}
                 </p>
                 {sessions.filter((s) => !s.isCurrent).length > 0 && (
                     <AlertDialog>
                         <AlertDialogTrigger asChild>
                             <Button variant="outline" size="sm">
                                 <LogOut className="mr-2 h-4 w-4" />
-                                Terminate All Others
+                                {t('buttons.terminateAllOthers')}
                             </Button>
                         </AlertDialogTrigger>
                         <AlertDialogContent>
                             <AlertDialogHeader>
-                                <AlertDialogTitle>Terminate All Other Sessions?</AlertDialogTitle>
+                                <AlertDialogTitle>
+                                    {t('dialogs.terminateAll.title')}
+                                </AlertDialogTitle>
                                 <AlertDialogDescription>
-                                    This will sign you out of all other devices and browsers. Your
-                                    current session will remain active.
+                                    {t('dialogs.terminateAll.description')}
                                 </AlertDialogDescription>
                             </AlertDialogHeader>
                             <AlertDialogFooter>
-                                <AlertDialogCancel>Cancel</AlertDialogCancel>
+                                <AlertDialogCancel>{t('buttons.cancel')}</AlertDialogCancel>
                                 <AlertDialogAction onClick={terminateAllSessions}>
-                                    Terminate All
+                                    {t('buttons.terminateAll')}
                                 </AlertDialogAction>
                             </AlertDialogFooter>
                         </AlertDialogContent>
@@ -224,11 +230,11 @@ export function SessionsTable() {
             <Table>
                 <TableHeader>
                     <TableRow>
-                        <TableHead>Device & Browser</TableHead>
-                        <TableHead>Location</TableHead>
-                        <TableHead>Last Active</TableHead>
-                        <TableHead>Status</TableHead>
-                        <TableHead className="w-[100px]">Actions</TableHead>
+                        <TableHead>{t('headers.deviceBrowser')}</TableHead>
+                        <TableHead>{t('headers.location')}</TableHead>
+                        <TableHead>{t('headers.lastActive')}</TableHead>
+                        <TableHead>{t('headers.status')}</TableHead>
+                        <TableHead className="w-[100px]">{t('headers.actions')}</TableHead>
                     </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -271,10 +277,10 @@ export function SessionsTable() {
                                         className="flex w-fit items-center gap-1"
                                     >
                                         <Shield className="h-3 w-3" />
-                                        Current
+                                        {t('status.current')}
                                     </Badge>
                                 ) : (
-                                    <Badge variant="secondary">Active</Badge>
+                                    <Badge variant="secondary">{t('status.active')}</Badge>
                                 )}
                             </TableCell>
                             <TableCell>
@@ -292,19 +298,20 @@ export function SessionsTable() {
                                         <AlertDialogContent>
                                             <AlertDialogHeader>
                                                 <AlertDialogTitle>
-                                                    Terminate Session?
+                                                    {t('dialogs.terminateSession.title')}
                                                 </AlertDialogTitle>
                                                 <AlertDialogDescription>
-                                                    This will sign out this device/browser. The user
-                                                    will need to sign in again.
+                                                    {t('dialogs.terminateSession.description')}
                                                 </AlertDialogDescription>
                                             </AlertDialogHeader>
                                             <AlertDialogFooter>
-                                                <AlertDialogCancel>Cancel</AlertDialogCancel>
+                                                <AlertDialogCancel>
+                                                    {t('buttons.cancel')}
+                                                </AlertDialogCancel>
                                                 <AlertDialogAction
                                                     onClick={() => terminateSession(session.id)}
                                                 >
-                                                    Terminate
+                                                    {t('buttons.terminate')}
                                                 </AlertDialogAction>
                                             </AlertDialogFooter>
                                         </AlertDialogContent>

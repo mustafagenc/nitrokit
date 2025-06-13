@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { Progress } from '@/components/ui/progress';
 import { Label } from '@/components/ui/label';
 import { CheckCircle, XCircle, AlertCircle } from 'lucide-react';
@@ -22,6 +23,8 @@ export function PasswordStrengthIndicator({
     showWarning = true,
     className = '',
 }: PasswordStrengthIndicatorProps) {
+    const t = useTranslations('components.passwordStrength');
+
     const calculatePasswordStrength = (password: string) => {
         if (!password) return { score: 0, level: 'weak' as const };
 
@@ -48,23 +51,23 @@ export function PasswordStrengthIndicator({
 
     const getPasswordRequirements = (password: string): PasswordRequirement[] => [
         {
-            label: 'At least 8 characters',
+            label: t('requirements.minLength'),
             met: password.length >= 8,
         },
         {
-            label: 'One uppercase letter',
+            label: t('requirements.uppercase'),
             met: /[A-Z]/.test(password),
         },
         {
-            label: 'One lowercase letter',
+            label: t('requirements.lowercase'),
             met: /[a-z]/.test(password),
         },
         {
-            label: 'One number',
+            label: t('requirements.number'),
             met: /[0-9]/.test(password),
         },
         {
-            label: 'One special character',
+            label: t('requirements.special'),
             met: /[^A-Za-z0-9]/.test(password),
         },
     ];
@@ -72,13 +75,13 @@ export function PasswordStrengthIndicator({
     const getStrengthText = (level: string) => {
         switch (level) {
             case 'strong':
-                return { text: 'Strong', color: 'text-green-600' };
+                return { text: t('strength.strong'), color: 'text-green-600' };
             case 'medium':
-                return { text: 'Medium', color: 'text-yellow-600' };
+                return { text: t('strength.medium'), color: 'text-yellow-600' };
             case 'weak':
-                return { text: 'Weak', color: 'text-red-600' };
+                return { text: t('strength.weak'), color: 'text-red-600' };
             default:
-                return { text: 'Very Weak', color: 'text-gray-500' };
+                return { text: t('strength.veryWeak'), color: 'text-gray-500' };
         }
     };
 
@@ -104,7 +107,7 @@ export function PasswordStrengthIndicator({
     return (
         <div className={`space-y-3 pt-2 ${className}`}>
             <div className="flex items-center justify-between">
-                <Label className="text-sm font-medium">Password Strength</Label>
+                <Label className="text-sm font-medium">{t('labels.passwordStrength')}</Label>
                 <span className={`text-sm font-medium ${strengthText.color}`}>
                     {strengthText.text}
                 </span>
@@ -116,13 +119,13 @@ export function PasswordStrengthIndicator({
                     className={`h-2 ${getProgressColor(passwordStrength.level)}`}
                 />
                 <div className="text-muted-foreground text-right text-xs">
-                    {passwordStrength.score}% strength
+                    {t('labels.strengthPercentage', { percentage: passwordStrength.score })}
                 </div>
             </div>
 
             {showRequirements && (
                 <div className="space-y-2">
-                    <Label className="text-sm font-medium">Requirements</Label>
+                    <Label className="text-sm font-medium">{t('labels.requirements')}</Label>
                     <div className="grid grid-cols-1 gap-1 sm:grid-cols-2">
                         {passwordRequirements.map((requirement, index) => (
                             <div key={index} className="flex items-center gap-2">
@@ -148,11 +151,8 @@ export function PasswordStrengthIndicator({
                 <div className="flex items-start gap-2 rounded-lg border border-red-200 bg-red-50 p-3">
                     <AlertCircle className="mt-0.5 h-4 w-4 flex-shrink-0 text-red-600" />
                     <div className="text-sm">
-                        <p className="font-medium text-red-800">Weak Password</p>
-                        <p className="text-red-700">
-                            Your password is weak. Consider using a stronger password for better
-                            security.
-                        </p>
+                        <p className="font-medium text-red-800">{t('warning.title')}</p>
+                        <p className="text-red-700">{t('warning.description')}</p>
                     </div>
                 </div>
             )}
@@ -161,6 +161,8 @@ export function PasswordStrengthIndicator({
 }
 
 export function usePasswordStrength(password: string) {
+    const t = useTranslations('components.passwordStrength');
+
     const calculatePasswordStrength = (password: string) => {
         if (!password) return { score: 0, level: 'weak' as const };
 
@@ -183,11 +185,11 @@ export function usePasswordStrength(password: string) {
     };
 
     const getPasswordRequirements = (password: string) => [
-        { label: 'At least 8 characters', met: password.length >= 8 },
-        { label: 'One uppercase letter', met: /[A-Z]/.test(password) },
-        { label: 'One lowercase letter', met: /[a-z]/.test(password) },
-        { label: 'One number', met: /[0-9]/.test(password) },
-        { label: 'One special character', met: /[^A-Za-z0-9]/.test(password) },
+        { label: t('requirements.minLength'), met: password.length >= 8 },
+        { label: t('requirements.uppercase'), met: /[A-Z]/.test(password) },
+        { label: t('requirements.lowercase'), met: /[a-z]/.test(password) },
+        { label: t('requirements.number'), met: /[0-9]/.test(password) },
+        { label: t('requirements.special'), met: /[^A-Za-z0-9]/.test(password) },
     ];
 
     const strength = calculatePasswordStrength(password);

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
+import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -23,18 +24,6 @@ import {
     AlertDialogTrigger,
 } from '@/components/ui/alert-dialog';
 
-const deleteAccountSchema = z
-    .object({
-        password: z.string().optional(),
-        confirmText: z.string().min(1, 'Please type "DELETE" to confirm'),
-    })
-    .refine((data) => data.confirmText === 'DELETE', {
-        message: 'You must type "DELETE" exactly',
-        path: ['confirmText'],
-    });
-
-type DeleteAccountFormData = z.infer<typeof deleteAccountSchema>;
-
 interface DeleteAccountFormProps {
     hasPassword: boolean;
     userEmail: string;
@@ -44,6 +33,19 @@ export function DeleteAccountForm({ hasPassword, userEmail }: DeleteAccountFormP
     const [isLoading, setIsLoading] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
     const [isDialogOpen, setIsDialogOpen] = useState(false);
+    const t = useTranslations('dashboard.account.security.password.deleteAccount');
+
+    const deleteAccountSchema = z
+        .object({
+            password: z.string().optional(),
+            confirmText: z.string().min(1, t('validation.confirmRequired')),
+        })
+        .refine((data) => data.confirmText === 'DELETE', {
+            message: t('validation.mustTypeDelete'),
+            path: ['confirmText'],
+        });
+
+    type DeleteAccountFormData = z.infer<typeof deleteAccountSchema>;
 
     const {
         register,
@@ -77,17 +79,17 @@ export function DeleteAccountForm({ hasPassword, userEmail }: DeleteAccountFormP
             const result = await response.json();
 
             if (response.ok && result.success) {
-                toast.success('Account deleted successfully. Redirecting...');
+                toast.success(t('messages.deleteSuccess'));
                 await signOut({
                     callbackUrl: '/',
                     redirect: true,
                 });
             } else {
-                toast.error(result.error || 'Failed to delete account');
+                toast.error(result.error || t('messages.deleteFailed'));
             }
         } catch (error) {
             console.error('Account deletion error:', error);
-            toast.error('Something went wrong. Please try again.');
+            toast.error(t('messages.deleteError'));
         } finally {
             setIsLoading(false);
             setIsDialogOpen(false);
@@ -100,23 +102,20 @@ export function DeleteAccountForm({ hasPassword, userEmail }: DeleteAccountFormP
             <CardHeader>
                 <CardTitle className="text-destructive flex items-center gap-2">
                     <AlertTriangle className="h-5 w-5" />
-                    Danger Zone
+                    {t('card.title')}
                 </CardTitle>
-                <CardDescription>
-                    Permanently delete your account and all associated data. This action cannot be
-                    undone.
-                </CardDescription>
+                <CardDescription>{t('card.description')}</CardDescription>
             </CardHeader>
             <CardContent>
                 <div className="space-y-4">
                     <div className="border-destructive/20 bg-destructive/5 rounded-lg border p-4">
-                        <h4 className="text-destructive mb-2 font-medium">What will be deleted:</h4>
+                        <h4 className="text-destructive mb-2 font-medium">{t('warning.title')}</h4>
                         <ul className="text-muted-foreground space-y-1 text-sm">
-                            <li>• Your profile and personal information</li>
-                            <li>• All uploaded files and profile pictures</li>
-                            <li>• Account settings and preferences</li>
-                            <li>• Login sessions and connected accounts</li>
-                            <li>• All associated data and history</li>
+                            <li>• {t('warning.items.profile')}</li>
+                            <li>• {t('warning.items.files')}</li>
+                            <li>• {t('warning.items.settings')}</li>
+                            <li>• {t('warning.items.sessions')}</li>
+                            <li>• {t('warning.items.data')}</li>
                         </ul>
                     </div>
 
@@ -124,35 +123,33 @@ export function DeleteAccountForm({ hasPassword, userEmail }: DeleteAccountFormP
                         <AlertDialogTrigger asChild>
                             <Button variant="destructive" className="w-full" disabled={isLoading}>
                                 <Trash2 className="mr-2 h-4 w-4" />
-                                Delete My Account
+                                {t('buttons.deleteAccount')}
                             </Button>
                         </AlertDialogTrigger>
                         <AlertDialogContent className="sm:max-w-md">
                             <AlertDialogHeader>
                                 <AlertDialogTitle className="flex items-center gap-2">
                                     <AlertTriangle className="text-destructive h-5 w-5" />
-                                    Delete Account
+                                    {t('dialog.title')}
                                 </AlertDialogTitle>
                                 <AlertDialogDescription>
-                                    You are about to permanently delete your account ({userEmail}).
-                                    This action cannot be undone and all your data will be lost
-                                    forever.
+                                    {t('dialog.description', { email: userEmail })}
                                 </AlertDialogDescription>
                             </AlertDialogHeader>
 
                             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                                 {hasPassword && (
                                     <div className="space-y-2">
-                                        <Label htmlFor="password">Confirm Password *</Label>
+                                        <Label htmlFor="password">{t('form.password.label')}</Label>
                                         <div className="relative">
                                             <Input
                                                 id="password"
                                                 type={showPassword ? 'text' : 'password'}
-                                                placeholder="Enter your password"
+                                                placeholder={t('form.password.placeholder')}
                                                 className="pr-10"
                                                 {...register('password', {
                                                     required: hasPassword
-                                                        ? 'Password is required'
+                                                        ? t('form.password.required')
                                                         : false,
                                                 })}
                                                 disabled={isLoading}
@@ -182,11 +179,11 @@ export function DeleteAccountForm({ hasPassword, userEmail }: DeleteAccountFormP
 
                                 <div className="space-y-2">
                                     <Label htmlFor="confirmText">
-                                        Type &quot;DELETE&quot; to confirm *
+                                        {t('form.confirmText.label')}
                                     </Label>
                                     <Input
                                         id="confirmText"
-                                        placeholder="Type DELETE here"
+                                        placeholder={t('form.confirmText.placeholder')}
                                         {...register('confirmText')}
                                         disabled={isLoading}
                                         className={
@@ -202,7 +199,7 @@ export function DeleteAccountForm({ hasPassword, userEmail }: DeleteAccountFormP
 
                                 <AlertDialogFooter>
                                     <AlertDialogCancel disabled={isLoading}>
-                                        Cancel
+                                        {t('buttons.cancel')}
                                     </AlertDialogCancel>
                                     <AlertDialogAction
                                         type="submit"
@@ -212,7 +209,7 @@ export function DeleteAccountForm({ hasPassword, userEmail }: DeleteAccountFormP
                                         {isLoading && (
                                             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                                         )}
-                                        Delete Account Forever
+                                        {t('buttons.deleteForever')}
                                     </AlertDialogAction>
                                 </AlertDialogFooter>
                             </form>

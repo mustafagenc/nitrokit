@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import {
     Dialog,
     DialogContent,
@@ -27,18 +28,18 @@ export function BackupCodesDialog({ open, onOpenChange }: BackupCodesDialogProps
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
     const [showRegenerate, setShowRegenerate] = useState(false);
+    const t = useTranslations('dashboard.account.security.twoFactor.backupCodes');
 
     const downloadCodes = () => {
         if (backupCodes.length === 0) return;
 
-        const content = `Nitrokit Two-Factor Authentication Backup Codes
+        const content = `${t('download.title')}
 
-IMPORTANT: Save these codes in a secure location. 
-Each code can only be used once.
+${t('download.warning')}
 
 ${backupCodes.map((code, index) => `${index + 1}. ${code}`).join('\n')}
 
-Generated on: ${new Date().toLocaleDateString()}
+${t('download.generatedOn', { date: new Date().toLocaleDateString() })}
 `;
 
         const blob = new Blob([content], { type: 'text/plain' });
@@ -49,12 +50,12 @@ Generated on: ${new Date().toLocaleDateString()}
         a.click();
         URL.revokeObjectURL(url);
 
-        toast.success('Backup codes downloaded');
+        toast.success(t('messages.downloaded'));
     };
 
     const regenerateCodes = async () => {
         if (verificationCode.length !== 6) {
-            setError('Please enter a valid 6-digit code');
+            setError(t('validation.validCode'));
             return;
         }
 
@@ -70,16 +71,16 @@ Generated on: ${new Date().toLocaleDateString()}
 
             if (!response.ok) {
                 const errorData = await response.json();
-                throw new Error(errorData.error || 'Failed to regenerate codes');
+                throw new Error(errorData.error || t('messages.regenerateFailed'));
             }
 
             const data = await response.json();
             setBackupCodes(data.backupCodes);
             setShowRegenerate(false);
             setVerificationCode('');
-            toast.success('New backup codes generated');
+            toast.success(t('messages.regenerateSuccess'));
         } catch (error) {
-            setError(error instanceof Error ? error.message : 'Failed to regenerate codes');
+            setError(error instanceof Error ? error.message : t('messages.regenerateError'));
         } finally {
             setLoading(false);
         }
@@ -97,10 +98,8 @@ Generated on: ${new Date().toLocaleDateString()}
         <Dialog open={open} onOpenChange={handleClose}>
             <DialogContent className="max-w-md">
                 <DialogHeader>
-                    <DialogTitle>Backup Codes</DialogTitle>
-                    <DialogDescription>
-                        Use these codes if you lose access to your authenticator app.
-                    </DialogDescription>
+                    <DialogTitle>{t('dialog.title')}</DialogTitle>
+                    <DialogDescription>{t('dialog.description')}</DialogDescription>
                 </DialogHeader>
 
                 <div className="space-y-4">
@@ -115,15 +114,12 @@ Generated on: ${new Date().toLocaleDateString()}
                         <div className="space-y-4">
                             <Alert>
                                 <AlertTriangle className="h-4 w-4" />
-                                <AlertDescription>
-                                    To view or regenerate your backup codes, you need to verify your
-                                    identity.
-                                </AlertDescription>
+                                <AlertDescription>{t('alerts.verifyIdentity')}</AlertDescription>
                             </Alert>
 
                             <Button onClick={() => setShowRegenerate(true)} className="w-full">
                                 <RefreshCw className="mr-2 h-4 w-4" />
-                                Generate New Backup Codes
+                                {t('buttons.generateNew')}
                             </Button>
                         </div>
                     )}
@@ -133,16 +129,18 @@ Generated on: ${new Date().toLocaleDateString()}
                             <Alert variant="destructive">
                                 <AlertTriangle className="h-4 w-4" />
                                 <AlertDescription>
-                                    Generating new codes will invalidate all previous backup codes.
+                                    {t('alerts.invalidatePrevious')}
                                 </AlertDescription>
                             </Alert>
 
                             <div className="space-y-2">
-                                <Label htmlFor="verify-code">Enter your authentication code:</Label>
+                                <Label htmlFor="verify-code">
+                                    {t('form.verificationCode.label')}
+                                </Label>
                                 <Input
                                     id="verify-code"
                                     type="text"
-                                    placeholder="000000"
+                                    placeholder={t('form.verificationCode.placeholder')}
                                     value={verificationCode}
                                     onChange={(e) => {
                                         const value = e.target.value.replace(/\D/g, '').slice(0, 6);
@@ -159,14 +157,14 @@ Generated on: ${new Date().toLocaleDateString()}
                                     onClick={() => setShowRegenerate(false)}
                                     className="flex-1"
                                 >
-                                    Cancel
+                                    {t('buttons.cancel')}
                                 </Button>
                                 <Button
                                     onClick={regenerateCodes}
                                     disabled={loading || verificationCode.length !== 6}
                                     className="flex-1"
                                 >
-                                    {loading ? 'Generating...' : 'Generate'}
+                                    {loading ? t('buttons.generating') : t('buttons.generate')}
                                 </Button>
                             </div>
                         </div>
@@ -176,10 +174,7 @@ Generated on: ${new Date().toLocaleDateString()}
                         <div className="space-y-4">
                             <Alert>
                                 <AlertTriangle className="h-4 w-4" />
-                                <AlertDescription>
-                                    Save these codes in a secure location. Each code can only be
-                                    used once.
-                                </AlertDescription>
+                                <AlertDescription>{t('alerts.saveCodes')}</AlertDescription>
                             </Alert>
 
                             <Card>
@@ -204,11 +199,11 @@ Generated on: ${new Date().toLocaleDateString()}
                                     className="flex-1"
                                 >
                                     <Download className="mr-2 h-4 w-4" />
-                                    Download
+                                    {t('buttons.download')}
                                 </Button>
                                 <Button onClick={() => setShowRegenerate(true)} className="flex-1">
                                     <RefreshCw className="mr-2 h-4 w-4" />
-                                    Regenerate
+                                    {t('buttons.regenerate')}
                                 </Button>
                             </div>
                         </div>

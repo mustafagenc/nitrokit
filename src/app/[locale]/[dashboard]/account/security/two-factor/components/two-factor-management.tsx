@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -37,6 +38,7 @@ export function TwoFactorManagement({
     const [disableDialogOpen, setDisableDialogOpen] = useState(false);
     const [backupCodesDialogOpen, setBackupCodesDialogOpen] = useState(false);
     const [loading, setLoading] = useState(false);
+    const t = useTranslations('dashboard.account.security.twoFactor.management');
 
     console.log(`Two factor management ${userId}`);
 
@@ -59,7 +61,7 @@ export function TwoFactorManagement({
     const handleSetupComplete = () => {
         setStatus((prev) => ({ ...prev, enabled: true, verifiedAt: new Date() }));
         setSetupDialogOpen(false);
-        toast.success('Two-factor authentication has been enabled successfully!');
+        toast.success(t('messages.enableSuccess'));
     };
 
     const handleDisableComplete = () => {
@@ -70,7 +72,7 @@ export function TwoFactorManagement({
             backupCodesCount: 0,
         }));
         setDisableDialogOpen(false);
-        toast.success('Two-factor authentication has been disabled.');
+        toast.success(t('messages.disableSuccess'));
     };
 
     return (
@@ -78,11 +80,9 @@ export function TwoFactorManagement({
             <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                     <Shield className="h-5 w-5" />
-                    Two-Factor Authentication
+                    {t('card.title')}
                 </CardTitle>
-                <CardDescription>
-                    Add an extra layer of security to your account with two-factor authentication.
-                </CardDescription>
+                <CardDescription>{t('card.description')}</CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
                 {/* Status Overview */}
@@ -98,16 +98,20 @@ export function TwoFactorManagement({
                             <Smartphone className="h-4 w-4" />
                         </div>
                         <div>
-                            <div className="font-medium">Two-Factor Authentication</div>
+                            <div className="font-medium">{t('status.title')}</div>
                             <div className="text-muted-foreground text-sm">
                                 {status.enabled
-                                    ? `Enabled on ${status.verifiedAt ? new Date(status.verifiedAt).toLocaleDateString() : 'Unknown'}`
-                                    : 'Not enabled'}
+                                    ? t('status.enabled', {
+                                          date: status.verifiedAt
+                                              ? new Date(status.verifiedAt).toLocaleDateString()
+                                              : t('status.unknown'),
+                                      })
+                                    : t('status.notEnabled')}
                             </div>
                         </div>
                     </div>
                     <Badge variant={status.enabled ? 'default' : 'secondary'}>
-                        {status.enabled ? 'Enabled' : 'Disabled'}
+                        {status.enabled ? t('badge.enabled') : t('badge.disabled')}
                     </Badge>
                 </div>
 
@@ -117,10 +121,7 @@ export function TwoFactorManagement({
                         <div className="space-y-4">
                             <Alert>
                                 <AlertTriangle className="h-4 w-4" />
-                                <AlertDescription>
-                                    We recommend enabling two-factor authentication to keep your
-                                    account secure.
-                                </AlertDescription>
+                                <AlertDescription>{t('alerts.recommendation')}</AlertDescription>
                             </Alert>
 
                             <Button
@@ -129,7 +130,7 @@ export function TwoFactorManagement({
                                 className="w-full sm:w-auto"
                             >
                                 <Shield className="mr-2 h-4 w-4" />
-                                Enable Two-Factor Authentication
+                                {t('buttons.enable')}
                             </Button>
                         </div>
                     ) : (
@@ -137,11 +138,12 @@ export function TwoFactorManagement({
                             <Alert className="border-green-200 bg-green-50">
                                 <Shield className="h-4 w-4 text-green-600" />
                                 <AlertDescription className="text-green-800">
-                                    Your account is protected with two-factor authentication.
+                                    {t('alerts.protected')}
                                     {status.backupCodesCount > 0 && (
                                         <span className="mt-1 block">
-                                            You have {status.backupCodesCount} backup codes
-                                            remaining.
+                                            {t('alerts.backupCodes', {
+                                                count: status.backupCodesCount,
+                                            })}
                                         </span>
                                     )}
                                 </AlertDescription>
@@ -154,7 +156,7 @@ export function TwoFactorManagement({
                                     disabled={loading}
                                 >
                                     <Key className="mr-2 h-4 w-4" />
-                                    View Backup Codes
+                                    {t('buttons.viewBackupCodes')}
                                 </Button>
 
                                 <Button
@@ -162,7 +164,7 @@ export function TwoFactorManagement({
                                     onClick={() => setDisableDialogOpen(true)}
                                     disabled={loading}
                                 >
-                                    Disable 2FA
+                                    {t('buttons.disable')}
                                 </Button>
                             </div>
                         </div>
@@ -171,12 +173,12 @@ export function TwoFactorManagement({
 
                 {/* How it works */}
                 <div className="bg-muted/50 rounded-lg p-4">
-                    <h4 className="mb-2 font-medium">How it works</h4>
+                    <h4 className="mb-2 font-medium">{t('howItWorks.title')}</h4>
                     <ul className="text-muted-foreground space-y-1 text-sm">
-                        <li>• Download Google Authenticator or similar app</li>
-                        <li>• Scan the QR code or enter the setup key</li>
-                        <li>• Enter the verification code to complete setup</li>
-                        <li>• Save your backup codes in a secure location</li>
+                        <li>• {t('howItWorks.steps.download')}</li>
+                        <li>• {t('howItWorks.steps.scan')}</li>
+                        <li>• {t('howItWorks.steps.verify')}</li>
+                        <li>• {t('howItWorks.steps.backup')}</li>
                     </ul>
                 </div>
             </CardContent>
