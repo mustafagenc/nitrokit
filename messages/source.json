@@ -722,7 +722,7 @@
                         "keepOneAccount": "Keep at least one account connected to maintain access"
                     },
                     "status": {
-                        "activeSince": "Active since {date}",
+                        "activeSince": "Active since {date, date, ::yyyyMMMd}",
                         "recently": "recently"
                     },
                     "buttons": {

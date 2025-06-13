@@ -59,7 +59,7 @@ export const AccountStatusCard = ({ user, securityStatus }: AccountStatusCardPro
     const passwordBadge = getPasswordBadge();
 
     return (
-        <Card className="lg:col-span-2">
+        <Card className="bg-[url(/images/bg/bg-5.png)] bg-[length:700px] bg-[center_top_1.3rem] bg-no-repeat lg:col-span-2 dark:bg-[url(/images/bg/bg-5-dark.png)]">
             <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                     <User className="h-5 w-5" />
