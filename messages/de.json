@@ -2,21 +2,21 @@
     "app": {
         "name": "Nitrokit",
         "shortName": "Nitrokit",
-        "description": "Nitrokit-Startervorlage"
+        "description": "Nitrokit Starter-Vorlage"
     },
     "common": {
         "loading": "Wird geladen...",
         "error": "Ein Fehler ist aufgetreten",
         "notFound": "Die gesuchte Seite wurde nicht gefunden",
         "backToHome": "Zurück zur Startseite",
-        "goBack": "Geh zurück",
+        "goBack": "Zurück",
         "ok": "OK",
         "cancel": "Abbrechen",
         "yes": "Ja",
         "no": "Nein",
-        "continue": "Fortsetzen",
+        "continue": "Weiter",
         "submit": "Senden",
-        "contactUs": "Kontaktiere uns",
+        "contactUs": "Kontaktieren Sie uns",
         "github": {
             "button": {
                 "title": "GitHub",
@@ -25,42 +25,42 @@
             },
             "dropdown": {
                 "star": {
-                    "title": "Stern-Repository",
-                    "description": "Zeige deine Unterstützung",
-                    "badge": "Stern"
+                    "title": "Repository markieren",
+                    "description": "Zeigen Sie Ihre Unterstützung",
+                    "badge": "Markieren"
                 },
                 "fork": {
-                    "title": "Fork-Repository",
-                    "description": "Eigene Kopie erstellen",
-                    "badge": "Fork"
+                    "title": "Repository forken",
+                    "description": "Erstellen Sie Ihre eigene Kopie",
+                    "badge": "Forken"
                 },
                 "view": {
                     "title": "Repository anzeigen",
                     "description": "Quellcode durchsuchen",
-                    "badge": "Ansicht"
+                    "badge": "Anzeigen"
                 }
             }
         },
         "vercel": {
             "button": {
-                "title": "Auf Vercel verteilen",
+                "title": "Auf Vercel bereitstellen",
                 "ready": "Bereit"
             },
             "dropdown": {
                 "deploy": {
-                    "title": "Schnelles Deploy",
-                    "description": "Verteilen mit einem Klick",
-                    "badge": "Deploy"
+                    "title": "Schnelle Bereitstellung",
+                    "description": "Mit einem Klick bereitstellen",
+                    "badge": "Bereitstellen"
                 },
                 "preview": {
-                    "title": "Vorschau Demo",
+                    "title": "Demo ansehen",
                     "description": "Live-Beispiel ansehen",
                     "badge": "Live"
                 },
                 "docs": {
                     "title": "Dokumentation",
                     "description": "Bereitstellung lernen",
-                    "badge": "Texte"
+                    "badge": "Doks"
                 }
             }
         }
@@ -69,49 +69,49 @@
         "signin": {
             "title": "Anmelden",
             "description": "Willkommen zurück! Bitte melden Sie sich an, um fortzufahren.",
-            "signing": "Anmelden...",
+            "signing": "Anmeldung läuft...",
             "success": "Erfolgreich angemeldet!",
             "error": "Anmeldung fehlgeschlagen",
-            "invalidCredentials": "Ungültige E-Mail oder Passwort"
+            "invalidCredentials": "Ungültige E-Mail-Adresse oder Passwort"
         },
         "signup": {
             "title": "Registrieren",
-            "description": "Schließen Sie sich uns an, um auf exklusive Funktionen und Inhalte zuzugreifen.",
+            "description": "Treten Sie uns bei, um auf exklusive Funktionen und Inhalte zuzugreifen.",
             "creating": "Konto wird erstellt...",
             "success": "Konto erfolgreich erstellt!",
-            "successDescription": "Sie können sich jetzt mit Ihren Zugangsdaten anmelden.",
-            "error": "Konto konnte nicht erstellt werden",
-            "verificationRequired": "Konto erstellt! Bitte überprüfen Sie Ihre E-Mail",
-            "verificationDescription": "Wir haben einen Bestätigungslink an {email}gesendet. Bitte überprüfen Sie Ihren Posteingang und klicken Sie auf den Link, um Ihr Konto zu aktivieren."
+            "successDescription": "Sie können sich jetzt mit Ihren Anmeldedaten anmelden.",
+            "error": "Kontoerstellung fehlgeschlagen",
+            "verificationRequired": "Konto erstellt! Bitte bestätigen Sie Ihre E-Mail-Adresse",
+            "verificationDescription": "Wir haben einen Bestätigungslink an {email} gesendet. Bitte überprüfen Sie Ihren Posteingang und klicken Sie auf den Link, um Ihr Konto zu aktivieren."
         },
         "verifyEmail": {
-            "title": "Überprüfe deine E-Mail",
-            "description": "Wir haben dir einen Bestätigungslink gesendet",
+            "title": "Überprüfen Sie Ihre E-Mail",
+            "description": "Wir haben Ihnen einen Bestätigungslink gesendet",
             "sentTo": "E-Mail gesendet an:",
             "instructions": {
-                "check": "1. Überprüfen Sie Ihren Posteingang",
+                "check": "1. Überprüfen Sie Ihren E-Mail-Posteingang",
                 "click": "2. Klicken Sie auf den Bestätigungslink in der E-Mail",
-                "spam": "3. Vergessen Sie nicht, Ihren Spam-Ordner zu überprüfen, wenn Sie ihn nicht sehen"
+                "spam": "3. Vergessen Sie nicht, Ihren Spam-Ordner zu überprüfen, falls Sie sie nicht sehen"
             },
             "resend": "Bestätigungs-E-Mail erneut senden",
             "backToSignin": "Zurück zur Anmeldung"
         },
         "emailVerification": {
-            "title": "E-Mail überprüft! ✅",
-            "description": "Ihre E-Mail wurde erfolgreich verifiziert. Sie können sich jetzt bei Ihrem Konto anmelden.",
+            "title": "E-Mail bestätigt! ✅",
+            "description": "Ihre E-Mail-Adresse wurde erfolgreich bestätigt. Sie können sich jetzt bei Ihrem Konto anmelden.",
             "signIn": "Bei Ihrem Konto anmelden"
         },
         "resetPassword": {
-            "sendEmail": "Sende Reset-E-Mail",
-            "emailSent": "E-Mail zurückgesetzt!",
+            "sendEmail": "E-Mail zum Zurücksetzen senden",
+            "emailSent": "E-Mail zum Zurücksetzen gesendet!",
             "checkEmail": "Bitte überprüfen Sie Ihre E-Mail unter {email}",
-            "error": "Fehler beim Senden der Reset-E-Mail",
-            "emailSentTitle": "Überprüfe deine E-Mail",
-            "emailSentDescription": "Wir haben dir einen Link zum Zurücksetzen des Passworts gesendet",
-            "emailSentTo": "Zurücksetzen-E-Mail gesendet an:",
+            "error": "Fehler beim Senden der E-Mail zum Zurücksetzen",
+            "emailSentTitle": "Überprüfen Sie Ihre E-Mail",
+            "emailSentDescription": "Wir haben Ihnen einen Link zum Zurücksetzen des Passworts gesendet",
+            "emailSentTo": "E-Mail zum Zurücksetzen gesendet an:",
             "instructions": {
-                "check": "1. Überprüfen Sie Ihren Posteingang",
-                "click": "2. Klicken Sie auf den Link in der E-Mail",
+                "check": "1. Überprüfen Sie Ihren E-Mail-Posteingang",
+                "click": "2. Klicken Sie auf den Link zum Zurücksetzen in der E-Mail",
                 "expire": "3. Link läuft in 1 Stunde ab"
             },
             "newPassword": "Neues Passwort",
@@ -120,10 +120,10 @@
             "success": "Passwort erfolgreich zurückgesetzt!",
             "successDescription": "Sie können sich jetzt mit Ihrem neuen Passwort anmelden",
             "confirmError": "Fehler beim Zurücksetzen des Passworts",
-            "newPasswordTitle": "Neues Passwort setzen",
-            "newPasswordDescription": "Geben Sie Ihr neues Passwort unten ein",
+            "newPasswordTitle": "Neues Passwort festlegen",
+            "newPasswordDescription": "Geben Sie unten Ihr neues Passwort ein",
             "invalidResetLink": {
-                "title": "Invalid Reset Link",
+                "title": "Ungültiger Link zum Zurücksetzen",
                 "description": "Der Link zum Zurücksetzen des Passworts ist ungültig oder abgelaufen."
             }
         },
@@ -151,26 +151,26 @@
     "signin": {
         "title": "Bei {appName} anmelden",
         "description": "Willkommen zurück! Bitte melden Sie sich an, um fortzufahren",
-        "dontHaveAnAccount": "Noch kein Konto? <link>Registrieren</link>."
+        "dontHaveAnAccount": "Sie haben noch kein Konto? <link>Registrieren</link>."
     },
     "signup": {
         "title": "Für {appName} registrieren",
-        "alreadyHaveAnAccount": "Bereits ein Konto? <link>Anmelden</link>."
+        "alreadyHaveAnAccount": "Sie haben bereits ein Konto? <link>Anmelden</link>."
     },
     "resetPassword": {
-        "title": "Passwort zurücksetzen",
+        "title": "Ihr Passwort zurücksetzen",
         "description": "Geben Sie Ihre E-Mail-Adresse ein und folgen Sie den Anweisungen, um Ihr Passwort zurückzusetzen.",
-        "emailSent": "E-Mail gesendet! Bitte überprüfen Sie Ihre E-Mails."
+        "emailSent": "E-Mail gesendet! Bitte überprüfen Sie Ihre E-Mail."
     },
     "validation": {
         "required": {
-            "firstName": "Vorname Feld ist erforderlich.",
-            "lastName": "Nachname Feld ist erforderlich.",
-            "name": "Namensfeld ist erforderlich.",
-            "email": "E-Mail-Feld ist erforderlich.",
-            "message": "Nachrichtenfeld ist erforderlich.",
-            "password": "Passwortfeld ist erforderlich.",
-            "confirmPassword": "Passwortbestätigungsfeld ist erforderlich."
+            "firstName": "Das Feld Vorname ist erforderlich.",
+            "lastName": "Das Feld Nachname ist erforderlich.",
+            "name": "Das Feld Name ist erforderlich.",
+            "email": "Das Feld E-Mail ist erforderlich.",
+            "message": "Das Feld Nachricht ist erforderlich.",
+            "password": "Das Feld Passwort ist erforderlich.",
+            "confirmPassword": "Das Feld Passwort bestätigen ist erforderlich."
         },
         "invalid": {
             "email": "Ungültige E-Mail-Adresse."
@@ -184,7 +184,7 @@
             "number": "Muss mindestens eine Zahl enthalten.",
             "special": "Muss mindestens ein Sonderzeichen enthalten.",
             "weak": "schwach",
-            "okay": "in Ordnung",
+            "okay": "okay",
             "good": "gut",
             "strong": "stark",
             "tooShort": "zu kurz"
@@ -206,7 +206,7 @@
     },
     "error": {
         "title": "Ein Fehler ist aufgetreten",
-        "retry": "Wiederholen"
+        "retry": "Erneut versuchen"
     },
     "metadata": {
         "applicationName": "Nitrokit Starter-Vorlage",
@@ -215,19 +215,19 @@
         "title": "Nitrokit Starter-Vorlage"
     },
     "navigation": {
-        "title": "Menü",
+        "title": "Navigation",
         "home": "Startseite",
         "about": "Über uns",
         "services": {
-            "title": "Services",
-            "description": "Professionelle Entwicklungsservices zur Verwirklichung Ihrer Vision.",
+            "title": "Dienstleistungen",
+            "description": "Professionelle Entwicklungsdienstleistungen zur Verwirklichung Ihrer Vision.",
             "premium_badge": "Premium-Dienste",
             "web_development": {
                 "title": "Webentwicklung",
                 "description": "Full-Stack-Webanwendungen mit modernen Technologien"
             },
             "ui_ux_design": {
-                "title": "UI/UX-Design",
+                "title": "UI/UX Design",
                 "description": "Schöne und intuitive Benutzeroberflächen"
             },
             "performance_optimization": {
@@ -239,44 +239,44 @@
                 "description": "Skalieren Sie Ihr Entwicklungsteam mit Experten"
             },
             "badges": {
-                "popular": "beliebt",
+                "popular": "Beliebt",
                 "new": "Neu"
             }
         },
         "components": {
             "title": "Komponenten",
-            "subtitle": "Benutzeroberflächenkomponenten",
+            "subtitle": "UI-Komponenten",
             "description": "Wiederverwendbare Komponenten, erstellt mit Radix UI und Tailwind CSS",
             "view_all": "Alle Komponenten anzeigen",
-            "count": "50+ Components",
+            "count": "50+ Komponenten",
             "button_components": {
-                "title": "Button Components",
-                "description": "Interactive buttons with variants and states"
+                "title": "Button-Komponenten",
+                "description": "Interaktive Buttons mit Varianten und Zuständen"
             },
             "navigation_components": {
                 "title": "Navigation",
-                "description": "Menu and navigation components"
+                "description": "Menü- und Navigationskomponenten"
             },
             "data_display": {
-                "title": "Data Display",
-                "description": "Tables, cards, and data visualization"
+                "title": "Datenanzeige",
+                "description": "Tabellen, Karten und Datenvisualisierung"
             },
             "form_controls": {
-                "title": "Form Controls",
-                "description": "Input fields, selects, and form elements"
+                "title": "Formularsteuerelemente",
+                "description": "Eingabefelder, Auswahlen und Formularelemente"
             },
             "modals_overlays": {
                 "title": "Modals & Overlays",
-                "description": "Dialogs, tooltips, and overlay components"
+                "description": "Dialoge, Tooltips und Overlay-Komponenten"
             },
             "feedback": {
                 "title": "Feedback",
-                "description": "Alerts, notifications, and loading states"
+                "description": "Warnungen, Benachrichtigungen und Ladezustände"
             },
             "categories": {
-                "form": "Form",
+                "form": "Formular",
                 "layout": "Layout",
-                "display": "Display",
+                "display": "Anzeige",
                 "overlay": "Overlay",
                 "feedback": "Feedback"
             }
@@ -288,14 +288,14 @@
     "home": {
         "banner": {
             "badge": "Neu",
-            "text": "v2.0.1 ist draußen! Sieh dir an, was neu ist"
+            "text": "v2.0.1 ist da! Sehen Sie, was neu ist"
         },
         "hero": {
             "title": {
                 "primary": "Mit Nitrokit",
                 "secondary": "Schnell entwickeln"
             },
-            "subtitle": "Ein Starter Kit, das für Startups entwickelt wurde, um ihre Webseiten schnell und effektiv zu starten, inklusive aller notwendigen Integrationen, Seiten und Komponenten."
+            "subtitle": "Ein Starter-Kit für Startups, um ihre Websites schnell und effektiv zu starten, einschließlich aller notwendigen Integrationen, Seiten und Komponenten."
         },
         "stats": {
             "components": {
@@ -312,10 +312,10 @@
             }
         },
         "technologies": {
-            "title": "Unterstützt von modernen Technologien"
+            "title": "Angetrieben von modernen Technologien"
         },
         "cta": {
-            "title": "Bereit für den Start?",
+            "title": "Bereit loszulegen?",
             "description": "Schauen Sie sich unser Projekt auf GitHub an und beschleunigen Sie Ihren Entwicklungsprozess.",
             "github": "GitHub Repository",
             "docs": "Dokumentation"
@@ -332,28 +332,28 @@
     "pricing": {
         "title": "Preise",
         "subtitle": "Preise, die mit Ihnen wachsen",
-        "description": "Wählen Sie einen erschwinglichen Plan, der die besten Funktionen zur Einbindung Ihres Publikums, zur Schaffung von Kundenbindung und zur Umsatzsteigerung bietet.",
+        "description": "Wählen Sie einen erschwinglichen Plan, der mit den besten Funktionen ausgestattet ist, um Ihr Publikum anzusprechen, Kundenbindung zu schaffen und den Umsatz zu steigern.",
         "monthly": "Monatlich",
         "yearly": "Jährlich",
-        "annual-payment": "<span>Sparen Sie 20%</span> mit Jahresabrechnung.",
+        "annual-payment": "<span>Sparen Sie 20%</span> bei jährlicher Abrechnung.",
         "pricePerMonth": "Monat",
         "pricePerYear": "Jahr",
         "purchasePlan": "Plan kaufen",
         "freelancer": {
             "title": "Freelancer",
-            "description": "Das Wesentliche, um Ihren Kunden die beste Arbeit zu liefern."
+            "description": "Das Wesentliche, um Ihre beste Arbeit für Kunden zu leisten."
         },
         "startup": {
             "title": "Startup",
             "description": "Ein Plan, der mit Ihrem schnell wachsenden Unternehmen skaliert."
         },
         "pro": {
-            "title": "Profi",
-            "description": "Engagierte Unterstützung und Infrastruktur für Ihr wachsendes Unternehmen."
+            "title": "Professional",
+            "description": "Engagierter Support und Infrastruktur für Ihr wachsendes Unternehmen."
         },
         "enterprise": {
-            "title": "Unternehmen",
-            "description": "Engagierte Unterstützung und Infrastruktur für Ihr Unternehmen."
+            "title": "Enterprise",
+            "description": "Kontaktieren Sie uns für ein individuelles Angebot für Ihre Unternehmensanforderungen."
         },
         "features": {
             "5products": "5 Produkte",
@@ -377,7 +377,7 @@
     },
     "contact": {
         "title": "Kontakt",
-        "description": "Füllen Sie das folgende Formular aus, um uns zu kontaktieren.",
+        "description": "Füllen Sie das untenstehende Formular aus, um uns zu kontaktieren.",
         "name": "Ihr Name",
         "email": "Ihre E-Mail-Adresse",
         "message": "Ihre Nachricht",
@@ -390,12 +390,12 @@
     },
     "footer": {
         "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ Alle Rechte vorbehalten.",
-        "poweredBy": "Angetrieben von <link>Ekipisi</link>."
+        "poweredBy": "Angetrieben von <link>Ekipisi</link>"
     },
     "cookies": {
         "banner": {
             "title": "Wir verwenden Cookies",
-            "description": "Wir verwenden Cookies, um Ihre Browsererfahrung zu verbessern, personalisierte Inhalte zu bedienen und unseren Traffic zu analysieren.",
+            "description": "Wir verwenden Cookies, um Ihr Surferlebnis zu verbessern, personalisierte Inhalte bereitzustellen und unseren Datenverkehr zu analysieren.",
             "learnMore": "Mehr erfahren",
             "accept": "Alle akzeptieren",
             "reject": "Alle ablehnen",
@@ -410,19 +410,19 @@
         "categories": {
             "necessary": {
                 "title": "Notwendige Cookies",
-                "description": "Diese Cookies sind für das einwandfreie Funktionieren der Website unerlässlich. Sie können nicht deaktiviert werden."
+                "description": "Diese Cookies sind unerlässlich, damit die Website ordnungsgemäß funktioniert. Sie können nicht deaktiviert werden."
             },
             "analytics": {
-                "title": "Analytics-Cookies",
+                "title": "Analyse-Cookies",
                 "description": "Diese Cookies helfen uns zu verstehen, wie Besucher mit unserer Website interagieren, indem sie Informationen anonym sammeln und melden."
             },
             "marketing": {
                 "title": "Marketing-Cookies",
-                "description": "Diese Cookies werden verwendet, um Anzeigen zu liefern, die für Sie und Ihre Interessen relevanter sind."
+                "description": "Diese Cookies werden verwendet, um Werbung zu liefern, die für Sie und Ihre Interessen relevanter ist."
             },
             "functional": {
-                "title": "Funktionelle Cookies",
-                "description": "Diese Cookies ermöglichen eine verbesserte Funktionalität und Personalisierung, wie zum Beispiel das Speichern Ihrer Präferenzen."
+                "title": "Funktionale Cookies",
+                "description": "Diese Cookies ermöglichen erweiterte Funktionalität und Personalisierung, z. B. das Speichern Ihrer Einstellungen."
             }
         }
     },
@@ -430,7 +430,7 @@
         "navigation": {
             "dashboard": "Dashboard",
             "invoices": "Rechnungen",
-            "support": "Unterstützung",
+            "support": "Support",
             "settings": "Einstellungen",
             "account": "Kontoinformationen",
             "billing": "Meine Rechnungen"
@@ -450,11 +450,11 @@
                 "title": "Sicherheit",
                 "overview": "Sicherheitsübersicht",
                 "password": "Passwort",
-                "twoFactor": "Zwei-Faktor-Auth",
+                "twoFactor": "Zwei-Faktor-Authentifizierung",
                 "sessions": "Aktive Sitzungen"
             },
             "other": {
-                "billing": "Abrechnung & Tarife",
+                "billing": "Abrechnung & Pläne",
                 "settings": "Einstellungen"
             }
         },
@@ -468,7 +468,7 @@
                     "title": "Sicherheit",
                     "password": "Passwort & Sicherheit",
                     "twoFactor": "Zwei-Faktor-Authentifizierung",
-                    "twoFactorShort": "Zwei-Faktor-Auth",
+                    "twoFactorShort": "2FA",
                     "sessions": "Aktive Sitzungen"
                 },
                 "mobile": {
@@ -481,7 +481,7 @@
                     "title": "Benachrichtigungseinstellungen",
                     "description": "Verwalten Sie Ihre Benachrichtigungseinstellungen",
                     "heading": "Benachrichtigungseinstellungen",
-                    "subheading": "Wählen Sie, wie Sie über Kontoaktivitäten und Updates benachrichtigt werden möchten."
+                    "subheading": "Wählen Sie aus, wie Sie über Kontoaktivitäten und Updates benachrichtigt werden möchten."
                 },
                 "headers": {
                     "notificationType": "Benachrichtigungstyp",
@@ -501,16 +501,16 @@
                                 "description": "Wichtige Sicherheitsupdates und Warnungen"
                             },
                             "loginAlerts": {
-                                "label": "Anmelde-Warnungen",
-                                "description": "Neue Login-Benachrichtigungen von verschiedenen Geräten"
+                                "label": "Anmeldewarnungen",
+                                "description": "Benachrichtigungen über neue Anmeldungen von verschiedenen Geräten"
                             },
                             "passwordChanges": {
                                 "label": "Passwortänderungen",
-                                "description": "Passwort zurücksetzen und Bestätigungen ändern"
+                                "description": "Bestätigungen für Passwortzurücksetzungen und -änderungen"
                             },
                             "profileUpdates": {
-                                "label": "Profil-Updates",
-                                "description": "Änderungen der Profil- und Kontoinformationen"
+                                "label": "Profilaktualisierungen",
+                                "description": "Änderungen an Profil- und Kontoinformationen"
                             }
                         }
                     },
@@ -518,33 +518,33 @@
                         "title": "Marketing & Updates",
                         "settings": {
                             "marketing": {
-                                "label": "Marketing-Kommunikation",
-                                "description": "Produkt-Updates und Werbeinhalte"
+                                "label": "Marketingmitteilungen",
+                                "description": "Produktupdates und Werbeinhalte"
                             },
                             "newsletters": {
                                 "label": "Newsletter",
                                 "description": "Wöchentliche Newsletter und Tipps"
                             },
                             "systemUpdates": {
-                                "label": "System-Updates",
+                                "label": "Systemupdates",
                                 "description": "App-Updates und Wartungshinweise"
                             }
                         }
                     }
                 },
                 "quickActions": {
-                    "title": "Schnelle Aktionen",
+                    "title": "Schnellaktionen",
                     "description": "Aktivieren oder deaktivieren Sie alle Benachrichtigungen für jeden Kanal",
-                    "enableAllEmail": "Alle E-Mails aktivieren",
-                    "essentialOnly": "Nur Essential",
+                    "enableAllEmail": "Alle E-Mail-Benachrichtigungen aktivieren",
+                    "essentialOnly": "Nur Wesentliche",
                     "enableAllEmailSuccess": "Alle E-Mail-Benachrichtigungen aktiviert",
-                    "essentialOnlySuccess": "Notwendige Benachrichtigungen aktiviert"
+                    "essentialOnlySuccess": "Wesentliche Benachrichtigungen aktiviert"
                 },
                 "form": {
                     "savePreferences": "Einstellungen speichern",
-                    "saving": "Speichern...",
+                    "saving": "Wird gespeichert...",
                     "saveSuccess": "Benachrichtigungseinstellungen erfolgreich gespeichert!",
-                    "saveError": "Einstellungen konnten nicht gespeichert werden. Bitte versuchen Sie es erneut."
+                    "saveError": "Fehler beim Speichern der Einstellungen. Bitte versuchen Sie es erneut."
                 }
             },
             "overview": {
@@ -556,13 +556,13 @@
                 "recommendations": {
                     "title": "Sicherheitsempfehlungen",
                     "verifyEmail": {
-                        "title": "E-Mail verifizieren",
-                        "description": "Sichern Sie Ihr Konto durch Verifizierung Ihrer E-Mail-Adresse",
+                        "title": "Bestätigen Sie Ihre E-Mail-Adresse",
+                        "description": "Sichern Sie Ihr Konto, indem Sie Ihre E-Mail-Adresse bestätigen",
                         "action": "E-Mail bestätigen"
                     },
                     "setPassword": {
-                        "title": "Konto-Passwort festlegen",
-                        "description": "Füge ein Passwort hinzu, um die Backup-Login-Methode zu aktivieren und die Sicherheit zu verbessern",
+                        "title": "Kontopasswort festlegen",
+                        "description": "Fügen Sie ein Passwort hinzu, um eine Backup-Anmeldemethode zu aktivieren und die Sicherheit zu erhöhen",
                         "action": "Passwort festlegen"
                     },
                     "weakPassword": {
@@ -572,33 +572,33 @@
                     },
                     "enableTwoFactor": {
                         "title": "Zwei-Faktor-Authentifizierung aktivieren",
-                        "description": "Fügen Sie Ihrem Konto eine zusätzliche Ebene der Sicherheit hinzu",
+                        "description": "Fügen Sie Ihrem Konto eine zusätzliche Sicherheitsebene hinzu",
                         "action": "2FA aktivieren"
                     },
                     "addPhone": {
                         "title": "Telefonnummer hinzufügen",
-                        "description": "Telefonnummer für Kontowiederherstellung hinzufügen",
+                        "description": "Fügen Sie eine Telefonnummer für die Kontowiederherstellung hinzu",
                         "action": "Telefon hinzufügen"
                     }
                 },
                 "score": {
-                    "title": "Sicherheitswert",
+                    "title": "Sicherheitsbewertung",
                     "subtitle": "Gesamtsicherheit",
                     "excellent": "Ausgezeichnet",
                     "good": "Gut",
-                    "needsImprovement": "Benötigt Verbesserungen",
+                    "needsImprovement": "Verbesserungsbedarf",
                     "settings": "Sicherheitseinstellungen"
                 },
                 "page": {
                     "title": "Sicherheitseinstellungen",
-                    "description": "Verwalten Sie Ihre Sicherheitseinstellungen",
+                    "description": "Verwalten Sie Ihre Kontosicherheitseinstellungen",
                     "heading": "Sicherheit",
-                    "subheading": "Verwalten Sie Ihr Passwort, Zwei-Faktor-Authentifizierung und aktive Sitzungen"
+                    "subheading": "Verwalten Sie Ihr Passwort, die Zwei-Faktor-Authentifizierung und aktive Sitzungen"
                 },
                 "passwordStrength": {
                     "strong": "Stark",
                     "medium": "Mittel",
-                    "weak": "Schwache",
+                    "weak": "Schwach",
                     "unknown": "Unbekannt"
                 },
                 "status": {
@@ -608,16 +608,16 @@
                 "cards": {
                     "password": {
                         "title": "Passwort",
-                        "description": "Ändern Sie Ihr Passwort und verwalten Sie die Passwort-Sicherheit"
+                        "description": "Ändern Sie Ihr Passwort und verwalten Sie die Passwortsicherheit"
                     },
                     "twoFactor": {
                         "title": "Zwei-Faktor-Authentifizierung",
-                        "description": "Fügen Sie Ihrem Konto eine zusätzliche Ebene der Sicherheit hinzu"
+                        "description": "Fügen Sie Ihrem Konto eine zusätzliche Sicherheitsebene hinzu"
                     },
                     "sessions": {
                         "title": "Aktive Sitzungen",
-                        "description": "Zeige und verwalte deine aktiven Login-Sitzungen",
-                        "activeCount": "{count} aktiv"
+                        "description": "Zeigen Sie Ihre aktiven Anmeldesitzungen an und verwalten Sie sie",
+                        "activeCount": "{count} Aktiv"
                     }
                 },
                 "overview": {
@@ -625,10 +625,393 @@
                     "description": "Aktueller Status Ihrer Kontosicherheit",
                     "metrics": {
                         "passwordStrength": "Passwortstärke",
-                        "twoFactorAuth": "Zwei-Faktor-Auth",
+                        "twoFactorAuth": "Zwei-Faktor-Authentifizierung",
                         "twoFactorOn": "An",
                         "twoFactorOff": "Aus",
                         "activeSessions": "Aktive Sitzungen"
+                    }
+                },
+                "password": {
+                    "page": {
+                        "title": "Sicherheitseinstellungen",
+                        "description": "Verwalten Sie Ihre Kontosicherheits- und Passworteinstellungen",
+                        "heading": "Sicherheitseinstellungen",
+                        "subheading": "Verwalten Sie Ihr Passwort und Ihre Kontosicherheitseinstellungen."
+                    },
+                    "deleteAccount": {
+                        "card": {
+                            "title": "Gefahrenzone",
+                            "description": "Löschen Sie Ihr Konto und alle zugehörigen Daten dauerhaft. Diese Aktion kann nicht rückgängig gemacht werden."
+                        },
+                        "warning": {
+                            "title": "Was wird gelöscht:",
+                            "items": {
+                                "profile": "Ihr Profil und Ihre persönlichen Informationen",
+                                "files": "Alle hochgeladenen Dateien und Profilbilder",
+                                "settings": "Kontoeinstellungen und Präferenzen",
+                                "sessions": "Anmeldesitzungen und verbundene Konten",
+                                "data": "Alle zugehörigen Daten und der Verlauf"
+                            }
+                        },
+                        "buttons": {
+                            "deleteAccount": "Mein Konto löschen",
+                            "cancel": "Abbrechen",
+                            "deleteForever": "Konto endgültig löschen"
+                        },
+                        "dialog": {
+                            "title": "Konto löschen",
+                            "description": "Sie sind dabei, Ihr Konto ({email}) dauerhaft zu löschen. Diese Aktion kann nicht rückgängig gemacht werden und alle Ihre Daten gehen für immer verloren."
+                        },
+                        "form": {
+                            "password": {
+                                "label": "Passwort bestätigen *",
+                                "placeholder": "Geben Sie Ihr Passwort ein",
+                                "required": "Passwort ist erforderlich"
+                            },
+                            "confirmText": {
+                                "label": "Geben Sie \"LÖSCHEN\" ein, um zu bestätigen *",
+                                "placeholder": "Geben Sie hier LÖSCHEN ein"
+                            }
+                        },
+                        "validation": {
+                            "confirmRequired": "Bitte geben Sie \"LÖSCHEN\" ein, um zu bestätigen",
+                            "mustTypeDelete": "Sie müssen genau \"LÖSCHEN\" eingeben"
+                        },
+                        "messages": {
+                            "deleteSuccess": "Konto erfolgreich gelöscht. Weiterleitung...",
+                            "deleteFailed": "Fehler beim Löschen des Kontos",
+                            "deleteError": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
+                        }
+                    },
+                    "create": {
+                        "card": {
+                            "title": "Passwort erstellen"
+                        },
+                        "form": {
+                            "password": {
+                                "label": "Neues Passwort *",
+                                "placeholder": "Geben Sie Ihr neues Passwort ein"
+                            },
+                            "confirmPassword": {
+                                "label": "Passwort bestätigen *",
+                                "placeholder": "Bestätigen Sie Ihr Passwort"
+                            }
+                        },
+                        "validation": {
+                            "password": {
+                                "minLength": "Passwort muss mindestens 8 Zeichen lang sein",
+                                "uppercase": "Passwort muss mindestens einen Großbuchstaben enthalten",
+                                "lowercase": "Passwort muss mindestens einen Kleinbuchstaben enthalten",
+                                "number": "Passwort muss mindestens eine Zahl enthalten",
+                                "special": "Passwort muss mindestens ein Sonderzeichen enthalten"
+                            },
+                            "confirmPassword": {
+                                "required": "Bitte bestätigen Sie Ihr Passwort",
+                                "mismatch": "Passwörter stimmen nicht überein"
+                            }
+                        },
+                        "buttons": {
+                            "create": "Passwort erstellen",
+                            "creating": "Passwort wird erstellt..."
+                        },
+                        "help": {
+                            "requirements": "Ihr Passwort muss alle Anforderungen erfüllen und mindestens mittlere Stärke haben."
+                        },
+                        "messages": {
+                            "createSuccess": "Passwort erfolgreich erstellt!",
+                            "createFailed": "Fehler beim Erstellen des Passworts",
+                            "createError": "Etwas ist schiefgelaufen"
+                        }
+                    },
+                    "change": {
+                        "card": {
+                            "title": "Passwort ändern",
+                            "description": "Aktualisieren Sie Ihr Passwort, um Ihr Konto sicher zu halten. Sie erhalten eine Benachrichtigung, wenn Ihr Passwort geändert wird."
+                        },
+                        "form": {
+                            "currentPassword": {
+                                "label": "Aktuelles Passwort *",
+                                "placeholder": "Geben Sie Ihr aktuelles Passwort ein"
+                            },
+                            "newPassword": {
+                                "label": "Neues Passwort *",
+                                "placeholder": "Geben Sie Ihr neues Passwort ein"
+                            },
+                            "confirmPassword": {
+                                "label": "Neues Passwort bestätigen *",
+                                "placeholder": "Bestätigen Sie Ihr neues Passwort"
+                            }
+                        },
+                        "validation": {
+                            "currentPassword": {
+                                "required": "Aktuelles Passwort ist erforderlich"
+                            },
+                            "newPassword": {
+                                "minLength": "Neues Passwort muss mindestens 8 Zeichen lang sein",
+                                "uppercase": "Passwort muss mindestens einen Großbuchstaben enthalten",
+                                "lowercase": "Passwort muss mindestens einen Kleinbuchstaben enthalten",
+                                "number": "Passwort muss mindestens eine Zahl enthalten",
+                                "special": "Passwort muss mindestens ein Sonderzeichen enthalten"
+                            },
+                            "confirmPassword": {
+                                "required": "Bitte bestätigen Sie Ihr neues Passwort",
+                                "mismatch": "Passwörter stimmen nicht überein"
+                            }
+                        },
+                        "buttons": {
+                            "update": "Passwort aktualisieren",
+                            "updating": "Wird aktualisiert...",
+                            "cancel": "Abbrechen"
+                        },
+                        "messages": {
+                            "updateSuccess": "Passwort erfolgreich aktualisiert!",
+                            "updateFailed": "Fehler beim Aktualisieren des Passworts",
+                            "errors": {
+                                "unauthorized": "Bitte melden Sie sich erneut an, um fortzufahren",
+                                "invalidData": "Ungültige Passwortdaten. Bitte überprüfen Sie Ihre Eingabe.",
+                                "incorrectPassword": "Aktuelles Passwort ist falsch",
+                                "serverError": "Serverfehler. Bitte versuchen Sie es später erneut.",
+                                "generic": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
+                            }
+                        }
+                    }
+                },
+                "sessions": {
+                    "page": {
+                        "title": "Aktive Sitzungen",
+                        "description": "Verwalten Sie Ihre aktiven Anmeldesitzungen und Sicherheit",
+                        "heading": "Aktive Sitzungen",
+                        "subheading": "Zeigen Sie alle Geräte und Anwendungen an und verwalten Sie sie, die derzeit bei Ihrem Konto angemeldet sind."
+                    },
+                    "client": {
+                        "heading": "Aktive Sitzungen",
+                        "subheading": "Überwachen und verwalten Sie Ihre aktiven Anmeldesitzungen auf allen Geräten.",
+                        "securityAlert": "Aus Sicherheitsgründen beenden Sie unbekannte Sitzungen sofort und ändern Sie Ihr Passwort.",
+                        "currentSessions": {
+                            "title": "Aktuelle Sitzungen",
+                            "description": "Dies sind die Geräte und Browser, die derzeit bei Ihrem Konto angemeldet sind."
+                        },
+                        "securityTips": {
+                            "title": "Sicherheitstipps",
+                            "subtitle": "Sichern Sie Ihr Konto:",
+                            "tips": {
+                                "publicComputers": "Melden Sie sich immer ab, wenn Sie öffentliche Computer verwenden",
+                                "reviewSessions": "Überprüfen Sie regelmäßig Ihre aktiven Sitzungen",
+                                "twoFactor": "Aktivieren Sie die Zwei-Faktor-Authentifizierung für zusätzliche Sicherheit",
+                                "strongPasswords": "Verwenden Sie starke, eindeutige Passwörter",
+                                "signOutAll": "Melden Sie sich von allen Sitzungen ab, wenn Sie unbefugten Zugriff vermuten"
+                            }
+                        }
+                    },
+                    "table": {
+                        "sessionCount": "{count} aktive Sitzung{plural}",
+                        "headers": {
+                            "deviceBrowser": "Gerät & Browser",
+                            "location": "Standort",
+                            "lastActive": "Zuletzt aktiv",
+                            "status": "Status",
+                            "actions": "Aktionen"
+                        },
+                        "status": {
+                            "current": "Aktuell",
+                            "active": "Aktiv"
+                        },
+                        "buttons": {
+                            "terminateAllOthers": "Alle anderen beenden",
+                            "terminateAll": "Alle beenden",
+                            "terminate": "Beenden",
+                            "cancel": "Abbrechen"
+                        },
+                        "dialogs": {
+                            "terminateAll": {
+                                "title": "Alle anderen Sitzungen beenden?",
+                                "description": "Dadurch werden Sie von allen anderen Geräten und Browsern abgemeldet. Ihre aktuelle Sitzung bleibt aktiv."
+                            },
+                            "terminateSession": {
+                                "title": "Sitzung beenden?",
+                                "description": "Dadurch wird dieses Gerät/dieser Browser abgemeldet. Der Benutzer muss sich erneut anmelden."
+                            }
+                        },
+                        "messages": {
+                            "currentSessionTerminated": "Aktuelle Sitzung beendet. Weiterleitung zur Anmeldung...",
+                            "sessionTerminated": "Sitzung erfolgreich beendet",
+                            "terminateFailed": "Fehler beim Beenden der Sitzung",
+                            "terminateError": "Fehler beim Beenden der Sitzung",
+                            "allOthersTerminated": "Alle anderen Sitzungen erfolgreich beendet",
+                            "allSessionsTerminated": "Alle Sitzungen beendet. Weiterleitung zur Anmeldung...",
+                            "terminateAllFailed": "Fehler beim Beenden der Sitzungen",
+                            "terminateAllError": "Fehler beim Beenden der Sitzungen"
+                        }
+                    }
+                },
+                "twoFactor": {
+                    "page": {
+                        "title": "Zwei-Faktor-Authentifizierung",
+                        "description": "Verwalten Sie Ihre Zwei-Faktor-Authentifizierungseinstellungen für erhöhte Sicherheit",
+                        "heading": "Zwei-Faktor-Authentifizierung",
+                        "subheading": "Fügen Sie Ihrem Konto mit 2FA eine zusätzliche Sicherheitsebene hinzu."
+                    },
+                    "backupCodes": {
+                        "dialog": {
+                            "title": "Backup-Codes",
+                            "description": "Verwenden Sie diese Codes, wenn Sie den Zugriff auf Ihre Authenticator-App verlieren."
+                        },
+                        "alerts": {
+                            "verifyIdentity": "Um Ihre Backup-Codes anzuzeigen oder neu zu generieren, müssen Sie Ihre Identität bestätigen.",
+                            "invalidatePrevious": "Das Generieren neuer Codes macht alle vorherigen Backup-Codes ungültig.",
+                            "saveCodes": "Speichern Sie diese Codes an einem sicheren Ort. Jeder Code kann nur einmal verwendet werden."
+                        },
+                        "form": {
+                            "verificationCode": {
+                                "label": "Geben Sie Ihren Authentifizierungscode ein:",
+                                "placeholder": "000000"
+                            }
+                        },
+                        "buttons": {
+                            "generateNew": "Neue Backup-Codes generieren",
+                            "cancel": "Abbrechen",
+                            "generate": "Generieren",
+                            "generating": "Wird generiert...",
+                            "download": "Herunterladen",
+                            "regenerate": "Neu generieren"
+                        },
+                        "validation": {
+                            "validCode": "Bitte geben Sie einen gültigen 6-stelligen Code ein"
+                        },
+                        "messages": {
+                            "downloaded": "Backup-Codes heruntergeladen",
+                            "regenerateSuccess": "Neue Backup-Codes generiert",
+                            "regenerateFailed": "Fehler beim Neugenerieren der Codes",
+                            "regenerateError": "Fehler beim Neugenerieren der Codes"
+                        },
+                        "download": {
+                            "title": "Nitrokit Zwei-Faktor-Authentifizierung Backup-Codes",
+                            "warning": "WICHTIG: Speichern Sie diese Codes an einem sicheren Ort.\nJeder Code kann nur einmal verwendet werden.",
+                            "generatedOn": "Generiert am: {date}"
+                        }
+                    },
+                    "disable": {
+                        "dialog": {
+                            "title": "Zwei-Faktor-Authentifizierung deaktivieren",
+                            "description": "Dadurch wird die zusätzliche Sicherheitsebene von Ihrem Konto entfernt."
+                        },
+                        "warning": {
+                            "message": "Warnung: Das Deaktivieren von 2FA macht Ihr Konto weniger sicher. Wir empfehlen, es aktiviert zu lassen."
+                        },
+                        "form": {
+                            "verificationCode": {
+                                "label": "Geben Sie Ihren Authentifizierungscode zur Bestätigung ein:",
+                                "placeholder": "000000"
+                            }
+                        },
+                        "buttons": {
+                            "cancel": "Abbrechen",
+                            "disable": "2FA deaktivieren",
+                            "disabling": "Wird deaktiviert..."
+                        },
+                        "validation": {
+                            "validCode": "Bitte geben Sie einen gültigen 6-stelligen Code ein"
+                        },
+                        "messages": {
+                            "disableFailed": "Fehler beim Deaktivieren von 2FA",
+                            "disableError": "Fehler beim Deaktivieren von 2FA"
+                        }
+                    },
+                    "management": {
+                        "card": {
+                            "title": "Zwei-Faktor-Authentifizierung",
+                            "description": "Fügen Sie Ihrem Konto mit Zwei-Faktor-Authentifizierung eine zusätzliche Sicherheitsebene hinzu."
+                        },
+                        "status": {
+                            "title": "Zwei-Faktor-Authentifizierung",
+                            "enabled": "Aktiviert am {date}",
+                            "notEnabled": "Nicht aktiviert",
+                            "unknown": "Unbekannt"
+                        },
+                        "badge": {
+                            "enabled": "Aktiviert",
+                            "disabled": "Deaktiviert"
+                        },
+                        "alerts": {
+                            "recommendation": "Wir empfehlen, die Zwei-Faktor-Authentifizierung zu aktivieren, um Ihr Konto sicher zu halten.",
+                            "protected": "Ihr Konto ist mit Zwei-Faktor-Authentifizierung geschützt.",
+                            "backupCodes": "Sie haben noch {count} Backup-Codes übrig."
+                        },
+                        "buttons": {
+                            "enable": "Zwei-Faktor-Authentifizierung aktivieren",
+                            "viewBackupCodes": "Backup-Codes anzeigen",
+                            "disable": "2FA deaktivieren"
+                        },
+                        "howItWorks": {
+                            "title": "So funktioniert's",
+                            "steps": {
+                                "download": "Laden Sie Google Authenticator oder eine ähnliche App herunter",
+                                "scan": "Scannen Sie den QR-Code oder geben Sie den Einrichtungsschlüssel ein",
+                                "verify": "Geben Sie den Bestätigungscode ein, um die Einrichtung abzuschließen",
+                                "backup": "Speichern Sie Ihre Backup-Codes an einem sicheren Ort"
+                            }
+                        },
+                        "messages": {
+                            "enableSuccess": "Zwei-Faktor-Authentifizierung wurde erfolgreich aktiviert!",
+                            "disableSuccess": "Zwei-Faktor-Authentifizierung wurde deaktiviert."
+                        }
+                    },
+                    "setup": {
+                        "steps": {
+                            "loading": {
+                                "title": "2FA wird eingerichtet...",
+                                "description": "Bitte warten Sie, während wir Ihre Einrichtung vorbereiten..."
+                            },
+                            "setup": {
+                                "title": "Zwei-Faktor-Authentifizierung einrichten",
+                                "description": "Scannen Sie den QR-Code mit Ihrer Authenticator-App"
+                            },
+                            "verify": {
+                                "title": "Einrichtung überprüfen",
+                                "description": "Geben Sie den Code aus Ihrer Authenticator-App ein"
+                            },
+                            "backup": {
+                                "title": "Backup-Codes speichern",
+                                "description": "Speichern Sie diese Codes an einem sicheren Ort"
+                            }
+                        },
+                        "qr": {
+                            "alt": "2FA QR-Code"
+                        },
+                        "manualEntry": {
+                            "label": "Kann nicht scannen? Geben Sie diesen Schlüssel manuell ein:"
+                        },
+                        "verify": {
+                            "codeLabel": "Geben Sie den 6-stelligen Code aus Ihrer App ein:",
+                            "codePlaceholder": "000000"
+                        },
+                        "backup": {
+                            "warning": "Speichern Sie diese Backup-Codes an einem sicheren Ort. Jeder Code kann nur einmal verwendet werden."
+                        },
+                        "buttons": {
+                            "accountAdded": "Ich habe das Konto hinzugefügt",
+                            "back": "Zurück",
+                            "verify": "Überprüfen",
+                            "verifying": "Wird überprüft...",
+                            "download": "Herunterladen",
+                            "complete": "Einrichtung abschließen"
+                        },
+                        "validation": {
+                            "validCode": "Bitte geben Sie einen gültigen 6-stelligen Code ein"
+                        },
+                        "messages": {
+                            "setupFailed": "Fehler beim Einrichten von 2FA",
+                            "setupError": "Fehler beim Initialisieren der 2FA-Einrichtung. Bitte versuchen Sie es erneut.",
+                            "verifyFailed": "Überprüfung fehlgeschlagen",
+                            "verifyError": "Überprüfung fehlgeschlagen",
+                            "keyCopied": "Einrichtungsschlüssel in die Zwischenablage kopiert",
+                            "codesDownloaded": "Backup-Codes heruntergeladen"
+                        },
+                        "download": {
+                            "title": "Nitrokit Zwei-Faktor-Authentifizierung Backup-Codes",
+                            "warning": "WICHTIG: Speichern Sie diese Codes an einem sicheren Ort.\nJeder Code kann nur einmal verwendet werden.",
+                            "generatedOn": "Generiert am: {date}"
+                        }
                     }
                 }
             },
@@ -636,30 +1019,30 @@
                 "title": "Kontostatus",
                 "email": {
                     "label": "E-Mail",
-                    "verified": "Verifiziert",
-                    "unverified": "Nicht verifiziert"
+                    "verified": "Bestätigt",
+                    "unverified": "Unbestätigt"
                 },
                 "phone": {
                     "label": "Telefon",
-                    "verified": "Verifiziert",
+                    "verified": "Bestätigt",
                     "notAdded": "Nicht hinzugefügt"
                 },
                 "twoFactor": {
-                    "label": "Zwei-Faktor-Auth",
+                    "label": "Zwei-Faktor-Authentifizierung",
                     "enabled": "Aktiviert",
                     "disabled": "Deaktiviert"
                 },
                 "password": {
                     "label": "Passwort",
-                    "notSet": "Nicht gesetzt",
+                    "notSet": "Nicht festgelegt",
                     "strong": "Stark",
                     "medium": "Mittel",
-                    "weak": "Schwache",
+                    "weak": "Schwach",
                     "unknown": "Unbekannt"
                 },
                 "sessions": {
                     "label": "Aktive Sitzungen",
-                    "active": "{count} aktiv"
+                    "active": "{count} Aktiv"
                 },
                 "accountType": {
                     "label": "Kontotyp"
@@ -667,25 +1050,25 @@
             },
             "personalInfo": {
                 "title": "Persönliche Informationen",
-                "fullName": "Voller Name",
+                "fullName": "Vollständiger Name",
                 "emailAddress": "E-Mail-Adresse",
                 "phoneNumber": "Telefonnummer",
                 "memberSince": "Mitglied seit",
-                "notSet": "Nicht gesetzt",
+                "notSet": "Nicht festgelegt",
                 "notAdded": "Nicht hinzugefügt"
             },
             "recentActivity": {
                 "title": "Letzte Aktivität",
                 "currentSession": "Aktuelle Sitzung",
-                "sessionLogin": "Session-Login",
+                "sessionLogin": "Sitzungsanmeldung",
                 "accountCreated": "Konto erstellt",
-                "emailVerified": "E-Mail verifiziert",
-                "connectedProvider": "{provider} Verbunden",
+                "emailVerified": "E-Mail bestätigt",
+                "connectedProvider": "{provider} verbunden",
                 "activeTill": "Aktiv bis {date}",
                 "welcome": "Willkommen auf der Plattform!",
                 "emailConfirmed": "E-Mail-Adresse bestätigt",
-                "accountLinked": "{type} Konto verknüpft",
-                "noActivity": "Keine aktuellen Aktivitäten",
+                "accountLinked": "{type}-Konto verknüpft",
+                "noActivity": "Keine kürzliche Aktivität",
                 "viewAllSessions": "Alle Sitzungen anzeigen",
                 "statuses": {
                     "active": "Aktiv",
@@ -697,58 +1080,58 @@
             "linkedAccounts": {
                 "title": "Verknüpfte Konten",
                 "connect": "Konto verbinden",
-                "disconnect": "Verbindung trennen",
+                "disconnect": "Trennen",
                 "alreadyConnected": "Diese Plattform ist bereits verbunden",
                 "accountBelongsToOther": "Dieses Konto gehört einem anderen Benutzer",
-                "cannotRemoveLast": "Sie können Ihre einzige Authentifizierungsmethode nicht entfernen. Bitte setzen Sie zuerst ein Passwort.",
+                "cannotRemoveLast": "Sie können Ihre einzige Authentifizierungsmethode nicht entfernen. Bitte legen Sie zuerst ein Passwort fest.",
                 "linkSuccess": "Konto erfolgreich verknüpft",
-                "unlinkSuccess": "Account erfolgreich getrennt",
+                "unlinkSuccess": "Konto erfolgreich getrennt",
                 "linkError": "Fehler beim Verknüpfen des Kontos",
-                "unlinkError": "Fehler beim Entfernen des Kontos",
+                "unlinkError": "Fehler beim Trennen des Kontos",
                 "hasPassword": "Hat Passwort",
-                "canRemoveAccounts": "Darf Konten entfernen"
+                "canRemoveAccounts": "Kann Konten entfernen"
             },
             "profile": {
                 "page": {
                     "title": "Profileinstellungen",
                     "description": "Verwalten Sie Ihre persönlichen Informationen und Profileinstellungen",
                     "heading": "Profileinstellungen",
-                    "subheading": "Verwalten Sie Ihre persönlichen Daten und Profileinstellungen."
+                    "subheading": "Verwalten Sie Ihre persönlichen Informationen und Profileinstellungen."
                 },
                 "accountLinking": {
                     "title": "Verbundene Konten",
-                    "description": "Verbinden Sie Ihre sozialen Konten für eine einfachere Anmeldung",
+                    "description": "Verknüpfen Sie Ihre sozialen Konten für eine einfachere Anmeldung",
                     "warning": {
-                        "keepOneAccount": "Behalte mindestens ein Konto verbunden um den Zugriff zu erhalten"
+                        "keepOneAccount": "Behalten Sie mindestens ein Konto verbunden, um den Zugriff aufrechtzuerhalten"
                     },
                     "status": {
-                        "activeSince": "Aktiv seit {date}",
-                        "recently": "vor kurzem"
+                        "activeSince": "Aktiv seit {date, date, ::yyyyMMMd}",
+                        "recently": "kürzlich"
                     },
                     "buttons": {
                         "connect": "Verbinden",
-                        "disconnect": "Verbindung trennen",
-                        "connecting": "Verbinden...",
-                        "removing": "Entfernen..."
+                        "disconnect": "Trennen",
+                        "connecting": "Wird verbunden...",
+                        "removing": "Wird entfernt..."
                     },
                     "messages": {
                         "connectFailed": "Fehler beim Verbinden des Kontos",
-                        "disconnectSuccess": "Account erfolgreich getrennt",
-                        "disconnectFailed": "Konto konnte nicht getrennt werden",
-                        "cannotRemoveLast": "Das zuletzt verbundene Konto kann nicht entfernt werden"
+                        "disconnectSuccess": "Konto erfolgreich getrennt",
+                        "disconnectFailed": "Fehler beim Trennen des Kontos",
+                        "cannotRemoveLast": "Das letzte verbundene Konto kann nicht entfernt werden"
                     }
                 },
                 "preferences": {
                     "title": "Einstellungen",
-                    "description": "Sprach- und Theme-Einstellungen anpassen",
+                    "description": "Passen Sie Ihre Sprach- und Designeinstellungen an",
                     "language": {
                         "label": "Sprache",
                         "placeholder": "Sprache auswählen",
-                        "flagAlt": "{language} Flagge"
+                        "flagAlt": "{language}-Flagge"
                     },
                     "theme": {
-                        "label": "Thema",
-                        "placeholder": "Theme auswählen",
+                        "label": "Design",
+                        "placeholder": "Design auswählen",
                         "options": {
                             "light": "Hell",
                             "dark": "Dunkel",
@@ -762,13 +1145,13 @@
                     "messages": {
                         "changeTypes": {
                             "language": "Sprache",
-                            "theme": "Thema"
+                            "theme": "Design"
                         },
-                        "themeUpdateSuccess": "Theme erfolgreich aktualisiert!",
+                        "themeUpdateSuccess": "Design erfolgreich aktualisiert!",
                         "languageUpdateSuccess": "Sprache aktualisiert! Weiterleitung...",
                         "updateSuccess": "Einstellungen erfolgreich aktualisiert!",
                         "updateFailed": "Fehler beim Aktualisieren der Einstellungen",
-                        "updateError": "Etwas ist schiefgelaufen. Bitte versuche es erneut."
+                        "updateError": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
                     }
                 },
                 "profileInformation": {
@@ -788,15 +1171,15 @@
                     "image": {
                         "label": "Profilbild",
                         "removeSuccess": "Profilbild erfolgreich entfernt!",
-                        "removeError": "Profilbild konnte nicht entfernt werden."
+                        "removeError": "Fehler beim Entfernen des Profilbilds."
                     },
                     "phone": {
                         "label": "Telefonnummer",
                         "placeholder": "+1 234 567 8900",
                         "status": {
-                            "verified": "Verifiziert",
-                            "notVerified": "Nicht verifiziert",
-                            "verificationRequired": "Überprüfung erforderlich"
+                            "verified": "Bestätigt",
+                            "notVerified": "Nicht bestätigt",
+                            "verificationRequired": "Bestätigung erforderlich"
                         },
                         "validation": {
                             "invalidFormat": "Bitte geben Sie eine gültige internationale Telefonnummer ein (7-15 Ziffern)"
@@ -808,11 +1191,11 @@
                             "enterCode": "Bitte geben Sie den Bestätigungscode ein",
                             "enterCodeTitle": "Bestätigungscode eingeben",
                             "codeInstructions": "Wir haben einen 6-stelligen Code an {flag} {phone} gesendet",
-                            "yourPhone": "dein Telefon",
-                            "verify": "Überprüfen",
-                            "success": "Telefonnummer erfolgreich überprüft!",
+                            "yourPhone": "Ihr Telefon",
+                            "verify": "Bestätigen",
+                            "success": "Telefonnummer erfolgreich bestätigt!",
                             "verifyError": "Fehler beim Bestätigen des Codes",
-                            "requirement": "Telefon-Verifizierung ist für Sicherheitsfunktionen und Benachrichtigungen erforderlich",
+                            "requirement": "Telefonbestätigung ist für Sicherheitsfunktionen und Benachrichtigungen erforderlich",
                             "cooldown": "{seconds}s"
                         }
                     },
@@ -828,75 +1211,130 @@
                     },
                     "messages": {
                         "updateSuccess": "Profil erfolgreich aktualisiert!",
-                        "updateFailed": "Profil konnte nicht aktualisiert werden",
-                        "updateError": "Etwas ist schiefgelaufen. Bitte versuche es erneut.",
-                        "phoneUpdated": "Telefonnummer aktualisiert. Bitte überprüfen Sie Ihre neue Nummer."
-                    }
-                },
-                "email": {
-                    "verify": {
-                        "page": {
-                            "title": "E-Mail bestätigen",
-                            "description": "Bestätigen Sie Ihre E-Mail-Adresse, um Ihr Konto zu sichern",
-                            "heading": "E-Mail-Adresse überprüfen",
-                            "subheading": "Wir müssen deine E-Mail-Adresse verifizieren, um dein Konto zu sichern und alle Funktionen zu aktivieren."
-                        },
-                        "tokenVerification": {
-                            "loading": {
-                                "title": "E-Mail wird überprüft...",
-                                "description": "Bitte warten Sie, bis wir Ihre E-Mail-Adresse verifizieren."
-                            },
-                            "success": {
-                                "title": "E-Mail überprüft!",
-                                "description": "Ihre E-Mail-Adresse wurde erfolgreich verifiziert.",
-                                "redirecting": "Weiterleitung zu Kontoeinstellungen..."
-                            },
-                            "error": {
-                                "title": "Verifizierung fehlgeschlagen",
-                                "description": "Der Bestätigungslink ist ungültig oder abgelaufen.",
-                                "tryAgain": "Erneut versuchen"
-                            }
-                        },
-                        "emailStatus": {
-                            "title": "Email Status",
-                            "primaryEmail": "Primäre E-Mail-Adresse",
-                            "unverified": "Nicht verifiziert"
-                        },
-                        "form": {
-                            "title": "Bestätige deine E-Mail",
-                            "description": "Klicken Sie auf die Schaltfläche unten, um eine Bestätigungs-E-Mail an {email} zu senden",
-                            "alerts": {
-                                "emailSent": "Verifizierungs-E-Mail gesendet! Überprüfen Sie Ihren Posteingang und klicken Sie auf den Bestätigungs-Link. Wenn Sie ihn nicht sehen, überprüfen Sie Ihren Spam-Ordner.",
-                                "notVerified": "Ihre E-Mail-Adresse ist nicht verifiziert. Einige Funktionen können begrenzt sein, bis Sie Ihre E-Mail verifizieren."
-                            },
-                            "buttons": {
-                                "sendVerification": "Verifizierungs-E-Mail senden",
-                                "resendEmail": "Bestätigungs-E-Mail erneut senden",
-                                "resendCountdown": "Erneut in {seconds}s senden"
-                            },
-                            "status": {
-                                "pleaseWait": "Bitte warten Sie {seconds} Sekunden, bevor Sie erneut senden"
-                            }
-                        },
-                        "help": {
-                            "title": "Brauchst du Hilfe?",
-                            "tips": {
-                                "checkSpam": "Überprüfen Sie Ihren Spam/Junk Ordner",
-                                "checkEmail": "Stelle sicher, dass {email} korrekt ist",
-                                "linkExpiry": "Der Bestätigungslink läuft in 24 Stunden ab",
-                                "contactSupport": "Kontaktieren Sie den Support, wenn Sie weiterhin Probleme haben"
-                            }
-                        },
-                        "messages": {
-                            "emailSent": "Verifizierungs-E-Mail gesendet! Überprüfen Sie Ihren Posteingang.",
-                            "sendFailed": "Fehler beim Senden der Bestätigungs-E-Mail",
-                            "sendError": "Fehler beim Senden der Bestätigungs-E-Mail",
-                            "verifySuccess": "E-Mail erfolgreich verifiziert!",
-                            "verifyFailed": "Fehler beim Bestätigen der E-Mail",
-                            "verifyError": "Fehler beim Überprüfen der E-Mail"
-                        }
+                        "updateFailed": "Fehler beim Aktualisieren des Profils",
+                        "updateError": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
+                        "phoneUpdated": "Telefonnummer aktualisiert. Bitte bestätigen Sie Ihre neue Nummer."
                     }
                 }
+            },
+            "email": {
+                "verify": {
+                    "page": {
+                        "title": "E-Mail bestätigen",
+                        "description": "Bestätigen Sie Ihre E-Mail-Adresse, um Ihr Konto zu sichern",
+                        "heading": "E-Mail-Adresse bestätigen",
+                        "subheading": "Wir müssen Ihre E-Mail-Adresse bestätigen, um Ihr Konto zu sichern und alle Funktionen zu aktivieren."
+                    },
+                    "tokenVerification": {
+                        "loading": {
+                            "title": "E-Mail wird bestätigt...",
+                            "description": "Bitte warten Sie, während wir Ihre E-Mail-Adresse bestätigen."
+                        },
+                        "success": {
+                            "title": "E-Mail bestätigt!",
+                            "description": "Ihre E-Mail-Adresse wurde erfolgreich bestätigt.",
+                            "redirecting": "Weiterleitung zu den Kontoeinstellungen..."
+                        },
+                        "error": {
+                            "title": "Bestätigung fehlgeschlagen",
+                            "description": "Der Bestätigungslink ist ungültig oder abgelaufen.",
+                            "tryAgain": "Erneut versuchen"
+                        }
+                    },
+                    "emailStatus": {
+                        "title": "E-Mail-Status",
+                        "primaryEmail": "Primäre E-Mail-Adresse",
+                        "unverified": "Unbestätigt"
+                    },
+                    "form": {
+                        "title": "Bestätigen Sie Ihre E-Mail",
+                        "description": "Klicken Sie auf die Schaltfläche unten, um eine Bestätigungs-E-Mail an {email} zu senden",
+                        "alerts": {
+                            "emailSent": "Bestätigungs-E-Mail gesendet! Überprüfen Sie Ihren Posteingang und klicken Sie auf den Bestätigungslink. Wenn Sie sie nicht sehen, überprüfen Sie Ihren Spam-Ordner.",
+                            "notVerified": "Ihre E-Mail-Adresse ist nicht bestätigt. Einige Funktionen können eingeschränkt sein, bis Sie Ihre E-Mail bestätigen."
+                        },
+                        "buttons": {
+                            "sendVerification": "Bestätigungs-E-Mail senden",
+                            "resendEmail": "Bestätigungs-E-Mail erneut senden",
+                            "resendCountdown": "Erneut senden in {seconds}s"
+                        },
+                        "status": {
+                            "pleaseWait": "Bitte warten Sie {seconds} Sekunden, bevor Sie erneut senden"
+                        }
+                    },
+                    "help": {
+                        "title": "Benötigen Sie Hilfe?",
+                        "tips": {
+                            "checkSpam": "Überprüfen Sie Ihren Spam-/Junk-Ordner",
+                            "checkEmail": "Stellen Sie sicher, dass {email} korrekt ist",
+                            "linkExpiry": "Der Bestätigungslink läuft in 24 Stunden ab",
+                            "contactSupport": "Kontaktieren Sie den Support, wenn Sie weiterhin Probleme haben"
+                        }
+                    },
+                    "messages": {
+                        "emailSent": "Bestätigungs-E-Mail gesendet! Überprüfen Sie Ihren Posteingang.",
+                        "sendFailed": "Fehler beim Senden der Bestätigungs-E-Mail",
+                        "sendError": "Beim Senden der Bestätigungs-E-Mail ist ein Fehler aufgetreten",
+                        "verifySuccess": "E-Mail erfolgreich bestätigt!",
+                        "verifyFailed": "Fehler beim Bestätigen der E-Mail",
+                        "verifyError": "Beim Bestätigen der E-Mail ist ein Fehler aufgetreten"
+                    }
+                },
+                "page": {
+                    "title": "E-Mail bestätigen",
+                    "description": "Bestätigen Sie Ihre E-Mail-Adresse, um Ihr Konto zu sichern",
+                    "heading": "E-Mail-Adresse bestätigen",
+                    "subheading": "Wir müssen Ihre E-Mail-Adresse bestätigen, um Ihr Konto zu sichern und alle Funktionen zu aktivieren."
+                }
+            }
+        }
+    },
+    "components": {
+        "imageUpload": {
+            "buttons": {
+                "upload": "Bild hochladen",
+                "uploading": "Wird hochgeladen...",
+                "remove": "Entfernen",
+                "removing": "Wird entfernt..."
+            },
+            "requirements": {
+                "maxSize": "Maximale Dateigröße: 5MB",
+                "formats": "Unterstützte Formate: JPEG, PNG, WebP",
+                "aspectRatio": "Empfohlen: Quadratisches Seitenverhältnis"
+            },
+            "errors": {
+                "invalidFileType": "Ungültiger Dateityp. Bitte wählen Sie ein JPEG-, PNG- oder WebP-Bild aus.",
+                "fileTooLarge": "Datei zu groß. Maximale Größe beträgt 5MB."
+            },
+            "messages": {
+                "uploadSuccess": "Bild erfolgreich hochgeladen!",
+                "uploadFailed": "Hochladen fehlgeschlagen",
+                "uploadError": "Hochladen fehlgeschlagen. Bitte versuchen Sie es erneut.",
+                "removeError": "Fehler beim Entfernen des Bilds. Bitte versuchen Sie es erneut."
+            }
+        },
+        "passwordStrength": {
+            "labels": {
+                "passwordStrength": "Passwortstärke",
+                "requirements": "Anforderungen",
+                "strengthPercentage": "{percentage}% Stärke"
+            },
+            "strength": {
+                "veryWeak": "Sehr schwach",
+                "weak": "Schwach",
+                "medium": "Mittel",
+                "strong": "Stark"
+            },
+            "requirements": {
+                "minLength": "Mindestens 8 Zeichen",
+                "uppercase": "Ein Großbuchstabe",
+                "lowercase": "Ein Kleinbuchstabe",
+                "number": "Eine Zahl",
+                "special": "Ein Sonderzeichen"
+            },
+            "warning": {
+                "title": "Schwaches Passwort",
+                "description": "Ihr Passwort ist schwach. Erwägen Sie die Verwendung eines stärkeren Passworts für bessere Sicherheit."
             }
         }
     }
