@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useRouter } from '@/lib/i18n/navigation';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
+import { useTranslations } from 'next-intl';
 import * as z from 'zod';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -17,30 +18,31 @@ import {
     usePasswordStrength,
 } from '@/components/ui/password-strength-indicator';
 
-const passwordSchema = z
-    .object({
-        password: z
-            .string()
-            .min(8, 'Password must be at least 8 characters')
-            .regex(/[A-Z]/, 'Password must contain at least one uppercase letter')
-            .regex(/[a-z]/, 'Password must contain at least one lowercase letter')
-            .regex(/[0-9]/, 'Password must contain at least one number')
-            .regex(/[^A-Za-z0-9]/, 'Password must contain at least one special character'),
-        confirmPassword: z.string().min(1, 'Please confirm your password'),
-    })
-    .refine((data) => data.password === data.confirmPassword, {
-        message: "Passwords don't match",
-        path: ['confirmPassword'],
-    });
-
-type PasswordFormData = z.infer<typeof passwordSchema>;
-
 export function PasswordCreateForm() {
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [error, setError] = useState('');
+    const t = useTranslations('dashboard.account.security.password.create');
+
+    const passwordSchema = z
+        .object({
+            password: z
+                .string()
+                .min(8, t('validation.password.minLength'))
+                .regex(/[A-Z]/, t('validation.password.uppercase'))
+                .regex(/[a-z]/, t('validation.password.lowercase'))
+                .regex(/[0-9]/, t('validation.password.number'))
+                .regex(/[^A-Za-z0-9]/, t('validation.password.special')),
+            confirmPassword: z.string().min(1, t('validation.confirmPassword.required')),
+        })
+        .refine((data) => data.password === data.confirmPassword, {
+            message: t('validation.confirmPassword.mismatch'),
+            path: ['confirmPassword'],
+        });
+
+    type PasswordFormData = z.infer<typeof passwordSchema>;
 
     const form = useForm<PasswordFormData>({
         resolver: zodResolver(passwordSchema),
@@ -53,6 +55,7 @@ export function PasswordCreateForm() {
     const password = form.watch('password');
     const { strength, isWeak, allRequirementsMet } = usePasswordStrength(password);
     console.log('Password strength:', strength);
+
     const onSubmit = async (data: PasswordFormData) => {
         setIsLoading(true);
         setError('');
@@ -66,20 +69,20 @@ export function PasswordCreateForm() {
 
             if (!response.ok) {
                 const errorData = await response.json();
-                throw new Error(errorData.message || 'Failed to create password');
+                throw new Error(errorData.message || t('messages.createFailed'));
             }
 
             const result = await response.json();
 
             if (result.success) {
-                toast.success('Password created successfully!');
+                toast.success(t('messages.createSuccess'));
                 router.push('/dashboard/account/security/password');
                 router.refresh();
             } else {
-                throw new Error(result.message || 'Failed to create password');
+                throw new Error(result.message || t('messages.createFailed'));
             }
         } catch (error) {
-            const errorMessage = error instanceof Error ? error.message : 'Something went wrong';
+            const errorMessage = error instanceof Error ? error.message : t('messages.createError');
             setError(errorMessage);
             toast.error(errorMessage);
         } finally {
@@ -92,7 +95,7 @@ export function PasswordCreateForm() {
             <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                     <Lock className="h-5 w-5" />
-                    Create Password
+                    {t('card.title')}
                 </CardTitle>
             </CardHeader>
             <CardContent>
@@ -104,13 +107,13 @@ export function PasswordCreateForm() {
                     )}
 
                     <div className="space-y-2">
-                        <Label htmlFor="password">New Password *</Label>
+                        <Label htmlFor="password">{t('form.password.label')}</Label>
                         <div className="relative">
                             <Lock className="text-muted-foreground absolute top-3 left-3 h-4 w-4" />
                             <Input
                                 id="password"
                                 type={showPassword ? 'text' : 'password'}
-                                placeholder="Enter your new password"
+                                placeholder={t('form.password.placeholder')}
                                 className="pr-10 pl-10"
                                 {...form.register('password')}
                                 disabled={isLoading}
@@ -145,13 +148,13 @@ export function PasswordCreateForm() {
                     </div>
 
                     <div className="space-y-2">
-                        <Label htmlFor="confirmPassword">Confirm Password *</Label>
+                        <Label htmlFor="confirmPassword">{t('form.confirmPassword.label')}</Label>
                         <div className="relative">
                             <Lock className="text-muted-foreground absolute top-3 left-3 h-4 w-4" />
                             <Input
                                 id="confirmPassword"
                                 type={showConfirmPassword ? 'text' : 'password'}
-                                placeholder="Confirm your password"
+                                placeholder={t('form.confirmPassword.placeholder')}
                                 className="pr-10 pl-10"
                                 {...form.register('confirmPassword')}
                                 disabled={isLoading}
@@ -185,12 +188,11 @@ export function PasswordCreateForm() {
                             disabled={isLoading || isWeak || !allRequirementsMet}
                         >
                             {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                            {isLoading ? 'Creating Password...' : 'Create Password'}
+                            {isLoading ? t('buttons.creating') : t('buttons.create')}
                         </Button>
 
                         <p className="text-muted-foreground mt-2 text-sm">
-                            Your password must meet all requirements and be at least medium
-                            strength.
+                            {t('help.requirements')}
                         </p>
                     </div>
                 </form>

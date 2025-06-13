@@ -1,16 +1,24 @@
 import { Metadata } from 'next';
 import { redirect } from 'next/navigation';
+import { getTranslations } from 'next-intl/server';
 import { auth } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
+import { generatePageMetadata } from '@/lib';
 import { EmailVerifyForm } from './components/email-verify-form';
 
-export const metadata: Metadata = {
-    title: 'Verify Email',
-    description: 'Verify your email address to secure your account',
-};
+export async function generateMetadata(): Promise<Metadata> {
+    const t = await getTranslations('dashboard.account.email.verify');
+    return await generatePageMetadata({
+        params: Promise.resolve({
+            title: t('page.title'),
+            description: t('page.description'),
+        }),
+    });
+}
 
 export default async function EmailVerifyPage() {
     const session = await auth();
+    const t = await getTranslations('dashboard.account.email.verify');
 
     if (!session) {
         redirect('/signin');
@@ -37,11 +45,8 @@ export default async function EmailVerifyPage() {
     return (
         <div>
             <div>
-                <h1 className="text-2xl font-bold tracking-tight">Verify Email Address</h1>
-                <p className="text-muted-foreground mt-2">
-                    We need to verify your email address to secure your account and enable all
-                    features.
-                </p>
+                <h1 className="text-2xl font-bold tracking-tight">{t('page.heading')}</h1>
+                <p className="text-muted-foreground mt-2">{t('page.subheading')}</p>
             </div>
 
             <EmailVerifyForm user={user} />

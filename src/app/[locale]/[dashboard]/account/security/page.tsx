@@ -26,7 +26,6 @@ export default async function SecurityPage() {
         redirect('/signin');
     }
 
-    // ✅ Gerçek security status'unu çek
     const securityStatus = await getUserSecurityStatus(session.user.id);
 
     const getPasswordStrengthText = (strength: string) => {
@@ -65,9 +64,7 @@ export default async function SecurityPage() {
                 </div>
             </div>
 
-            {/* Security Navigation Cards */}
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                {/* Password Management */}
                 <Link href="/dashboard/account/security/password" className="block">
                     <Card className="cursor-pointer transition-all duration-200 hover:scale-[1.02] hover:shadow-lg">
                         <CardHeader>
@@ -92,7 +89,6 @@ export default async function SecurityPage() {
                     </Card>
                 </Link>
 
-                {/* Two-Factor Authentication */}
                 <Link href="/dashboard/account/security/two-factor" className="block">
                     <Card className="cursor-pointer transition-all duration-200 hover:scale-[1.02] hover:shadow-lg">
                         <CardHeader>
@@ -121,7 +117,6 @@ export default async function SecurityPage() {
                     </Card>
                 </Link>
 
-                {/* Session Management */}
                 <Link href="/dashboard/account/security/sessions" className="block">
                     <Card className="cursor-pointer transition-all duration-200 hover:scale-[1.02] hover:shadow-lg">
                         <CardHeader>
@@ -145,7 +140,6 @@ export default async function SecurityPage() {
                 </Link>
             </div>
 
-            {/* Security Overview */}
             <Card>
                 <CardHeader>
                     <CardTitle className="flex items-center gap-2">

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
+import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -16,31 +17,32 @@ import {
     usePasswordStrength,
 } from '@/components/ui/password-strength-indicator';
 
-const passwordSchema = z
-    .object({
-        currentPassword: z.string().min(1, 'Current password is required'),
-        newPassword: z
-            .string()
-            .min(8, 'New password must be at least 8 characters')
-            .regex(/[A-Z]/, 'Password must contain at least one uppercase letter')
-            .regex(/[a-z]/, 'Password must contain at least one lowercase letter')
-            .regex(/[0-9]/, 'Password must contain at least one number')
-            .regex(/[^A-Za-z0-9]/, 'Password must contain at least one special character'),
-        confirmPassword: z.string().min(1, 'Please confirm your new password'),
-    })
-    .refine((data) => data.newPassword === data.confirmPassword, {
-        message: "Passwords don't match",
-        path: ['confirmPassword'],
-    });
-
-type PasswordFormData = z.infer<typeof passwordSchema>;
-
 export function PasswordForm() {
     const [isLoading, setIsLoading] = useState(false);
     const [showCurrentPassword, setShowCurrentPassword] = useState(false);
     const [showNewPassword, setShowNewPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const { createPasswordChanged } = useInAppNotificationService();
+    const t = useTranslations('dashboard.account.security.password.change');
+
+    const passwordSchema = z
+        .object({
+            currentPassword: z.string().min(1, t('validation.currentPassword.required')),
+            newPassword: z
+                .string()
+                .min(8, t('validation.newPassword.minLength'))
+                .regex(/[A-Z]/, t('validation.newPassword.uppercase'))
+                .regex(/[a-z]/, t('validation.newPassword.lowercase'))
+                .regex(/[0-9]/, t('validation.newPassword.number'))
+                .regex(/[^A-Za-z0-9]/, t('validation.newPassword.special')),
+            confirmPassword: z.string().min(1, t('validation.confirmPassword.required')),
+        })
+        .refine((data) => data.newPassword === data.confirmPassword, {
+            message: t('validation.confirmPassword.mismatch'),
+            path: ['confirmPassword'],
+        });
+
+    type PasswordFormData = z.infer<typeof passwordSchema>;
 
     const {
         register,
@@ -78,28 +80,28 @@ export function PasswordForm() {
 
             if (response.ok && result.success) {
                 await createPasswordChanged({ changeSource: 'settings_page' });
-                toast.success('Password updated successfully!');
+                toast.success(t('messages.updateSuccess'));
                 reset();
             } else {
-                toast.error(result.error || 'Failed to update password');
+                toast.error(result.error || t('messages.updateFailed'));
             }
         } catch (error) {
             console.error('Password update error:', error);
 
             if (error instanceof Error) {
                 if (error.message.includes('401')) {
-                    toast.error('Please sign in again to continue');
+                    toast.error(t('messages.errors.unauthorized'));
                 } else if (error.message.includes('400')) {
-                    toast.error('Invalid password data. Please check your input.');
+                    toast.error(t('messages.errors.invalidData'));
                 } else if (error.message.includes('403')) {
-                    toast.error('Current password is incorrect');
+                    toast.error(t('messages.errors.incorrectPassword'));
                 } else if (error.message.includes('500')) {
-                    toast.error('Server error. Please try again later.');
+                    toast.error(t('messages.errors.serverError'));
                 } else {
-                    toast.error('Something went wrong. Please try again.');
+                    toast.error(t('messages.errors.generic'));
                 }
             } else {
-                toast.error('Something went wrong. Please try again.');
+                toast.error(t('messages.errors.generic'));
             }
         } finally {
             setIsLoading(false);
@@ -111,23 +113,20 @@ export function PasswordForm() {
             <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                     <Lock className="h-5 w-5" />
-                    Change Password
+                    {t('card.title')}
                 </CardTitle>
-                <CardDescription>
-                    Update your password to keep your account secure. You&apos;ll receive a
-                    notification when your password is changed.
-                </CardDescription>
+                <CardDescription>{t('card.description')}</CardDescription>
             </CardHeader>
             <CardContent>
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                     <div className="space-y-2">
-                        <Label htmlFor="currentPassword">Current Password *</Label>
+                        <Label htmlFor="currentPassword">{t('form.currentPassword.label')}</Label>
                         <div className="relative">
                             <Lock className="text-muted-foreground absolute top-3 left-3 h-4 w-4" />
                             <Input
                                 id="currentPassword"
                                 type={showCurrentPassword ? 'text' : 'password'}
-                                placeholder="Enter your current password"
+                                placeholder={t('form.currentPassword.placeholder')}
                                 className="pr-10 pl-10"
                                 {...register('currentPassword')}
                                 disabled={isLoading}
@@ -155,13 +154,13 @@ export function PasswordForm() {
                     </div>
 
                     <div className="space-y-2">
-                        <Label htmlFor="newPassword">New Password *</Label>
+                        <Label htmlFor="newPassword">{t('form.newPassword.label')}</Label>
                         <div className="relative">
                             <Lock className="text-muted-foreground absolute top-3 left-3 h-4 w-4" />
                             <Input
                                 id="newPassword"
                                 type={showNewPassword ? 'text' : 'password'}
-                                placeholder="Enter your new password"
+                                placeholder={t('form.newPassword.placeholder')}
                                 className="pr-10 pl-10"
                                 {...register('newPassword')}
                                 disabled={isLoading}
@@ -194,13 +193,13 @@ export function PasswordForm() {
                     </div>
 
                     <div className="space-y-2">
-                        <Label htmlFor="confirmPassword">Confirm New Password *</Label>
+                        <Label htmlFor="confirmPassword">{t('form.confirmPassword.label')}</Label>
                         <div className="relative">
                             <Lock className="text-muted-foreground absolute top-3 left-3 h-4 w-4" />
                             <Input
                                 id="confirmPassword"
                                 type={showConfirmPassword ? 'text' : 'password'}
-                                placeholder="Confirm your new password"
+                                placeholder={t('form.confirmPassword.placeholder')}
                                 className="pr-10 pl-10"
                                 {...register('confirmPassword')}
                                 disabled={isLoading}
@@ -234,7 +233,8 @@ export function PasswordForm() {
                             className="flex-1 md:flex-none"
                         >
                             {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                            <Save className="mr-2 h-4 w-4" /> Update Password
+                            <Save className="mr-2 h-4 w-4" />
+                            {isLoading ? t('buttons.updating') : t('buttons.update')}
                         </Button>
                         <Button
                             type="button"
@@ -242,7 +242,7 @@ export function PasswordForm() {
                             onClick={() => reset()}
                             disabled={isLoading}
                         >
-                            Cancel
+                            {t('buttons.cancel')}
                         </Button>
                     </div>
                 </form>

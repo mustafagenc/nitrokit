@@ -1,7 +1,7 @@
-// src/components/ui/image-upload.tsx
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import { Upload, X, Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
@@ -22,6 +22,7 @@ export function ImageUpload({ value, onChange, onRemove, disabled, fallback }: I
     const [preview, setPreview] = useState<string | null>(value || null);
     const fileInputRef = useRef<HTMLInputElement>(null);
     const { createAvatarUpdated, createAvatarRemoved } = useInAppNotificationService();
+    const t = useTranslations('components.imageUpload');
 
     useEffect(() => {
         setPreview(value || null);
@@ -33,12 +34,12 @@ export function ImageUpload({ value, onChange, onRemove, disabled, fallback }: I
 
         const allowedTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/jpg'];
         if (!allowedTypes.includes(file.type)) {
-            toast.error('Invalid file type. Please select a JPEG, PNG, or WebP image.');
+            toast.error(t('errors.invalidFileType'));
             return;
         }
 
         if (file.size > 5 * 1024 * 1024) {
-            toast.error('File too large. Maximum size is 5MB.');
+            toast.error(t('errors.fileTooLarge'));
             return;
         }
 
@@ -65,15 +66,15 @@ export function ImageUpload({ value, onChange, onRemove, disabled, fallback }: I
                 onChange(result.url);
                 setPreview(result.url);
                 await createAvatarUpdated();
-                toast.success('Image uploaded successfully!');
+                toast.success(t('messages.uploadSuccess'));
                 URL.revokeObjectURL(previewUrl);
             } else {
-                toast.error(result.error || 'Upload failed');
+                toast.error(result.error || t('messages.uploadFailed'));
                 setPreview(value || null);
             }
         } catch (error) {
             console.error('Upload error:', error);
-            toast.error('Upload failed. Please try again.');
+            toast.error(t('messages.uploadError'));
             setPreview(value || null);
         } finally {
             setIsUploading(false);
@@ -99,7 +100,7 @@ export function ImageUpload({ value, onChange, onRemove, disabled, fallback }: I
             }
         } catch (error) {
             console.error('Remove error:', error);
-            toast.error('Failed to remove image. Please try again.');
+            toast.error(t('messages.removeError'));
         } finally {
             setIsRemoving(false);
         }
@@ -136,7 +137,7 @@ export function ImageUpload({ value, onChange, onRemove, disabled, fallback }: I
                         ) : (
                             <Upload className="mr-2 h-4 w-4" />
                         )}
-                        {isUploading ? 'Uploading...' : 'Upload Image'}
+                        {isUploading ? t('buttons.uploading') : t('buttons.upload')}
                     </Button>
                     {preview && (
                         <Button
@@ -151,14 +152,14 @@ export function ImageUpload({ value, onChange, onRemove, disabled, fallback }: I
                             ) : (
                                 <X className="mr-2 h-4 w-4" />
                             )}
-                            {isRemoving ? 'Removing...' : 'Remove'}
+                            {isRemoving ? t('buttons.removing') : t('buttons.remove')}
                         </Button>
                     )}
                 </div>
                 <div className="text-muted-foreground space-y-1 text-xs">
-                    <p>• Maximum file size: 5MB</p>
-                    <p>• Supported formats: JPEG, PNG, WebP</p>
-                    <p>• Recommended: Square aspect ratio</p>
+                    <p>• {t('requirements.maxSize')}</p>
+                    <p>• {t('requirements.formats')}</p>
+                    <p>• {t('requirements.aspectRatio')}</p>
                 </div>
             </div>
         </div>

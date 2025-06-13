@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import {
     Dialog,
     DialogContent,
@@ -28,10 +29,11 @@ export function TwoFactorDisableDialog({
     const [verificationCode, setVerificationCode] = useState('');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
+    const t = useTranslations('dashboard.account.security.twoFactor.disable');
 
     const handleDisable = async () => {
         if (verificationCode.length !== 6) {
-            setError('Please enter a valid 6-digit code');
+            setError(t('validation.validCode'));
             return;
         }
 
@@ -47,13 +49,13 @@ export function TwoFactorDisableDialog({
 
             if (!response.ok) {
                 const errorData = await response.json();
-                throw new Error(errorData.error || 'Failed to disable 2FA');
+                throw new Error(errorData.error || t('messages.disableFailed'));
             }
 
             onComplete();
             handleClose();
         } catch (error) {
-            setError(error instanceof Error ? error.message : 'Failed to disable 2FA');
+            setError(error instanceof Error ? error.message : t('messages.disableError'));
         } finally {
             setLoading(false);
         }
@@ -71,20 +73,15 @@ export function TwoFactorDisableDialog({
                 <DialogHeader>
                     <DialogTitle className="flex items-center gap-2">
                         <AlertTriangle className="text-destructive h-5 w-5" />
-                        Disable Two-Factor Authentication
+                        {t('dialog.title')}
                     </DialogTitle>
-                    <DialogDescription>
-                        This will remove the extra security layer from your account.
-                    </DialogDescription>
+                    <DialogDescription>{t('dialog.description')}</DialogDescription>
                 </DialogHeader>
 
                 <div className="space-y-4">
                     <Alert variant="destructive">
                         <AlertTriangle className="h-4 w-4" />
-                        <AlertDescription>
-                            Warning: Disabling 2FA will make your account less secure. We recommend
-                            keeping it enabled.
-                        </AlertDescription>
+                        <AlertDescription>{t('warning.message')}</AlertDescription>
                     </Alert>
 
                     {error && (
@@ -95,13 +92,11 @@ export function TwoFactorDisableDialog({
                     )}
 
                     <div className="space-y-2">
-                        <Label htmlFor="disable-code">
-                            Enter your authentication code to confirm:
-                        </Label>
+                        <Label htmlFor="disable-code">{t('form.verificationCode.label')}</Label>
                         <Input
                             id="disable-code"
                             type="text"
-                            placeholder="000000"
+                            placeholder={t('form.verificationCode.placeholder')}
                             value={verificationCode}
                             onChange={(e) => {
                                 const value = e.target.value.replace(/\D/g, '').slice(0, 6);
@@ -114,7 +109,7 @@ export function TwoFactorDisableDialog({
 
                     <div className="flex gap-2">
                         <Button variant="outline" onClick={handleClose} className="flex-1">
-                            Cancel
+                            {t('buttons.cancel')}
                         </Button>
                         <Button
                             variant="destructive"
@@ -122,7 +117,7 @@ export function TwoFactorDisableDialog({
                             disabled={loading || verificationCode.length !== 6}
                             className="flex-1"
                         >
-                            {loading ? 'Disabling...' : 'Disable 2FA'}
+                            {loading ? t('buttons.disabling') : t('buttons.disable')}
                         </Button>
                     </div>
                 </div>

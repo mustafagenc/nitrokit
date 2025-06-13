@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { redirect } from 'next/navigation';
+import { getTranslations } from 'next-intl/server';
 import { auth } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
 import { generatePageMetadata } from '@/lib';
@@ -8,16 +9,18 @@ import { DeleteAccountForm } from './components/delete-account-form';
 import { PasswordCreateForm } from './components/password-create-form';
 
 export async function generateMetadata(): Promise<Metadata> {
+    const t = await getTranslations('dashboard.account.security.password');
     return await generatePageMetadata({
         params: Promise.resolve({
-            title: 'Security Settings',
-            description: 'Manage your account security and password settings',
+            title: t('page.title'),
+            description: t('page.description'),
         }),
     });
 }
 
 export default async function SecurityPage() {
     const session = await auth();
+    const t = await getTranslations('dashboard.account.security.password');
 
     if (!session) {
         redirect('/signin');
@@ -39,10 +42,8 @@ export default async function SecurityPage() {
     return (
         <div className="mx-auto w-full space-y-6 px-4 sm:px-6 lg:max-w-4xl lg:px-8">
             <div>
-                <h2 className="text-2xl font-bold tracking-tight">Security Settings</h2>
-                <p className="text-muted-foreground">
-                    Manage your password and account security preferences.
-                </p>
+                <h2 className="text-2xl font-bold tracking-tight">{t('page.heading')}</h2>
+                <p className="text-muted-foreground">{t('page.subheading')}</p>
             </div>
 
             <div className="space-y-8">

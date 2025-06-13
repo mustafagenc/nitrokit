@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import { useTranslations } from 'next-intl';
 import {
     Dialog,
     DialogContent,
@@ -40,9 +41,9 @@ export function TwoFactorSetupDialog({
     const [verificationCode, setVerificationCode] = useState('');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
+    const t = useTranslations('dashboard.account.security.twoFactor.setup');
 
-    // Setup başlat
-    const handleSetupStart = async () => {
+    const handleSetupStart = useCallback(async () => {
         try {
             setLoading(true);
             setError('');
@@ -52,31 +53,29 @@ export function TwoFactorSetupDialog({
             });
 
             if (!response.ok) {
-                throw new Error('Failed to setup 2FA');
+                throw new Error(t('messages.setupFailed'));
             }
 
             const data = await response.json();
             setSetupData(data);
             setStep('setup');
         } catch (error) {
-            setError('Failed to initialize 2FA setup. Please try again.');
+            setError(t('messages.setupError'));
             console.error('2FA setup error:', error);
         } finally {
             setLoading(false);
         }
-    };
+    }, [t, setLoading, setError, setSetupData, setStep]);
 
-    // Dialog açıldığında setup başlat
     useEffect(() => {
         if (open && step === 'loading') {
             handleSetupStart();
         }
-    }, [open, step]);
+    }, [handleSetupStart, open, step]);
 
-    // Verification kod doğrula
     const handleVerify = async () => {
         if (!setupData || verificationCode.length !== 6) {
-            setError('Please enter a valid 6-digit code');
+            setError(t('validation.validCode'));
             return;
         }
 
@@ -96,12 +95,12 @@ export function TwoFactorSetupDialog({
 
             if (!response.ok) {
                 const errorData = await response.json();
-                throw new Error(errorData.error || 'Verification failed');
+                throw new Error(errorData.error || t('messages.verifyFailed'));
             }
 
             setStep('backup');
         } catch (error) {
-            setError(error instanceof Error ? error.message : 'Verification failed');
+            setError(error instanceof Error ? error.message : t('messages.verifyError'));
         } finally {
             setLoading(false);
         }
@@ -111,21 +110,20 @@ export function TwoFactorSetupDialog({
     const copyManualKey = () => {
         if (setupData?.manualEntryKey) {
             navigator.clipboard.writeText(setupData.manualEntryKey);
-            toast.success('Setup key copied to clipboard');
+            toast.success(t('messages.keyCopied'));
         }
     };
 
     // Backup kodları indir
     const downloadBackupCodes = () => {
         if (setupData?.backupCodes) {
-            const content = `Nitrokit Two-Factor Authentication Backup Codes
+            const content = `${t('download.title')}
 
-IMPORTANT: Save these codes in a secure location. 
-Each code can only be used once.
+${t('download.warning')}
 
 ${setupData.backupCodes.map((code, index) => `${index + 1}. ${code}`).join('\n')}
 
-Generated on: ${new Date().toLocaleDateString()}
+${t('download.generatedOn', { date: new Date().toLocaleDateString() })}
 `;
 
             const blob = new Blob([content], { type: 'text/plain' });
@@ -136,7 +134,7 @@ Generated on: ${new Date().toLocaleDateString()}
             a.click();
             URL.revokeObjectURL(url);
 
-            toast.success('Backup codes downloaded');
+            toast.success(t('messages.codesDownloaded'));
         }
     };
 
@@ -149,23 +147,43 @@ Generated on: ${new Date().toLocaleDateString()}
         onOpenChange(false);
     };
 
+    const getStepTitle = () => {
+        switch (step) {
+            case 'setup':
+                return t('steps.setup.title');
+            case 'verify':
+                return t('steps.verify.title');
+            case 'backup':
+                return t('steps.backup.title');
+            case 'loading':
+            default:
+                return t('steps.loading.title');
+        }
+    };
+
+    const getStepDescription = () => {
+        switch (step) {
+            case 'setup':
+                return t('steps.setup.description');
+            case 'verify':
+                return t('steps.verify.description');
+            case 'backup':
+                return t('steps.backup.description');
+            case 'loading':
+            default:
+                return t('steps.loading.description');
+        }
+    };
+
     return (
         <Dialog open={open} onOpenChange={handleClose}>
             <DialogContent className="max-w-md">
                 <DialogHeader>
                     <DialogTitle className="flex items-center gap-2">
                         <Smartphone className="h-5 w-5" />
-                        {step === 'setup' && 'Set up Two-Factor Authentication'}
-                        {step === 'verify' && 'Verify Your Setup'}
-                        {step === 'backup' && 'Save Your Backup Codes'}
-                        {step === 'loading' && 'Setting up 2FA...'}
+                        {getStepTitle()}
                     </DialogTitle>
-                    <DialogDescription>
-                        {step === 'setup' && 'Scan the QR code with your authenticator app'}
-                        {step === 'verify' && 'Enter the code from your authenticator app'}
-                        {step === 'backup' && 'Save these codes in a secure location'}
-                        {step === 'loading' && 'Please wait while we prepare your setup...'}
-                    </DialogDescription>
+                    <DialogDescription>{getStepDescription()}</DialogDescription>
                 </DialogHeader>
 
                 <div className="space-y-4">
@@ -191,7 +209,7 @@ Generated on: ${new Date().toLocaleDateString()}
                                 <CardContent className="flex items-center justify-center p-6">
                                     <Image
                                         src={setupData.qrCodeUrl}
-                                        alt="2FA QR Code"
+                                        alt={t('qr.alt')}
                                         width={200}
                                         height={200}
                                         className="rounded-lg"
@@ -201,9 +219,7 @@ Generated on: ${new Date().toLocaleDateString()}
 
                             {/* Manual Entry */}
                             <div className="space-y-2">
-                                <Label htmlFor="manual-key">
-                                    Can&apos;t scan? Enter this key manually:
-                                </Label>
+                                <Label htmlFor="manual-key">{t('manualEntry.label')}</Label>
                                 <div className="flex gap-2">
                                     <Input
                                         id="manual-key"
@@ -223,7 +239,7 @@ Generated on: ${new Date().toLocaleDateString()}
                             </div>
 
                             <Button onClick={() => setStep('verify')} className="w-full">
-                                I&apos;ve Added the Account
+                                {t('buttons.accountAdded')}
                             </Button>
                         </div>
                     )}
@@ -232,13 +248,11 @@ Generated on: ${new Date().toLocaleDateString()}
                     {step === 'verify' && (
                         <div className="space-y-4">
                             <div className="space-y-2">
-                                <Label htmlFor="verification-code">
-                                    Enter the 6-digit code from your app:
-                                </Label>
+                                <Label htmlFor="verification-code">{t('verify.codeLabel')}</Label>
                                 <Input
                                     id="verification-code"
                                     type="text"
-                                    placeholder="000000"
+                                    placeholder={t('verify.codePlaceholder')}
                                     value={verificationCode}
                                     onChange={(e) => {
                                         const value = e.target.value.replace(/\D/g, '').slice(0, 6);
@@ -255,14 +269,14 @@ Generated on: ${new Date().toLocaleDateString()}
                                     onClick={() => setStep('setup')}
                                     className="flex-1"
                                 >
-                                    Back
+                                    {t('buttons.back')}
                                 </Button>
                                 <Button
                                     onClick={handleVerify}
                                     disabled={loading || verificationCode.length !== 6}
                                     className="flex-1"
                                 >
-                                    {loading ? 'Verifying...' : 'Verify'}
+                                    {loading ? t('buttons.verifying') : t('buttons.verify')}
                                 </Button>
                             </div>
                         </div>
@@ -273,10 +287,7 @@ Generated on: ${new Date().toLocaleDateString()}
                         <div className="space-y-4">
                             <Alert>
                                 <AlertTriangle className="h-4 w-4" />
-                                <AlertDescription>
-                                    Save these backup codes in a secure location. Each code can only
-                                    be used once.
-                                </AlertDescription>
+                                <AlertDescription>{t('backup.warning')}</AlertDescription>
                             </Alert>
 
                             <Card>
@@ -301,7 +312,7 @@ Generated on: ${new Date().toLocaleDateString()}
                                     className="flex-1"
                                 >
                                     <Download className="mr-2 h-4 w-4" />
-                                    Download
+                                    {t('buttons.download')}
                                 </Button>
                                 <Button
                                     onClick={() => {
@@ -310,7 +321,7 @@ Generated on: ${new Date().toLocaleDateString()}
                                     }}
                                     className="flex-1"
                                 >
-                                    Complete Setup
+                                    {t('buttons.complete')}
                                 </Button>
                             </div>
                         </div>

@@ -630,6 +630,389 @@
                         "twoFactorOff": "Off",
                         "activeSessions": "Active Sessions"
                     }
+                },
+                "password": {
+                    "page": {
+                        "title": "Security Settings",
+                        "description": "Manage your account security and password settings",
+                        "heading": "Security Settings",
+                        "subheading": "Manage your password and account security preferences."
+                    },
+                    "deleteAccount": {
+                        "card": {
+                            "title": "Danger Zone",
+                            "description": "Permanently delete your account and all associated data. This action cannot be undone."
+                        },
+                        "warning": {
+                            "title": "What will be deleted:",
+                            "items": {
+                                "profile": "Your profile and personal information",
+                                "files": "All uploaded files and profile pictures",
+                                "settings": "Account settings and preferences",
+                                "sessions": "Login sessions and connected accounts",
+                                "data": "All associated data and history"
+                            }
+                        },
+                        "buttons": {
+                            "deleteAccount": "Delete My Account",
+                            "cancel": "Cancel",
+                            "deleteForever": "Delete Account Forever"
+                        },
+                        "dialog": {
+                            "title": "Delete Account",
+                            "description": "You are about to permanently delete your account ({email}). This action cannot be undone and all your data will be lost forever."
+                        },
+                        "form": {
+                            "password": {
+                                "label": "Confirm Password *",
+                                "placeholder": "Enter your password",
+                                "required": "Password is required"
+                            },
+                            "confirmText": {
+                                "label": "Type \"DELETE\" to confirm *",
+                                "placeholder": "Type DELETE here"
+                            }
+                        },
+                        "validation": {
+                            "confirmRequired": "Please type \"DELETE\" to confirm",
+                            "mustTypeDelete": "You must type \"DELETE\" exactly"
+                        },
+                        "messages": {
+                            "deleteSuccess": "Account deleted successfully. Redirecting...",
+                            "deleteFailed": "Failed to delete account",
+                            "deleteError": "Something went wrong. Please try again."
+                        }
+                    },
+                    "create": {
+                        "card": {
+                            "title": "Create Password"
+                        },
+                        "form": {
+                            "password": {
+                                "label": "New Password *",
+                                "placeholder": "Enter your new password"
+                            },
+                            "confirmPassword": {
+                                "label": "Confirm Password *",
+                                "placeholder": "Confirm your password"
+                            }
+                        },
+                        "validation": {
+                            "password": {
+                                "minLength": "Password must be at least 8 characters",
+                                "uppercase": "Password must contain at least one uppercase letter",
+                                "lowercase": "Password must contain at least one lowercase letter",
+                                "number": "Password must contain at least one number",
+                                "special": "Password must contain at least one special character"
+                            },
+                            "confirmPassword": {
+                                "required": "Please confirm your password",
+                                "mismatch": "Passwords don't match"
+                            }
+                        },
+                        "buttons": {
+                            "create": "Create Password",
+                            "creating": "Creating Password..."
+                        },
+                        "help": {
+                            "requirements": "Your password must meet all requirements and be at least medium strength."
+                        },
+                        "messages": {
+                            "createSuccess": "Password created successfully!",
+                            "createFailed": "Failed to create password",
+                            "createError": "Something went wrong"
+                        }
+                    },
+                    "change": {
+                        "card": {
+                            "title": "Change Password",
+                            "description": "Update your password to keep your account secure. You'll receive a notification when your password is changed."
+                        },
+                        "form": {
+                            "currentPassword": {
+                                "label": "Current Password *",
+                                "placeholder": "Enter your current password"
+                            },
+                            "newPassword": {
+                                "label": "New Password *",
+                                "placeholder": "Enter your new password"
+                            },
+                            "confirmPassword": {
+                                "label": "Confirm New Password *",
+                                "placeholder": "Confirm your new password"
+                            }
+                        },
+                        "validation": {
+                            "currentPassword": {
+                                "required": "Current password is required"
+                            },
+                            "newPassword": {
+                                "minLength": "New password must be at least 8 characters",
+                                "uppercase": "Password must contain at least one uppercase letter",
+                                "lowercase": "Password must contain at least one lowercase letter",
+                                "number": "Password must contain at least one number",
+                                "special": "Password must contain at least one special character"
+                            },
+                            "confirmPassword": {
+                                "required": "Please confirm your new password",
+                                "mismatch": "Passwords don't match"
+                            }
+                        },
+                        "buttons": {
+                            "update": "Update Password",
+                            "updating": "Updating...",
+                            "cancel": "Cancel"
+                        },
+                        "messages": {
+                            "updateSuccess": "Password updated successfully!",
+                            "updateFailed": "Failed to update password",
+                            "errors": {
+                                "unauthorized": "Please sign in again to continue",
+                                "invalidData": "Invalid password data. Please check your input.",
+                                "incorrectPassword": "Current password is incorrect",
+                                "serverError": "Server error. Please try again later.",
+                                "generic": "Something went wrong. Please try again."
+                            }
+                        }
+                    }
+                },
+                "sessions": {
+                    "page": {
+                        "title": "Active Sessions",
+                        "description": "Manage your active login sessions and security",
+                        "heading": "Active Sessions",
+                        "subheading": "View and manage all devices and applications that are currently signed into your account."
+                    },
+                    "client": {
+                        "heading": "Active Sessions",
+                        "subheading": "Monitor and manage your active login sessions across all devices.",
+                        "securityAlert": "For security reasons, if you see any unfamiliar sessions, terminate them immediately and change your password.",
+                        "currentSessions": {
+                            "title": "Current Sessions",
+                            "description": "These are the devices and browsers currently signed into your account."
+                        },
+                        "securityTips": {
+                            "title": "Security Tips",
+                            "subtitle": "Secure your account:",
+                            "tips": {
+                                "publicComputers": "Always sign out when using public computers",
+                                "reviewSessions": "Regularly review your active sessions",
+                                "twoFactor": "Enable two-factor authentication for extra security",
+                                "strongPasswords": "Use strong, unique passwords",
+                                "signOutAll": "Sign out of all sessions if you suspect unauthorized access"
+                            }
+                        }
+                    },
+                    "table": {
+                        "sessionCount": "{count} active session{plural}",
+                        "headers": {
+                            "deviceBrowser": "Device & Browser",
+                            "location": "Location",
+                            "lastActive": "Last Active",
+                            "status": "Status",
+                            "actions": "Actions"
+                        },
+                        "status": {
+                            "current": "Current",
+                            "active": "Active"
+                        },
+                        "buttons": {
+                            "terminateAllOthers": "Terminate All Others",
+                            "terminateAll": "Terminate All",
+                            "terminate": "Terminate",
+                            "cancel": "Cancel"
+                        },
+                        "dialogs": {
+                            "terminateAll": {
+                                "title": "Terminate All Other Sessions?",
+                                "description": "This will sign you out of all other devices and browsers. Your current session will remain active."
+                            },
+                            "terminateSession": {
+                                "title": "Terminate Session?",
+                                "description": "This will sign out this device/browser. The user will need to sign in again."
+                            }
+                        },
+                        "messages": {
+                            "currentSessionTerminated": "Current session terminated. Redirecting to login...",
+                            "sessionTerminated": "Session terminated successfully",
+                            "terminateFailed": "Failed to terminate session",
+                            "terminateError": "Failed to terminate session",
+                            "allOthersTerminated": "All other sessions terminated successfully",
+                            "allSessionsTerminated": "All sessions terminated. Redirecting to login...",
+                            "terminateAllFailed": "Failed to terminate sessions",
+                            "terminateAllError": "Failed to terminate sessions"
+                        }
+                    }
+                },
+                "twoFactor": {
+                    "page": {
+                        "title": "Two-Factor Authentication",
+                        "description": "Manage your two-factor authentication settings for enhanced security",
+                        "heading": "Two-Factor Authentication",
+                        "subheading": "Add an extra layer of security to your account with 2FA."
+                    },
+                    "backupCodes": {
+                        "dialog": {
+                            "title": "Backup Codes",
+                            "description": "Use these codes if you lose access to your authenticator app."
+                        },
+                        "alerts": {
+                            "verifyIdentity": "To view or regenerate your backup codes, you need to verify your identity.",
+                            "invalidatePrevious": "Generating new codes will invalidate all previous backup codes.",
+                            "saveCodes": "Save these codes in a secure location. Each code can only be used once."
+                        },
+                        "form": {
+                            "verificationCode": {
+                                "label": "Enter your authentication code:",
+                                "placeholder": "000000"
+                            }
+                        },
+                        "buttons": {
+                            "generateNew": "Generate New Backup Codes",
+                            "cancel": "Cancel",
+                            "generate": "Generate",
+                            "generating": "Generating...",
+                            "download": "Download",
+                            "regenerate": "Regenerate"
+                        },
+                        "validation": {
+                            "validCode": "Please enter a valid 6-digit code"
+                        },
+                        "messages": {
+                            "downloaded": "Backup codes downloaded",
+                            "regenerateSuccess": "New backup codes generated",
+                            "regenerateFailed": "Failed to regenerate codes",
+                            "regenerateError": "Failed to regenerate codes"
+                        },
+                        "download": {
+                            "title": "Nitrokit Two-Factor Authentication Backup Codes",
+                            "warning": "IMPORTANT: Save these codes in a secure location.\nEach code can only be used once.",
+                            "generatedOn": "Generated on: {date}"
+                        }
+                    },
+                    "disable": {
+                        "dialog": {
+                            "title": "Disable Two-Factor Authentication",
+                            "description": "This will remove the extra security layer from your account."
+                        },
+                        "warning": {
+                            "message": "Warning: Disabling 2FA will make your account less secure. We recommend keeping it enabled."
+                        },
+                        "form": {
+                            "verificationCode": {
+                                "label": "Enter your authentication code to confirm:",
+                                "placeholder": "000000"
+                            }
+                        },
+                        "buttons": {
+                            "cancel": "Cancel",
+                            "disable": "Disable 2FA",
+                            "disabling": "Disabling..."
+                        },
+                        "validation": {
+                            "validCode": "Please enter a valid 6-digit code"
+                        },
+                        "messages": {
+                            "disableFailed": "Failed to disable 2FA",
+                            "disableError": "Failed to disable 2FA"
+                        }
+                    },
+                    "management": {
+                        "card": {
+                            "title": "Two-Factor Authentication",
+                            "description": "Add an extra layer of security to your account with two-factor authentication."
+                        },
+                        "status": {
+                            "title": "Two-Factor Authentication",
+                            "enabled": "Enabled on {date}",
+                            "notEnabled": "Not enabled",
+                            "unknown": "Unknown"
+                        },
+                        "badge": {
+                            "enabled": "Enabled",
+                            "disabled": "Disabled"
+                        },
+                        "alerts": {
+                            "recommendation": "We recommend enabling two-factor authentication to keep your account secure.",
+                            "protected": "Your account is protected with two-factor authentication.",
+                            "backupCodes": "You have {count} backup codes remaining."
+                        },
+                        "buttons": {
+                            "enable": "Enable Two-Factor Authentication",
+                            "viewBackupCodes": "View Backup Codes",
+                            "disable": "Disable 2FA"
+                        },
+                        "howItWorks": {
+                            "title": "How it works",
+                            "steps": {
+                                "download": "Download Google Authenticator or similar app",
+                                "scan": "Scan the QR code or enter the setup key",
+                                "verify": "Enter the verification code to complete setup",
+                                "backup": "Save your backup codes in a secure location"
+                            }
+                        },
+                        "messages": {
+                            "enableSuccess": "Two-factor authentication has been enabled successfully!",
+                            "disableSuccess": "Two-factor authentication has been disabled."
+                        }
+                    },
+                    "setup": {
+                        "steps": {
+                            "loading": {
+                                "title": "Setting up 2FA...",
+                                "description": "Please wait while we prepare your setup..."
+                            },
+                            "setup": {
+                                "title": "Set up Two-Factor Authentication",
+                                "description": "Scan the QR code with your authenticator app"
+                            },
+                            "verify": {
+                                "title": "Verify Your Setup",
+                                "description": "Enter the code from your authenticator app"
+                            },
+                            "backup": {
+                                "title": "Save Your Backup Codes",
+                                "description": "Save these codes in a secure location"
+                            }
+                        },
+                        "qr": {
+                            "alt": "2FA QR Code"
+                        },
+                        "manualEntry": {
+                            "label": "Can't scan? Enter this key manually:"
+                        },
+                        "verify": {
+                            "codeLabel": "Enter the 6-digit code from your app:",
+                            "codePlaceholder": "000000"
+                        },
+                        "backup": {
+                            "warning": "Save these backup codes in a secure location. Each code can only be used once."
+                        },
+                        "buttons": {
+                            "accountAdded": "I've Added the Account",
+                            "back": "Back",
+                            "verify": "Verify",
+                            "verifying": "Verifying...",
+                            "download": "Download",
+                            "complete": "Complete Setup"
+                        },
+                        "validation": {
+                            "validCode": "Please enter a valid 6-digit code"
+                        },
+                        "messages": {
+                            "setupFailed": "Failed to setup 2FA",
+                            "setupError": "Failed to initialize 2FA setup. Please try again.",
+                            "verifyFailed": "Verification failed",
+                            "verifyError": "Verification failed",
+                            "keyCopied": "Setup key copied to clipboard",
+                            "codesDownloaded": "Backup codes downloaded"
+                        },
+                        "download": {
+                            "title": "Nitrokit Two-Factor Authentication Backup Codes",
+                            "warning": "IMPORTANT: Save these codes in a secure location.\nEach code can only be used once.",
+                            "generatedOn": "Generated on: {date}"
+                        }
+                    }
                 }
             },
             "status": {
@@ -832,71 +1215,126 @@
                         "updateError": "Something went wrong. Please try again.",
                         "phoneUpdated": "Phone number updated. Please verify your new number."
                     }
-                },
-                "email": {
-                    "verify": {
-                        "page": {
-                            "title": "Verify Email",
-                            "description": "Verify your email address to secure your account",
-                            "heading": "Verify Email Address",
-                            "subheading": "We need to verify your email address to secure your account and enable all features."
-                        },
-                        "tokenVerification": {
-                            "loading": {
-                                "title": "Verifying Email...",
-                                "description": "Please wait while we verify your email address."
-                            },
-                            "success": {
-                                "title": "Email Verified!",
-                                "description": "Your email address has been successfully verified.",
-                                "redirecting": "Redirecting to account settings..."
-                            },
-                            "error": {
-                                "title": "Verification Failed",
-                                "description": "The verification link is invalid or has expired.",
-                                "tryAgain": "Try Again"
-                            }
-                        },
-                        "emailStatus": {
-                            "title": "Email Status",
-                            "primaryEmail": "Primary email address",
-                            "unverified": "Unverified"
-                        },
-                        "form": {
-                            "title": "Verify Your Email",
-                            "description": "Click the button below to send a verification email to {email}",
-                            "alerts": {
-                                "emailSent": "Verification email sent! Check your inbox and click the verification link. If you don't see it, check your spam folder.",
-                                "notVerified": "Your email address is not verified. Some features may be limited until you verify your email."
-                            },
-                            "buttons": {
-                                "sendVerification": "Send Verification Email",
-                                "resendEmail": "Resend Verification Email",
-                                "resendCountdown": "Resend in {seconds}s"
-                            },
-                            "status": {
-                                "pleaseWait": "Please wait {seconds} seconds before resending"
-                            }
-                        },
-                        "help": {
-                            "title": "Need help?",
-                            "tips": {
-                                "checkSpam": "Check your spam/junk folder",
-                                "checkEmail": "Make sure {email} is correct",
-                                "linkExpiry": "The verification link expires in 24 hours",
-                                "contactSupport": "Contact support if you continue having issues"
-                            }
-                        },
-                        "messages": {
-                            "emailSent": "Verification email sent! Check your inbox.",
-                            "sendFailed": "Failed to send verification email",
-                            "sendError": "An error occurred while sending verification email",
-                            "verifySuccess": "Email verified successfully!",
-                            "verifyFailed": "Failed to verify email",
-                            "verifyError": "An error occurred while verifying email"
-                        }
-                    }
                 }
+            },
+            "email": {
+                "verify": {
+                    "page": {
+                        "title": "Verify Email",
+                        "description": "Verify your email address to secure your account",
+                        "heading": "Verify Email Address",
+                        "subheading": "We need to verify your email address to secure your account and enable all features."
+                    },
+                    "tokenVerification": {
+                        "loading": {
+                            "title": "Verifying Email...",
+                            "description": "Please wait while we verify your email address."
+                        },
+                        "success": {
+                            "title": "Email Verified!",
+                            "description": "Your email address has been successfully verified.",
+                            "redirecting": "Redirecting to account settings..."
+                        },
+                        "error": {
+                            "title": "Verification Failed",
+                            "description": "The verification link is invalid or has expired.",
+                            "tryAgain": "Try Again"
+                        }
+                    },
+                    "emailStatus": {
+                        "title": "Email Status",
+                        "primaryEmail": "Primary email address",
+                        "unverified": "Unverified"
+                    },
+                    "form": {
+                        "title": "Verify Your Email",
+                        "description": "Click the button below to send a verification email to {email}",
+                        "alerts": {
+                            "emailSent": "Verification email sent! Check your inbox and click the verification link. If you don't see it, check your spam folder.",
+                            "notVerified": "Your email address is not verified. Some features may be limited until you verify your email."
+                        },
+                        "buttons": {
+                            "sendVerification": "Send Verification Email",
+                            "resendEmail": "Resend Verification Email",
+                            "resendCountdown": "Resend in {seconds}s"
+                        },
+                        "status": {
+                            "pleaseWait": "Please wait {seconds} seconds before resending"
+                        }
+                    },
+                    "help": {
+                        "title": "Need help?",
+                        "tips": {
+                            "checkSpam": "Check your spam/junk folder",
+                            "checkEmail": "Make sure {email} is correct",
+                            "linkExpiry": "The verification link expires in 24 hours",
+                            "contactSupport": "Contact support if you continue having issues"
+                        }
+                    },
+                    "messages": {
+                        "emailSent": "Verification email sent! Check your inbox.",
+                        "sendFailed": "Failed to send verification email",
+                        "sendError": "An error occurred while sending verification email",
+                        "verifySuccess": "Email verified successfully!",
+                        "verifyFailed": "Failed to verify email",
+                        "verifyError": "An error occurred while verifying email"
+                    }
+                },
+                "page": {
+                    "title": "Verify Email",
+                    "description": "Verify your email address to secure your account",
+                    "heading": "Verify Email Address",
+                    "subheading": "We need to verify your email address to secure your account and enable all features."
+                }
+            }
+        }
+    },
+    "components": {
+        "imageUpload": {
+            "buttons": {
+                "upload": "Upload Image",
+                "uploading": "Uploading...",
+                "remove": "Remove",
+                "removing": "Removing..."
+            },
+            "requirements": {
+                "maxSize": "Maximum file size: 5MB",
+                "formats": "Supported formats: JPEG, PNG, WebP",
+                "aspectRatio": "Recommended: Square aspect ratio"
+            },
+            "errors": {
+                "invalidFileType": "Invalid file type. Please select a JPEG, PNG, or WebP image.",
+                "fileTooLarge": "File too large. Maximum size is 5MB."
+            },
+            "messages": {
+                "uploadSuccess": "Image uploaded successfully!",
+                "uploadFailed": "Upload failed",
+                "uploadError": "Upload failed. Please try again.",
+                "removeError": "Failed to remove image. Please try again."
+            }
+        },
+        "passwordStrength": {
+            "labels": {
+                "passwordStrength": "Password Strength",
+                "requirements": "Requirements",
+                "strengthPercentage": "{percentage}% strength"
+            },
+            "strength": {
+                "veryWeak": "Very Weak",
+                "weak": "Weak",
+                "medium": "Medium",
+                "strong": "Strong"
+            },
+            "requirements": {
+                "minLength": "At least 8 characters",
+                "uppercase": "One uppercase letter",
+                "lowercase": "One lowercase letter",
+                "number": "One number",
+                "special": "One special character"
+            },
+            "warning": {
+                "title": "Weak Password",
+                "description": "Your password is weak. Consider using a stronger password for better security."
             }
         }
     }
