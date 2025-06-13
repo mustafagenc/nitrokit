@@ -1,13 +1,16 @@
-/* eslint-disable @next/next/no-img-element */
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import { Button } from '../../../components/ui/button';
-// Loader2 lucide-react'ten kalabilir, diğer marka ikonları için img kullanılacak.
 import { Loader2 } from 'lucide-react';
+import {
+    GoogleIcon,
+    GithubIcon,
+    GitlabIcon,
+    AppleIcon,
+    InstagramIcon,
+    FacebookIcon,
+} from '../../../components/icons/brands';
 
-// Bu, hikaye için varsayımsal bir SignWithButton bileşenidir.
-// Gerçek senaryoda, kendi SignWithButton bileşeninizi import edersiniz.
-// Bu mock, yeni sağlayıcıları ve public/images/brands yolunu kullanacak şekilde güncellendi.
 interface SignWithButtonProps {
     provider: 'google' | 'github' | 'gitlab' | 'apple' | 'instagram' | 'facebook';
     isLoading?: boolean;
@@ -29,18 +32,15 @@ const SignWithButton: React.FC<SignWithButtonProps> = ({
     variant,
     className,
 }) => {
-    // Gerçek bileşeninizde bu detaylar ve çeviriler (t fonksiyonu) daha farklı yönetiliyor olabilir.
-    // Bu mock, Storybook'ta görselleştirmeyi basitleştirmek içindir.
     const providerDetails = {
-        google: { iconSrc: '/images/brands/google.svg', name: 'Google' },
-        github: { iconSrc: '/images/brands/github.svg', name: 'GitHub' },
-        gitlab: { iconSrc: '/images/brands/gitlab.svg', name: 'GitLab' },
-        apple: { iconSrc: '/images/brands/apple.svg', name: 'Apple' },
-        instagram: { iconSrc: '/images/brands/instagram.svg', name: 'Instagram' },
-        facebook: { iconSrc: '/images/brands/facebook.svg', name: 'Facebook' },
+        google: { Icon: GoogleIcon, name: 'Google' },
+        github: { Icon: GithubIcon, name: 'GitHub' },
+        gitlab: { Icon: GitlabIcon, name: 'GitLab' },
+        apple: { Icon: AppleIcon, name: 'Apple' },
+        instagram: { Icon: InstagramIcon, name: 'Instagram' },
+        facebook: { Icon: FacebookIcon, name: 'Facebook' },
     };
     const currentProvider = providerDetails[provider];
-    // Gerçek bileşeninizdeki t('auth.signinWith...') çağrısını burada basitleştiriyoruz.
     const defaultText = `Sign in with ${currentProvider.name}`;
     const displayText = buttonText || defaultText;
     return (
@@ -48,18 +48,13 @@ const SignWithButton: React.FC<SignWithButtonProps> = ({
             {isLoading ? (
                 <Loader2 className={`size-4 ${onlyIcon ? '' : 'mr-2'} animate-spin`} />
             ) : (
-                <img
-                    src={currentProvider.iconSrc}
-                    alt={`${currentProvider.name} logo`}
-                    className={`size-4 ${onlyIcon ? '' : 'mr-2'}`}
-                />
+                <currentProvider.Icon className={`size-4 ${onlyIcon ? '' : 'mr-2'}`} />
             )}
             {!onlyIcon && (children || displayText)}
             {onlyIcon && children && <span className="sr-only">{children || displayText}</span>}
         </Button>
     );
 };
-// Varsayımsal bileşenin sonu
 
 const meta: Meta<typeof SignWithButton> = {
     title: 'Components/Auth/SignWithButton',
@@ -67,9 +62,6 @@ const meta: Meta<typeof SignWithButton> = {
     tags: ['autodocs'],
     parameters: {
         layout: 'centered',
-        // Storybook'un public klasörüne erişebilmesi için gerekli olabilir,
-        // genellikle varsayılan olarak çalışır.
-        // assets: ['/images/brands/*.svg'],
     },
     argTypes: {
         provider: {

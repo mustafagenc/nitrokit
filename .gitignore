@@ -50,4 +50,7 @@ storybook-static
 
 /.dependency
 /public/storybook
-test-report.junit.xml
+
+codecov
+playwright-report/
+test-results/

@@ -1,5 +1,5 @@
 export type LogLevel = 'debug' | 'info' | 'warn' | 'error' | 'critical';
-export type LogProvider = 'sentry' | 'logrocket' | 'mixpanel' | 'posthog' | 'console';
+export type LogProvider = 'sentry' | 'mixpanel' | 'posthog' | 'console';
 
 // Generic metadata type
 export interface LogMetadata {

@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
@@ -30,6 +31,7 @@ export function EmailVerifyForm({ user }: EmailVerifyFormProps) {
     const [verificationStatus, setVerificationStatus] = useState<'pending' | 'success' | 'error'>(
         'pending'
     );
+    const t = useTranslations('dashboard.account.email.verify');
 
     const token = searchParams.get('token');
 
@@ -47,23 +49,23 @@ export function EmailVerifyForm({ user }: EmailVerifyFormProps) {
 
                 if (response.ok && result.success) {
                     setVerificationStatus('success');
-                    toast.success('Email verified successfully!');
+                    toast.success(t('messages.verifySuccess'));
                     setTimeout(() => {
                         router.push('/dashboard/account?message=email-verified');
                     }, 2000);
                 } else {
                     setVerificationStatus('error');
-                    toast.error(result.message || 'Failed to verify email');
+                    toast.error(result.message || t('messages.verifyFailed'));
                 }
             } catch (error) {
                 console.error('Email verification error:', error);
                 setVerificationStatus('error');
-                toast.error('An error occurred while verifying email');
+                toast.error(t('messages.verifyError'));
             } finally {
                 setIsLoading(false);
             }
         },
-        [router]
+        [router, t]
     );
 
     useEffect(() => {
@@ -93,13 +95,13 @@ export function EmailVerifyForm({ user }: EmailVerifyFormProps) {
             if (response.ok && result.success) {
                 setIsSent(true);
                 setCountdown(60);
-                toast.success('Verification email sent! Check your inbox.');
+                toast.success(t('messages.emailSent'));
             } else {
-                toast.error(result.message || 'Failed to send verification email');
+                toast.error(result.message || t('messages.sendFailed'));
             }
         } catch (error) {
             console.error('Send verification email error:', error);
-            toast.error('An error occurred while sending verification email');
+            toast.error(t('messages.sendError'));
         } finally {
             setIsLoading(false);
         }
@@ -122,9 +124,11 @@ export function EmailVerifyForm({ user }: EmailVerifyFormProps) {
                                     <Loader2 className="h-6 w-6 animate-spin text-blue-600" />
                                 </div>
                                 <div>
-                                    <h3 className="text-lg font-medium">Verifying Email...</h3>
+                                    <h3 className="text-lg font-medium">
+                                        {t('tokenVerification.loading.title')}
+                                    </h3>
                                     <p className="text-muted-foreground mt-1 text-sm">
-                                        Please wait while we verify your email address.
+                                        {t('tokenVerification.loading.description')}
                                     </p>
                                 </div>
                                 <Progress value={75} className="mx-auto w-full max-w-xs" />
@@ -136,14 +140,14 @@ export function EmailVerifyForm({ user }: EmailVerifyFormProps) {
                                 </div>
                                 <div>
                                     <h3 className="text-lg font-medium text-green-600">
-                                        Email Verified!
+                                        {t('tokenVerification.success.title')}
                                     </h3>
                                     <p className="text-muted-foreground mt-1 text-sm">
-                                        Your email address has been successfully verified.
+                                        {t('tokenVerification.success.description')}
                                     </p>
                                 </div>
                                 <p className="text-muted-foreground text-xs">
-                                    Redirecting to account settings...
+                                    {t('tokenVerification.success.redirecting')}
                                 </p>
                             </>
                         ) : (
@@ -153,16 +157,16 @@ export function EmailVerifyForm({ user }: EmailVerifyFormProps) {
                                 </div>
                                 <div>
                                     <h3 className="text-lg font-medium text-red-600">
-                                        Verification Failed
+                                        {t('tokenVerification.error.title')}
                                     </h3>
                                     <p className="text-muted-foreground mt-1 text-sm">
-                                        The verification link is invalid or has expired.
+                                        {t('tokenVerification.error.description')}
                                     </p>
                                 </div>
                                 <Button
                                     onClick={() => router.push('/dashboard/account/email/verify')}
                                 >
-                                    Try Again
+                                    {t('tokenVerification.error.tryAgain')}
                                 </Button>
                             </>
                         )}
@@ -178,18 +182,20 @@ export function EmailVerifyForm({ user }: EmailVerifyFormProps) {
                 <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                         <Mail className="h-5 w-5" />
-                        Email Status
+                        {t('emailStatus.title')}
                     </CardTitle>
                 </CardHeader>
                 <CardContent>
                     <div className="flex items-center justify-between">
                         <div>
                             <p className="font-medium">{user.email}</p>
-                            <p className="text-muted-foreground text-sm">Primary email address</p>
+                            <p className="text-muted-foreground text-sm">
+                                {t('emailStatus.primaryEmail')}
+                            </p>
                         </div>
                         <Badge variant="destructive">
                             <AlertCircle className="mr-1 h-3 w-3" />
-                            Unverified
+                            {t('emailStatus.unverified')}
                         </Badge>
                     </div>
                 </CardContent>
@@ -197,28 +203,21 @@ export function EmailVerifyForm({ user }: EmailVerifyFormProps) {
 
             <Card>
                 <CardHeader>
-                    <CardTitle>Verify Your Email</CardTitle>
+                    <CardTitle>{t('form.title')}</CardTitle>
                     <CardDescription>
-                        Click the button below to send a verification email to{' '}
-                        <strong>{user.email}</strong>
+                        {t('form.description', { email: user.email })}
                     </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
                     {isSent ? (
                         <Alert>
                             <CheckCircle className="h-4 w-4" />
-                            <AlertDescription>
-                                Verification email sent! Check your inbox and click the verification
-                                link. If you don&apos;t see it, check your spam folder.
-                            </AlertDescription>
+                            <AlertDescription>{t('form.alerts.emailSent')}</AlertDescription>
                         </Alert>
                     ) : (
                         <Alert>
                             <AlertCircle className="h-4 w-4" />
-                            <AlertDescription>
-                                Your email address is not verified. Some features may be limited
-                                until you verify your email.
-                            </AlertDescription>
+                            <AlertDescription>{t('form.alerts.notVerified')}</AlertDescription>
                         </Alert>
                     )}
 
@@ -232,7 +231,7 @@ export function EmailVerifyForm({ user }: EmailVerifyFormProps) {
                             >
                                 {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                                 <Send className="mr-2 h-4 w-4" />
-                                Send Verification Email
+                                {t('form.buttons.sendVerification')}
                             </Button>
                         ) : (
                             <div className="space-y-3">
@@ -248,8 +247,8 @@ export function EmailVerifyForm({ user }: EmailVerifyFormProps) {
                                         <RefreshCw className="mr-2 h-4 w-4" />
                                     )}
                                     {countdown > 0
-                                        ? `Resend in ${countdown}s`
-                                        : 'Resend Verification Email'}
+                                        ? t('form.buttons.resendCountdown', { seconds: countdown })
+                                        : t('form.buttons.resendEmail')}
                                 </Button>
 
                                 {countdown > 0 && (
@@ -257,7 +256,9 @@ export function EmailVerifyForm({ user }: EmailVerifyFormProps) {
                                         <div className="text-muted-foreground flex items-center justify-center gap-2 text-sm">
                                             <Clock className="h-4 w-4" />
                                             <span>
-                                                Please wait {countdown} seconds before resending
+                                                {t('form.status.pleaseWait', {
+                                                    seconds: countdown,
+                                                })}
                                             </span>
                                         </div>
                                         <Progress
@@ -271,12 +272,12 @@ export function EmailVerifyForm({ user }: EmailVerifyFormProps) {
                     </div>
 
                     <div className="bg-muted/50 rounded-lg border p-4">
-                        <h4 className="mb-2 font-medium">Need help?</h4>
+                        <h4 className="mb-2 font-medium">{t('help.title')}</h4>
                         <ul className="text-muted-foreground space-y-1 text-sm">
-                            <li>• Check your spam/junk folder</li>
-                            <li>• Make sure {user.email} is correct</li>
-                            <li>• The verification link expires in 24 hours</li>
-                            <li>• Contact support if you continue having issues</li>
+                            <li>• {t('help.tips.checkSpam')}</li>
+                            <li>• {t('help.tips.checkEmail', { email: user.email })}</li>
+                            <li>• {t('help.tips.linkExpiry')}</li>
+                            <li>• {t('help.tips.contactSupport')}</li>
                         </ul>
                     </div>
                 </CardContent>

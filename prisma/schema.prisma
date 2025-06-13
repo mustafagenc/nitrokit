@@ -96,6 +96,8 @@ model User {
   locale    String  @default("en")
   theme     String  @default("system") // light, dark, system
 
+  refreshTokens RefreshToken[]
+
   @@map("users")
 }
 
@@ -232,4 +234,16 @@ model PasswordResetToken {
 
   @@unique([email, token])
   @@map("password_reset_tokens")
+}
+
+model RefreshToken {
+    id        String   @id @default(cuid())
+    token     String   @unique
+    userId    String
+    user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+    expires   DateTime
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@index([userId])
 }

@@ -48,7 +48,7 @@ export function UserMenu({ size = 'size-10' }: UserMenuProps) {
     const [securityOpen, setSecurityOpen] = React.useState(false);
     const router = useRouter();
 
-    const t = useTranslations();
+    const t = useTranslations('dashboard');
 
     const handleNavigation = React.useCallback(
         (route: string) => {
@@ -99,7 +99,7 @@ export function UserMenu({ size = 'size-10' }: UserMenuProps) {
         if (session?.user?.firstName && session?.user?.lastName) {
             return `${session.user.firstName} ${session.user.lastName}`;
         }
-        return session?.user?.name || 'User';
+        return session?.user?.name || t('userMenu.defaultUserName');
     };
 
     const MenuItem = ({
@@ -129,7 +129,7 @@ export function UserMenu({ size = 'size-10' }: UserMenuProps) {
             <PopoverTrigger asChild>
                 <button className="flex w-full items-center gap-2.5 px-2.5 py-1.5 text-xs transition-colors hover:bg-gray-100 dark:hover:bg-gray-800">
                     <Shield className="h-4 w-4 flex-shrink-0" />
-                    <span className="flex-1 text-left">Security</span>
+                    <span className="flex-1 text-left">{t('userMenu.security.title')}</span>
                     <ChevronRight className="h-4 w-4 flex-shrink-0" />
                 </button>
             </PopoverTrigger>
@@ -139,7 +139,7 @@ export function UserMenu({ size = 'size-10' }: UserMenuProps) {
                         icon={Shield}
                         onClick={() => handleNavigation('/dashboard/account/security')}
                     >
-                        Security Overview
+                        {t('userMenu.security.overview')}
                     </MenuItem>
 
                     <div className="my-1.5 h-px bg-gray-200 dark:bg-gray-700" />
@@ -148,19 +148,19 @@ export function UserMenu({ size = 'size-10' }: UserMenuProps) {
                         icon={Key}
                         onClick={() => handleNavigation('/dashboard/account/security/password')}
                     >
-                        Password
+                        {t('userMenu.security.password')}
                     </MenuItem>
                     <MenuItem
                         icon={Smartphone}
                         onClick={() => handleNavigation('/dashboard/account/security/two-factor')}
                     >
-                        Two-Factor Auth
+                        {t('userMenu.security.twoFactor')}
                     </MenuItem>
                     <MenuItem
                         icon={Monitor}
                         onClick={() => handleNavigation('/dashboard/account/security/sessions')}
                     >
-                        Active Sessions
+                        {t('userMenu.security.sessions')}
                     </MenuItem>
                 </div>
             </PopoverContent>
@@ -187,9 +187,9 @@ export function UserMenu({ size = 'size-10' }: UserMenuProps) {
             <PopoverTrigger asChild>
                 <UserAvatar useSessionData={true} size={size} className="ml-4" />
             </PopoverTrigger>
-            <PopoverContent className="w-62 p-0 shadow-lg" side="bottom" align="end">
+            <PopoverContent className="w-58 p-0 shadow-lg" side="bottom" align="end">
                 <div className="flex w-full flex-row items-center justify-start gap-3 border-b border-gray-200 p-3 dark:border-gray-700">
-                    <div>
+                    <div className="relative">
                         <UserAvatar
                             useSessionData={true}
                             size={size}
@@ -197,23 +197,20 @@ export function UserMenu({ size = 'size-10' }: UserMenuProps) {
                         />
                     </div>
                     <div className="min-w-0 flex-1">
-                        <h4 className="truncate text-sm font-semibold text-gray-900 dark:text-white">
+                        <h4 className="truncate text-xs font-semibold text-gray-900 dark:text-white">
                             {getDisplayName()}
                         </h4>
-                        <p className="truncate text-xs font-normal text-gray-600 dark:text-gray-400">
+                        <p className="truncate text-xs text-gray-600 dark:text-gray-400">
                             {session.user.email}
                         </p>
                     </div>
-                    <div className="flex h-6 min-w-6 items-center justify-center rounded border border-blue-200 bg-blue-50 px-2 text-xs font-medium text-blue-700 normal-case dark:border-blue-800 dark:bg-blue-900/20 dark:text-blue-400">
-                        {session.user.role || 'User'}
-                    </div>
                 </div>
 
-                <div className="p-1.5">
+                <div className="p-0.5">
                     <div className="mb-3">
                         <div className="mb-1.5 px-2 py-1">
                             <h3 className="text-xs font-semibold tracking-wider text-gray-500 uppercase dark:text-gray-400">
-                                Account
+                                {t('userMenu.sections.account')}
                             </h3>
                         </div>
                         <div className="space-y-0.5">
@@ -222,21 +219,21 @@ export function UserMenu({ size = 'size-10' }: UserMenuProps) {
                                 onClick={() => handleNavigation('/dashboard/account')}
                                 shortcut="⌘J"
                             >
-                                Account Overview
+                                {t('userMenu.account.overview')}
                             </MenuItem>
                             <MenuItem
                                 icon={User}
                                 onClick={() => handleNavigation('/dashboard/account/profile')}
                                 shortcut="⌘P"
                             >
-                                Profile Settings
+                                {t('userMenu.account.profile')}
                             </MenuItem>
                             <SecurityMenuItem />
                             <MenuItem
                                 icon={Bell}
                                 onClick={() => handleNavigation('/dashboard/account/notifications')}
                             >
-                                Notifications
+                                {t('userMenu.account.notifications')}
                             </MenuItem>
                         </div>
                     </div>
@@ -246,7 +243,7 @@ export function UserMenu({ size = 'size-10' }: UserMenuProps) {
                     <div className="mb-3">
                         <div className="mb-1.5 px-2 py-1">
                             <h3 className="text-xs font-semibold tracking-wider text-gray-500 uppercase dark:text-gray-400">
-                                Other
+                                {t('userMenu.sections.other')}
                             </h3>
                         </div>
                         <div className="space-y-0.5">
@@ -254,19 +251,19 @@ export function UserMenu({ size = 'size-10' }: UserMenuProps) {
                                 icon={HeartHandshake}
                                 onClick={() => handleNavigation('/dashboard/support')}
                             >
-                                {t('dashboard.navigation.support')}
+                                {t('navigation.support')}
                             </MenuItem>
                             <MenuItem
                                 icon={ReceiptText}
                                 onClick={() => handleNavigation('/dashboard/billing')}
                             >
-                                Billing & Plans
+                                {t('userMenu.other.billing')}
                             </MenuItem>
                             <MenuItem
                                 icon={Settings}
                                 onClick={() => handleNavigation('/dashboard/settings')}
                             >
-                                Settings
+                                {t('userMenu.other.settings')}
                             </MenuItem>
                         </div>
                     </div>

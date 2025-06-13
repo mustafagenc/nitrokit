@@ -1,34 +1,67 @@
 import { Metadata } from 'next';
+import { redirect } from 'next/navigation';
+import { getTranslations } from 'next-intl/server';
 import { Link } from '@/lib/i18n/navigation';
-
 import { auth } from '@/lib/auth';
+import { generatePageMetadata } from '@/lib';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { getUserSecurityStatus } from '@/lib/auth/security-status';
+import { Shield, Lock, Monitor, BarChart3, ChevronRight } from 'lucide-react';
 
-export const metadata: Metadata = {
-    title: 'Security Settings',
-    description: 'Manage your account security settings',
-};
+export async function generateMetadata(): Promise<Metadata> {
+    const t = await getTranslations('dashboard.account.security');
+    return await generatePageMetadata({
+        params: Promise.resolve({
+            title: t('page.title'),
+            description: t('page.description'),
+        }),
+    });
+}
 
 export default async function SecurityPage() {
     const session = await auth();
+    const t = await getTranslations('dashboard.account.security');
 
     if (!session?.user) {
-        return null;
+        redirect('/signin');
     }
 
     // ✅ Gerçek security status'unu çek
     const securityStatus = await getUserSecurityStatus(session.user.id);
+
+    const getPasswordStrengthText = (strength: string) => {
+        switch (strength) {
+            case 'strong':
+                return t('passwordStrength.strong');
+            case 'medium':
+                return t('passwordStrength.medium');
+            case 'weak':
+                return t('passwordStrength.weak');
+            default:
+                return t('passwordStrength.unknown');
+        }
+    };
+
+    const getPasswordStrengthColor = (strength: string) => {
+        switch (strength) {
+            case 'strong':
+                return 'text-green-600';
+            case 'medium':
+                return 'text-yellow-600';
+            case 'weak':
+                return 'text-red-600';
+            default:
+                return 'text-gray-600';
+        }
+    };
 
     return (
         <div className="space-y-6">
             {/* Page Header */}
             <div className="flex items-center justify-between">
                 <div>
-                    <h1 className="text-3xl font-bold tracking-tight">Security</h1>
-                    <p className="text-muted-foreground">
-                        Manage your password, two-factor authentication, and active sessions
-                    </p>
+                    <h1 className="text-3xl font-bold tracking-tight">{t('page.heading')}</h1>
+                    <p className="text-muted-foreground">{t('page.subheading')}</p>
                 </div>
             </div>
 
@@ -39,54 +72,21 @@ export default async function SecurityPage() {
                     <Card className="cursor-pointer transition-all duration-200 hover:scale-[1.02] hover:shadow-lg">
                         <CardHeader>
                             <CardTitle className="flex items-center gap-2">
-                                <svg
-                                    className="text-primary h-5 w-5"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
-                                    />
-                                </svg>
-                                Password
+                                <Lock className="text-primary h-5 w-5" />
+                                {t('cards.password.title')}
                             </CardTitle>
-                            <CardDescription>
-                                Change your password and manage password security
-                            </CardDescription>
+                            <CardDescription>{t('cards.password.description')}</CardDescription>
                         </CardHeader>
                         <CardContent>
                             <div className="flex items-center justify-between">
                                 <span
-                                    className={`text-sm font-medium ${
-                                        securityStatus.passwordStrength === 'strong'
-                                            ? 'text-green-600'
-                                            : securityStatus.passwordStrength === 'medium'
-                                              ? 'text-yellow-600'
-                                              : 'text-red-600'
-                                    }`}
+                                    className={`text-sm font-medium ${getPasswordStrengthColor(
+                                        securityStatus.passwordStrength
+                                    )}`}
                                 >
-                                    {securityStatus.passwordStrength === 'strong' && 'Strong'}
-                                    {securityStatus.passwordStrength === 'medium' && 'Medium'}
-                                    {securityStatus.passwordStrength === 'weak' && 'Weak'}
-                                    {securityStatus.passwordStrength === 'unknown' && 'Unknown'}
+                                    {getPasswordStrengthText(securityStatus.passwordStrength)}
                                 </span>
-                                <svg
-                                    className="text-muted-foreground h-4 w-4"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M9 5l7 7-7 7"
-                                    />
-                                </svg>
+                                <ChevronRight className="text-muted-foreground h-4 w-4" />
                             </div>
                         </CardContent>
                     </Card>
@@ -97,24 +97,10 @@ export default async function SecurityPage() {
                     <Card className="cursor-pointer transition-all duration-200 hover:scale-[1.02] hover:shadow-lg">
                         <CardHeader>
                             <CardTitle className="flex items-center gap-2">
-                                <svg
-                                    className="text-primary h-5 w-5"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                                    />
-                                </svg>
-                                Two-Factor Authentication
+                                <Shield className="text-primary h-5 w-5" />
+                                {t('cards.twoFactor.title')}
                             </CardTitle>
-                            <CardDescription>
-                                Add an extra layer of security to your account
-                            </CardDescription>
+                            <CardDescription>{t('cards.twoFactor.description')}</CardDescription>
                         </CardHeader>
                         <CardContent>
                             <div className="flex items-center justify-between">
@@ -125,21 +111,11 @@ export default async function SecurityPage() {
                                             : 'text-yellow-600'
                                     }`}
                                 >
-                                    {securityStatus.twoFactorEnabled ? 'Enabled' : 'Disabled'}
+                                    {securityStatus.twoFactorEnabled
+                                        ? t('status.enabled')
+                                        : t('status.disabled')}
                                 </span>
-                                <svg
-                                    className="text-muted-foreground h-4 w-4"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M9 5l7 7-7 7"
-                                    />
-                                </svg>
+                                <ChevronRight className="text-muted-foreground h-4 w-4" />
                             </div>
                         </CardContent>
                     </Card>
@@ -150,43 +126,19 @@ export default async function SecurityPage() {
                     <Card className="cursor-pointer transition-all duration-200 hover:scale-[1.02] hover:shadow-lg">
                         <CardHeader>
                             <CardTitle className="flex items-center gap-2">
-                                <svg
-                                    className="text-primary h-5 w-5"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                                    />
-                                </svg>
-                                Active Sessions
+                                <Monitor className="text-primary h-5 w-5" />
+                                {t('cards.sessions.title')}
                             </CardTitle>
-                            <CardDescription>
-                                View and manage your active login sessions
-                            </CardDescription>
+                            <CardDescription>{t('cards.sessions.description')}</CardDescription>
                         </CardHeader>
                         <CardContent>
                             <div className="flex items-center justify-between">
                                 <span className="text-sm font-medium text-blue-600">
-                                    {securityStatus.activeSessions} Active
+                                    {t('cards.sessions.activeCount', {
+                                        count: securityStatus.activeSessions,
+                                    })}
                                 </span>
-                                <svg
-                                    className="text-muted-foreground h-4 w-4"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M9 5l7 7-7 7"
-                                    />
-                                </svg>
+                                <ChevronRight className="text-muted-foreground h-4 w-4" />
                             </div>
                         </CardContent>
                     </Card>
@@ -197,41 +149,24 @@ export default async function SecurityPage() {
             <Card>
                 <CardHeader>
                     <CardTitle className="flex items-center gap-2">
-                        <svg
-                            className="text-primary h-5 w-5"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                            />
-                        </svg>
-                        Security Overview
+                        <BarChart3 className="text-primary h-5 w-5" />
+                        {t('overview.title')}
                     </CardTitle>
-                    <CardDescription>Current status of your account security</CardDescription>
+                    <CardDescription>{t('overview.description')}</CardDescription>
                 </CardHeader>
                 <CardContent>
                     <div className="grid gap-4 md:grid-cols-3">
                         <div className="rounded-lg border p-4 text-center">
                             <div
-                                className={`text-2xl font-bold ${
-                                    securityStatus.passwordStrength === 'strong'
-                                        ? 'text-green-600'
-                                        : securityStatus.passwordStrength === 'medium'
-                                          ? 'text-yellow-600'
-                                          : 'text-red-600'
-                                }`}
+                                className={`text-2xl font-bold ${getPasswordStrengthColor(
+                                    securityStatus.passwordStrength
+                                )}`}
                             >
-                                {securityStatus.passwordStrength === 'strong' && 'Strong'}
-                                {securityStatus.passwordStrength === 'medium' && 'Medium'}
-                                {securityStatus.passwordStrength === 'weak' && 'Weak'}
-                                {securityStatus.passwordStrength === 'unknown' && 'Unknown'}
+                                {getPasswordStrengthText(securityStatus.passwordStrength)}
                             </div>
-                            <div className="text-muted-foreground text-sm">Password Strength</div>
+                            <div className="text-muted-foreground text-sm">
+                                {t('overview.metrics.passwordStrength')}
+                            </div>
                         </div>
                         <div className="rounded-lg border p-4 text-center">
                             <div
@@ -241,15 +176,21 @@ export default async function SecurityPage() {
                                         : 'text-yellow-600'
                                 }`}
                             >
-                                {securityStatus.twoFactorEnabled ? 'On' : 'Off'}
+                                {securityStatus.twoFactorEnabled
+                                    ? t('overview.metrics.twoFactorOn')
+                                    : t('overview.metrics.twoFactorOff')}
                             </div>
-                            <div className="text-muted-foreground text-sm">Two-Factor Auth</div>
+                            <div className="text-muted-foreground text-sm">
+                                {t('overview.metrics.twoFactorAuth')}
+                            </div>
                         </div>
                         <div className="rounded-lg border p-4 text-center">
                             <div className="text-2xl font-bold text-blue-600">
                                 {securityStatus.activeSessions}
                             </div>
-                            <div className="text-muted-foreground text-sm">Active Sessions</div>
+                            <div className="text-muted-foreground text-sm">
+                                {t('overview.metrics.activeSessions')}
+                            </div>
                         </div>
                     </div>
                 </CardContent>
