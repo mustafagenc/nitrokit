@@ -7,6 +7,7 @@ import { z } from 'zod';
 const updatePreferencesSchema = z.object({
     locale: z.string().min(2).max(5).optional(),
     theme: z.enum(['light', 'dark', 'system']).optional(),
+    receiveUpdates: z.boolean().optional(),
 });
 
 export async function PUT(req: NextRequest) {
@@ -24,7 +25,7 @@ export async function PUT(req: NextRequest) {
         }
 
         const body = await req.json();
-        const { locale, theme } = updatePreferencesSchema.parse(body);
+        const { locale, theme, receiveUpdates } = updatePreferencesSchema.parse(body); // 👈 receiveUpdates eklendi
 
         const user = await prisma.user.findUnique({
             where: { id: session.user.id },
@@ -32,6 +33,7 @@ export async function PUT(req: NextRequest) {
                 id: true,
                 locale: true,
                 theme: true,
+                receiveUpdates: true,
                 email: true,
             },
         });
@@ -49,6 +51,7 @@ export async function PUT(req: NextRequest) {
         const changes = {
             locale: locale && locale !== user.locale,
             theme: theme && theme !== user.theme,
+            receiveUpdates: receiveUpdates !== undefined && receiveUpdates !== user.receiveUpdates,
         };
 
         const updateData: any = {};
@@ -58,6 +61,9 @@ export async function PUT(req: NextRequest) {
         if (theme !== undefined && theme !== user.theme) {
             updateData.theme = theme;
         }
+        if (receiveUpdates !== undefined && receiveUpdates !== user.receiveUpdates) {
+            updateData.receiveUpdates = receiveUpdates;
+        }
 
         if (Object.keys(updateData).length === 0) {
             return NextResponse.json({
@@ -65,6 +71,7 @@ export async function PUT(req: NextRequest) {
                 message: 'No changes to update',
                 localeChanged: false,
                 themeChanged: false,
+                receiveUpdatesChanged: false,
             });
         }
 
@@ -75,6 +82,7 @@ export async function PUT(req: NextRequest) {
                 id: true,
                 locale: true,
                 theme: true,
+                receiveUpdates: true,
                 email: true,
             },
         });
@@ -84,6 +92,7 @@ export async function PUT(req: NextRequest) {
             changes: updateData,
             localeChanged: changes.locale,
             themeChanged: changes.theme,
+            receiveUpdatesChanged: changes.receiveUpdates,
         });
 
         return NextResponse.json({
@@ -93,9 +102,11 @@ export async function PUT(req: NextRequest) {
                 id: updatedUser.id,
                 locale: updatedUser.locale,
                 theme: updatedUser.theme,
+                receiveUpdates: updatedUser.receiveUpdates,
             },
             localeChanged: changes.locale,
             themeChanged: changes.theme,
+            receiveUpdatesChanged: changes.receiveUpdates,
         });
     } catch (error) {
         if (error instanceof z.ZodError) {
@@ -139,6 +150,7 @@ export async function GET() {
                 id: true,
                 locale: true,
                 theme: true,
+                receiveUpdates: true,
                 email: true,
             },
         });
@@ -158,6 +170,7 @@ export async function GET() {
             preferences: {
                 locale: user.locale || 'en',
                 theme: user.theme || 'system',
+                receiveUpdates: user.receiveUpdates ?? true,
             },
         });
     } catch (error) {

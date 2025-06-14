@@ -82,7 +82,11 @@
             "successDescription": "You can now sign in with your credentials.",
             "error": "Failed to create account",
             "verificationRequired": "Account created! Please verify your email",
-            "verificationDescription": "We've sent a verification link to {email}. Please check your inbox and click the link to activate your account."
+            "verificationDescription": "We've sent a verification link to {email}. Please check your inbox and click the link to activate your account.",
+            "receiveUpdates": {
+                "label": "Receive updates",
+                "description": "Be the first to know about the latest features, updates and special announcements!"
+            }
         },
         "verifyEmail": {
             "title": "Check your email",
@@ -1145,13 +1149,22 @@
                     "messages": {
                         "changeTypes": {
                             "language": "Language",
-                            "theme": "Theme"
+                            "theme": "Theme",
+                            "notifications": "Notification preferences"
                         },
                         "themeUpdateSuccess": "Theme updated successfully!",
                         "languageUpdateSuccess": "Language updated! Redirecting...",
+                        "notificationsUpdateSuccess": "Notification preferences updated successfully!",
                         "updateSuccess": "Preferences updated successfully!",
                         "updateFailed": "Failed to update preferences",
                         "updateError": "Something went wrong. Please try again."
+                    },
+                    "notifications": {
+                        "label": "Notifications",
+                        "receiveUpdates": {
+                            "label": "Receive updates",
+                            "description": "Be the first to know about the latest features, updates and special announcements!"
+                        }
                     }
                 },
                 "profileInformation": {

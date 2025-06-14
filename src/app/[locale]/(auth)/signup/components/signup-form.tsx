@@ -21,6 +21,7 @@ import { Input } from '@/components/ui/input';
 import { PasswordInput } from '@/components/ui/password-input';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { Checkbox } from '@/components/ui/checkbox';
 
 export default function SignupForm() {
     const [password, setPassword] = useState<string>('');
@@ -79,6 +80,7 @@ export default function SignupForm() {
             confirmPassword: z.string().min(1, {
                 message: t('validation.required.confirmPassword'),
             }),
+            receiveUpdates: z.boolean().optional(),
         })
         .refine(
             (data) => {
@@ -98,6 +100,7 @@ export default function SignupForm() {
             email: '',
             password: '',
             confirmPassword: '',
+            receiveUpdates: false,
         },
     });
 
@@ -116,6 +119,7 @@ export default function SignupForm() {
                     lastName: values.lastName,
                     email: values.email,
                     password: values.password,
+                    receiveUpdates: values.receiveUpdates,
                 }),
             });
 
@@ -271,6 +275,30 @@ export default function SignupForm() {
                                 />
                             </FormControl>
                             <FormMessage />
+                        </FormItem>
+                    )}
+                />
+
+                <FormField
+                    control={form.control}
+                    name="receiveUpdates"
+                    render={({ field }) => (
+                        <FormItem className="flex flex-row items-start space-y-0 space-x-3 rounded-md border p-4">
+                            <FormControl>
+                                <Checkbox
+                                    checked={field.value}
+                                    onCheckedChange={field.onChange}
+                                    disabled={isLoading}
+                                />
+                            </FormControl>
+                            <div className="space-y-1 leading-none">
+                                <FormLabel className="cursor-pointer">
+                                    {t('auth.signup.receiveUpdates.label')}
+                                </FormLabel>
+                                <p className="text-muted-foreground text-sm">
+                                    {t('auth.signup.receiveUpdates.description')}
+                                </p>
+                            </div>
                         </FormItem>
                     )}
                 />
