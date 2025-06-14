@@ -17,12 +17,13 @@ import {
     SelectTrigger,
     SelectValue,
 } from '@/components/ui/select';
-import { Loader2, Globe, Palette, Sun, Moon, Monitor, Save } from 'lucide-react';
+import { Loader2, Globe, Palette, Save, CheckCircle } from 'lucide-react';
 import { User } from 'next-auth';
-import { useTheme } from 'next-themes';
+import useNextTheme from '@/hooks/useNextTheme';
 import { useLocale } from 'next-intl';
 import { localesWithFlag } from '@/constants/locale';
 import Image from 'next/image';
+import { cn } from '@/lib/utils';
 
 const preferencesSchema = z.object({
     locale: z.string().optional(),
@@ -36,18 +37,32 @@ interface PreferencesProps {
 }
 
 export function Preferences({ user }: PreferencesProps) {
-    const { setTheme, theme } = useTheme();
+    const [, mounted, setTheme] = useNextTheme();
     const currentLocale = useLocale();
     const [isLoading, setIsLoading] = useState(false);
     const router = useRouter();
     const t = useTranslations('dashboard.account.profile.preferences');
 
     const themeOptions = [
-        { value: 'light', label: t('theme.options.light'), icon: Sun },
-        { value: 'dark', label: t('theme.options.dark'), icon: Moon },
-        { value: 'system', label: t('theme.options.system'), icon: Monitor },
+        {
+            value: 'dark',
+            label: t('theme.options.dark'),
+            bgImage: '/images/themes/dark-theme-preview.jpg',
+            bgClass: 'bg-gradient-to-br from-gray-900 to-gray-800',
+        },
+        {
+            value: 'light',
+            label: t('theme.options.light'),
+            bgImage: '/images/themes/light-theme-preview.jpg',
+            bgClass: 'bg-gradient-to-br from-gray-100 to-white',
+        },
+        {
+            value: 'system',
+            label: t('theme.options.system'),
+            bgImage: '/images/themes/system-theme-preview.jpg',
+            bgClass: 'bg-gradient-to-br from-blue-100 via-purple-50 to-teal-100',
+        },
     ];
-
     const {
         handleSubmit,
         setValue,
@@ -59,27 +74,41 @@ export function Preferences({ user }: PreferencesProps) {
         mode: 'onChange',
         defaultValues: {
             locale: user.locale || currentLocale || 'en',
-            theme: (user.theme as 'light' | 'dark' | 'system') || theme || 'system',
+            theme: (user.theme as 'light' | 'dark' | 'system') || 'light',
         },
     });
-
     useEffect(() => {
-        reset({
-            locale: user.locale || currentLocale || 'en',
-            theme: (user.theme as 'light' | 'dark' | 'system') || theme || 'system',
-        });
-    }, [user, currentLocale, theme, reset]);
+        if (mounted) {
+            const currentTheme = user.theme || 'light';
+            reset({
+                locale: user.locale || currentLocale || 'en',
+                theme: currentTheme as 'light' | 'dark' | 'system',
+            });
+        }
+    }, [mounted, user.theme, user.locale, currentLocale, reset]);
 
     const watchedLocale = watch('locale');
     const watchedTheme = watch('theme');
 
+    const handleThemeSelect = (newTheme: string) => {
+        console.log('🎨 Theme selected:', newTheme, 'Current watched:', watchedTheme);
+        setValue('theme', newTheme as any, {
+            shouldDirty: true,
+            shouldTouch: true,
+            shouldValidate: true,
+        });
+        setTheme(newTheme);
+    };
+
     const onSubmit = async (data: PreferencesFormData) => {
         setIsLoading(true);
         try {
+            console.log('📤 Submitting data:', data);
+
             const changes: string[] = [];
             if (data.locale && data.locale !== (user.locale || currentLocale))
                 changes.push(t('messages.changeTypes.language'));
-            if (data.theme && data.theme !== (user.theme || theme))
+            if (data.theme && data.theme !== user.theme)
                 changes.push(t('messages.changeTypes.theme'));
 
             const response = await fetch('/api/user/preferences', {
@@ -98,7 +127,6 @@ export function Preferences({ user }: PreferencesProps) {
                 reset(data);
 
                 if (result.themeChanged && data.theme) {
-                    setTheme(data.theme);
                     toast.success(t('messages.themeUpdateSuccess'));
                 }
 
@@ -121,7 +149,24 @@ export function Preferences({ user }: PreferencesProps) {
             setIsLoading(false);
         }
     };
-
+    if (!mounted) {
+        return (
+            <Card>
+                <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                        <Palette className="h-5 w-5" />
+                        {t('title')}
+                    </CardTitle>
+                    <CardDescription>{t('description')}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                    <div className="flex items-center justify-center py-8">
+                        <Loader2 className="h-8 w-8 animate-spin" />
+                    </div>
+                </CardContent>
+            </Card>
+        );
+    }
     return (
         <Card>
             <CardHeader>
@@ -132,95 +177,117 @@ export function Preferences({ user }: PreferencesProps) {
                 <CardDescription>{t('description')}</CardDescription>
             </CardHeader>
             <CardContent>
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-                    <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                        <div className="space-y-2">
-                            <Label className="flex items-center gap-2">
-                                <Globe className="h-4 w-4" />
-                                {t('language.label')}
-                            </Label>
-                            <Select
-                                value={watchedLocale || currentLocale}
-                                onValueChange={(value) =>
-                                    setValue('locale', value, { shouldDirty: true })
-                                }
-                                disabled={isLoading}
-                            >
-                                <SelectTrigger>
-                                    <SelectValue placeholder={t('language.placeholder')} />
-                                </SelectTrigger>
-                                <SelectContent>
-                                    {localesWithFlag.map((locale) => (
-                                        <SelectItem key={locale.id} value={locale.id}>
-                                            <div className="flex items-center gap-2">
-                                                <Image
-                                                    src={locale.flag}
-                                                    alt={t('language.flagAlt', {
-                                                        language: locale.name,
-                                                    })}
-                                                    width={16}
-                                                    height={12}
-                                                    className="rounded-sm"
-                                                />
-                                                <span>{locale.name}</span>
-                                            </div>
-                                        </SelectItem>
-                                    ))}
-                                </SelectContent>
-                            </Select>
-                        </div>
-
-                        <div className="space-y-2">
-                            <Label className="flex items-center gap-2">
-                                <Palette className="h-4 w-4" />
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
+                    <div className="space-y-3">
+                        <Label className="flex items-center gap-2 text-base font-medium">
+                            <Globe className="h-4 w-4" />
+                            {t('language.label')}
+                        </Label>
+                        <Select
+                            value={watchedLocale || currentLocale}
+                            onValueChange={(value) =>
+                                setValue('locale', value, { shouldDirty: true })
+                            }
+                            disabled={isLoading}
+                        >
+                            <SelectTrigger>
+                                <SelectValue placeholder={t('language.placeholder')} />
+                            </SelectTrigger>
+                            <SelectContent>
+                                {localesWithFlag.map((locale) => (
+                                    <SelectItem key={locale.id} value={locale.id}>
+                                        <div className="flex items-center gap-2">
+                                            <Image
+                                                src={locale.flag}
+                                                alt={t('language.flagAlt', {
+                                                    language: locale.name,
+                                                })}
+                                                width={16}
+                                                height={12}
+                                                className="rounded-sm"
+                                            />
+                                            <span>{locale.name}</span>
+                                        </div>
+                                    </SelectItem>
+                                ))}
+                            </SelectContent>
+                        </Select>
+                    </div>
+                    <div className="space-y-5">
+                        <div className="space-y-1">
+                            <h3 className="flex items-center gap-2 text-base font-medium">
+                                <Palette className="h-4 w-4" /> {/* 👈 Tema başlığına icon */}
                                 {t('theme.label')}
-                            </Label>
-                            <Select
-                                value={watchedTheme || theme || 'system'}
-                                onValueChange={(value) =>
-                                    setValue('theme', value as 'light' | 'dark' | 'system', {
-                                        shouldDirty: true,
-                                    })
-                                }
-                                disabled={isLoading}
-                            >
-                                <SelectTrigger>
-                                    <SelectValue placeholder={t('theme.placeholder')} />
-                                </SelectTrigger>
-                                <SelectContent>
-                                    {themeOptions.map((option) => {
-                                        const Icon = option.icon;
-                                        return (
-                                            <SelectItem key={option.value} value={option.value}>
-                                                <div className="flex items-center gap-2">
-                                                    <Icon className="h-4 w-4" />
-                                                    <span>{option.label}</span>
+                            </h3>
+                        </div>
+                        <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-6">
+                            {themeOptions.map((option) => {
+                                const isSelected = watchedTheme === option.value;
+                                return (
+                                    <div key={option.value} className="space-y-2">
+                                        <label
+                                            className={cn(
+                                                'relative flex cursor-pointer items-end overflow-hidden rounded-xl border-2 transition-all duration-200',
+                                                'h-[170px] bg-cover bg-center bg-no-repeat',
+                                                isSelected
+                                                    ? 'border-green-500 ring-2 ring-green-500/20'
+                                                    : 'border-border hover:border-green-300',
+                                                option.bgClass
+                                            )}
+                                            style={{
+                                                backgroundImage: option.bgImage
+                                                    ? `url(${option.bgImage})`
+                                                    : undefined,
+                                            }}
+                                        >
+                                            <input
+                                                type="radio"
+                                                name="theme"
+                                                value={option.value}
+                                                checked={isSelected}
+                                                onChange={() => handleThemeSelect(option.value)}
+                                                className="sr-only"
+                                                disabled={isLoading}
+                                            />
+                                            <div
+                                                className={cn(
+                                                    'mb-4 ml-4 transition-all duration-200',
+                                                    isSelected ? 'opacity-100' : 'opacity-0'
+                                                )}
+                                            >
+                                                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-500">
+                                                    <CheckCircle className="h-5 w-5 text-white" />
                                                 </div>
-                                            </SelectItem>
-                                        );
-                                    })}
-                                </SelectContent>
-                            </Select>
+                                            </div>
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                                        </label>
+
+                                        <div className="space-y-1">
+                                            <span className="text-sm font-medium">
+                                                {option.label}
+                                            </span>
+                                        </div>
+                                    </div>
+                                );
+                            })}
                         </div>
                     </div>
 
-                    <div className="flex gap-3 pt-4">
-                        <Button
-                            type="submit"
-                            disabled={isLoading || !isDirty}
-                            className="flex-1 md:flex-none"
-                        >
-                            {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                            <Save className="mr-1 h-4 w-4" />
-                            {t('buttons.save')}
-                        </Button>
+                    <div className="flex justify-end gap-3 pt-4">
                         <Button
                             type="button"
                             variant="outline"
-                            onClick={() => router.refresh()}
+                            onClick={() => {
+                                router.refresh();
+                            }}
                             disabled={isLoading}
                         >
                             {t('buttons.cancel')}
+                        </Button>
+                        <Button type="submit" disabled={isLoading || !isDirty}>
+                            {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                            <Save className="mr-2 h-4 w-4" />
+                            {t('buttons.save')}
                         </Button>
                     </div>
                 </form>
