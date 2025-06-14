@@ -401,7 +401,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         maxAge: 30 * 24 * 60 * 60, // 30 gün
     },
     secret: process.env.AUTH_SECRET,
-    debug: process.env.NODE_ENV === 'development',
+    // debug: process.env.NODE_ENV === 'development',
+    debug: false, // Set to true for development
     useSecureCookies: process.env.NODE_ENV === 'production',
     cookies: {
         sessionToken: {
