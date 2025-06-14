@@ -10,6 +10,7 @@ import { z } from 'zod';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Checkbox } from '@/components/ui/checkbox';
 import {
     Select,
     SelectContent,
@@ -17,7 +18,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from '@/components/ui/select';
-import { Loader2, Globe, Palette, Save, CheckCircle } from 'lucide-react';
+import { Loader2, Globe, Palette, Save, CheckCircle, Bell } from 'lucide-react'; // 👈 Bell eklendi
 import { User } from 'next-auth';
 import useNextTheme from '@/hooks/useNextTheme';
 import { useLocale } from 'next-intl';
@@ -28,6 +29,7 @@ import { cn } from '@/lib/utils';
 const preferencesSchema = z.object({
     locale: z.string().optional(),
     theme: z.enum(['light', 'dark', 'system']).optional(),
+    receiveUpdates: z.boolean().optional(),
 });
 
 type PreferencesFormData = z.infer<typeof preferencesSchema>;
@@ -63,6 +65,7 @@ export function Preferences({ user }: PreferencesProps) {
             bgClass: 'bg-gradient-to-br from-blue-100 via-purple-50 to-teal-100',
         },
     ];
+
     const {
         handleSubmit,
         setValue,
@@ -75,23 +78,26 @@ export function Preferences({ user }: PreferencesProps) {
         defaultValues: {
             locale: user.locale || currentLocale || 'en',
             theme: (user.theme as 'light' | 'dark' | 'system') || 'light',
+            receiveUpdates: user.receiveUpdates ?? true,
         },
     });
+
     useEffect(() => {
         if (mounted) {
             const currentTheme = user.theme || 'light';
             reset({
                 locale: user.locale || currentLocale || 'en',
                 theme: currentTheme as 'light' | 'dark' | 'system',
+                receiveUpdates: user.receiveUpdates ?? true,
             });
         }
-    }, [mounted, user.theme, user.locale, currentLocale, reset]);
+    }, [mounted, user.theme, user.locale, user.receiveUpdates, currentLocale, reset]); // 👈 user.receiveUpdates eklendi
 
     const watchedLocale = watch('locale');
     const watchedTheme = watch('theme');
+    const watchedReceiveUpdates = watch('receiveUpdates');
 
     const handleThemeSelect = (newTheme: string) => {
-        console.log('🎨 Theme selected:', newTheme, 'Current watched:', watchedTheme);
         setValue('theme', newTheme as any, {
             shouldDirty: true,
             shouldTouch: true,
@@ -103,13 +109,13 @@ export function Preferences({ user }: PreferencesProps) {
     const onSubmit = async (data: PreferencesFormData) => {
         setIsLoading(true);
         try {
-            console.log('📤 Submitting data:', data);
-
             const changes: string[] = [];
             if (data.locale && data.locale !== (user.locale || currentLocale))
                 changes.push(t('messages.changeTypes.language'));
             if (data.theme && data.theme !== user.theme)
                 changes.push(t('messages.changeTypes.theme'));
+            if (data.receiveUpdates !== undefined && data.receiveUpdates !== user.receiveUpdates)
+                changes.push(t('messages.changeTypes.notifications'));
 
             const response = await fetch('/api/user/preferences', {
                 method: 'PUT',
@@ -136,6 +142,10 @@ export function Preferences({ user }: PreferencesProps) {
                     router.refresh();
                 }
 
+                if (result.receiveUpdatesChanged !== undefined) {
+                    toast.success(t('messages.notificationsUpdateSuccess'));
+                }
+
                 if (changes.length === 0) {
                     toast.success(t('messages.updateSuccess'));
                 }
@@ -149,6 +159,7 @@ export function Preferences({ user }: PreferencesProps) {
             setIsLoading(false);
         }
     };
+
     if (!mounted) {
         return (
             <Card>
@@ -167,6 +178,7 @@ export function Preferences({ user }: PreferencesProps) {
             </Card>
         );
     }
+
     return (
         <Card>
             <CardHeader>
@@ -178,6 +190,7 @@ export function Preferences({ user }: PreferencesProps) {
             </CardHeader>
             <CardContent>
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
+                    {/* Language Selection */}
                     <div className="space-y-3">
                         <Label className="flex items-center gap-2 text-base font-medium">
                             <Globe className="h-4 w-4" />
@@ -213,10 +226,12 @@ export function Preferences({ user }: PreferencesProps) {
                             </SelectContent>
                         </Select>
                     </div>
+
+                    {/* Theme Selection */}
                     <div className="space-y-5">
                         <div className="space-y-1">
                             <h3 className="flex items-center gap-2 text-base font-medium">
-                                <Palette className="h-4 w-4" /> {/* 👈 Tema başlığına icon */}
+                                <Palette className="h-4 w-4" />
                                 {t('theme.label')}
                             </h3>
                         </div>
@@ -273,13 +288,43 @@ export function Preferences({ user }: PreferencesProps) {
                         </div>
                     </div>
 
+                    <div className="space-y-3">
+                        <Label className="flex items-center gap-2 text-base font-medium">
+                            <Bell className="h-4 w-4" />
+                            {t('notifications.label')}
+                        </Label>
+                        <div className="space-y-4">
+                            <div className="flex items-start space-x-3">
+                                <Checkbox
+                                    id="receiveUpdates"
+                                    checked={watchedReceiveUpdates}
+                                    onCheckedChange={(checked) =>
+                                        setValue('receiveUpdates', !!checked, { shouldDirty: true })
+                                    }
+                                    disabled={isLoading}
+                                    className="mt-0.5"
+                                />
+                                <div className="space-y-1 leading-none">
+                                    <label
+                                        htmlFor="receiveUpdates"
+                                        className="cursor-pointer text-sm leading-none font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                    >
+                                        {t('notifications.receiveUpdates.label')}
+                                    </label>
+                                    <p className="text-muted-foreground text-sm">
+                                        {t('notifications.receiveUpdates.description')}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Action Buttons */}
                     <div className="flex justify-end gap-3 pt-4">
                         <Button
                             type="button"
                             variant="outline"
-                            onClick={() => {
-                                router.refresh();
-                            }}
+                            onClick={() => router.refresh()}
                             disabled={isLoading}
                         >
                             {t('buttons.cancel')}

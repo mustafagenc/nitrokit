@@ -95,6 +95,7 @@ model User {
   // Preferences
   locale    String  @default("en")
   theme     String  @default("system") // light, dark, system
+  receiveUpdates  Boolean @default(true) @map("receive_updates") 
 
   refreshTokens RefreshToken[]
 
