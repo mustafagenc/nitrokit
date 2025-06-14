@@ -17,6 +17,7 @@ import notFound from './not-found';
 import type { Viewport } from 'next';
 import { AvatarProvider } from '@/contexts/avatar-context';
 import { CookieConsent } from '@/components/shared/cookie-consent';
+import { SessionProvider } from 'next-auth/react';
 export async function generateMetadata(): Promise<Metadata> {
     return await generateSiteMetadata();
 }
@@ -52,17 +53,23 @@ export default async function RootLayout({
             <body
                 className={`${geistSans.variable} ${geistMono.variable} ${lexend.variable} font-[family-name:var(--font-lexend)] antialiased`}
             >
-                <NextIntlClientProvider>
-                    <NextThemeProvider>
-                        <AnalyticsProvider>
-                            <AvatarProvider>
-                                {children}
-                                <CookieConsent />
-                            </AvatarProvider>
-                        </AnalyticsProvider>
-                        <Toaster />
-                    </NextThemeProvider>
-                </NextIntlClientProvider>
+                <SessionProvider
+                    refetchInterval={0}
+                    refetchOnWindowFocus={true}
+                    refetchWhenOffline={false}
+                >
+                    <NextIntlClientProvider>
+                        <NextThemeProvider>
+                            <AnalyticsProvider>
+                                <AvatarProvider>
+                                    {children}
+                                    <CookieConsent />
+                                </AvatarProvider>
+                            </AnalyticsProvider>
+                            <Toaster />
+                        </NextThemeProvider>
+                    </NextIntlClientProvider>
+                </SessionProvider>
             </body>
         </html>
     );

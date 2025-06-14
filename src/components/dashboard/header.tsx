@@ -2,7 +2,6 @@
 
 import { ReactNode } from 'react';
 import { Link } from '@/lib/i18n/navigation';
-import { SessionProvider } from 'next-auth/react';
 import { MobileSidebarTrigger } from '@/components/dashboard/sidebar';
 import { UserMenu } from '@/components/dashboard/user-menu';
 import { Notifications } from '@/components/dashboard/notifications';
@@ -37,9 +36,7 @@ export function DashboardHeader({ children }: DashboardHeaderProps) {
             </div>
             <div className="mr-1 flex items-center space-x-2">
                 <Notifications />
-                <SessionProvider>
-                    <UserMenu size={'size-10'} />
-                </SessionProvider>
+                <UserMenu size={'size-10'} />
             </div>
         </header>
     );
