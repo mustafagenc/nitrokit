@@ -17,6 +17,7 @@ declare module 'next-auth' {
         emailVerified?: boolean;
         locale: string;
         theme: string;
+        receiveUpdates: boolean;
         refreshToken?: string;
         linkedAccounts?: Array<{
             provider: string;
@@ -35,6 +36,7 @@ declare module 'next-auth/jwt' {
         role: string;
         locale?: string;
         theme?: string;
+        receiveUpdates?: boolean;
         phoneVerified?: boolean | null;
         twoFactorEnabled?: boolean;
         refreshToken?: string;

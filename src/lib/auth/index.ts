@@ -19,6 +19,7 @@ import { TwoFactorService } from './two-factor-service';
 const defaultLocale = 'en';
 const defaultTheme = 'system';
 const defaultRole = 'User';
+const defaultReceiveUpdates = true;
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
     adapter: PrismaAdapter(prisma),
@@ -36,6 +37,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                     role: defaultRole,
                     locale: profile.locale || defaultLocale,
                     theme: defaultTheme,
+                    receiveUpdates: defaultReceiveUpdates,
                     twoFactorEnabled: false,
                     emailVerified: true,
                 };
@@ -51,6 +53,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                     role: defaultRole,
                     locale: defaultLocale,
                     theme: defaultTheme,
+                    receiveUpdates: defaultReceiveUpdates,
                     twoFactorEnabled: false,
                     emailVerified: true,
                 };
@@ -66,6 +69,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                     role: defaultRole,
                     locale: defaultLocale,
                     theme: defaultTheme,
+                    receiveUpdates: defaultReceiveUpdates,
                     twoFactorEnabled: false,
                     emailVerified: true,
                 };
@@ -81,6 +85,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                     role: defaultRole,
                     locale: profile.locale || defaultLocale,
                     theme: defaultTheme,
+                    receiveUpdates: defaultReceiveUpdates,
                     twoFactorEnabled: false,
                     emailVerified: true,
                 };
@@ -99,6 +104,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                     role: defaultRole,
                     locale: defaultLocale,
                     theme: defaultTheme,
+                    receiveUpdates: defaultReceiveUpdates,
                     twoFactorEnabled: false,
                     emailVerified: true,
                 };
@@ -114,6 +120,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                     role: defaultRole,
                     locale: defaultLocale,
                     theme: defaultTheme,
+                    receiveUpdates: defaultReceiveUpdates,
                     twoFactorEnabled: false,
                     emailVerified: !!profile.email,
                 };
@@ -144,6 +151,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                     role: defaultRole,
                     locale: defaultLocale,
                     theme: defaultTheme,
+                    receiveUpdates: defaultReceiveUpdates,
                     twoFactorEnabled: false,
                     emailVerified: !!data.email,
                 };
@@ -179,6 +187,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                     role: defaultRole,
                     locale: profile.locale || defaultLocale,
                     theme: defaultTheme,
+                    receiveUpdates: defaultReceiveUpdates,
                     twoFactorEnabled: false,
                     emailVerified: !!email,
                 };
@@ -251,6 +260,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                         emailVerified: !!user.emailVerified,
                         locale: user.locale || 'en',
                         theme: user.theme || 'light',
+                        receiveUpdates: user.receiveUpdates ?? true,
                     };
                 } catch (error) {
                     console.error('Authentication error:', error);
