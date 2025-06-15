@@ -5,6 +5,7 @@ import { prisma } from '@/lib/prisma';
 import { notFound } from 'next/navigation';
 import { TicketDetails } from './components/ticket-details';
 import { TicketMessages } from './components/ticket-messages';
+import { TicketInfo } from './components/ticket-info';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
@@ -34,6 +35,7 @@ export default async function TicketPage({ params }: { params: Promise<{ id: str
                     name: true,
                     email: true,
                     image: true,
+                    role: true,
                 },
             },
             assignedUser: {
@@ -42,6 +44,7 @@ export default async function TicketPage({ params }: { params: Promise<{ id: str
                     name: true,
                     email: true,
                     image: true,
+                    role: true,
                 },
             },
             messages: {
@@ -52,6 +55,7 @@ export default async function TicketPage({ params }: { params: Promise<{ id: str
                             name: true,
                             email: true,
                             image: true,
+                            role: true,
                         },
                     },
                     attachments: true,
@@ -82,14 +86,18 @@ export default async function TicketPage({ params }: { params: Promise<{ id: str
                         <h1 className="text-3xl font-bold tracking-tight">
                             Destek Talebi #{ticket.id}
                         </h1>
-                        <p className="text-muted-foreground">{ticket.title}</p>
                     </div>
                 </div>
             </div>
             <div className="grid grid-cols-1 gap-6 p-6 lg:grid-cols-3">
-                <div className="space-y-6 lg:col-span-2">
+                <div className="order-2 space-y-6 lg:order-1 lg:col-span-2">
                     <TicketDetails ticket={ticket} />
                     <TicketMessages ticket={ticket} />
+                </div>
+                <div className="order-1 lg:order-2 lg:col-span-1">
+                    <div className="sticky top-6">
+                        <TicketInfo ticket={ticket} />
+                    </div>
                 </div>
             </div>
         </div>
