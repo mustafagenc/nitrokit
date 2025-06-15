@@ -6,7 +6,6 @@ import { notFound } from 'next/navigation';
 import { TicketDetails } from '../components/ticket-details';
 import { TicketMessages } from '../components/ticket-messages';
 import { TicketActions } from '../components/ticket-actions';
-import { ScrollArea } from '@/components/ui/scroll-area';
 
 export const metadata: Metadata = {
     title: 'Destek Talebi Detayı',
@@ -68,25 +67,22 @@ export default async function TicketPage({ params }: { params: Promise<{ id: str
     }
 
     return (
-        <div className="flex h-full flex-col">
-            <ScrollArea className="h-full">
-                <div className="flex items-center justify-between p-6">
-                    <div>
-                        <h1 className="text-3xl font-bold tracking-tight">
-                            Destek Talebi #{ticket.id}
-                        </h1>
-                        <p className="text-muted-foreground">{ticket.title}</p>
-                    </div>
-                    <TicketActions ticket={ticket} />
+        <div className="flex flex-col gap-6">
+            <div className="flex items-center justify-between p-6">
+                <div>
+                    <h1 className="text-3xl font-bold tracking-tight">
+                        Destek Talebi #{ticket.id}
+                    </h1>
+                    <p className="text-muted-foreground">{ticket.title}</p>
                 </div>
-
-                <div className="grid grid-cols-1 gap-6 p-6 lg:grid-cols-3">
-                    <div className="space-y-6 lg:col-span-2">
-                        <TicketDetails ticket={ticket} />
-                        <TicketMessages ticket={ticket} />
-                    </div>
+                <TicketActions ticket={ticket} />
+            </div>
+            <div className="grid grid-cols-1 gap-6 p-6 lg:grid-cols-3">
+                <div className="space-y-6 lg:col-span-2">
+                    <TicketDetails ticket={ticket} />
+                    <TicketMessages ticket={ticket} />
                 </div>
-            </ScrollArea>
+            </div>
         </div>
     );
 }
