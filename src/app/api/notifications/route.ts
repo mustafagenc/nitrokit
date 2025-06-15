@@ -1,13 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/lib/auth';
 import { InAppNotificationService } from '@/lib/services/inapp-notification-service';
-import { logger } from '@/lib/services/logger';
-import { normalizeError } from '@/lib/utils/error-handler';
-import { setLoggerContextFromRequest } from '@/lib/services/logger/auth-middleware';
 
 export async function GET(request: NextRequest) {
     try {
-        await setLoggerContextFromRequest(request);
         const session = await auth();
 
         if (!session?.user?.id) {
@@ -32,8 +28,7 @@ export async function GET(request: NextRequest) {
             unreadCount,
             hasMore: notifications.length === limit,
         });
-    } catch (error) {
-        logger.error('Get notifications error', normalizeError(error));
+    } catch {
         return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
     }
 }
@@ -68,8 +63,7 @@ export async function POST(request: NextRequest) {
             success: true,
             notification,
         });
-    } catch (error) {
-        logger.error('Create notification error', normalizeError(error));
+    } catch {
         return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
     }
 }
