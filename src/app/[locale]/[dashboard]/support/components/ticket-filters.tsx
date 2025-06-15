@@ -65,10 +65,10 @@ export function TicketFilters() {
                     }}
                 >
                     <SelectTrigger className="w-[180px]">
-                        <SelectValue placeholder="Durum seçin" />
+                        <SelectValue placeholder="Durum filtresi" />
                     </SelectTrigger>
                     <SelectContent>
-                        <SelectItem value="all">Tümü</SelectItem>
+                        <SelectItem value="all">Tüm Durumlar</SelectItem>
                         <SelectItem value="OPEN">Açık</SelectItem>
                         <SelectItem value="IN_PROGRESS">Devam Ediyor</SelectItem>
                         <SelectItem value="WAITING_FOR_USER">Kullanıcı Bekliyor</SelectItem>
@@ -89,39 +89,14 @@ export function TicketFilters() {
                     }}
                 >
                     <SelectTrigger className="w-[180px]">
-                        <SelectValue placeholder="Öncelik seçin" />
+                        <SelectValue placeholder="Öncelik filtresi" />
                     </SelectTrigger>
                     <SelectContent>
-                        <SelectItem value="all">Tümü</SelectItem>
+                        <SelectItem value="all">Tüm Öncelikler</SelectItem>
                         <SelectItem value="LOW">Düşük</SelectItem>
                         <SelectItem value="MEDIUM">Orta</SelectItem>
                         <SelectItem value="HIGH">Yüksek</SelectItem>
                         <SelectItem value="URGENT">Acil</SelectItem>
-                    </SelectContent>
-                </Select>
-
-                {/* Category Filter */}
-                <Select
-                    value={searchParams.get('category') || 'all'}
-                    onValueChange={(value) => {
-                        router.push(
-                            `?${createQueryString({
-                                category: value === 'all' ? null : value,
-                            })}`
-                        );
-                    }}
-                >
-                    <SelectTrigger className="w-[180px]">
-                        <SelectValue placeholder="Kategori seçin" />
-                    </SelectTrigger>
-                    <SelectContent>
-                        <SelectItem value="all">Tümü</SelectItem>
-                        <SelectItem value="TECHNICAL">Teknik</SelectItem>
-                        <SelectItem value="BILLING">Faturalama</SelectItem>
-                        <SelectItem value="ACCOUNT">Hesap</SelectItem>
-                        <SelectItem value="GENERAL">Genel</SelectItem>
-                        <SelectItem value="FEATURE_REQUEST">Özellik İsteği</SelectItem>
-                        <SelectItem value="BUG_REPORT">Hata Raporu</SelectItem>
                     </SelectContent>
                 </Select>
             </div>
