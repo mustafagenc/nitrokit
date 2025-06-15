@@ -4,6 +4,7 @@ import { routing } from '@/lib/i18n/routing';
 import type { NextRequest } from 'next/server';
 import { handleSessionTracking, checkAuthentication } from './middleware/session';
 import { handleRateLimit } from './middleware/rate-limit';
+import { adminMiddleware } from './middleware/admin';
 
 const intlMiddleware = createIntlMiddleware(routing);
 
@@ -14,6 +15,10 @@ export async function middleware(request: NextRequest) {
 
     if (request.nextUrl.pathname.startsWith('/dashboard')) {
         await handleSessionTracking(request);
+    }
+
+    if (request.url.includes('/dashboard/admin')) {
+        return adminMiddleware(request);
     }
 
     if (request.nextUrl.pathname.startsWith('/api/')) {
