@@ -1,18 +1,60 @@
 import { ChevronLeftIcon, ChevronRightIcon, MoreHorizontalIcon } from 'lucide-react';
 import * as React from 'react';
-
-import { Button, buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib';
+import Link from 'next/link';
+import { Button, buttonVariants } from './button';
 
-function Pagination({ className, ...props }: React.ComponentProps<'nav'>) {
+interface PaginationProps {
+    currentPage: number;
+    totalPages: number;
+    baseUrl: string;
+}
+
+export function Pagination({ currentPage, totalPages, baseUrl }: PaginationProps) {
+    const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
+    const searchParams = new URLSearchParams();
+
     return (
         <nav
             role="navigation"
             aria-label="pagination"
             data-slot="pagination"
-            className={cn('mx-auto flex w-full justify-center', className)}
-            {...props}
-        />
+            className={cn('mx-auto flex w-full justify-center gap-2')}
+        >
+            <Button variant="outline" size="icon" asChild disabled={currentPage === 1}>
+                <Link
+                    href={`${baseUrl}?${searchParams.toString()}&page=${currentPage - 1}`}
+                    aria-label="Önceki sayfa"
+                >
+                    <ChevronLeftIcon className="h-4 w-4" />
+                </Link>
+            </Button>
+
+            {pages.map((page) => (
+                <Button
+                    key={page}
+                    variant={currentPage === page ? 'default' : 'outline'}
+                    size="icon"
+                    asChild
+                >
+                    <Link
+                        href={`${baseUrl}?${searchParams.toString()}&page=${page}`}
+                        aria-label={`Sayfa ${page}`}
+                    >
+                        {page}
+                    </Link>
+                </Button>
+            ))}
+
+            <Button variant="outline" size="icon" asChild disabled={currentPage === totalPages}>
+                <Link
+                    href={`${baseUrl}?${searchParams.toString()}&page=${currentPage + 1}`}
+                    aria-label="Sonraki sayfa"
+                >
+                    <ChevronRightIcon className="h-4 w-4" />
+                </Link>
+            </Button>
+        </nav>
     );
 }
 
@@ -96,7 +138,6 @@ function PaginationEllipsis({ className, ...props }: React.ComponentProps<'span'
 }
 
 export {
-    Pagination,
     PaginationContent,
     PaginationLink,
     PaginationItem,

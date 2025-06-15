@@ -1,6 +1,10 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
 generator client {
   provider = "prisma-client-js"
-  output   = "../generated/prisma"
+  output   = "./generated/prisma"
+  previewFeatures = []
 }
 
 datasource db {
@@ -98,6 +102,10 @@ model User {
   receiveUpdates  Boolean @default(true) @map("receive_updates") 
 
   refreshTokens RefreshToken[]
+
+  tickets         Ticket[]
+  assignedTickets Ticket[] @relation("AssignedTickets")
+  ticketMessages  TicketMessage[]
 
   @@map("users")
 }
@@ -247,4 +255,80 @@ model RefreshToken {
     updatedAt DateTime @updatedAt
 
     @@index([userId])
+}
+
+enum TicketStatus {
+  OPEN
+  IN_PROGRESS
+  WAITING_FOR_USER
+  RESOLVED
+  CLOSED
+}
+
+enum TicketPriority {
+  LOW
+  MEDIUM
+  HIGH
+  URGENT
+}
+
+enum TicketCategory {
+  TECHNICAL
+  BILLING
+  ACCOUNT
+  GENERAL
+  FEATURE_REQUEST
+  BUG_REPORT
+}
+
+model Ticket {
+  id          String         @id @default(cuid())
+  title       String
+  description String
+  status      TicketStatus   @default(OPEN)
+  priority    TicketPriority @default(MEDIUM)
+  category    TicketCategory
+  userId      String
+  assignedTo  String?
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+  closedAt    DateTime?
+
+  user        User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  assignedUser User?         @relation("AssignedTickets", fields: [assignedTo], references: [id])
+  messages    TicketMessage[]
+  attachments TicketAttachment[]
+
+  @@map("tickets")
+}
+
+model TicketMessage {
+  id        String   @id @default(cuid())
+  ticketId  String
+  userId    String
+  message   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  ticket    Ticket   @relation(fields: [ticketId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  attachments TicketAttachment[]
+
+  @@map("ticket_messages")
+}
+
+model TicketAttachment {
+  id        String   @id @default(cuid())
+  ticketId  String?
+  messageId String?
+  fileName  String
+  fileType  String
+  fileSize  Int
+  fileUrl   String
+  createdAt DateTime @default(now())
+
+  ticket    Ticket?        @relation(fields: [ticketId], references: [id], onDelete: Cascade)
+  message   TicketMessage? @relation(fields: [messageId], references: [id], onDelete: Cascade)
+
+  @@map("ticket_attachments")
 }
