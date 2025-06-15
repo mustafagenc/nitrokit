@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import * as z from 'zod';
 import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -14,39 +13,8 @@ import { FileUpload } from './file-upload';
 import { MDXEditorComponent } from '@/components/ui/mdx-editor';
 import { MDXPreview } from '@/components/ui/mdx-preview';
 import { useFormatter } from 'next-intl';
-
-interface TicketMessage {
-    id: string;
-    message: string;
-    createdAt: Date;
-    user: {
-        id: string;
-        name: string | null;
-        email: string;
-        image: string | null;
-    };
-    attachments: {
-        id: string;
-        fileName: string;
-        fileType: string;
-        fileSize: number;
-        fileUrl: string;
-    }[];
-}
-
-interface Ticket {
-    id: string;
-    status: string;
-    messages: TicketMessage[];
-}
-
-interface TicketMessagesProps {
-    ticket: Ticket;
-}
-
-const formSchema = z.object({
-    message: z.string().min(1, 'Mesaj boş olamaz'),
-});
+import { TicketMessagesProps } from '@/types/ticket';
+import { ticketMessageFormSchema, TicketMessageFormValues } from '@/lib/validations/ticket';
 
 export function TicketMessages({ ticket }: TicketMessagesProps) {
     const router = useRouter();
@@ -54,14 +22,14 @@ export function TicketMessages({ ticket }: TicketMessagesProps) {
     const [isLoading, setIsLoading] = useState(false);
     const [files, setFiles] = useState<File[]>([]);
 
-    const form = useForm<z.infer<typeof formSchema>>({
-        resolver: zodResolver(formSchema),
+    const form = useForm<TicketMessageFormValues>({
+        resolver: zodResolver(ticketMessageFormSchema),
         defaultValues: {
             message: '',
         },
     });
 
-    async function onSubmit(values: z.infer<typeof formSchema>) {
+    async function onSubmit(values: TicketMessageFormValues) {
         try {
             setIsLoading(true);
 

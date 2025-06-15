@@ -37,34 +37,7 @@ import {
 } from '@/components/ui/select';
 import { useFormatter } from 'next-intl';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-
-interface Ticket {
-    id: string;
-    title: string;
-    status: 'OPEN' | 'IN_PROGRESS' | 'WAITING_FOR_USER' | 'RESOLVED' | 'CLOSED';
-    priority: 'LOW' | 'MEDIUM' | 'HIGH' | 'URGENT';
-    category: 'TECHNICAL' | 'BILLING' | 'ACCOUNT' | 'GENERAL' | 'FEATURE_REQUEST' | 'BUG_REPORT';
-    createdAt: Date;
-    user: {
-        id: string;
-        name: string | null;
-        email: string;
-        image: string | null;
-    };
-    assignedUser: {
-        id: string;
-        name: string | null;
-        email: string;
-        image: string | null;
-    } | null;
-}
-
-interface TicketListProps {
-    tickets: Ticket[];
-    total: number;
-    page: number;
-    limit: number;
-}
+import { Ticket, TicketListProps } from '@/types/ticket';
 
 export function TicketList({ tickets, total, page, limit }: TicketListProps) {
     const router = useRouter();
