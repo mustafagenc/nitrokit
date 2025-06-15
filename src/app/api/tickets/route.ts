@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { auth } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
 import { z } from 'zod';
-import { TicketCategory, TicketStatus } from 'generated/prisma';
+import { TicketCategory, TicketStatus, Prisma } from 'generated/prisma';
 
 const createTicketSchema = z.object({
     title: z.string().min(3).max(100),
@@ -26,7 +26,10 @@ export async function POST(req: Request) {
         }
 
         const body = await req.json();
+        console.log('📥 Request body:', body);
+
         const validatedData = createTicketSchema.parse(body);
+        console.log('✅ Validated data:', validatedData);
 
         const ticket = await prisma.ticket.create({
             data: {
@@ -45,8 +48,10 @@ export async function POST(req: Request) {
             },
         });
 
+        console.log('🎫 Created ticket:', ticket);
         return NextResponse.json(ticket);
     } catch (error) {
+        console.error('❌ Error creating ticket:', error);
         if (error instanceof z.ZodError) {
             return NextResponse.json({ error: error.errors }, { status: 400 });
         }
@@ -64,6 +69,7 @@ export async function GET(req: Request) {
         const { searchParams } = new URL(req.url);
         const status = searchParams.get('status');
         const category = searchParams.get('category');
+        const search = searchParams.get('search');
         const page = parseInt(searchParams.get('page') || '1');
         const limit = parseInt(searchParams.get('limit') || '10');
 
@@ -71,7 +77,15 @@ export async function GET(req: Request) {
             ...(session.user.role === 'User' ? { userId: session.user.id } : {}),
             ...(status ? { status: status as TicketStatus } : {}),
             ...(category ? { category: category as TicketCategory } : {}),
-        };
+            ...(search
+                ? {
+                      OR: [
+                          { title: { contains: search, mode: 'insensitive' as const } },
+                          { description: { contains: search, mode: 'insensitive' as const } },
+                      ],
+                  }
+                : {}),
+        } satisfies Prisma.TicketWhereInput;
 
         const [tickets, total] = await Promise.all([
             prisma.ticket.findMany({
