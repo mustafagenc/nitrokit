@@ -65,9 +65,21 @@ export default async function ProfilePage() {
                 <p className="text-muted-foreground">{t('page.subheading')}</p>
             </div>
 
-            <ProfileInformation user={{ ...user, emailVerified: !!user.emailVerified }} />
+            <ProfileInformation
+                user={{
+                    ...user,
+                    emailVerified: !!user.emailVerified,
+                    lastLoginAt: user.lastLoginAt || undefined,
+                }}
+            />
             <AccountLinkingContent userId={session.user.id} />
-            <Preferences user={{ ...user, emailVerified: !!user.emailVerified }} />
+            <Preferences
+                user={{
+                    ...user,
+                    emailVerified: !!user.emailVerified,
+                    lastLoginAt: user.lastLoginAt || undefined,
+                }}
+            />
         </div>
     );
 }

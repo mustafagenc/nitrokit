@@ -71,7 +71,7 @@ export function AccountLinking({ accounts, className }: AccountLinkingProps) {
     };
 
     const isConnected = (providerId: string) => accounts.some((acc) => acc.provider === providerId);
-
+    console.log(accounts);
     return (
         <Card className={className}>
             <CardHeader>
@@ -82,7 +82,7 @@ export function AccountLinking({ accounts, className }: AccountLinkingProps) {
                 <CardDescription>{t('description')}</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
-                {accounts.length <= 1 && (
+                {accounts.length < 1 && (
                     <div className="flex items-center gap-2 rounded-lg border border-amber-200 bg-amber-50 p-3 dark:border-amber-800 dark:bg-amber-950/20">
                         <AlertTriangle className="h-4 w-4 text-amber-600 dark:text-amber-400" />
                         <p className="text-xs text-amber-700 dark:text-amber-300">
