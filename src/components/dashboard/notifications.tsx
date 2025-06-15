@@ -23,10 +23,12 @@ import {
 } from '@/components/ui/select';
 import { cn } from '@/lib';
 import { useInAppNotificationContext } from '@/contexts/inapp-notification-context';
-import { formatDistanceToNow } from 'date-fns';
 import { getNotificationColors, getNotificationIcon } from '@/types/notification';
+import { useFormatter, useNow } from 'next-intl';
 
 export function Notifications() {
+    const format = useFormatter();
+    const now = useNow();
     const [isSheetOpen, setIsSheetOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
     const [filterType, setFilterType] = useState('all');
@@ -233,13 +235,11 @@ export function Notifications() {
                                                                 {notification.message}
                                                             </p>
                                                             <p className="mt-1 text-xs text-gray-500 dark:text-zinc-500">
-                                                                {formatDistanceToNow(
+                                                                {format.relativeTime(
                                                                     new Date(
                                                                         notification.createdAt
                                                                     ),
-                                                                    {
-                                                                        addSuffix: true,
-                                                                    }
+                                                                    now
                                                                 )}
                                                             </p>
                                                         </div>
@@ -488,11 +488,11 @@ export function Notifications() {
                                                                     {notification.type}
                                                                 </Badge>
                                                                 <span className="text-muted-foreground text-xs">
-                                                                    {formatDistanceToNow(
+                                                                    {format.relativeTime(
                                                                         new Date(
                                                                             notification.createdAt
                                                                         ),
-                                                                        { addSuffix: true }
+                                                                        now
                                                                     )}
                                                                 </span>
                                                             </div>

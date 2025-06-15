@@ -1,8 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { format } from 'date-fns';
-import { tr } from 'date-fns/locale';
 import { useRouter } from 'next/navigation';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
@@ -15,6 +13,7 @@ import { toast } from 'sonner';
 import { FileUpload } from './file-upload';
 import { MDXEditorComponent } from '@/components/ui/mdx-editor';
 import { MDXPreview } from '@/components/ui/mdx-preview';
+import { useFormatter } from 'next-intl';
 
 interface TicketMessage {
     id: string;
@@ -51,6 +50,7 @@ const formSchema = z.object({
 
 export function TicketMessages({ ticket }: TicketMessagesProps) {
     const router = useRouter();
+    const format = useFormatter();
     const [isLoading, setIsLoading] = useState(false);
     const [files, setFiles] = useState<File[]>([]);
 
@@ -132,8 +132,12 @@ export function TicketMessages({ ticket }: TicketMessagesProps) {
                                         {message.user.name || message.user.email}
                                     </p>
                                     <span className="text-muted-foreground text-sm">
-                                        {format(message.createdAt, 'dd MMM yyyy HH:mm', {
-                                            locale: tr,
+                                        {format.dateTime(message.createdAt, {
+                                            year: 'numeric',
+                                            month: 'short',
+                                            day: 'numeric',
+                                            hour: '2-digit',
+                                            minute: '2-digit',
                                         })}
                                     </span>
                                 </div>

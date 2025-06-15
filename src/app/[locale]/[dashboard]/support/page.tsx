@@ -49,7 +49,11 @@ export default async function SupportPage({
         ...(category ? { category } : {}),
         ...(search
             ? {
-                  OR: [{ title: { contains: search } }, { description: { contains: search } }],
+                  OR: [
+                      { title: { contains: search, mode: 'insensitive' as const } },
+                      { description: { contains: search, mode: 'insensitive' as const } },
+                      { id: { contains: search.replace('#', ''), mode: 'insensitive' as const } },
+                  ],
               }
             : {}),
     };
@@ -87,7 +91,7 @@ export default async function SupportPage({
     return (
         <div className="container mx-auto space-y-6 py-6">
             <div className="flex items-center justify-between">
-                <div>
+                <div className="space-y-4">
                     <h1 className="text-3xl font-bold tracking-tight">Destek Talepleri</h1>
                     <p className="text-muted-foreground">
                         Destek taleplerinizi yönetin ve takip edin

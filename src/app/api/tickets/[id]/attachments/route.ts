@@ -54,6 +54,7 @@ export async function POST(req: Request, { params }: { params: { id: string } })
 
         const blob = await put(file.name, file, {
             access: 'public',
+            addRandomSuffix: true,
         });
 
         const attachment = await prisma.ticketAttachment.create({

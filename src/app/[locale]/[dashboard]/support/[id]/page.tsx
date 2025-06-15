@@ -3,9 +3,11 @@ import { auth } from '@/lib/auth';
 import { redirect } from 'next/navigation';
 import { prisma } from '@/lib/prisma';
 import { notFound } from 'next/navigation';
-import { TicketDetails } from '../components/ticket-details';
-import { TicketMessages } from '../components/ticket-messages';
-import { TicketActions } from '../components/ticket-actions';
+import { TicketDetails } from './components/ticket-details';
+import { TicketMessages } from './components/ticket-messages';
+import { Button } from '@/components/ui/button';
+import { ArrowLeft } from 'lucide-react';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
     title: 'Destek Talebi Detayı',
@@ -67,15 +69,22 @@ export default async function TicketPage({ params }: { params: Promise<{ id: str
     }
 
     return (
-        <div className="flex flex-col gap-6">
-            <div className="flex items-center justify-between p-6">
-                <div>
-                    <h1 className="text-3xl font-bold tracking-tight">
-                        Destek Talebi #{ticket.id}
-                    </h1>
-                    <p className="text-muted-foreground">{ticket.title}</p>
+        <div className="flex flex-col">
+            <div className="flex items-center justify-between px-6">
+                <div className="space-y-4">
+                    <Button variant="ghost" asChild className="gap-2">
+                        <Link href="/dashboard/support">
+                            <ArrowLeft className="h-4 w-4" />
+                            Geri Dön
+                        </Link>
+                    </Button>
+                    <div>
+                        <h1 className="text-3xl font-bold tracking-tight">
+                            Destek Talebi #{ticket.id}
+                        </h1>
+                        <p className="text-muted-foreground">{ticket.title}</p>
+                    </div>
                 </div>
-                <TicketActions ticket={ticket} />
             </div>
             <div className="grid grid-cols-1 gap-6 p-6 lg:grid-cols-3">
                 <div className="space-y-6 lg:col-span-2">

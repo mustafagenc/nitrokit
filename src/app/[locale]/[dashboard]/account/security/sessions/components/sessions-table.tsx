@@ -1,10 +1,9 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { useTranslations } from 'next-intl';
+import { useFormatter, useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { format } from 'date-fns';
 import {
     Table,
     TableBody,
@@ -44,6 +43,7 @@ export function SessionsTable() {
     const [loading, setLoading] = useState(true);
     const [terminating, setTerminating] = useState<string | null>(null);
     const t = useTranslations('dashboard.account.security.sessions.table');
+    const format = useFormatter();
 
     const getMockSessions = useCallback(
         (): Session[] => [
@@ -264,10 +264,13 @@ export function SessionsTable() {
                             </TableCell>
                             <TableCell>
                                 <div className="text-sm">
-                                    {format(session.lastActive, 'MMM dd, yyyy')}
-                                </div>
-                                <div className="text-muted-foreground text-xs">
-                                    {format(session.lastActive, 'HH:mm')}
+                                    {format.dateTime(new Date(session.lastActive), {
+                                        year: 'numeric',
+                                        month: 'short',
+                                        day: 'numeric',
+                                        hour: '2-digit',
+                                        minute: '2-digit',
+                                    })}
                                 </div>
                             </TableCell>
                             <TableCell>
