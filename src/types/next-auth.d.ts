@@ -1,5 +1,19 @@
 import 'next-auth';
 import 'next-auth/jwt';
+import { locales } from '@/constants/locale';
+
+export type UserRole = 'User' | 'Admin' | 'Moderator';
+export type Theme = 'light' | 'dark' | 'system';
+export type Locale = (typeof locales)[number];
+
+export interface LinkedAccount {
+    provider: string;
+    type: string;
+    providerAccountId: string;
+    accessToken: string | null;
+    refreshToken: string | null;
+    expiresAt: number | null;
+}
 
 declare module 'next-auth' {
     interface User {
@@ -12,30 +26,43 @@ declare module 'next-auth' {
         image?: string | null;
         phone?: string | null;
         phoneVerified?: boolean | null;
-        role: string;
+        role: UserRole;
         twoFactorEnabled?: boolean;
         emailVerified?: boolean;
-        locale: string;
+        locale: Locale;
         theme: string;
         receiveUpdates: boolean;
         refreshToken?: string;
-        linkedAccounts?: Array<{
-            provider: string;
-            type: string;
-        }>;
+        linkedAccounts?: LinkedAccount[];
+        createdAt: Date;
+        updatedAt: Date;
+        lastLoginAt?: Date;
+        lastActivityAt?: Date;
+        isActive: boolean;
+        preferences?: {
+            notifications: {
+                email: boolean;
+                push: boolean;
+                inApp: boolean;
+            };
+        };
     }
 
     interface Session {
         user: User;
+        expires: Date;
     }
 }
 
 declare module 'next-auth/jwt' {
     interface JWT {
         sub: string;
-        role: string;
-        locale?: string;
-        theme?: string;
+        email?: string;
+        name?: string;
+        picture?: string;
+        role: UserRole;
+        locale?: Locale;
+        theme?: Theme;
         receiveUpdates?: boolean;
         phoneVerified?: boolean | null;
         twoFactorEnabled?: boolean;

@@ -282,24 +282,24 @@ enum TicketCategory {
 }
 
 model Ticket {
-  id          String         @id @default(cuid())
-  title       String
-  description String
-  status      TicketStatus   @default(OPEN)
-  priority    TicketPriority @default(MEDIUM)
-  category    TicketCategory
-  userId      String
-  assignedTo  String?
-  createdAt   DateTime       @default(now())
-  updatedAt   DateTime       @updatedAt
-  closedAt    DateTime?
+    id          String         @id
+    title       String
+    description String
+    status      TicketStatus   @default(OPEN)
+    priority    TicketPriority @default(MEDIUM)
+    category    TicketCategory
+    userId      String
+    assignedTo  String?
+    createdAt   DateTime       @default(now())
+    updatedAt   DateTime       @updatedAt
+    closedAt    DateTime?
 
-  user        User           @relation(fields: [userId], references: [id], onDelete: Cascade)
-  assignedUser User?         @relation("AssignedTickets", fields: [assignedTo], references: [id])
-  messages    TicketMessage[]
-  attachments TicketAttachment[]
+    user        User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+    assignedUser User?         @relation("AssignedTickets", fields: [assignedTo], references: [id])
+    messages    TicketMessage[]
+    attachments TicketAttachment[]
 
-  @@map("tickets")
+    @@map("tickets")
 }
 
 model TicketMessage {
