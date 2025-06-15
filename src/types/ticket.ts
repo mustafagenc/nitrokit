@@ -13,12 +13,14 @@ export interface Ticket {
         name: string | null;
         email: string;
         image: string | null;
+        role: 'User' | 'Admin' | 'Moderator';
     };
     assignedUser: {
         id: string;
         name: string | null;
         email: string;
         image: string | null;
+        role: 'User' | 'Admin' | 'Moderator';
     } | null;
 }
 
@@ -40,6 +42,7 @@ export interface TicketMessage {
         name: string | null;
         email: string;
         image: string | null;
+        role: 'User' | 'Admin' | 'Moderator';
     };
     attachments: {
         id: string;
@@ -59,6 +62,7 @@ export interface TicketDetails {
     category: string;
     createdAt: Date;
     updatedAt: Date;
+    messages: TicketMessage[];
 }
 
 export interface TicketDetailsProps {

@@ -138,7 +138,7 @@ export async function POST(request: Request, { params }: { params: { id: string 
             return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
         }
 
-        const { id } = params;
+        const { id } = await params;
 
         const ticket = await prisma.ticket.findUnique({
             where: { id },

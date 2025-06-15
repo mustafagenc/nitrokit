@@ -2,60 +2,49 @@ import { Metadata } from 'next';
 import { auth } from '@/lib/auth';
 import { redirect } from 'next/navigation';
 import { prisma } from '@/lib/prisma';
+import { TicketList } from './components/ticket-list';
 import { Button } from '@/components/ui/button';
 import { PlusIcon } from 'lucide-react';
 import Link from 'next/link';
-import { TicketList } from './components/ticket-list';
-import { TicketFilters } from './components/ticket-filters';
 
 export const metadata: Metadata = {
     title: 'Destek Talepleri',
-    description: 'Destek taleplerinizi yönetin',
+    description: 'Destek taleplerinizi görüntüleyin ve yönetin',
 };
 
 export default async function SupportPage({
     searchParams,
 }: {
-    searchParams: { [key: string]: string | string[] | undefined };
+    searchParams: {
+        page?: string;
+        limit?: string;
+        status?: 'OPEN' | 'IN_PROGRESS' | 'WAITING_FOR_USER' | 'RESOLVED' | 'CLOSED';
+        priority?: 'LOW' | 'MEDIUM' | 'HIGH' | 'URGENT';
+        category?:
+            | 'TECHNICAL'
+            | 'BILLING'
+            | 'ACCOUNT'
+            | 'GENERAL'
+            | 'FEATURE_REQUEST'
+            | 'BUG_REPORT';
+    };
 }) {
     const session = await auth();
     if (!session?.user) {
         redirect('/auth/login');
     }
 
-    const params = await searchParams;
-
-    const page = typeof params.page === 'string' ? Number(params.page) : 1;
-    const limit = typeof params.limit === 'string' ? Number(params.limit) : 10;
-    const search = typeof params.search === 'string' ? params.search : undefined;
-    const status =
-        typeof params.status === 'string'
-            ? (params.status as 'OPEN' | 'IN_PROGRESS' | 'WAITING_FOR_USER' | 'RESOLVED' | 'CLOSED')
-            : undefined;
-    const category =
-        typeof params.category === 'string'
-            ? (params.category as
-                  | 'TECHNICAL'
-                  | 'BILLING'
-                  | 'ACCOUNT'
-                  | 'GENERAL'
-                  | 'FEATURE_REQUEST'
-                  | 'BUG_REPORT')
-            : undefined;
+    const page = Number(searchParams.page) || 1;
+    const limit = Number(searchParams.limit) || 10;
+    const status = searchParams.status;
+    const priority = searchParams.priority;
+    const category = searchParams.category;
 
     const where = {
         ...(session.user.role === 'User' ? { userId: session.user.id } : {}),
         ...(status ? { status } : {}),
+        ...(priority ? { priority } : {}),
         ...(category ? { category } : {}),
-        ...(search
-            ? {
-                  OR: [
-                      { title: { contains: search, mode: 'insensitive' as const } },
-                      { description: { contains: search, mode: 'insensitive' as const } },
-                      { id: { contains: search.replace('#', ''), mode: 'insensitive' as const } },
-                  ],
-              }
-            : {}),
     };
 
     const [tickets, total] = await Promise.all([
@@ -68,6 +57,7 @@ export default async function SupportPage({
                         name: true,
                         email: true,
                         image: true,
+                        role: true,
                     },
                 },
                 assignedUser: {
@@ -76,6 +66,7 @@ export default async function SupportPage({
                         name: true,
                         email: true,
                         image: true,
+                        role: true,
                     },
                 },
             },
@@ -89,13 +80,10 @@ export default async function SupportPage({
     ]);
 
     return (
-        <div className="container mx-auto space-y-6 py-6">
-            <div className="flex items-center justify-between">
+        <div className="flex flex-col">
+            <div className="flex items-center justify-between px-6">
                 <div className="space-y-4">
                     <h1 className="text-3xl font-bold tracking-tight">Destek Talepleri</h1>
-                    <p className="text-muted-foreground">
-                        Destek taleplerinizi yönetin ve takip edin
-                    </p>
                 </div>
                 <Button asChild>
                     <Link href="/dashboard/support/new">
@@ -104,10 +92,9 @@ export default async function SupportPage({
                     </Link>
                 </Button>
             </div>
-
-            <TicketFilters />
-
-            <TicketList tickets={tickets} total={total} page={page} limit={limit} />
+            <div className="p-6">
+                <TicketList tickets={tickets} total={total} page={page} limit={limit} />
+            </div>
         </div>
     );
 }
