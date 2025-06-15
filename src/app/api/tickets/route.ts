@@ -26,16 +26,11 @@ export async function POST(req: Request) {
         }
 
         const body = await req.json();
-        console.log('📥 Request body:', body);
-
         const validatedData = createTicketSchema.parse(body);
-        console.log('✅ Validated data:', validatedData);
 
-        // Bugünün tarihini al
         const today = new Date();
         const dateStr = today.toISOString().slice(0, 10).replace(/-/g, ''); // YYYYMMDD formatı
 
-        // Bugünün son ticket'ını bul
         const lastTicket = await prisma.ticket.findFirst({
             where: {
                 id: {
@@ -47,7 +42,6 @@ export async function POST(req: Request) {
             },
         });
 
-        // Yeni ID formatı: NKT-YYYYMMDD-XXX
         let sequence = 1;
         if (lastTicket) {
             const lastSequence = parseInt(lastTicket.id.split('-')[2]);
@@ -73,11 +67,8 @@ export async function POST(req: Request) {
                 },
             },
         });
-
-        console.log('🎫 Created ticket:', ticket);
         return NextResponse.json(ticket);
     } catch (error) {
-        console.error('❌ Error creating ticket:', error);
         if (error instanceof z.ZodError) {
             return NextResponse.json({ error: error.errors }, { status: 400 });
         }
@@ -108,6 +99,12 @@ export async function GET(req: Request) {
                       OR: [
                           { title: { contains: search, mode: 'insensitive' as const } },
                           { description: { contains: search, mode: 'insensitive' as const } },
+                          {
+                              id: {
+                                  contains: search.replace('#', ''),
+                                  mode: 'insensitive' as const,
+                              },
+                          },
                       ],
                   }
                 : {}),

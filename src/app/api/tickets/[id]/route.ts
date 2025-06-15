@@ -130,67 +130,46 @@ export async function PATCH(req: Request, { params }: { params: { id: string } }
     }
 }
 
-export async function POST(req: Request, { params }: { params: { id: string } }) {
+export async function POST(request: Request, { params }: { params: { id: string } }) {
     try {
         const session = await auth();
-        if (!session?.user) {
+
+        if (!session?.user?.id) {
             return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
         }
 
+        const { id } = params;
+
         const ticket = await prisma.ticket.findUnique({
-            where: { id: params.id },
+            where: { id },
         });
 
         if (!ticket) {
             return NextResponse.json({ error: 'Ticket not found' }, { status: 404 });
         }
 
-        if (ticket.status === 'CLOSED') {
-            return NextResponse.json(
-                { error: 'Cannot add message to closed ticket' },
-                { status: 400 }
-            );
-        }
-
-        const body = await req.json();
+        const body = await request.json();
         const validatedData = createMessageSchema.parse(body);
 
         const message = await prisma.ticketMessage.create({
             data: {
-                ticketId: params.id,
+                ticketId: id,
                 userId: session.user.id,
                 message: validatedData.message,
             },
-            include: {
-                user: {
-                    select: {
-                        id: true,
-                        name: true,
-                        email: true,
-                        image: true,
-                    },
-                },
-            },
         });
 
-        // Update ticket status to WAITING_FOR_USER if message is from support
-        if (session.user.role !== 'User') {
+        // Eğer kullanıcı destek ekibinden değilse ve ticket açıksa, durumu "IN_PROGRESS" olarak güncelle
+        if (session.user.role === 'User' && ticket.status === 'OPEN') {
             await prisma.ticket.update({
-                where: { id: params.id },
-                data: { status: 'WAITING_FOR_USER' },
-            });
-        } else {
-            await prisma.ticket.update({
-                where: { id: params.id },
+                where: { id },
                 data: { status: 'IN_PROGRESS' },
             });
         }
 
         return NextResponse.json(message);
     } catch (error) {
-        if (error instanceof z.ZodError) {
-            return NextResponse.json({ error: error.errors }, { status: 400 });
-        }
-        return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+        console.error('Create message error:', error);
+        return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
     }
 }

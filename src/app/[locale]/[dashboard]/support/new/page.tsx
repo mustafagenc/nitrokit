@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { auth } from '@/lib/auth';
 import { redirect } from 'next/navigation';
-import { NewTicketForm } from '../components/new-ticket-form';
+import { NewTicketForm } from './components/new-ticket-form';
 
 export const metadata: Metadata = {
     title: 'Yeni Destek Talebi',
