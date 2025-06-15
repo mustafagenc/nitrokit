@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { auth } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
 import { z } from 'zod';
-import { TicketCategory, TicketStatus, Prisma } from 'generated/prisma';
+import { TicketCategory, TicketStatus, Prisma } from 'prisma/generated/prisma';
 
 const createTicketSchema = z.object({
     title: z.string().min(3).max(100),
@@ -31,8 +31,34 @@ export async function POST(req: Request) {
         const validatedData = createTicketSchema.parse(body);
         console.log('✅ Validated data:', validatedData);
 
+        // Bugünün tarihini al
+        const today = new Date();
+        const dateStr = today.toISOString().slice(0, 10).replace(/-/g, ''); // YYYYMMDD formatı
+
+        // Bugünün son ticket'ını bul
+        const lastTicket = await prisma.ticket.findFirst({
+            where: {
+                id: {
+                    startsWith: `NKT-${dateStr}`,
+                },
+            },
+            orderBy: {
+                id: 'desc',
+            },
+        });
+
+        // Yeni ID formatı: NKT-YYYYMMDD-XXX
+        let sequence = 1;
+        if (lastTicket) {
+            const lastSequence = parseInt(lastTicket.id.split('-')[2]);
+            sequence = lastSequence + 1;
+        }
+
+        const newId = `NKT-${dateStr}-${String(sequence).padStart(3, '0')}`;
+
         const ticket = await prisma.ticket.create({
             data: {
+                id: newId,
                 ...validatedData,
                 userId: session.user.id,
             },
