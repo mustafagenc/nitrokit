@@ -2,16 +2,10 @@
 
 import { useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
-import { X } from 'lucide-react';
+import { FileUploadProps } from '@/types/ticket';
 import { Button } from '@/components/ui/button';
+import { X } from 'lucide-react';
 import { toast } from 'sonner';
-
-interface FileUploadProps {
-    files: File[];
-    setFiles: (files: File[]) => void;
-    maxSize?: number;
-    accept?: Record<string, string[]>;
-}
 
 export function FileUpload({
     files,
