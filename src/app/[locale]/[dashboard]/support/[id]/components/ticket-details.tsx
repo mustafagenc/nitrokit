@@ -22,21 +22,7 @@ import {
     Bug,
 } from 'lucide-react';
 import { useFormatter } from 'next-intl';
-
-interface Ticket {
-    id: string;
-    title: string;
-    description: string;
-    status: string;
-    priority: string;
-    category: string;
-    createdAt: Date;
-    updatedAt: Date;
-}
-
-interface TicketDetailsProps {
-    ticket: Ticket;
-}
+import { TicketDetailsProps } from '@/types/ticket';
 
 export function TicketDetails({ ticket }: TicketDetailsProps) {
     const format = useFormatter();

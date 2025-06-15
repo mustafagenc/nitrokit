@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import * as z from 'zod';
 import { Button } from '@/components/ui/button';
 import {
     Form,
@@ -24,27 +23,14 @@ import {
 } from '@/components/ui/select';
 import { toast } from 'sonner';
 import { MDXEditorComponent } from '@/components/ui/mdx-editor';
-
-const formSchema = z.object({
-    title: z.string().min(3, 'Başlık en az 3 karakter olmalıdır').max(100),
-    description: z.string().min(10, 'Açıklama en az 10 karakter olmalıdır'),
-    category: z.enum([
-        'TECHNICAL',
-        'BILLING',
-        'ACCOUNT',
-        'GENERAL',
-        'FEATURE_REQUEST',
-        'BUG_REPORT',
-    ]),
-    priority: z.enum(['LOW', 'MEDIUM', 'HIGH', 'URGENT']),
-});
+import { newTicketFormSchema, NewTicketFormValues } from '@/lib/validations/ticket';
 
 export function NewTicketForm() {
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(false);
 
-    const form = useForm<z.infer<typeof formSchema>>({
-        resolver: zodResolver(formSchema),
+    const form = useForm<NewTicketFormValues>({
+        resolver: zodResolver(newTicketFormSchema),
         defaultValues: {
             title: '',
             description: '',
@@ -53,7 +39,7 @@ export function NewTicketForm() {
         },
     });
 
-    async function onSubmit(values: z.infer<typeof formSchema>) {
+    async function onSubmit(values: NewTicketFormValues) {
         try {
             setIsLoading(true);
             const response = await fetch('/api/tickets', {
