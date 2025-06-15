@@ -7,10 +7,9 @@ import { useTheme } from 'next-themes';
 interface MDXEditorComponentProps {
     value: string;
     onChange: (value: string) => void;
-    placeholder?: string;
 }
 
-export function MDXEditorComponent({ value, onChange, placeholder }: MDXEditorComponentProps) {
+export function MDXEditorComponent({ value, onChange }: MDXEditorComponentProps) {
     const { theme } = useTheme();
     const [mounted, setMounted] = useState(false);
 

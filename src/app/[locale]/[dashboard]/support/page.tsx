@@ -27,6 +27,7 @@ export default async function SupportPage({
 
     const page = typeof params.page === 'string' ? Number(params.page) : 1;
     const limit = typeof params.limit === 'string' ? Number(params.limit) : 10;
+    const search = typeof params.search === 'string' ? params.search : undefined;
     const status =
         typeof params.status === 'string'
             ? (params.status as 'OPEN' | 'IN_PROGRESS' | 'WAITING_FOR_USER' | 'RESOLVED' | 'CLOSED')
@@ -46,6 +47,11 @@ export default async function SupportPage({
         ...(session.user.role === 'User' ? { userId: session.user.id } : {}),
         ...(status ? { status } : {}),
         ...(category ? { category } : {}),
+        ...(search
+            ? {
+                  OR: [{ title: { contains: search } }, { description: { contains: search } }],
+              }
+            : {}),
     };
 
     const [tickets, total] = await Promise.all([

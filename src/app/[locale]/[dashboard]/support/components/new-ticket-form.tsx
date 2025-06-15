@@ -101,11 +101,7 @@ export function NewTicketForm() {
                         <FormItem>
                             <FormLabel>Açıklama</FormLabel>
                             <FormControl>
-                                <MDXEditorComponent
-                                    value={field.value}
-                                    onChange={field.onChange}
-                                    placeholder="Destek talebinizin detaylı açıklaması"
-                                />
+                                <MDXEditorComponent value={field.value} onChange={field.onChange} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>

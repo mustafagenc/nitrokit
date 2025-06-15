@@ -177,7 +177,6 @@ export function TicketMessages({ ticket }: TicketMessagesProps) {
                                             <MDXEditorComponent
                                                 value={field.value}
                                                 onChange={field.onChange}
-                                                placeholder="Mesajınızı yazın..."
                                             />
                                         </FormControl>
                                         <FormMessage />
