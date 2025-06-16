@@ -9,7 +9,12 @@ const ticketMessageFormSchema = z.object({
     message: z.string().min(1, 'Mesaj boş olamaz'),
 });
 
-export async function POST(request: Request, context: { params: { ticketId: string } }) {
+export async function POST(
+    request: Request,
+    { params }: { params: Promise<{ ticketId: string }> }
+) {
+    const { ticketId } = await params;
+
     try {
         const session = await auth();
 
@@ -26,7 +31,6 @@ export async function POST(request: Request, context: { params: { ticketId: stri
         const messageId = crypto.randomUUID();
         const attachments = [];
 
-        // Dosyaları yükle
         for (const file of files) {
             const fileName = `${uuidv4()}-${file.name}`;
             const { url } = await put(fileName, file, {
@@ -46,7 +50,7 @@ export async function POST(request: Request, context: { params: { ticketId: stri
             data: {
                 id: messageId,
                 message: validatedData.message,
-                ticketId: await context.params.ticketId,
+                ticketId: ticketId,
                 userId: session.user.id,
                 attachments: {
                     create: attachments,

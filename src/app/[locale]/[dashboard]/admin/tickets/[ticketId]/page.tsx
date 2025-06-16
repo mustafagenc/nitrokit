@@ -10,20 +10,14 @@ export const metadata: Metadata = {
     description: 'Ticket detay ve mesaj yönetimi sayfası',
 };
 
-interface TicketPageProps {
-    params: {
-        ticketId: string;
-    };
-}
-
-export default async function TicketPage({ params }: TicketPageProps) {
+// prettier-ignore
+export default async function TicketPage({ params }: { params: Promise<{ ticketId: string; locale: string }> }) {
     const session = await auth();
+    const { ticketId } = await params;
 
     if (!session?.user || session.user.role !== 'Admin') {
         redirect('/dashboard');
     }
-
-    const { ticketId } = await params;
 
     const ticket = await prisma.ticket.findUnique({
         where: {

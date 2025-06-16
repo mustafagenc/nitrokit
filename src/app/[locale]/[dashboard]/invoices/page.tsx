@@ -13,7 +13,15 @@ export async function generateMetadata(): Promise<Metadata> {
     });
 }
 
-export default async function Page() {
+export default async function InvoicesPage({
+    searchParams: _searchParams,
+}: {
+    searchParams: Promise<{
+        page?: string;
+        limit?: string;
+        status?: string;
+    }>;
+}) {
     return (
         <div className="space-y-6">
             <div className="px-4 py-6 lg:px-6">

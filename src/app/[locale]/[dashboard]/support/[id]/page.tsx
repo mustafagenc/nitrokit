@@ -15,7 +15,16 @@ export const metadata: Metadata = {
     description: 'Destek talebi detaylarını görüntüleyin',
 };
 
-export default async function TicketPage({ params }: { params: Promise<{ id: string }> }) {
+export default async function SupportDetailPage({
+    params,
+    searchParams: _searchParams,
+}: {
+    params: Promise<{ id: string; locale: string }>;
+    searchParams: Promise<{
+        view?: string;
+        tab?: string;
+    }>;
+}) {
     const session = await auth();
     if (!session?.user) {
         redirect('/auth/login');

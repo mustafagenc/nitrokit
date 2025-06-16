@@ -103,7 +103,6 @@ export function TicketsTable({ tickets, total }: TicketsTableProps) {
     const [globalFilter, setGlobalFilter] = useState('');
     const [deletingTickets, setDeletingTickets] = useState<Set<string>>(new Set()); // 👈 Silme durumu
 
-    // Status configuration with modern styling
     const statusConfig = {
         OPEN: {
             label: 'Açık',
@@ -142,7 +141,6 @@ export function TicketsTable({ tickets, total }: TicketsTableProps) {
         },
     };
 
-    // Priority configuration
     const priorityConfig = {
         LOW: {
             label: 'Düşük',
@@ -170,7 +168,6 @@ export function TicketsTable({ tickets, total }: TicketsTableProps) {
         },
     };
 
-    // Category configuration
     const categoryConfig = {
         TECHNICAL: { label: 'Teknik', color: 'bg-purple-100 text-purple-800' },
         BILLING: { label: 'Faturalandırma', color: 'bg-green-100 text-green-800' },
@@ -180,7 +177,6 @@ export function TicketsTable({ tickets, total }: TicketsTableProps) {
         BUG_REPORT: { label: 'Hata Bildirimi', color: 'bg-red-100 text-red-800' },
     };
 
-    // 👈 Delete ticket function
     const handleDeleteTicket = async (ticketId: string) => {
         if (!confirm("Bu ticket'ı silmek istediğinizden emin misiniz?")) {
             return;

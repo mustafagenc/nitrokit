@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { z } from 'zod';
 import { auth } from '@/lib/auth';
@@ -15,16 +15,18 @@ const ticketMessageFormSchema = z.object({
     message: z.string().min(1, 'Mesaj boş olamaz'),
 });
 
-export async function GET(req: Request, { params }: { params: { id: string } }) {
+export async function GET(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
     try {
         const session = await auth();
         if (!session?.user) {
             return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
         }
 
+        const { id } = await params;
+
         const ticket = await prisma.ticket.findUnique({
             where: {
-                id: params.id,
+                id: id,
                 ...(session.user.role === 'User' ? { userId: session.user.id } : {}),
             },
             include: {
@@ -75,15 +77,15 @@ export async function GET(req: Request, { params }: { params: { id: string } }) 
     }
 }
 
-export async function PATCH(req: Request, { params }: { params: { id: string } }) {
+export async function PATCH(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
     try {
         const session = await auth();
         if (!session?.user) {
             return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
         }
-
+        const { id } = await params;
         const ticket = await prisma.ticket.findUnique({
-            where: { id: params.id },
+            where: { id: id },
         });
 
         if (!ticket) {
@@ -94,11 +96,11 @@ export async function PATCH(req: Request, { params }: { params: { id: string } }
             return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
         }
 
-        const body = await req.json();
+        const body = await request.json();
         const validatedData = updateTicketSchema.parse(body);
 
         const updatedTicket = await prisma.ticket.update({
-            where: { id: params.id },
+            where: { id: id },
             data: {
                 ...validatedData,
                 ...(validatedData.status === 'CLOSED' ? { closedAt: new Date() } : {}),
@@ -132,14 +134,14 @@ export async function PATCH(req: Request, { params }: { params: { id: string } }
     }
 }
 
-export async function POST(request: Request, context: { params: { id: string } }) {
+export async function POST(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
     try {
         const session = await auth();
 
         if (!session?.user) {
             return new NextResponse('Unauthorized', { status: 401 });
         }
-
+        const { id } = await params;
         const contentType = request.headers.get('content-type') || '';
         let message = '';
         let files: File[] = [];
@@ -179,7 +181,7 @@ export async function POST(request: Request, context: { params: { id: string } }
             data: {
                 id: messageId,
                 message: validatedData.message,
-                ticketId: await context.params.id,
+                ticketId: id,
                 userId: session.user.id,
                 attachments: {
                     create: attachments,
