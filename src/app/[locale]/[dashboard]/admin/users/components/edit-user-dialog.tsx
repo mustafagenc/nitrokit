@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter } from '@/i18n/navigation';
 import { toast } from 'sonner';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
@@ -10,7 +10,6 @@ import {
     Dialog,
     DialogContent,
     DialogDescription,
-    DialogFooter,
     DialogHeader,
     DialogTitle,
 } from '@/components/ui/dialog';
@@ -31,6 +30,11 @@ import {
     SelectValue,
 } from '@/components/ui/select';
 import { Button } from '@/components/ui/button';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Badge } from '@/components/ui/badge';
+import { Separator } from '@/components/ui/separator';
+import { User, Mail, Phone, Calendar, Shield, Loader2, Save, X } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 const formSchema = z.object({
     firstName: z.string().min(2, 'Ad en az 2 karakter olmalıdır'),
@@ -68,8 +72,6 @@ export function EditUserDialog({ user, open, onOpenChange }: EditUserDialogProps
     const router = useRouter();
     const [loading, setLoading] = useState(false);
 
-    console.log('EditUserDialog user:', user); // Debug için
-
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -81,7 +83,6 @@ export function EditUserDialog({ user, open, onOpenChange }: EditUserDialogProps
         },
     });
 
-    // Form değerlerini user değiştiğinde güncelle
     useEffect(() => {
         form.reset({
             firstName: user.firstName || '',
@@ -118,18 +119,68 @@ export function EditUserDialog({ user, open, onOpenChange }: EditUserDialogProps
         }
     }
 
+    const fullName =
+        [user.firstName, user.lastName].filter(Boolean).join(' ') || 'İsimsiz Kullanıcı';
+    const initials = fullName
+        .split(' ')
+        .map((n) => n[0])
+        .join('')
+        .toUpperCase()
+        .slice(0, 2);
+
+    const roleConfig = {
+        Admin: { label: 'Yönetici', color: 'bg-red-100 text-red-800' },
+        Moderator: { label: 'Moderatör', color: 'bg-blue-100 text-blue-800' },
+        User: { label: 'Kullanıcı', color: 'bg-gray-100 text-gray-800' },
+    };
+
     return (
         <Dialog open={open} onOpenChange={onOpenChange}>
-            <DialogContent>
+            <DialogContent className="max-w-2xl">
                 <DialogHeader>
-                    <DialogTitle>Kullanıcı Düzenle</DialogTitle>
+                    <DialogTitle className="flex items-center gap-2">
+                        <User className="h-5 w-5" />
+                        Kullanıcı Düzenle
+                    </DialogTitle>
                     <DialogDescription>
                         Kullanıcı bilgilerini düzenleyin. Değişiklikler kaydedildikten sonra
                         uygulanacaktır.
                     </DialogDescription>
                 </DialogHeader>
+
+                {/* User Info Header */}
+                <div className="bg-muted/30 flex items-center gap-4 rounded-lg p-4">
+                    <Avatar className="h-16 w-16">
+                        <AvatarImage src={user.image || ''} alt={fullName} />
+                        <AvatarFallback className="text-lg font-medium">{initials}</AvatarFallback>
+                    </Avatar>
+                    <div className="flex-1 space-y-2">
+                        <div className="flex items-center gap-2">
+                            <h3 className="text-lg font-semibold">{fullName}</h3>
+                            <Badge className={cn('text-xs', roleConfig[user.role].color)}>
+                                {roleConfig[user.role].label}
+                            </Badge>
+                        </div>
+                        <div className="text-muted-foreground flex items-center gap-4 text-sm">
+                            <div className="flex items-center gap-1">
+                                <Mail className="h-3 w-3" />
+                                <span>{user.email}</span>
+                            </div>
+                            <div className="flex items-center gap-1">
+                                <Calendar className="h-3 w-3" />
+                                <span>
+                                    Kayıt: {new Date(user.createdAt).toLocaleDateString('tr-TR')}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <Separator />
+
                 <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                        {/* Name Fields */}
                         <div className="grid grid-cols-2 gap-4">
                             <FormField
                                 control={form.control}
@@ -138,7 +189,7 @@ export function EditUserDialog({ user, open, onOpenChange }: EditUserDialogProps
                                     <FormItem>
                                         <FormLabel>Ad</FormLabel>
                                         <FormControl>
-                                            <Input {...field} />
+                                            <Input {...field} placeholder="Ad" />
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>
@@ -151,76 +202,121 @@ export function EditUserDialog({ user, open, onOpenChange }: EditUserDialogProps
                                     <FormItem>
                                         <FormLabel>Soyad</FormLabel>
                                         <FormControl>
-                                            <Input {...field} />
+                                            <Input {...field} placeholder="Soyad" />
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>
                                 )}
                             />
                         </div>
+
+                        {/* Email Field */}
                         <FormField
                             control={form.control}
                             name="email"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>E-posta</FormLabel>
+                                    <FormLabel className="flex items-center gap-2">
+                                        <Mail className="h-4 w-4" />
+                                        E-posta
+                                    </FormLabel>
                                     <FormControl>
-                                        <Input {...field} type="email" />
+                                        <Input
+                                            {...field}
+                                            type="email"
+                                            placeholder="email@example.com"
+                                        />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
                             )}
                         />
-                        <FormField
-                            control={form.control}
-                            name="role"
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Rol</FormLabel>
-                                    <Select
-                                        onValueChange={field.onChange}
-                                        defaultValue={field.value}
-                                    >
+
+                        {/* Role and Phone */}
+                        <div className="grid grid-cols-2 gap-4">
+                            <FormField
+                                control={form.control}
+                                name="role"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel className="flex items-center gap-2">
+                                            <Shield className="h-4 w-4" />
+                                            Rol
+                                        </FormLabel>
+                                        <Select onValueChange={field.onChange} value={field.value}>
+                                            <FormControl>
+                                                <SelectTrigger>
+                                                    <SelectValue placeholder="Rol seçin" />
+                                                </SelectTrigger>
+                                            </FormControl>
+                                            <SelectContent>
+                                                <SelectItem value="User">
+                                                    <div className="flex items-center gap-2">
+                                                        <User className="h-4 w-4" />
+                                                        Kullanıcı
+                                                    </div>
+                                                </SelectItem>
+                                                <SelectItem value="Moderator">
+                                                    <div className="flex items-center gap-2">
+                                                        <Shield className="h-4 w-4" />
+                                                        Moderatör
+                                                    </div>
+                                                </SelectItem>
+                                                <SelectItem value="Admin">
+                                                    <div className="flex items-center gap-2">
+                                                        <Shield className="h-4 w-4 text-red-500" />
+                                                        Yönetici
+                                                    </div>
+                                                </SelectItem>
+                                            </SelectContent>
+                                        </Select>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                            <FormField
+                                control={form.control}
+                                name="phone"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel className="flex items-center gap-2">
+                                            <Phone className="h-4 w-4" />
+                                            Telefon
+                                        </FormLabel>
                                         <FormControl>
-                                            <SelectTrigger>
-                                                <SelectValue placeholder="Rol seçin" />
-                                            </SelectTrigger>
+                                            <Input {...field} placeholder="+90 555 123 45 67" />
                                         </FormControl>
-                                        <SelectContent>
-                                            <SelectItem value="User">Kullanıcı</SelectItem>
-                                            <SelectItem value="Moderator">Moderatör</SelectItem>
-                                            <SelectItem value="Admin">Yönetici</SelectItem>
-                                        </SelectContent>
-                                    </Select>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-                        <FormField
-                            control={form.control}
-                            name="phone"
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Telefon</FormLabel>
-                                    <FormControl>
-                                        <Input {...field} />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-                        <DialogFooter>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                        </div>
+
+                        {/* Action Buttons */}
+                        <div className="flex items-center justify-end gap-3 pt-4">
                             <Button
                                 type="button"
                                 variant="outline"
                                 onClick={() => onOpenChange(false)}
+                                disabled={loading}
                             >
+                                <X className="mr-2 h-4 w-4" />
                                 İptal
                             </Button>
-                            <Button type="submit" disabled={loading}>
-                                {loading ? 'Kaydediliyor...' : 'Kaydet'}
+                            <Button type="submit" disabled={loading} className="min-w-[120px]">
+                                {loading ? (
+                                    <>
+                                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                                        Kaydediliyor
+                                    </>
+                                ) : (
+                                    <>
+                                        <Save className="mr-2 h-4 w-4" />
+                                        Kaydet
+                                    </>
+                                )}
                             </Button>
-                        </DialogFooter>
+                        </div>
                     </form>
                 </Form>
             </DialogContent>
