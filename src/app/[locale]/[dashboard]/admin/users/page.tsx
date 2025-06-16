@@ -11,7 +11,16 @@ export const metadata: Metadata = {
     description: 'Kullanıcıları yönetin, düzenleyin ve roller atayın',
 };
 
-export default async function UsersPage() {
+export default async function AdminUsersPage({
+    searchParams: _searchParams,
+}: {
+    searchParams: Promise<{
+        page?: string;
+        limit?: string;
+        role?: string;
+        verified?: string;
+    }>;
+}) {
     const session = await auth();
     if (!session?.user || session.user.role !== 'Admin') {
         redirect('/dashboard');

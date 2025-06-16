@@ -4,89 +4,15 @@ import { prisma } from '@/lib/prisma';
 import { logger } from '@/lib/services/logger';
 import { z } from 'zod';
 
-// GET - Ticket detayını getir
-export async function GET(req: NextRequest, { params }: { params: { ticketId: string } }) {
+export async function PUT(req: NextRequest, { params }: { params: Promise<{ ticketId: string }> }) {
     try {
         const session = await auth();
+        const { ticketId } = await params;
 
         if (!session?.user?.id) {
             return NextResponse.json({ error: 'Authentication required' }, { status: 401 });
         }
 
-        // Admin yetkisi kontrolü
-        const user = await prisma.user.findUnique({
-            where: { id: session.user.id },
-            select: { role: true },
-        });
-
-        if (user?.role !== 'Admin') {
-            return NextResponse.json({ error: 'Admin access required' }, { status: 403 });
-        }
-
-        const ticket = await prisma.ticket.findUnique({
-            where: { id: params.ticketId },
-            include: {
-                user: {
-                    select: {
-                        id: true,
-                        name: true,
-                        email: true,
-                        image: true,
-                        role: true,
-                    },
-                },
-                assignedUser: {
-                    select: {
-                        id: true,
-                        name: true,
-                        email: true,
-                        image: true,
-                        role: true,
-                    },
-                },
-                messages: {
-                    include: {
-                        user: {
-                            select: {
-                                id: true,
-                                name: true,
-                                email: true,
-                                image: true,
-                                role: true,
-                            },
-                        },
-                    },
-                    orderBy: {
-                        createdAt: 'asc',
-                    },
-                },
-            },
-        });
-
-        if (!ticket) {
-            return NextResponse.json({ error: 'Ticket not found' }, { status: 404 });
-        }
-
-        return NextResponse.json({
-            success: true,
-            ticket,
-        });
-    } catch (error) {
-        console.error('Admin ticket detail error', error);
-        return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
-    }
-}
-
-// PUT - Ticket güncelle
-export async function PUT(req: NextRequest, { params }: { params: { ticketId: string } }) {
-    try {
-        const session = await auth();
-
-        if (!session?.user?.id) {
-            return NextResponse.json({ error: 'Authentication required' }, { status: 401 });
-        }
-
-        // Admin yetkisi kontrolü
         const user = await prisma.user.findUnique({
             where: { id: session.user.id },
             select: { role: true },
@@ -119,9 +45,8 @@ export async function PUT(req: NextRequest, { params }: { params: { ticketId: st
 
         const validatedData = updateSchema.parse(body);
 
-        // Ticket'ın var olup olmadığını kontrol et
         const existingTicket = await prisma.ticket.findUnique({
-            where: { id: params.ticketId },
+            where: { id: ticketId },
         });
 
         if (!existingTicket) {
@@ -140,7 +65,7 @@ export async function PUT(req: NextRequest, { params }: { params: { ticketId: st
         }
 
         const updatedTicket = await prisma.ticket.update({
-            where: { id: params.ticketId },
+            where: { id: ticketId },
             data: validatedData,
             include: {
                 user: {
@@ -165,7 +90,7 @@ export async function PUT(req: NextRequest, { params }: { params: { ticketId: st
         });
 
         logger.info('Admin ticket updated', {
-            ticketId: params.ticketId,
+            ticketId: ticketId,
             adminId: session.user.id,
             changes: validatedData,
         });
@@ -190,8 +115,10 @@ export async function PUT(req: NextRequest, { params }: { params: { ticketId: st
     }
 }
 
-// DELETE - Ticket sil 👈 YENİ!
-export async function DELETE(req: NextRequest, { params }: { params: { ticketId: string } }) {
+export async function DELETE(
+    req: NextRequest,
+    { params }: { params: Promise<{ ticketId: string }> }
+) {
     try {
         const session = await auth();
 
@@ -199,7 +126,8 @@ export async function DELETE(req: NextRequest, { params }: { params: { ticketId:
             return NextResponse.json({ error: 'Authentication required' }, { status: 401 });
         }
 
-        // Admin yetkisi kontrolü
+        const { ticketId } = await params;
+
         const user = await prisma.user.findUnique({
             where: { id: session.user.id },
             select: { role: true },
@@ -209,9 +137,8 @@ export async function DELETE(req: NextRequest, { params }: { params: { ticketId:
             return NextResponse.json({ error: 'Admin access required' }, { status: 403 });
         }
 
-        // Ticket'ın var olup olmadığını kontrol et
         const existingTicket = await prisma.ticket.findUnique({
-            where: { id: params.ticketId },
+            where: { id: ticketId },
             select: {
                 id: true,
                 title: true,
@@ -228,21 +155,18 @@ export async function DELETE(req: NextRequest, { params }: { params: { ticketId:
             return NextResponse.json({ error: 'Ticket not found' }, { status: 404 });
         }
 
-        // Transaction ile ticket ve mesajlarını sil
         await prisma.$transaction(async (tx) => {
-            // Önce ticket mesajlarını sil
             await tx.ticketMessage.deleteMany({
-                where: { ticketId: params.ticketId },
+                where: { ticketId: ticketId },
             });
 
-            // Sonra ticket'ı sil
             await tx.ticket.delete({
-                where: { id: params.ticketId },
+                where: { id: ticketId },
             });
         });
 
         logger.info('Admin ticket deleted', {
-            ticketId: params.ticketId,
+            ticketId: ticketId,
             ticketTitle: existingTicket.title,
             adminId: session.user.id,
             userEmail: existingTicket.user.email,

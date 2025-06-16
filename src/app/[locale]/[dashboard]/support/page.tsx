@@ -6,6 +6,7 @@ import { TicketList } from './components/ticket-list';
 import { Button } from '@/components/ui/button';
 import { PlusIcon } from 'lucide-react';
 import Link from 'next/link';
+import { TicketCategory, TicketPriority, TicketStatus } from '@prisma/client';
 
 export const metadata: Metadata = {
     title: 'Destek Talepleri',
@@ -15,30 +16,25 @@ export const metadata: Metadata = {
 export default async function SupportPage({
     searchParams,
 }: {
-    searchParams: {
+    searchParams: Promise<{
         page?: string;
         limit?: string;
-        status?: 'OPEN' | 'IN_PROGRESS' | 'WAITING_FOR_USER' | 'RESOLVED' | 'CLOSED';
-        priority?: 'LOW' | 'MEDIUM' | 'HIGH' | 'URGENT';
-        category?:
-            | 'TECHNICAL'
-            | 'BILLING'
-            | 'ACCOUNT'
-            | 'GENERAL'
-            | 'FEATURE_REQUEST'
-            | 'BUG_REPORT';
-    };
+        status?: string;
+        priority?: string;
+        category?: string;
+    }>;
 }) {
     const session = await auth();
     if (!session?.user) {
         redirect('/auth/login');
     }
 
-    const page = Number(searchParams.page) || 1;
-    const limit = Number(searchParams.limit) || 10;
-    const status = searchParams.status;
-    const priority = searchParams.priority;
-    const category = searchParams.category;
+    const params = await searchParams;
+    const page = Number(params.page) || 1;
+    const limit = Number(params.limit) || 10;
+    const status = params.status as TicketStatus | undefined;
+    const priority = params.priority as TicketPriority | undefined;
+    const category = params.category as TicketCategory | undefined;
 
     const where = {
         ...(session.user.role === 'User' ? { userId: session.user.id } : {}),

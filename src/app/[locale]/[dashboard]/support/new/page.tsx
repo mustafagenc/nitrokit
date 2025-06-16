@@ -8,7 +8,14 @@ export const metadata: Metadata = {
     description: 'Yeni bir destek talebi oluşturun',
 };
 
-export default async function NewTicketPage() {
+export default async function NewSupportPage({
+    searchParams: _searchParams,
+}: {
+    searchParams: Promise<{
+        category?: string;
+        priority?: string;
+    }>;
+}) {
     const session = await auth();
     if (!session?.user) {
         redirect('/auth/login');

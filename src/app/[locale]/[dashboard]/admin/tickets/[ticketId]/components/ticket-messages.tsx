@@ -18,7 +18,7 @@ import {
     Paperclip,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { Ticket } from 'prisma/generated/prisma';
+import { Ticket } from '@/types/ticket';
 
 interface TicketMessage {
     id: string;

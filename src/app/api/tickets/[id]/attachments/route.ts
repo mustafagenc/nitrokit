@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { put } from '@vercel/blob';
 import { auth } from '@/lib/auth';
@@ -14,15 +14,17 @@ const ALLOWED_FILE_TYPES = [
     'text/plain',
 ];
 
-export async function POST(request: Request, context: { params: { id: string } }) {
+export async function POST(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
     try {
         const session = await auth();
         if (!session?.user) {
             return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
         }
 
+        const { id } = await params;
+
         const ticket = await prisma.ticket.findUnique({
-            where: { id: await context.params.id },
+            where: { id: await id },
         });
 
         if (!ticket) {
@@ -59,7 +61,7 @@ export async function POST(request: Request, context: { params: { id: string } }
 
         const attachment = await prisma.ticketAttachment.create({
             data: {
-                ticketId: messageId ? null : context.params.id,
+                ticketId: messageId ? null : id,
                 messageId: messageId || null,
                 fileName: file.name,
                 fileType: file.type,

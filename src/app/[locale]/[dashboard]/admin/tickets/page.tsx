@@ -3,7 +3,7 @@ import { auth } from '@/lib/auth';
 import { redirect } from 'next/navigation';
 import { prisma } from '@/lib/prisma';
 import { TicketsTable } from './components/tickets-table';
-import type { TicketStatus, TicketPriority, TicketCategory } from 'prisma/generated/prisma';
+import { TicketCategory, TicketPriority, TicketStatus } from '@prisma/client';
 
 export const metadata: Metadata = {
     title: 'Ticket Yönetimi',
@@ -13,19 +13,26 @@ export const metadata: Metadata = {
 export default async function TicketsPage({
     searchParams,
 }: {
-    searchParams: { [key: string]: string | string[] | undefined };
+    searchParams: Promise<{
+        page?: string;
+        limit?: string;
+        status?: string;
+        priority?: string;
+        category?: string;
+    }>;
 }) {
     const session = await auth();
+    const params = await searchParams;
 
     if (!session?.user || session.user.role !== 'Admin') {
         redirect('/dashboard/support');
     }
 
-    const page = Number(searchParams?.page) || 1;
-    const limit = Number(searchParams?.limit) || 10;
-    const status = searchParams?.status;
-    const priority = searchParams?.priority;
-    const category = searchParams?.category;
+    const page = Number(params?.page) || 1;
+    const limit = Number(params?.limit) || 10;
+    const status = params?.status;
+    const priority = params?.priority;
+    const category = params?.category;
 
     const where = {
         ...(status ? { status: status as TicketStatus } : {}),
