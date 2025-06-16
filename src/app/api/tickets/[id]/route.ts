@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { z } from 'zod';
 import { auth } from '@/lib/auth';
+import { put } from '@vercel/blob';
+import { v4 as uuidv4 } from 'uuid';
 
 const updateTicketSchema = z.object({
     status: z.enum(['OPEN', 'IN_PROGRESS', 'WAITING_FOR_USER', 'RESOLVED', 'CLOSED']).optional(),
@@ -9,8 +11,8 @@ const updateTicketSchema = z.object({
     assignedTo: z.string().optional(),
 });
 
-const createMessageSchema = z.object({
-    message: z.string().min(1),
+const ticketMessageFormSchema = z.object({
+    message: z.string().min(1, 'Mesaj boş olamaz'),
 });
 
 export async function GET(req: Request, { params }: { params: { id: string } }) {
@@ -130,46 +132,76 @@ export async function PATCH(req: Request, { params }: { params: { id: string } }
     }
 }
 
-export async function POST(request: Request, { params }: { params: { id: string } }) {
+export async function POST(request: Request, context: { params: { id: string } }) {
     try {
         const session = await auth();
 
-        if (!session?.user?.id) {
-            return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+        if (!session?.user) {
+            return new NextResponse('Unauthorized', { status: 401 });
         }
 
-        const { id } = await params;
+        const contentType = request.headers.get('content-type') || '';
+        let message = '';
+        let files: File[] = [];
 
-        const ticket = await prisma.ticket.findUnique({
-            where: { id },
-        });
-
-        if (!ticket) {
-            return NextResponse.json({ error: 'Ticket not found' }, { status: 404 });
+        if (contentType.includes('application/json')) {
+            const body = await request.json();
+            message = body.message;
+        } else if (contentType.includes('multipart/form-data')) {
+            const formData = await request.formData();
+            message = formData.get('message') as string;
+            files = formData.getAll('files') as File[];
+        } else {
+            return NextResponse.json({ error: 'Unsupported Content-Type' }, { status: 400 });
         }
 
-        const body = await request.json();
-        const validatedData = createMessageSchema.parse(body);
+        const validatedData = ticketMessageFormSchema.parse({ message });
 
-        const message = await prisma.ticketMessage.create({
-            data: {
-                ticketId: id,
-                userId: session.user.id,
-                message: validatedData.message,
-            },
-        });
+        const messageId = crypto.randomUUID();
+        const attachments = [];
 
-        // Eğer kullanıcı destek ekibinden değilse ve ticket açıksa, durumu "IN_PROGRESS" olarak güncelle
-        if (session.user.role === 'User' && ticket.status === 'OPEN') {
-            await prisma.ticket.update({
-                where: { id },
-                data: { status: 'IN_PROGRESS' },
+        for (const file of files) {
+            const fileName = `${uuidv4()}-${file.name}`;
+            const { url } = await put(fileName, file, {
+                access: 'public',
+            });
+
+            attachments.push({
+                id: crypto.randomUUID(),
+                fileName: file.name,
+                fileType: file.type,
+                fileSize: file.size,
+                fileUrl: url,
             });
         }
 
-        return NextResponse.json(message);
+        const ticketMessage = await prisma.ticketMessage.create({
+            data: {
+                id: messageId,
+                message: validatedData.message,
+                ticketId: await context.params.id,
+                userId: session.user.id,
+                attachments: {
+                    create: attachments,
+                },
+            },
+            include: {
+                user: {
+                    select: {
+                        id: true,
+                        name: true,
+                        email: true,
+                        image: true,
+                        role: true,
+                    },
+                },
+                attachments: true,
+            },
+        });
+
+        return NextResponse.json(ticketMessage);
     } catch (error) {
-        console.error('Create message error:', error);
-        return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+        console.error('[TICKET_MESSAGE_POST]', error);
+        return new NextResponse('Internal error', { status: 500 });
     }
 }
