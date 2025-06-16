@@ -14,7 +14,14 @@ export async function generateMetadata(): Promise<Metadata> {
     });
 }
 
-export default async function Page() {
+export default async function DashboardPage({
+    searchParams: _searchParams,
+}: {
+    searchParams: Promise<{
+        tab?: string;
+        view?: string;
+    }>;
+}) {
     return (
         <div className="flex h-full flex-col">
             <ScrollArea className="h-full">

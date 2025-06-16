@@ -30,6 +30,7 @@ const registerSchema = z.object({
         .refine((password) => /[!@#$%^&*]/.test(password), {
             message: 'Password must contain at least one special character',
         }),
+    receiveUpdates: z.boolean().optional().default(false),
 });
 
 export async function POST(request: NextRequest) {
@@ -65,7 +66,7 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        const { firstName, lastName, email, password } = result.data;
+        const { firstName, lastName, email, password, receiveUpdates } = result.data;
         const normalizedEmail = email.toLowerCase();
 
         logger.info('Registration data validated successfully', {
@@ -73,6 +74,7 @@ export async function POST(request: NextRequest) {
             hasFirstName: !!firstName,
             hasLastName: !!lastName,
             passwordLength: password.length,
+            receiveUpdates: receiveUpdates,
         });
 
         const existingUser = await prisma.user.findUnique({
@@ -125,6 +127,7 @@ export async function POST(request: NextRequest) {
                 role: 'User',
                 isActive: true,
                 emailVerified: null,
+                receiveUpdates: receiveUpdates,
             },
             select: {
                 id: true,
@@ -137,6 +140,7 @@ export async function POST(request: NextRequest) {
                 emailVerified: true,
                 createdAt: true,
                 updatedAt: true,
+                receiveUpdates: true,
             },
         });
 

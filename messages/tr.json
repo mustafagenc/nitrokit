@@ -433,7 +433,12 @@
             "support": "Destek",
             "settings": "Ayarlar",
             "account": "Hesap bilgileri",
-            "billing": "Faturalarım"
+            "billing": "Faturalarım",
+            "admin": {
+                "users": "Kullanıcılar",
+                "tickets": "Ticket'lar",
+                "settings": "Ayarlar"
+            }
         },
         "userMenu": {
             "defaultUserName": "Kullanıcı",

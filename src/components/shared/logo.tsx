@@ -16,8 +16,8 @@ export default function Logo({
     return (
         <Link href={'/'} className="flex items-center justify-start gap-2">
             <ThemedImage
-                lightSrc={'/logo/ekipisi-dark.svg'}
-                darkSrc={'/logo/ekipisi.svg'}
+                lightSrc={'/logo/nitrokit-dark.svg'}
+                darkSrc={'/logo/nitrokit.svg'}
                 alt="Next.js logo"
                 width={size}
                 height={size}

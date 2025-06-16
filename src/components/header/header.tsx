@@ -1,7 +1,5 @@
 'use client';
 
-import { SessionProvider } from 'next-auth/react';
-
 import { Navbar } from '@/components/header/navbar';
 import { NavbarMobile } from '@/components/header/navbar-mobile';
 import Logo from '@/components/shared/logo';
@@ -29,9 +27,7 @@ export const Header = () => {
                 </div>
                 <div className="flex grow flex-row items-center justify-end gap-2 lg:grow-0">
                     <CompactLocaleSwitcher />
-                    <SessionProvider>
-                        <UserMenu />
-                    </SessionProvider>
+                    <UserMenu />
                 </div>
             </div>
         </header>

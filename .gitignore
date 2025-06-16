@@ -43,6 +43,7 @@ next-env.d.ts
 
 /.temp
 /generated
+/prisma/generated
 
 *storybook.log
 

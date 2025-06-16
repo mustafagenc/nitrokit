@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { logger } from '@/lib/services/logger';
 import { randomBytes } from 'crypto';
 import { sign } from 'jsonwebtoken';
-import { User } from 'generated/prisma';
+import { User } from '@prisma/client';
 
 export async function generateVerificationToken(email: string) {
     try {
