@@ -6,7 +6,6 @@ export async function adminMiddleware(request: Request) {
         req: request,
         secret: process.env.NEXT_SECRET,
     });
-    console.log(token);
     if (!token || token.role !== 'Admin') {
         return NextResponse.redirect(new URL('/dashboard', request.url));
     }

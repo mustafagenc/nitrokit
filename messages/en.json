@@ -437,7 +437,12 @@
             "support": "Support",
             "settings": "Settings",
             "account": "Account information",
-            "billing": "My Invoices"
+            "billing": "My Invoices",
+            "admin": {
+                "users": "Users",
+                "tickets": "Tickets",
+                "settings": "Settings"
+            }
         },
         "userMenu": {
             "defaultUserName": "User",

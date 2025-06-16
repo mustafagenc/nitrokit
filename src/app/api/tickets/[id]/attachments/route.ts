@@ -14,7 +14,7 @@ const ALLOWED_FILE_TYPES = [
     'text/plain',
 ];
 
-export async function POST(req: Request, { params }: { params: { id: string } }) {
+export async function POST(request: Request, context: { params: { id: string } }) {
     try {
         const session = await auth();
         if (!session?.user) {
@@ -22,7 +22,7 @@ export async function POST(req: Request, { params }: { params: { id: string } })
         }
 
         const ticket = await prisma.ticket.findUnique({
-            where: { id: params.id },
+            where: { id: await context.params.id },
         });
 
         if (!ticket) {
@@ -36,7 +36,7 @@ export async function POST(req: Request, { params }: { params: { id: string } })
             );
         }
 
-        const formData = await req.formData();
+        const formData = await request.formData();
         const file = formData.get('file') as File;
         const messageId = formData.get('messageId') as string | null;
 
@@ -59,7 +59,7 @@ export async function POST(req: Request, { params }: { params: { id: string } })
 
         const attachment = await prisma.ticketAttachment.create({
             data: {
-                ticketId: messageId ? null : params.id,
+                ticketId: messageId ? null : context.params.id,
                 messageId: messageId || null,
                 fileName: file.name,
                 fileType: file.type,

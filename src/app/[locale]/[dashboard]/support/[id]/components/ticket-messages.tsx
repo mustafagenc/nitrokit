@@ -9,7 +9,7 @@ import { Form, FormControl, FormField, FormItem, FormMessage } from '@/component
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { toast } from 'sonner';
-import { FileUpload } from './file-upload';
+import { FileUpload } from '@/components/ui/file-upload';
 import { MDXEditorComponent } from '@/components/ui/mdx-editor';
 import { MDXPreview } from '@/components/ui/mdx-preview';
 import { useFormatter } from 'next-intl';
