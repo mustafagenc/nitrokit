@@ -7,24 +7,41 @@ import { cn } from '@/lib';
 import { Button } from '@/components/ui/button';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Home, Menu, HeartHandshake, ReceiptText } from 'lucide-react';
+import { Home, Menu, HeartHandshake, ReceiptText, Shield } from 'lucide-react';
+import { useSession } from 'next-auth/react';
 
-const navigationItems = [
+const baseNavigationItems = [
     { key: 'navigation.dashboard', href: '/dashboard', icon: Home },
     { key: 'navigation.invoices', href: '/dashboard/invoices', icon: ReceiptText },
     { key: 'navigation.support', href: '/dashboard/support', icon: HeartHandshake },
 ];
 
+const adminNavigationItem = {
+    key: 'navigation.admin.overview',
+    href: '/dashboard/admin',
+    icon: Shield,
+};
+
 function isActiveRoute(pathname: string, href: string) {
     if (pathname === href) return true;
-    if (href === '/dashboard' && pathname === '/dashboard/') return true; // Gereksiz tekrar
+    if (href === '/dashboard' && pathname === '/dashboard/') return true;
     if (href !== '/dashboard' && pathname.startsWith(href)) return true;
     return false;
+}
+
+function getNavigationItems(userRole?: string) {
+    if (userRole === 'Admin' || userRole === 'Moderator') {
+        return [...baseNavigationItems, adminNavigationItem];
+    }
+    return baseNavigationItems;
 }
 
 function DesktopSidebar() {
     const pathname = usePathname();
     const t = useTranslations('dashboard');
+    const { data: session } = useSession();
+
+    const navigationItems = getNavigationItems(session?.user?.role);
 
     return (
         <TooltipProvider>
@@ -65,6 +82,9 @@ export function MobileSidebarTrigger() {
     const [isOpen, setIsOpen] = useState(false);
     const pathname = usePathname();
     const t = useTranslations('dashboard');
+    const { data: session } = useSession();
+
+    const navigationItems = getNavigationItems(session?.user?.role);
 
     useEffect(() => {
         setIsOpen(false);

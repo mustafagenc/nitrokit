@@ -66,25 +66,6 @@ export function AccountNavigation() {
             .trim();
     };
 
-    const getSimpleNavItemClasses = (path: string) => {
-        const isCurrentlyActive = isActive(path);
-
-        return `
-            group flex cursor-pointer items-center rounded-none 
-            bg-transparent px-3 py-3.5 text-sm font-medium text-nowrap 
-            outline-none select-none transition-all duration-200
-            relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:transition-all after:duration-200 ${
-                isCurrentlyActive
-                    ? 'text-primary after:bg-primary font-semibold'
-                    : 'text-muted-foreground after:bg-transparent hover:text-foreground'
-            }
-            hover:bg-transparent focus:bg-transparent
-        `
-            .replace(/\s+/g, ' ')
-            .trim();
-    };
-
-    // Mobile menu item classes
     const getMobileMenuItemClasses = (path: string) => {
         const isCurrentlyActive = isActive(path);
 
@@ -180,12 +161,11 @@ export function AccountNavigation() {
                                 </MenubarContent>
                             </MenubarMenu>
 
-                            {/* Notifications */}
                             <MenubarMenu>
                                 <MenubarTrigger asChild>
                                     <Link
                                         href="/dashboard/account/notifications"
-                                        className={getSimpleNavItemClasses('/notifications')}
+                                        className={getNavItemClasses('/notifications')}
                                     >
                                         <Bell className="mr-2 h-4 w-4" />
                                         {t('notifications')}
