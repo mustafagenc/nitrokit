@@ -23,24 +23,15 @@ import {
     TableRow,
 } from '@/components/ui/table';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import {
     DropdownMenu,
-    DropdownMenuCheckboxItem,
     DropdownMenuContent,
     DropdownMenuItem,
     DropdownMenuLabel,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from '@/components/ui/select';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Checkbox } from '@/components/ui/checkbox';
@@ -64,10 +55,8 @@ import {
     Edit,
     CheckCircle2,
     XCircle,
-    Search,
     ArrowUpDown,
     Calendar,
-    Columns,
     UserCheck,
     Shield,
     Loader2,
@@ -77,6 +66,7 @@ import {
 import { EditUserDialog } from './edit-user-dialog';
 import { providers } from '@/lib/auth/providers';
 import { localesWithFlag } from '@/constants/locale';
+import { UserFilters } from './user-filters';
 
 interface User {
     id: string;
@@ -492,101 +482,11 @@ export function UsersTable({ users }: { users: User[] }) {
     return (
         <div className="space-y-6">
             {/* Filters */}
-            <Card>
-                <CardHeader>
-                    <CardTitle className="text-lg">Kullanıcı Filtreleri</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <div className="space-y-4">
-                        {/* Search */}
-                        <div className="relative">
-                            <Search className="text-muted-foreground absolute top-3 left-3 h-4 w-4" />
-                            <Input
-                                placeholder="Kullanıcı ara (isim, email)..."
-                                value={globalFilter}
-                                onChange={(event) => setGlobalFilter(event.target.value)}
-                                className="h-10 pl-9"
-                            />
-                        </div>
-
-                        {/* Filters Row */}
-                        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-                            <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-                                {/* Role Filter */}
-                                <Select
-                                    value={
-                                        (table.getColumn('role')?.getFilterValue() as string) ?? ''
-                                    }
-                                    onValueChange={(value) =>
-                                        table
-                                            .getColumn('role')
-                                            ?.setFilterValue(value === 'all' ? '' : value)
-                                    }
-                                >
-                                    <SelectTrigger className="w-[180px]">
-                                        <SelectValue placeholder="Rol seç" />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                        <SelectItem value="all">Tüm Roller</SelectItem>
-                                        <SelectItem value="User">Kullanıcı</SelectItem>
-                                        <SelectItem value="Moderator">Moderatör</SelectItem>
-                                        <SelectItem value="Admin">Yönetici</SelectItem>
-                                    </SelectContent>
-                                </Select>
-
-                                {/* Page Size Selector */}
-                                <Select
-                                    value={`${table.getState().pagination.pageSize}`}
-                                    onValueChange={(value) => {
-                                        table.setPageSize(Number(value));
-                                    }}
-                                >
-                                    <SelectTrigger className="w-[140px]">
-                                        <SelectValue placeholder="Sayfa boyutu" />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                        <SelectItem value="10">10 satır</SelectItem>
-                                        <SelectItem value="20">20 satır</SelectItem>
-                                        <SelectItem value="50">50 satır</SelectItem>
-                                        <SelectItem value="100">100 satır</SelectItem>
-                                    </SelectContent>
-                                </Select>
-                            </div>
-
-                            {/* Column Visibility */}
-                            <DropdownMenu>
-                                <DropdownMenuTrigger asChild>
-                                    <Button variant="outline" size="sm">
-                                        <Columns className="mr-2 h-4 w-4" />
-                                        Sütunlar
-                                    </Button>
-                                </DropdownMenuTrigger>
-                                <DropdownMenuContent align="end" className="w-[200px]">
-                                    <DropdownMenuLabel>Görünür Sütunlar</DropdownMenuLabel>
-                                    <DropdownMenuSeparator />
-                                    {table
-                                        .getAllColumns()
-                                        .filter((column) => column.getCanHide())
-                                        .map((column) => {
-                                            return (
-                                                <DropdownMenuCheckboxItem
-                                                    key={column.id}
-                                                    className="capitalize"
-                                                    checked={column.getIsVisible()}
-                                                    onCheckedChange={(value) =>
-                                                        column.toggleVisibility(!!value)
-                                                    }
-                                                >
-                                                    {column.id}
-                                                </DropdownMenuCheckboxItem>
-                                            );
-                                        })}
-                                </DropdownMenuContent>
-                            </DropdownMenu>
-                        </div>
-                    </div>
-                </CardContent>
-            </Card>
+            <UserFilters
+                table={table}
+                globalFilter={globalFilter}
+                onGlobalFilterChange={setGlobalFilter}
+            />
 
             {/* Data Table */}
             <Card className="p-0">
@@ -646,61 +546,56 @@ export function UsersTable({ users }: { users: User[] }) {
                 </CardContent>
             </Card>
 
-            {/* Pagination */}
-            <Card>
-                <CardContent className="flex items-center justify-between py-4">
-                    <div className="flex items-center gap-4">
-                        <div className="text-muted-foreground text-sm">
-                            {table.getFilteredSelectedRowModel().rows.length} /{' '}
-                            {table.getFilteredRowModel().rows.length} satır seçildi
-                        </div>
-                        <div className="text-muted-foreground text-sm">
-                            Toplam {users.length} kullanıcı
-                        </div>
-                        <div className="text-muted-foreground text-sm">
-                            Sayfa {table.getState().pagination.pageIndex + 1} /{' '}
-                            {table.getPageCount()}
-                        </div>
+            <div className="flex items-center justify-between py-0">
+                <div className="flex items-center gap-4">
+                    <div className="text-muted-foreground text-sm">
+                        {table.getFilteredSelectedRowModel().rows.length} /{' '}
+                        {table.getFilteredRowModel().rows.length} satır seçildi
                     </div>
-
-                    <div className="flex items-center space-x-2">
-                        <Button
-                            variant="outline"
-                            size="sm"
-                            onClick={() => table.setPageIndex(0)}
-                            disabled={!table.getCanPreviousPage()}
-                        >
-                            İlk
-                        </Button>
-                        <Button
-                            variant="outline"
-                            size="sm"
-                            onClick={() => table.previousPage()}
-                            disabled={!table.getCanPreviousPage()}
-                        >
-                            Önceki
-                        </Button>
-                        <Button
-                            variant="outline"
-                            size="sm"
-                            onClick={() => table.nextPage()}
-                            disabled={!table.getCanNextPage()}
-                        >
-                            Sonraki
-                        </Button>
-                        <Button
-                            variant="outline"
-                            size="sm"
-                            onClick={() => table.setPageIndex(table.getPageCount() - 1)}
-                            disabled={!table.getCanNextPage()}
-                        >
-                            Son
-                        </Button>
+                    <div className="text-muted-foreground text-sm">
+                        Toplam {users.length} kullanıcı
                     </div>
-                </CardContent>
-            </Card>
+                    <div className="text-muted-foreground text-sm">
+                        Sayfa {table.getState().pagination.pageIndex + 1} / {table.getPageCount()}
+                    </div>
+                </div>
 
-            {/* Delete Dialog */}
+                <div className="flex items-center space-x-2">
+                    <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => table.setPageIndex(0)}
+                        disabled={!table.getCanPreviousPage()}
+                    >
+                        İlk
+                    </Button>
+                    <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => table.previousPage()}
+                        disabled={!table.getCanPreviousPage()}
+                    >
+                        Önceki
+                    </Button>
+                    <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => table.nextPage()}
+                        disabled={!table.getCanNextPage()}
+                    >
+                        Sonraki
+                    </Button>
+                    <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => table.setPageIndex(table.getPageCount() - 1)}
+                        disabled={!table.getCanNextPage()}
+                    >
+                        Son
+                    </Button>
+                </div>
+            </div>
+
             <AlertDialog open={deleteDialogOpen} onOpenChange={setDeleteDialogOpen}>
                 <AlertDialogContent>
                     <AlertDialogHeader>
@@ -724,7 +619,6 @@ export function UsersTable({ users }: { users: User[] }) {
                 </AlertDialogContent>
             </AlertDialog>
 
-            {/* Edit Dialog */}
             {selectedUser && (
                 <EditUserDialog
                     user={selectedUser}

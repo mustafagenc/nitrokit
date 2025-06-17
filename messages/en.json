@@ -439,6 +439,7 @@
             "account": "Account information",
             "billing": "My Invoices",
             "admin": {
+                "overview": "Admin Overview",
                 "users": "Users",
                 "tickets": "Tickets",
                 "settings": "Settings"

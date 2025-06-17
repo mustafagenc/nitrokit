@@ -10,8 +10,11 @@ export const metadata: Metadata = {
     description: 'Ticket detay ve mesaj yönetimi sayfası',
 };
 
-// prettier-ignore
-export default async function TicketPage({ params }: { params: Promise<{ ticketId: string; locale: string }> }) {
+export default async function TicketPage({
+    params,
+}: {
+    params: Promise<{ ticketId: string; locale: string }>;
+}) {
     const session = await auth();
     const { ticketId } = await params;
 
@@ -67,16 +70,16 @@ export default async function TicketPage({ params }: { params: Promise<{ ticketI
     }
 
     return (
-        <div className="container mx-auto space-y-6 py-6">
-            {/* Page Header */}
-            <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tight">Ticket Detayları</h1>
-                <p className="text-muted-foreground">
-                    Ticket bilgilerini düzenleyin ve mesajları yönetin
-                </p>
+        <div className="space-y-6">
+            <div className="flex items-center justify-between">
+                <div>
+                    <h2 className="text-2xl font-bold tracking-tight">Ticket Detayları</h2>
+                    <p className="text-muted-foreground">
+                        Ticket bilgilerini düzenleyin ve mesajları yönetin
+                    </p>
+                </div>
             </div>
 
-            {/* Content */}
             <div className="grid gap-6 lg:grid-cols-1">
                 <TicketDetails ticket={ticket} />
                 <TicketMessages ticket={ticket} />
