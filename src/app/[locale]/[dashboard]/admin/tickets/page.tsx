@@ -4,6 +4,7 @@ import { redirect } from 'next/navigation';
 import { prisma } from '@/lib/prisma';
 import { TicketsTable } from './components/tickets-table';
 import { TicketCategory, TicketPriority, TicketStatus } from '@prisma/client';
+import { TicketStats } from './components/ticket-stats';
 
 export const metadata: Metadata = {
     title: 'Ticket Yönetimi',
@@ -72,10 +73,14 @@ export default async function TicketsPage({
     const total = await prisma.ticket.count({ where });
 
     return (
-        <div className="container mx-auto py-10">
-            <div className="mb-8 flex items-center justify-between">
-                <h1 className="text-3xl font-bold">Ticket Yönetimi</h1>
+        <div className="space-y-6">
+            <div className="flex items-center justify-between">
+                <div>
+                    <h2 className="text-2xl font-bold tracking-tight">Ticket Yönetimi</h2>
+                    <p className="text-muted-foreground">...</p>
+                </div>
             </div>
+            <TicketStats tickets={tickets} total={total} />
             <TicketsTable tickets={tickets} total={total} page={page} limit={limit} />
         </div>
     );

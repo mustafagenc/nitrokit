@@ -23,10 +23,8 @@ import {
     TableRow,
 } from '@/components/ui/table';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import {
     DropdownMenu,
-    DropdownMenuCheckboxItem,
     DropdownMenuContent,
     DropdownMenuItem,
     DropdownMenuLabel,
@@ -35,21 +33,13 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Badge } from '@/components/ui/badge';
 import { Checkbox } from '@/components/ui/checkbox';
-import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from '@/components/ui/select';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import {
     MessageSquare,
     User,
     Clock,
     MoreHorizontal,
-    Search,
     RefreshCw,
     Eye,
     Trash2,
@@ -58,11 +48,11 @@ import {
     AlertTriangle,
     CheckCircle,
     XCircle,
-    Columns,
     Loader2,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useRouter } from '@/i18n/navigation';
+import { TicketFilters } from './ticket-filters';
 
 interface Ticket {
     id: string;
@@ -506,189 +496,12 @@ export function TicketsTable({ tickets, total }: TicketsTableProps) {
 
     return (
         <div className="space-y-6">
-            {/* Header Stats */}
-            <div className="grid gap-4 md:grid-cols-4">
-                <Card>
-                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                        <CardTitle className="text-sm font-medium">Toplam Ticket</CardTitle>
-                        <MessageSquare className="text-muted-foreground h-4 w-4" />
-                    </CardHeader>
-                    <CardContent>
-                        <div className="text-2xl font-bold">{total}</div>
-                        <p className="text-muted-foreground text-xs">Aktif ticketlar</p>
-                    </CardContent>
-                </Card>
-
-                <Card>
-                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                        <CardTitle className="text-sm font-medium">Açık</CardTitle>
-                        <AlertTriangle className="h-4 w-4 text-blue-500" />
-                    </CardHeader>
-                    <CardContent>
-                        <div className="text-2xl font-bold text-blue-600">
-                            {tickets.filter((t) => t.status === 'OPEN').length}
-                        </div>
-                        <p className="text-muted-foreground text-xs">Yeni ticketlar</p>
-                    </CardContent>
-                </Card>
-
-                <Card>
-                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                        <CardTitle className="text-sm font-medium">İşlemde</CardTitle>
-                        <RefreshCw className="h-4 w-4 text-yellow-500" />
-                    </CardHeader>
-                    <CardContent>
-                        <div className="text-2xl font-bold text-yellow-600">
-                            {tickets.filter((t) => t.status === 'IN_PROGRESS').length}
-                        </div>
-                        <p className="text-muted-foreground text-xs">Devam eden</p>
-                    </CardContent>
-                </Card>
-
-                <Card>
-                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                        <CardTitle className="text-sm font-medium">Çözüldü</CardTitle>
-                        <CheckCircle className="h-4 w-4 text-green-500" />
-                    </CardHeader>
-                    <CardContent>
-                        <div className="text-2xl font-bold text-green-600">
-                            {tickets.filter((t) => t.status === 'RESOLVED').length}
-                        </div>
-                        <p className="text-muted-foreground text-xs">Bu sayfada</p>
-                    </CardContent>
-                </Card>
-            </div>
-
-            {/* Filters & Search */}
-            <Card>
-                <CardHeader>
-                    <CardTitle className="text-lg">Ticket Filtreleri</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <div className="space-y-4">
-                        {/* Search Row - Full Width */}
-                        <div className="relative">
-                            <Search className="text-muted-foreground absolute top-3 left-3 h-4 w-4" />
-                            <Input
-                                placeholder="Ticket ara (başlık, kullanıcı, ID)..."
-                                value={globalFilter}
-                                onChange={(event) => setGlobalFilter(event.target.value)}
-                                className="h-10 pl-9"
-                            />
-                        </div>
-
-                        {/* Filters Row */}
-                        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-                            <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-                                {/* Status Filter */}
-                                <Select
-                                    value={
-                                        (table.getColumn('status')?.getFilterValue() as string) ??
-                                        ''
-                                    }
-                                    onValueChange={(value) =>
-                                        table
-                                            .getColumn('status')
-                                            ?.setFilterValue(value === 'all' ? '' : value)
-                                    }
-                                >
-                                    <SelectTrigger className="w-[180px]">
-                                        <SelectValue placeholder="Durum seç" />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                        <SelectItem value="all">Tüm Durumlar</SelectItem>
-                                        <SelectItem value="OPEN">Açık</SelectItem>
-                                        <SelectItem value="IN_PROGRESS">İşlemde</SelectItem>
-                                        <SelectItem value="WAITING_FOR_USER">
-                                            Kullanıcı Bekliyor
-                                        </SelectItem>
-                                        <SelectItem value="RESOLVED">Çözüldü</SelectItem>
-                                        <SelectItem value="CLOSED">Kapalı</SelectItem>
-                                    </SelectContent>
-                                </Select>
-
-                                {/* Priority Filter */}
-                                <Select
-                                    value={
-                                        (table.getColumn('priority')?.getFilterValue() as string) ??
-                                        ''
-                                    }
-                                    onValueChange={(value) =>
-                                        table
-                                            .getColumn('priority')
-                                            ?.setFilterValue(value === 'all' ? '' : value)
-                                    }
-                                >
-                                    <SelectTrigger className="w-[180px]">
-                                        <SelectValue placeholder="Öncelik seç" />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                        <SelectItem value="all">Tüm Öncelikler</SelectItem>
-                                        <SelectItem value="LOW">Düşük</SelectItem>
-                                        <SelectItem value="MEDIUM">Orta</SelectItem>
-                                        <SelectItem value="HIGH">Yüksek</SelectItem>
-                                        <SelectItem value="URGENT">Acil</SelectItem>
-                                    </SelectContent>
-                                </Select>
-
-                                {/* Page Size Selector - users-table'dan eklenen */}
-                                <Select
-                                    value={`${table.getState().pagination.pageSize}`}
-                                    onValueChange={(value) => {
-                                        table.setPageSize(Number(value));
-                                    }}
-                                >
-                                    <SelectTrigger className="w-[140px]">
-                                        <SelectValue placeholder="Sayfa boyutu" />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                        <SelectItem value="10">10 satır</SelectItem>
-                                        <SelectItem value="20">20 satır</SelectItem>
-                                        <SelectItem value="50">50 satır</SelectItem>
-                                        <SelectItem value="100">100 satır</SelectItem>
-                                    </SelectContent>
-                                </Select>
-                            </div>
-
-                            {/* Column Visibility */}
-                            <DropdownMenu>
-                                <DropdownMenuTrigger asChild>
-                                    <Button variant="outline" size="sm">
-                                        <Columns className="mr-2 h-4 w-4" />
-                                        Sütunlar
-                                    </Button>
-                                </DropdownMenuTrigger>
-                                <DropdownMenuContent align="end" className="w-[200px]">
-                                    <DropdownMenuLabel>Görünür Sütunlar</DropdownMenuLabel>
-                                    <DropdownMenuSeparator />
-                                    {table
-                                        .getAllColumns()
-                                        .filter((column) => column.getCanHide())
-                                        .map((column) => {
-                                            return (
-                                                <DropdownMenuCheckboxItem
-                                                    key={column.id}
-                                                    className="capitalize"
-                                                    checked={column.getIsVisible()}
-                                                    onCheckedChange={(value) =>
-                                                        column.toggleVisibility(!!value)
-                                                    }
-                                                >
-                                                    {column.id}
-                                                </DropdownMenuCheckboxItem>
-                                            );
-                                        })}
-                                </DropdownMenuContent>
-                            </DropdownMenu>
-                        </div>
-                    </div>
-                </CardContent>
-            </Card>
-
-            {/* Data Table */}
+            <TicketFilters
+                table={table}
+                globalFilter={globalFilter}
+                onGlobalFilterChange={setGlobalFilter}
+            />
             <Card className="p-0">
-                {' '}
-                {/* 👈 Card'da da p-0 eklendi */}
                 <CardContent className="p-0">
                     <div className="rounded-md border-0">
                         <Table>
@@ -744,58 +557,52 @@ export function TicketsTable({ tickets, total }: TicketsTableProps) {
                     </div>
                 </CardContent>
             </Card>
-
-            {/* Pagination */}
-            <Card>
-                <CardContent className="flex items-center justify-between py-4">
-                    <div className="flex items-center gap-4">
-                        <div className="text-muted-foreground text-sm">
-                            {table.getFilteredSelectedRowModel().rows.length} /{' '}
-                            {table.getFilteredRowModel().rows.length} satır seçildi
-                        </div>
-                        <div className="text-muted-foreground text-sm">Toplam {total} ticket</div>
-                        <div className="text-muted-foreground text-sm">
-                            Sayfa {table.getState().pagination.pageIndex + 1} /{' '}
-                            {table.getPageCount()}
-                        </div>
+            <div className="flex items-center justify-between py-0">
+                <div className="flex items-center gap-4">
+                    <div className="text-muted-foreground text-sm">
+                        {table.getFilteredSelectedRowModel().rows.length} /{' '}
+                        {table.getFilteredRowModel().rows.length} satır seçildi
                     </div>
-
-                    <div className="flex items-center space-x-2">
-                        <Button
-                            variant="outline"
-                            size="sm"
-                            onClick={() => table.setPageIndex(0)}
-                            disabled={!table.getCanPreviousPage()}
-                        >
-                            İlk
-                        </Button>
-                        <Button
-                            variant="outline"
-                            size="sm"
-                            onClick={() => table.previousPage()}
-                            disabled={!table.getCanPreviousPage()}
-                        >
-                            Önceki
-                        </Button>
-                        <Button
-                            variant="outline"
-                            size="sm"
-                            onClick={() => table.nextPage()}
-                            disabled={!table.getCanNextPage()}
-                        >
-                            Sonraki
-                        </Button>
-                        <Button
-                            variant="outline"
-                            size="sm"
-                            onClick={() => table.setPageIndex(table.getPageCount() - 1)}
-                            disabled={!table.getCanNextPage()}
-                        >
-                            Son
-                        </Button>
+                    <div className="text-muted-foreground text-sm">Toplam {total} ticket</div>
+                    <div className="text-muted-foreground text-sm">
+                        Sayfa {table.getState().pagination.pageIndex + 1} / {table.getPageCount()}
                     </div>
-                </CardContent>
-            </Card>
+                </div>
+                <div className="flex items-center space-x-2">
+                    <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => table.setPageIndex(0)}
+                        disabled={!table.getCanPreviousPage()}
+                    >
+                        İlk
+                    </Button>
+                    <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => table.previousPage()}
+                        disabled={!table.getCanPreviousPage()}
+                    >
+                        Önceki
+                    </Button>
+                    <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => table.nextPage()}
+                        disabled={!table.getCanNextPage()}
+                    >
+                        Sonraki
+                    </Button>
+                    <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => table.setPageIndex(table.getPageCount() - 1)}
+                        disabled={!table.getCanNextPage()}
+                    >
+                        Son
+                    </Button>
+                </div>
+            </div>
         </div>
     );
 }
