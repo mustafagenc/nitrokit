@@ -4248,15 +4248,15 @@
   resolved "https://registry.yarnpkg.com/@react-email/body/-/body-0.0.11.tgz#996bc8ab0038a3b183d086fc4b5c581764b36d32"
   integrity sha512-ZSD2SxVSgUjHGrB0Wi+4tu3MEpB4fYSbezsFNEJk2xCWDBkFiOeEsjTmR5dvi+CxTK691hQTQlHv0XWuP7ENTg==
 
-"@react-email/button@0.0.19":
-  version "0.0.19"
-  resolved "https://registry.yarnpkg.com/@react-email/button/-/button-0.0.19.tgz#f7585fd560f59be661c6ccdc3211df8b17f9fc86"
-  integrity sha512-HYHrhyVGt7rdM/ls6FuuD6XE7fa7bjZTJqB2byn6/oGsfiEZaogY77OtoLL/mrQHjHjZiJadtAMSik9XLcm7+A==
+"@react-email/button@0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@react-email/button/-/button-0.1.0.tgz#a9543cb4f4a623417c175fa79593377676b10447"
+  integrity sha512-fg4LtgTu5zXxaRSly9cuv6sHVF/hi1lElbRaIA8EPx5coWOBhCto6rCPfawcXpaN2oER7rNHUrcNBkI+lz5F9A==
 
-"@react-email/code-block@0.0.13":
-  version "0.0.13"
-  resolved "https://registry.yarnpkg.com/@react-email/code-block/-/code-block-0.0.13.tgz#32d8edeaba42567022a3125807abf23b8e41da91"
-  integrity sha512-4DE4yPSgKEOnZMzcrDvRuD6mxsNxOex0hCYEG9F9q23geYgb2WCCeGBvIUXVzK69l703Dg4Vzrd5qUjl+JfcwA==
+"@react-email/code-block@0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@react-email/code-block/-/code-block-0.1.0.tgz#df8c591e529e3c8039fd37574e158685f6a6a577"
+  integrity sha512-jSpHFsgqnQXxDIssE4gvmdtFncaFQz5D6e22BnVjcCPk/udK+0A9jRwGFEG8JD2si9ZXBmU4WsuqQEczuZn4ww==
   dependencies:
     prismjs "^1.30.0"
 
@@ -4270,14 +4270,14 @@
   resolved "https://registry.yarnpkg.com/@react-email/column/-/column-0.0.13.tgz#0aaa5d6abae1b590a0262bfbfd241344a2c60ad3"
   integrity sha512-Lqq17l7ShzJG/d3b1w/+lVO+gp2FM05ZUo/nW0rjxB8xBICXOVv6PqjDnn3FXKssvhO5qAV20lHM6S+spRhEwQ==
 
-"@react-email/components@^0.0.42":
-  version "0.0.42"
-  resolved "https://registry.yarnpkg.com/@react-email/components/-/components-0.0.42.tgz#82bad08f2a7c8c42c1179e0a45cedcba9ae08188"
-  integrity sha512-KZtf7RjCoLgEwa5swrsbEF/liGrmfMlZCDNDXqaAjlgF3iRq0h5KY/HNMs6LbLmW7fEneRhnynrwApwbkEwe+A==
+"@react-email/components@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@react-email/components/-/components-0.1.0.tgz#bca3a4f90cb737b7bb3d39d07f64b82b5b4de3a7"
+  integrity sha512-Rx0eZk0XuzLKXC5NoMm8xuH72ALVsPYNb/BvcdCJx4EZAoVpQISb4sCqpo9blVYVIazNr4MqWroqFb3ZNrCLMQ==
   dependencies:
     "@react-email/body" "0.0.11"
-    "@react-email/button" "0.0.19"
-    "@react-email/code-block" "0.0.13"
+    "@react-email/button" "0.1.0"
+    "@react-email/code-block" "0.1.0"
     "@react-email/code-inline" "0.0.5"
     "@react-email/column" "0.0.13"
     "@react-email/container" "0.0.15"
@@ -11068,10 +11068,10 @@ lru-cache@^5.1.1:
   dependencies:
     yallist "^3.0.2"
 
-lucide-react@^0.515.0:
-  version "0.515.0"
-  resolved "https://registry.yarnpkg.com/lucide-react/-/lucide-react-0.515.0.tgz#a2310348095b40f1d6d6112c7a7f671f9a7634a7"
-  integrity sha512-Sy7bY0MeicRm2pzrnoHm2h6C1iVoeHyBU2fjdQDsXGP51fhkhau1/ZV/dzrcxEmAKsxYb6bGaIsMnGHuQ5s0dw==
+lucide-react@^0.516.0:
+  version "0.516.0"
+  resolved "https://registry.yarnpkg.com/lucide-react/-/lucide-react-0.516.0.tgz#dd22a3bcbf0fae0408b2815c4b67a0dcf2020deb"
+  integrity sha512-aybBJzLHcw1CIn3rUcRkztB37dsJATtpffLNX+0/w+ws2p21nYIlOwX/B5fqxq8F/BjqVemnJX8chKwRidvROg==
 
 lz-string@^1.4.4, lz-string@^1.5.0:
   version "1.5.0"
@@ -15931,10 +15931,10 @@ zod-to-json-schema@^3.24.1, zod-to-json-schema@^3.24.5:
   resolved "https://registry.yarnpkg.com/zod-to-json-schema/-/zod-to-json-schema-3.24.5.tgz#d1095440b147fb7c2093812a53c54df8d5df50a3"
   integrity sha512-/AuWwMP+YqiPbsJx5D6TfgRTc4kTLjsh5SOcd4bLsfUg2RcEXrFMJl1DGgdHy2aCfsIA/cr/1JM0xcB2GZji8g==
 
-zod@^3.20.2, zod@^3.22.4, zod@^3.23.8, zod@^3.25.64:
-  version "3.25.65"
-  resolved "https://registry.yarnpkg.com/zod/-/zod-3.25.65.tgz#190cb604e1b45e0f789a315f65463953d4d4beee"
-  integrity sha512-kMyE2qsXK1p+TAvO7zsf5wMFiCejU3obrUDs9bR1q5CBKykfvp7QhhXrycUylMoOow0iEUSyjLlZZdCsHwSldQ==
+zod@^3.20.2, zod@^3.22.4, zod@^3.23.8, zod@^3.25.67:
+  version "3.25.67"
+  resolved "https://registry.yarnpkg.com/zod/-/zod-3.25.67.tgz#62987e4078e2ab0f63b491ef0c4f33df24236da8"
+  integrity sha512-idA2YXwpCdqUSKRCACDE6ItZD9TZzy3OZMtpfLoh6oPR47lipysRrJfjzMqFxQ3uJuUPyUeWe1r9vLH33xO/Qw==
 
 zwitch@^2.0.0, zwitch@^2.0.4:
   version "2.0.4"
