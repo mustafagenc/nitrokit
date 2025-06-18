@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import { FaExternalLinkAlt, FaRocket, FaCode, FaGlobe } from 'react-icons/fa';
 import { VERCEL_DEPLOY_URL, VERCEL_PREVIEW_URL } from '@/constants/site';
 import { useTranslations } from 'next-intl';
+import { useCanvasConfetti } from '@/hooks/useCanvasConfetti';
 
 const VercelIcon = ({ size = 18, className = '' }: { size?: number; className?: string }) => (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className}>
@@ -15,6 +16,13 @@ export const VercelDeployButton = () => {
     const t = useTranslations();
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
+
+    const { containerRef, triggerConfetti } = useCanvasConfetti({
+        effect: 'realistic',
+        enabled: true,
+        intensity: 'high',
+        colors: ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff'],
+    });
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
@@ -73,6 +81,8 @@ export const VercelDeployButton = () => {
                 <div className="absolute top-full left-0 z-50 mt-2 w-86 overflow-hidden rounded-xl border border-gray-200 bg-white shadow-xl dark:border-gray-600 dark:bg-gray-800">
                     <div className="p-2">
                         <button
+                            ref={containerRef as any}
+                            onMouseEnter={() => triggerConfetti()}
                             onClick={() => handleMenuClick(VERCEL_DEPLOY_URL)}
                             className="flex w-full items-center gap-3 rounded-lg px-3 py-3 text-gray-700 transition-all duration-200 hover:bg-gray-900/5 dark:text-gray-200 dark:hover:bg-white/5"
                         >

@@ -7,7 +7,7 @@ const NAV_LINKS = [
     { name: 'navigation.about', path: '/about/' },
     { name: 'navigation.services.title', path: '/services/' },
     { name: 'navigation.pricing', path: '/pricing/' },
-    { name: 'navigation.blog', path: '/blog/' },
+    { name: 'navigation.faq', path: '/faq/' },
     { name: 'navigation.contact', path: '/contact/' },
 ];
 

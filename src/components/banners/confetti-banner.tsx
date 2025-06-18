@@ -4,9 +4,9 @@ import { Link } from '@/i18n/navigation';
 import { cn } from '@/lib';
 import { ChevronRight, Sparkles } from 'lucide-react';
 import { useState } from 'react';
-import { useHoverEffects, type HoverEffectType } from '@/hooks/useHoverEffects';
+import { useCanvasConfetti, type ConfettiEffectType } from '@/hooks/useCanvasConfetti';
 
-interface CompactBannerProps {
+interface ConfettiBannerProps {
     href: string;
     badge: string;
     text: string;
@@ -14,13 +14,14 @@ interface CompactBannerProps {
     variant?: 'default' | 'gradient' | 'minimal' | 'premium';
     icon?: React.ReactNode;
     animated?: boolean;
-    hoverEffect?: HoverEffectType;
-    effectEnabled?: boolean;
-    effectIntensity?: 'low' | 'medium' | 'high';
-    effectColor?: string;
+    confettiEffect?: ConfettiEffectType;
+    confettiEnabled?: boolean;
+    confettiIntensity?: 'low' | 'medium' | 'high';
+    confettiColors?: string[];
+    confettiEmoji?: string[];
 }
 
-export const CompactBanner = ({
+export const ConfettiBanner = ({
     href,
     badge,
     text,
@@ -28,18 +29,20 @@ export const CompactBanner = ({
     variant = 'default',
     icon,
     animated = true,
-    hoverEffect = 'none',
-    effectEnabled = true,
-    effectIntensity = 'medium',
-    effectColor,
-}: CompactBannerProps) => {
+    confettiEffect = 'none',
+    confettiEnabled = false,
+    confettiIntensity = 'medium',
+    confettiColors,
+    confettiEmoji,
+}: ConfettiBannerProps) => {
     const [isHovered, setIsHovered] = useState(false);
 
-    const { containerRef, handleMouseEnter } = useHoverEffects({
-        effect: hoverEffect,
-        enabled: effectEnabled,
-        intensity: effectIntensity,
-        color: effectColor,
+    const { containerRef, triggerConfetti } = useCanvasConfetti({
+        effect: confettiEffect,
+        enabled: confettiEnabled,
+        intensity: confettiIntensity,
+        colors: confettiColors,
+        emoji: confettiEmoji,
     });
 
     const variantStyles = {
@@ -75,18 +78,15 @@ export const CompactBanner = ({
                 'group relative flex flex-row items-center justify-center gap-3 overflow-hidden rounded-full px-3 py-2 text-sm font-medium shadow-sm transition-all duration-300 ease-out',
                 currentVariant.container,
                 animated && 'hover:scale-[1.02] hover:shadow-md',
-                hoverEffect === 'glow' &&
-                    effectEnabled &&
-                    'hover:animate-[glow-pulse_1s_ease-in-out_infinite]',
                 className
             )}
-            onMouseEnter={(e) => {
+            onMouseEnter={() => {
                 setIsHovered(true);
-                handleMouseEnter(e);
+                triggerConfetti();
             }}
             onMouseLeave={() => setIsHovered(false)}
         >
-            {/* Background glow effect */}
+            {/* Background shimmer */}
             <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
             {/* Badge */}
@@ -94,57 +94,86 @@ export const CompactBanner = ({
                 className={cn(
                     'relative z-10 flex items-center gap-1.5 rounded-xl px-3 py-1 text-xs font-bold transition-all duration-300',
                     currentVariant.badge,
-                    animated && 'group-hover:scale-105'
+                    animated && isHovered && 'scale-105'
                 )}
             >
-                {icon && <span className="text-current">{icon}</span>}
+                {icon && (
+                    <span
+                        className={cn(
+                            'text-current transition-transform duration-300',
+                            isHovered && 'rotate-12'
+                        )}
+                    >
+                        {icon}
+                    </span>
+                )}
                 {badge}
             </span>
 
             {/* Text */}
-            <span className="relative z-10 font-semibold transition-all duration-300">{text}</span>
+            <span
+                className={cn(
+                    'relative z-10 font-semibold transition-all duration-300',
+                    isHovered && 'tracking-wide'
+                )}
+            >
+                {text}
+            </span>
 
-            {/* Arrow with animation */}
+            {/* Arrow */}
             <ChevronRight
                 size={16}
                 className={cn(
                     'relative z-10 transition-all duration-300',
-                    animated && isHovered && 'translate-x-0.5'
+                    isHovered && 'translate-x-1'
                 )}
             />
-
-            {/* Shine effect */}
-            {animated && (
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 transition-all duration-500 group-hover:animate-pulse group-hover:opacity-100" />
-            )}
         </Link>
     );
 };
 
-// Enhanced preset variants with effects
-export const NewFeatureBanner = ({
+// Preset banners with confetti effects
+export const CelebrationBanner = ({
     href,
     text,
     className,
-    hoverEffect = 'fireworks',
-    effectEnabled = true,
 }: {
     href: string;
     text: string;
     className?: string;
-    hoverEffect?: HoverEffectType;
-    effectEnabled?: boolean;
 }) => (
-    <CompactBanner
+    <ConfettiBanner
         href={href}
-        badge="New"
+        badge="🎉 New"
         text={text}
         variant="gradient"
+        confettiEffect="realistic"
+        confettiEnabled={true}
+        confettiIntensity="high"
+        confettiColors={['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff']}
+        className={className}
+    />
+);
+
+export const LaunchBanner = ({
+    href,
+    text,
+    className,
+}: {
+    href: string;
+    text: string;
+    className?: string;
+}) => (
+    <ConfettiBanner
+        href={href}
+        badge="🚀 Launch"
+        text={text}
+        variant="premium"
         icon={<Sparkles size={12} />}
-        hoverEffect={hoverEffect}
-        effectEnabled={effectEnabled}
-        effectIntensity="high"
-        effectColor="#8b5cf6"
+        confettiEffect="fireworks"
+        confettiEnabled={true}
+        confettiIntensity="high"
+        confettiColors={['#FFD700', '#FFA500', '#FF6347']}
         className={className}
     />
 );
@@ -153,49 +182,42 @@ export const UpdateBanner = ({
     href,
     text,
     className,
-    hoverEffect = 'ripple',
-    effectEnabled = true,
 }: {
     href: string;
     text: string;
     className?: string;
-    hoverEffect?: HoverEffectType;
-    effectEnabled?: boolean;
 }) => (
-    <CompactBanner
+    <ConfettiBanner
         href={href}
-        badge="Update"
+        badge="✨ Update"
         text={text}
         variant="default"
-        hoverEffect={hoverEffect}
-        effectEnabled={effectEnabled}
-        effectIntensity="medium"
+        confettiEffect="stars"
+        confettiEnabled={true}
+        confettiIntensity="medium"
+        confettiColors={['#3b82f6', '#8b5cf6', '#10b981']}
         className={className}
     />
 );
 
-export const PremiumBanner = ({
+export const FunBanner = ({
     href,
     text,
     className,
-    hoverEffect = 'confetti',
-    effectEnabled = true,
 }: {
     href: string;
     text: string;
     className?: string;
-    hoverEffect?: HoverEffectType;
-    effectEnabled?: boolean;
 }) => (
-    <CompactBanner
+    <ConfettiBanner
         href={href}
-        badge="Pro"
+        badge="🎊 Fun"
         text={text}
-        variant="premium"
-        icon={<Sparkles size={12} />}
-        hoverEffect={hoverEffect}
-        effectEnabled={effectEnabled}
-        effectIntensity="high"
+        variant="gradient"
+        confettiEffect="emoji"
+        confettiEnabled={true}
+        confettiIntensity="high"
+        confettiEmoji={['🎉', '🥳', '🎊', '✨', '🎈', '🎁']}
         className={className}
     />
 );
