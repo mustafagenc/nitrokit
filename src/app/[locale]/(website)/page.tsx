@@ -8,6 +8,8 @@ import { GithubButtonWithStats } from '@/components/buttons/github-button-with-s
 import { VercelDeployButton } from '@/components/buttons/vercel-deploy-button';
 import { GITHUB_URL } from '@/constants/site';
 import { useTranslations } from 'next-intl';
+import { Testimonials } from './home/components/testimonials';
+import { testimonials } from '@/constants/demo';
 
 export default function Home() {
     const t = useTranslations('home');
@@ -139,7 +141,6 @@ export default function Home() {
                                 <LibraryLogos />
                             </div>
                         </div>
-
                         <div className="mt-20 rounded-2xl border-t border-gray-200/50 bg-gradient-to-r from-white/40 via-white/60 to-white/40 pt-12 text-center backdrop-blur-sm dark:border-gray-800/50 dark:from-gray-900/40 dark:via-gray-900/60 dark:to-gray-900/40">
                             <h3 className="mb-4 text-xl font-semibold text-gray-900 dark:text-white">
                                 {t('cta.title')}
@@ -176,6 +177,13 @@ export default function Home() {
                         </div>
                     </div>
                 </SharedLayout>
+
+                <Testimonials
+                    title="Müşteri Görüşleri"
+                    subtitle="Binlerce Kullanıcı Tarafından Seviliyor"
+                    description="NitroKit'in neden bu kadar sevildiğini keşfedin ve bugün katılarak işiniz için dönüştürücü gücünü deneyimleyin."
+                    testimonials={testimonials}
+                />
             </div>
         </div>
     );

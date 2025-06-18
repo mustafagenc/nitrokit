@@ -1,33 +1,193 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
-
-import { SocialIcons } from '@/components/footer/social-icons';
-import PoweredBy from '@/components/shared/powered-by';
+import React from 'react';
+import { Link } from '@/i18n/navigation';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Separator } from '@/components/ui/separator';
+import { ArrowRight, Heart, Palette, Mail, Send } from 'lucide-react';
 import { CompactThemeSwitcher } from '@/components/theme/compact-theme-switcher';
-import { FooterNavbar } from '@/components/footer/navbar';
+import PoweredBy from '@/components/shared/powered-by';
+import { SOCIAL_LINKS } from '@/constants/site';
+import { Version } from '@/components/shared/version';
 
-export const Footer = () => {
-    const t = useTranslations();
+const footerLinks = {
+    product: [
+        { name: 'Özellikler', href: '/features' },
+        { name: 'Fiyatlandırma', href: '/pricing' },
+        { name: 'Dokümantasyon', href: '/docs' },
+        { name: 'Örnekler', href: '/examples' },
+    ],
+    support: [
+        { name: 'Başlangıç Rehberi', href: '/docs/getting-started' },
+        { name: 'SSS', href: '/faq' },
+        { name: 'Topluluk', href: '/community' },
+        { name: 'İletişim', href: '/contact' },
+    ],
+};
+
+export function Footer() {
+    const [email, setEmail] = React.useState('');
+    const [isSubscribed, setIsSubscribed] = React.useState(false);
+
+    const handleSubscribe = (e: React.FormEvent) => {
+        e.preventDefault();
+        if (email) {
+            setIsSubscribed(true);
+            setEmail('');
+            setTimeout(() => setIsSubscribed(false), 3000);
+        }
+    };
+
     return (
-        <footer className="my-10 flex w-full flex-col items-center justify-center px-3 lg:px-0">
-            <div className="mb-8">
-                <FooterNavbar />
-            </div>
-            <div className="mb-8 rounded-xl border border-gray-200/40 bg-white/40 p-4 backdrop-blur-sm dark:border-gray-700/40 dark:bg-gray-900/40">
-                <SocialIcons />
-            </div>
-            <div className="mt-5 flex w-full flex-col items-center border-gray-100/70 pt-3 text-xs text-gray-500 lg:w-7xl lg:flex-row lg:justify-between dark:border-gray-800/80 dark:text-gray-400">
-                <div className="font-medium">
-                    {t('footer.copyright', { year: new Date(), name: t('app.shortName') })}
-                </div>
-                <div className="mt-6 flex flex-col items-center justify-center gap-3 lg:mt-0 lg:flex-row">
-                    <div className="rounded-lg border border-gray-200/30 bg-white/30 p-2 backdrop-blur-sm dark:border-gray-700/30 dark:bg-gray-900/30">
-                        <PoweredBy />
+        <footer className="my-10 flex w-full flex-col items-center justify-center lg:mx-auto lg:w-7xl">
+            <div className="relative">
+                <section className="py-6">
+                    <div className="grid gap-6 lg:grid-cols-7">
+                        <div className="lg:col-span-3 lg:pr-20">
+                            <Link href="/" className="mb-6 inline-flex items-center space-x-2">
+                                <div className="bg-primary flex h-8 w-8 items-center justify-center rounded-lg">
+                                    <Palette className="h-5 w-5 text-white" />
+                                </div>
+                                <span className="text-foreground text-xl font-bold">NitroKit</span>
+                            </Link>
+                            <p className="text-muted-foreground mb-6 leading-relaxed">
+                                Modern web uygulamaları geliştirmek için tasarlanmış kapsamlı
+                                Next.js starter kit&apos;i.
+                            </p>
+
+                            <div className="flex gap-2">
+                                {SOCIAL_LINKS.map((social, index) => (
+                                    <Button
+                                        key={index}
+                                        variant="outline"
+                                        size="icon"
+                                        asChild
+                                        className="hover:bg-primary hover:text-primary-foreground h-8 w-8 transition-colors"
+                                    >
+                                        <a
+                                            href={social.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            aria-label={social.name}
+                                        >
+                                            <social.icon className="h-3 w-3" />
+                                        </a>
+                                    </Button>
+                                ))}
+                            </div>
+                        </div>
+                        <div>
+                            <h3 className="text-foreground mb-4 flex items-center gap-2 font-semibold">
+                                <div className="flex h-6 w-6 items-center justify-center rounded bg-blue-500/10">
+                                    <Palette className="h-3 w-3 text-blue-500" />
+                                </div>
+                                Ürün
+                            </h3>
+                            <nav className="space-y-3">
+                                {footerLinks.product.map((link, index) => (
+                                    <Link
+                                        key={index}
+                                        href={link.href}
+                                        className="text-muted-foreground hover:text-foreground group flex items-center text-sm transition-colors"
+                                    >
+                                        <span>{link.name}</span>
+                                        <ArrowRight className="ml-1 h-3 w-3 opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100" />
+                                    </Link>
+                                ))}
+                            </nav>
+                        </div>
+                        <div>
+                            <h3 className="text-foreground mb-4 flex items-center gap-2 font-semibold">
+                                <div className="flex h-6 w-6 items-center justify-center rounded bg-green-500/10">
+                                    <Heart className="h-3 w-3 text-green-500" />
+                                </div>
+                                Destek
+                            </h3>
+                            <nav className="space-y-3">
+                                {footerLinks.support.map((link, index) => (
+                                    <Link
+                                        key={index}
+                                        href={link.href}
+                                        className="text-muted-foreground hover:text-foreground group flex items-center text-sm transition-colors"
+                                    >
+                                        <span>{link.name}</span>
+                                        <ArrowRight className="ml-1 h-3 w-3 opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100" />
+                                    </Link>
+                                ))}
+                            </nav>
+                        </div>
+                        <div className="lg:col-span-2">
+                            <h3 className="text-foreground mb-4 flex items-center gap-2 font-semibold">
+                                <div className="flex h-6 w-6 items-center justify-center rounded bg-purple-500/10">
+                                    <Mail className="h-3 w-3 text-purple-500" />
+                                </div>
+                                Haber Bülteni
+                            </h3>
+
+                            <div className="mb-4">
+                                <p className="text-muted-foreground text-sm leading-relaxed">
+                                    Yeni özellikler ve geliştirmeler hakkında bilgi alın.
+                                </p>
+                            </div>
+
+                            <form onSubmit={handleSubscribe} className="space-y-3">
+                                <Input
+                                    type="email"
+                                    placeholder="E-posta adresiniz"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    className="h-9 w-full"
+                                    required
+                                />
+                                <Button
+                                    type="submit"
+                                    disabled={isSubscribed}
+                                    size="sm"
+                                    className="h-9 w-full"
+                                >
+                                    {isSubscribed ? (
+                                        <>
+                                            <Heart className="mr-2 h-3 w-3 fill-current" />
+                                            Teşekkürler!
+                                        </>
+                                    ) : (
+                                        <>
+                                            <Send className="mr-2 h-3 w-3" />
+                                            Abone Ol
+                                        </>
+                                    )}
+                                </Button>
+                            </form>
+
+                            <p className="text-muted-foreground mt-2 text-xs">
+                                İstediğiniz zaman abonelikten çıkabilirsiniz.
+                            </p>
+                        </div>
                     </div>
-                    <CompactThemeSwitcher />
-                </div>
+                </section>
+
+                <Separator />
+
+                <section className="flex flex-col items-center justify-between gap-4 py-3 md:flex-row">
+                    <div className="text-muted-foreground flex items-center gap-1 text-sm">
+                        <span>© 2024 Nitrokit. Tüm hakları saklıdır.</span>
+                        <span>•</span>
+                        <span className="flex items-center gap-1">
+                            Made with <Heart className="h-3 w-3 fill-red-500 text-red-500" /> in
+                            Turkey
+                        </span>
+                    </div>
+
+                    <div className="flex items-center gap-4">
+                        <CompactThemeSwitcher />
+                        <div className="bg-border h-4 w-px" />
+                        <PoweredBy />
+                        <div className="bg-border h-4 w-px" />
+                        <Version />
+                    </div>
+                </section>
             </div>
         </footer>
     );
-};
+}

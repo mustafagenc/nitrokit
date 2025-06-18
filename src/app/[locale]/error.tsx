@@ -2,7 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 
-import { Footer } from '@/components/footer/footer';
+import { Footer } from '@/components/footer/compact-footer';
 import { Header } from '@/components/header/header';
 import { Button } from '@/components/ui/button';
 

@@ -5,12 +5,20 @@ import { FaGithub, FaStar, FaCodeBranch, FaExternalLinkAlt } from 'react-icons/f
 import { useState, useRef, useEffect } from 'react';
 import { useGitHubStats } from '@/hooks/useGithubStats';
 import { useTranslations } from 'next-intl';
+import { useCanvasConfetti } from '@/hooks/useCanvasConfetti';
 
 export const GithubButtonWithStats = () => {
     const t = useTranslations();
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
     const { stats, loading, error, formatNumber } = useGitHubStats(GITHUB_URL);
+
+    const { containerRef, triggerConfetti } = useCanvasConfetti({
+        effect: 'stars',
+        enabled: true,
+        intensity: 'high',
+        colors: ['#000000', '#ffffff', '#0070f3', '#ff0080', '#7928ca'],
+    });
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
@@ -112,6 +120,8 @@ export const GithubButtonWithStats = () => {
                 <div className="absolute top-full left-0 z-50 mt-2 w-80 overflow-hidden rounded-xl border border-gray-200 bg-white shadow-xl dark:border-gray-600 dark:bg-gray-800">
                     <div className="p-2">
                         <button
+                            ref={containerRef as any}
+                            onMouseEnter={() => triggerConfetti()}
                             onClick={() => handleMenuClick(GITHUB_URL + '/stargazers')}
                             className="flex w-full items-center gap-3 rounded-lg px-3 py-3 text-gray-700 transition-all duration-200 hover:bg-orange-50 dark:text-gray-200 dark:hover:bg-yellow-900/20"
                         >

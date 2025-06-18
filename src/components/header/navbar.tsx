@@ -161,7 +161,6 @@ export function Navbar() {
                     </NavigationMenuContent>
                 </NavigationMenuItem>
 
-                {/* Pricing */}
                 <NavigationMenuItem>
                     <Link
                         href="/pricing"
@@ -175,7 +174,6 @@ export function Navbar() {
                     </Link>
                 </NavigationMenuItem>
 
-                {/* Contact */}
                 <NavigationMenuItem>
                     <Link
                         href="/contact"
