@@ -16,8 +16,8 @@ export default function Logo({
     return (
         <Link href={'/'} className="flex items-center justify-start gap-2">
             <ThemedImage
-                lightSrc={'/logo/nitrokit-dark.svg'}
-                darkSrc={'/logo/nitrokit.svg'}
+                lightSrc={'/logo/ilogo-blue.svg'}
+                darkSrc={'/logo/ilogo-blue.svg'}
                 alt="Next.js logo"
                 width={size}
                 height={size}
@@ -25,7 +25,7 @@ export default function Logo({
             />
             {!onlyIcon && (
                 <span
-                    className={`${forceText ? '' : 'hidden lg:inline-block'} font-[family-name:var(--font-lexend)] text-2xl font-bold text-shadow-2xs`}
+                    className={`${forceText ? '' : 'hidden lg:inline-block'} bg-linear-to-r from-emerald-500 via-teal-500 to-cyan-500 bg-clip-text font-[family-name:var(--font-lexend)] text-2xl font-bold text-transparent text-shadow-xs`}
                 >
                     {t('name')}
                 </span>
