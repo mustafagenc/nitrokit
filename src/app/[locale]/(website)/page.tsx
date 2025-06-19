@@ -72,7 +72,7 @@ export default function Home() {
                 <div className="absolute right-1/4 bottom-40 h-24 w-px bg-gradient-to-b from-transparent via-blue-500/20 to-transparent" />
             </div>
             <div className="relative z-10">
-                <SharedLayout className="relative">
+                <div className="relative">
                     <div className="container mx-auto px-4 py-16 lg:py-10">
                         <div className="mb-12 text-center">
                             <CompactBanner
@@ -131,7 +131,7 @@ export default function Home() {
                                 </div>
                             </div>
                         </div>
-
+                        {/*
                         <div className="text-center">
                             <h2 className="mb-8 text-2xl font-bold text-gray-900 md:text-3xl dark:text-white">
                                 {t('technologies.title')}
@@ -141,42 +141,11 @@ export default function Home() {
                                 <LibraryLogos />
                             </div>
                         </div>
-                        <div className="mt-20 rounded-2xl border-t border-gray-200/50 bg-gradient-to-r from-white/40 via-white/60 to-white/40 pt-12 text-center backdrop-blur-sm dark:border-gray-800/50 dark:from-gray-900/40 dark:via-gray-900/60 dark:to-gray-900/40">
-                            <h3 className="mb-4 text-xl font-semibold text-gray-900 dark:text-white">
-                                {t('cta.title')}
-                            </h3>
-                            <p className="mb-6 text-gray-600 dark:text-gray-400">
-                                {t('cta.description')}
-                            </p>
-
-                            <div className="flex flex-col items-center justify-center gap-3 pb-8 sm:flex-row">
-                                <Button
-                                    asChild
-                                    variant="outline"
-                                    size="sm"
-                                    className="bg-white/70 backdrop-blur-sm hover:bg-white dark:bg-gray-900/70 dark:hover:bg-gray-900"
-                                >
-                                    <Link href={GITHUB_URL}>
-                                        <Github className="mr-2 h-4 w-4" />
-                                        {t('cta.github')}
-                                    </Link>
-                                </Button>
-
-                                <Button
-                                    asChild
-                                    variant="ghost"
-                                    size="sm"
-                                    className="hover:bg-white/50 dark:hover:bg-gray-900/50"
-                                >
-                                    <Link href={GITHUB_URL + '/wiki'}>
-                                        <ExternalLink className="mr-2 h-4 w-4" />
-                                        {t('cta.docs')}
-                                    </Link>
-                                </Button>
-                            </div>
-                        </div>
+                        */}
                     </div>
-                </SharedLayout>
+                </div>
+
+                <LibraryLogos />
 
                 <Testimonials
                     title="Müşteri Görüşleri"
@@ -184,6 +153,39 @@ export default function Home() {
                     description="NitroKit'in neden bu kadar sevildiğini keşfedin ve bugün katılarak işiniz için dönüştürücü gücünü deneyimleyin."
                     testimonials={testimonials}
                 />
+
+                <div className="my-10 rounded-2xl border-t border-gray-200/50 bg-gradient-to-r from-white/40 via-white/60 to-white/40 pt-12 text-center backdrop-blur-sm dark:border-gray-800/50 dark:from-gray-900/40 dark:via-gray-900/60 dark:to-gray-900/40">
+                    <h3 className="mb-4 text-xl font-semibold text-gray-900 dark:text-white">
+                        {t('cta.title')}
+                    </h3>
+                    <p className="mb-6 text-gray-600 dark:text-gray-400">{t('cta.description')}</p>
+
+                    <div className="flex flex-col items-center justify-center gap-3 pb-8 sm:flex-row">
+                        <Button
+                            asChild
+                            variant="outline"
+                            size="sm"
+                            className="bg-white/70 backdrop-blur-sm hover:bg-white dark:bg-gray-900/70 dark:hover:bg-gray-900"
+                        >
+                            <Link href={GITHUB_URL}>
+                                <Github className="mr-2 h-4 w-4" />
+                                {t('cta.github')}
+                            </Link>
+                        </Button>
+
+                        <Button
+                            asChild
+                            variant="ghost"
+                            size="sm"
+                            className="hover:bg-white/50 dark:hover:bg-gray-900/50"
+                        >
+                            <Link href={GITHUB_URL + '/wiki'}>
+                                <ExternalLink className="mr-2 h-4 w-4" />
+                                {t('cta.docs')}
+                            </Link>
+                        </Button>
+                    </div>
+                </div>
             </div>
         </div>
     );
