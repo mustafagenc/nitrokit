@@ -94,7 +94,7 @@ const logos = [
 
 export const LibraryLogos = () => {
     return (
-        <section className="bg-background border-border/50 overflow-hidden border-b pt-10 pb-15 md:pt-15">
+        <section className="overflow-hidden pt-10 pb-15 md:pt-15">
             <div className="container mx-auto px-6">
                 <div className="mb-12 text-center" style={{ opacity: 1, transform: 'none' }}>
                     <p className="text-muted-foreground mb-6 text-xs font-semibold tracking-wider uppercase">
@@ -102,8 +102,8 @@ export const LibraryLogos = () => {
                     </p>
                 </div>
                 <div className="relative">
-                    <div className="from-background pointer-events-none absolute start-0 top-0 z-10 h-full w-20 bg-gradient-to-r to-transparent"></div>
-                    <div className="from-background pointer-events-none absolute end-0 top-0 z-10 h-full w-20 bg-gradient-to-l to-transparent"></div>
+                    <div className="pointer-events-none absolute start-0 top-0 z-10 h-full w-20 bg-gradient-to-r to-transparent"></div>
+                    <div className="pointer-events-none absolute end-0 top-0 z-10 h-full w-20 bg-gradient-to-l to-transparent"></div>
                     <div className="group flex flex-row [gap:var(--gap)] overflow-hidden p-2 [--duration:40s] [--gap:2rem]">
                         {Array(4)
                             .fill(0)
