@@ -1,4 +1,3 @@
-import SharedLayout from '@/components/layout/shared';
 import { CompactBanner } from '@/components/banners/compact-banner';
 import { Link } from '@/i18n/navigation';
 import { LibraryLogos } from './home/components/library-logos';
