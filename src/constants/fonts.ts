@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono, Lexend } from 'next/font/google';
+import { Geist, Geist_Mono, Lexend, Montserrat } from 'next/font/google';
 
 const geistSans = Geist({
     variable: '--font-geist-sans',
@@ -16,4 +16,10 @@ const lexend = Lexend({
     display: 'swap',
 });
 
-export { geistSans, geistMono, lexend };
+const montserrat = Montserrat({
+    variable: '--font-montserrat',
+    subsets: ['latin'],
+    display: 'swap',
+});
+
+export { geistSans, geistMono, lexend, montserrat };
