@@ -1,12 +1,14 @@
 <div align="center">
   <a href="https://nitrokit.vercel.app">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/mustafagenc/nitrokit/refs/heads/main/public/logo/nitrokit-dark.svg">
-      <img alt="Nitrokit Logo" src="https://raw.githubusercontent.com/mustafagenc/nitrokit/refs/heads/main/public/logo/nitrokit.svg" height="128">
+      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/mustafagenc/nitrokit/refs/heads/main/public/logo/nitrokit-icon-dark.svg">
+      <img alt="Nitrokit Logo" src="https://raw.githubusercontent.com/mustafagenc/nitrokit/refs/heads/main/public/logo/nitrokit-icon-dark.svg" height="128">
     </picture>
   </a>
-  <h1>Nitrokit</h1>
-  <p>🚀 Modern Next.js boilerplate with TypeScript, authentication, and development automation</p>
+
+# Nitrokit
+
+🚀 Modern Next.js boilerplate with TypeScript, authentication, and development automation
 
 <a href="https://app.netlify.com/projects/enitrokit/deploys"><img src="https://api.netlify.com/api/v1/badges/835fe888-01af-45d0-bff1-de2238cc4122/deploy-status" alt="Netlify Status"></a> <a href="https://codecov.io/gh/mustafagenc/nitrokit"><img src="https://codecov.io/gh/mustafagenc/nitrokit/graph/badge.svg?token=LGtgTehbnm" alt="codecov"></a> <a href="https://www.codefactor.io/repository/github/mustafagenc/nitrokit"><img src="https://img.shields.io/codefactor/grade/github/mustafagenc/nitrokit?style=flat" alt="CodeFactor Grade"></a> <a href="https://crowdin.com/project/nitrokit"><img src="https://badges.crowdin.net/nitrokit/localized.svg" alt="Crowdin"></a> <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License: Apache-2.0"></a>
 
