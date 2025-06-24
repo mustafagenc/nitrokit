@@ -1,7 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { Link, usePathname } from '@/lib/i18n/navigation';
+import { Link, usePathname } from '@/i18n/navigation';
 import { useState } from 'react';
 import {
     Home,

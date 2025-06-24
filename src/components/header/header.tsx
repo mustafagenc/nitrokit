@@ -11,9 +11,9 @@ export const Header = () => {
     const sticky = useStickyNavbar();
     return (
         <header
-            className={`top-0 left-0 w-full items-center px-3 ${
+            className={`sticky top-0 left-0 w-full items-center px-3 ${
                 sticky
-                    ? 'border-stroke sticky z-[999] bg-white/80 shadow-md backdrop-blur-[5px] dark:bg-black/80'
+                    ? 'border-stroke z-[999] bg-white/80 shadow-md backdrop-blur-[5px] transition dark:bg-black/80'
                     : 'border-0 bg-transparent'
             }`}
         >

@@ -1,11 +1,11 @@
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 
-import SharedLayout from '@/components/layout/shared';
 import { generatePageMetadata } from '@/lib';
 
 import { ContactForm } from './components/contact-form';
 import { ContactInfo } from './components/contact-info';
+import PageHero from '@/components/shared/page-hero';
 
 export async function generateMetadata(): Promise<Metadata> {
     const t = await getTranslations('contact');
@@ -20,18 +20,14 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function Page() {
     return (
-        <SharedLayout>
-            <div className="mx-auto max-w-3xl text-center leading-22">
-                <h2 className="font-semibold text-cyan-500 dark:text-shadow-2xs">Contact Us</h2>
-                <h1 className="bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-5xl leading-18 font-bold text-transparent dark:text-shadow-2xs">
-                    Get in Touch
-                </h1>
-                <p className="mt-10 text-xl">
-                    We&apos;d love to hear from you. Send us a message and we&apos;ll respond as
-                    soon as possible.
-                </p>
-            </div>
-            <div className="mx-auto my-20 grid max-w-6xl grid-cols-1 gap-16 lg:grid-cols-2">
+        <div className="w-full px-4 lg:mx-auto lg:w-7xl lg:p-0">
+            <PageHero
+                h1="Get in Touch"
+                h2="Contact Us"
+                p="We'd love to hear from you. Send us a message and we'll respond as
+                    soon as possible."
+            />
+            <div className="mx-auto my-20 grid w-full grid-cols-1 gap-16 lg:grid-cols-2">
                 {/* Left: Contact Form */}
                 <div className="order-2 lg:order-1">
                     <ContactForm />
@@ -42,6 +38,6 @@ export default async function Page() {
                     <ContactInfo />
                 </div>
             </div>
-        </SharedLayout>
+        </div>
     );
 }

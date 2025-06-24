@@ -3,7 +3,7 @@
 import { useTranslations } from 'next-intl';
 
 import { NAV_LINKS } from '@/constants/menu';
-import { Link } from '@/lib/i18n/navigation';
+import { Link } from '@/i18n/navigation';
 import { cn } from '@/lib';
 
 export interface NavbarProps {

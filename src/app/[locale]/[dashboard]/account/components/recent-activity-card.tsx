@@ -2,7 +2,7 @@ import { useFormatter, useTranslations } from 'next-intl';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Clock, SquareArrowOutUpRight } from 'lucide-react';
-import { Link } from '@/lib/i18n/navigation';
+import { Link } from '@/i18n/navigation';
 import { UserActivity } from '@/types/activity';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 

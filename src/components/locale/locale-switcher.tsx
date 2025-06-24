@@ -8,7 +8,7 @@ import SmallLoading from '@/components/shared/small-loading';
 import { Button } from '@/components/ui/button';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { localesWithFlag } from '@/constants/locale';
-import { usePathname, useRouter } from '@/lib/i18n/navigation';
+import { usePathname, useRouter } from '@/i18n/navigation';
 
 export const LocaleSwitcher = () => {
     const router = useRouter();

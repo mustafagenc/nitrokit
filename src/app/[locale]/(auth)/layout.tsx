@@ -6,7 +6,7 @@ import BackButton from '@/components/shared/back-button';
 import Logo from '@/components/shared/logo';
 import PoweredBy from '@/components/shared/powered-by';
 import { ThemedImage } from '@/components/shared/themed-image';
-import { Link } from '@/lib/i18n/navigation';
+import { Link } from '@/i18n/navigation';
 import { CompactLocaleSwitcher } from '@/components/locale/compact-locale-switcher';
 
 export default async function AuthLayout({

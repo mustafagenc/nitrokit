@@ -1,5 +1,5 @@
 import { getTranslations } from 'next-intl/server';
-import { Link } from '@/lib/i18n/navigation';
+import { Link } from '@/i18n/navigation';
 import SigninForm from './components/signin-form';
 import { SignWithButtonsCard } from '../components/sign-with-buttons-card';
 
