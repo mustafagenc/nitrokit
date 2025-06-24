@@ -144,8 +144,7 @@
     "@aws-sdk/types" "^3.222.0"
     "@smithy/util-utf8" "^2.0.0"
     tslib "^2.6.2"
-
-"@aws-sdk/client-ses@^3.826.0":
+"@aws-sdk/client-ses@^3.835.0":
   version "3.835.0"
   resolved "https://registry.yarnpkg.com/@aws-sdk/client-ses/-/client-ses-3.835.0.tgz#8644c7a5f076e80162a7857326a4517f5869b680"
   integrity sha512-Eugl8TqnvNWs2i38XVXwiLKWIreRdiOrIaf2lCPgowKZqw6yvLG6+Yc3yABzZZ5bnUZdDHt1pYfIMUbSXLGdAw==
@@ -190,8 +189,7 @@
     "@smithy/util-utf8" "^4.0.0"
     "@smithy/util-waiter" "^4.0.5"
     tslib "^2.6.2"
-
-"@aws-sdk/client-sns@^3.826.0":
+"@aws-sdk/client-sns@^3.835.0":
   version "3.835.0"
   resolved "https://registry.yarnpkg.com/@aws-sdk/client-sns/-/client-sns-3.835.0.tgz#e2ffe0dea5ec702324573655b9dac558ca9fb107"
   integrity sha512-rnt7Jye8FZbmMVF01OivYX5vLJmQPEbyo1vu55EvmXZ7fP3WtW6q7YV+IIofL46C6XdzenanltgXvefe07fz4g==
@@ -4800,7 +4798,7 @@
   resolved "https://registry.yarnpkg.com/@sentry/core/-/core-9.31.0.tgz#dd306dc4f7a7a3e95fe2e83ee10cd494bbf86ac7"
   integrity sha512-6JeoPGvBgT9m2YFIf2CrW+KrrOYzUqb9+Xwr/Dw25kPjVKy+WJjWqK8DKCNLgkBA22OCmSOmHuRwFR0YxGVdZQ==
 
-"@sentry/nextjs@^9.30.0":
+"@sentry/nextjs@^9.31.0":
   version "9.31.0"
   resolved "https://registry.yarnpkg.com/@sentry/nextjs/-/nextjs-9.31.0.tgz#e2579267ff73b7e3f4d7de1c59a996df3aa58c13"
   integrity sha512-+RoO+xOnlbQLsuubQ4SgrYmXTrixGeXldDTw7xVTpcUT/U8FXTbwUDIWJGm1gC9b1cOhg5TicVr9/ZTgI1RLDw==
@@ -6069,7 +6067,7 @@
   resolved "https://registry.yarnpkg.com/@types/unist/-/unist-2.0.11.tgz#11af57b127e32487774841f7a4e54eab166d03c4"
   integrity sha512-CmBKiL6NNo/OqgmMn95Fk9Whlp2mtvIv+KNpQKN2F4SjvrEesubTRWGYSg+BnWZOnlCaSTU1sMpsBOzgbYhnsA==
 
-"@typescript-eslint/eslint-plugin@^5.4.2 || ^6.0.0 || ^7.0.0 || ^8.0.0", "@typescript-eslint/eslint-plugin@^8.34.0":
+"@typescript-eslint/eslint-plugin@^5.4.2 || ^6.0.0 || ^7.0.0 || ^8.0.0", "@typescript-eslint/eslint-plugin@^8.35.0":
   version "8.35.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/eslint-plugin/-/eslint-plugin-8.35.0.tgz#515170100ff867445fe0a17ce05c14fc5fd9ca63"
   integrity sha512-ijItUYaiWuce0N1SoSMrEd0b6b6lYkYt99pqCPfybd+HKVXtEvYhICfLdwp42MhiI5mp0oq7PKEL+g1cNiz/Eg==
@@ -6084,7 +6082,7 @@
     natural-compare "^1.4.0"
     ts-api-utils "^2.1.0"
 
-"@typescript-eslint/parser@^5.4.2 || ^6.0.0 || ^7.0.0 || ^8.0.0", "@typescript-eslint/parser@^8.34.0":
+"@typescript-eslint/parser@^5.4.2 || ^6.0.0 || ^7.0.0 || ^8.0.0", "@typescript-eslint/parser@^8.35.0":
   version "8.35.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/parser/-/parser-8.35.0.tgz#20a0e17778a329a6072722f5ac418d4376b767d2"
   integrity sha512-6sMvZePQrnZH2/cJkwRpkT7DxoAWh+g6+GFRK6bV3YQo7ogi3SX5rgF6099r5Q53Ma5qeT7LGmOmuIutF4t3lA==
@@ -6353,7 +6351,7 @@
   resolved "https://registry.yarnpkg.com/@vercel/speed-insights/-/speed-insights-1.2.0.tgz#1656c3596d4ec02d93d301ca45944c1b9b245186"
   integrity sha512-y9GVzrUJ2xmgtQlzFP2KhVRoCglwfRQgjyfY607aU0hh0Un6d0OUyrJkjuAlsV18qR4zfoFPs/BiIj9YDS6Wzw==
 
-"@vitejs/plugin-react@^4.5.2":
+"@vitejs/plugin-react@^4.6.0":
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/@vitejs/plugin-react/-/plugin-react-4.6.0.tgz#2707b485f44806d42d41c63921883cff9c54dfaa"
   integrity sha512-5Kgff+m8e2PB+9j51eGHEpn5kUzRKH2Ry0qGoe8ItJg7pqnkPrYPkDQZGgGmTa0EGarHrkjLvOdU3b1fzI8otQ==
@@ -12060,7 +12058,7 @@ next-auth@^5.0.0-beta.28:
   dependencies:
     "@auth/core" "0.40.0"
 
-next-intl@^4.1.0:
+next-intl@^4.3.0:
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/next-intl/-/next-intl-4.3.1.tgz#6bbafec13fcb3de1771bd1718d51b7ca473859c3"
   integrity sha512-FylHpOoQw5MpOyJt4cw8pNEGba7r3jKDSqt112fmBqXVceGR5YncmqpxS5MvSHsWRwbjqpOV8OsZCIY/4f4HWg==
