@@ -21,7 +21,7 @@ const footerLinks = {
     support: [
         { name: 'Başlangıç Rehberi', href: '/docs/getting-started' },
         { name: 'SSS', href: '/faq' },
-        { name: 'Topluluk', href: '/community' },
+        { name: 'Topluluk', href: 'https://github.com/mustafagenc/nitrokit/discussions' },
         { name: 'İletişim', href: '/contact' },
     ],
 };

@@ -4,7 +4,7 @@ import { Link } from '@/lib/i18n/navigation';
 import { ThemedImage } from '@/components/shared/themed-image';
 
 export default function Logo({
-    size = 50,
+    size = 40,
     onlyIcon = false,
     forceText = false,
 }: {
@@ -14,10 +14,10 @@ export default function Logo({
 }) {
     const t = useTranslations('app');
     return (
-        <Link href={'/'} className="flex items-center justify-start gap-2">
+        <Link href={'/'} className="flex items-center justify-start gap-4">
             <ThemedImage
-                lightSrc={'/logo/nitrokit-dark.svg'}
-                darkSrc={'/logo/nitrokit.svg'}
+                lightSrc={'/logo/nitrokit-icon.png'}
+                darkSrc={'/logo/nitrokit-icon.png'}
                 alt="Next.js logo"
                 width={size}
                 height={size}
@@ -25,9 +25,9 @@ export default function Logo({
             />
             {!onlyIcon && (
                 <span
-                    className={`${forceText ? '' : 'hidden lg:inline-block'} font-[family-name:var(--font-lexend)] text-2xl font-bold text-shadow-2xs`}
+                    className={`${forceText ? '' : 'hidden lg:inline-block'} font-[family-name:var(--font-montserrat)] text-3xl font-bold tracking-wide text-shadow-xs`}
                 >
-                    {t('name')}
+                    {t('name').toLowerCase()}
                 </span>
             )}
         </Link>

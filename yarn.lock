@@ -144,6 +144,7 @@
     "@aws-sdk/types" "^3.222.0"
     "@smithy/util-utf8" "^2.0.0"
     tslib "^2.6.2"
+
 "@aws-sdk/client-ses@^3.835.0":
   version "3.835.0"
   resolved "https://registry.yarnpkg.com/@aws-sdk/client-ses/-/client-ses-3.835.0.tgz#8644c7a5f076e80162a7857326a4517f5869b680"
@@ -189,6 +190,7 @@
     "@smithy/util-utf8" "^4.0.0"
     "@smithy/util-waiter" "^4.0.5"
     tslib "^2.6.2"
+
 "@aws-sdk/client-sns@^3.835.0":
   version "3.835.0"
   resolved "https://registry.yarnpkg.com/@aws-sdk/client-sns/-/client-sns-3.835.0.tgz#e2ffe0dea5ec702324573655b9dac558ca9fb107"
