@@ -13,7 +13,8 @@ export async function POST(req: NextRequest) {
         }
         await prisma.notificationSubscription.deleteMany({ where: { endpoint } });
         return NextResponse.json({ success: true });
-    } catch (e) {
+    } catch (error) {
+        console.error('Unsubscribe error:', error);
         return NextResponse.json({ success: false, error: 'Silme başarısız.' }, { status: 500 });
     }
 }

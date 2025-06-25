@@ -6,7 +6,6 @@ import Logo from '@/components/shared/logo';
 import useStickyNavbar from '@/hooks/useStickyNavbar';
 import { CompactLocaleSwitcher } from '@/components/locale/compact-locale-switcher';
 import UserMenu from '@/components/dashboard/user-menu';
-import { NotificationPermission } from '@/components/shared/notification-permission';
 
 export const Header = () => {
     const sticky = useStickyNavbar();

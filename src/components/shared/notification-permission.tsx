@@ -1,4 +1,5 @@
 'use client';
+
 import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 
@@ -57,6 +58,7 @@ export function NotificationPermission() {
             setShowBanner(false);
             localStorage.setItem('notification-banner-closed', 'true');
         } catch (e) {
+            console.error('Subscription failed:', e);
             setError(t('error.subscribe'));
         } finally {
             setLoading(false);

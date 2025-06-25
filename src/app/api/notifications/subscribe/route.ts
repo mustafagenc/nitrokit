@@ -17,7 +17,8 @@ export async function POST(req: NextRequest) {
             create: { endpoint, p256dh: keys.p256dh, auth: keys.auth },
         });
         return NextResponse.json({ success: true });
-    } catch (e) {
+    } catch (error) {
+        console.error('Subscription error:', error);
         return NextResponse.json({ success: false, error: 'Kayıt başarısız.' }, { status: 500 });
     }
 }
