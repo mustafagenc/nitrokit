@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';
-import { Link } from '@/lib/i18n/navigation';
+import { Link } from '@/i18n/navigation';
 import { auth } from '@/lib/auth';
 import { generatePageMetadata } from '@/lib';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';

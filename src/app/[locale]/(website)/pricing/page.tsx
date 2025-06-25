@@ -1,12 +1,12 @@
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 
-import SharedLayout from '@/components/layout/shared';
 import { generatePageMetadata } from '@/lib';
 import PricingSection from './components/pricing-section';
 import { PLANS } from '@/constants/plans';
 import { ActionBanner } from '@/components/banners/action-banner';
 import { Building } from 'lucide-react';
+import PageHero from '@/components/shared/page-hero';
 
 export async function generateMetadata(): Promise<Metadata> {
     const t = await getTranslations('pricing');
@@ -22,16 +22,12 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function Page() {
     const t = await getTranslations();
     return (
-        <SharedLayout>
-            <div className="mx-auto max-w-3xl text-center leading-22">
-                <h2 className="font-semibold text-cyan-500 dark:text-shadow-2xs">
-                    {t('pricing.title')}
-                </h2>
-                <h1 className="bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-5xl leading-18 font-bold text-transparent dark:text-shadow-2xs">
-                    {t('pricing.subtitle')}
-                </h1>
-                <p className="mt-10 text-xl">{t('pricing.description')}</p>
-            </div>
+        <div className="w-full px-4 lg:mx-auto lg:w-7xl lg:p-0">
+            <PageHero
+                h1={t('pricing.subtitle')}
+                h2={t('pricing.title')}
+                p={t('pricing.description')}
+            />
             <div className="mb-10 lg:mb-20">
                 <PricingSection plans={PLANS} />
             </div>
@@ -46,6 +42,6 @@ export default async function Page() {
                     variant="enterprise"
                 />
             </div>
-        </SharedLayout>
+        </div>
     );
 }

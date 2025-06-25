@@ -23,10 +23,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: 'yarn'
+          cache: 'pnpm'
 
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+          run_install: true
 
       - name: Generate release notes
         id: release-notes
@@ -48,8 +51,8 @@ jobs:
 
       - name: Build project
         run: |
-          yarn build
-          yarn test
+          pnpm build
+          pnpm test
 
       - name: Create build archive
         run: |

@@ -1,7 +1,7 @@
 'use client';
 
 import { ReactNode } from 'react';
-import { Link } from '@/lib/i18n/navigation';
+import { Link } from '@/i18n/navigation';
 import { MobileSidebarTrigger } from '@/components/dashboard/sidebar';
 import { UserMenu } from '@/components/dashboard/user-menu';
 import { Notifications } from '@/components/dashboard/notifications';

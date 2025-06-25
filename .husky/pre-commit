@@ -60,17 +60,22 @@ run_command() {
             echo -e "${RED}❌ $error_message${NC}"
             return 1
         fi
+    elif command -v pnpm >/dev/null 2>&1; then
+        if ! pnpm run "$command" 2>/dev/null; then
+            echo -e "${RED}❌ $error_message${NC}"
+            return 1
+        fi
     elif command -v npm >/dev/null 2>&1; then
         if ! npm run "$command" 2>/dev/null; then
             echo -e "${RED}❌ $error_message${NC}"
             return 1
         fi
     else
-        echo -e "${RED}❌ Neither yarn nor npm found${NC}"
+        echo -e "${RED}❌ yarn, pnpm veya npm bulunamadı${NC}"
         return 1
     fi
     
-    echo -e "${GREEN}✅ $command completed successfully${NC}"
+    echo -e "${GREEN}✅ $command başarıyla tamamlandı${NC}"
     return 0
 }
 
@@ -79,6 +84,9 @@ script_exists() {
     
     if command -v yarn >/dev/null 2>&1; then
         yarn run --help 2>/dev/null | grep -q "^  $script_name" || \
+        grep -q "\"$script_name\":" package.json 2>/dev/null
+    elif command -v pnpm >/dev/null 2>&1; then
+        pnpm run --help 2>/dev/null | grep -q "^  $script_name" || \
         grep -q "\"$script_name\":" package.json 2>/dev/null
     elif command -v npm >/dev/null 2>&1; then
         npm run 2>/dev/null | grep -q " $script_name$" || \

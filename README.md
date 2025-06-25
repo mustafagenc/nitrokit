@@ -1,9 +1,6 @@
 <div align="center">
   <a href="https://nitrokit.vercel.app">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/mustafagenc/nitrokit/refs/heads/main/public/logo/nitrokit-icon.png">
-      <img alt="Nitrokit Logo" src="https://raw.githubusercontent.com/mustafagenc/nitrokit/refs/heads/main/public/logo/nitrokit-icon.png" height="128">
-    </picture>
+    <img alt="Nitrokit Logo" src="https://raw.githubusercontent.com/mustafagenc/nitrokit/refs/heads/main/public/nitrokit/nitrokit-emblem.svg" height="250">
   </a>
 
 # Nitrokit

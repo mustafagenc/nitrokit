@@ -1,6 +1,6 @@
 'use client';
 
-import { Link, usePathname } from '@/lib/i18n/navigation';
+import { Link, usePathname } from '@/i18n/navigation';
 import { ChevronRight } from 'lucide-react';
 
 function filterLocaleSegments(segments: string[]) {

@@ -26,7 +26,7 @@ import { SignInButton } from '@/components/auth/signin-button';
 import { SignOutButton } from '@/components/auth/signout-button';
 import { SignUpButton } from '@/components/auth/signup-button';
 
-import { useRouter } from '@/lib/i18n/navigation';
+import { useRouter } from '@/i18n/navigation';
 import { UserAvatar } from '@/components/dashboard/user-avatar';
 import { cn } from '@/lib';
 

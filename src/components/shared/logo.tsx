@@ -1,5 +1,5 @@
 import { useTranslations } from 'next-intl';
-import { Link } from '@/lib/i18n/navigation';
+import { Link } from '@/i18n/navigation';
 
 import { ThemedImage } from '@/components/shared/themed-image';
 
@@ -25,7 +25,7 @@ export default function Logo({
             />
             {!onlyIcon && (
                 <span
-                    className={`${forceText ? '' : 'hidden lg:inline-block'} font-[family-name:var(--font-montserrat)] text-3xl font-bold tracking-wide text-shadow-xs`}
+                    className={`${forceText ? '' : 'hidden lg:inline-block'} text-[oklch(21% 0% 90)] font-[family-name:var(--font-montserrat)] text-3xl font-extrabold tracking-wide text-shadow-2xs dark:text-shadow-xs`}
                 >
                     {t('name').toLowerCase()}
                 </span>

@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import { useSession } from 'next-auth/react';
-import { useRouter } from '@/lib/i18n/navigation';
+import { useRouter } from '@/i18n/navigation';
 
 export function useSessionCheck() {
     const { data: session, status } = useSession();

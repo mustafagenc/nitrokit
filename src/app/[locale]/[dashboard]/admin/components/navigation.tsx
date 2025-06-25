@@ -1,6 +1,6 @@
 'use client';
 
-import { usePathname, Link } from '@/lib/i18n/navigation';
+import { usePathname, Link } from '@/i18n/navigation';
 import { useState } from 'react';
 import { LayoutDashboard, User, Menu, UsersRound, Tickets } from 'lucide-react';
 import { Menubar, MenubarMenu, MenubarTrigger } from '@/components/ui/menubar';

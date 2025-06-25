@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { useForm } from 'react-hook-form';
-import { useRouter } from '@/lib/i18n/navigation';
+import { useRouter } from '@/i18n/navigation';
 import { z } from 'zod';
 import { toast } from 'sonner';
 

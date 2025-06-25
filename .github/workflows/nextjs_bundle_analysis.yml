@@ -31,17 +31,11 @@ jobs:
         with:
           node-version: 24.2.0
 
-      - name: Install dependencies
-        uses: bahmutov/npm-install@v1
-
-      # If pnpm is used, you need to switch the previous step with the following one. pnpm does not create a package-lock.json
-      # so the step above will fail to pull dependencies
-      # - uses: pnpm/action-setup@v2
-      #   name: Install pnpm
-      #   id: pnpm-install
-      #   with:
-      #     version: 7
-      #     run_install: true
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+          run_install: true
 
       - name: Restore next build
         uses: actions/cache@v3
@@ -57,12 +51,12 @@ jobs:
 
       - name: Build next.js app
         # change this if your site requires a custom build command
-        run: ./node_modules/.bin/next build
+        run: pnpm exec next build
 
       # Here's the first place where next-bundle-analysis' own script is used
       # This step pulls the raw bundle stats for the current bundle
       - name: Analyze bundle
-        run: npx -p nextjs-bundle-analysis report
+        run: pnpm exec npx -p nextjs-bundle-analysis report
 
       - name: Upload bundle
         uses: actions/upload-artifact@v4
@@ -93,7 +87,7 @@ jobs:
       # entry in your package.json file.
       - name: Compare with base branch bundle
         if: success() && github.event.number
-        run: ls -laR .next/analyze/base && npx -p nextjs-bundle-analysis compare
+        run: ls -laR .next/analyze/base && pnpm exec npx -p nextjs-bundle-analysis compare
 
       - name: Get Comment Body
         id: get-comment-body

@@ -9,6 +9,7 @@ import { ArrowRight, Heart, Palette, Mail, Send } from 'lucide-react';
 import { CompactThemeSwitcher } from '@/components/theme/compact-theme-switcher';
 import PoweredBy from '@/components/shared/powered-by';
 import { SOCIAL_LINKS } from '@/constants/site';
+import Logo from '@/components/shared/logo';
 import { Version } from '@/components/shared/version';
 
 const footerLinks = {
@@ -16,7 +17,7 @@ const footerLinks = {
         { name: 'Özellikler', href: '/features' },
         { name: 'Fiyatlandırma', href: '/pricing' },
         { name: 'Dokümantasyon', href: '/docs' },
-        { name: 'Örnekler', href: '/examples' },
+        { name: 'Örnekler', href: '/storybook' },
     ],
     support: [
         { name: 'Başlangıç Rehberi', href: '/docs/getting-started' },
@@ -45,13 +46,8 @@ export function Footer() {
                 <section className="py-6">
                     <div className="grid gap-6 lg:grid-cols-7">
                         <div className="lg:col-span-3 lg:pr-20">
-                            <Link href="/" className="mb-6 inline-flex items-center space-x-2">
-                                <div className="bg-primary flex h-8 w-8 items-center justify-center rounded-lg">
-                                    <Palette className="h-5 w-5 text-white" />
-                                </div>
-                                <span className="text-foreground text-xl font-bold">NitroKit</span>
-                            </Link>
-                            <p className="text-muted-foreground mb-6 leading-relaxed">
+                            <Logo />
+                            <p className="text-muted-foreground my-4 leading-relaxed">
                                 Modern web uygulamaları geliştirmek için tasarlanmış kapsamlı
                                 Next.js starter kit&apos;i.
                             </p>

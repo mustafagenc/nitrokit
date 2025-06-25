@@ -1,6 +1,6 @@
 'use client';
 
-import { usePathname, Link } from '@/lib/i18n/navigation';
+import { usePathname, Link } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import {

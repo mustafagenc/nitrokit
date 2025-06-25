@@ -1,7 +1,7 @@
 'use client';
 
 import { useSession } from 'next-auth/react';
-import { useRouter } from '@/lib/i18n/navigation';
+import { useRouter } from '@/i18n/navigation';
 import { useEffect } from 'react';
 
 export function useRequireAuth() {

@@ -1,7 +1,7 @@
 import { getLocale, getTranslations } from 'next-intl/server';
 import Image from 'next/image';
 
-import { Link } from '@/lib/i18n/navigation';
+import { Link } from '@/i18n/navigation';
 
 export default async function NotFound() {
     const locale = await getLocale();
