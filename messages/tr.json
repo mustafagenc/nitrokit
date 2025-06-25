@@ -209,10 +209,10 @@
         "retry": "Tekrar Dene"
     },
     "metadata": {
-        "applicationName": "Nitrokit Başlangıç Şablonu",
-        "description": "Nitrokit başlangıç şablonu",
+        "applicationName": "Nitrokit",
+        "description": "Nitrokit Başlangıç Şablonu",
         "author": "Mustafa Genç",
-        "title": "Nitrokit Başlangıç Şablonu"
+        "title": "Nitrokit"
     },
     "navigation": {
         "title": "Navigasyon",
@@ -1342,5 +1342,22 @@
                 "description": "Şifreniz zayıf. Daha iyi güvenlik için daha güçlü bir şifre kullanmayı düşünün."
             }
         }
+    },
+    "newsletter": {
+        "title": "Haber Bülteni",
+        "description": "Yeni özellikler ve geliştirmeler hakkında bilgi alın.",
+        "emailPlaceholder": "E-posta adresiniz",
+        "sending": "Gönderiliyor...",
+        "thankYou": "Teşekkürler!",
+        "subscribe": "Abone Ol",
+        "success": "Onay maili gönderildi. Lütfen e-posta kutunuzu kontrol edin.",
+        "unsubscribe": "İstediğiniz zaman abonelikten çıkabilirsiniz.",
+        "confirmSuccess": "Aboneliğiniz başarıyla onaylandı!",
+        "confirmError": "Geçersiz veya süresi dolmuş bağlantı.",
+        "commonError": "Bir hata oluştu.",
+        "confirmDialogTitleSuccess": "Abonelik Onaylandı",
+        "confirmDialogTitleError": "Abonelik Onayı Hatası",
+        "confirmDialogTitleLoading": "Abonelik Onaylanıyor...",
+        "confirmDialogDescLoading": "Lütfen bekleyin."
     }
 }

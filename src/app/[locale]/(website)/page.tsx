@@ -11,45 +11,33 @@ import { GITHUB_URL } from '@/constants/site';
 import { useTranslations } from 'next-intl';
 import { Testimonials } from './home/components/testimonials';
 import { testimonials } from '@/constants/demo';
-import { useEffect, useState } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useState, useEffect } from 'react';
 import { NewsletterConfirmDialog } from '@/components/ui/newsletter-confirm-dialog';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 export default function Home() {
     const t = useTranslations('home');
+    const router = useRouter();
     const searchParams = useSearchParams();
     const [newsletterDialogOpen, setNewsletterDialogOpen] = useState(false);
-    const [newsletterStatus, setNewsletterStatus] = useState<'success' | 'error' | null>(null);
-    const [newsletterMessage, setNewsletterMessage] = useState('');
-    const [newsletterLoading, setNewsletterLoading] = useState(false);
 
     useEffect(() => {
-        const token = searchParams.get('newsletter_confirm');
-        if (token) {
+        if (searchParams.get('newsletter_confirm')) {
             setNewsletterDialogOpen(true);
-            setNewsletterLoading(true);
-            setNewsletterStatus(null);
-            setNewsletterMessage('');
-            fetch(`/api/newsletter/confirm?token=${token}`)
-                .then(async (res) => {
-                    const data = await res.json();
-                    if (data.success) {
-                        setNewsletterStatus('success');
-                        setNewsletterMessage('Aboneliğiniz başarıyla onaylandı!');
-                    } else {
-                        setNewsletterStatus('error');
-                        setNewsletterMessage(data.error || 'Geçersiz veya süresi dolmuş bağlantı.');
-                    }
-                })
-                .catch(() => {
-                    setNewsletterStatus('error');
-                    setNewsletterMessage('Bir hata oluştu.');
-                })
-                .finally(() => {
-                    setNewsletterLoading(false);
-                });
+        } else {
+            setNewsletterDialogOpen(false);
         }
     }, [searchParams]);
+
+    const handleDialogChange = (open: boolean) => {
+        if (!open) {
+            // Parametreyi URL'den kaldır
+            const params = new URLSearchParams(Array.from(searchParams.entries()));
+            params.delete('newsletter_confirm');
+            router.replace('?' + params.toString(), { scroll: false });
+        }
+        setNewsletterDialogOpen(open);
+    };
 
     return (
         <div className="relative min-h-screen overflow-hidden bg-white transition-colors duration-300 dark:bg-[#111113]">
@@ -226,10 +214,7 @@ export default function Home() {
             </div>
             <NewsletterConfirmDialog
                 open={newsletterDialogOpen}
-                onOpenChange={setNewsletterDialogOpen}
-                status={newsletterStatus}
-                message={newsletterMessage}
-                loading={newsletterLoading}
+                onOpenChange={handleDialogChange}
             />
         </div>
     );

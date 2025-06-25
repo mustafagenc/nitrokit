@@ -4,8 +4,10 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Heart, Mail, Send } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 export function Newsletter() {
+    const t = useTranslations();
     const [email, setEmail] = useState('');
     const [isSubscribed, setIsSubscribed] = useState(false);
     const [error, setError] = useState<string | null>(null);
@@ -30,10 +32,10 @@ export function Newsletter() {
                 setEmail('');
                 setTimeout(() => setIsSubscribed(false), 3000);
             } else {
-                setError(data.error || 'Bir hata oluştu.');
+                setError(data.error || t('common.error'));
             }
         } catch {
-            setError('Bir hata oluştu.');
+            setError(t('common.error'));
         } finally {
             setLoading(false);
         }
@@ -45,19 +47,19 @@ export function Newsletter() {
                 <div className="flex h-6 w-6 items-center justify-center rounded bg-purple-500/10">
                     <Mail className="h-3 w-3 text-purple-500" />
                 </div>
-                Haber Bülteni
+                {t('newsletter.title')}
             </h3>
 
             <div className="mb-4">
                 <p className="text-muted-foreground text-sm leading-relaxed">
-                    Yeni özellikler ve geliştirmeler hakkında bilgi alın.
+                    {t('newsletter.description')}
                 </p>
             </div>
 
             <form onSubmit={handleSubscribe} className="space-y-3">
                 <Input
                     type="email"
-                    placeholder="E-posta adresiniz"
+                    placeholder={t('newsletter.emailPlaceholder')}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     className="h-9 w-full"
@@ -71,29 +73,23 @@ export function Newsletter() {
                     className="h-9 w-full"
                 >
                     {loading ? (
-                        'Gönderiliyor...'
+                        t('newsletter.sending')
                     ) : isSubscribed ? (
                         <>
                             <Heart className="mr-2 h-3 w-3 fill-current" />
-                            Teşekkürler!
+                            {t('newsletter.thankYou')}
                         </>
                     ) : (
                         <>
                             <Send className="mr-2 h-3 w-3" />
-                            Abone Ol
+                            {t('newsletter.subscribe')}
                         </>
                     )}
                 </Button>
             </form>
-            {error && <p className="mt-2 text-xs text-red-500">{error}</p>}
-            {success && (
-                <p className="mt-2 text-xs text-green-600">
-                    Onay maili gönderildi. Lütfen e-posta kutunuzu kontrol edin.
-                </p>
-            )}
-            <p className="text-muted-foreground mt-2 text-xs">
-                İstediğiniz zaman abonelikten çıkabilirsiniz.
-            </p>
+            {error && <p className="mt-2 text-xs text-red-500">{t(error, { default: error })}</p>}
+            {success && <p className="mt-2 text-xs text-green-600">{t('newsletter.success')}</p>}
+            <p className="text-muted-foreground mt-2 text-xs">{t('newsletter.unsubscribe')}</p>
         </div>
     );
 }
