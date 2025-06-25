@@ -10,7 +10,7 @@ export default async function manifest(): Promise<MetadataRoute.Manifest> {
     const locale = await getLocale();
     const direction = getLangDir(locale);
 
-    return {
+    const manifest = {
         name: t('app.name'),
         short_name: t('app.shortName'),
         description: t('app.description'),
@@ -34,5 +34,34 @@ export default async function manifest(): Promise<MetadataRoute.Manifest> {
                 type: 'image/png',
             },
         ],
+        screenshots: [
+            {
+                form_factor: 'wide',
+                src: '/screenshots/screenshot-1.png',
+                label: 'Home',
+            },
+            {
+                form_factor: 'wide',
+                src: '/screenshots/screenshot-2.png',
+                label: 'About',
+            },
+            {
+                form_factor: 'wide',
+                src: '/screenshots/screenshot-3.png',
+                label: 'Pricing',
+            },
+            {
+                form_factor: 'wide',
+                src: '/screenshots/screenshot-4.png',
+                label: 'Contact',
+            },
+            {
+                form_factor: 'wide',
+                src: '/screenshots/screenshot-5.png',
+                label: 'Login',
+            },
+        ],
+        gcm_sender_id: '103953800507',
     };
+    return manifest as any;
 }

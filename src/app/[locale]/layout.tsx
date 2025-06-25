@@ -18,6 +18,8 @@ import type { Viewport } from 'next';
 import { AvatarProvider } from '@/contexts/avatar-context';
 import { CookieConsent } from '@/components/shared/cookie-consent';
 import { SessionProvider } from 'next-auth/react';
+import { ServiceWorkerRegister } from '@/components/shared/service-worker-register';
+
 export async function generateMetadata(): Promise<Metadata> {
     return await generateSiteMetadata();
 }
@@ -62,6 +64,7 @@ export default async function RootLayout({
                         <NextThemeProvider>
                             <AnalyticsProvider>
                                 <AvatarProvider>
+                                    <ServiceWorkerRegister />
                                     {children}
                                     <CookieConsent />
                                 </AvatarProvider>
