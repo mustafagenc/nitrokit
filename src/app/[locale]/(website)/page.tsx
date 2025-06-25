@@ -31,7 +31,6 @@ export default function Home() {
 
     const handleDialogChange = (open: boolean) => {
         if (!open) {
-            // Parametreyi URL'den kaldır
             const params = new URLSearchParams(Array.from(searchParams.entries()));
             params.delete('newsletter_confirm');
             router.replace('?' + params.toString(), { scroll: false });

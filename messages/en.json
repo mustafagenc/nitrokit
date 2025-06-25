@@ -1373,5 +1373,15 @@
         "confirmDialogTitleError": "Subscription Confirmation Error",
         "confirmDialogTitleLoading": "Confirming Subscription...",
         "confirmDialogDescLoading": "Please wait."
+    },
+    "notificationPermission": {
+        "title": "Subscribe to Notifications",
+        "description": "Allow notifications to stay informed about updates and important announcements.",
+        "allow": "Allow",
+        "later": "Later",
+        "error": {
+            "permission": "Notification permission not granted.",
+            "subscribe": "Subscription failed."
+        }
     }
 }

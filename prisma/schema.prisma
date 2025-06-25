@@ -341,3 +341,12 @@ model NewsletterSubscriber {
   createdAt  DateTime @default(now())
   verifiedAt DateTime?
 }
+
+model NotificationSubscription {
+  id        String   @id @default(cuid())
+  userId    String?
+  endpoint  String   @unique
+  p256dh    String
+  auth      String
+  createdAt DateTime @default(now())
+}

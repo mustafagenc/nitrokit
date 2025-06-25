@@ -1359,5 +1359,15 @@
         "confirmDialogTitleError": "Abonelik Onayı Hatası",
         "confirmDialogTitleLoading": "Abonelik Onaylanıyor...",
         "confirmDialogDescLoading": "Lütfen bekleyin."
+    },
+    "notificationPermission": {
+        "title": "Bildirimlere Abone Ol",
+        "description": "Güncellemelerden ve önemli duyurulardan haberdar olmak için bildirimlere izin verin.",
+        "allow": "İzin ver",
+        "later": "Daha sonra",
+        "error": {
+            "permission": "Bildirim izni verilmedi.",
+            "subscribe": "Abonelik başarısız."
+        }
     }
 }
