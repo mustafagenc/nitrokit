@@ -3,43 +3,17 @@
 import React from 'react';
 import { Link } from '@/i18n/navigation';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
-import { ArrowRight, Heart, Palette, Mail, Send } from 'lucide-react';
+import { ArrowRight, Heart, Palette } from 'lucide-react';
 import { CompactThemeSwitcher } from '@/components/theme/compact-theme-switcher';
 import PoweredBy from '@/components/shared/powered-by';
 import { SOCIAL_LINKS } from '@/constants/site';
 import Logo from '@/components/shared/logo';
 import { Version } from '@/components/shared/version';
-
-const footerLinks = {
-    product: [
-        { name: 'Özellikler', href: '/features' },
-        { name: 'Fiyatlandırma', href: '/pricing' },
-        { name: 'Dokümantasyon', href: '/docs' },
-        { name: 'Örnekler', href: '/storybook' },
-    ],
-    support: [
-        { name: 'Başlangıç Rehberi', href: '/docs/getting-started' },
-        { name: 'SSS', href: '/faq' },
-        { name: 'Topluluk', href: 'https://github.com/mustafagenc/nitrokit/discussions' },
-        { name: 'İletişim', href: '/contact' },
-    ],
-};
+import { Newsletter } from '@/components/footer/newsletter';
+import { FOOTER_LINKS } from '@/constants/menu';
 
 export function Footer() {
-    const [email, setEmail] = React.useState('');
-    const [isSubscribed, setIsSubscribed] = React.useState(false);
-
-    const handleSubscribe = (e: React.FormEvent) => {
-        e.preventDefault();
-        if (email) {
-            setIsSubscribed(true);
-            setEmail('');
-            setTimeout(() => setIsSubscribed(false), 3000);
-        }
-    };
-
     return (
         <footer className="my-10 flex w-full flex-col items-center justify-center lg:mx-auto lg:w-7xl">
             <div className="relative">
@@ -81,7 +55,7 @@ export function Footer() {
                                 Ürün
                             </h3>
                             <nav className="space-y-3">
-                                {footerLinks.product.map((link, index) => (
+                                {FOOTER_LINKS.product.map((link, index) => (
                                     <Link
                                         key={index}
                                         href={link.href}
@@ -101,7 +75,7 @@ export function Footer() {
                                 Destek
                             </h3>
                             <nav className="space-y-3">
-                                {footerLinks.support.map((link, index) => (
+                                {FOOTER_LINKS.support.map((link, index) => (
                                     <Link
                                         key={index}
                                         href={link.href}
@@ -114,51 +88,7 @@ export function Footer() {
                             </nav>
                         </div>
                         <div className="lg:col-span-2">
-                            <h3 className="text-foreground mb-4 flex items-center gap-2 font-semibold">
-                                <div className="flex h-6 w-6 items-center justify-center rounded bg-purple-500/10">
-                                    <Mail className="h-3 w-3 text-purple-500" />
-                                </div>
-                                Haber Bülteni
-                            </h3>
-
-                            <div className="mb-4">
-                                <p className="text-muted-foreground text-sm leading-relaxed">
-                                    Yeni özellikler ve geliştirmeler hakkında bilgi alın.
-                                </p>
-                            </div>
-
-                            <form onSubmit={handleSubscribe} className="space-y-3">
-                                <Input
-                                    type="email"
-                                    placeholder="E-posta adresiniz"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    className="h-9 w-full"
-                                    required
-                                />
-                                <Button
-                                    type="submit"
-                                    disabled={isSubscribed}
-                                    size="sm"
-                                    className="h-9 w-full"
-                                >
-                                    {isSubscribed ? (
-                                        <>
-                                            <Heart className="mr-2 h-3 w-3 fill-current" />
-                                            Teşekkürler!
-                                        </>
-                                    ) : (
-                                        <>
-                                            <Send className="mr-2 h-3 w-3" />
-                                            Abone Ol
-                                        </>
-                                    )}
-                                </Button>
-                            </form>
-
-                            <p className="text-muted-foreground mt-2 text-xs">
-                                İstediğiniz zaman abonelikten çıkabilirsiniz.
-                            </p>
+                            <Newsletter />
                         </div>
                     </div>
                 </section>
