@@ -17,7 +17,7 @@ const footerLinks = {
         { name: 'Özellikler', href: '/features' },
         { name: 'Fiyatlandırma', href: '/pricing' },
         { name: 'Dokümantasyon', href: '/docs' },
-        { name: 'Örnekler', href: '/examples' },
+        { name: 'Örnekler', href: '/storybook' },
     ],
     support: [
         { name: 'Başlangıç Rehberi', href: '/docs/getting-started' },

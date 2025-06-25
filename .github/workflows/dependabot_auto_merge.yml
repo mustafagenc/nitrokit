@@ -23,29 +23,31 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'yarn'
+          cache: 'pnpm'
 
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+          run_install: true
 
       - name: Security audit
-        run: yarn audit --level moderate
-        continue-on-error: true
+        run: pnpm audit --audit-level=moderate || true
 
       - name: Format write
-        run: yarn format:write
+        run: pnpm format:write
 
       - name: Type check
-        run: yarn tsc
+        run: pnpm tsc
 
       - name: Lint
-        run: yarn lint
+        run: pnpm lint
 
       - name: Test
-        run: yarn test --coverage
+        run: pnpm test --coverage
 
       - name: Build
-        run: yarn build
+        run: pnpm build
 
   auto-merge:
     needs: validate
