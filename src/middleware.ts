@@ -45,6 +45,6 @@ export const config = {
     matcher: [
         '/api/(.*)',
         '/dashboard/:path*',
-        '/((?!api|trpc|_next|_vercel|sitemap|robots|storybook|.*\\..*).*)',
+        '/((?!api|trpc|_next|_vercel|sitemap|robots|storybook|issues|.*\\..*).*)',
     ],
 };

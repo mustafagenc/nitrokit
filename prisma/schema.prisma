@@ -332,3 +332,21 @@ model TicketAttachment {
 
   @@map("ticket_attachments")
 }
+
+model NewsletterSubscriber {
+  id         String   @id @default(cuid())
+  email      String   @unique
+  verified   Boolean  @default(false)
+  token      String?
+  createdAt  DateTime @default(now())
+  verifiedAt DateTime?
+}
+
+model NotificationSubscription {
+  id        String   @id @default(cuid())
+  userId    String?
+  endpoint  String   @unique
+  p256dh    String
+  auth      String
+  createdAt DateTime @default(now())
+}

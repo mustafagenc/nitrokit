@@ -89,4 +89,19 @@ const COMPONENTS = [
     },
 ];
 
-export { ROUTES, NAV_LINKS, SERVICES, COMPONENTS };
+const FOOTER_LINKS = {
+    product: [
+        { name: 'Özellikler', href: '/features' },
+        { name: 'Fiyatlandırma', href: '/pricing' },
+        { name: 'Dokümantasyon', href: '/docs' },
+        { name: 'Örnekler', href: '/storybook' },
+    ],
+    support: [
+        { name: 'Başlangıç Rehberi', href: '/docs/getting-started' },
+        { name: 'SSS', href: '/faq' },
+        { name: 'Topluluk', href: 'https://github.com/mustafagenc/nitrokit/discussions' },
+        { name: 'İletişim', href: '/contact' },
+    ],
+};
+
+export { ROUTES, NAV_LINKS, SERVICES, COMPONENTS, FOOTER_LINKS };

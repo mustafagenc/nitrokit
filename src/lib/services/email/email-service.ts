@@ -22,10 +22,8 @@ export class EmailService {
 
     async sendEmail(data: EmailData): Promise<EmailResult> {
         try {
-            // Validate email data
             this.validateEmailData(data);
 
-            // Check rate limiting
             if (!this.checkRateLimit(Array.isArray(data.to) ? data.to[0] : data.to)) {
                 logger.warn('Email rate limit exceeded', {
                     to: Array.isArray(data.to) ? data.to[0] : data.to,
@@ -116,7 +114,6 @@ export class EmailService {
         };
     }
 
-    // Template management
     registerTemplate(template: EmailTemplate): void {
         this.templates.set(template.id, template);
         logger.info('Email template registered', {
@@ -148,7 +145,6 @@ export class EmailService {
         });
     }
 
-    // Private methods
     private validateEmailData(data: EmailData): void {
         if (!data.to || (Array.isArray(data.to) && data.to.length === 0)) {
             throw new Error('Recipient email is required');

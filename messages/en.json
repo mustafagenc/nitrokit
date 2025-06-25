@@ -213,10 +213,10 @@
         "retry": "Retry"
     },
     "metadata": {
-        "applicationName": "Nitrokit Starter Template",
+        "applicationName": "Nitrokit",
         "description": "Nitrokit starter template",
         "author": "Mustafa Genç",
-        "title": "Nitrokit Starter Template"
+        "title": "Nitrokit"
     },
     "navigation": {
         "title": "Navigation",
@@ -1355,6 +1355,33 @@
                 "title": "Weak Password",
                 "description": "Your password is weak. Consider using a stronger password for better security."
             }
+        }
+    },
+    "newsletter": {
+        "title": "Newsletter",
+        "description": "Get updates about new features and improvements.",
+        "emailPlaceholder": "Your email address",
+        "sending": "Sending...",
+        "thankYou": "Thank you!",
+        "subscribe": "Subscribe",
+        "success": "Confirmation email sent. Please check your inbox.",
+        "unsubscribe": "You can unsubscribe at any time.",
+        "confirmSuccess": "Your subscription has been confirmed!",
+        "confirmError": "Invalid or expired link.",
+        "commonError": "An error occurred.",
+        "confirmDialogTitleSuccess": "Subscription Confirmed",
+        "confirmDialogTitleError": "Subscription Confirmation Error",
+        "confirmDialogTitleLoading": "Confirming Subscription...",
+        "confirmDialogDescLoading": "Please wait."
+    },
+    "notificationPermission": {
+        "title": "Subscribe to Notifications",
+        "description": "Allow notifications to stay informed about updates and important announcements.",
+        "allow": "Allow",
+        "later": "Later",
+        "error": {
+            "permission": "Notification permission not granted.",
+            "subscribe": "Subscription failed."
         }
     }
 }
