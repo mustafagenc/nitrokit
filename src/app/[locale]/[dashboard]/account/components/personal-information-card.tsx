@@ -1,7 +1,7 @@
 import { useFormatter, useTranslations } from 'next-intl';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { User as UserIcon, Calendar } from 'lucide-react';
-import { User } from '@prisma/client';
+import { User } from '@/prisma/client';
 
 interface PersonalInfoCardProps {
     user: User;

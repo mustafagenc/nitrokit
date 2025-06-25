@@ -62,6 +62,9 @@
       "@/types/*": [
         "./src/types/*"
       ],
+      "@/prisma/*": [
+        "./prisma/generated/prisma/*"
+      ],
       "@/*": [
         "./src/*"
       ]

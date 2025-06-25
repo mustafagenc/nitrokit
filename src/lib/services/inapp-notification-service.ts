@@ -10,7 +10,7 @@ import {
     ClientNotificationData,
     NotificationMetadata,
 } from '@/types/notification';
-import { Prisma } from '@prisma/client';
+import { Prisma } from '@/prisma/client';
 
 export interface CreateNotificationData {
     userId: string;

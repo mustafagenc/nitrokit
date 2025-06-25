@@ -3,7 +3,7 @@ import { auth } from '@/lib/auth';
 import { redirect } from 'next/navigation';
 import { prisma } from '@/lib/prisma';
 import { TicketsTable } from './components/tickets-table';
-import { TicketCategory, TicketPriority, TicketStatus } from '@prisma/client';
+import { TicketCategory, TicketPriority, TicketStatus } from '@/prisma/client';
 import { TicketStats } from './components/ticket-stats';
 
 export const metadata: Metadata = {

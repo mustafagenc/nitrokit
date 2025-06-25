@@ -6,7 +6,7 @@ import { TicketList } from './components/ticket-list';
 import { Button } from '@/components/ui/button';
 import { PlusIcon } from 'lucide-react';
 import Link from 'next/link';
-import { TicketCategory, TicketPriority, TicketStatus } from '@prisma/client';
+import { TicketCategory, TicketPriority, TicketStatus } from '@/prisma/client';
 
 export const metadata: Metadata = {
     title: 'Destek Talepleri',
