@@ -23,9 +23,9 @@
     },
     "license": "Apache-2.0",
     "bugs": {
-        "url": "https://github.com/mustafagenc/nitrokit/issues"
+        "url": "https://nitrokit.tr/issues"
     },
-    "homepage": "https://nitrokit.vercel.app",
+    "homepage": "https://nitrokit.tr",
     "private": false,
     "scripts": {
         "dev": "next dev --turbopack",

@@ -11,7 +11,8 @@ export async function GET() {
     } catch {
         return NextResponse.json(
             {
-                error: '0.0.0',
+                version: '1.0.0',
+                name: 'nitrokit',
                 success: false,
             },
             { status: 500 }

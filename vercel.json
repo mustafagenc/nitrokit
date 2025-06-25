@@ -9,6 +9,10 @@
         {
             "source": "/storybook/(.*)",
             "destination": "/storybook-static/$1"
+        },
+        {
+            "source": "/issues",
+            "destination": "https://github.com/mustafagenc/nitrokit/issues"
         }
     ],
     "headers": [
