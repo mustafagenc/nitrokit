@@ -8,7 +8,7 @@
             "name": "Debug",
             "type": "node-terminal",
             "request": "launch",
-            "command": "yarn dev"
+            "command": "pnpm dev"
         }
     ]
 }
