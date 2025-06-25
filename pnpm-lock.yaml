@@ -102,7 +102,7 @@ importers:
         specifier: ^3.2.1
         version: 3.2.1(@types/react-dom@19.1.6(@types/react@19.1.8))(@types/react@19.1.8)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@react-email/components':
-        specifier: ^0.1.0
+        specifier: ^0.1.1
         version: 0.1.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@sendgrid/mail':
         specifier: ^8.1.1
@@ -161,6 +161,9 @@ importers:
       dompurify:
         specifier: ^3.2.6
         version: 3.2.6
+      import-in-the-middle:
+        specifier: ^1.14.2
+        version: 1.14.2
       isomorphic-dompurify:
         specifier: ^2.25.0
         version: 2.25.0
@@ -168,8 +171,8 @@ importers:
         specifier: ^9.0.2
         version: 9.0.2
       lucide-react:
-        specifier: ^0.522.0
-        version: 0.522.0(react@19.1.0)
+        specifier: ^0.523.0
+        version: 0.523.0(react@19.1.0)
       mixpanel-browser:
         specifier: ^2.47.0
         version: 2.65.0
@@ -213,7 +216,7 @@ importers:
         specifier: ^14.3.8
         version: 14.3.8(react@19.1.0)
       react-email:
-        specifier: ^4.0.16
+        specifier: ^4.0.17
         version: 4.0.17(@babel/core@7.27.4)(@opentelemetry/api@1.9.0)(@playwright/test@1.53.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react-hook-form:
         specifier: ^7.58.1
@@ -224,6 +227,9 @@ importers:
       react-password-strength-bar:
         specifier: ^0.4.1
         version: 0.4.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      require-in-the-middle:
+        specifier: ^7.5.2
+        version: 7.5.2
       resend:
         specifier: ^4.6.0
         version: 4.6.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -316,7 +322,7 @@ importers:
         specifier: ^2.60.0
         version: 2.60.0
       '@types/node':
-        specifier: ^24.0.1
+        specifier: ^24.0.4
         version: 24.0.4
       '@types/nodemailer':
         specifier: ^6.4.17
@@ -6975,8 +6981,8 @@ packages:
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
 
-  lucide-react@0.522.0:
-    resolution: {integrity: sha512-jnJbw974yZ7rQHHEFKJOlWAefG3ATSCZHANZxIdx8Rk/16siuwjgA4fBULpXEAWx/RlTs3FzmKW/udWUuO0aRw==}
+  lucide-react@0.523.0:
+    resolution: {integrity: sha512-rUjQoy7egZT9XYVXBK1je9ckBnNp7qzRZOhLQx5RcEp2dCGlXo+mv6vf7Am4LimEcFBJIIZzSGfgTqc9QCrPSw==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
@@ -17581,7 +17587,7 @@ snapshots:
     dependencies:
       yallist: 3.1.1
 
-  lucide-react@0.522.0(react@19.1.0):
+  lucide-react@0.523.0(react@19.1.0):
     dependencies:
       react: 19.1.0
 
@@ -19348,7 +19354,7 @@ snapshots:
     dependencies:
       debug: 4.4.1
       module-details-from-path: 1.0.4
-      resolve: 1.22.8
+      resolve: 1.22.10
     transitivePeerDependencies:
       - supports-color
 

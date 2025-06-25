@@ -16,7 +16,7 @@ export default async function AuthLayout({
     children: React.ReactNode;
     params: { locale: string };
 }>) {
-    const { locale } = params;
+    const { locale } = await params;
     const direction = getLangDir(locale);
     const isRtl = direction === 'rtl';
 

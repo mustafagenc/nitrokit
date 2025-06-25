@@ -1,0 +1,13 @@
+onlyBuiltDependencies:
+  - '@prisma/client'
+  - '@prisma/engines'
+  - '@sentry/cli'
+  - '@tailwindcss/oxide'
+  - '@vercel/speed-insights'
+  - core-js-pure
+  - es5-ext
+  - esbuild
+  - msw
+  - prisma
+  - sharp
+  - unrs-resolver
