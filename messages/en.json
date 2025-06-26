@@ -1355,6 +1355,11 @@
                 "title": "Weak Password",
                 "description": "Your password is weak. Consider using a stronger password for better security."
             }
+        },
+        "testimonials": {
+            "title": "Customer Testimonials",
+            "subtitle": "Loved by Thousands of Users",
+            "description": "Discover why Nitrokit is so loved and experience its transformative power for your business by joining today."
         }
     },
     "newsletter": {

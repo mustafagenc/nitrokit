@@ -2,6 +2,8 @@
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Star } from 'lucide-react';
+import { testimonials } from '@/constants/demo';
+import { useTranslations } from 'next-intl';
 
 interface Testimonial {
     id: string;
@@ -16,19 +18,11 @@ interface Testimonial {
 }
 
 interface TestimonialsProps {
-    title?: string;
-    subtitle?: string;
-    description?: string;
-    testimonials: Testimonial[];
+    variant?: 'default' | 'compact' | 'minimal';
 }
 
-export function Testimonials({
-    title = 'Testimonials',
-    subtitle = 'Binlerce Kullanıcı Tarafından Seviliyor',
-    description = "NitroKit'in neden bu kadar sevildiğini keşfedin ve bugün katılarak işiniz için dönüştürücü gücünü deneyimleyin.",
-    testimonials,
-}: TestimonialsProps) {
-    // Testimonials'ı iki gruba böl
+function DefaultTestimonialsView({}: TestimonialsProps) {
+    const t = useTranslations('components.testimonials');
     const firstRow = testimonials.slice(0, Math.ceil(testimonials.length / 2));
     const secondRow = testimonials.slice(Math.ceil(testimonials.length / 2));
 
@@ -41,7 +35,6 @@ export function Testimonials({
 
         return (
             <div className="border-border/50 mx-1.5 w-[350px] flex-shrink-0 rounded-xl border bg-gradient-to-br from-blue-50 to-indigo-50 p-6 shadow-sm transition-shadow duration-300 hover:shadow-md dark:from-blue-900/15 dark:to-indigo-900/15">
-                {/* Rating Stars */}
                 <div className="mb-3 flex items-center gap-1">
                     {Array.from({ length: 5 }).map((_, i) => (
                         <Star
@@ -54,13 +47,9 @@ export function Testimonials({
                         />
                     ))}
                 </div>
-
-                {/* Content */}
                 <p className="text-muted-foreground mb-4 leading-relaxed font-medium">
                     &quot;{testimonial.content}&quot;
                 </p>
-
-                {/* Author */}
                 <div className="flex items-center gap-3">
                     <Avatar className="h-10 w-10">
                         <AvatarImage
@@ -130,13 +119,13 @@ export function Testimonials({
                 <div className="container mx-auto mb-16 px-6 lg:px-12">
                     <div className="mb-16 flex flex-col items-center justify-center gap-5 text-center">
                         <div className="text-primary border-primary mb-1.5 border-b-2 py-1 font-semibold">
-                            {title}
+                            {t('title')}
                         </div>
                         <h2 className="text-foreground text-3xl font-bold md:text-5xl">
-                            {subtitle}
+                            {t('subtitle')}
                         </h2>
                         <p className="text-muted-foreground mx-auto max-w-2xl text-lg md:text-xl">
-                            {description}
+                            {t('description')}
                         </p>
                     </div>
                 </div>
@@ -204,4 +193,91 @@ export function Testimonials({
             </div>
         </section>
     );
+}
+
+function CompactTestimonialsView({}: TestimonialsProps) {
+    const t = useTranslations('components.testimonials');
+    return (
+        <section className="py-12">
+            <div className="container mx-auto px-4">
+                <h2 className="mb-4 text-xl font-bold">{t('title')}</h2>
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+                    {testimonials.map((testimonial) => {
+                        const initials = testimonial.author.name
+                            .split(' ')
+                            .map((n) => n[0])
+                            .join('')
+                            .toUpperCase();
+                        return (
+                            <div
+                                key={testimonial.id}
+                                className="rounded-lg border bg-white p-4 dark:bg-zinc-900"
+                            >
+                                <div className="mb-2 flex items-center gap-2">
+                                    <Avatar className="h-8 w-8">
+                                        <AvatarImage
+                                            src={testimonial.author.avatar}
+                                            alt={testimonial.author.name}
+                                        />
+                                        <AvatarFallback>{initials}</AvatarFallback>
+                                    </Avatar>
+                                    <div>
+                                        <div className="font-semibold">
+                                            {testimonial.author.name}
+                                        </div>
+                                        <div className="text-muted-foreground text-xs">
+                                            {testimonial.author.title}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="mb-2 text-sm">
+                                    &quot;{testimonial.content}&quot;
+                                </div>
+                                <div className="flex gap-0.5">
+                                    {Array.from({ length: 5 }).map((_, i) => (
+                                        <Star
+                                            key={i}
+                                            className={`h-3 w-3 ${i < testimonial.rating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'}`}
+                                        />
+                                    ))}
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
+        </section>
+    );
+}
+
+function MinimalTestimonialsView({}: TestimonialsProps) {
+    const t = useTranslations('components.testimonials');
+    return (
+        <section className="py-8">
+            <div className="container mx-auto px-4">
+                <h2 className="mb-2 text-lg font-bold">{t('title')}</h2>
+                <ul className="space-y-2">
+                    {testimonials.map((testimonial) => (
+                        <li key={testimonial.id} className="border-primary border-l-4 pl-3">
+                            <span className="font-semibold">{testimonial.author.name}:</span>{' '}
+                            <span className="italic">&quot;{testimonial.content}&quot;</span>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </section>
+    );
+}
+
+export function Testimonials(props: TestimonialsProps) {
+    const { variant = 'default' } = props;
+
+    if (variant === 'compact') {
+        return <CompactTestimonialsView {...props} />;
+    }
+    if (variant === 'minimal') {
+        return <MinimalTestimonialsView {...props} />;
+    }
+
+    return <DefaultTestimonialsView {...props} />;
 }

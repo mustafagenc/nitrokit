@@ -1341,6 +1341,11 @@
                 "title": "Zayıf Şifre",
                 "description": "Şifreniz zayıf. Daha iyi güvenlik için daha güçlü bir şifre kullanmayı düşünün."
             }
+        },
+        "testimonials": {
+            "title": "Müşteri Görüşleri",
+            "subtitle": "Binlerce Kullanıcı Tarafından Seviliyor",
+            "description": "Nitrokit'in neden bu kadar sevildiğini keşfedin ve bugün katılarak işiniz için dönüştürücü gücünü deneyimleyin."
         }
     },
     "newsletter": {
