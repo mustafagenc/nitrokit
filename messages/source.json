@@ -145,7 +145,6 @@
         "lastName": "Last Name",
         "email": "Email",
         "password": "Password",
-        "confirmPassword": "Confirm Password",
         "forgotPassword": "Forgot Password",
         "name": "Your Name",
         "privacyPolicy": "Our Privacy Policy",
@@ -173,8 +172,7 @@
             "name": "Name field is required.",
             "email": "Email field is required.",
             "message": "Message field is required.",
-            "password": "Password field is required.",
-            "confirmPassword": "Confirm password field is required."
+            "password": "Password field is required."
         },
         "invalid": {
             "email": "Invalid email address."
@@ -200,8 +198,7 @@
         "enterYourLastName": "Enter your last name",
         "enterYourEmail": "Enter your email address",
         "enterYourMessage": "Enter your message",
-        "enterYourPassword": "Enter your password",
-        "confirmYourPassword": "Confirm your password"
+        "enterYourPassword": "Enter your password"
     },
     "notFound": {
         "title": "Page Not Found",

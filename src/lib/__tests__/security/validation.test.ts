@@ -103,7 +103,6 @@ describe('validation utils', () => {
             lastName: 'Doe',
             email: 'test@example.com',
             password: 'Test123!@#',
-            confirmPassword: 'Test123!@#',
             terms: true,
         });
         expect(result.success).toBe(true);
@@ -115,7 +114,6 @@ describe('validation utils', () => {
             lastName: 'D',
             email: 'invalid-email',
             password: 'weak',
-            confirmPassword: 'weak',
             terms: false,
         });
         expect(result.success).toBe(false);

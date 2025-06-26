@@ -22,6 +22,7 @@ import { PasswordInput } from '@/components/ui/password-input';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Checkbox } from '@/components/ui/checkbox';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 
 export default function SignupForm() {
     const [password, setPassword] = useState<string>('');
@@ -60,37 +61,24 @@ export default function SignupForm() {
             message: t('validation.password.special'),
         });
 
-    const formSchema = z
-        .object({
-            firstName: z.string().min(1, {
-                message: t('validation.required.firstName'),
+    const formSchema = z.object({
+        firstName: z.string().min(1, {
+            message: t('validation.required.firstName'),
+        }),
+        lastName: z.string().min(1, {
+            message: t('validation.required.lastName'),
+        }),
+        email: z
+            .string()
+            .min(5, {
+                message: t('validation.required.email'),
+            })
+            .email({
+                message: t('validation.invalid.email'),
             }),
-            lastName: z.string().min(1, {
-                message: t('validation.required.lastName'),
-            }),
-            email: z
-                .string()
-                .min(5, {
-                    message: t('validation.required.email'),
-                })
-                .email({
-                    message: t('validation.invalid.email'),
-                }),
-            password: passwordSchema,
-            confirmPassword: z.string().min(1, {
-                message: t('validation.required.confirmPassword'),
-            }),
-            receiveUpdates: z.boolean().optional(),
-        })
-        .refine(
-            (data) => {
-                return data.password === data.confirmPassword;
-            },
-            {
-                message: t('validation.password.confirm'),
-                path: ['confirmPassword'],
-            }
-        );
+        password: passwordSchema,
+        receiveUpdates: z.boolean().optional(),
+    });
 
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -99,7 +87,6 @@ export default function SignupForm() {
             lastName: '',
             email: '',
             password: '',
-            confirmPassword: '',
             receiveUpdates: false,
         },
     });
@@ -262,25 +249,6 @@ export default function SignupForm() {
 
                 <FormField
                     control={form.control}
-                    name="confirmPassword"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>{t('auth.confirmPassword')}</FormLabel>
-                            <FormControl>
-                                <PasswordInput
-                                    {...field}
-                                    placeholder={t('placeholder.confirmYourPassword')}
-                                    autoComplete="new-password"
-                                    disabled={isLoading}
-                                />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
-
-                <FormField
-                    control={form.control}
                     name="receiveUpdates"
                     render={({ field }) => (
                         <FormItem className="flex flex-row items-start space-y-0 space-x-3 rounded-md border p-4">
@@ -293,11 +261,15 @@ export default function SignupForm() {
                             </FormControl>
                             <div className="space-y-1 leading-none">
                                 <FormLabel className="cursor-pointer">
-                                    {t('auth.signup.receiveUpdates.label')}
+                                    <Tooltip>
+                                        <TooltipTrigger>
+                                            {t('auth.signup.receiveUpdates.label')}
+                                        </TooltipTrigger>
+                                        <TooltipContent>
+                                            <p>{t('auth.signup.receiveUpdates.description')}</p>
+                                        </TooltipContent>
+                                    </Tooltip>
                                 </FormLabel>
-                                <p className="text-muted-foreground text-sm">
-                                    {t('auth.signup.receiveUpdates.description')}
-                                </p>
                             </div>
                         </FormItem>
                     )}

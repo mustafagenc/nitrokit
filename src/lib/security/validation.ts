@@ -51,23 +51,17 @@ export const contactFormSchema = (t: (key: string) => string) => {
 };
 
 // User registration validation
-export const registerSchema = z
-    .object({
-        firstName: nameSchema,
-        lastName: nameSchema,
-        email: emailSchema.refine(
-            (email) => !isDisposableEmail(email),
-            'Disposable email addresses are not allowed'
-        ),
-        password: passwordSchema,
-        confirmPassword: z.string(),
-        terms: z.boolean().refine((val) => val === true, 'You must accept the terms'),
-        honeypot: z.string().max(0, 'Bot detected').optional(),
-    })
-    .refine((data) => data.password === data.confirmPassword, {
-        message: 'Passwords do not match',
-        path: ['confirmPassword'],
-    });
+export const registerSchema = z.object({
+    firstName: nameSchema,
+    lastName: nameSchema,
+    email: emailSchema.refine(
+        (email) => !isDisposableEmail(email),
+        'Disposable email addresses are not allowed'
+    ),
+    password: passwordSchema,
+    terms: z.boolean().refine((val) => val === true, 'You must accept the terms'),
+    honeypot: z.string().max(0, 'Bot detected').optional(),
+});
 
 // Login validation
 export const loginSchema = z.object({
