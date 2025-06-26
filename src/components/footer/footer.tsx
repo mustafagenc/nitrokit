@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { Link } from '@/i18n/navigation';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { ArrowRight, Heart, Palette } from 'lucide-react';
@@ -12,6 +11,7 @@ import Logo from '@/components/shared/logo';
 import { Version } from '@/components/shared/version';
 import { Newsletter } from '@/components/footer/newsletter';
 import { FOOTER_LINKS } from '@/constants/menu';
+import Link from 'next/link';
 
 export function Footer() {
     return (

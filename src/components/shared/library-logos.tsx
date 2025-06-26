@@ -92,7 +92,11 @@ const logos = [
     },
 ];
 
-export const LibraryLogos = () => {
+interface LibraryLogosProps {
+    variant?: 'default' | 'compact' | 'minimal';
+}
+
+function DefaultLibraryLogosView() {
     return (
         <section className="overflow-hidden pt-10 pb-15 md:pt-15">
             <div className="container mx-auto px-6">
@@ -135,4 +139,58 @@ export const LibraryLogos = () => {
             </div>
         </section>
     );
+}
+
+function CompactLibraryLogosView() {
+    return (
+        <section className="py-6">
+            <div className="container mx-auto px-4">
+                <div className="flex flex-wrap justify-center gap-4">
+                    {logos.map((logo) => (
+                        <ThemedImage
+                            key={logo.alt}
+                            darkSrc={logo.darkSrc}
+                            lightSrc={logo.lightSrc}
+                            alt={logo.alt}
+                            width={logo.width / 1.2}
+                            height={logo.height / 1.2}
+                            href={logo.href}
+                            className="opacity-70 transition hover:opacity-100"
+                        />
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+}
+
+function MinimalLibraryLogosView() {
+    return (
+        <section className="py-2">
+            <div className="flex flex-row flex-wrap justify-center gap-2">
+                {logos.map((logo) => (
+                    <ThemedImage
+                        key={logo.alt}
+                        darkSrc={logo.darkSrc}
+                        lightSrc={logo.lightSrc}
+                        alt={logo.alt}
+                        width={logo.width / 1.5}
+                        height={logo.height / 1.5}
+                        href={logo.href}
+                        className="opacity-50 hover:opacity-80"
+                    />
+                ))}
+            </div>
+        </section>
+    );
+}
+
+export const LibraryLogos = ({ variant = 'default' }: LibraryLogosProps) => {
+    if (variant === 'compact') {
+        return <CompactLibraryLogosView />;
+    }
+    if (variant === 'minimal') {
+        return <MinimalLibraryLogosView />;
+    }
+    return <DefaultLibraryLogosView />;
 };

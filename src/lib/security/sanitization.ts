@@ -622,7 +622,6 @@ export interface UserRegistrationData {
     lastName: string;
     email: string;
     password: string;
-    confirmPassword: string;
     terms: boolean;
     honeypot?: string;
 }
@@ -633,7 +632,6 @@ export function sanitizeUserRegistration(data: UserRegistrationData): UserRegist
         lastName: sanitizeString(data.lastName, { sanitizeStrings: true, stripHtml: true }),
         email: sanitizeEmail(data.email),
         password: data.password, // Don't sanitize passwords
-        confirmPassword: data.confirmPassword, // Don't sanitize passwords
         terms: Boolean(data.terms),
         ...(data.honeypot !== undefined && {
             honeypot: sanitizeString(data.honeypot || '', {

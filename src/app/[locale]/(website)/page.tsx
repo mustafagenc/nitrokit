@@ -2,15 +2,14 @@
 
 import { CompactBanner } from '@/components/banners/compact-banner';
 import { Link } from '@/i18n/navigation';
-import { LibraryLogos } from './home/components/library-logos';
+import { LibraryLogos } from '@/components/shared/library-logos';
 import { Button } from '@/components/ui/button';
 import { Github, ExternalLink } from 'lucide-react';
 import { GithubButtonWithStats } from '@/components/buttons/github-button-with-stats';
 import { VercelDeployButton } from '@/components/buttons/vercel-deploy-button';
 import { GITHUB_URL } from '@/constants/site';
 import { useTranslations } from 'next-intl';
-import { Testimonials } from './home/components/testimonials';
-import { testimonials } from '@/constants/demo';
+import { Testimonials } from '@/components/shared/testimonials';
 import { useState, useEffect } from 'react';
 import { NewsletterConfirmDialog } from '@/components/ui/newsletter-confirm-dialog';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -155,28 +154,12 @@ export default function Home() {
                                 </div>
                             </div>
                         </div>
-                        {/*
-                        <div className="text-center">
-                            <h2 className="mb-8 text-2xl font-bold text-gray-900 md:text-3xl dark:text-white">
-                                {t('technologies.title')}
-                            </h2>
-
-                            <div className="inline-block rounded-2xl border border-gray-200/80 bg-white/60 p-8 backdrop-blur-sm dark:border-gray-800/80 dark:bg-gray-900/60">
-                                <LibraryLogos />
-                            </div>
-                        </div>
-                        */}
                     </div>
                 </div>
 
                 <LibraryLogos />
 
-                <Testimonials
-                    title="Müşteri Görüşleri"
-                    subtitle="Binlerce Kullanıcı Tarafından Seviliyor"
-                    description="NitroKit'in neden bu kadar sevildiğini keşfedin ve bugün katılarak işiniz için dönüştürücü gücünü deneyimleyin."
-                    testimonials={testimonials}
-                />
+                <Testimonials variant="default" />
 
                 <div className="my-10 rounded-2xl border-t border-gray-200/50 bg-gradient-to-r from-white/40 via-white/60 to-white/40 pt-12 text-center backdrop-blur-sm dark:border-gray-800/50 dark:from-gray-900/40 dark:via-gray-900/60 dark:to-gray-900/40">
                     <h3 className="mb-4 text-xl font-semibold text-gray-900 dark:text-white">

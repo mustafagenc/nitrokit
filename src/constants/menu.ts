@@ -91,16 +91,24 @@ const COMPONENTS = [
 
 const FOOTER_LINKS = {
     product: [
-        { name: 'Özellikler', href: '/features' },
-        { name: 'Fiyatlandırma', href: '/pricing' },
-        { name: 'Dokümantasyon', href: '/docs' },
-        { name: 'Örnekler', href: '/storybook' },
+        { name: 'Özellikler', href: '/features', noLocale: false },
+        { name: 'Fiyatlandırma', href: '/pricing', noLocale: false },
+        {
+            name: 'Dokümantasyon',
+            href: 'https://github.com/mustafagenc/nitrokit/wiki',
+            noLocale: true,
+        },
+        { name: 'Örnekler', href: '/storybook', noLocale: true },
     ],
     support: [
-        { name: 'Başlangıç Rehberi', href: '/docs/getting-started' },
-        { name: 'SSS', href: '/faq' },
-        { name: 'Topluluk', href: 'https://github.com/mustafagenc/nitrokit/discussions' },
-        { name: 'İletişim', href: '/contact' },
+        { name: 'Başlangıç Rehberi', href: '/docs/getting-started', noLocale: false },
+        { name: 'SSS', href: '/faq', noLocale: false },
+        {
+            name: 'Topluluk',
+            href: 'https://github.com/mustafagenc/nitrokit/discussions',
+            noLocale: true,
+        },
+        { name: 'İletişim', href: '/contact', noLocale: false },
     ],
 };
 
