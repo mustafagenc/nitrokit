@@ -3,7 +3,7 @@
 import { useTranslations } from 'next-intl';
 
 import { SocialIcons } from '@/components/footer/social-icons';
-import PoweredBy from '@/components/shared/powered-by';
+import DevelopedBy from '@/components/shared/developed-by';
 import { CompactThemeSwitcher } from '@/components/theme/compact-theme-switcher';
 import { FooterNavbar } from '@/components/footer/navbar';
 
@@ -23,7 +23,7 @@ export const Footer = () => {
                 </div>
                 <div className="mt-6 flex flex-col items-center justify-center gap-3 lg:mt-0 lg:flex-row">
                     <div className="rounded-lg border border-gray-200/30 bg-white/30 p-2 backdrop-blur-sm dark:border-gray-700/30 dark:bg-gray-900/30">
-                        <PoweredBy />
+                        <DevelopedBy />
                     </div>
                     <CompactThemeSwitcher />
                 </div>

@@ -13,6 +13,7 @@ import { Testimonials } from '@/components/shared/testimonials';
 import { useState, useEffect } from 'react';
 import { NewsletterConfirmDialog } from '@/components/ui/newsletter-confirm-dialog';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { BackgroundPatterns } from '@/components/shared/background-patterns';
 
 export default function Home() {
     const t = useTranslations('home');
@@ -39,61 +40,7 @@ export default function Home() {
 
     return (
         <div className="relative min-h-screen overflow-hidden bg-white transition-colors duration-300 dark:bg-[#111113]">
-            <div className="absolute inset-0 overflow-hidden dark:hidden">
-                <div
-                    className="absolute inset-0 opacity-60"
-                    style={{
-                        backgroundImage: `
-                            linear-gradient(rgba(59, 130, 246, 0.08) 1px, transparent 1px),
-                            linear-gradient(90deg, rgba(59, 130, 246, 0.08) 1px, transparent 1px)
-                        `,
-                        backgroundSize: '50px 50px',
-                    }}
-                />
-                <div className="absolute top-10 -right-50 h-80 w-80 rounded-full bg-gradient-to-br from-blue-200 to-indigo-300 opacity-80 blur-3xl" />
-                <div className="absolute top-1/3 -left-32 h-64 w-64 rounded-full bg-gradient-to-br from-emerald-200 to-teal-300 opacity-70 blur-3xl" />
-                <div className="absolute right-1/4 bottom-20 h-48 w-48 rounded-full bg-gradient-to-br from-purple-200 to-pink-300 opacity-60 blur-3xl" />
-                <div className="absolute top-1/4 left-1/4 h-3 w-3 rotate-45 bg-blue-400 opacity-40" />
-                <div className="absolute top-1/2 right-1/3 h-4 w-4 rotate-12 bg-emerald-400 opacity-45" />
-                <div className="absolute bottom-1/3 left-1/2 h-2 w-2 rotate-45 bg-purple-400 opacity-35" />
-                <div className="absolute top-32 right-1/2 h-1 w-16 bg-gradient-to-r from-transparent via-blue-300/40 to-transparent" />
-                <div className="absolute bottom-1/4 left-1/4 h-12 w-1 bg-gradient-to-b from-transparent via-emerald-300/30 to-transparent" />
-                <div className="absolute top-1/5 right-1/5 h-2 w-2 animate-pulse rounded-full bg-blue-300 opacity-50" />
-                <div
-                    className="absolute right-2/3 bottom-1/3 h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-300 opacity-40"
-                    style={{ animationDelay: '1.5s' }}
-                />
-                <div
-                    className="absolute top-2/3 left-1/5 h-1 w-1 animate-pulse rounded-full bg-purple-300 opacity-30"
-                    style={{ animationDelay: '3s' }}
-                />
-            </div>
-            <div className="absolute inset-0 hidden overflow-hidden dark:block">
-                <div
-                    className="absolute inset-0 opacity-40"
-                    style={{
-                        backgroundImage: `
-                            linear-gradient(rgba(34, 197, 94, 0.1) 1px, transparent 1px),
-                            linear-gradient(90deg, rgba(34, 197, 94, 0.1) 1px, transparent 1px)
-                        `,
-                        backgroundSize: '60px 60px',
-                    }}
-                />
-                <div className="absolute top-22 -right-42 h-64 w-64 rounded-full bg-gradient-to-br from-emerald-500/20 to-teal-500/20 blur-3xl" />
-                <div className="absolute top-1/4 -left-24 h-48 w-48 rounded-full bg-gradient-to-br from-blue-500/15 to-indigo-500/15 blur-3xl" />
-                <div className="absolute right-1/3 bottom-32 h-56 w-56 rounded-full bg-gradient-to-br from-purple-500/10 to-pink-500/10 blur-3xl" />
-                <div className="absolute top-1/3 left-1/4 h-1 w-1 animate-pulse bg-emerald-400 opacity-60" />
-                <div
-                    className="absolute top-1/2 right-1/4 h-1.5 w-1.5 animate-pulse bg-blue-400 opacity-50"
-                    style={{ animationDelay: '1s' }}
-                />
-                <div
-                    className="absolute bottom-1/2 left-1/3 h-1 w-1 animate-pulse bg-purple-400 opacity-40"
-                    style={{ animationDelay: '2s' }}
-                />
-                <div className="absolute top-20 left-1/2 h-px w-32 bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent" />
-                <div className="absolute right-1/4 bottom-40 h-24 w-px bg-gradient-to-b from-transparent via-blue-500/20 to-transparent" />
-            </div>
+            <BackgroundPatterns variant="default" />
             <div className="relative z-10">
                 <div className="relative">
                     <div className="container mx-auto px-4 py-16 lg:py-10">
@@ -157,7 +104,7 @@ export default function Home() {
                     </div>
                 </div>
 
-                <LibraryLogos />
+                <LibraryLogos variant="compact" />
 
                 <Testimonials variant="default" />
 

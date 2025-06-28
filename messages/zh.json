@@ -389,8 +389,7 @@
         "description": "了解更多关于我们的隐私政策。"
     },
     "footer": {
-        "copyright": "© 版权所有 {year, date, ::yyyy} {name} ♥️ 保留所有权利。",
-        "poweredBy": "由 <link>Ekipisi</link> 提供支持"
+        "copyright": "© 版权所有 {year, date, ::yyyy} {name} ♥️ 保留所有权利。"
     },
     "cookies": {
         "banner": {

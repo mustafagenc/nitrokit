@@ -327,7 +327,6 @@
         "description": "개인정보 처리방침에 대해 자세히 알아보세요."
     },
     "footer": {
-        "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ All Rights Reserved.",
-        "poweredBy": "<link>에키피시</link> 제공"
+        "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ All Rights Reserved."
     }
 }

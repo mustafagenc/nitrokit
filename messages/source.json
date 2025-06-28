@@ -390,8 +390,7 @@
         "description": "Learn more about our privacy policy."
     },
     "footer": {
-        "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ All Rights Reserved.",
-        "poweredBy": "Powered by <link>Ekipisi</link>"
+        "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ All Rights Reserved."
     },
     "cookies": {
         "banner": {
@@ -1354,8 +1353,8 @@
             }
         },
         "testimonials": {
-            "title": "Customer Testimonials",
-            "subtitle": "Loved by Thousands of Users",
+            "title": "Testimonials",
+            "subtitle": "What our Client Say",
             "description": "Discover why Nitrokit is so loved and experience its transformative power for your business by joining today."
         }
     },

@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { ArrowRight, Heart, Palette } from 'lucide-react';
 import { CompactThemeSwitcher } from '@/components/theme/compact-theme-switcher';
-import PoweredBy from '@/components/shared/powered-by';
+import DevelopedBy from '@/components/shared/developed-by';
 import { SOCIAL_LINKS } from '@/constants/site';
 import Logo from '@/components/shared/logo';
 import { Version } from '@/components/shared/version';
@@ -108,9 +108,9 @@ export function Footer() {
                     <div className="flex items-center gap-4">
                         <CompactThemeSwitcher />
                         <div className="bg-border h-4 w-px" />
-                        <PoweredBy />
-                        <div className="bg-border h-4 w-px" />
                         <Version />
+                        <div className="bg-border h-4 w-px" />
+                        <DevelopedBy />
                     </div>
                 </section>
             </div>

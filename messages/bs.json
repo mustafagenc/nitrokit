@@ -389,8 +389,7 @@
         "description": "Saznajte više o našoj politici privatnosti."
     },
     "footer": {
-        "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ Sva prava zadržana.",
-        "poweredBy": "Pokreće <link>Ekipisi</link>"
+        "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ Sva prava zadržana."
     },
     "cookies": {
         "banner": {

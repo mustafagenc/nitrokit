@@ -1,13 +1,9 @@
 {
     "recommendations": [
-        "imgildev.vscode-auto-barrel",
-        "formulahendry.auto-close-tag",
         "steoates.autoimport",
         "formulahendry.auto-rename-tag",
-        "aaron-bond.better-comments",
         "dbaeumer.vscode-eslint",
         "github.vscode-github-actions",
-        "codezombiech.gitignore",
         "lokalise.i18n-ally",
         "vincaslt.highlight-matching-tag",
         "wix.vscode-import-cost",
