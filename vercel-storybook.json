@@ -1,0 +1,7 @@
+{
+    "buildCommand": "yarn storybook:build",
+    "outputDirectory": "storybook-static",
+    "framework": null,
+    "installCommand": "yarn install",
+    "devCommand": "yarn storybook"
+}
