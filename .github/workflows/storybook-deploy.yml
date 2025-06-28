@@ -2,9 +2,7 @@ name: Deploy Storybook to Vercel
 
 on:
   push:
-    branches: [ storybook-deploy ]
-  pull_request:
-    branches: [ storybook-deploy ]
+    branches: [ main ]
 
 jobs:
   deploy:
