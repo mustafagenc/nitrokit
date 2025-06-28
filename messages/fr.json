@@ -389,8 +389,7 @@
         "description": "En savoir plus sur notre politique de confidentialité."
     },
     "footer": {
-        "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ Tous droits réservés.",
-        "poweredBy": "Propulsé par <link>Ekipisi</link>"
+        "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ Tous droits réservés."
     },
     "cookies": {
         "banner": {

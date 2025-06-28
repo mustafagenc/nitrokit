@@ -327,7 +327,6 @@
         "description": "ہماری پرائیویسی پالیسی کے بارے میں مزید جانیں۔"
     },
     "footer": {
-        "copyright": "© کاپی رائٹ {year, date, ::yyyy} {name} ♥️ جملہ حقوق محفوظ ہیں۔",
-        "poweredBy": "<link>ایکیپسی</link> کی جانب سے طاقت حاصل ہے۔"
+        "copyright": "© کاپی رائٹ {year, date, ::yyyy} {name} ♥️ جملہ حقوق محفوظ ہیں۔"
     }
 }

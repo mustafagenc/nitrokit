@@ -4,7 +4,7 @@ import { getLangDir } from 'rtl-detect';
 import { ThemeToggle } from '@/components/theme/theme-toggle';
 import BackButton from '@/components/shared/back-button';
 import Logo from '@/components/shared/logo';
-import PoweredBy from '@/components/shared/powered-by';
+import DevelopedBy from '@/components/shared/developed-by';
 import { ThemedImage } from '@/components/shared/themed-image';
 import { Link } from '@/i18n/navigation';
 import { CompactLocaleSwitcher } from '@/components/locale/compact-locale-switcher';
@@ -50,7 +50,7 @@ export default async function AuthLayout({
                                 </Link>
                             </div>
                             <div className="mt-6 flex items-center gap-1 lg:mt-0">
-                                <PoweredBy />
+                                <DevelopedBy />
                             </div>
                         </div>
                     </div>

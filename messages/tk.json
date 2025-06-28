@@ -327,7 +327,6 @@
         "description": "Gizlinlik syýasatymyz barada has giňişleýin öwreniň."
     },
     "footer": {
-        "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ Ähli hukuklar goralan.",
-        "poweredBy": "Powered by <link>Ekipisi</link>."
+        "copyright": "© Copyright {year, date, ::yyyy} {name} ♥️ Ähli hukuklar goralan."
     }
 }

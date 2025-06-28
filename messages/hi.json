@@ -327,7 +327,6 @@
         "description": "हमारी गोपनीयता नीति के बारे में और जानें।"
     },
     "footer": {
-        "copyright": "© कॉपीराइट {year, date, ::yyyy} {name} ♥️ सर्वाधिकार सुरक्षित।",
-        "poweredBy": "<link>एकीपिसी</link> द्वारा संचालित।"
+        "copyright": "© कॉपीराइट {year, date, ::yyyy} {name} ♥️ सर्वाधिकार सुरक्षित।"
     }
 }

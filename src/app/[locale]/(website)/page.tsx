@@ -157,7 +157,7 @@ export default function Home() {
                     </div>
                 </div>
 
-                <LibraryLogos />
+                <LibraryLogos variant="compact" />
 
                 <Testimonials variant="default" />
 

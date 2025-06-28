@@ -145,7 +145,12 @@ function CompactLibraryLogosView() {
     return (
         <section className="py-6">
             <div className="container mx-auto px-4">
-                <div className="flex flex-wrap justify-center gap-4">
+                <div className="mb-12 text-center" style={{ opacity: 1, transform: 'none' }}>
+                    <p className="text-muted-foreground mb-6 text-xs font-semibold tracking-wider uppercase">
+                        Powered by Modern Technologies
+                    </p>
+                </div>
+                <div className="flex flex-wrap justify-center gap-12">
                     {logos.map((logo) => (
                         <ThemedImage
                             key={logo.alt}
