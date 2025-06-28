@@ -24,27 +24,24 @@ jobs:
   analyze:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - name: Install Node.js
-        uses: actions/setup-node@v3
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: latest
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 18
+          cache: 'pnpm'
 
       - name: Install dependencies
         run: pnpm install
 
-      # If pnpm is used, you need to switch the previous step with the following one. pnpm does not create a package-lock.json
-      # so the step above will fail to pull dependencies
-      - uses: pnpm/action-setup@v2
-        name: Install pnpm
-        id: pnpm-install
-        with:
-          version: 8
-          run_install: false
-
       - name: Restore next build
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         id: restore-build-cache
         env:
           cache-name: cache-next-build
@@ -57,7 +54,7 @@ jobs:
 
       - name: Build next.js app
         # change this if your site requires a custom build command
-        run: ./node_modules/.bin/next build
+        run: pnpm build
 
       # Here's the first place where next-bundle-analysis' own script is used
       # This step pulls the raw bundle stats for the current bundle
