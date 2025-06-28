@@ -33,6 +33,7 @@ jobs:
         run: pnpm add -g vercel@latest
       - name: Deploy to Vercel
         run: |
+          echo ${{ secrets.VERCEL_TOKEN }} | vercel --token
           vercel --prod --yes
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
