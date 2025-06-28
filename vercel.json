@@ -1,29 +1,11 @@
 {
-    "buildCommand": "prisma generate --no-engine && next build && storybook build -o storybook-static --quiet && mkdir -p public/storybook && cp -r storybook-static/* public/storybook/",
+    "buildCommand": "prisma generate --no-engine && next build",
+    "outputDirectory": ".next",
     "framework": "nextjs",
     "rewrites": [
         {
-            "source": "/storybook",
-            "destination": "/storybook-static/index.html"
-        },
-        {
-            "source": "/storybook/(.*)",
-            "destination": "/storybook-static/$1"
-        },
-        {
             "source": "/issues",
             "destination": "https://github.com/mustafagenc/nitrokit/issues"
-        }
-    ],
-    "headers": [
-        {
-            "source": "/storybook/(.*)",
-            "headers": [
-                {
-                    "key": "Cache-Control",
-                    "value": "public, max-age=31536000, immutable"
-                }
-            ]
         }
     ]
 }
