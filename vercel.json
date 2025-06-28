@@ -1,5 +1,5 @@
 {
-    "buildCommand": "prisma generate --no-engine && next build",
+    "buildCommand": "prisma generate --no-engine && next build && pnpm storybook:build",
     "outputDirectory": ".next",
     "framework": "nextjs",
     "rewrites": [
