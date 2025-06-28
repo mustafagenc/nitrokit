@@ -5,7 +5,7 @@ import { CompactThemeSwitcher } from '@/components/theme/compact-theme-switcher'
 
 export function DashboardFooter() {
     return (
-        <footer className="mt-3 mr-3 ml-16 flex h-8">
+        <footer className="mt-2 mr-3 ml-16 flex h-8">
             <div className="flex w-1/2 items-center justify-start">
                 <CompactThemeSwitcher />
             </div>
