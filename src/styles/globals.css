@@ -117,10 +117,9 @@
         @apply border-border outline-ring/30;
     }
 
-    /* 
-  body {
-    @apply bg-background text-foreground;
-  } */
+    body {
+        @apply bg-background text-foreground;
+    }
 }
 
 @keyframes spin-slow {
@@ -271,5 +270,23 @@
 
     50% {
         box-shadow: 0 0 40px rgba(59, 130, 246, 0.6);
+    }
+}
+
+@layer utilities {
+    .animate-twinkle {
+        animation: twinkle 3s ease-in-out infinite;
+    }
+
+    @keyframes twinkle {
+        0%,
+        100% {
+            opacity: 0.3;
+            transform: scale(1);
+        }
+        50% {
+            opacity: 1;
+            transform: scale(1.2);
+        }
     }
 }
