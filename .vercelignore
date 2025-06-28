@@ -1,8 +1,8 @@
-!.github
-!.husky
-!.vscode
-!scripts
-!tests
-!CONTRIBUTING.md
-!crowdin.yml
-!README.md
+!./.github
+!./.husky
+!./.vscode
+!./scripts
+!./tests
+!./CONTRIBUTING.md
+!./crowdin.yml
+!./README.md
