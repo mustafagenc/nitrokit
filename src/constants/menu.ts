@@ -98,7 +98,7 @@ const FOOTER_LINKS = {
             href: 'https://github.com/mustafagenc/nitrokit/wiki',
             noLocale: true,
         },
-        { name: 'Örnekler', href: '/storybook', noLocale: true },
+        { name: 'Storybook', href: 'https://storybook.nitrokit.tr', noLocale: true },
     ],
     support: [
         { name: 'Başlangıç Rehberi', href: '/docs/getting-started', noLocale: false },

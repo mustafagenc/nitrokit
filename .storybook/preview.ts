@@ -1,6 +1,7 @@
 import '../src/styles/globals.css';
 
 import type { Preview } from '@storybook/react';
+import { withThemeByClassName } from '@storybook/addon-themes';
 
 const preview: Preview = {
     parameters: {
@@ -51,6 +52,16 @@ const preview: Preview = {
             test: 'todo',
         },
     },
+    decorators: [
+        withThemeByClassName({
+            themes: {
+                light: 'light',
+                dark: 'dark',
+            },
+            defaultTheme: 'light',
+            parentSelector: 'html',
+        }),
+    ],
 };
 
 export default preview;

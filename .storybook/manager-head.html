@@ -1,0 +1,35 @@
+<style>
+    /* Tema switcher icon'ları - Basit yaklaşım */
+    button[title*="light"]::before,
+    button[title*="Light"]::before {
+        content: "☀️";
+        margin-right: 8px;
+        font-size: 16px;
+    }
+
+    button[title*="dark"]::before,
+    button[title*="Dark"]::before {
+        content: "🌙";
+        margin-right: 8px;
+        font-size: 16px;
+    }
+
+    button[title*="system"]::before,
+    button[title*="System"]::before {
+        content: "💻";
+        margin-right: 8px;
+        font-size: 16px;
+    }
+
+    /* Tema switcher butonunu bulmak için */
+    [data-testid="toolbar"] button,
+    [role="toolbar"] button {
+        position: relative;
+    }
+
+    /* Icon'ları daha belirgin yap */
+    button::before {
+        display: inline-block;
+        vertical-align: middle;
+    }
+</style>

@@ -1,11 +1,5 @@
 {
-    "buildCommand": "prisma generate --no-engine && next build && pnpm storybook:build",
+    "buildCommand": "prisma generate --no-engine && next build",
     "outputDirectory": ".next",
-    "framework": "nextjs",
-    "rewrites": [
-        {
-            "source": "/issues",
-            "destination": "https://github.com/mustafagenc/nitrokit/issues"
-        }
-    ]
+    "framework": "nextjs"
 }

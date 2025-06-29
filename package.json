@@ -42,7 +42,7 @@
         "test:coverage": "vitest run --coverage",
         "test:ui": "vitest --ui",
         "storybook": "storybook dev -p 6006",
-        "storybook:build": "storybook build -o storybook-static",
+        "storybook:build": "storybook build -o ../nitrokit-storybook/storybook-static",
         "storybook:doctor": "storybook doctor",
         "storybook:upgrade": "npx storybook@latest upgrade",
         "db:push": "prisma db push",
