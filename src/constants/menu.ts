@@ -1,6 +1,6 @@
 import { Layers, Code, Zap, Users } from 'lucide-react';
 
-const ROUTES = ['', 'about', 'services', 'pricing', 'blog', 'contact'];
+const ROUTES = ['', 'about', 'services', 'pricing', 'contact'];
 
 const NAV_LINKS = [
     { name: 'navigation.home', path: '/' },
